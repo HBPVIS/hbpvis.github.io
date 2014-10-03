@@ -1,0 +1,7 @@
+set(ZEQ_MATURITY "EP")
+set(ZEQ_DESCRIPTION "zeq - event queue")
+set(ZEQ_GIT_ROOT_URL "https://github.com/HBPVIS/VisEDA.git")
+set(ZEQ_PACKAGE_URL "")
+set(ZEQ_CI_URL "https://travis-ci.org/HBPVIS/VisEDA")
+set(ZEQ_CI_PNG "https://travis-ci.org/HBPVIS/VisEDA.png")
+set(ZEQ_ISSUES_URL "https://github.com/HBPVIS/VisEDA/issues")
