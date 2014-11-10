@@ -8,7 +8,7 @@
       <Scope>zeq::Event</Scope>
     </TokenIdentifier>
     <Path>classzeq_1_1_event.html</Path>
-    <Abstract>An event is emitted by a Publisher to notify Subscriber of a change. </Abstract>
+    <Abstract>An event can notify other subscribers of a state change. </Abstract>
     <DeclaredIn>event.h</DeclaredIn>
   </Token>
   <Token>
@@ -113,7 +113,7 @@
     </TokenIdentifier>
     <Path>classzeq_1_1_subscriber.html</Path>
     <Anchor>a8aca116a1edd501f03387435ef8bb272</Anchor>
-    <Abstract>Destroy this subscriber and withdraw any subscriptions. </Abstract>
+    <Abstract>Create a shared subscription to one or more publishers. </Abstract>
     <DeclaredIn>subscriber.h</DeclaredIn>
   </Token>
   <Token>
