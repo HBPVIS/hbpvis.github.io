@@ -1,5 +1,6 @@
 var searchData=
 [
-  ['receive',['receive',['../classzeq_1_1_subscriber.html#ad4f53782664776b7686eb3be6773e7b2',1,'zeq::Subscriber']]],
-  ['registerhandler',['registerHandler',['../classzeq_1_1_subscriber.html#a9c4341c460667e9776addc26d516e6af',1,'zeq::Subscriber']]]
+  ['process',['process',['../classzeq_1_1_receiver.html#aa8590e30058f431bde0c59068a9241f7',1,'zeq::Receiver']]],
+  ['publish',['publish',['../classzeq_1_1_publisher.html#a5f91e89db1e928c4d5bac4735e306cd4',1,'zeq::Publisher']]],
+  ['publisher',['Publisher',['../classzeq_1_1_publisher.html#a362d8818c5f4c1383cae3585d80d80f3',1,'zeq::Publisher']]]
 ];

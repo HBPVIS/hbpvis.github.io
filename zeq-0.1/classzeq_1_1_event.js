@@ -1,11 +1,11 @@
 var classzeq_1_1_event =
 [
-    [ "Event", "classzeq_1_1_event.html#adf0ac13f9a9607da302e3160f5aa704f", null ],
-    [ "Event", "classzeq_1_1_event.html#ad6d601dabce3d3846586bb217d35574a", null ],
-    [ "~Event", "classzeq_1_1_event.html#a795cf7a086b295ddcd82e9041099b2a8", null ],
-    [ "getData", "classzeq_1_1_event.html#ae30c43bbb0d3cb1f869252da7a2e450f", null ],
-    [ "getImpl", "classzeq_1_1_event.html#abea571e4a84cee2607ac986445323695", null ],
-    [ "getSize", "classzeq_1_1_event.html#a84eea9168a7597ecff0bac568c523848", null ],
-    [ "getType", "classzeq_1_1_event.html#a3151cb5645690bb65ae65139b8351a53", null ],
+    [ "Event", "classzeq_1_1_event.html#a11f83e150ec9373dc21702fb07f89c89", null ],
+    [ "Event", "classzeq_1_1_event.html#af7eb39ed9bb28c343c859f79442b38f3", null ],
+    [ "~Event", "classzeq_1_1_event.html#ab334a04d067cc9723666e3c3355709be", null ],
+    [ "getData", "classzeq_1_1_event.html#af6de60f0dc1ad0812598e41e1d9d349b", null ],
+    [ "getFBB", "classzeq_1_1_event.html#ac5dd15c113f69f27bc013a6ad64d89da", null ],
+    [ "getSize", "classzeq_1_1_event.html#a1a8324fa1bd18174e4e9efa9a1a654c7", null ],
+    [ "getType", "classzeq_1_1_event.html#a8f91ade95acf612559fe89fa4e2a0273", null ],
     [ "detail::Subscriber", "classzeq_1_1_event.html#a17a6ca0588b7022f7484d7cf0ba44217", null ]
 ];

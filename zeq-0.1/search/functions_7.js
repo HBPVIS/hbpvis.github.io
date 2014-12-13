@@ -1,4 +1,4 @@
 var searchData=
 [
-  ['_7esubscriber',['~Subscriber',['../classzeq_1_1_subscriber.html#a8aca116a1edd501f03387435ef8bb272',1,'zeq::Subscriber']]]
+  ['subscriber',['Subscriber',['../classzeq_1_1_subscriber.html#a7c5ea7491dcb3fdd766c2e1da583e7ef',1,'zeq::Subscriber']]]
 ];

@@ -1,4 +1,9 @@
 <map id="api.h" name="api.h">
-<area shape="rect" id="node2" href="$version_8h_source.html" title="version.h" alt="" coords="5,80,84,107"/>
-<area shape="rect" id="node3" href="$zeq_8h_source.html" title="zeq.h" alt="" coords="55,155,112,181"/>
+<area shape="rect" id="node2" href="$event_8h_source.html" title="event.h" alt="" coords="5,155,76,181"/>
+<area shape="rect" id="node3" href="$zeq_8h_source.html" title="zeq.h" alt="" coords="253,229,311,256"/>
+<area shape="rect" id="node4" href="$publisher_8h_source.html" title="publisher.h" alt="" coords="152,155,244,181"/>
+<area shape="rect" id="node5" href="$receiver_8h_source.html" title="receiver.h" alt="" coords="239,80,325,107"/>
+<area shape="rect" id="node7" href="$version_8h_source.html" title="version.h" alt="" coords="350,80,430,107"/>
+<area shape="rect" id="node8" href="$vocabulary_8h_source.html" title="vocabulary.h" alt="" coords="456,80,559,107"/>
+<area shape="rect" id="node6" href="$subscriber_8h_source.html" title="subscriber.h" alt="" coords="320,155,420,181"/>
 </map>

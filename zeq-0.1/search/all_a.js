@@ -1,4 +1,5 @@
 var searchData=
 [
-  ['_7esubscriber',['~Subscriber',['../classzeq_1_1_subscriber.html#a8aca116a1edd501f03387435ef8bb272',1,'zeq::Subscriber']]]
+  ['zeroeq_20api_20documentation',['ZeroEQ API Documentation',['../index.html',1,'']]],
+  ['vocabulary',['vocabulary',['../namespacezeq_1_1vocabulary.html',1,'zeq']]]
 ];

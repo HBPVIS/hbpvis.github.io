@@ -7,5 +7,5 @@ var searchData=
   ['getrevision',['getRevision',['../classzeq_1_1_version.html#a9dd91755076bd032f13abcba22e72b19',1,'zeq::Version']]],
   ['getrevstring',['getRevString',['../classzeq_1_1_version.html#abe85a29b7b4665337615c3b9378617f8',1,'zeq::Version']]],
   ['getstring',['getString',['../classzeq_1_1_version.html#ad198112d1dc5d9103683e8c113b785f9',1,'zeq::Version']]],
-  ['gettype',['getType',['../classzeq_1_1_event.html#a3151cb5645690bb65ae65139b8351a53',1,'zeq::Event']]]
+  ['gettype',['getType',['../classzeq_1_1_event.html#a8f91ade95acf612559fe89fa4e2a0273',1,'zeq::Event']]]
 ];

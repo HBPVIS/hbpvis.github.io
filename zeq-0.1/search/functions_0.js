@@ -1,4 +1,4 @@
 var searchData=
 [
-  ['check',['check',['../classzeq_1_1_version.html#ae7d6d0df1a602c190250cb704f2f43d5',1,'zeq::Version']]]
+  ['addsockets',['addSockets',['../classzeq_1_1_receiver.html#aabc3075908575d127f7992d473253df0',1,'zeq::Receiver']]]
 ];
