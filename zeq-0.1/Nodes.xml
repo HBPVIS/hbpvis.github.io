@@ -80,8 +80,12 @@
           <Subnodes>
            <Node>
             <Name>zeq</Name>
-            <Path></Path>
+            <Path>namespacezeq.html</Path>
             <Subnodes>
+             <Node>
+              <Name>connection</Name>
+              <Path>namespacezeq_1_1connection.html</Path>
+             </Node>
              <Node>
               <Name>vocabulary</Name>
               <Path>namespacezeq_1_1vocabulary.html</Path>
@@ -102,8 +106,36 @@
           <Subnodes>
            <Node>
             <Name>zeq</Name>
-            <Path></Path>
+            <Path>namespacezeq.html</Path>
             <Subnodes>
+             <Node>
+              <Name>connection</Name>
+              <Path>namespacezeq_1_1connection.html</Path>
+              <Subnodes>
+               <Node>
+                <Name>Broker</Name>
+                <Path>classzeq_1_1connection_1_1_broker.html</Path>
+                <Subnodes>
+                 <Node>
+                  <Name>Broker</Name>
+                  <Path>classzeq_1_1connection_1_1_broker.html</Path>
+                  <Anchor>aa4c693643df4e231c3c4d00b677d27d4</Anchor>
+                 </Node>
+                 <Node>
+                  <Name>~Broker</Name>
+                  <Path>classzeq_1_1connection_1_1_broker.html</Path>
+                  <Anchor>acaa311bf7bfbaafbdaa731b5e481239b</Anchor>
+                 </Node>
+                </Subnodes>
+               </Node>
+               <Node>
+                <Name>Service</Name>
+                <Path>classzeq_1_1connection_1_1_service.html</Path>
+                <Subnodes>
+                </Subnodes>
+               </Node>
+              </Subnodes>
+             </Node>
              <Node>
               <Name>Event</Name>
               <Path>classzeq_1_1_event.html</Path>
@@ -165,6 +197,11 @@
                 <Anchor>a71ed4cd516e35783420d09d9c91652a2</Anchor>
                </Node>
                <Node>
+                <Name>getAddress</Name>
+                <Path>classzeq_1_1_publisher.html</Path>
+                <Anchor>a363e3314bd0d94fc9389cd306fe99379</Anchor>
+               </Node>
+               <Node>
                 <Name>publish</Name>
                 <Path>classzeq_1_1_publisher.html</Path>
                 <Anchor>a5f91e89db1e928c4d5bac4735e306cd4</Anchor>
@@ -191,6 +228,11 @@
                 <Anchor>a1ed49c2cc9937ce2b86d9fd7774414ec</Anchor>
                </Node>
                <Node>
+                <Name>addConnection</Name>
+                <Path>classzeq_1_1_receiver.html</Path>
+                <Anchor>a831f87f0afcc70bd66845107b8370243</Anchor>
+               </Node>
+               <Node>
                 <Name>addSockets</Name>
                 <Path>classzeq_1_1_receiver.html</Path>
                 <Anchor>aabc3075908575d127f7992d473253df0</Anchor>
@@ -214,6 +256,11 @@
                 <Name>update</Name>
                 <Path>classzeq_1_1_receiver.html</Path>
                 <Anchor>a37b16e65ceb1b855aa66f8431359a908</Anchor>
+               </Node>
+               <Node>
+                <Name>connection::detail::Broker</Name>
+                <Path>classzeq_1_1_receiver.html</Path>
+                <Anchor>a515b76befb73d602df1cd2ef131ce574</Anchor>
                </Node>
                <Node>
                 <Name>detail::Receiver</Name>
@@ -276,6 +323,10 @@
             <Path></Path>
             <Subnodes>
              <Node>
+              <Name>zeq::connection::Service</Name>
+              <Path>classzeq_1_1connection_1_1_service.html</Path>
+             </Node>
+             <Node>
               <Name>zeq::Event</Name>
               <Path>classzeq_1_1_event.html</Path>
              </Node>
@@ -287,6 +338,10 @@
               <Name>zeq::Receiver</Name>
               <Path>classzeq_1_1_receiver.html</Path>
               <Subnodes>
+               <Node>
+                <Name>zeq::connection::Broker</Name>
+                <Path>classzeq_1_1connection_1_1_broker.html</Path>
+               </Node>
                <Node>
                 <Name>zeq::Subscriber</Name>
                 <Path>classzeq_1_1_subscriber.html</Path>
@@ -352,6 +407,10 @@
             </Subnodes>
            </Node>
            <Node>
+            <Name>broker.h</Name>
+            <Path>broker_8h_source.html</Path>
+           </Node>
+           <Node>
             <Name>defines.h</Name>
             <Path>defines_8h_source.html</Path>
            </Node>
@@ -364,12 +423,20 @@
             <Path>event_8h_source.html</Path>
            </Node>
            <Node>
+            <Name>hbp.h</Name>
+            <Path>hbp_8h_source.html</Path>
+           </Node>
+           <Node>
             <Name>publisher.h</Name>
             <Path>publisher_8h_source.html</Path>
            </Node>
            <Node>
             <Name>receiver.h</Name>
             <Path>receiver_8h_source.html</Path>
+           </Node>
+           <Node>
+            <Name>service.h</Name>
+            <Path>service_8h_source.html</Path>
            </Node>
            <Node>
             <Name>subscriber.h</Name>
@@ -382,6 +449,10 @@
            <Node>
             <Name>version.h</Name>
             <Path>version_8h_source.html</Path>
+           </Node>
+           <Node>
+            <Name>hbp/vocabulary.h</Name>
+            <Path>hbp_2vocabulary_8h_source.html</Path>
            </Node>
            <Node>
             <Name>vocabulary.h</Name>

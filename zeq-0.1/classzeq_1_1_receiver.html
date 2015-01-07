@@ -126,7 +126,7 @@ $(document).ready(function(){initNavTree('classzeq_1_1_receiver.html','');});
 <div id="dynsection-0-content" class="dyncontent" style="display:none;">
 <div class="center"><img src="classzeq_1_1_receiver__inherit__graph.png" border="0" usemap="#zeq_1_1_receiver_inherit__map" alt="Inheritance graph"/></div>
 <map name="zeq_1_1_receiver_inherit__map" id="zeq_1_1_receiver_inherit__map">
-<area shape="rect" id="node3" href="classzeq_1_1_subscriber.html" title="Subscribes to Publisher to receive events. " alt="" coords="5,359,168,495"/></map>
+<area shape="rect" id="node3" href="classzeq_1_1connection_1_1_broker.html" title="Brokers subscription requests for a zeq::Receiver. " alt="" coords="5,395,168,487"/><area shape="rect" id="node4" href="classzeq_1_1_subscriber.html" title="Subscribes to Publisher to receive events. " alt="" coords="193,373,341,509"/></map>
 </div>
 <div id="dynsection-1" onclick="return toggleVisibility(this)" class="dynheader closed" style="cursor:pointer;">
   <img id="dynsection-1-trigger" src="closed.png" alt="+"/> Collaboration diagram for zeq::Receiver:</div>
@@ -155,7 +155,7 @@ Public Member Functions</h2></td></tr>
 Protected Member Functions</h2></td></tr>
 <tr class="memitem:aabc3075908575d127f7992d473253df0"><td class="memItemLeft" align="right" valign="top"><a class="anchor" id="aabc3075908575d127f7992d473253df0"></a>
 virtual void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classzeq_1_1_receiver.html#aabc3075908575d127f7992d473253df0">addSockets</a> (std::vector&lt; detail::Socket &gt; &amp;entries)=0</td></tr>
-<tr class="memdesc:aabc3075908575d127f7992d473253df0"><td class="mdescLeft">&#160;</td><td class="mdescRight">Add this receiver's socket to the given list. <br /></td></tr>
+<tr class="memdesc:aabc3075908575d127f7992d473253df0"><td class="mdescLeft">&#160;</td><td class="mdescRight">Add this receiver's sockets to the given list. <br /></td></tr>
 <tr class="separator:aabc3075908575d127f7992d473253df0"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:aa8590e30058f431bde0c59068a9241f7"><td class="memItemLeft" align="right" valign="top">virtual void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classzeq_1_1_receiver.html#aa8590e30058f431bde0c59068a9241f7">process</a> (detail::Socket &amp;socket)=0</td></tr>
 <tr class="memdesc:aa8590e30058f431bde0c59068a9241f7"><td class="mdescLeft">&#160;</td><td class="mdescRight">Process data on a signalled socket.  <a href="#aa8590e30058f431bde0c59068a9241f7">More...</a><br /></td></tr>
@@ -163,6 +163,9 @@ virtual void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" hr
 <tr class="memitem:a37b16e65ceb1b855aa66f8431359a908"><td class="memItemLeft" align="right" valign="top">virtual void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classzeq_1_1_receiver.html#a37b16e65ceb1b855aa66f8431359a908">update</a> ()</td></tr>
 <tr class="memdesc:a37b16e65ceb1b855aa66f8431359a908"><td class="mdescLeft">&#160;</td><td class="mdescRight">Update the internal connection list.  <a href="#a37b16e65ceb1b855aa66f8431359a908">More...</a><br /></td></tr>
 <tr class="separator:a37b16e65ceb1b855aa66f8431359a908"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a831f87f0afcc70bd66845107b8370243"><td class="memItemLeft" align="right" valign="top">virtual void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classzeq_1_1_receiver.html#a831f87f0afcc70bd66845107b8370243">addConnection</a> (const std::string &amp;uri)=0</td></tr>
+<tr class="memdesc:a831f87f0afcc70bd66845107b8370243"><td class="mdescLeft">&#160;</td><td class="mdescRight">Add the given connection to the list of receiving sockets.  <a href="#a831f87f0afcc70bd66845107b8370243">More...</a><br /></td></tr>
+<tr class="separator:a831f87f0afcc70bd66845107b8370243"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a7607b5ac443cbd54636617c7f146bc2c"><td class="memItemLeft" align="right" valign="top"><a class="anchor" id="a7607b5ac443cbd54636617c7f146bc2c"></a>
 void *&#160;</td><td class="memItemRight" valign="bottom"><b>getZMQContext</b> ()</td></tr>
 <tr class="separator:a7607b5ac443cbd54636617c7f146bc2c"><td class="memSeparator" colspan="2">&#160;</td></tr>
@@ -172,11 +175,14 @@ Friends</h2></td></tr>
 <tr class="memitem:aca0c2c2e0a917d860a97fd9d89e9aac8"><td class="memItemLeft" align="right" valign="top"><a class="anchor" id="aca0c2c2e0a917d860a97fd9d89e9aac8"></a>
 class&#160;</td><td class="memItemRight" valign="bottom"><b>detail::Receiver</b></td></tr>
 <tr class="separator:aca0c2c2e0a917d860a97fd9d89e9aac8"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a515b76befb73d602df1cd2ef131ce574"><td class="memItemLeft" align="right" valign="top"><a class="anchor" id="a515b76befb73d602df1cd2ef131ce574"></a>
+class&#160;</td><td class="memItemRight" valign="bottom"><b>connection::detail::Broker</b></td></tr>
+<tr class="separator:a515b76befb73d602df1cd2ef131ce574"><td class="memSeparator" colspan="2">&#160;</td></tr>
 </table>
 <a name="details" id="details"></a><h2 class="groupheader">Detailed Description</h2>
 <div class="textblock"><p>Base class for entities receiving data. </p>
 <p>Provides a <a class="el" href="classzeq_1_1_receiver.html#a72e616d24249924476c4a4e45202976c" title="Receive at least one event from all shared receivers. ">receive()</a> method, which demultiplexes data between multiple inputs of multiple instances of receivers. Receivers form a shared group by linking them at construction time.</p>
-<p>Not intended to be used independently. Not thread safe.</p>
+<p>Not intended to be as a final class. Not thread safe.</p>
 <p>Example: </p><div class="fragment"><div class="line"></div>
 <div class="line"><span class="comment">/* Copyright (c) 2014, Human Brain Project</span></div>
 <div class="line"><span class="comment"> *                     Stefan.Eilemann@epfl.ch</span></div>
@@ -194,16 +200,35 @@ class&#160;</td><td class="memItemRight" valign="bottom"><b>detail::Receiver</b>
 <div class="line"><span class="keywordtype">bool</span> gotOne = <span class="keyword">false</span>;</div>
 <div class="line"><span class="keywordtype">bool</span> gotTwo = <span class="keyword">false</span>;</div>
 <div class="line"></div>
-<div class="line"><span class="keywordtype">void</span> onEvent1( <span class="keyword">const</span> <a class="code" href="classzeq_1_1_event.html">zeq::Event</a>&amp; )</div>
-<div class="line">{</div>
-<div class="line">    gotOne = <span class="keyword">true</span>;</div>
-<div class="line">}</div>
-<div class="line"><span class="keywordtype">void</span> onEvent2( <span class="keyword">const</span> <a class="code" href="classzeq_1_1_event.html">zeq::Event</a>&amp; )</div>
-<div class="line">{</div>
-<div class="line">    gotTwo = <span class="keyword">true</span>;</div>
-<div class="line">}</div>
+<div class="line"><span class="keywordtype">void</span> onEvent1( <span class="keyword">const</span> <a class="code" href="classzeq_1_1_event.html">zeq::Event</a>&amp; ) { gotOne = <span class="keyword">true</span>; }</div>
+<div class="line"><span class="keywordtype">void</span> onEvent2( <span class="keyword">const</span> <a class="code" href="classzeq_1_1_event.html">zeq::Event</a>&amp; ) { gotTwo = <span class="keyword">true</span>; }</div>
 <div class="line"></div>
-<div class="line"><span class="keyword">using</span> zeq::vocabulary::serializeEcho;</div>
+<div class="line"><span class="keywordtype">void</span> testReceive( <a class="code" href="classzeq_1_1_publisher.html">zeq::Publisher</a>&amp; publisher, <a class="code" href="classzeq_1_1_receiver.html">zeq::Receiver</a>&amp; receiver,</div>
+<div class="line">                  <span class="keywordtype">bool</span>&amp; var1, <span class="keywordtype">bool</span>&amp; var2, <span class="keyword">const</span> <span class="keywordtype">int</span> line )</div>
+<div class="line">{</div>
+<div class="line">    <span class="keyword">using</span> zeq::vocabulary::serializeEcho;</div>
+<div class="line">    gotOne = <span class="keyword">false</span>;</div>
+<div class="line">    gotTwo = <span class="keyword">false</span>;</div>
+<div class="line"></div>
+<div class="line">    <span class="keywordflow">for</span>( <span class="keywordtype">size_t</span> i = 0; i &lt; 10; ++i )</div>
+<div class="line">    {</div>
+<div class="line">        BOOST_CHECK( publisher.<a class="code" href="classzeq_1_1_publisher.html#a5f91e89db1e928c4d5bac4735e306cd4">publish</a>( serializeEcho( test::echoMessage )));</div>
+<div class="line">        receiver.<a class="code" href="classzeq_1_1_receiver.html#a72e616d24249924476c4a4e45202976c">receive</a>( 100 );</div>
+<div class="line"></div>
+<div class="line">        <span class="keywordflow">if</span>( var1 &amp;&amp; var2 )</div>
+<div class="line">            <span class="keywordflow">break</span>;</div>
+<div class="line">    }</div>
+<div class="line">    BOOST_CHECK_MESSAGE( var1, (&amp;var1 == &amp;gotOne ? <span class="stringliteral">&quot;Event 1&quot;</span> : <span class="stringliteral">&quot;Event 2&quot;</span>) &lt;&lt;</div>
+<div class="line">                               <span class="stringliteral">&quot; not received (l.&quot;</span> &lt;&lt; line &lt;&lt; <span class="stringliteral">&quot;)&quot;</span> );</div>
+<div class="line">    <span class="keywordflow">if</span>( &amp;var1 != &amp;var2 )</div>
+<div class="line">        BOOST_CHECK_MESSAGE( var2, (&amp;var2 == &amp;gotOne ? <span class="stringliteral">&quot;Event 1&quot;</span> : <span class="stringliteral">&quot;Event 2&quot;</span>) &lt;&lt;</div>
+<div class="line">                                   <span class="stringliteral">&quot; not received (l.&quot;</span> &lt;&lt; line &lt;&lt; <span class="stringliteral">&quot;)&quot;</span> );</div>
+<div class="line">}</div>
+<div class="line"><span class="keywordtype">void</span> testReceive( <a class="code" href="classzeq_1_1_publisher.html">zeq::Publisher</a>&amp; publisher, <a class="code" href="classzeq_1_1_receiver.html">zeq::Receiver</a>&amp; receiver,</div>
+<div class="line">                  <span class="keywordtype">bool</span>&amp; var, <span class="keyword">const</span> <span class="keywordtype">int</span> line )</div>
+<div class="line">{</div>
+<div class="line">    testReceive( publisher, receiver, var, var, line );</div>
+<div class="line">}</div>
 <div class="line"></div>
 <div class="line">BOOST_AUTO_TEST_CASE(test_two_subscribers)</div>
 <div class="line">{</div>
@@ -221,31 +246,8 @@ class&#160;</td><td class="memItemRight" valign="bottom"><b>detail::Receiver</b>
 <div class="line"></div>
 <div class="line">    <a class="code" href="classzeq_1_1_publisher.html">zeq::Publisher</a> publisher( lunchbox::URI( <span class="stringliteral">&quot;foo://*:&quot;</span> + portStr ));</div>
 <div class="line"></div>
-<div class="line">    gotOne = <span class="keyword">false</span>;</div>
-<div class="line">    gotTwo = <span class="keyword">false</span>;</div>
-<div class="line">    <span class="keywordflow">for</span>( <span class="keywordtype">size_t</span> i = 0; i &lt; 10; ++i )</div>
-<div class="line">    {</div>
-<div class="line">        BOOST_CHECK( publisher.publish( serializeEcho( test::echoMessage )));</div>
-<div class="line">        subscriber1.receive( 100 );</div>
-<div class="line"></div>
-<div class="line">        <span class="keywordflow">if</span>( gotOne &amp;&amp; gotTwo )</div>
-<div class="line">            <span class="keywordflow">break</span>;</div>
-<div class="line">    }</div>
-<div class="line">    BOOST_CHECK( gotOne );</div>
-<div class="line">    BOOST_CHECK( gotTwo );</div>
-<div class="line"></div>
-<div class="line">    gotOne = <span class="keyword">false</span>;</div>
-<div class="line">    gotTwo = <span class="keyword">false</span>;</div>
-<div class="line">    <span class="keywordflow">for</span>( <span class="keywordtype">size_t</span> i = 0; i &lt; 10; ++i )</div>
-<div class="line">    {</div>
-<div class="line">        BOOST_CHECK( publisher.publish( serializeEcho( test::echoMessage )));</div>
-<div class="line">        subscriber2.receive( 100 );</div>
-<div class="line"></div>
-<div class="line">        <span class="keywordflow">if</span>( gotOne &amp;&amp; gotTwo )</div>
-<div class="line">            <span class="keywordflow">break</span>;</div>
-<div class="line">    }</div>
-<div class="line">    BOOST_CHECK( gotOne );</div>
-<div class="line">    BOOST_CHECK( gotTwo );</div>
+<div class="line">    testReceive( publisher, subscriber1, gotOne, gotTwo, __LINE__ );</div>
+<div class="line">    testReceive( publisher, subscriber2, gotOne, gotTwo, __LINE__ );</div>
 <div class="line">}</div>
 <div class="line"></div>
 <div class="line">BOOST_AUTO_TEST_CASE(test_publisher_routing)</div>
@@ -253,45 +255,30 @@ class&#160;</td><td class="memItemRight" valign="bottom"><b>detail::Receiver</b>
 <div class="line">    lunchbox::RNG rng;</div>
 <div class="line">    <span class="keyword">const</span> <span class="keywordtype">unsigned</span> <span class="keywordtype">short</span> port = (rng.get&lt;uint16_t&gt;() % 60000) + 1024;</div>
 <div class="line">    <span class="keyword">const</span> std::string&amp; portStr = boost::lexical_cast&lt; std::string &gt;( port );</div>
-<div class="line">    <a class="code" href="classzeq_1_1_subscriber.html">zeq::Subscriber</a> subscriber1( lunchbox::URI( <span class="stringliteral">&quot;foo://localhost:1000&quot;</span> ));</div>
+<div class="line">    <a class="code" href="classzeq_1_1_subscriber.html">zeq::Subscriber</a>* subscriber1 =</div>
+<div class="line">        <span class="keyword">new</span> <a class="code" href="classzeq_1_1_subscriber.html">zeq::Subscriber</a>( lunchbox::URI( <span class="stringliteral">&quot;foo://localhost:1000&quot;</span> ));</div>
 <div class="line">    <a class="code" href="classzeq_1_1_subscriber.html">zeq::Subscriber</a> subscriber2( lunchbox::URI( <span class="stringliteral">&quot;foo://localhost:&quot;</span> + portStr ),</div>
-<div class="line">                                 subscriber1 );</div>
+<div class="line">                                 *subscriber1 );</div>
 <div class="line"></div>
-<div class="line">    BOOST_CHECK( subscriber1.registerHandler( zeq::vocabulary::EVENT_ECHO,</div>
-<div class="line">                                              boost::bind( &amp;onEvent1, _1 )));</div>
+<div class="line">    BOOST_CHECK( subscriber1-&gt;registerHandler( zeq::vocabulary::EVENT_ECHO,</div>
+<div class="line">                                               boost::bind( &amp;onEvent1, _1 )));</div>
 <div class="line">    BOOST_CHECK( subscriber2.registerHandler( zeq::vocabulary::EVENT_ECHO,</div>
 <div class="line">                                              boost::bind( &amp;onEvent2, _1 )));</div>
 <div class="line"></div>
 <div class="line">    <a class="code" href="classzeq_1_1_publisher.html">zeq::Publisher</a> publisher( lunchbox::URI( <span class="stringliteral">&quot;foo://*:&quot;</span> + portStr ));</div>
 <div class="line"></div>
-<div class="line">    gotOne = <span class="keyword">false</span>;</div>
-<div class="line">    gotTwo = <span class="keyword">false</span>;</div>
-<div class="line">    <span class="keywordflow">for</span>( <span class="keywordtype">size_t</span> i = 0; i &lt; 10; ++i )</div>
-<div class="line">    {</div>
-<div class="line">        BOOST_CHECK( publisher.publish( serializeEcho( test::echoMessage )));</div>
-<div class="line">        subscriber1.receive( 100 );</div>
-<div class="line"></div>
-<div class="line">        <span class="keywordflow">if</span>( gotTwo )</div>
-<div class="line">            <span class="keywordflow">break</span>;</div>
-<div class="line">    }</div>
+<div class="line">    testReceive( publisher, *subscriber1, gotTwo, __LINE__ );</div>
 <div class="line">    BOOST_CHECK( !gotOne );</div>
-<div class="line">    BOOST_CHECK( gotTwo );</div>
 <div class="line"></div>
-<div class="line">    gotOne = <span class="keyword">false</span>;</div>
-<div class="line">    gotTwo = <span class="keyword">false</span>;</div>
-<div class="line">    <span class="keywordflow">for</span>( <span class="keywordtype">size_t</span> i = 0; i &lt; 10; ++i )</div>
-<div class="line">    {</div>
-<div class="line">        BOOST_CHECK( publisher.publish( serializeEcho( test::echoMessage )));</div>
-<div class="line">        subscriber2.receive( 100 );</div>
-<div class="line"></div>
-<div class="line">        <span class="keywordflow">if</span>( gotTwo )</div>
-<div class="line">            <span class="keywordflow">break</span>;</div>
-<div class="line">    }</div>
+<div class="line">    testReceive( publisher, subscriber2, gotTwo, __LINE__ );</div>
 <div class="line">    BOOST_CHECK( !gotOne );</div>
-<div class="line">    BOOST_CHECK( gotTwo );</div>
+<div class="line"></div>
+<div class="line">    <span class="keyword">delete</span> subscriber1;</div>
+<div class="line">    testReceive( publisher, subscriber2, gotTwo, __LINE__ );</div>
+<div class="line">    BOOST_CHECK( !gotOne );</div>
 <div class="line">}</div>
 </div><!-- fragment --> 
-<p>Definition at line <a class="el" href="receiver_8h_source.html#l00030">30</a> of file <a class="el" href="receiver_8h_source.html">receiver.h</a>.</p>
+<p>Definition at line <a class="el" href="receiver_8h_source.html#l00031">31</a> of file <a class="el" href="receiver_8h_source.html">receiver.h</a>.</p>
 </div><h2 class="groupheader">Constructor &amp; Destructor Documentation</h2>
 <a class="anchor" id="ab0f6c8102579a854a69d88e96dc1570a"></a>
 <div class="memitem">
@@ -336,7 +323,7 @@ class&#160;</td><td class="memItemRight" valign="bottom"><b>detail::Receiver</b>
 <p>All receivers sharing a group may receive data when <a class="el" href="classzeq_1_1_receiver.html#a72e616d24249924476c4a4e45202976c" title="Receive at least one event from all shared receivers. ">receive()</a> is called on any of them.</p>
 <dl class="params"><dt>Parameters</dt><dd>
   <table class="params">
-    <tr><td class="paramname">shared</td><td>another receiver to share data reception with. </td></tr>
+    <tr><td class="paramname">shared</td><td>another receiver to form a simultaneous receive group with. </td></tr>
   </table>
   </dd>
 </dl>
@@ -369,6 +356,38 @@ class&#160;</td><td class="memItemRight" valign="bottom"><b>detail::Receiver</b>
 </div>
 </div>
 <h2 class="groupheader">Member Function Documentation</h2>
+<a class="anchor" id="a831f87f0afcc70bd66845107b8370243"></a>
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">virtual void zeq::Receiver::addConnection </td>
+          <td>(</td>
+          <td class="paramtype">const std::string &amp;&#160;</td>
+          <td class="paramname"><em>uri</em></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">protected</span><span class="mlabel">pure virtual</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+<p>Add the given connection to the list of receiving sockets. </p>
+<dl class="params"><dt>Parameters</dt><dd>
+  <table class="params">
+    <tr><td class="paramname">uri</td><td>the ZeroMQ address to connect to. </td></tr>
+  </table>
+  </dd>
+</dl>
+
+</div>
+</div>
 <a class="anchor" id="aa8590e30058f431bde0c59068a9241f7"></a>
 <div class="memitem">
 <div class="memproto">
@@ -394,7 +413,7 @@ class&#160;</td><td class="memItemRight" valign="bottom"><b>detail::Receiver</b>
 <p>Process data on a signalled socket. </p>
 <dl class="params"><dt>Parameters</dt><dd>
   <table class="params">
-    <tr><td class="paramname">socket</td><td>the socket provided from <a class="el" href="classzeq_1_1_receiver.html#aabc3075908575d127f7992d473253df0" title="Add this receiver&#39;s socket to the given list. ">addSockets()</a>. </td></tr>
+    <tr><td class="paramname">socket</td><td>the socket provided from <a class="el" href="classzeq_1_1_receiver.html#aabc3075908575d127f7992d473253df0" title="Add this receiver&#39;s sockets to the given list. ">addSockets()</a>. </td></tr>
   </table>
   </dd>
 </dl>
@@ -456,7 +475,7 @@ class&#160;</td><td class="memItemRight" valign="bottom"><b>detail::Receiver</b>
 <p>Update the internal connection list. </p>
 <p>Called on all members of a shared group regularly by <a class="el" href="classzeq_1_1_receiver.html#a72e616d24249924476c4a4e45202976c" title="Receive at least one event from all shared receivers. ">receive()</a> to update their list of sockets. </p>
 
-<p>Definition at line <a class="el" href="receiver_8h_source.html#l00078">78</a> of file <a class="el" href="receiver_8h_source.html">receiver.h</a>.</p>
+<p>Definition at line <a class="el" href="receiver_8h_source.html#l00079">79</a> of file <a class="el" href="receiver_8h_source.html">receiver.h</a>.</p>
 
 </div>
 </div>
@@ -468,8 +487,8 @@ class&#160;</td><td class="memItemRight" valign="bottom"><b>detail::Receiver</b>
 <!-- start footer part -->
 <div id="nav-path" class="navpath"><!-- id is needed for treeview function! -->
   <ul>
-    <li class="navelem"><b>zeq</b></li><li class="navelem"><a class="el" href="classzeq_1_1_receiver.html">Receiver</a></li>
-    <li class="footer">Generated on Sat Dec 13 2014 12:16:24 for zeq by
+    <li class="navelem"><a class="el" href="namespacezeq.html">zeq</a></li><li class="navelem"><a class="el" href="classzeq_1_1_receiver.html">Receiver</a></li>
+    <li class="footer">Generated on Wed Jan 7 2015 12:05:46 for zeq by
     <a href="http://www.doxygen.org/index.html">
     <img class="footer" src="doxygen.png" alt="doxygen"/></a> 1.8.7 </li>
   </ul>

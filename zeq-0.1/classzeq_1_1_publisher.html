@@ -140,6 +140,9 @@ Public Member Functions</h2></td></tr>
 <tr class="memitem:a5f91e89db1e928c4d5bac4735e306cd4"><td class="memItemLeft" align="right" valign="top">ZEQ_API bool&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classzeq_1_1_publisher.html#a5f91e89db1e928c4d5bac4735e306cd4">publish</a> (const <a class="el" href="classzeq_1_1_event.html">Event</a> &amp;event)</td></tr>
 <tr class="memdesc:a5f91e89db1e928c4d5bac4735e306cd4"><td class="mdescLeft">&#160;</td><td class="mdescRight">Publish the given event to any subscriber.  <a href="#a5f91e89db1e928c4d5bac4735e306cd4">More...</a><br /></td></tr>
 <tr class="separator:a5f91e89db1e928c4d5bac4735e306cd4"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a363e3314bd0d94fc9389cd306fe99379"><td class="memItemLeft" align="right" valign="top"><a class="anchor" id="a363e3314bd0d94fc9389cd306fe99379"></a>
+const std::string &amp;&#160;</td><td class="memItemRight" valign="bottom"><b>getAddress</b> () const </td></tr>
+<tr class="separator:a363e3314bd0d94fc9389cd306fe99379"><td class="memSeparator" colspan="2">&#160;</td></tr>
 </table>
 <a name="details" id="details"></a><h2 class="groupheader">Detailed Description</h2>
 <div class="textblock"><p>Serves and publishes events, consumed by <a class="el" href="classzeq_1_1_subscriber.html" title="Subscribes to Publisher to receive events. ">Subscriber</a>. </p>
@@ -170,14 +173,14 @@ Public Member Functions</h2></td></tr>
 <div class="line"></div>
 <div class="line">BOOST_AUTO_TEST_CASE(test_publish)</div>
 <div class="line">{</div>
-<div class="line">    <a class="code" href="classzeq_1_1_publisher.html">zeq::Publisher</a> publisher( lunchbox::URI( test::buildURI( <span class="stringliteral">&quot;*&quot;</span> )));</div>
+<div class="line">    <a class="code" href="classzeq_1_1_publisher.html">zeq::Publisher</a> publisher( test::buildURI( <span class="stringliteral">&quot;*&quot;</span> ));</div>
 <div class="line">    BOOST_CHECK( publisher.publish(</div>
 <div class="line">                     zeq::vocabulary::serializeEcho( test::echoMessage )));</div>
 <div class="line">}</div>
 <div class="line"></div>
 <div class="line">BOOST_AUTO_TEST_CASE(test_publish_empty_event)</div>
 <div class="line">{</div>
-<div class="line">    <a class="code" href="classzeq_1_1_publisher.html">zeq::Publisher</a> publisher( lunchbox::URI( test::buildURI( <span class="stringliteral">&quot;*&quot;</span> )));</div>
+<div class="line">    <a class="code" href="classzeq_1_1_publisher.html">zeq::Publisher</a> publisher( test::buildURI( <span class="stringliteral">&quot;*&quot;</span> ));</div>
 <div class="line">    BOOST_CHECK( publisher.publish( <a class="code" href="classzeq_1_1_event.html">zeq::Event</a>( zeq::vocabulary::EVENT_EXIT )));</div>
 <div class="line">}</div>
 <div class="line"></div>
@@ -186,16 +189,20 @@ Public Member Functions</h2></td></tr>
 <div class="line">    <span class="keywordflow">if</span>( !lunchbox::Servus::isAvailable() || getenv(<span class="stringliteral">&quot;TRAVIS&quot;</span>))</div>
 <div class="line">        <span class="keywordflow">return</span>;</div>
 <div class="line"></div>
-<div class="line">    <a class="code" href="classzeq_1_1_publisher.html">zeq::Publisher</a> publisher1( lunchbox::URI( test::buildURI( <span class="stringliteral">&quot;*&quot;</span> )));</div>
-<div class="line">    <a class="code" href="classzeq_1_1_publisher.html">zeq::Publisher</a> publisher2( lunchbox::URI( test::buildURI( <span class="stringliteral">&quot;*&quot;</span> )));</div>
-<div class="line">    <a class="code" href="classzeq_1_1_publisher.html">zeq::Publisher</a> publisher3( lunchbox::URI( test::buildURI( <span class="stringliteral">&quot;*&quot;</span> )));</div>
+<div class="line">    <span class="keyword">const</span> lunchbox::uint128_t uuid = lunchbox::make_UUID();</div>
+<div class="line">    <span class="keyword">const</span> std::string scheme = boost::lexical_cast&lt; std::string &gt;( uuid.high( )) +</div>
+<div class="line">                               boost::lexical_cast&lt; std::string &gt;( uuid.low( ));</div>
+<div class="line">    <span class="keyword">const</span> lunchbox::URI uri( scheme + <span class="stringliteral">&quot;://*:0&quot;</span> );</div>
 <div class="line"></div>
-<div class="line">    lunchbox::Servus service( <span class="stringliteral">&quot;_foo._tcp&quot;</span> );</div>
+<div class="line">    <span class="keyword">const</span> <a class="code" href="classzeq_1_1_publisher.html">zeq::Publisher</a> publisher1( uri );</div>
+<div class="line">    <span class="keyword">const</span> <a class="code" href="classzeq_1_1_publisher.html">zeq::Publisher</a> publisher2( uri );</div>
+<div class="line">    <span class="keyword">const</span> <a class="code" href="classzeq_1_1_publisher.html">zeq::Publisher</a> publisher3( uri );</div>
+<div class="line"></div>
+<div class="line">    lunchbox::Servus service( std::string( <span class="stringliteral">&quot;_&quot;</span> ) + scheme + <span class="stringliteral">&quot;._tcp&quot;</span> );</div>
 <div class="line">    <span class="keyword">const</span> lunchbox::Strings&amp; instances =</div>
 <div class="line">            service.discover( lunchbox::Servus::IF_ALL, 1000 );</div>
 <div class="line">    BOOST_CHECK_EQUAL( instances.size(), 3 );</div>
 <div class="line">}</div>
-<div class="line"></div>
 </div><!-- fragment --> 
 <p>Definition at line <a class="el" href="publisher_8h_source.html#l00024">24</a> of file <a class="el" href="publisher_8h_source.html">publisher.h</a>.</p>
 </div><h2 class="groupheader">Constructor &amp; Destructor Documentation</h2>
@@ -266,8 +273,8 @@ Public Member Functions</h2></td></tr>
 <!-- start footer part -->
 <div id="nav-path" class="navpath"><!-- id is needed for treeview function! -->
   <ul>
-    <li class="navelem"><b>zeq</b></li><li class="navelem"><a class="el" href="classzeq_1_1_publisher.html">Publisher</a></li>
-    <li class="footer">Generated on Sat Dec 13 2014 12:16:24 for zeq by
+    <li class="navelem"><a class="el" href="namespacezeq.html">zeq</a></li><li class="navelem"><a class="el" href="classzeq_1_1_publisher.html">Publisher</a></li>
+    <li class="footer">Generated on Wed Jan 7 2015 12:05:46 for zeq by
     <a href="http://www.doxygen.org/index.html">
     <img class="footer" src="doxygen.png" alt="doxygen"/></a> 1.8.7 </li>
   </ul>

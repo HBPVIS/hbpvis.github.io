@@ -107,9 +107,9 @@ $(document).ready(function(){initNavTree('subscriber_8h_source.html','');});
 </div><!--header-->
 <div class="contents">
 <div class="fragment"><div class="line"><a name="l00001"></a><span class="lineno">    1</span>&#160;</div>
-<div class="line"><a name="l00002"></a><span class="lineno">    2</span>&#160;<span class="comment">/* Copyright (c) 2014, Human Brain Project</span></div>
-<div class="line"><a name="l00003"></a><span class="lineno">    3</span>&#160;<span class="comment"> *                     Daniel Nachbaur &lt;daniel.nachbaur@epfl.ch&gt;</span></div>
-<div class="line"><a name="l00004"></a><span class="lineno">    4</span>&#160;<span class="comment"> *                     Stefan.Eilemann@epfl.ch</span></div>
+<div class="line"><a name="l00002"></a><span class="lineno">    2</span>&#160;<span class="comment">/* Copyright (c) 2014-2015, Human Brain Project</span></div>
+<div class="line"><a name="l00003"></a><span class="lineno">    3</span>&#160;<span class="comment"> *                          Daniel Nachbaur &lt;daniel.nachbaur@epfl.ch&gt;</span></div>
+<div class="line"><a name="l00004"></a><span class="lineno">    4</span>&#160;<span class="comment"> *                          Stefan.Eilemann@epfl.ch</span></div>
 <div class="line"><a name="l00005"></a><span class="lineno">    5</span>&#160;<span class="comment"> */</span></div>
 <div class="line"><a name="l00006"></a><span class="lineno">    6</span>&#160;</div>
 <div class="line"><a name="l00007"></a><span class="lineno">    7</span>&#160;<span class="preprocessor">#ifndef ZEQ_SUBSCRIBER_H</span></div>
@@ -122,56 +122,57 @@ $(document).ready(function(){initNavTree('subscriber_8h_source.html','');});
 <div class="line"><a name="l00014"></a><span class="lineno">   14</span>&#160;</div>
 <div class="line"><a name="l00015"></a><span class="lineno">   15</span>&#160;<span class="keyword">namespace </span>detail { <span class="keyword">class </span>Subscriber; }</div>
 <div class="line"><a name="l00016"></a><span class="lineno">   16</span>&#160;</div>
-<div class="line"><a name="l00022"></a><span class="lineno"><a class="line" href="classzeq_1_1_subscriber.html">   22</a></span>&#160;<span class="keyword">class </span><a class="code" href="classzeq_1_1_subscriber.html">Subscriber</a> : <span class="keyword">public</span> <a class="code" href="classzeq_1_1_receiver.html">Receiver</a></div>
-<div class="line"><a name="l00023"></a><span class="lineno">   23</span>&#160;{</div>
-<div class="line"><a name="l00024"></a><span class="lineno">   24</span>&#160;<span class="keyword">public</span>:</div>
-<div class="line"><a name="l00034"></a><span class="lineno">   34</span>&#160;    ZEQ_API <span class="keyword">explicit</span> <a class="code" href="classzeq_1_1_subscriber.html#a7c5ea7491dcb3fdd766c2e1da583e7ef">Subscriber</a>( <span class="keyword">const</span> lunchbox::URI&amp; uri );</div>
-<div class="line"><a name="l00035"></a><span class="lineno">   35</span>&#160;</div>
-<div class="line"><a name="l00036"></a><span class="lineno">   36</span>&#160;    <span class="comment">/*</span></div>
-<div class="line"><a name="l00037"></a><span class="lineno">   37</span>&#160;<span class="comment">     * Create a shared subscription to one or more publishers.</span></div>
-<div class="line"><a name="l00038"></a><span class="lineno">   38</span>&#160;<span class="comment">     *</span></div>
-<div class="line"><a name="l00039"></a><span class="lineno">   39</span>&#160;<span class="comment">     * A receive on any Subscriber of a shared group will work on all</span></div>
-<div class="line"><a name="l00040"></a><span class="lineno">   40</span>&#160;<span class="comment">     * subscribers and call the registered handlers. Note to implementer: wrap</span></div>
-<div class="line"><a name="l00041"></a><span class="lineno">   41</span>&#160;<span class="comment">     * zmg_context in a shared_ptr object used by all instances.</span></div>
-<div class="line"><a name="l00042"></a><span class="lineno">   42</span>&#160;<span class="comment">     *</span></div>
-<div class="line"><a name="l00043"></a><span class="lineno">   43</span>&#160;<span class="comment">     * @param uri publishing URI in the format scheme://[*|host|IP|IF][:port]</span></div>
-<div class="line"><a name="l00044"></a><span class="lineno">   44</span>&#160;<span class="comment">     * @param shared another receiver to share data reception with.</span></div>
-<div class="line"><a name="l00045"></a><span class="lineno">   45</span>&#160;<span class="comment">     * @throw std::runtime_error when the subscription failed.</span></div>
-<div class="line"><a name="l00046"></a><span class="lineno">   46</span>&#160;<span class="comment">     */</span></div>
-<div class="line"><a name="l00047"></a><span class="lineno">   47</span>&#160;    ZEQ_API <a class="code" href="classzeq_1_1_subscriber.html#a7c5ea7491dcb3fdd766c2e1da583e7ef">Subscriber</a>( <span class="keyword">const</span> lunchbox::URI&amp; uri, <a class="code" href="classzeq_1_1_receiver.html">Receiver</a>&amp; shared );</div>
-<div class="line"><a name="l00048"></a><span class="lineno">   48</span>&#160;</div>
-<div class="line"><a name="l00050"></a><span class="lineno">   50</span>&#160;    ZEQ_API <a class="code" href="classzeq_1_1_subscriber.html#a228aa00add090323d9f9043b63013f5d">~Subscriber</a>();</div>
-<div class="line"><a name="l00051"></a><span class="lineno">   51</span>&#160;</div>
-<div class="line"><a name="l00061"></a><span class="lineno">   61</span>&#160;    ZEQ_API <span class="keywordtype">bool</span> <a class="code" href="classzeq_1_1_subscriber.html#aec321369ed4d395a89fed2fe5334080c">registerHandler</a>( <span class="keyword">const</span> uint128_t&amp; event,</div>
-<div class="line"><a name="l00062"></a><span class="lineno">   62</span>&#160;                                  <span class="keyword">const</span> EventFunc&amp; func );</div>
-<div class="line"><a name="l00063"></a><span class="lineno">   63</span>&#160;</div>
-<div class="line"><a name="l00070"></a><span class="lineno">   70</span>&#160;    ZEQ_API <span class="keywordtype">bool</span> <a class="code" href="classzeq_1_1_subscriber.html#a3c8691d610e0f84b362573e925714704">deregisterHandler</a>( <span class="keyword">const</span> uint128_t&amp; event );</div>
-<div class="line"><a name="l00071"></a><span class="lineno">   71</span>&#160;</div>
-<div class="line"><a name="l00072"></a><span class="lineno">   72</span>&#160;<span class="keyword">private</span>:</div>
-<div class="line"><a name="l00073"></a><span class="lineno">   73</span>&#160;    detail::Subscriber* <span class="keyword">const</span> _impl;</div>
-<div class="line"><a name="l00074"></a><span class="lineno">   74</span>&#160;</div>
-<div class="line"><a name="l00075"></a><span class="lineno">   75</span>&#160;    <span class="comment">// Receiver API</span></div>
-<div class="line"><a name="l00076"></a><span class="lineno">   76</span>&#160;    <span class="keywordtype">void</span> addSockets( std::vector&lt; detail::Socket &gt;&amp; entries ) <span class="keyword">final</span>;</div>
-<div class="line"><a name="l00077"></a><span class="lineno">   77</span>&#160;    <span class="keywordtype">void</span> process( detail::Socket&amp; socket ) <span class="keyword">final</span>;</div>
-<div class="line"><a name="l00078"></a><span class="lineno">   78</span>&#160;    <span class="keywordtype">void</span> update() <span class="keyword">final</span>;</div>
-<div class="line"><a name="l00079"></a><span class="lineno">   79</span>&#160;};</div>
-<div class="line"><a name="l00080"></a><span class="lineno">   80</span>&#160;</div>
-<div class="line"><a name="l00081"></a><span class="lineno">   81</span>&#160;}</div>
-<div class="line"><a name="l00082"></a><span class="lineno">   82</span>&#160;</div>
-<div class="line"><a name="l00083"></a><span class="lineno">   83</span>&#160;<span class="preprocessor">#endif</span></div>
+<div class="line"><a name="l00024"></a><span class="lineno"><a class="line" href="classzeq_1_1_subscriber.html">   24</a></span>&#160;<span class="keyword">class </span><a class="code" href="classzeq_1_1_subscriber.html">Subscriber</a> : <span class="keyword">public</span> <a class="code" href="classzeq_1_1_receiver.html">Receiver</a></div>
+<div class="line"><a name="l00025"></a><span class="lineno">   25</span>&#160;{</div>
+<div class="line"><a name="l00026"></a><span class="lineno">   26</span>&#160;<span class="keyword">public</span>:</div>
+<div class="line"><a name="l00036"></a><span class="lineno">   36</span>&#160;    ZEQ_API <span class="keyword">explicit</span> <a class="code" href="classzeq_1_1_subscriber.html#a7c5ea7491dcb3fdd766c2e1da583e7ef">Subscriber</a>( <span class="keyword">const</span> lunchbox::URI&amp; uri );</div>
+<div class="line"><a name="l00037"></a><span class="lineno">   37</span>&#160;</div>
+<div class="line"><a name="l00038"></a><span class="lineno">   38</span>&#160;    <span class="comment">/*</span></div>
+<div class="line"><a name="l00039"></a><span class="lineno">   39</span>&#160;<span class="comment">     * Create a shared subscription to one or more publishers.</span></div>
+<div class="line"><a name="l00040"></a><span class="lineno">   40</span>&#160;<span class="comment">     *</span></div>
+<div class="line"><a name="l00041"></a><span class="lineno">   41</span>&#160;<span class="comment">     * A receive on any Subscriber of a shared group will work on all</span></div>
+<div class="line"><a name="l00042"></a><span class="lineno">   42</span>&#160;<span class="comment">     * subscribers and call the registered handlers. Note to implementer: wrap</span></div>
+<div class="line"><a name="l00043"></a><span class="lineno">   43</span>&#160;<span class="comment">     * zmg_context in a shared_ptr object used by all instances.</span></div>
+<div class="line"><a name="l00044"></a><span class="lineno">   44</span>&#160;<span class="comment">     *</span></div>
+<div class="line"><a name="l00045"></a><span class="lineno">   45</span>&#160;<span class="comment">     * @param uri publishing URI in the format scheme://[*|host|IP|IF][:port]</span></div>
+<div class="line"><a name="l00046"></a><span class="lineno">   46</span>&#160;<span class="comment">     * @param shared another receiver to share data reception with.</span></div>
+<div class="line"><a name="l00047"></a><span class="lineno">   47</span>&#160;<span class="comment">     * @throw std::runtime_error when the subscription failed.</span></div>
+<div class="line"><a name="l00048"></a><span class="lineno">   48</span>&#160;<span class="comment">     */</span></div>
+<div class="line"><a name="l00049"></a><span class="lineno">   49</span>&#160;    ZEQ_API <a class="code" href="classzeq_1_1_subscriber.html#a7c5ea7491dcb3fdd766c2e1da583e7ef">Subscriber</a>( <span class="keyword">const</span> lunchbox::URI&amp; uri, <a class="code" href="classzeq_1_1_receiver.html">Receiver</a>&amp; shared );</div>
+<div class="line"><a name="l00050"></a><span class="lineno">   50</span>&#160;</div>
+<div class="line"><a name="l00052"></a><span class="lineno">   52</span>&#160;    ZEQ_API <a class="code" href="classzeq_1_1_subscriber.html#a228aa00add090323d9f9043b63013f5d">~Subscriber</a>();</div>
+<div class="line"><a name="l00053"></a><span class="lineno">   53</span>&#160;</div>
+<div class="line"><a name="l00063"></a><span class="lineno">   63</span>&#160;    ZEQ_API <span class="keywordtype">bool</span> <a class="code" href="classzeq_1_1_subscriber.html#aec321369ed4d395a89fed2fe5334080c">registerHandler</a>( <span class="keyword">const</span> uint128_t&amp; event,</div>
+<div class="line"><a name="l00064"></a><span class="lineno">   64</span>&#160;                                  <span class="keyword">const</span> EventFunc&amp; func );</div>
+<div class="line"><a name="l00065"></a><span class="lineno">   65</span>&#160;</div>
+<div class="line"><a name="l00072"></a><span class="lineno">   72</span>&#160;    ZEQ_API <span class="keywordtype">bool</span> <a class="code" href="classzeq_1_1_subscriber.html#a3c8691d610e0f84b362573e925714704">deregisterHandler</a>( <span class="keyword">const</span> uint128_t&amp; event );</div>
+<div class="line"><a name="l00073"></a><span class="lineno">   73</span>&#160;</div>
+<div class="line"><a name="l00074"></a><span class="lineno">   74</span>&#160;<span class="keyword">private</span>:</div>
+<div class="line"><a name="l00075"></a><span class="lineno">   75</span>&#160;    detail::Subscriber* <span class="keyword">const</span> _impl;</div>
+<div class="line"><a name="l00076"></a><span class="lineno">   76</span>&#160;</div>
+<div class="line"><a name="l00077"></a><span class="lineno">   77</span>&#160;    <span class="comment">// Receiver API</span></div>
+<div class="line"><a name="l00078"></a><span class="lineno">   78</span>&#160;    <span class="keywordtype">void</span> addSockets( std::vector&lt; detail::Socket &gt;&amp; entries ) <span class="keyword">final</span>;</div>
+<div class="line"><a name="l00079"></a><span class="lineno">   79</span>&#160;    <span class="keywordtype">void</span> process( detail::Socket&amp; socket ) <span class="keyword">final</span>;</div>
+<div class="line"><a name="l00080"></a><span class="lineno">   80</span>&#160;    <span class="keywordtype">void</span> update() <span class="keyword">final</span>;</div>
+<div class="line"><a name="l00081"></a><span class="lineno">   81</span>&#160;    <span class="keywordtype">void</span> addConnection( <span class="keyword">const</span> std::string&amp; uri ) <span class="keyword">final</span>;</div>
+<div class="line"><a name="l00082"></a><span class="lineno">   82</span>&#160;};</div>
+<div class="line"><a name="l00083"></a><span class="lineno">   83</span>&#160;</div>
+<div class="line"><a name="l00084"></a><span class="lineno">   84</span>&#160;}</div>
+<div class="line"><a name="l00085"></a><span class="lineno">   85</span>&#160;</div>
+<div class="line"><a name="l00086"></a><span class="lineno">   86</span>&#160;<span class="preprocessor">#endif</span></div>
 <div class="ttc" id="classzeq_1_1_subscriber_html_a228aa00add090323d9f9043b63013f5d"><div class="ttname"><a href="classzeq_1_1_subscriber.html#a228aa00add090323d9f9043b63013f5d">zeq::Subscriber::~Subscriber</a></div><div class="ttdeci">ZEQ_API ~Subscriber()</div><div class="ttdoc">Destroy this subscriber and withdraw any subscriptions. </div></div>
 <div class="ttc" id="classzeq_1_1_subscriber_html_a7c5ea7491dcb3fdd766c2e1da583e7ef"><div class="ttname"><a href="classzeq_1_1_subscriber.html#a7c5ea7491dcb3fdd766c2e1da583e7ef">zeq::Subscriber::Subscriber</a></div><div class="ttdeci">ZEQ_API Subscriber(const lunchbox::URI &amp;uri)</div><div class="ttdoc">Create and subscribe to one or more publishers. </div></div>
 <div class="ttc" id="classzeq_1_1_subscriber_html_a3c8691d610e0f84b362573e925714704"><div class="ttname"><a href="classzeq_1_1_subscriber.html#a3c8691d610e0f84b362573e925714704">zeq::Subscriber::deregisterHandler</a></div><div class="ttdeci">ZEQ_API bool deregisterHandler(const uint128_t &amp;event)</div><div class="ttdoc">Deregister a callback for an event. </div></div>
-<div class="ttc" id="classzeq_1_1_subscriber_html"><div class="ttname"><a href="classzeq_1_1_subscriber.html">zeq::Subscriber</a></div><div class="ttdoc">Subscribes to Publisher to receive events. </div><div class="ttdef"><b>Definition:</b> <a href="subscriber_8h_source.html#l00022">subscriber.h:22</a></div></div>
+<div class="ttc" id="classzeq_1_1_subscriber_html"><div class="ttname"><a href="classzeq_1_1_subscriber.html">zeq::Subscriber</a></div><div class="ttdoc">Subscribes to Publisher to receive events. </div><div class="ttdef"><b>Definition:</b> <a href="subscriber_8h_source.html#l00024">subscriber.h:24</a></div></div>
 <div class="ttc" id="classzeq_1_1_subscriber_html_aec321369ed4d395a89fed2fe5334080c"><div class="ttname"><a href="classzeq_1_1_subscriber.html#aec321369ed4d395a89fed2fe5334080c">zeq::Subscriber::registerHandler</a></div><div class="ttdeci">ZEQ_API bool registerHandler(const uint128_t &amp;event, const EventFunc &amp;func)</div><div class="ttdoc">Register a new callback for an event. </div></div>
-<div class="ttc" id="classzeq_1_1_receiver_html"><div class="ttname"><a href="classzeq_1_1_receiver.html">zeq::Receiver</a></div><div class="ttdoc">Base class for entities receiving data. </div><div class="ttdef"><b>Definition:</b> <a href="receiver_8h_source.html#l00030">receiver.h:30</a></div></div>
+<div class="ttc" id="classzeq_1_1_receiver_html"><div class="ttname"><a href="classzeq_1_1_receiver.html">zeq::Receiver</a></div><div class="ttdoc">Base class for entities receiving data. </div><div class="ttdef"><b>Definition:</b> <a href="receiver_8h_source.html#l00031">receiver.h:31</a></div></div>
 </div><!-- fragment --></div><!-- contents -->
 </div><!-- doc-content -->
 <!-- start footer part -->
 <div id="nav-path" class="navpath"><!-- id is needed for treeview function! -->
   <ul>
-    <li class="navelem"><a class="el" href="dir_e3a4aa6ae53c85312025264fe419cff9.html">install</a></li><li class="navelem"><a class="el" href="dir_5c761713bf5d0875d267b95dac50e2aa.html">include</a></li><li class="navelem"><a class="el" href="dir_22ba665eeca923e69d0f05728baf918a.html">zeq</a></li><li class="navelem"><b>subscriber.h</b></li>
-    <li class="footer">Generated on Sat Dec 13 2014 12:16:24 for zeq by
+    <li class="navelem"><a class="el" href="dir_bdd1e26b753502bf2c52c327e286bf77.html">install</a></li><li class="navelem"><a class="el" href="dir_1f69ec10bf274d25d8504e20d2dfdfe8.html">include</a></li><li class="navelem"><a class="el" href="dir_7d7fa65ecd7e8b17a163fb3b40acd6d5.html">zeq</a></li><li class="navelem"><b>subscriber.h</b></li>
+    <li class="footer">Generated on Wed Jan 7 2015 12:05:46 for zeq by
     <a href="http://www.doxygen.org/index.html">
     <img class="footer" src="doxygen.png" alt="doxygen"/></a> 1.8.7 </li>
   </ul>

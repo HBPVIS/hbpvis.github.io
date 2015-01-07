@@ -1,4 +1,4 @@
 var searchData=
 [
-  ['publisher',['Publisher',['../classzeq_1_1_publisher.html',1,'zeq']]]
+  ['event',['Event',['../classzeq_1_1_event.html',1,'zeq']]]
 ];

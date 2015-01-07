@@ -124,7 +124,7 @@ $(document).ready(function(){initNavTree('classzeq_1_1_subscriber.html','');});
 <div id="dynsection-0-content" class="dyncontent" style="display:none;">
 <div class="center"><img src="classzeq_1_1_subscriber__inherit__graph.png" border="0" usemap="#zeq_1_1_subscriber_inherit__map" alt="Inheritance graph"/></div>
 <map name="zeq_1_1_subscriber_inherit__map" id="zeq_1_1_subscriber_inherit__map">
-<area shape="rect" id="node2" href="classzeq_1_1_receiver.html" title="Base class for entities receiving data. " alt="" coords="12,131,161,311"/></map>
+<area shape="rect" id="node2" href="classzeq_1_1_receiver.html" title="Base class for entities receiving data. " alt="" coords="11,131,147,325"/></map>
 </div>
 <div id="dynsection-1" onclick="return toggleVisibility(this)" class="dynheader closed" style="cursor:pointer;">
   <img id="dynsection-1-trigger" src="closed.png" alt="+"/> Collaboration diagram for zeq::Subscriber:</div>
@@ -133,7 +133,7 @@ $(document).ready(function(){initNavTree('classzeq_1_1_subscriber.html','');});
 <div id="dynsection-1-content" class="dyncontent" style="display:none;">
 <div class="center"><img src="classzeq_1_1_subscriber__coll__graph.png" border="0" usemap="#zeq_1_1_subscriber_coll__map" alt="Collaboration graph"/></div>
 <map name="zeq_1_1_subscriber_coll__map" id="zeq_1_1_subscriber_coll__map">
-<area shape="rect" id="node2" href="classzeq_1_1_receiver.html" title="Base class for entities receiving data. " alt="" coords="12,131,161,311"/></map>
+<area shape="rect" id="node2" href="classzeq_1_1_receiver.html" title="Base class for entities receiving data. " alt="" coords="11,131,147,325"/></map>
 </div>
 <table class="memberdecls">
 <tr class="heading"><td colspan="2"><h2 class="groupheader"><a name="pub-methods"></a>
@@ -176,6 +176,7 @@ void *&#160;</td><td class="memItemRight" valign="bottom"><b>getZMQContext</b> (
 </table>
 <a name="details" id="details"></a><h2 class="groupheader">Detailed Description</h2>
 <div class="textblock"><p>Subscribes to <a class="el" href="classzeq_1_1_publisher.html" title="Serves and publishes events, consumed by Subscriber. ">Publisher</a> to receive events. </p>
+<p>Not thread safe.</p>
 <p>Example: </p><div class="fragment"><div class="line"></div>
 <div class="line"><span class="comment">/* Copyright (c) 2014, Human Brain Project</span></div>
 <div class="line"><span class="comment"> *                     Daniel Nachbaur &lt;daniel.nachbaur@epfl.ch&gt;</span></div>
@@ -244,7 +245,7 @@ void *&#160;</td><td class="memItemRight" valign="bottom"><b>getZMQContext</b> (
 <div class="line">    BOOST_CHECK_THROW( <a class="code" href="classzeq_1_1_subscriber.html">zeq::Subscriber</a> subscriber( uri ), std::runtime_error );</div>
 <div class="line">}</div>
 </div><!-- fragment --> 
-<p>Definition at line <a class="el" href="subscriber_8h_source.html#l00022">22</a> of file <a class="el" href="subscriber_8h_source.html">subscriber.h</a>.</p>
+<p>Definition at line <a class="el" href="subscriber_8h_source.html#l00024">24</a> of file <a class="el" href="subscriber_8h_source.html">subscriber.h</a>.</p>
 </div><h2 class="groupheader">Constructor &amp; Destructor Documentation</h2>
 <a class="anchor" id="a7c5ea7491dcb3fdd766c2e1da583e7ef"></a>
 <div class="memitem">
@@ -373,8 +374,8 @@ void *&#160;</td><td class="memItemRight" valign="bottom"><b>getZMQContext</b> (
 <!-- start footer part -->
 <div id="nav-path" class="navpath"><!-- id is needed for treeview function! -->
   <ul>
-    <li class="navelem"><b>zeq</b></li><li class="navelem"><a class="el" href="classzeq_1_1_subscriber.html">Subscriber</a></li>
-    <li class="footer">Generated on Sat Dec 13 2014 12:16:24 for zeq by
+    <li class="navelem"><a class="el" href="namespacezeq.html">zeq</a></li><li class="navelem"><a class="el" href="classzeq_1_1_subscriber.html">Subscriber</a></li>
+    <li class="footer">Generated on Wed Jan 7 2015 12:05:46 for zeq by
     <a href="http://www.doxygen.org/index.html">
     <img class="footer" src="doxygen.png" alt="doxygen"/></a> 1.8.7 </li>
   </ul>

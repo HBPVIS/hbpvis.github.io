@@ -1,4 +1,5 @@
 var searchData=
 [
-  ['check',['check',['../classzeq_1_1_version.html#ae7d6d0df1a602c190250cb704f2f43d5',1,'zeq::Version']]]
+  ['broker',['Broker',['../classzeq_1_1connection_1_1_broker.html',1,'zeq::connection']]],
+  ['broker',['Broker',['../classzeq_1_1connection_1_1_broker.html#aa4c693643df4e231c3c4d00b677d27d4',1,'zeq::connection::Broker']]]
 ];

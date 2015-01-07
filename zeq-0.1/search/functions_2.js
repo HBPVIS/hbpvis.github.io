@@ -1,4 +1,4 @@
 var searchData=
 [
-  ['deregisterhandler',['deregisterHandler',['../classzeq_1_1_subscriber.html#a3c8691d610e0f84b362573e925714704',1,'zeq::Subscriber']]]
+  ['check',['check',['../classzeq_1_1_version.html#ae7d6d0df1a602c190250cb704f2f43d5',1,'zeq::Version']]]
 ];

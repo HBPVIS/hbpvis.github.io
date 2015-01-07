@@ -1,4 +1,4 @@
 var searchData=
 [
-  ['receiver',['Receiver',['../classzeq_1_1_receiver.html',1,'zeq']]]
+  ['publisher',['Publisher',['../classzeq_1_1_publisher.html',1,'zeq']]]
 ];

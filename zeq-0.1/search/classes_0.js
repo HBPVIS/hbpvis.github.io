@@ -1,4 +1,4 @@
 var searchData=
 [
-  ['event',['Event',['../classzeq_1_1_event.html',1,'zeq']]]
+  ['broker',['Broker',['../classzeq_1_1connection_1_1_broker.html',1,'zeq::connection']]]
 ];
