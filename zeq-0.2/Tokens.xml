@@ -119,6 +119,54 @@
   </Token>
   <Token>
     <TokenIdentifier>
+      <Name>ANNOUNCE_NONE</Name>
+      <APILanguage>cpp</APILanguage>
+      <Type>econst</Type>
+      <Scope>zeq</Scope>
+    </TokenIdentifier>
+    <Path>namespacezeq.html</Path>
+    <Anchor>a9d40cc95f062939118c95e4538b45bafa4268ffbbcbe06e4afdcd6622a4749b85</Anchor>
+    <Abstract>Do not announce presence on the network. </Abstract>
+    <DeclaredIn>types.h</DeclaredIn>
+  </Token>
+  <Token>
+    <TokenIdentifier>
+      <Name>ANNOUNCE_REQUIRED</Name>
+      <APILanguage>cpp</APILanguage>
+      <Type>econst</Type>
+      <Scope>zeq</Scope>
+    </TokenIdentifier>
+    <Path>namespacezeq.html</Path>
+    <Anchor>a9d40cc95f062939118c95e4538b45bafa117ccb996f6bbdb4101ad4ad9051aac4</Anchor>
+    <Abstract>Chosen protocols are mandatory. </Abstract>
+    <DeclaredIn>types.h</DeclaredIn>
+  </Token>
+  <Token>
+    <TokenIdentifier>
+      <Name>ANNOUNCE_ZEROCONF</Name>
+      <APILanguage>cpp</APILanguage>
+      <Type>econst</Type>
+      <Scope>zeq</Scope>
+    </TokenIdentifier>
+    <Path>namespacezeq.html</Path>
+    <Anchor>a9d40cc95f062939118c95e4538b45bafa88ba7d84d360bc82cd56ff2c467f8118</Anchor>
+    <Abstract>Force announcement using zeroconf. </Abstract>
+    <DeclaredIn>types.h</DeclaredIn>
+  </Token>
+  <Token>
+    <TokenIdentifier>
+      <Name>ANNOUNCE_ALL</Name>
+      <APILanguage>cpp</APILanguage>
+      <Type>econst</Type>
+      <Scope>zeq</Scope>
+    </TokenIdentifier>
+    <Path>namespacezeq.html</Path>
+    <Anchor>a9d40cc95f062939118c95e4538b45bafa533f9705a86c77b3fef1e05ba7746413</Anchor>
+    <Abstract>Force announcement using all protocols. </Abstract>
+    <DeclaredIn>types.h</DeclaredIn>
+  </Token>
+  <Token>
+    <TokenIdentifier>
       <Name>zeq::Event</Name>
       <APILanguage>c</APILanguage>
       <Type>cl</Type>
@@ -261,7 +309,7 @@
       <Scope>zeq::Publisher</Scope>
     </TokenIdentifier>
     <Path>classzeq_1_1_publisher.html</Path>
-    <Anchor>a362d8818c5f4c1383cae3585d80d80f3</Anchor>
+    <Anchor>aea6bced47d52cb8b0c32c93555dfe017</Anchor>
     <Abstract>Create a publisher on the given URI. </Abstract>
     <DeclaredIn>publisher.h</DeclaredIn>
   </Token>
@@ -275,6 +323,18 @@
     <Path>classzeq_1_1_publisher.html</Path>
     <Anchor>a5f91e89db1e928c4d5bac4735e306cd4</Anchor>
     <Abstract>Publish the given event to any subscriber. </Abstract>
+    <DeclaredIn>publisher.h</DeclaredIn>
+  </Token>
+  <Token>
+    <TokenIdentifier>
+      <Name>getURI</Name>
+      <APILanguage>cpp</APILanguage>
+      <Type>instm</Type>
+      <Scope>zeq::Publisher</Scope>
+    </TokenIdentifier>
+    <Path>classzeq_1_1_publisher.html</Path>
+    <Anchor>afd9c9061b68d9860a3e0524299bd9297</Anchor>
+    <Abstract>Get the publisher URI. </Abstract>
     <DeclaredIn>publisher.h</DeclaredIn>
   </Token>
   <Token>

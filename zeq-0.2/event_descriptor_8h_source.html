@@ -122,55 +122,56 @@ $(document).ready(function(){initNavTree('event_descriptor_8h_source.html','');}
 <div class="line"><a name="l00010"></a><span class="lineno">   10</span>&#160;<span class="preprocessor">#include &lt;<a class="code" href="api_8h.html">zeq/api.h</a>&gt;</span></div>
 <div class="line"><a name="l00011"></a><span class="lineno">   11</span>&#160;</div>
 <div class="line"><a name="l00012"></a><span class="lineno">   12</span>&#160;<span class="preprocessor">#include &lt;zeq/types.h&gt;</span></div>
-<div class="line"><a name="l00013"></a><span class="lineno">   13</span>&#160;<span class="preprocessor">#include &lt;boost/noncopyable.hpp&gt;</span></div>
-<div class="line"><a name="l00014"></a><span class="lineno">   14</span>&#160;</div>
-<div class="line"><a name="l00015"></a><span class="lineno">   15</span>&#160;<span class="keyword">namespace </span><a class="code" href="namespacezeq.html">zeq</a></div>
-<div class="line"><a name="l00016"></a><span class="lineno">   16</span>&#160;{</div>
-<div class="line"><a name="l00017"></a><span class="lineno">   17</span>&#160;<span class="keyword">namespace </span>detail { <span class="keyword">struct </span>EventDescriptor; }</div>
-<div class="line"><a name="l00018"></a><span class="lineno">   18</span>&#160;</div>
-<div class="line"><a name="l00023"></a><span class="lineno"><a class="line" href="namespacezeq.html#a05272e281c2d3c9da8faa9aefe256f61">   23</a></span>&#160;<span class="keyword">enum</span> <a class="code" href="namespacezeq.html#a05272e281c2d3c9da8faa9aefe256f61">EventDirection</a></div>
-<div class="line"><a name="l00024"></a><span class="lineno">   24</span>&#160;{</div>
-<div class="line"><a name="l00025"></a><span class="lineno">   25</span>&#160;    SUBSCRIBER = 0,</div>
-<div class="line"><a name="l00026"></a><span class="lineno">   26</span>&#160;    PUBLISHER,</div>
-<div class="line"><a name="l00027"></a><span class="lineno">   27</span>&#160;    BIDIRECTIONAL</div>
-<div class="line"><a name="l00028"></a><span class="lineno">   28</span>&#160;};</div>
-<div class="line"><a name="l00029"></a><span class="lineno">   29</span>&#160;</div>
-<div class="line"><a name="l00035"></a><span class="lineno"><a class="line" href="structzeq_1_1_event_descriptor.html">   35</a></span>&#160;<span class="keyword">struct </span><a class="code" href="structzeq_1_1_event_descriptor.html">EventDescriptor</a> : <span class="keyword">public</span> boost::noncopyable</div>
-<div class="line"><a name="l00036"></a><span class="lineno">   36</span>&#160;{</div>
-<div class="line"><a name="l00044"></a><span class="lineno">   44</span>&#160;    ZEQ_API <a class="code" href="structzeq_1_1_event_descriptor.html#ab122ca95e2641c64fe094b04be239bca">EventDescriptor</a>( <span class="keyword">const</span> std::string&amp; restName,</div>
-<div class="line"><a name="l00045"></a><span class="lineno">   45</span>&#160;                             <span class="keyword">const</span> uint128_t&amp; eventType,</div>
-<div class="line"><a name="l00046"></a><span class="lineno">   46</span>&#160;                             <span class="keyword">const</span> std::string&amp; schema,</div>
-<div class="line"><a name="l00047"></a><span class="lineno">   47</span>&#160;                             <span class="keyword">const</span> <a class="code" href="namespacezeq.html#a05272e281c2d3c9da8faa9aefe256f61">EventDirection</a> eventDirection);</div>
-<div class="line"><a name="l00048"></a><span class="lineno">   48</span>&#160;</div>
-<div class="line"><a name="l00050"></a><span class="lineno">   50</span>&#160;    ZEQ_API <a class="code" href="structzeq_1_1_event_descriptor.html#ab122ca95e2641c64fe094b04be239bca">EventDescriptor</a>( EventDescriptor&amp;&amp; rhs );</div>
-<div class="line"><a name="l00051"></a><span class="lineno">   51</span>&#160;</div>
-<div class="line"><a name="l00052"></a><span class="lineno">   52</span>&#160;    ZEQ_API ~EventDescriptor();</div>
-<div class="line"><a name="l00053"></a><span class="lineno">   53</span>&#160;</div>
-<div class="line"><a name="l00055"></a><span class="lineno">   55</span>&#160;    ZEQ_API <span class="keyword">const</span> std::string&amp; <a class="code" href="structzeq_1_1_event_descriptor.html#afc4d7e2bef549d805cf2c05759db84c3">getRestName</a>() <span class="keyword">const</span>;</div>
-<div class="line"><a name="l00056"></a><span class="lineno">   56</span>&#160;</div>
-<div class="line"><a name="l00058"></a><span class="lineno">   58</span>&#160;    ZEQ_API <span class="keyword">const</span> uint128_t&amp; <a class="code" href="structzeq_1_1_event_descriptor.html#a449d3753a29e0482d80fe2b92e300757">getEventType</a>() <span class="keyword">const</span>;</div>
-<div class="line"><a name="l00059"></a><span class="lineno">   59</span>&#160;</div>
-<div class="line"><a name="l00061"></a><span class="lineno">   61</span>&#160;    ZEQ_API <span class="keyword">const</span> std::string&amp; <a class="code" href="structzeq_1_1_event_descriptor.html#a562d681a4d25e23e28138aa6a0a99d37">getSchema</a>() <span class="keyword">const</span>;</div>
-<div class="line"><a name="l00062"></a><span class="lineno">   62</span>&#160;</div>
-<div class="line"><a name="l00064"></a><span class="lineno">   64</span>&#160;    ZEQ_API <a class="code" href="namespacezeq.html#a05272e281c2d3c9da8faa9aefe256f61">EventDirection</a> <a class="code" href="structzeq_1_1_event_descriptor.html#a652fcafa4625ee791e7d2713e050c099">getEventDirection</a>() <span class="keyword">const</span>;</div>
-<div class="line"><a name="l00065"></a><span class="lineno">   65</span>&#160;<span class="keyword">private</span>:</div>
-<div class="line"><a name="l00066"></a><span class="lineno">   66</span>&#160;</div>
-<div class="line"><a name="l00067"></a><span class="lineno">   67</span>&#160;    EventDescriptor&amp; operator=( EventDescriptor&amp;&amp; rhs );</div>
-<div class="line"><a name="l00068"></a><span class="lineno">   68</span>&#160;</div>
-<div class="line"><a name="l00069"></a><span class="lineno">   69</span>&#160;    detail::EventDescriptor* _impl;</div>
-<div class="line"><a name="l00070"></a><span class="lineno">   70</span>&#160;};</div>
-<div class="line"><a name="l00071"></a><span class="lineno">   71</span>&#160;</div>
-<div class="line"><a name="l00072"></a><span class="lineno">   72</span>&#160;}</div>
-<div class="line"><a name="l00073"></a><span class="lineno">   73</span>&#160;</div>
-<div class="line"><a name="l00074"></a><span class="lineno">   74</span>&#160;<span class="preprocessor">#endif</span></div>
+<div class="line"><a name="l00013"></a><span class="lineno">   13</span>&#160;</div>
+<div class="line"><a name="l00014"></a><span class="lineno">   14</span>&#160;<span class="keyword">namespace </span><a class="code" href="namespacezeq.html">zeq</a></div>
+<div class="line"><a name="l00015"></a><span class="lineno">   15</span>&#160;{</div>
+<div class="line"><a name="l00016"></a><span class="lineno">   16</span>&#160;<span class="keyword">namespace </span>detail { <span class="keyword">struct </span>EventDescriptor; }</div>
+<div class="line"><a name="l00017"></a><span class="lineno">   17</span>&#160;</div>
+<div class="line"><a name="l00022"></a><span class="lineno"><a class="line" href="namespacezeq.html#a05272e281c2d3c9da8faa9aefe256f61">   22</a></span>&#160;<span class="keyword">enum</span> <a class="code" href="namespacezeq.html#a05272e281c2d3c9da8faa9aefe256f61">EventDirection</a></div>
+<div class="line"><a name="l00023"></a><span class="lineno">   23</span>&#160;{</div>
+<div class="line"><a name="l00024"></a><span class="lineno">   24</span>&#160;    SUBSCRIBER = 0,</div>
+<div class="line"><a name="l00025"></a><span class="lineno">   25</span>&#160;    PUBLISHER,</div>
+<div class="line"><a name="l00026"></a><span class="lineno">   26</span>&#160;    BIDIRECTIONAL</div>
+<div class="line"><a name="l00027"></a><span class="lineno">   27</span>&#160;};</div>
+<div class="line"><a name="l00028"></a><span class="lineno">   28</span>&#160;</div>
+<div class="line"><a name="l00034"></a><span class="lineno"><a class="line" href="structzeq_1_1_event_descriptor.html">   34</a></span>&#160;<span class="keyword">struct </span><a class="code" href="structzeq_1_1_event_descriptor.html">EventDescriptor</a></div>
+<div class="line"><a name="l00035"></a><span class="lineno">   35</span>&#160;{</div>
+<div class="line"><a name="l00043"></a><span class="lineno">   43</span>&#160;    ZEQ_API <a class="code" href="structzeq_1_1_event_descriptor.html#ab122ca95e2641c64fe094b04be239bca">EventDescriptor</a>( <span class="keyword">const</span> std::string&amp; restName,</div>
+<div class="line"><a name="l00044"></a><span class="lineno">   44</span>&#160;                             <span class="keyword">const</span> uint128_t&amp; eventType,</div>
+<div class="line"><a name="l00045"></a><span class="lineno">   45</span>&#160;                             <span class="keyword">const</span> std::string&amp; schema,</div>
+<div class="line"><a name="l00046"></a><span class="lineno">   46</span>&#160;                             <span class="keyword">const</span> <a class="code" href="namespacezeq.html#a05272e281c2d3c9da8faa9aefe256f61">EventDirection</a> eventDirection );</div>
+<div class="line"><a name="l00047"></a><span class="lineno">   47</span>&#160;</div>
+<div class="line"><a name="l00049"></a><span class="lineno">   49</span>&#160;    ZEQ_API <a class="code" href="structzeq_1_1_event_descriptor.html#ab122ca95e2641c64fe094b04be239bca">EventDescriptor</a>( EventDescriptor&amp;&amp; rhs );</div>
+<div class="line"><a name="l00050"></a><span class="lineno">   50</span>&#160;</div>
+<div class="line"><a name="l00051"></a><span class="lineno">   51</span>&#160;    ZEQ_API ~EventDescriptor();</div>
+<div class="line"><a name="l00052"></a><span class="lineno">   52</span>&#160;</div>
+<div class="line"><a name="l00054"></a><span class="lineno">   54</span>&#160;    ZEQ_API <span class="keyword">const</span> std::string&amp; <a class="code" href="structzeq_1_1_event_descriptor.html#afc4d7e2bef549d805cf2c05759db84c3">getRestName</a>() <span class="keyword">const</span>;</div>
+<div class="line"><a name="l00055"></a><span class="lineno">   55</span>&#160;</div>
+<div class="line"><a name="l00057"></a><span class="lineno">   57</span>&#160;    ZEQ_API <span class="keyword">const</span> uint128_t&amp; <a class="code" href="structzeq_1_1_event_descriptor.html#a449d3753a29e0482d80fe2b92e300757">getEventType</a>() <span class="keyword">const</span>;</div>
+<div class="line"><a name="l00058"></a><span class="lineno">   58</span>&#160;</div>
+<div class="line"><a name="l00060"></a><span class="lineno">   60</span>&#160;    ZEQ_API <span class="keyword">const</span> std::string&amp; <a class="code" href="structzeq_1_1_event_descriptor.html#a562d681a4d25e23e28138aa6a0a99d37">getSchema</a>() <span class="keyword">const</span>;</div>
+<div class="line"><a name="l00061"></a><span class="lineno">   61</span>&#160;</div>
+<div class="line"><a name="l00063"></a><span class="lineno">   63</span>&#160;    ZEQ_API <a class="code" href="namespacezeq.html#a05272e281c2d3c9da8faa9aefe256f61">EventDirection</a> <a class="code" href="structzeq_1_1_event_descriptor.html#a652fcafa4625ee791e7d2713e050c099">getEventDirection</a>() <span class="keyword">const</span>;</div>
+<div class="line"><a name="l00064"></a><span class="lineno">   64</span>&#160;<span class="keyword">private</span>:</div>
+<div class="line"><a name="l00065"></a><span class="lineno">   65</span>&#160;    <a class="code" href="structzeq_1_1_event_descriptor.html#ab122ca95e2641c64fe094b04be239bca">EventDescriptor</a>( <span class="keyword">const</span> EventDescriptor&amp; ) = <span class="keyword">delete</span>;</div>
+<div class="line"><a name="l00066"></a><span class="lineno">   66</span>&#160;    EventDescriptor&amp; operator=( <span class="keyword">const</span> EventDescriptor&amp; ) = <span class="keyword">delete</span>;</div>
+<div class="line"><a name="l00067"></a><span class="lineno">   67</span>&#160;</div>
+<div class="line"><a name="l00068"></a><span class="lineno">   68</span>&#160;    EventDescriptor&amp; operator=( EventDescriptor&amp;&amp; rhs );</div>
+<div class="line"><a name="l00069"></a><span class="lineno">   69</span>&#160;</div>
+<div class="line"><a name="l00070"></a><span class="lineno">   70</span>&#160;    detail::EventDescriptor* _impl;</div>
+<div class="line"><a name="l00071"></a><span class="lineno">   71</span>&#160;};</div>
+<div class="line"><a name="l00072"></a><span class="lineno">   72</span>&#160;</div>
+<div class="line"><a name="l00073"></a><span class="lineno">   73</span>&#160;}</div>
+<div class="line"><a name="l00074"></a><span class="lineno">   74</span>&#160;</div>
+<div class="line"><a name="l00075"></a><span class="lineno">   75</span>&#160;<span class="preprocessor">#endif</span></div>
 <div class="ttc" id="structzeq_1_1_event_descriptor_html_ab122ca95e2641c64fe094b04be239bca"><div class="ttname"><a href="structzeq_1_1_event_descriptor.html#ab122ca95e2641c64fe094b04be239bca">zeq::EventDescriptor::EventDescriptor</a></div><div class="ttdeci">ZEQ_API EventDescriptor(const std::string &amp;restName, const uint128_t &amp;eventType, const std::string &amp;schema, const EventDirection eventDirection)</div><div class="ttdoc">Create an EventDescriptor. </div></div>
 <div class="ttc" id="api_8h_html"><div class="ttname"><a href="api_8h.html">api.h</a></div><div class="ttdoc">Defines export visibility macros for bbp. </div></div>
 <div class="ttc" id="structzeq_1_1_event_descriptor_html_a449d3753a29e0482d80fe2b92e300757"><div class="ttname"><a href="structzeq_1_1_event_descriptor.html#a449d3753a29e0482d80fe2b92e300757">zeq::EventDescriptor::getEventType</a></div><div class="ttdeci">ZEQ_API const uint128_t &amp; getEventType() const </div></div>
 <div class="ttc" id="structzeq_1_1_event_descriptor_html_a652fcafa4625ee791e7d2713e050c099"><div class="ttname"><a href="structzeq_1_1_event_descriptor.html#a652fcafa4625ee791e7d2713e050c099">zeq::EventDescriptor::getEventDirection</a></div><div class="ttdeci">ZEQ_API EventDirection getEventDirection() const </div></div>
 <div class="ttc" id="namespacezeq_html"><div class="ttname"><a href="namespacezeq.html">zeq</a></div><div class="ttdoc">Publish-subscribe classes for typed events. </div><div class="ttdef"><b>Definition:</b> <a href="broker_8h_source.html#l00012">broker.h:12</a></div></div>
-<div class="ttc" id="namespacezeq_html_a05272e281c2d3c9da8faa9aefe256f61"><div class="ttname"><a href="namespacezeq.html#a05272e281c2d3c9da8faa9aefe256f61">zeq::EventDirection</a></div><div class="ttdeci">EventDirection</div><div class="ttdoc">This enum holds information about the Event "direction" (only Published, only Subscribed or Bidirecti...</div><div class="ttdef"><b>Definition:</b> <a href="event_descriptor_8h_source.html#l00023">eventDescriptor.h:23</a></div></div>
+<div class="ttc" id="namespacezeq_html_a05272e281c2d3c9da8faa9aefe256f61"><div class="ttname"><a href="namespacezeq.html#a05272e281c2d3c9da8faa9aefe256f61">zeq::EventDirection</a></div><div class="ttdeci">EventDirection</div><div class="ttdoc">This enum holds information about the Event "direction" (only Published, only Subscribed or Bidirecti...</div><div class="ttdef"><b>Definition:</b> <a href="event_descriptor_8h_source.html#l00022">eventDescriptor.h:22</a></div></div>
 <div class="ttc" id="structzeq_1_1_event_descriptor_html_a562d681a4d25e23e28138aa6a0a99d37"><div class="ttname"><a href="structzeq_1_1_event_descriptor.html#a562d681a4d25e23e28138aa6a0a99d37">zeq::EventDescriptor::getSchema</a></div><div class="ttdeci">ZEQ_API const std::string &amp; getSchema() const </div></div>
-<div class="ttc" id="structzeq_1_1_event_descriptor_html"><div class="ttname"><a href="structzeq_1_1_event_descriptor.html">zeq::EventDescriptor</a></div><div class="ttdoc">This structure holds informations about an Event from a vocabulary. </div><div class="ttdef"><b>Definition:</b> <a href="event_descriptor_8h_source.html#l00035">eventDescriptor.h:35</a></div></div>
+<div class="ttc" id="structzeq_1_1_event_descriptor_html"><div class="ttname"><a href="structzeq_1_1_event_descriptor.html">zeq::EventDescriptor</a></div><div class="ttdoc">This structure holds informations about an Event from a vocabulary. </div><div class="ttdef"><b>Definition:</b> <a href="event_descriptor_8h_source.html#l00034">eventDescriptor.h:34</a></div></div>
 <div class="ttc" id="structzeq_1_1_event_descriptor_html_afc4d7e2bef549d805cf2c05759db84c3"><div class="ttname"><a href="structzeq_1_1_event_descriptor.html#afc4d7e2bef549d805cf2c05759db84c3">zeq::EventDescriptor::getRestName</a></div><div class="ttdeci">ZEQ_API const std::string &amp; getRestName() const </div></div>
 </div><!-- fragment --></div><!-- contents -->
 </div><!-- doc-content -->
@@ -178,7 +179,7 @@ $(document).ready(function(){initNavTree('event_descriptor_8h_source.html','');}
 <div id="nav-path" class="navpath"><!-- id is needed for treeview function! -->
   <ul>
     <li class="navelem"><a class="el" href="dir_a14633debf41b1fd941c7572b5c9fd3e.html">install</a></li><li class="navelem"><a class="el" href="dir_454137de87d2efb3e1fb66e5aa472cd4.html">include</a></li><li class="navelem"><a class="el" href="dir_1b74014a522530511bc708d25092f0e7.html">zeq</a></li><li class="navelem"><b>eventDescriptor.h</b></li>
-    <li class="footer">Generated on Fri May 1 2015 12:20:19 for zeq by
+    <li class="footer">Generated on Fri May 15 2015 08:32:58 for zeq by
     <a href="http://www.doxygen.org/index.html">
     <img class="footer" src="doxygen.png" alt="doxygen"/></a> 1.8.9.1 </li>
   </ul>

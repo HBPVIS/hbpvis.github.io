@@ -128,7 +128,7 @@ $(document).ready(function(){initNavTree('classzeq_1_1connection_1_1_broker.html
 <div id="dynsection-0-content" class="dyncontent" style="display:none;">
 <div class="center"><img src="classzeq_1_1connection_1_1_broker__inherit__graph.png" border="0" usemap="#zeq_1_1connection_1_1_broker_inherit__map" alt="Inheritance graph"/></div>
 <map name="zeq_1_1connection_1_1_broker_inherit__map" id="zeq_1_1connection_1_1_broker_inherit__map">
-<area shape="rect" id="node2" href="classzeq_1_1_receiver.html" title="Base class for entities receiving data. " alt="" coords="19,131,155,325"/></map>
+<area shape="rect" id="node2" href="classzeq_1_1_receiver.html" title="Base class for entities receiving data. " alt="" coords="19,5,155,200"/></map>
 </div>
 <div id="dynsection-1" onclick="return toggleVisibility(this)" class="dynheader closed" style="cursor:pointer;">
   <img id="dynsection-1-trigger" src="closed.png" alt="+"/> Collaboration diagram for zeq::connection::Broker:</div>
@@ -137,7 +137,7 @@ $(document).ready(function(){initNavTree('classzeq_1_1connection_1_1_broker.html
 <div id="dynsection-1-content" class="dyncontent" style="display:none;">
 <div class="center"><img src="classzeq_1_1connection_1_1_broker__coll__graph.png" border="0" usemap="#zeq_1_1connection_1_1_broker_coll__map" alt="Collaboration graph"/></div>
 <map name="zeq_1_1connection_1_1_broker_coll__map" id="zeq_1_1connection_1_1_broker_coll__map">
-<area shape="rect" id="node2" href="classzeq_1_1_receiver.html" title="Base class for entities receiving data. " alt="" coords="19,131,155,325"/></map>
+<area shape="rect" id="node2" href="classzeq_1_1_receiver.html" title="Base class for entities receiving data. " alt="" coords="19,5,155,200"/></map>
 </div>
 <table class="memberdecls">
 <tr class="heading"><td colspan="2"><h2 class="groupheader"><a name="pub-types"></a>
@@ -205,14 +205,11 @@ void *&#160;</td><td class="memItemRight" valign="bottom"><b>getZMQContext</b> (
 <div class="line"><span class="preprocessor">#include &lt;lunchbox/thread.h&gt;</span></div>
 <div class="line"><span class="preprocessor">#include &lt;lunchbox/servus.h&gt;</span></div>
 <div class="line"><span class="preprocessor">#include &lt;lunchbox/sleep.h&gt;</span></div>
-<div class="line"><span class="preprocessor">#include &lt;boost/bind.hpp&gt;</span></div>
 <div class="line"><span class="preprocessor">#include &lt;memory&gt;</span></div>
-<div class="line"></div>
-<div class="line"><span class="keyword">using</span> boost::lexical_cast;</div>
 <div class="line"></div>
 <div class="line"><span class="keyword">const</span> <span class="keywordtype">unsigned</span> <span class="keywordtype">short</span> port = (lunchbox::RNG().get&lt;uint16_t&gt;() % 60000) + 1024;</div>
 <div class="line"><span class="keyword">const</span> std::string brokerAddress = std::string( <span class="stringliteral">&quot;127.0.0.1:&quot;</span> ) +</div>
-<div class="line">                                  lexical_cast&lt; std::string &gt;( port + 1 );</div>
+<div class="line">                                  std::to_string( port + 1 );</div>
 <div class="line"><span class="keyword">typedef</span> std::unique_ptr&lt; zeq::connection::Broker &gt; BrokerPtr;</div>
 <div class="line"></div>
 <div class="line"><span class="keyword">class </span>Subscriber : <span class="keyword">public</span> lunchbox::Thread</div>
@@ -223,9 +220,9 @@ void *&#160;</td><td class="memItemRight" valign="bottom"><b>getZMQContext</b> (
 <div class="line">    <span class="keywordtype">void</span> run() final</div>
 <div class="line">    {</div>
 <div class="line">        <a class="code" href="classzeq_1_1_subscriber.html">zeq::Subscriber</a> subscriber( lunchbox::URI( <span class="stringliteral">&quot;foo://127.0.0.1:&quot;</span> +</div>
-<div class="line">                                          lexical_cast&lt; std::string &gt;( port )));</div>
+<div class="line">                                    std::to_string( uint32_t(port))));</div>
 <div class="line">        BOOST_CHECK( subscriber.<a class="code" href="classzeq_1_1_subscriber.html#aec321369ed4d395a89fed2fe5334080c">registerHandler</a>( zeq::vocabulary::EVENT_ECHO,</div>
-<div class="line">                                        boost::bind( &amp;test::onEchoEvent, _1 )));</div>
+<div class="line">                       std::bind( &amp;test::onEchoEvent, std::placeholders::_1 )));</div>
 <div class="line"></div>
 <div class="line">        <span class="comment">// Using the connection broker in place of zeroconf</span></div>
 <div class="line">        BrokerPtr broker( createBroker( subscriber ));</div>
@@ -259,8 +256,8 @@ void *&#160;</td><td class="memItemRight" valign="bottom"><b>getZMQContext</b> (
 <div class="line">    subscriber.start();</div>
 <div class="line"></div>
 <div class="line">    <span class="comment">// Using a different scheme so zeroconf resolution does not work</span></div>
-<div class="line">    <a class="code" href="classzeq_1_1_publisher.html">zeq::Publisher</a> publisher( lunchbox::URI( <span class="stringliteral">&quot;bar://*:&quot;</span> +</div>
-<div class="line">                                          lexical_cast&lt; std::string &gt;( port )));</div>
+<div class="line">    <a class="code" href="classzeq_1_1_publisher.html">zeq::Publisher</a> publisher(</div>
+<div class="line">        lunchbox::URI( <span class="stringliteral">&quot;bar://*:&quot;</span> + std::to_string( ( <span class="keywordtype">unsigned</span> <span class="keywordtype">int</span> ) port )));</div>
 <div class="line">    BOOST_CHECK( <a class="code" href="classzeq_1_1connection_1_1_service.html#a8180cb2ded5ea61fc00f61ff25c51578">zeq::connection::Service::subscribe</a>( brokerAddress,</div>
 <div class="line">                                                      publisher ));</div>
 <div class="line">    <span class="keywordflow">for</span>( <span class="keywordtype">size_t</span> i = 0; i &lt; 100 &amp;&amp; !subscriber.received; ++i )</div>
@@ -312,8 +309,8 @@ void *&#160;</td><td class="memItemRight" valign="bottom"><b>getZMQContext</b> (
 <div class="line">    subscriber2.start();</div>
 <div class="line"></div>
 <div class="line">    <span class="comment">// Using a different scheme so zeroconf resolution does not work</span></div>
-<div class="line">    <a class="code" href="classzeq_1_1_publisher.html">zeq::Publisher</a> publisher( lunchbox::URI( <span class="stringliteral">&quot;bar://*:&quot;</span> +</div>
-<div class="line">                                          lexical_cast&lt; std::string &gt;( port )));</div>
+<div class="line">    <a class="code" href="classzeq_1_1_publisher.html">zeq::Publisher</a> publisher(</div>
+<div class="line">        lunchbox::URI( <span class="stringliteral">&quot;bar://*:&quot;</span> + std::to_string( ( <span class="keywordtype">unsigned</span> <span class="keywordtype">int</span> ) port )));</div>
 <div class="line">    BOOST_CHECK( <a class="code" href="classzeq_1_1connection_1_1_service.html#a8180cb2ded5ea61fc00f61ff25c51578">zeq::connection::Service::subscribe</a>(</div>
 <div class="line">                     <span class="stringliteral">&quot;127.0.0.1&quot;</span>, <span class="stringliteral">&quot;zeq::connection::test_named_broker&quot;</span>,</div>
 <div class="line">                     publisher ));</div>
@@ -363,8 +360,9 @@ void *&#160;</td><td class="memItemRight" valign="bottom"><b>getZMQContext</b> (
 <div class="line"></div>
 <div class="line">BOOST_AUTO_TEST_CASE(test_invalid_broker)</div>
 <div class="line">{</div>
-<div class="line">    <a class="code" href="classzeq_1_1_subscriber.html">zeq::Subscriber</a> subscriber( lunchbox::URI( <span class="stringliteral">&quot;foo://127.0.0.1:&quot;</span> +</div>
-<div class="line">                                      lexical_cast&lt; std::string &gt;( port )));</div>
+<div class="line">    <a class="code" href="classzeq_1_1_subscriber.html">zeq::Subscriber</a> subscriber(</div>
+<div class="line">        lunchbox::URI( <span class="stringliteral">&quot;foo://127.0.0.1:&quot;</span> +</div>
+<div class="line">                       std::to_string( ( <span class="keywordtype">unsigned</span> ) port )));</div>
 <div class="line">    BOOST_CHECK_THROW( <a class="code" href="classzeq_1_1connection_1_1_broker.html">zeq::connection::Broker</a>( std::string( <span class="stringliteral">&quot;invalidIP&quot;</span> ),</div>
 <div class="line">                                                subscriber ),</div>
 <div class="line">                       std::runtime_error );</div>
@@ -514,7 +512,7 @@ void *&#160;</td><td class="memItemRight" valign="bottom"><b>getZMQContext</b> (
 <div id="nav-path" class="navpath"><!-- id is needed for treeview function! -->
   <ul>
     <li class="navelem"><a class="el" href="namespacezeq.html">zeq</a></li><li class="navelem"><a class="el" href="namespacezeq_1_1connection.html">connection</a></li><li class="navelem"><a class="el" href="classzeq_1_1connection_1_1_broker.html">Broker</a></li>
-    <li class="footer">Generated on Fri May 1 2015 12:20:19 for zeq by
+    <li class="footer">Generated on Fri May 15 2015 08:32:58 for zeq by
     <a href="http://www.doxygen.org/index.html">
     <img class="footer" src="doxygen.png" alt="doxygen"/></a> 1.8.9.1 </li>
   </ul>

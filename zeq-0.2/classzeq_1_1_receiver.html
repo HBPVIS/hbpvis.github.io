@@ -129,7 +129,7 @@ $(document).ready(function(){initNavTree('classzeq_1_1_receiver.html','');});
 <div id="dynsection-0-content" class="dyncontent" style="display:none;">
 <div class="center"><img src="classzeq_1_1_receiver__inherit__graph.png" border="0" usemap="#zeq_1_1_receiver_inherit__map" alt="Inheritance graph"/></div>
 <map name="zeq_1_1_receiver_inherit__map" id="zeq_1_1_receiver_inherit__map">
-<area shape="rect" id="node3" href="classzeq_1_1connection_1_1_broker.html" title="Brokers subscription requests for a zeq::Receiver. " alt="" coords="5,388,168,495"/><area shape="rect" id="node4" href="classzeq_1_1_subscriber.html" title="Subscribes to Publisher to receive events. " alt="" coords="193,373,341,509"/></map>
+<area shape="rect" id="node2" href="classzeq_1_1connection_1_1_broker.html" title="Brokers subscription requests for a zeq::Receiver. " alt="" coords="5,263,168,369"/><area shape="rect" id="node3" href="classzeq_1_1_subscriber.html" title="Subscribes to Publisher to receive events. " alt="" coords="193,248,341,384"/></map>
 </div>
 <div id="dynsection-1" onclick="return toggleVisibility(this)" class="dynheader closed" style="cursor:pointer;">
   <img id="dynsection-1-trigger" src="closed.png" alt="+"/> Collaboration diagram for zeq::Receiver:</div>
@@ -137,6 +137,8 @@ $(document).ready(function(){initNavTree('classzeq_1_1_receiver.html','');});
 </div>
 <div id="dynsection-1-content" class="dyncontent" style="display:none;">
 <div class="center"><img src="classzeq_1_1_receiver__coll__graph.png" border="0" usemap="#zeq_1_1_receiver_coll__map" alt="Collaboration graph"/></div>
+<map name="zeq_1_1_receiver_coll__map" id="zeq_1_1_receiver_coll__map">
+</map>
 </div>
 <table class="memberdecls">
 <tr class="heading"><td colspan="2"><h2 class="groupheader"><a name="pub-methods"></a>
@@ -198,7 +200,6 @@ class&#160;</td><td class="memItemRight" valign="bottom"><b>connection::detail::
 <div class="line"><span class="preprocessor">#include &lt;lunchbox/sleep.h&gt;</span></div>
 <div class="line"><span class="preprocessor">#include &lt;lunchbox/thread.h&gt;</span></div>
 <div class="line"><span class="preprocessor">#include &lt;lunchbox/servus.h&gt;</span></div>
-<div class="line"><span class="preprocessor">#include &lt;boost/bind.hpp&gt;</span></div>
 <div class="line"></div>
 <div class="line"><span class="keywordtype">bool</span> gotOne = <span class="keyword">false</span>;</div>
 <div class="line"><span class="keywordtype">bool</span> gotTwo = <span class="keyword">false</span>;</div>
@@ -237,15 +238,15 @@ class&#160;</td><td class="memItemRight" valign="bottom"><b>connection::detail::
 <div class="line">{</div>
 <div class="line">    lunchbox::RNG rng;</div>
 <div class="line">    <span class="keyword">const</span> <span class="keywordtype">unsigned</span> <span class="keywordtype">short</span> port = (rng.get&lt;uint16_t&gt;() % 60000) + 1024;</div>
-<div class="line">    <span class="keyword">const</span> std::string&amp; portStr = boost::lexical_cast&lt; std::string &gt;( port );</div>
+<div class="line">    <span class="keyword">const</span> std::string&amp; portStr = std::to_string( ( <span class="keywordtype">unsigned</span> <span class="keywordtype">int</span> ) port );</div>
 <div class="line">    <a class="code" href="classzeq_1_1_subscriber.html">zeq::Subscriber</a> subscriber1( lunchbox::URI( <span class="stringliteral">&quot;foo://localhost:&quot;</span> + portStr ));</div>
 <div class="line">    <a class="code" href="classzeq_1_1_subscriber.html">zeq::Subscriber</a> subscriber2( lunchbox::URI( <span class="stringliteral">&quot;foo://localhost:&quot;</span> + portStr ),</div>
 <div class="line">                                 subscriber1 );</div>
 <div class="line"></div>
 <div class="line">    BOOST_CHECK( subscriber1.registerHandler( zeq::vocabulary::EVENT_ECHO,</div>
-<div class="line">                                              boost::bind( &amp;onEvent1, _1 )));</div>
+<div class="line">                               std::bind( &amp;onEvent1, std::placeholders::_1 )));</div>
 <div class="line">    BOOST_CHECK( subscriber2.registerHandler( zeq::vocabulary::EVENT_ECHO,</div>
-<div class="line">                                              boost::bind( &amp;onEvent2, _1 )));</div>
+<div class="line">                                std::bind( &amp;onEvent2, std::placeholders::_1 )));</div>
 <div class="line"></div>
 <div class="line">    <a class="code" href="classzeq_1_1_publisher.html">zeq::Publisher</a> publisher( lunchbox::URI( <span class="stringliteral">&quot;foo://*:&quot;</span> + portStr ));</div>
 <div class="line"></div>
@@ -257,16 +258,16 @@ class&#160;</td><td class="memItemRight" valign="bottom"><b>connection::detail::
 <div class="line">{</div>
 <div class="line">    lunchbox::RNG rng;</div>
 <div class="line">    <span class="keyword">const</span> <span class="keywordtype">unsigned</span> <span class="keywordtype">short</span> port = (rng.get&lt;uint16_t&gt;() % 60000) + 1024;</div>
-<div class="line">    <span class="keyword">const</span> std::string&amp; portStr = boost::lexical_cast&lt; std::string &gt;( port );</div>
+<div class="line">    <span class="keyword">const</span> std::string&amp; portStr = std::to_string( ( <span class="keywordtype">unsigned</span> <span class="keywordtype">int</span> ) port );</div>
 <div class="line">    <a class="code" href="classzeq_1_1_subscriber.html">zeq::Subscriber</a>* subscriber1 =</div>
 <div class="line">        <span class="keyword">new</span> <a class="code" href="classzeq_1_1_subscriber.html">zeq::Subscriber</a>( lunchbox::URI( <span class="stringliteral">&quot;foo://localhost:1000&quot;</span> ));</div>
 <div class="line">    <a class="code" href="classzeq_1_1_subscriber.html">zeq::Subscriber</a> subscriber2( lunchbox::URI( <span class="stringliteral">&quot;foo://localhost:&quot;</span> + portStr ),</div>
 <div class="line">                                 *subscriber1 );</div>
 <div class="line"></div>
-<div class="line">    BOOST_CHECK( subscriber1-&gt;registerHandler( zeq::vocabulary::EVENT_ECHO,</div>
-<div class="line">                                               boost::bind( &amp;onEvent1, _1 )));</div>
+<div class="line">    BOOST_CHECK( subscriber1-&gt;<a class="code" href="classzeq_1_1_subscriber.html#aec321369ed4d395a89fed2fe5334080c">registerHandler</a>( zeq::vocabulary::EVENT_ECHO,</div>
+<div class="line">                                std::bind( &amp;onEvent1, std::placeholders::_1 )));</div>
 <div class="line">    BOOST_CHECK( subscriber2.registerHandler( zeq::vocabulary::EVENT_ECHO,</div>
-<div class="line">                                              boost::bind( &amp;onEvent2, _1 )));</div>
+<div class="line">                                std::bind( &amp;onEvent2, std::placeholders::_1 )));</div>
 <div class="line"></div>
 <div class="line">    <a class="code" href="classzeq_1_1_publisher.html">zeq::Publisher</a> publisher( lunchbox::URI( <span class="stringliteral">&quot;foo://*:&quot;</span> + portStr ));</div>
 <div class="line"></div>
@@ -281,7 +282,7 @@ class&#160;</td><td class="memItemRight" valign="bottom"><b>connection::detail::
 <div class="line">    BOOST_CHECK( !gotOne );</div>
 <div class="line">}</div>
 </div><!-- fragment --> 
-<p>Definition at line <a class="el" href="receiver_8h_source.html#l00031">31</a> of file <a class="el" href="receiver_8h_source.html">receiver.h</a>.</p>
+<p>Definition at line <a class="el" href="receiver_8h_source.html#l00030">30</a> of file <a class="el" href="receiver_8h_source.html">receiver.h</a>.</p>
 </div><h2 class="groupheader">Constructor &amp; Destructor Documentation</h2>
 <a class="anchor" id="ab0f6c8102579a854a69d88e96dc1570a"></a>
 <div class="memitem">
@@ -478,7 +479,7 @@ class&#160;</td><td class="memItemRight" valign="bottom"><b>connection::detail::
 <p>Update the internal connection list. </p>
 <p>Called on all members of a shared group regularly by <a class="el" href="classzeq_1_1_receiver.html#a72e616d24249924476c4a4e45202976c" title="Receive at least one event from all shared receivers. ">receive()</a> to update their list of sockets. </p>
 
-<p>Definition at line <a class="el" href="receiver_8h_source.html#l00079">79</a> of file <a class="el" href="receiver_8h_source.html">receiver.h</a>.</p>
+<p>Definition at line <a class="el" href="receiver_8h_source.html#l00078">78</a> of file <a class="el" href="receiver_8h_source.html">receiver.h</a>.</p>
 
 </div>
 </div>
@@ -491,7 +492,7 @@ class&#160;</td><td class="memItemRight" valign="bottom"><b>connection::detail::
 <div id="nav-path" class="navpath"><!-- id is needed for treeview function! -->
   <ul>
     <li class="navelem"><a class="el" href="namespacezeq.html">zeq</a></li><li class="navelem"><a class="el" href="classzeq_1_1_receiver.html">Receiver</a></li>
-    <li class="footer">Generated on Fri May 1 2015 12:20:19 for zeq by
+    <li class="footer">Generated on Fri May 15 2015 08:32:58 for zeq by
     <a href="http://www.doxygen.org/index.html">
     <img class="footer" src="doxygen.png" alt="doxygen"/></a> 1.8.9.1 </li>
   </ul>

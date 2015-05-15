@@ -260,8 +260,6 @@ static const std::string&#160;</td><td class="memItemRight" valign="bottom"><b>V
 <div class="line"><span class="preprocessor">#include &lt;tests/newEvent_generated.h&gt;</span></div>
 <div class="line"><span class="preprocessor">#include &lt;tests/newEvent_zeq_generated.h&gt;</span></div>
 <div class="line"></div>
-<div class="line"><span class="preprocessor">#include &lt;boost/bind.hpp&gt;</span></div>
-<div class="line"></div>
 <div class="line"><span class="keyword">namespace </span>zeqtest</div>
 <div class="line">{</div>
 <div class="line"><span class="keyword">static</span> <span class="keyword">const</span> std::string message( <span class="stringliteral">&quot;So long, and thanks for all the fish&quot;</span> );</div>
@@ -297,10 +295,10 @@ static const std::string&#160;</td><td class="memItemRight" valign="bottom"><b>V
 <div class="line">{</div>
 <div class="line">    lunchbox::RNG rng;</div>
 <div class="line">    <span class="keyword">const</span> <span class="keywordtype">unsigned</span> <span class="keywordtype">short</span> port = (rng.get&lt;uint16_t&gt;() % 60000) + 1024;</div>
-<div class="line">    <span class="keyword">const</span> std::string&amp; portStr = boost::lexical_cast&lt; std::string &gt;( port );</div>
+<div class="line">    <span class="keyword">const</span> std::string&amp; portStr = std::to_string( uint32_t(port));</div>
 <div class="line">    <a class="code" href="classzeq_1_1_subscriber.html">zeq::Subscriber</a> subscriber( lunchbox::URI( <span class="stringliteral">&quot;foo://localhost:&quot;</span> + portStr ));</div>
 <div class="line">    BOOST_CHECK( subscriber.<a class="code" href="classzeq_1_1_subscriber.html#aec321369ed4d395a89fed2fe5334080c">registerHandler</a>( zeqtest::EVENT_NEWEVENT,</div>
-<div class="line">                                  boost::bind( &amp;zeqtest::onMessageEvent, _1 )));</div>
+<div class="line">                 std::bind( &amp;zeqtest::onMessageEvent, std::placeholders::_1 )));</div>
 <div class="line"></div>
 <div class="line">    <a class="code" href="classzeq_1_1_publisher.html">zeq::Publisher</a> publisher( lunchbox::URI( <span class="stringliteral">&quot;foo://*:&quot;</span> + portStr ));</div>
 <div class="line"></div>
@@ -536,7 +534,7 @@ static const std::string&#160;</td><td class="memItemRight" valign="bottom"><b>V
 <div id="nav-path" class="navpath"><!-- id is needed for treeview function! -->
   <ul>
     <li class="navelem"><a class="el" href="namespacezeq.html">zeq</a></li><li class="navelem"><a class="el" href="namespacezeq_1_1vocabulary.html">vocabulary</a></li>
-    <li class="footer">Generated on Fri May 1 2015 12:20:19 for zeq by
+    <li class="footer">Generated on Fri May 15 2015 08:32:58 for zeq by
     <a href="http://www.doxygen.org/index.html">
     <img class="footer" src="doxygen.png" alt="doxygen"/></a> 1.8.9.1 </li>
   </ul>

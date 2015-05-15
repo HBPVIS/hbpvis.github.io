@@ -120,40 +120,43 @@ $(document).ready(function(){initNavTree('service_8h_source.html','');});
 <div class="line"><a name="l00008"></a><span class="lineno">    8</span>&#160;</div>
 <div class="line"><a name="l00009"></a><span class="lineno">    9</span>&#160;<span class="preprocessor">#include &lt;<a class="code" href="api_8h.html">zeq/api.h</a>&gt;</span></div>
 <div class="line"><a name="l00010"></a><span class="lineno">   10</span>&#160;<span class="preprocessor">#include &lt;zeq/types.h&gt;</span></div>
-<div class="line"><a name="l00011"></a><span class="lineno">   11</span>&#160;<span class="preprocessor">#include &lt;boost/noncopyable.hpp&gt;</span></div>
-<div class="line"><a name="l00012"></a><span class="lineno">   12</span>&#160;<span class="preprocessor">#include &lt;string&gt;</span></div>
-<div class="line"><a name="l00013"></a><span class="lineno">   13</span>&#160;</div>
-<div class="line"><a name="l00014"></a><span class="lineno">   14</span>&#160;<span class="keyword">namespace </span><a class="code" href="namespacezeq.html">zeq</a></div>
-<div class="line"><a name="l00015"></a><span class="lineno">   15</span>&#160;{</div>
-<div class="line"><a name="l00016"></a><span class="lineno">   16</span>&#160;<span class="keyword">namespace </span>connection</div>
-<div class="line"><a name="l00017"></a><span class="lineno">   17</span>&#160;{</div>
-<div class="line"><a name="l00018"></a><span class="lineno">   18</span>&#160;</div>
-<div class="line"><a name="l00024"></a><span class="lineno"><a class="line" href="classzeq_1_1connection_1_1_service.html">   24</a></span>&#160;<span class="keyword">class </span><a class="code" href="classzeq_1_1connection_1_1_service.html">Service</a> : <span class="keyword">public</span> boost::noncopyable</div>
-<div class="line"><a name="l00025"></a><span class="lineno">   25</span>&#160;{</div>
-<div class="line"><a name="l00026"></a><span class="lineno">   26</span>&#160;<span class="keyword">public</span>:</div>
-<div class="line"><a name="l00038"></a><span class="lineno">   38</span>&#160;    ZEQ_API <span class="keyword">static</span> <span class="keywordtype">bool</span> <a class="code" href="classzeq_1_1connection_1_1_service.html#a8180cb2ded5ea61fc00f61ff25c51578">subscribe</a>( <span class="keyword">const</span> std::string&amp; address,</div>
-<div class="line"><a name="l00039"></a><span class="lineno">   39</span>&#160;                                   <span class="keyword">const</span> <a class="code" href="classzeq_1_1_publisher.html">Publisher</a>&amp; publisher );</div>
-<div class="line"><a name="l00040"></a><span class="lineno">   40</span>&#160;</div>
-<div class="line"><a name="l00054"></a><span class="lineno">   54</span>&#160;    ZEQ_API <span class="keyword">static</span> <span class="keywordtype">bool</span> <a class="code" href="classzeq_1_1connection_1_1_service.html#a8180cb2ded5ea61fc00f61ff25c51578">subscribe</a>( <span class="keyword">const</span> std::string&amp; brokerAddress,</div>
-<div class="line"><a name="l00055"></a><span class="lineno">   55</span>&#160;                                   <span class="keyword">const</span> std::string&amp; name,</div>
-<div class="line"><a name="l00056"></a><span class="lineno">   56</span>&#160;                                   <span class="keyword">const</span> <a class="code" href="classzeq_1_1_publisher.html">Publisher</a>&amp; publisher );</div>
-<div class="line"><a name="l00057"></a><span class="lineno">   57</span>&#160;};</div>
-<div class="line"><a name="l00058"></a><span class="lineno">   58</span>&#160;</div>
-<div class="line"><a name="l00059"></a><span class="lineno">   59</span>&#160;}</div>
-<div class="line"><a name="l00060"></a><span class="lineno">   60</span>&#160;}</div>
-<div class="line"><a name="l00061"></a><span class="lineno">   61</span>&#160;<span class="preprocessor">#endif</span></div>
+<div class="line"><a name="l00011"></a><span class="lineno">   11</span>&#160;<span class="preprocessor">#include &lt;string&gt;</span></div>
+<div class="line"><a name="l00012"></a><span class="lineno">   12</span>&#160;</div>
+<div class="line"><a name="l00013"></a><span class="lineno">   13</span>&#160;<span class="keyword">namespace </span><a class="code" href="namespacezeq.html">zeq</a></div>
+<div class="line"><a name="l00014"></a><span class="lineno">   14</span>&#160;{</div>
+<div class="line"><a name="l00015"></a><span class="lineno">   15</span>&#160;<span class="keyword">namespace </span>connection</div>
+<div class="line"><a name="l00016"></a><span class="lineno">   16</span>&#160;{</div>
+<div class="line"><a name="l00017"></a><span class="lineno">   17</span>&#160;</div>
+<div class="line"><a name="l00023"></a><span class="lineno"><a class="line" href="classzeq_1_1connection_1_1_service.html">   23</a></span>&#160;<span class="keyword">class </span><a class="code" href="classzeq_1_1connection_1_1_service.html">Service</a></div>
+<div class="line"><a name="l00024"></a><span class="lineno">   24</span>&#160;{</div>
+<div class="line"><a name="l00025"></a><span class="lineno">   25</span>&#160;<span class="keyword">public</span>:</div>
+<div class="line"><a name="l00037"></a><span class="lineno">   37</span>&#160;    ZEQ_API <span class="keyword">static</span> <span class="keywordtype">bool</span> <a class="code" href="classzeq_1_1connection_1_1_service.html#a8180cb2ded5ea61fc00f61ff25c51578">subscribe</a>( <span class="keyword">const</span> std::string&amp; address,</div>
+<div class="line"><a name="l00038"></a><span class="lineno">   38</span>&#160;                                   <span class="keyword">const</span> <a class="code" href="classzeq_1_1_publisher.html">Publisher</a>&amp; publisher );</div>
+<div class="line"><a name="l00039"></a><span class="lineno">   39</span>&#160;</div>
+<div class="line"><a name="l00053"></a><span class="lineno">   53</span>&#160;    ZEQ_API <span class="keyword">static</span> <span class="keywordtype">bool</span> <a class="code" href="classzeq_1_1connection_1_1_service.html#a8180cb2ded5ea61fc00f61ff25c51578">subscribe</a>( <span class="keyword">const</span> std::string&amp; brokerAddress,</div>
+<div class="line"><a name="l00054"></a><span class="lineno">   54</span>&#160;                                   <span class="keyword">const</span> std::string&amp; name,</div>
+<div class="line"><a name="l00055"></a><span class="lineno">   55</span>&#160;                                   <span class="keyword">const</span> <a class="code" href="classzeq_1_1_publisher.html">Publisher</a>&amp; publisher );</div>
+<div class="line"><a name="l00056"></a><span class="lineno">   56</span>&#160;</div>
+<div class="line"><a name="l00057"></a><span class="lineno">   57</span>&#160;<span class="keyword">private</span>:</div>
+<div class="line"><a name="l00058"></a><span class="lineno">   58</span>&#160;    <a class="code" href="classzeq_1_1connection_1_1_service.html">Service</a>( <span class="keyword">const</span> <a class="code" href="classzeq_1_1connection_1_1_service.html">Service</a>&amp; ) = <span class="keyword">delete</span>;</div>
+<div class="line"><a name="l00059"></a><span class="lineno">   59</span>&#160;    <a class="code" href="classzeq_1_1connection_1_1_service.html">Service</a>&amp; operator=( <span class="keyword">const</span> <a class="code" href="classzeq_1_1connection_1_1_service.html">Service</a>&amp; ) = <span class="keyword">delete</span>;</div>
+<div class="line"><a name="l00060"></a><span class="lineno">   60</span>&#160;};</div>
+<div class="line"><a name="l00061"></a><span class="lineno">   61</span>&#160;</div>
+<div class="line"><a name="l00062"></a><span class="lineno">   62</span>&#160;}</div>
+<div class="line"><a name="l00063"></a><span class="lineno">   63</span>&#160;}</div>
+<div class="line"><a name="l00064"></a><span class="lineno">   64</span>&#160;<span class="preprocessor">#endif</span></div>
 <div class="ttc" id="api_8h_html"><div class="ttname"><a href="api_8h.html">api.h</a></div><div class="ttdoc">Defines export visibility macros for bbp. </div></div>
-<div class="ttc" id="classzeq_1_1connection_1_1_service_html"><div class="ttname"><a href="classzeq_1_1connection_1_1_service.html">zeq::connection::Service</a></div><div class="ttdoc">Subscribes a Publisher to a remote receiver using a connection::Broker. </div><div class="ttdef"><b>Definition:</b> <a href="service_8h_source.html#l00024">service.h:24</a></div></div>
+<div class="ttc" id="classzeq_1_1connection_1_1_service_html"><div class="ttname"><a href="classzeq_1_1connection_1_1_service.html">zeq::connection::Service</a></div><div class="ttdoc">Subscribes a Publisher to a remote receiver using a connection::Broker. </div><div class="ttdef"><b>Definition:</b> <a href="service_8h_source.html#l00023">service.h:23</a></div></div>
 <div class="ttc" id="classzeq_1_1connection_1_1_service_html_a8180cb2ded5ea61fc00f61ff25c51578"><div class="ttname"><a href="classzeq_1_1connection_1_1_service.html#a8180cb2ded5ea61fc00f61ff25c51578">zeq::connection::Service::subscribe</a></div><div class="ttdeci">static ZEQ_API bool subscribe(const std::string &amp;address, const Publisher &amp;publisher)</div><div class="ttdoc">Request subscription of the given publisher to a remote broker. </div></div>
 <div class="ttc" id="namespacezeq_html"><div class="ttname"><a href="namespacezeq.html">zeq</a></div><div class="ttdoc">Publish-subscribe classes for typed events. </div><div class="ttdef"><b>Definition:</b> <a href="broker_8h_source.html#l00012">broker.h:12</a></div></div>
-<div class="ttc" id="classzeq_1_1_publisher_html"><div class="ttname"><a href="classzeq_1_1_publisher.html">zeq::Publisher</a></div><div class="ttdoc">Serves and publishes events, consumed by Subscriber. </div><div class="ttdef"><b>Definition:</b> <a href="publisher_8h_source.html#l00024">publisher.h:24</a></div></div>
+<div class="ttc" id="classzeq_1_1_publisher_html"><div class="ttname"><a href="classzeq_1_1_publisher.html">zeq::Publisher</a></div><div class="ttdoc">Serves and publishes events, consumed by Subscriber. </div><div class="ttdef"><b>Definition:</b> <a href="publisher_8h_source.html#l00022">publisher.h:22</a></div></div>
 </div><!-- fragment --></div><!-- contents -->
 </div><!-- doc-content -->
 <!-- start footer part -->
 <div id="nav-path" class="navpath"><!-- id is needed for treeview function! -->
   <ul>
     <li class="navelem"><a class="el" href="dir_a14633debf41b1fd941c7572b5c9fd3e.html">install</a></li><li class="navelem"><a class="el" href="dir_454137de87d2efb3e1fb66e5aa472cd4.html">include</a></li><li class="navelem"><a class="el" href="dir_1b74014a522530511bc708d25092f0e7.html">zeq</a></li><li class="navelem"><a class="el" href="dir_690662298b5f8e5daecb3a784bf95a82.html">connection</a></li><li class="navelem"><b>service.h</b></li>
-    <li class="footer">Generated on Fri May 1 2015 12:20:19 for zeq by
+    <li class="footer">Generated on Fri May 15 2015 08:32:58 for zeq by
     <a href="http://www.doxygen.org/index.html">
     <img class="footer" src="doxygen.png" alt="doxygen"/></a> 1.8.9.1 </li>
   </ul>

@@ -127,7 +127,7 @@ $(document).ready(function(){initNavTree('classzeq_1_1_subscriber.html','');});
 <div id="dynsection-0-content" class="dyncontent" style="display:none;">
 <div class="center"><img src="classzeq_1_1_subscriber__inherit__graph.png" border="0" usemap="#zeq_1_1_subscriber_inherit__map" alt="Inheritance graph"/></div>
 <map name="zeq_1_1_subscriber_inherit__map" id="zeq_1_1_subscriber_inherit__map">
-<area shape="rect" id="node2" href="classzeq_1_1_receiver.html" title="Base class for entities receiving data. " alt="" coords="11,131,147,325"/></map>
+<area shape="rect" id="node2" href="classzeq_1_1_receiver.html" title="Base class for entities receiving data. " alt="" coords="11,5,147,200"/></map>
 </div>
 <div id="dynsection-1" onclick="return toggleVisibility(this)" class="dynheader closed" style="cursor:pointer;">
   <img id="dynsection-1-trigger" src="closed.png" alt="+"/> Collaboration diagram for zeq::Subscriber:</div>
@@ -136,7 +136,7 @@ $(document).ready(function(){initNavTree('classzeq_1_1_subscriber.html','');});
 <div id="dynsection-1-content" class="dyncontent" style="display:none;">
 <div class="center"><img src="classzeq_1_1_subscriber__coll__graph.png" border="0" usemap="#zeq_1_1_subscriber_coll__map" alt="Collaboration graph"/></div>
 <map name="zeq_1_1_subscriber_coll__map" id="zeq_1_1_subscriber_coll__map">
-<area shape="rect" id="node2" href="classzeq_1_1_receiver.html" title="Base class for entities receiving data. " alt="" coords="11,131,147,325"/></map>
+<area shape="rect" id="node2" href="classzeq_1_1_receiver.html" title="Base class for entities receiving data. " alt="" coords="11,5,147,200"/></map>
 </div>
 <table class="memberdecls">
 <tr class="heading"><td colspan="2"><h2 class="groupheader"><a name="pub-methods"></a>
@@ -190,7 +190,6 @@ void *&#160;</td><td class="memItemRight" valign="bottom"><b>getZMQContext</b> (
 <div class="line"></div>
 <div class="line"><span class="preprocessor">#include &quot;broker.h&quot;</span></div>
 <div class="line"><span class="preprocessor">#include &lt;lunchbox/servus.h&gt;</span></div>
-<div class="line"><span class="preprocessor">#include &lt;boost/bind.hpp&gt;</span></div>
 <div class="line"></div>
 <div class="line"><span class="keyword">using namespace </span><a class="code" href="namespacezeq_1_1vocabulary.html">zeq::vocabulary</a>;</div>
 <div class="line"></div>
@@ -209,33 +208,33 @@ void *&#160;</td><td class="memItemRight" valign="bottom"><b>getZMQContext</b> (
 <div class="line">BOOST_AUTO_TEST_CASE(test_registerhandler)</div>
 <div class="line">{</div>
 <div class="line">    <a class="code" href="classzeq_1_1_subscriber.html">zeq::Subscriber</a> subscriber( test::buildURI( ));</div>
-<div class="line">    BOOST_CHECK( subscriber.registerHandler(</div>
-<div class="line">                     EVENT_ECHO, boost::bind( &amp;test::onEchoEvent, _1 )));</div>
+<div class="line">    BOOST_CHECK( subscriber.registerHandler( EVENT_ECHO,</div>
+<div class="line">                       std::bind( &amp;test::onEchoEvent, std::placeholders::_1 )));</div>
 <div class="line">}</div>
 <div class="line"></div>
 <div class="line">BOOST_AUTO_TEST_CASE(test_deregisterhandler)</div>
 <div class="line">{</div>
 <div class="line">    <a class="code" href="classzeq_1_1_subscriber.html">zeq::Subscriber</a> subscriber( test::buildURI( ));</div>
-<div class="line">    BOOST_CHECK( subscriber.registerHandler(</div>
-<div class="line">                     EVENT_ECHO, boost::bind( &amp;test::onEchoEvent, _1 )));</div>
+<div class="line">    BOOST_CHECK( subscriber.registerHandler( EVENT_ECHO,</div>
+<div class="line">                       std::bind( &amp;test::onEchoEvent, std::placeholders::_1 )));</div>
 <div class="line">    BOOST_CHECK( subscriber.deregisterHandler( EVENT_ECHO ));</div>
 <div class="line">}</div>
 <div class="line"></div>
 <div class="line">BOOST_AUTO_TEST_CASE(test_invalid_registerhandler)</div>
 <div class="line">{</div>
 <div class="line">    <a class="code" href="classzeq_1_1_subscriber.html">zeq::Subscriber</a> subscriber( test::buildURI( ));</div>
-<div class="line">    BOOST_CHECK( subscriber.registerHandler(</div>
-<div class="line">                     EVENT_ECHO, boost::bind( &amp;test::onEchoEvent, _1 )));</div>
-<div class="line">    BOOST_CHECK( !subscriber.registerHandler(</div>
-<div class="line">                     EVENT_ECHO, boost::bind( &amp;test::onEchoEvent, _1 )));</div>
+<div class="line">    BOOST_CHECK( subscriber.registerHandler( EVENT_ECHO,</div>
+<div class="line">                       std::bind( &amp;test::onEchoEvent, std::placeholders::_1 )));</div>
+<div class="line">    BOOST_CHECK( !subscriber.registerHandler( EVENT_ECHO,</div>
+<div class="line">                       std::bind( &amp;test::onEchoEvent, std::placeholders::_1 )));</div>
 <div class="line">}</div>
 <div class="line"></div>
 <div class="line">BOOST_AUTO_TEST_CASE(test_invalid_deregisterhandler)</div>
 <div class="line">{</div>
 <div class="line">    <a class="code" href="classzeq_1_1_subscriber.html">zeq::Subscriber</a> subscriber( test::buildURI( ));</div>
 <div class="line">    BOOST_CHECK( !subscriber.deregisterHandler( EVENT_ECHO ));</div>
-<div class="line">    BOOST_CHECK( subscriber.registerHandler(</div>
-<div class="line">                     EVENT_ECHO, boost::bind( &amp;test::onEchoEvent, _1 )));</div>
+<div class="line">    BOOST_CHECK( subscriber.registerHandler( EVENT_ECHO,</div>
+<div class="line">                       std::bind( &amp;test::onEchoEvent, std::placeholders::_1 )));</div>
 <div class="line">    BOOST_CHECK( !subscriber.deregisterHandler(zeq::vocabulary::EVENT_EXIT ));</div>
 <div class="line">}</div>
 <div class="line"></div>
@@ -378,7 +377,7 @@ void *&#160;</td><td class="memItemRight" valign="bottom"><b>getZMQContext</b> (
 <div id="nav-path" class="navpath"><!-- id is needed for treeview function! -->
   <ul>
     <li class="navelem"><a class="el" href="namespacezeq.html">zeq</a></li><li class="navelem"><a class="el" href="classzeq_1_1_subscriber.html">Subscriber</a></li>
-    <li class="footer">Generated on Fri May 1 2015 12:20:19 for zeq by
+    <li class="footer">Generated on Fri May 15 2015 08:32:58 for zeq by
     <a href="http://www.doxygen.org/index.html">
     <img class="footer" src="doxygen.png" alt="doxygen"/></a> 1.8.9.1 </li>
   </ul>

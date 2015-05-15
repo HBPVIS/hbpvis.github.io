@@ -1,5 +1,7 @@
 var searchData=
 [
-  ['port_5ffixed',['PORT_FIXED',['../classzeq_1_1connection_1_1_broker.html#ac63c0d3298bbeedbe294507ffa540263a8f378a27058447abe7a122db7e440299',1,'zeq::connection::Broker']]],
-  ['port_5ffixed_5for_5frandom',['PORT_FIXED_OR_RANDOM',['../classzeq_1_1connection_1_1_broker.html#ac63c0d3298bbeedbe294507ffa540263adef3bc2eb49ac4bd354f67be82a028f6',1,'zeq::connection::Broker']]]
+  ['announce_5fall',['ANNOUNCE_ALL',['../namespacezeq.html#a9d40cc95f062939118c95e4538b45bafa533f9705a86c77b3fef1e05ba7746413',1,'zeq']]],
+  ['announce_5fnone',['ANNOUNCE_NONE',['../namespacezeq.html#a9d40cc95f062939118c95e4538b45bafa4268ffbbcbe06e4afdcd6622a4749b85',1,'zeq']]],
+  ['announce_5frequired',['ANNOUNCE_REQUIRED',['../namespacezeq.html#a9d40cc95f062939118c95e4538b45bafa117ccb996f6bbdb4101ad4ad9051aac4',1,'zeq']]],
+  ['announce_5fzeroconf',['ANNOUNCE_ZEROCONF',['../namespacezeq.html#a9d40cc95f062939118c95e4538b45bafa88ba7d84d360bc82cd56ff2c467f8118',1,'zeq']]]
 ];
