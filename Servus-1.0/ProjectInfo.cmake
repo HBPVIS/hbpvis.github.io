@@ -1,0 +1,7 @@
+set(SERVUS_MATURITY "EP")
+set(SERVUS_DESCRIPTION "A small set of network oriented utilities in C++ including a zeroconf implementation.")
+set(SERVUS_GIT_ROOT_URL "ssh://git@github.com/HBPVIS/Servus.git")
+set(SERVUS_PACKAGE_URL "")
+set(SERVUS_CI_URL "ssh://git@travis-ci.org/HBPVIS/Servus")
+set(SERVUS_CI_PNG "ssh://git@travis-ci.org/HBPVIS/Servus.png")
+set(SERVUS_ISSUES_URL "ssh://git@github.com/HBPVIS/Servus/issues")
