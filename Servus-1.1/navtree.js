@@ -6,10 +6,9 @@ var NAVTREE =
     ] ],
     [ "Building", "index.html#Building", null ],
     [ "Changelog", "_changelog.html", [
-      [ "Release 1.1.1", "_changelog.html#Release010101", null ],
-      [ "Release 1.1", "_changelog.html#Release010100", null ],
-      [ "Release 1.0.1", "_changelog.html#Release010010", null ],
-      [ "Release 1.0", "_changelog.html#Release010000", null ]
+      [ "Release 1.1.0 (07-07-2015)", "_changelog.html#Release010100", null ],
+      [ "Release 1.0.1 (29-05-2015)", "_changelog.html#Release010010", null ],
+      [ "Release 1.0.0 (21-05-2015)", "_changelog.html#Release010000", null ]
     ] ],
     [ "Classes", null, [
       [ "Class List", "annotated.html", "annotated" ],

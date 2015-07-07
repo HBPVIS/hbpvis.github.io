@@ -2,10 +2,9 @@ var NAVTREEINDEX0 =
 {
 ".html":[3,0,0],
 "_changelog.html":[2],
-"_changelog.html#Release010000":[2,3],
-"_changelog.html#Release010010":[2,2],
-"_changelog.html#Release010100":[2,1],
-"_changelog.html#Release010101":[2,0],
+"_changelog.html#Release010000":[2,2],
+"_changelog.html#Release010010":[2,1],
+"_changelog.html#Release010100":[2,0],
 "annotated.html":[3,0],
 "api_8h.html":[4,0,0],
 "api_8h.html#a02ad07831b2aac6f991517cefab38711":[4,0,0,0],
