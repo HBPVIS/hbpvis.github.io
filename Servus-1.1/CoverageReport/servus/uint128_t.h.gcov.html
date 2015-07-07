@@ -19,7 +19,7 @@
         <table cellpadding=1 border=0 width="100%">
           <tr>
             <td width="10%" class="headerItem">Current view:</td>
-            <td width="35%" class="headerValue"><a href="../index.html">top level</a> - <a href="index.html">servus</a> - uint128_t.h<span style="font-size: 80%;"> (source / <a href="uint128_t.h.func.html">functions</a>)</span></td>
+            <td width="35%" class="headerValue"><a href="../index.html">top level</a> - <a href="index.html">servus</a> - uint128_t.h<span style="font-size: 80%;"> (source / <a href="uint128_t.h.func-sort-c.html">functions</a>)</span></td>
             <td width="5%"></td>
             <td width="15%"></td>
             <td width="10%" class="headerCovTableHead">Hit</td>
@@ -31,18 +31,18 @@
             <td class="headerValue">Servus</td>
             <td></td>
             <td class="headerItem">Lines:</td>
-            <td class="headerCovTableEntry">0</td>
-            <td class="headerCovTableEntry">4</td>
-            <td class="headerCovTableEntryLo">0.0 %</td>
+            <td class="headerCovTableEntry">42</td>
+            <td class="headerCovTableEntry">47</td>
+            <td class="headerCovTableEntryHi">89.4 %</td>
           </tr>
           <tr>
             <td class="headerItem">Date:</td>
-            <td class="headerValue">2015-07-07</td>
+            <td class="headerValue">2015-07-07 15:47:42</td>
             <td></td>
             <td class="headerItem">Functions:</td>
-            <td class="headerCovTableEntry">0</td>
-            <td class="headerCovTableEntry">3</td>
-            <td class="headerCovTableEntryLo">0.0 %</td>
+            <td class="headerCovTableEntry">16</td>
+            <td class="headerCovTableEntry">17</td>
+            <td class="headerCovTableEntryHi">94.1 %</td>
           </tr>
           <tr><td><img src="../glass.png" width=3 height=3 alt=""></td></tr>
         </table>
@@ -111,8 +111,8 @@
 <span class="lineNum">      49 </span>            :     /**
 <a name="50"><span class="lineNum">      50 </span>            :      * Construct a new 128 bit integer with a default value.</a>
 <span class="lineNum">      51 </span>            :      */
-<span class="lineNum">      52 </span><span class="lineNoCov">          0 :     explicit uint128_t( const unsigned long long low_ = 0 )</span>
-<span class="lineNum">      53 </span><span class="lineNoCov">          0 :         : _high( 0 ), _low( low_ ) {}</span>
+<span class="lineNum">      52 </span><span class="lineCov">      99962 :     explicit uint128_t( const unsigned long long low_ = 0 )</span>
+<span class="lineNum">      53 </span><span class="lineCov">      99962 :         : _high( 0 ), _low( low_ ) {}</span>
 <span class="lineNum">      54 </span>            : 
 <span class="lineNum">      55 </span>            :     /**
 <span class="lineNum">      56 </span>            :      * Construct a new 128 bit integer with a default value.
@@ -120,15 +120,15 @@
 <span class="lineNum">      58 </span>            :     explicit uint128_t( const unsigned long low_ ) : _high( 0 ), _low( low_ ) {}
 <span class="lineNum">      59 </span>            : 
 <span class="lineNum">      60 </span>            :     /**
-<span class="lineNum">      61 </span>            :      * Construct a new 128 bit integer with a default value.
+<a name="61"><span class="lineNum">      61 </span>            :      * Construct a new 128 bit integer with a default value.</a>
 <span class="lineNum">      62 </span>            :      */
-<span class="lineNum">      63 </span>            :     explicit uint128_t( const int low_ ) : _high( 0 ), _low( low_ ) {}
+<span class="lineNum">      63 </span><span class="lineCov">          1 :     explicit uint128_t( const int low_ ) : _high( 0 ), _low( low_ ) {}</span>
 <span class="lineNum">      64 </span>            : 
 <span class="lineNum">      65 </span>            :     /**
-<span class="lineNum">      66 </span>            :      * Construct a new 128 bit integer with default values.
+<a name="66"><span class="lineNum">      66 </span>            :      * Construct a new 128 bit integer with default values.</a>
 <span class="lineNum">      67 </span>            :      **/
-<span class="lineNum">      68 </span>            :     uint128_t( const uint64_t high_, const uint64_t low_ )
-<span class="lineNum">      69 </span>            :         : _high( high_ ), _low( low_ ) {}
+<span class="lineNum">      68 </span><span class="lineCov">          6 :     uint128_t( const uint64_t high_, const uint64_t low_ )</span>
+<span class="lineNum">      69 </span><span class="lineCov">          6 :         : _high( high_ ), _low( low_ ) {}</span>
 <span class="lineNum">      70 </span>            : 
 <span class="lineNum">      71 </span>            :     /**
 <span class="lineNum">      72 </span>            :      * Construct a new 128 bit integer from a string representation.
@@ -138,16 +138,16 @@
 <span class="lineNum">      76 </span>            : 
 <span class="lineNum">      77 </span>            :     /**
 <span class="lineNum">      78 </span>            :      * @return true if the uint128_t is a generated universally unique
-<span class="lineNum">      79 </span>            :      *         identifier.
+<a name="79"><span class="lineNum">      79 </span>            :      *         identifier.</a>
 <span class="lineNum">      80 </span>            :      */
-<span class="lineNum">      81 </span>            :     bool isUUID() const { return high() != 0; }
-<span class="lineNum">      82 </span>            : 
+<span class="lineNum">      81 </span><span class="lineCov">     100003 :     bool isUUID() const { return high() != 0; }</span>
+<a name="82"><span class="lineNum">      82 </span>            : </a>
 <span class="lineNum">      83 </span>            :     /** Assign another 128 bit value. */
-<span class="lineNum">      84 </span>            :     uint128_t&amp; operator = ( const servus::uint128_t&amp; rhs )
+<span class="lineNum">      84 </span><span class="lineCov">         10 :     uint128_t&amp; operator = ( const servus::uint128_t&amp; rhs )</span>
 <span class="lineNum">      85 </span>            :         {
-<span class="lineNum">      86 </span>            :             _high = rhs._high;
-<span class="lineNum">      87 </span>            :             _low = rhs._low;
-<span class="lineNum">      88 </span>            :             return *this;
+<span class="lineNum">      86 </span><span class="lineCov">         10 :             _high = rhs._high;</span>
+<span class="lineNum">      87 </span><span class="lineCov">         10 :             _low = rhs._low;</span>
+<span class="lineNum">      88 </span><span class="lineCov">         10 :             return *this;</span>
 <span class="lineNum">      89 </span>            :         }
 <span class="lineNum">      90 </span>            : 
 <span class="lineNum">      91 </span>            :     /** Assign another 64 bit value. */
@@ -170,16 +170,16 @@
 <span class="lineNum">     108 </span>            :     SERVUS_API uint128_t&amp; operator = ( const std::string&amp; from );
 <span class="lineNum">     109 </span>            : 
 <span class="lineNum">     110 </span>            :     /**
-<span class="lineNum">     111 </span>            :      * @return true if the values are equal, false if not.
+<a name="111"><span class="lineNum">     111 </span>            :      * @return true if the values are equal, false if not.</a>
 <span class="lineNum">     112 </span>            :      **/
-<span class="lineNum">     113 </span>            :     bool operator == ( const servus::uint128_t&amp; rhs ) const
-<span class="lineNum">     114 </span>            :         { return _high == rhs._high &amp;&amp; _low == rhs._low; }
+<span class="lineNum">     113 </span><span class="lineCov">          9 :     bool operator == ( const servus::uint128_t&amp; rhs ) const</span>
+<span class="lineNum">     114 </span><span class="lineCov">          9 :         { return _high == rhs._high &amp;&amp; _low == rhs._low; }</span>
 <span class="lineNum">     115 </span>            : 
 <span class="lineNum">     116 </span>            :     /**
-<span class="lineNum">     117 </span>            :      * @return true if the values are different, false otherwise.
+<a name="117"><span class="lineNum">     117 </span>            :      * @return true if the values are different, false otherwise.</a>
 <span class="lineNum">     118 </span>            :      **/
-<span class="lineNum">     119 </span>            :     bool operator != ( const servus::uint128_t&amp; rhs ) const
-<span class="lineNum">     120 </span>            :         { return _high != rhs._high || _low != rhs._low; }
+<span class="lineNum">     119 </span><span class="lineCov">          5 :     bool operator != ( const servus::uint128_t&amp; rhs ) const</span>
+<span class="lineNum">     120 </span><span class="lineCov">          5 :         { return _high != rhs._high || _low != rhs._low; }</span>
 <span class="lineNum">     121 </span>            : 
 <span class="lineNum">     122 </span>            :     /**
 <span class="lineNum">     123 </span>            :      * @return true if the values are equal, false otherwise.
@@ -242,24 +242,24 @@
 <span class="lineNum">     180 </span>            :                 return false;
 <span class="lineNum">     181 </span>            :             return _low &gt;= rhs._low;
 <span class="lineNum">     182 </span>            :         }
-<span class="lineNum">     183 </span>            : 
+<a name="183"><span class="lineNum">     183 </span>            : </a>
 <span class="lineNum">     184 </span>            :     /** Increment the value. */
-<span class="lineNum">     185 </span>            :     uint128_t&amp; operator ++()
+<span class="lineNum">     185 </span><span class="lineCov">          2 :     uint128_t&amp; operator ++()</span>
 <span class="lineNum">     186 </span>            :         {
-<span class="lineNum">     187 </span>            :             ++_low;
-<span class="lineNum">     188 </span>            :             if( !_low )
-<span class="lineNum">     189 </span>            :                 ++_high;
+<span class="lineNum">     187 </span><span class="lineCov">          2 :             ++_low;</span>
+<span class="lineNum">     188 </span><span class="lineCov">          2 :             if( !_low )</span>
+<span class="lineNum">     189 </span><span class="lineCov">          1 :                 ++_high;</span>
 <span class="lineNum">     190 </span>            : 
-<span class="lineNum">     191 </span>            :             return *this;
+<span class="lineNum">     191 </span><span class="lineCov">          2 :             return *this;</span>
 <span class="lineNum">     192 </span>            :         }
-<span class="lineNum">     193 </span>            : 
+<a name="193"><span class="lineNum">     193 </span>            : </a>
 <span class="lineNum">     194 </span>            :     /** Decrement the value. */
-<span class="lineNum">     195 </span>            :     uint128_t&amp; operator --()
+<span class="lineNum">     195 </span><span class="lineCov">          2 :     uint128_t&amp; operator --()</span>
 <span class="lineNum">     196 </span>            :         {
-<span class="lineNum">     197 </span>            :             if( !_low )
-<span class="lineNum">     198 </span>            :                 --_high;
-<span class="lineNum">     199 </span>            :             --_low;
-<span class="lineNum">     200 </span>            :             return *this;
+<span class="lineNum">     197 </span><span class="lineCov">          2 :             if( !_low )</span>
+<span class="lineNum">     198 </span><span class="lineCov">          1 :                 --_high;</span>
+<span class="lineNum">     199 </span><span class="lineCov">          2 :             --_low;</span>
+<span class="lineNum">     200 </span><span class="lineCov">          2 :             return *this;</span>
 <span class="lineNum">     201 </span>            :         }
 <span class="lineNum">     202 </span>            : 
 <span class="lineNum">     203 </span>            :     /** Add value and return the new value. */
@@ -273,16 +273,16 @@
 <span class="lineNum">     211 </span>            :                 _high += rhs._high;
 <span class="lineNum">     212 </span>            :             return *this;
 <span class="lineNum">     213 </span>            :         }
-<span class="lineNum">     214 </span>            : 
+<a name="214"><span class="lineNum">     214 </span>            : </a>
 <span class="lineNum">     215 </span>            :     /** @return the reference to the lower 64 bits of this 128 bit value. */
-<span class="lineNum">     216 </span>            :     const uint64_t&amp; low() const { return _low; }
+<a name="216"><span class="lineNum">     216 </span><span class="lineCov">     199810 :     const uint64_t&amp; low() const { return _low; }</span></a>
 <span class="lineNum">     217 </span>            :     /** @return the reference to the high 64 bits of this 128 bit value. */
-<span class="lineNum">     218 </span>            :     const uint64_t&amp; high() const { return _high; }
+<span class="lineNum">     218 </span><span class="lineCov">     299648 :     const uint64_t&amp; high() const { return _high; }</span>
 <a name="219"><span class="lineNum">     219 </span>            : </a>
 <span class="lineNum">     220 </span>            :     /** @return the reference to the lower 64 bits of this 128 bit value. */
-<a name="221"><span class="lineNum">     221 </span><span class="lineNoCov">          0 :     uint64_t&amp; low() { return _low; }</span></a>
+<a name="221"><span class="lineNum">     221 </span><span class="lineCov">     100027 :     uint64_t&amp; low() { return _low; }</span></a>
 <span class="lineNum">     222 </span>            :     /** @return the reference to the high 64 bits of this 128 bit value. */
-<span class="lineNum">     223 </span><span class="lineNoCov">          0 :     uint64_t&amp; high() { return _high; }</span>
+<span class="lineNum">     223 </span><span class="lineCov">     299798 :     uint64_t&amp; high() { return _high; }</span>
 <span class="lineNum">     224 </span>            : 
 <span class="lineNum">     225 </span>            :     /** @return a short, but not necessarily unique, string of the value. */
 <span class="lineNum">     226 </span>            :     std::string getShortString() const
@@ -314,15 +314,15 @@
 <span class="lineNum">     252 </span>            :     uint64_t _high;
 <span class="lineNum">     253 </span>            :     uint64_t _low;
 <span class="lineNum">     254 </span>            : };
-<span class="lineNum">     255 </span>            : 
+<a name="255"><span class="lineNum">     255 </span>            : </a>
 <span class="lineNum">     256 </span>            : /** ostream operator for 128 bit unsigned integers. */
-<span class="lineNum">     257 </span>            : inline std::ostream&amp; operator &lt;&lt; ( std::ostream&amp; os, const uint128_t&amp; id )
+<span class="lineNum">     257 </span><span class="lineNoCov">          0 : inline std::ostream&amp; operator &lt;&lt; ( std::ostream&amp; os, const uint128_t&amp; id )</span>
 <span class="lineNum">     258 </span>            : {
-<span class="lineNum">     259 </span>            :     if( id.high() == 0 )
-<span class="lineNum">     260 </span>            :         os &lt;&lt; std::hex &lt;&lt; id.low() &lt;&lt; std::dec;
+<span class="lineNum">     259 </span><span class="lineNoCov">          0 :     if( id.high() == 0 )</span>
+<span class="lineNum">     260 </span><span class="lineNoCov">          0 :         os &lt;&lt; std::hex &lt;&lt; id.low() &lt;&lt; std::dec;</span>
 <span class="lineNum">     261 </span>            :     else
-<span class="lineNum">     262 </span>            :         os &lt;&lt; std::hex &lt;&lt; id.high() &lt;&lt; ':' &lt;&lt; id.low() &lt;&lt; std::dec;
-<span class="lineNum">     263 </span>            :     return os;
+<span class="lineNum">     262 </span><span class="lineNoCov">          0 :         os &lt;&lt; std::hex &lt;&lt; id.high() &lt;&lt; ':' &lt;&lt; id.low() &lt;&lt; std::dec;</span>
+<span class="lineNum">     263 </span><span class="lineNoCov">          0 :     return os;</span>
 <span class="lineNum">     264 </span>            : }
 <span class="lineNum">     265 </span>            : 
 <span class="lineNum">     266 </span>            : /** istream operator for 128 bit unsigned integers. */
@@ -333,15 +333,15 @@
 <span class="lineNum">     271 </span>            :     id = str;
 <span class="lineNum">     272 </span>            :     return is;
 <span class="lineNum">     273 </span>            : }
-<span class="lineNum">     274 </span>            : 
+<a name="274"><span class="lineNum">     274 </span>            : </a>
 <span class="lineNum">     275 </span>            : /** Add a 64 bit value to a 128 bit value. */
-<span class="lineNum">     276 </span>            : inline uint128_t operator+ ( const servus::uint128_t&amp; a, const uint64_t&amp; b )
+<span class="lineNum">     276 </span><span class="lineCov">          2 : inline uint128_t operator+ ( const servus::uint128_t&amp; a, const uint64_t&amp; b )</span>
 <span class="lineNum">     277 </span>            : {
-<span class="lineNum">     278 </span>            :     uint128_t result = a;
-<span class="lineNum">     279 </span>            :     result.low() += b;
-<span class="lineNum">     280 </span>            :     if( result.low() &lt; a.low( ))
-<span class="lineNum">     281 </span>            :         ++result.high();
-<span class="lineNum">     282 </span>            :     return result;
+<span class="lineNum">     278 </span><span class="lineCov">          2 :     uint128_t result = a;</span>
+<span class="lineNum">     279 </span><span class="lineCov">          2 :     result.low() += b;</span>
+<span class="lineNum">     280 </span><span class="lineCov">          2 :     if( result.low() &lt; a.low( ))</span>
+<span class="lineNum">     281 </span><span class="lineCov">          1 :         ++result.high();</span>
+<span class="lineNum">     282 </span><span class="lineCov">          2 :     return result;</span>
 <span class="lineNum">     283 </span>            : }
 <span class="lineNum">     284 </span>            : 
 <span class="lineNum">     285 </span>            : /** Add two 128 bit values. */
@@ -352,15 +352,15 @@
 <span class="lineNum">     290 </span>            :     result += b;
 <span class="lineNum">     291 </span>            :     return result;
 <span class="lineNum">     292 </span>            : }
-<span class="lineNum">     293 </span>            : 
+<a name="293"><span class="lineNum">     293 </span>            : </a>
 <span class="lineNum">     294 </span>            : /** Subtract a 64 bit value from a 128 bit value. */
-<span class="lineNum">     295 </span>            : inline uint128_t operator- ( const servus::uint128_t&amp; a, const uint64_t&amp; b )
+<span class="lineNum">     295 </span><span class="lineCov">          2 : inline uint128_t operator- ( const servus::uint128_t&amp; a, const uint64_t&amp; b )</span>
 <span class="lineNum">     296 </span>            : {
-<span class="lineNum">     297 </span>            :     uint128_t result = a;
-<span class="lineNum">     298 </span>            :     result.low() -= b;
-<span class="lineNum">     299 </span>            :     if( result.low() &gt; a.low( ))
-<span class="lineNum">     300 </span>            :         --result.high();
-<span class="lineNum">     301 </span>            :     return result;
+<span class="lineNum">     297 </span><span class="lineCov">          2 :     uint128_t result = a;</span>
+<span class="lineNum">     298 </span><span class="lineCov">          2 :     result.low() -= b;</span>
+<span class="lineNum">     299 </span><span class="lineCov">          2 :     if( result.low() &gt; a.low( ))</span>
+<span class="lineNum">     300 </span><span class="lineCov">          1 :         --result.high();</span>
+<span class="lineNum">     301 </span><span class="lineCov">          2 :     return result;</span>
 <span class="lineNum">     302 </span>            : }
 <span class="lineNum">     303 </span>            : 
 <span class="lineNum">     304 </span>            : /** Bitwise and operation on two 128 bit values. */
@@ -391,10 +391,10 @@
 <span class="lineNum">     329 </span>            :  * @param string the string to form the uint128_t from.
 <span class="lineNum">     330 </span>            :  */
 <span class="lineNum">     331 </span>            : SERVUS_API uint128_t make_uint128( const char* string );
-<span class="lineNum">     332 </span>            : 
+<a name="332"><span class="lineNum">     332 </span>            : </a>
 <span class="lineNum">     333 </span>            : /** Create a 128 bit integer based on a string. */
-<span class="lineNum">     334 </span>            : inline uint128_t make_uint128( const std::string&amp; string )
-<span class="lineNum">     335 </span>            :     { return make_uint128( string.c_str( )); }
+<span class="lineNum">     334 </span><span class="lineCov">          1 : inline uint128_t make_uint128( const std::string&amp; string )</span>
+<span class="lineNum">     335 </span><span class="lineCov">          1 :     { return make_uint128( string.c_str( )); }</span>
 <span class="lineNum">     336 </span>            : 
 <span class="lineNum">     337 </span>            : /**
 <span class="lineNum">     338 </span>            :  * Construct a new 128 bit integer with a generated universally unique
@@ -474,7 +474,7 @@
 
   <table width="100%" border=0 cellspacing=0 cellpadding=0>
     <tr><td class="ruler"><img src="../glass.png" width=3 height=3 alt=""></td></tr>
-    <tr><td class="versionInfo">Generated by: <a href="http://ltp.sourceforge.net/coverage/lcov.php" target="_parent">LCOV version 1.10</a></td></tr>
+    <tr><td class="versionInfo">Generated by: <a href="http://ltp.sourceforge.net/coverage/lcov.php" target="_parent">LCOV version 1.11</a></td></tr>
   </table>
   <br>
 
