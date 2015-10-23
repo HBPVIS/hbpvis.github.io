@@ -1,0 +1,5 @@
+<map id="zerobuf::Allocator" name="zerobuf::Allocator">
+<area shape="rect" id="node2" href="$classzerobuf_1_1_non_moving_base_allocator.html" title="Allocator base class which does not move existing fields. " alt="" coords="111,382,347,533"/>
+<area shape="rect" id="node3" href="$classzerobuf_1_1_non_moving_allocator.html" title="A zerobuf root allocator which does not move existing fields. " alt="" coords="5,582,211,762"/>
+<area shape="rect" id="node4" href="$classzerobuf_1_1_non_moving_sub_allocator.html" title="A zerobuf child allocator which does not move existing fields. " alt="" coords="235,582,465,762"/>
+</map>

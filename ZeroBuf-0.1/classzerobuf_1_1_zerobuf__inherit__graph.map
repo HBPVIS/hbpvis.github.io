@@ -1,0 +1,4 @@
+<map id="zerobuf::Zerobuf" name="zerobuf::Zerobuf">
+<area shape="rect" id="node2" href="$classzerobuf_1_1_generic_base.html" title="A ZeroBuf object which can hold values that are described by the given schema. " alt="" coords="5,446,163,567"/>
+<area shape="rect" id="node3" href="$classzerobuf_1_1render_1_1_camera_base.html" title="{zerobuf::render::CameraBase\l\&lt; Alloc \&gt;\n||+ getOrigin()\l+ getOrigin()\l+ getOriginVector()\l+ setOrigin()\l+ setOrigin()\l+ setOrigin()\l+ getLookAt()\l+ getLookAt()\l+ getLookAtVector()\l+ setLookAt()\land 15 more...\l+ isEmptyZerobuf()\l+ isStaticZerobuf()\l+ schema()\l}" alt="" coords="188,365,397,648"/>
+</map>
