@@ -2,10 +2,10 @@
 # Copyright (c) 2014-2015 Stefan.Eilemann@epfl.ch
 
 cmake_minimum_required(VERSION 2.8 FATAL_ERROR)
-project(HBPVis)
+project(HBPVIS)
 
 set(VERSION_MAJOR "2015")
-set(VERSION_MINOR "4")
+set(VERSION_MINOR "11")
 set(VERSION_PATCH "0")
 set(GITTARGETS_RELEASE_BRANCH current)
 
