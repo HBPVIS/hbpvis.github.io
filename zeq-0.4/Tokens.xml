@@ -200,10 +200,10 @@
   </Token>
   <Token>
     <TokenIdentifier>
-      <Name>md__home_eilemann_config.bbp_zeq_doc_Changelog</Name>
+      <Name>md__home_nachbaur_dev_viz.stable_zeq_doc_Changelog</Name>
       <APILanguage>markdown</APILanguage>
     </TokenIdentifier>
-    <Path>md__home_eilemann_config_8bbp_zeq_doc__changelog.html</Path>
+    <Path>md__home_nachbaur_dev_viz_8stable_zeq_doc__changelog.html</Path>
   </Token>
   <Token>
     <TokenIdentifier>
@@ -428,18 +428,6 @@
     </TokenIdentifier>
     <Path>classzeq_1_1_publisher.html</Path>
     <Anchor>a1a1468873077b8ad2961aa548e13c111</Anchor>
-    <Abstract>Create a publisher on the given URI. </Abstract>
-    <DeclaredIn>publisher.h</DeclaredIn>
-  </Token>
-  <Token>
-    <TokenIdentifier>
-      <Name>Publisher</Name>
-      <APILanguage>cpp</APILanguage>
-      <Type>instm</Type>
-      <Scope>zeq::Publisher</Scope>
-    </TokenIdentifier>
-    <Path>classzeq_1_1_publisher.html</Path>
-    <Anchor>aeaaf6b8d7ac31a278ddff2ca0e1ed4c3</Anchor>
     <Abstract>Create a publisher on the given URI. </Abstract>
     <DeclaredIn>publisher.h</DeclaredIn>
   </Token>
@@ -1033,7 +1021,7 @@
       <Scope>zeq::connection::Service</Scope>
     </TokenIdentifier>
     <Path>classzeq_1_1connection_1_1_service.html</Path>
-    <Anchor>ae4d633900f810ee0601b4a4dd7dc0a4a</Anchor>
+    <Anchor>aecf8723cf3353037393b4675ff0168e9</Anchor>
     <Abstract>Request subscription of the given publisher to a named remote broker. </Abstract>
     <DeclaredIn>service.h</DeclaredIn>
   </Token>

@@ -131,31 +131,28 @@ $(document).ready(function(){initNavTree('publisher_8h_source.html','');});
 <div class="line"><a name="l00031"></a><span class="lineno">   31</span>&#160;    ZEQ_API <a class="code" href="classzeq_1_1_publisher.html#a1a1468873077b8ad2961aa548e13c111">Publisher</a>( <span class="keyword">const</span> servus::URI&amp; uri,</div>
 <div class="line"><a name="l00032"></a><span class="lineno">   32</span>&#160;                       uint32_t announceMode = <a class="code" href="namespacezeq.html#a9d40cc95f062939118c95e4538b45bafa533f9705a86c77b3fef1e05ba7746413">ANNOUNCE_ALL</a> );</div>
 <div class="line"><a name="l00033"></a><span class="lineno">   33</span>&#160;</div>
-<div class="line"><a name="l00043"></a><span class="lineno">   43</span>&#160;    ZEQ_API <a class="code" href="classzeq_1_1_publisher.html#a1a1468873077b8ad2961aa548e13c111">Publisher</a>( servus::URI&amp; uri,</div>
-<div class="line"><a name="l00044"></a><span class="lineno">   44</span>&#160;                       uint32_t announceMode = <a class="code" href="namespacezeq.html#a9d40cc95f062939118c95e4538b45bafa533f9705a86c77b3fef1e05ba7746413">ANNOUNCE_ALL</a> );</div>
+<div class="line"><a name="l00034"></a><span class="lineno">   34</span>&#160;    ZEQ_API ~Publisher();</div>
+<div class="line"><a name="l00035"></a><span class="lineno">   35</span>&#160;</div>
+<div class="line"><a name="l00044"></a><span class="lineno">   44</span>&#160;    ZEQ_API <span class="keywordtype">bool</span> <a class="code" href="classzeq_1_1_publisher.html#a5f91e89db1e928c4d5bac4735e306cd4">publish</a>( <span class="keyword">const</span> <a class="code" href="classzeq_1_1_event.html">Event</a>&amp; event );</div>
 <div class="line"><a name="l00045"></a><span class="lineno">   45</span>&#160;</div>
-<div class="line"><a name="l00046"></a><span class="lineno">   46</span>&#160;    ZEQ_API ~Publisher();</div>
-<div class="line"><a name="l00047"></a><span class="lineno">   47</span>&#160;</div>
-<div class="line"><a name="l00056"></a><span class="lineno">   56</span>&#160;    ZEQ_API <span class="keywordtype">bool</span> <a class="code" href="classzeq_1_1_publisher.html#a5f91e89db1e928c4d5bac4735e306cd4">publish</a>( <span class="keyword">const</span> <a class="code" href="classzeq_1_1_event.html">Event</a>&amp; event );</div>
-<div class="line"><a name="l00057"></a><span class="lineno">   57</span>&#160;</div>
-<div class="line"><a name="l00066"></a><span class="lineno">   66</span>&#160;    ZEQ_API <span class="keywordtype">bool</span> <a class="code" href="classzeq_1_1_publisher.html#a5f91e89db1e928c4d5bac4735e306cd4">publish</a>( <span class="keyword">const</span> zerobuf::Zerobuf&amp; zerobuf );</div>
-<div class="line"><a name="l00067"></a><span class="lineno">   67</span>&#160;</div>
-<div class="line"><a name="l00076"></a><span class="lineno">   76</span>&#160;    ZEQ_API <span class="keyword">const</span> servus::URI&amp; <a class="code" href="classzeq_1_1_publisher.html#a4e35c6a2a08202c9417dca1ce7def776">getURI</a>() <span class="keyword">const</span>;</div>
+<div class="line"><a name="l00054"></a><span class="lineno">   54</span>&#160;    ZEQ_API <span class="keywordtype">bool</span> <a class="code" href="classzeq_1_1_publisher.html#a5f91e89db1e928c4d5bac4735e306cd4">publish</a>( <span class="keyword">const</span> zerobuf::Zerobuf&amp; zerobuf );</div>
+<div class="line"><a name="l00055"></a><span class="lineno">   55</span>&#160;</div>
+<div class="line"><a name="l00064"></a><span class="lineno">   64</span>&#160;    ZEQ_API <span class="keyword">const</span> servus::URI&amp; <a class="code" href="classzeq_1_1_publisher.html#a4e35c6a2a08202c9417dca1ce7def776">getURI</a>() <span class="keyword">const</span>;</div>
+<div class="line"><a name="l00065"></a><span class="lineno">   65</span>&#160;</div>
+<div class="line"><a name="l00067"></a><span class="lineno">   67</span>&#160;    ZEQ_API uint16_t <a class="code" href="classzeq_1_1_publisher.html#abc0cd3bc8444a758a51529eb28910b0e">getPort</a>() <span class="keyword">const</span>;</div>
+<div class="line"><a name="l00068"></a><span class="lineno">   68</span>&#160;</div>
+<div class="line"><a name="l00069"></a><span class="lineno">   69</span>&#160;    std::string getAddress() <span class="keyword">const</span>; </div>
+<div class="line"><a name="l00070"></a><span class="lineno">   70</span>&#160;</div>
+<div class="line"><a name="l00071"></a><span class="lineno">   71</span>&#160;<span class="keyword">private</span>:</div>
+<div class="line"><a name="l00072"></a><span class="lineno">   72</span>&#160;    detail::Publisher* <span class="keyword">const</span> _impl;</div>
+<div class="line"><a name="l00073"></a><span class="lineno">   73</span>&#160;</div>
+<div class="line"><a name="l00074"></a><span class="lineno">   74</span>&#160;    <a class="code" href="classzeq_1_1_publisher.html#a1a1468873077b8ad2961aa548e13c111">Publisher</a>( <span class="keyword">const</span> Publisher&amp; ) = <span class="keyword">delete</span>;</div>
+<div class="line"><a name="l00075"></a><span class="lineno">   75</span>&#160;    Publisher&amp; operator=( <span class="keyword">const</span> Publisher&amp; ) = <span class="keyword">delete</span>;</div>
+<div class="line"><a name="l00076"></a><span class="lineno">   76</span>&#160;};</div>
 <div class="line"><a name="l00077"></a><span class="lineno">   77</span>&#160;</div>
-<div class="line"><a name="l00079"></a><span class="lineno">   79</span>&#160;    ZEQ_API uint16_t <a class="code" href="classzeq_1_1_publisher.html#abc0cd3bc8444a758a51529eb28910b0e">getPort</a>() <span class="keyword">const</span>;</div>
-<div class="line"><a name="l00080"></a><span class="lineno">   80</span>&#160;</div>
-<div class="line"><a name="l00081"></a><span class="lineno">   81</span>&#160;    std::string getAddress() <span class="keyword">const</span>; </div>
-<div class="line"><a name="l00082"></a><span class="lineno">   82</span>&#160;</div>
-<div class="line"><a name="l00083"></a><span class="lineno">   83</span>&#160;<span class="keyword">private</span>:</div>
-<div class="line"><a name="l00084"></a><span class="lineno">   84</span>&#160;    detail::Publisher* <span class="keyword">const</span> _impl;</div>
-<div class="line"><a name="l00085"></a><span class="lineno">   85</span>&#160;</div>
-<div class="line"><a name="l00086"></a><span class="lineno">   86</span>&#160;    <a class="code" href="classzeq_1_1_publisher.html#a1a1468873077b8ad2961aa548e13c111">Publisher</a>( <span class="keyword">const</span> Publisher&amp; ) = <span class="keyword">delete</span>;</div>
-<div class="line"><a name="l00087"></a><span class="lineno">   87</span>&#160;    Publisher&amp; operator=( <span class="keyword">const</span> Publisher&amp; ) = <span class="keyword">delete</span>;</div>
-<div class="line"><a name="l00088"></a><span class="lineno">   88</span>&#160;};</div>
-<div class="line"><a name="l00089"></a><span class="lineno">   89</span>&#160;</div>
-<div class="line"><a name="l00090"></a><span class="lineno">   90</span>&#160;}</div>
-<div class="line"><a name="l00091"></a><span class="lineno">   91</span>&#160;</div>
-<div class="line"><a name="l00092"></a><span class="lineno">   92</span>&#160;<span class="preprocessor">#endif</span></div>
+<div class="line"><a name="l00078"></a><span class="lineno">   78</span>&#160;}</div>
+<div class="line"><a name="l00079"></a><span class="lineno">   79</span>&#160;</div>
+<div class="line"><a name="l00080"></a><span class="lineno">   80</span>&#160;<span class="preprocessor">#endif</span></div>
 <div class="ttc" id="api_8h_html"><div class="ttname"><a href="api_8h.html">api.h</a></div><div class="ttdoc">Defines export visibility macros for library zeq. </div></div>
 <div class="ttc" id="classzeq_1_1_publisher_html_a5f91e89db1e928c4d5bac4735e306cd4"><div class="ttname"><a href="classzeq_1_1_publisher.html#a5f91e89db1e928c4d5bac4735e306cd4">zeq::Publisher::publish</a></div><div class="ttdeci">ZEQ_API bool publish(const Event &amp;event)</div><div class="ttdoc">Publish the given event to any subscriber. </div></div>
 <div class="ttc" id="classzeq_1_1_publisher_html_a1a1468873077b8ad2961aa548e13c111"><div class="ttname"><a href="classzeq_1_1_publisher.html#a1a1468873077b8ad2961aa548e13c111">zeq::Publisher::Publisher</a></div><div class="ttdeci">ZEQ_API Publisher(const servus::URI &amp;uri, uint32_t announceMode=ANNOUNCE_ALL)</div><div class="ttdoc">Create a publisher on the given URI. </div></div>
@@ -169,8 +166,8 @@ $(document).ready(function(){initNavTree('publisher_8h_source.html','');});
 <!-- start footer part -->
 <div id="nav-path" class="navpath"><!-- id is needed for treeview function! -->
   <ul>
-    <li class="navelem"><a class="el" href="dir_2b851ab73900b9496d33d33ebfb5c57f.html">install</a></li><li class="navelem"><a class="el" href="dir_c5d99704289c3ff9a973820d1a1ff171.html">include</a></li><li class="navelem"><a class="el" href="dir_067f15cd05fd24c39426d7ae5833f76d.html">zeq</a></li><li class="navelem"><b>publisher.h</b></li>
-    <li class="footer">Generated on Fri Oct 23 2015 13:55:57 for zeq by
+    <li class="navelem"><a class="el" href="dir_37b2be5b5767553c568bfa1cffb3da04.html">install</a></li><li class="navelem"><a class="el" href="dir_f17a44413603200928ab96ed1b05d5d5.html">include</a></li><li class="navelem"><a class="el" href="dir_723009cb8cf07a73045c662f8510d7f2.html">zeq</a></li><li class="navelem"><b>publisher.h</b></li>
+    <li class="footer">Generated on Tue Nov 3 2015 12:06:08 for zeq by
     <a href="http://www.doxygen.org/index.html">
     <img class="footer" src="doxygen.png" alt="doxygen"/></a> 1.8.6 </li>
   </ul>

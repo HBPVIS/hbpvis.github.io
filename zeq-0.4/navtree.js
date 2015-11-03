@@ -5,12 +5,7 @@ var NAVTREE =
       [ "Features", "index.html#Features", null ]
     ] ],
     [ "Building", "index.html#Building", null ],
-    [ "Changelog", "md__home_eilemann_config_8bbp_zeq_doc__changelog.html", [
-      [ "Release 0.4 (git master)", "md__home_eilemann_config_8bbp_zeq_doc__changelog.html#Release04", null ],
-      [ "Release 0.3 (07-07-2015)", "md__home_eilemann_config_8bbp_zeq_doc__changelog.html#Release03", null ],
-      [ "Release 0.2 (01-05-2015)", "md__home_eilemann_config_8bbp_zeq_doc__changelog.html#Release02", null ],
-      [ "Release 0.1 (07-01-2015)", "md__home_eilemann_config_8bbp_zeq_doc__changelog.html#Release01", null ]
-    ] ],
+    [ "Changelog", "md__home_nachbaur_dev_viz_8stable_zeq_doc__changelog.html", null ],
     [ "Modules", "modules.html", "modules" ],
     [ "Namespaces", null, [
       [ "Namespace List", "namespaces.html", "namespaces" ],

@@ -132,9 +132,9 @@ Static Public Member Functions</h2></td></tr>
 <tr class="memitem:a8180cb2ded5ea61fc00f61ff25c51578"><td class="memItemLeft" align="right" valign="top">static ZEQ_API bool&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classzeq_1_1connection_1_1_service.html#a8180cb2ded5ea61fc00f61ff25c51578">subscribe</a> (const std::string &amp;address, const <a class="el" href="classzeq_1_1_publisher.html">Publisher</a> &amp;publisher)</td></tr>
 <tr class="memdesc:a8180cb2ded5ea61fc00f61ff25c51578"><td class="mdescLeft">&#160;</td><td class="mdescRight">Request subscription of the given publisher to a remote broker.  <a href="#a8180cb2ded5ea61fc00f61ff25c51578">More...</a><br/></td></tr>
 <tr class="separator:a8180cb2ded5ea61fc00f61ff25c51578"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:ae4d633900f810ee0601b4a4dd7dc0a4a"><td class="memItemLeft" align="right" valign="top">static ZEQ_API bool&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classzeq_1_1connection_1_1_service.html#ae4d633900f810ee0601b4a4dd7dc0a4a">subscribe</a> (const std::string &amp;brokerAddress, const std::string &amp;name, const <a class="el" href="classzeq_1_1_publisher.html">Publisher</a> &amp;publisher)</td></tr>
-<tr class="memdesc:ae4d633900f810ee0601b4a4dd7dc0a4a"><td class="mdescLeft">&#160;</td><td class="mdescRight">Request subscription of the given publisher to a named remote broker.  <a href="#ae4d633900f810ee0601b4a4dd7dc0a4a">More...</a><br/></td></tr>
-<tr class="separator:ae4d633900f810ee0601b4a4dd7dc0a4a"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:aecf8723cf3353037393b4675ff0168e9"><td class="memItemLeft" align="right" valign="top">static ZEQ_API bool&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classzeq_1_1connection_1_1_service.html#aecf8723cf3353037393b4675ff0168e9">subscribe</a> (const std::string &amp;hostname, const std::string &amp;name, const <a class="el" href="classzeq_1_1_publisher.html">Publisher</a> &amp;publisher)</td></tr>
+<tr class="memdesc:aecf8723cf3353037393b4675ff0168e9"><td class="mdescLeft">&#160;</td><td class="mdescRight">Request subscription of the given publisher to a named remote broker.  <a href="#aecf8723cf3353037393b4675ff0168e9">More...</a><br/></td></tr>
+<tr class="separator:aecf8723cf3353037393b4675ff0168e9"><td class="memSeparator" colspan="2">&#160;</td></tr>
 </table>
 <a name="details" id="details"></a><h2 class="groupheader">Detailed Description</h2>
 <div class="textblock"><p>Subscribes a <a class="el" href="classzeq_1_1_publisher.html" title="Serves and publishes events, consumed by Subscriber. ">Publisher</a> to a remote receiver using a <a class="el" href="classzeq_1_1connection_1_1_broker.html" title="Brokers subscription requests for a zeq::Receiver. ">connection::Broker</a>. </p>
@@ -442,16 +442,16 @@ Static Public Member Functions</h2></td></tr>
 <p>Upon success, the <a class="el" href="classzeq_1_1connection_1_1_broker.html" title="Brokers subscription requests for a zeq::Receiver. ">Broker</a> will add the publisher's address to its managed <a class="el" href="classzeq_1_1_subscriber.html" title="Subscribes to Publisher to receive events. ">Subscriber</a>.</p>
 <dl class="params"><dt>Parameters</dt><dd>
   <table class="params">
-    <tr><td class="paramname">address</td><td>the broker address, without the protocol. </td></tr>
-    <tr><td class="paramname">publisher</td><td>the publisher to subscribe to.</td></tr>
+    <tr><td class="paramname">address</td><td>the broker address (hostname:port), without the protocol. </td></tr>
+    <tr><td class="paramname">publisher</td><td>the publisher to subscribe to. </td></tr>
   </table>
   </dd>
 </dl>
-<dl class="section return"><dt>Returns</dt><dd></dd></dl>
+<dl class="section return"><dt>Returns</dt><dd>true if the subscription was successful, false on error. </dd></dl>
 
 </div>
 </div>
-<a class="anchor" id="ae4d633900f810ee0601b4a4dd7dc0a4a"></a>
+<a class="anchor" id="aecf8723cf3353037393b4675ff0168e9"></a>
 <div class="memitem">
 <div class="memproto">
 <table class="mlabels">
@@ -462,7 +462,7 @@ Static Public Member Functions</h2></td></tr>
           <td class="memname">static ZEQ_API bool zeq::connection::Service::subscribe </td>
           <td>(</td>
           <td class="paramtype">const std::string &amp;&#160;</td>
-          <td class="paramname"><em>brokerAddress</em>, </td>
+          <td class="paramname"><em>hostname</em>, </td>
         </tr>
         <tr>
           <td class="paramkey"></td>
@@ -493,13 +493,13 @@ Static Public Member Functions</h2></td></tr>
 <p>Upon success, the <a class="el" href="classzeq_1_1connection_1_1_broker.html" title="Brokers subscription requests for a zeq::Receiver. ">Broker</a> will add the publisher's address to its managed <a class="el" href="classzeq_1_1_subscriber.html" title="Subscribes to Publisher to receive events. ">Subscriber</a>. The broker port is derived using the same hashing algorithm as in the corresponding <a class="el" href="classzeq_1_1connection_1_1_broker.html" title="Brokers subscription requests for a zeq::Receiver. ">Broker</a> constructor.</p>
 <dl class="params"><dt>Parameters</dt><dd>
   <table class="params">
-    <tr><td class="paramname">brokerAddress</td><td>the broker address, without the protocol and port. </td></tr>
+    <tr><td class="paramname">hostname</td><td>the broker address, without the protocol and port. </td></tr>
     <tr><td class="paramname">name</td><td>the application namespace. </td></tr>
-    <tr><td class="paramname">publisher</td><td>the publisher to subscribe to.</td></tr>
+    <tr><td class="paramname">publisher</td><td>the publisher to subscribe to. </td></tr>
   </table>
   </dd>
 </dl>
-<dl class="section return"><dt>Returns</dt><dd></dd></dl>
+<dl class="section return"><dt>Returns</dt><dd>true if the subscription was successful, false on error. </dd></dl>
 
 </div>
 </div>
@@ -512,7 +512,7 @@ Static Public Member Functions</h2></td></tr>
 <div id="nav-path" class="navpath"><!-- id is needed for treeview function! -->
   <ul>
     <li class="navelem"><a class="el" href="namespacezeq.html">zeq</a></li><li class="navelem"><a class="el" href="namespacezeq_1_1connection.html">connection</a></li><li class="navelem"><a class="el" href="classzeq_1_1connection_1_1_service.html">Service</a></li>
-    <li class="footer">Generated on Fri Oct 23 2015 13:55:57 for zeq by
+    <li class="footer">Generated on Tue Nov 3 2015 12:06:08 for zeq by
     <a href="http://www.doxygen.org/index.html">
     <img class="footer" src="doxygen.png" alt="doxygen"/></a> 1.8.6 </li>
   </ul>

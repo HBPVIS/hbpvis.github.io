@@ -132,9 +132,6 @@ Public Member Functions</h2></td></tr>
 <tr class="memitem:a1a1468873077b8ad2961aa548e13c111"><td class="memItemLeft" align="right" valign="top">ZEQ_API&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classzeq_1_1_publisher.html#a1a1468873077b8ad2961aa548e13c111">Publisher</a> (const servus::URI &amp;uri, uint32_t announceMode=<a class="el" href="namespacezeq.html#a9d40cc95f062939118c95e4538b45bafa533f9705a86c77b3fef1e05ba7746413">ANNOUNCE_ALL</a>)</td></tr>
 <tr class="memdesc:a1a1468873077b8ad2961aa548e13c111"><td class="mdescLeft">&#160;</td><td class="mdescRight">Create a publisher on the given URI.  <a href="#a1a1468873077b8ad2961aa548e13c111">More...</a><br/></td></tr>
 <tr class="separator:a1a1468873077b8ad2961aa548e13c111"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:aeaaf6b8d7ac31a278ddff2ca0e1ed4c3"><td class="memItemLeft" align="right" valign="top">ZEQ_API&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classzeq_1_1_publisher.html#aeaaf6b8d7ac31a278ddff2ca0e1ed4c3">Publisher</a> (servus::URI &amp;uri, uint32_t announceMode=<a class="el" href="namespacezeq.html#a9d40cc95f062939118c95e4538b45bafa533f9705a86c77b3fef1e05ba7746413">ANNOUNCE_ALL</a>)</td></tr>
-<tr class="memdesc:aeaaf6b8d7ac31a278ddff2ca0e1ed4c3"><td class="mdescLeft">&#160;</td><td class="mdescRight">Create a publisher on the given URI.  <a href="#aeaaf6b8d7ac31a278ddff2ca0e1ed4c3">More...</a><br/></td></tr>
-<tr class="separator:aeaaf6b8d7ac31a278ddff2ca0e1ed4c3"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a5f91e89db1e928c4d5bac4735e306cd4"><td class="memItemLeft" align="right" valign="top">ZEQ_API bool&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classzeq_1_1_publisher.html#a5f91e89db1e928c4d5bac4735e306cd4">publish</a> (const <a class="el" href="classzeq_1_1_event.html">Event</a> &amp;event)</td></tr>
 <tr class="memdesc:a5f91e89db1e928c4d5bac4735e306cd4"><td class="mdescLeft">&#160;</td><td class="mdescRight">Publish the given event to any subscriber.  <a href="#a5f91e89db1e928c4d5bac4735e306cd4">More...</a><br/></td></tr>
 <tr class="separator:a5f91e89db1e928c4d5bac4735e306cd4"><td class="memSeparator" colspan="2">&#160;</td></tr>
@@ -201,6 +198,7 @@ std::string&#160;</td><td class="memItemRight" valign="bottom"><b>getAddress</b>
 <div class="line">{</div>
 <div class="line">    zeq::URI uri = test::buildPublisherURI();</div>
 <div class="line">    <a class="code" href="classzeq_1_1_publisher.html">zeq::Publisher</a> publisher( uri );</div>
+<div class="line">    uri = publisher.getURI();</div>
 <div class="line">    BOOST_CHECK_MESSAGE( uri.getPort() != 0, uri );</div>
 <div class="line">    BOOST_CHECK_MESSAGE( !uri.getHost().empty(), uri );</div>
 <div class="line"><span class="preprocessor">#ifdef ZEQ_USE_ZEROBUF</span></div>
@@ -263,42 +261,6 @@ std::string&#160;</td><td class="memItemRight" valign="bottom"><b>getAddress</b>
 </div><div class="memdoc">
 
 <p>Create a publisher on the given URI. </p>
-<dl class="params"><dt>Parameters</dt><dd>
-  <table class="params">
-    <tr><td class="paramname">uri</td><td>publishing URI in the format scheme://[*|host|IP|IF][:port] </td></tr>
-    <tr><td class="paramname">announceMode</td><td>bitwise combination of AnnounceMode network protocols </td></tr>
-  </table>
-  </dd>
-</dl>
-
-</div>
-</div>
-<a class="anchor" id="aeaaf6b8d7ac31a278ddff2ca0e1ed4c3"></a>
-<div class="memitem">
-<div class="memproto">
-      <table class="memname">
-        <tr>
-          <td class="memname">ZEQ_API zeq::Publisher::Publisher </td>
-          <td>(</td>
-          <td class="paramtype">servus::URI &amp;&#160;</td>
-          <td class="paramname"><em>uri</em>, </td>
-        </tr>
-        <tr>
-          <td class="paramkey"></td>
-          <td></td>
-          <td class="paramtype">uint32_t&#160;</td>
-          <td class="paramname"><em>announceMode</em> = <code><a class="el" href="namespacezeq.html#a9d40cc95f062939118c95e4538b45bafa533f9705a86c77b3fef1e05ba7746413">ANNOUNCE_ALL</a></code>&#160;</td>
-        </tr>
-        <tr>
-          <td></td>
-          <td>)</td>
-          <td></td><td></td>
-        </tr>
-      </table>
-</div><div class="memdoc">
-
-<p>Create a publisher on the given URI. </p>
-<p>This ctor takes a non-const URI and will update the hostname and port if it is chosen automatically, e.g., the host is empty or the port is 0.</p>
 <dl class="params"><dt>Parameters</dt><dd>
   <table class="params">
     <tr><td class="paramname">uri</td><td>publishing URI in the format scheme://[*|host|IP|IF][:port] </td></tr>
@@ -406,7 +368,7 @@ std::string&#160;</td><td class="memItemRight" valign="bottom"><b>getAddress</b>
 <div id="nav-path" class="navpath"><!-- id is needed for treeview function! -->
   <ul>
     <li class="navelem"><a class="el" href="namespacezeq.html">zeq</a></li><li class="navelem"><a class="el" href="classzeq_1_1_publisher.html">Publisher</a></li>
-    <li class="footer">Generated on Fri Oct 23 2015 13:55:57 for zeq by
+    <li class="footer">Generated on Tue Nov 3 2015 12:06:08 for zeq by
     <a href="http://www.doxygen.org/index.html">
     <img class="footer" src="doxygen.png" alt="doxygen"/></a> 1.8.6 </li>
   </ul>

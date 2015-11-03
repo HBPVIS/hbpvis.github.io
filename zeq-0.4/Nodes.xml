@@ -24,29 +24,7 @@
        </Node>
        <Node>
         <Name>Changelog</Name>
-        <Path>md__home_eilemann_config_8bbp_zeq_doc__changelog.html</Path>
-        <Subnodes>
-         <Node>
-          <Name>Release 0.4 (git master)</Name>
-          <Path>md__home_eilemann_config_8bbp_zeq_doc__changelog.html</Path>
-          <Anchor>Release04</Anchor>
-         </Node>
-         <Node>
-          <Name>Release 0.3 (07-07-2015)</Name>
-          <Path>md__home_eilemann_config_8bbp_zeq_doc__changelog.html</Path>
-          <Anchor>Release03</Anchor>
-         </Node>
-         <Node>
-          <Name>Release 0.2 (01-05-2015)</Name>
-          <Path>md__home_eilemann_config_8bbp_zeq_doc__changelog.html</Path>
-          <Anchor>Release02</Anchor>
-         </Node>
-         <Node>
-          <Name>Release 0.1 (07-01-2015)</Name>
-          <Path>md__home_eilemann_config_8bbp_zeq_doc__changelog.html</Path>
-          <Anchor>Release01</Anchor>
-         </Node>
-        </Subnodes>
+        <Path>md__home_nachbaur_dev_viz_8stable_zeq_doc__changelog.html</Path>
        </Node>
        <Node>
         <Name>Modules</Name>
@@ -188,7 +166,7 @@
                  <Node>
                   <Name>subscribe</Name>
                   <Path>classzeq_1_1connection_1_1_service.html</Path>
-                  <Anchor>ae4d633900f810ee0601b4a4dd7dc0a4a</Anchor>
+                  <Anchor>aecf8723cf3353037393b4675ff0168e9</Anchor>
                  </Node>
                 </Subnodes>
                </Node>
@@ -403,11 +381,6 @@
                 <Name>Publisher</Name>
                 <Path>classzeq_1_1_publisher.html</Path>
                 <Anchor>a1a1468873077b8ad2961aa548e13c111</Anchor>
-               </Node>
-               <Node>
-                <Name>Publisher</Name>
-                <Path>classzeq_1_1_publisher.html</Path>
-                <Anchor>aeaaf6b8d7ac31a278ddff2ca0e1ed4c3</Anchor>
                </Node>
                <Node>
                 <Name>~Publisher</Name>

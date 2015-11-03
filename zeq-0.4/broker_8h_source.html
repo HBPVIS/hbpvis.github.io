@@ -152,15 +152,12 @@ $(document).ready(function(){initNavTree('broker_8h_source.html','');});
 <div class="line"><a name="l00094"></a><span class="lineno">   94</span>&#160;    <span class="comment">// Receiver API</span></div>
 <div class="line"><a name="l00095"></a><span class="lineno">   95</span>&#160;    <span class="keywordtype">void</span> addSockets( std::vector&lt; zeq::detail::Socket &gt;&amp; entries ) <span class="keyword">final</span>;</div>
 <div class="line"><a name="l00096"></a><span class="lineno">   96</span>&#160;    <span class="keywordtype">void</span> process( zeq::detail::Socket&amp; socket ) <span class="keyword">final</span>;</div>
-<div class="line"><a name="l00097"></a><span class="lineno">   97</span>&#160;    <span class="keywordtype">void</span> addConnection( <span class="keyword">const</span> std::string&amp; ) final</div>
-<div class="line"><a name="l00098"></a><span class="lineno">   98</span>&#160;    {</div>
-<div class="line"><a name="l00099"></a><span class="lineno">   99</span>&#160;        ZEQDONTCALL; <span class="comment">// LCOV_EXCL_LINE</span></div>
-<div class="line"><a name="l00100"></a><span class="lineno">  100</span>&#160;    }</div>
-<div class="line"><a name="l00101"></a><span class="lineno">  101</span>&#160;};</div>
-<div class="line"><a name="l00102"></a><span class="lineno">  102</span>&#160;</div>
-<div class="line"><a name="l00103"></a><span class="lineno">  103</span>&#160;}</div>
-<div class="line"><a name="l00104"></a><span class="lineno">  104</span>&#160;}</div>
-<div class="line"><a name="l00105"></a><span class="lineno">  105</span>&#160;<span class="preprocessor">#endif</span></div>
+<div class="line"><a name="l00097"></a><span class="lineno">   97</span>&#160;    <span class="keywordtype">void</span> addConnection( <span class="keyword">const</span> std::string&amp; ) final { ZEQDONTCALL; } <span class="comment">// LCOV_EXCL_LINE</span></div>
+<div class="line"><a name="l00098"></a><span class="lineno">   98</span>&#160;};</div>
+<div class="line"><a name="l00099"></a><span class="lineno">   99</span>&#160;</div>
+<div class="line"><a name="l00100"></a><span class="lineno">  100</span>&#160;}</div>
+<div class="line"><a name="l00101"></a><span class="lineno">  101</span>&#160;}</div>
+<div class="line"><a name="l00102"></a><span class="lineno">  102</span>&#160;<span class="preprocessor">#endif</span></div>
 <div class="ttc" id="classzeq_1_1connection_1_1_broker_html_abe8d70d9bde9923de3c2e8e419b348bd"><div class="ttname"><a href="classzeq_1_1connection_1_1_broker.html#abe8d70d9bde9923de3c2e8e419b348bd">zeq::connection::Broker::Broker</a></div><div class="ttdeci">ZEQ_API Broker(const std::string &amp;name, Receiver &amp;receiver, const PortSelection mode)</div><div class="ttdoc">Convenience constructor to create a new subscription broker. </div></div>
 <div class="ttc" id="classzeq_1_1connection_1_1_broker_html_acaa311bf7bfbaafbdaa731b5e481239b"><div class="ttname"><a href="classzeq_1_1connection_1_1_broker.html#acaa311bf7bfbaafbdaa731b5e481239b">zeq::connection::Broker::~Broker</a></div><div class="ttdeci">ZEQ_API ~Broker()</div><div class="ttdoc">Destroy this broker. </div></div>
 <div class="ttc" id="classzeq_1_1connection_1_1_broker_html"><div class="ttname"><a href="classzeq_1_1connection_1_1_broker.html">zeq::connection::Broker</a></div><div class="ttdoc">Brokers subscription requests for a zeq::Receiver. </div><div class="ttdef"><b>Definition:</b> <a href="broker_8h_source.html#l00035">broker.h:35</a></div></div>
@@ -174,8 +171,8 @@ $(document).ready(function(){initNavTree('broker_8h_source.html','');});
 <!-- start footer part -->
 <div id="nav-path" class="navpath"><!-- id is needed for treeview function! -->
   <ul>
-    <li class="navelem"><a class="el" href="dir_2b851ab73900b9496d33d33ebfb5c57f.html">install</a></li><li class="navelem"><a class="el" href="dir_c5d99704289c3ff9a973820d1a1ff171.html">include</a></li><li class="navelem"><a class="el" href="dir_067f15cd05fd24c39426d7ae5833f76d.html">zeq</a></li><li class="navelem"><a class="el" href="dir_0615282fdc3ce808ad4b511d26bb70dd.html">connection</a></li><li class="navelem"><b>broker.h</b></li>
-    <li class="footer">Generated on Fri Oct 23 2015 13:55:57 for zeq by
+    <li class="navelem"><a class="el" href="dir_37b2be5b5767553c568bfa1cffb3da04.html">install</a></li><li class="navelem"><a class="el" href="dir_f17a44413603200928ab96ed1b05d5d5.html">include</a></li><li class="navelem"><a class="el" href="dir_723009cb8cf07a73045c662f8510d7f2.html">zeq</a></li><li class="navelem"><a class="el" href="dir_8e314b03eac7d47df4425980caa7bc90.html">connection</a></li><li class="navelem"><b>broker.h</b></li>
+    <li class="footer">Generated on Tue Nov 3 2015 12:06:08 for zeq by
     <a href="http://www.doxygen.org/index.html">
     <img class="footer" src="doxygen.png" alt="doxygen"/></a> 1.8.6 </li>
   </ul>
