@@ -3,7 +3,7 @@ name: ZeroBuf
 version: "0.2"
 major: 0
 minor: 2
-description: ZeroBuf: zero-copy, zero-hassle protocol buffers
+description: Zero-copy, zero-serialize, zero-hassle protocol buffers
 updated: 22/12/15
 homepage: https://github.com/HBPVIS/ZeroBuf
 repository: https://github.com/HBPVIS/ZeroBuf
