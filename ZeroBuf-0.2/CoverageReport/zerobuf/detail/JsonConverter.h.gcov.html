@@ -1,0 +1,637 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN">
+
+<html lang="en">
+
+<head>
+  <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+  <title>LCOV - ZeroBuf - zerobuf/detail/JsonConverter.h</title>
+  <link rel="stylesheet" type="text/css" href="../../gcov.css">
+</head>
+
+<body>
+
+  <table width="100%" border=0 cellspacing=0 cellpadding=0>
+    <tr><td class="title">LCOV - code coverage report</td></tr>
+    <tr><td class="ruler"><img src="../../glass.png" width=3 height=3 alt=""></td></tr>
+
+    <tr>
+      <td width="100%">
+        <table cellpadding=1 border=0 width="100%">
+          <tr>
+            <td width="10%" class="headerItem">Current view:</td>
+            <td width="35%" class="headerValue"><a href="../../index.html">top level</a> - <a href="index.html">zerobuf/detail</a> - JsonConverter.h<span style="font-size: 80%;"> (source / <a href="JsonConverter.h.func-sort-c.html">functions</a>)</span></td>
+            <td width="5%"></td>
+            <td width="15%"></td>
+            <td width="10%" class="headerCovTableHead">Hit</td>
+            <td width="10%" class="headerCovTableHead">Total</td>
+            <td width="15%" class="headerCovTableHead">Coverage</td>
+          </tr>
+          <tr>
+            <td class="headerItem">Test:</td>
+            <td class="headerValue">ZeroBuf</td>
+            <td></td>
+            <td class="headerItem">Lines:</td>
+            <td class="headerCovTableEntry">222</td>
+            <td class="headerCovTableEntry">266</td>
+            <td class="headerCovTableEntryHi">83.5 %</td>
+          </tr>
+          <tr>
+            <td class="headerItem">Date:</td>
+            <td class="headerValue">2015-12-22 14:56:45</td>
+            <td></td>
+            <td class="headerItem">Functions:</td>
+            <td class="headerCovTableEntry">107</td>
+            <td class="headerCovTableEntry">112</td>
+            <td class="headerCovTableEntryHi">95.5 %</td>
+          </tr>
+          <tr><td><img src="../../glass.png" width=3 height=3 alt=""></td></tr>
+        </table>
+      </td>
+    </tr>
+
+    <tr><td class="ruler"><img src="../../glass.png" width=3 height=3 alt=""></td></tr>
+  </table>
+
+  <table cellpadding=0 cellspacing=0 border=0>
+    <tr>
+      <td><br></td>
+    </tr>
+    <tr>
+      <td>
+<pre class="sourceHeading">          Line data    Source code</pre>
+<pre class="source">
+<a name="1"><span class="lineNum">       1 </span>            : </a>
+<span class="lineNum">       2 </span>            : /* Copyright (c) 2015, Human Brain Project
+<span class="lineNum">       3 </span>            :  *                     Stefan.Eilemann@epfl.ch
+<span class="lineNum">       4 </span>            :  */
+<span class="lineNum">       5 </span>            : 
+<span class="lineNum">       6 </span>            : #include &lt;zerobuf/Schema.h&gt;
+<span class="lineNum">       7 </span>            : #include &lt;zerobuf/version.h&gt;
+<span class="lineNum">       8 </span>            : #include &lt;zerobuf/jsoncpp/json/json.h&gt;
+<span class="lineNum">       9 </span>            : 
+<span class="lineNum">      10 </span>            : #include &lt;cstring&gt;
+<span class="lineNum">      11 </span>            : #include &lt;functional&gt;
+<span class="lineNum">      12 </span>            : #include &lt;iostream&gt;
+<span class="lineNum">      13 </span>            : #include &lt;string&gt;
+<span class="lineNum">      14 </span>            : #include &lt;unordered_map&gt;
+<span class="lineNum">      15 </span>            : 
+<span class="lineNum">      16 </span>            : namespace zerobuf
+<span class="lineNum">      17 </span>            : {
+<a name="18"><span class="lineNum">      18 </span>            : namespace</a>
+<span class="lineNum">      19 </span>            : {
+<span class="lineNum">      20 </span><span class="lineCov">        746 : const uint128_t&amp; _getType( const Schema::Field&amp; field )</span>
+<span class="lineNum">      21 </span>            : {
+<span class="lineNum">      22 </span><span class="lineCov">        746 :     return std::get&lt; Schema::FIELD_TYPE &gt;( field );</span>
+<a name="23"><span class="lineNum">      23 </span>            : }</a>
+<span class="lineNum">      24 </span>            : 
+<span class="lineNum">      25 </span><span class="lineCov">        746 : const std::string&amp; _getName( const Schema::Field&amp; field )</span>
+<span class="lineNum">      26 </span>            : {
+<span class="lineNum">      27 </span><span class="lineCov">        746 :     return std::get&lt; Schema::FIELD_NAME &gt;( field );</span>
+<a name="28"><span class="lineNum">      28 </span>            : }</a>
+<span class="lineNum">      29 </span>            : 
+<span class="lineNum">      30 </span><span class="lineCov">        161 : bool _isStaticElement( const Schema::Field&amp; field )</span>
+<span class="lineNum">      31 </span>            : {
+<span class="lineNum">      32 </span><span class="lineCov">        161 :     return std::get&lt; Schema::FIELD_SIZE &gt;( field ) &gt; 0;</span>
+<a name="33"><span class="lineNum">      33 </span>            : }</a>
+<span class="lineNum">      34 </span>            : 
+<span class="lineNum">      35 </span><span class="lineCov">        170 : bool _isStatic( const Schema::Field&amp; field )</span>
+<span class="lineNum">      36 </span>            : {
+<span class="lineNum">      37 </span><span class="lineCov">        340 :     return std::get&lt; Schema::FIELD_SIZE &gt;( field ) &gt; 0 &amp;&amp;</span>
+<span class="lineNum">      38 </span><span class="lineCov">        340 :            std::get&lt; Schema::FIELD_ELEMENTS &gt;( field ) &gt; 0;</span>
+<a name="39"><span class="lineNum">      39 </span>            : }</a>
+<span class="lineNum">      40 </span>            : 
+<span class="lineNum">      41 </span><span class="lineCov">        921 : size_t _getOffset( const Schema::Field&amp; field )</span>
+<span class="lineNum">      42 </span>            : {
+<span class="lineNum">      43 </span><span class="lineCov">        921 :     return std::get&lt; Schema::FIELD_OFFSET &gt;( field );</span>
+<a name="44"><span class="lineNum">      44 </span>            : }</a>
+<span class="lineNum">      45 </span>            : 
+<span class="lineNum">      46 </span><span class="lineCov">         94 : size_t _getIndex( const Schema::Field&amp; field )</span>
+<span class="lineNum">      47 </span>            : {
+<span class="lineNum">      48 </span><span class="lineCov">         94 :     if( _isStatic( field ))</span>
+<span class="lineNum">      49 </span><span class="lineNoCov">          0 :         throw std::runtime_error( &quot;Static elements don't have an index&quot; );</span>
+<span class="lineNum">      50 </span>            : 
+<span class="lineNum">      51 </span><span class="lineCov">         94 :     const size_t offset = _getOffset( field );</span>
+<span class="lineNum">      52 </span><span class="lineCov">         94 :     if( offset &lt; 4 || (( offset - 4 ) % 16 ) != 0 )</span>
+<span class="lineNum">      53 </span><span class="lineNoCov">          0 :         throw std::runtime_error( &quot;Not an offset of a dynamic member&quot; );</span>
+<span class="lineNum">      54 </span><span class="lineCov">         94 :     return (offset - 4) / 16;</span>
+<a name="55"><span class="lineNum">      55 </span>            : }</a>
+<span class="lineNum">      56 </span>            : 
+<span class="lineNum">      57 </span><span class="lineCov">        161 : size_t _getSize( const Schema::Field&amp; field )</span>
+<span class="lineNum">      58 </span>            : {
+<span class="lineNum">      59 </span><span class="lineCov">        161 :     return std::get&lt; Schema::FIELD_SIZE &gt;( field );</span>
+<a name="60"><span class="lineNum">      60 </span>            : }</a>
+<span class="lineNum">      61 </span>            : 
+<span class="lineNum">      62 </span><span class="lineCov">        845 : size_t _getNElements( const Schema::Field&amp; field )</span>
+<span class="lineNum">      63 </span>            : {
+<span class="lineNum">      64 </span><span class="lineCov">        845 :     return std::get&lt; Schema::FIELD_ELEMENTS &gt;( field );</span>
+<a name="65"><span class="lineNum">      65 </span>            : }</a>
+<span class="lineNum">      66 </span>            : 
+<span class="lineNum">      67 </span><span class="lineCov">         99 : class JSONConverter</span>
+<a name="68"><span class="lineNum">      68 </span>            : {</a>
+<span class="lineNum">      69 </span>            : public:
+<span class="lineNum">      70 </span><span class="lineCov">         99 :     JSONConverter( const Schemas&amp; schemas )</span>
+<span class="lineNum">      71 </span><span class="lineCov">         99 :         : _schemas( schemas ) // copy since lifetime of param is not defined</span>
+<span class="lineNum">      72 </span>            :     {
+<span class="lineNum">      73 </span><span class="lineCov">         99 :         if( schemas.empty( ))</span>
+<span class="lineNum">      74 </span><span class="lineNoCov">          0 :             throw std::runtime_error( &quot;No schemas given&quot; );</span>
+<span class="lineNum">      75 </span>            : 
+<span class="lineNum">      76 </span><span class="lineCov">         99 :         addConverter&lt; int8_t &gt;( &quot;int8_t&quot; );</span>
+<span class="lineNum">      77 </span><span class="lineCov">         99 :         addConverter&lt; uint8_t &gt;( &quot;uint8_t&quot; );</span>
+<span class="lineNum">      78 </span><span class="lineCov">         99 :         addConverter&lt; int16_t &gt;( &quot;int16_t&quot; );</span>
+<span class="lineNum">      79 </span><span class="lineCov">         99 :         addConverter&lt; uint16_t &gt;( &quot;uint16_t&quot; );</span>
+<span class="lineNum">      80 </span><span class="lineCov">         99 :         addConverter&lt; int32_t &gt;( &quot;int32_t&quot; );</span>
+<span class="lineNum">      81 </span><span class="lineCov">         99 :         addConverter&lt; uint32_t &gt;( &quot;uint32_t&quot; );</span>
+<span class="lineNum">      82 </span><span class="lineCov">         99 :         addConverter&lt; int64_t &gt;( &quot;int64_t&quot; );</span>
+<span class="lineNum">      83 </span><span class="lineCov">         99 :         addConverter&lt; uint64_t &gt;( &quot;uint64_t&quot; );</span>
+<span class="lineNum">      84 </span><span class="lineCov">         99 :         addConverter&lt; uint128_t &gt;( &quot;::zerobuf::uint128_t&quot; );</span>
+<span class="lineNum">      85 </span><span class="lineCov">         99 :         addConverter&lt; float &gt;( &quot;float&quot; );</span>
+<span class="lineNum">      86 </span><span class="lineCov">         99 :         addConverter&lt; double &gt;( &quot;double&quot; );</span>
+<span class="lineNum">      87 </span><span class="lineCov">         99 :         addConverter&lt; bool &gt;( &quot;bool&quot; );</span>
+<span class="lineNum">      88 </span><span class="lineCov">         99 :         addConverter&lt; char &gt;( &quot;char&quot; );</span>
+<span class="lineNum">      89 </span><span class="lineCov">        228 :         for( const Schema&amp; schema : _schemas )</span>
+<span class="lineNum">      90 </span><span class="lineCov">        129 :             addConverter( schema );</span>
+<a name="91"><span class="lineNum">      91 </span><span class="lineCov">         99 :     }</span></a>
+<span class="lineNum">      92 </span>            : 
+<span class="lineNum">      93 </span><span class="lineCov">         90 :     bool toJSON( const Allocator&amp; allocator, Json::Value&amp; jsonValue ) const</span>
+<span class="lineNum">      94 </span>            :     {
+<span class="lineNum">      95 </span><span class="lineCov">         90 :         const Schema&amp; root = _schemas.front();</span>
+<span class="lineNum">      96 </span><span class="lineCov">         90 :         const Schema::Field field( &quot;root&quot;, root.type, 0, root.staticSize, 1 );</span>
+<span class="lineNum">      97 </span><span class="lineCov">         90 :         return _fromZeroBuf( allocator, field, root, jsonValue );</span>
+<a name="98"><span class="lineNum">      98 </span>            :     }</a>
+<span class="lineNum">      99 </span>            : 
+<span class="lineNum">     100 </span><span class="lineCov">          9 :     bool fromJSON( Allocator&amp; allocator, const Json::Value&amp; jsonValue ) const</span>
+<span class="lineNum">     101 </span>            :     {
+<span class="lineNum">     102 </span><span class="lineCov">          9 :         const Schema&amp; root = _schemas.front();</span>
+<span class="lineNum">     103 </span><span class="lineCov">          9 :         const Schema::Field field( &quot;root&quot;, root.type, 0, root.staticSize, 1 );</span>
+<span class="lineNum">     104 </span><span class="lineCov">          9 :         return _toZeroBuf( allocator, field, root, jsonValue );</span>
+<span class="lineNum">     105 </span>            :     }
+<span class="lineNum">     106 </span>            : 
+<span class="lineNum">     107 </span>            : private:
+<span class="lineNum">     108 </span>            :     typedef std::function&lt; bool( const Allocator&amp;, const Schema::Field&amp;,
+<span class="lineNum">     109 </span>            :                                  Json::Value&amp; ) &gt; ToJSON_f;
+<span class="lineNum">     110 </span>            :     typedef std::function&lt; bool( const Allocator&amp;, const Schema::Field&amp;,
+<span class="lineNum">     111 </span>            :                                  Json::Value&amp; ) const &gt; ToJSONConst_f;
+<span class="lineNum">     112 </span>            :     typedef std::function&lt; bool( Allocator&amp;, const Schema::Field&amp;,
+<span class="lineNum">     113 </span>            :                                  const Json::Value&amp; ) &gt; FromJSON_f;
+<span class="lineNum">     114 </span>            : 
+<span class="lineNum">     115 </span>            :     typedef std::unordered_map&lt; uint128_t, ToJSON_f &gt; ToJSONMap;
+<span class="lineNum">     116 </span>            :     typedef std::unordered_map&lt; uint128_t, FromJSON_f &gt; FromJSONMap;
+<span class="lineNum">     117 </span>            : 
+<span class="lineNum">     118 </span>            :     ToJSONMap _toJSONMap;
+<span class="lineNum">     119 </span>            :     FromJSONMap _fromJSONMap;
+<a name="120"><span class="lineNum">     120 </span>            :     Schemas _schemas;</a>
+<span class="lineNum">     121 </span>            : 
+<span class="lineNum">     122 </span><span class="lineCov">        129 :     void addConverter( const Schema&amp; schema )</span>
+<span class="lineNum">     123 </span>            :     {
+<span class="lineNum">     124 </span><span class="lineCov">        258 :         _toJSONMap[ schema.type ] = std::bind( &amp;JSONConverter::_fromZeroBuf,</span>
+<span class="lineNum">     125 </span>            :                                                this,
+<span class="lineNum">     126 </span>            :                                                std::placeholders::_1,
+<span class="lineNum">     127 </span>            :                                                std::placeholders::_2, schema,
+<span class="lineNum">     128 </span><span class="lineCov">        129 :                                                std::placeholders::_3 );</span>
+<span class="lineNum">     129 </span><span class="lineCov">        258 :         _fromJSONMap[ schema.type ] = std::bind( &amp;JSONConverter::_toZeroBuf,</span>
+<span class="lineNum">     130 </span>            :                                                  this,
+<span class="lineNum">     131 </span>            :                                                  std::placeholders::_1,
+<span class="lineNum">     132 </span>            :                                                  std::placeholders::_2, schema,
+<span class="lineNum">     133 </span><span class="lineCov">        129 :                                                  std::placeholders::_3 );</span>
+<a name="134"><span class="lineNum">     134 </span><span class="lineCov">        129 :     }</span></a>
+<span class="lineNum">     135 </span>            : 
+<span class="lineNum">     136 </span><span class="lineCov">       1287 :     template&lt; class T &gt; void addConverter( const std::string&amp; name )</span>
+<span class="lineNum">     137 </span>            :     {
+<span class="lineNum">     138 </span><span class="lineCov">       1287 :         const uint128_t&amp; type = servus::make_uint128( name );</span>
+<span class="lineNum">     139 </span><span class="lineCov">       1287 :         _toJSONMap[ type ] = std::bind( &amp;JSONConverter::_fromPOD&lt; T &gt;,</span>
+<span class="lineNum">     140 </span>            :                                         this,
+<span class="lineNum">     141 </span>            :                                         std::placeholders::_1,
+<span class="lineNum">     142 </span>            :                                         std::placeholders::_2,
+<span class="lineNum">     143 </span>            :                                         std::placeholders::_3 );
+<span class="lineNum">     144 </span><span class="lineCov">       1287 :         _fromJSONMap[ type ] = std::bind( &amp;JSONConverter::_toPOD&lt; T &gt;, this,</span>
+<span class="lineNum">     145 </span>            :                                           std::placeholders::_1,
+<span class="lineNum">     146 </span>            :                                           std::placeholders::_2,
+<span class="lineNum">     147 </span>            :                                           std::placeholders::_3 );
+<a name="148"><span class="lineNum">     148 </span><span class="lineCov">       1287 :     }</span></a>
+<span class="lineNum">     149 </span>            : 
+<span class="lineNum">     150 </span><span class="lineCov">        518 :     bool _toJSONFunc( const Allocator&amp; allocator, const Schema::Field&amp; field,</span>
+<span class="lineNum">     151 </span>            :                       Json::Value&amp; jsonValue ) const
+<span class="lineNum">     152 </span>            :     {
+<span class="lineNum">     153 </span><span class="lineCov">        518 :         const uint128_t&amp; type = _getType( field );</span>
+<span class="lineNum">     154 </span><span class="lineCov">        518 :         const auto&amp; func = _toJSONMap.find( type );</span>
+<span class="lineNum">     155 </span><span class="lineCov">        518 :         if( func == _toJSONMap.end( ))</span>
+<span class="lineNum">     156 </span>            :         {
+<span class="lineNum">     157 </span><span class="lineNoCov">          0 :             std::cerr &lt;&lt; &quot;Missing converter for type of field &quot;</span>
+<span class="lineNum">     158 </span><span class="lineNoCov">          0 :                       &lt;&lt; _getName( field ) &lt;&lt; std::endl;</span>
+<span class="lineNum">     159 </span><span class="lineNoCov">          0 :             return false;</span>
+<span class="lineNum">     160 </span>            :         }
+<span class="lineNum">     161 </span><span class="lineCov">        518 :         return func-&gt;second( allocator, field, jsonValue );</span>
+<a name="162"><span class="lineNum">     162 </span>            :     }</a>
+<span class="lineNum">     163 </span>            : 
+<span class="lineNum">     164 </span><span class="lineCov">        228 :     bool _fromJSONFunc( Allocator&amp; allocator, const Schema::Field&amp; field,</span>
+<span class="lineNum">     165 </span>            :                         const Json::Value&amp; jsonValue ) const
+<span class="lineNum">     166 </span>            :     {
+<span class="lineNum">     167 </span><span class="lineCov">        228 :         const uint128_t&amp; type = _getType( field );</span>
+<span class="lineNum">     168 </span><span class="lineCov">        228 :         const auto&amp; func = _fromJSONMap.find( type );</span>
+<span class="lineNum">     169 </span><span class="lineCov">        228 :         if( func == _fromJSONMap.end( ))</span>
+<span class="lineNum">     170 </span>            :         {
+<span class="lineNum">     171 </span><span class="lineNoCov">          0 :             std::cerr &lt;&lt; &quot;Missing converter for type of field &quot;</span>
+<span class="lineNum">     172 </span><span class="lineNoCov">          0 :                       &lt;&lt; _getName( field ) &lt;&lt; std::endl;</span>
+<span class="lineNum">     173 </span><span class="lineNoCov">          0 :             return false;</span>
+<span class="lineNum">     174 </span>            :         }
+<span class="lineNum">     175 </span><span class="lineCov">        228 :         return func-&gt;second( allocator, field, jsonValue );</span>
+<span class="lineNum">     176 </span>            :     }
+<a name="177"><span class="lineNum">     177 </span>            : </a>
+<span class="lineNum">     178 </span>            :     // ZeroBuf object conversion
+<span class="lineNum">     179 </span><span class="lineCov">        138 :     bool _fromZeroBuf( const Allocator&amp; allocator, const Schema::Field&amp; field,</span>
+<span class="lineNum">     180 </span>            :                        const Schema&amp; schema, Json::Value&amp; jsonValue ) const
+<span class="lineNum">     181 </span>            :     {
+<span class="lineNum">     182 </span><span class="lineCov">        138 :         const size_t nElements = _getNElements( field );</span>
+<span class="lineNum">     183 </span>            : 
+<span class="lineNum">     184 </span><span class="lineCov">        138 :         switch( nElements )</span>
+<span class="lineNum">     185 </span>            :         {
+<span class="lineNum">     186 </span>            :         case 0: // dynamic array
+<span class="lineNum">     187 </span>            :         {
+<span class="lineNum">     188 </span><span class="lineCov">         14 :             if( !_isStaticElement( field ))</span>
+<span class="lineNum">     189 </span>            :                 throw std::runtime_error(
+<span class="lineNum">     190 </span><span class="lineNoCov">          0 :                     &quot;Dynamic arrays of dynamic Zerobufs not supported&quot; );</span>
+<span class="lineNum">     191 </span>            : 
+<span class="lineNum">     192 </span><span class="lineCov">         14 :             const size_t elemSize = _getSize( field );</span>
+<span class="lineNum">     193 </span><span class="lineCov">         14 :             const size_t index = _getIndex( field );</span>
+<span class="lineNum">     194 </span><span class="lineCov">         14 :             const size_t arraySize = allocator.getDynamicSize( index ) /</span>
+<span class="lineNum">     195 </span><span class="lineCov">         14 :                                      elemSize ;</span>
+<span class="lineNum">     196 </span><span class="lineCov">         14 :             const size_t offset = allocator.getDynamicOffset( index );</span>
+<span class="lineNum">     197 </span><span class="lineCov">         14 :             jsonValue.resize( arraySize );</span>
+<span class="lineNum">     198 </span>            : 
+<span class="lineNum">     199 </span><span class="lineCov">         50 :             for( size_t i = 0; i &lt; arraySize; ++i )</span>
+<span class="lineNum">     200 </span>            :             {
+<span class="lineNum">     201 </span>            :                 const ConstStaticSubAllocator subAllocator( allocator,
+<span class="lineNum">     202 </span><span class="lineCov">         36 :                                                             offset + i*elemSize,</span>
+<span class="lineNum">     203 </span><span class="lineCov">         36 :                                                             elemSize );</span>
+<span class="lineNum">     204 </span><span class="lineCov">         36 :                 if( !_fromZeroBufItem( subAllocator, schema,</span>
+<span class="lineNum">     205 </span><span class="lineCov">         36 :                                        jsonValue[ uint32_t( i )]))</span>
+<span class="lineNum">     206 </span>            :                 {
+<span class="lineNum">     207 </span><span class="lineNoCov">          0 :                     return false;</span>
+<span class="lineNum">     208 </span>            :                 }
+<span class="lineNum">     209 </span><span class="lineCov">         36 :             }</span>
+<span class="lineNum">     210 </span><span class="lineCov">         14 :             return true;</span>
+<span class="lineNum">     211 </span>            :         }
+<span class="lineNum">     212 </span>            : 
+<span class="lineNum">     213 </span>            :         case 1:
+<span class="lineNum">     214 </span>            :         {
+<span class="lineNum">     215 </span><span class="lineCov">        122 :             const size_t offset = _getOffset( field );</span>
+<span class="lineNum">     216 </span><span class="lineCov">        122 :             const bool isRoot = offset == 0;</span>
+<span class="lineNum">     217 </span><span class="lineCov">        122 :             if( _isStaticElement( field ))</span>
+<span class="lineNum">     218 </span>            :             {
+<span class="lineNum">     219 </span>            :                 const ConstStaticSubAllocator subAllocator( allocator, offset,
+<span class="lineNum">     220 </span><span class="lineCov">        122 :                                                             _getSize( field ));</span>
+<span class="lineNum">     221 </span>            :                 return _fromZeroBufItem( isRoot ? allocator : subAllocator,
+<span class="lineNum">     222 </span><span class="lineCov">        122 :                                          schema, jsonValue );</span>
+<span class="lineNum">     223 </span>            :             }
+<span class="lineNum">     224 </span>            : 
+<span class="lineNum">     225 </span><span class="lineNoCov">          0 :             const size_t index = isRoot ? 0 : _getIndex( field );</span>
+<span class="lineNum">     226 </span>            :             const ConstNonMovingSubAllocator subAllocator( allocator, index,
+<span class="lineNum">     227 </span>            :                                                            schema.numDynamics,
+<span class="lineNum">     228 </span><span class="lineNoCov">          0 :                                                            schema.staticSize );</span>
+<span class="lineNum">     229 </span>            :             return _fromZeroBufItem( isRoot ? allocator : subAllocator,
+<span class="lineNum">     230 </span><span class="lineNoCov">          0 :                                      schema, jsonValue );</span>
+<span class="lineNum">     231 </span>            :         }
+<span class="lineNum">     232 </span>            : 
+<span class="lineNum">     233 </span>            :         default: // static array
+<span class="lineNum">     234 </span>            :         {
+<span class="lineNum">     235 </span><span class="lineCov">          2 :             if( !_isStaticElement( field ))</span>
+<span class="lineNum">     236 </span>            :                 throw std::runtime_error(
+<span class="lineNum">     237 </span><span class="lineNoCov">          0 :                     &quot;Static arrays of dynamic Zerobufs not supported&quot; );</span>
+<span class="lineNum">     238 </span>            : 
+<span class="lineNum">     239 </span><span class="lineCov">          2 :             jsonValue.resize( nElements );</span>
+<span class="lineNum">     240 </span><span class="lineCov">          2 :             const size_t offset = _getOffset( field );</span>
+<span class="lineNum">     241 </span><span class="lineCov">          2 :             const size_t elemSize = _getSize( field );</span>
+<span class="lineNum">     242 </span>            : 
+<span class="lineNum">     243 </span><span class="lineCov">         10 :             for( size_t i = 0; i &lt; nElements; ++i )</span>
+<span class="lineNum">     244 </span>            :             {
+<span class="lineNum">     245 </span>            :                 const ConstStaticSubAllocator subAllocator( allocator,
+<span class="lineNum">     246 </span><span class="lineCov">          8 :                                                             offset + i*elemSize,</span>
+<span class="lineNum">     247 </span><span class="lineCov">          8 :                                                             elemSize );</span>
+<span class="lineNum">     248 </span><span class="lineCov">          8 :                 if( !_fromZeroBufItem( subAllocator, schema,</span>
+<span class="lineNum">     249 </span><span class="lineCov">          8 :                                        jsonValue[ uint32_t( i )]))</span>
+<span class="lineNum">     250 </span>            :                 {
+<span class="lineNum">     251 </span><span class="lineNoCov">          0 :                     return false;</span>
+<span class="lineNum">     252 </span>            :                 }
+<span class="lineNum">     253 </span><span class="lineCov">          8 :             }</span>
+<span class="lineNum">     254 </span><span class="lineCov">          2 :             return true;</span>
+<span class="lineNum">     255 </span>            :         }
+<span class="lineNum">     256 </span>            :         }
+<a name="257"><span class="lineNum">     257 </span>            :     }</a>
+<span class="lineNum">     258 </span>            : 
+<span class="lineNum">     259 </span><span class="lineCov">        166 :     bool _fromZeroBufItem( const Allocator&amp; allocator, const Schema&amp; schema,</span>
+<span class="lineNum">     260 </span>            :                            Json::Value&amp; jsonValue ) const
+<span class="lineNum">     261 </span>            :     {
+<span class="lineNum">     262 </span><span class="lineCov">        684 :         for( const Schema::Field&amp; field : schema.fields )</span>
+<span class="lineNum">     263 </span>            :         {
+<span class="lineNum">     264 </span><span class="lineCov">        518 :             const std::string&amp; name = _getName( field );</span>
+<span class="lineNum">     265 </span><span class="lineCov">        518 :             jsonValue[ name ] = Json::Value();</span>
+<span class="lineNum">     266 </span><span class="lineCov">        518 :             if( !_toJSONFunc( allocator, field, jsonValue[ name ]))</span>
+<span class="lineNum">     267 </span><span class="lineNoCov">          0 :                 return false;</span>
+<span class="lineNum">     268 </span>            :         }
+<span class="lineNum">     269 </span><span class="lineCov">        166 :         return true;</span>
+<a name="270"><span class="lineNum">     270 </span>            :     }</a>
+<span class="lineNum">     271 </span>            : 
+<span class="lineNum">     272 </span><span class="lineCov">         23 :     bool _toZeroBuf( Allocator&amp; allocator, const Schema::Field&amp; field,</span>
+<span class="lineNum">     273 </span>            :                      const Schema&amp; schema, const Json::Value&amp; jsonValue ) const
+<span class="lineNum">     274 </span>            :     {
+<span class="lineNum">     275 </span><span class="lineCov">         23 :         const size_t nElements = _getNElements( field );</span>
+<span class="lineNum">     276 </span>            : 
+<span class="lineNum">     277 </span><span class="lineCov">         23 :         switch( nElements )</span>
+<span class="lineNum">     278 </span>            :         {
+<span class="lineNum">     279 </span>            :         case 0: // dynamic array
+<span class="lineNum">     280 </span>            :         {
+<span class="lineNum">     281 </span><span class="lineCov">          4 :             if( !_isStaticElement( field ))</span>
+<span class="lineNum">     282 </span>            :                 throw std::runtime_error(
+<span class="lineNum">     283 </span><span class="lineNoCov">          0 :                     &quot;Dynamic arrays of dynamic Zerobufs not supported&quot; );</span>
+<span class="lineNum">     284 </span>            : 
+<span class="lineNum">     285 </span><span class="lineCov">          4 :             const size_t index = _getIndex( field );</span>
+<span class="lineNum">     286 </span><span class="lineCov">          4 :             const size_t arraySize = jsonValue.size();</span>
+<span class="lineNum">     287 </span><span class="lineCov">          4 :             const size_t elemSize = _getSize( field );</span>
+<span class="lineNum">     288 </span>            :             allocator.updateAllocation( index, false /*no copy*/,
+<span class="lineNum">     289 </span><span class="lineCov">          4 :                                         arraySize * elemSize );</span>
+<span class="lineNum">     290 </span>            : 
+<span class="lineNum">     291 </span><span class="lineCov">          4 :             const size_t offset = allocator.getDynamicOffset( index );</span>
+<span class="lineNum">     292 </span><span class="lineCov">         28 :             for( size_t i = 0; i &lt; arraySize; ++i )</span>
+<span class="lineNum">     293 </span>            :             {
+<span class="lineNum">     294 </span><span class="lineCov">         24 :                 StaticSubAllocator subAllocator( allocator, offset + i*elemSize,</span>
+<span class="lineNum">     295 </span><span class="lineCov">         24 :                                                  elemSize );</span>
+<span class="lineNum">     296 </span><span class="lineCov">         24 :                 if( !_toZeroBufItem( subAllocator, schema,</span>
+<span class="lineNum">     297 </span><span class="lineCov">         24 :                                      jsonValue[ uint32_t( i )]))</span>
+<span class="lineNum">     298 </span>            :                 {
+<span class="lineNum">     299 </span><span class="lineNoCov">          0 :                     return false;</span>
+<span class="lineNum">     300 </span>            :                 }
+<span class="lineNum">     301 </span><span class="lineCov">         24 :             }</span>
+<span class="lineNum">     302 </span><span class="lineCov">          4 :             return true;</span>
+<span class="lineNum">     303 </span>            :         }
+<span class="lineNum">     304 </span>            : 
+<span class="lineNum">     305 </span>            :         case 1:
+<span class="lineNum">     306 </span>            :         {
+<span class="lineNum">     307 </span><span class="lineCov">         17 :             const size_t offset = _getOffset( field );</span>
+<span class="lineNum">     308 </span><span class="lineCov">         17 :             const bool isRoot = offset == 0;</span>
+<span class="lineNum">     309 </span><span class="lineCov">         17 :             if( _isStaticElement( field ))</span>
+<span class="lineNum">     310 </span>            :             {
+<span class="lineNum">     311 </span>            :                 StaticSubAllocator subAllocator( allocator, offset,
+<span class="lineNum">     312 </span><span class="lineCov">         17 :                                                  _getSize( field ));</span>
+<span class="lineNum">     313 </span>            :                 return _toZeroBufItem( isRoot ? allocator : subAllocator,
+<span class="lineNum">     314 </span><span class="lineCov">         17 :                                        schema, jsonValue );</span>
+<span class="lineNum">     315 </span>            :             }
+<span class="lineNum">     316 </span>            : 
+<span class="lineNum">     317 </span><span class="lineNoCov">          0 :             const size_t index = isRoot ? 0 : _getIndex( field );</span>
+<span class="lineNum">     318 </span>            :             NonMovingSubAllocator subAllocator( allocator, index,
+<span class="lineNum">     319 </span>            :                                                 schema.numDynamics,
+<span class="lineNum">     320 </span><span class="lineNoCov">          0 :                                                 schema.staticSize );</span>
+<span class="lineNum">     321 </span>            :             return _toZeroBufItem( isRoot ? allocator : subAllocator,
+<span class="lineNum">     322 </span><span class="lineNoCov">          0 :                                    schema, jsonValue );</span>
+<span class="lineNum">     323 </span>            :         }
+<span class="lineNum">     324 </span>            : 
+<span class="lineNum">     325 </span>            :         default: // static array
+<span class="lineNum">     326 </span>            :         {
+<span class="lineNum">     327 </span><span class="lineCov">          2 :             if( !_isStaticElement( field ))</span>
+<span class="lineNum">     328 </span>            :                 throw std::runtime_error(
+<span class="lineNum">     329 </span><span class="lineNoCov">          0 :                     &quot;Static arrays of dynamic Zerobufs not supported&quot; );</span>
+<span class="lineNum">     330 </span>            : 
+<span class="lineNum">     331 </span><span class="lineCov">          2 :             if( jsonValue.size() != nElements )</span>
+<span class="lineNum">     332 </span>            :             {
+<span class="lineNum">     333 </span><span class="lineNoCov">          0 :                 std::cerr &lt;&lt; &quot;JSON array '&quot; &lt;&lt; _getName( field ) &lt;&lt; &quot;': '&quot;</span>
+<span class="lineNum">     334 </span><span class="lineNoCov">          0 :                           &lt;&lt; jsonValue &lt;&lt; &quot;' does not match array size &quot;</span>
+<span class="lineNum">     335 </span><span class="lineNoCov">          0 :                           &lt;&lt; nElements &lt;&lt; std::endl;</span>
+<span class="lineNum">     336 </span><span class="lineNoCov">          0 :                 return false;</span>
+<span class="lineNum">     337 </span>            :             }
+<span class="lineNum">     338 </span>            : 
+<span class="lineNum">     339 </span><span class="lineCov">          2 :             const size_t offset = _getOffset( field );</span>
+<span class="lineNum">     340 </span><span class="lineCov">          2 :             const size_t elemSize = _getSize( field );</span>
+<span class="lineNum">     341 </span><span class="lineCov">         10 :             for( size_t i = 0; i &lt; nElements; ++i )</span>
+<span class="lineNum">     342 </span>            :             {
+<span class="lineNum">     343 </span><span class="lineCov">          8 :                 StaticSubAllocator subAllocator( allocator, offset + i*elemSize,</span>
+<span class="lineNum">     344 </span><span class="lineCov">          8 :                                                  elemSize );</span>
+<span class="lineNum">     345 </span><span class="lineCov">          8 :                 if( !_toZeroBufItem( subAllocator, schema,</span>
+<span class="lineNum">     346 </span><span class="lineCov">          8 :                                      jsonValue[ uint32_t( i )] ))</span>
+<span class="lineNum">     347 </span>            :                 {
+<span class="lineNum">     348 </span><span class="lineNoCov">          0 :                     return false;</span>
+<span class="lineNum">     349 </span>            :                 }
+<span class="lineNum">     350 </span><span class="lineCov">          8 :             }</span>
+<span class="lineNum">     351 </span><span class="lineCov">          2 :             return true;</span>
+<span class="lineNum">     352 </span>            :         }
+<span class="lineNum">     353 </span>            :         }
+<a name="354"><span class="lineNum">     354 </span>            :     }</a>
+<span class="lineNum">     355 </span>            : 
+<span class="lineNum">     356 </span><span class="lineCov">         49 :     bool _toZeroBufItem( Allocator&amp; allocator, const Schema&amp; schema,</span>
+<span class="lineNum">     357 </span>            :                          const Json::Value&amp; jsonValue ) const
+<span class="lineNum">     358 </span>            :     {
+<span class="lineNum">     359 </span><span class="lineCov">         49 :         allocator.getItem&lt; uint32_t &gt;( 0 ) = ZEROBUF_VERSION_ABI;</span>
+<span class="lineNum">     360 </span><span class="lineCov">        277 :         for( const Schema::Field&amp; field : schema.fields )</span>
+<span class="lineNum">     361 </span>            :         {
+<span class="lineNum">     362 </span><span class="lineCov">        228 :             const std::string&amp; name = _getName( field );</span>
+<span class="lineNum">     363 </span><span class="lineCov">        228 :             if( !_fromJSONFunc( allocator, field, jsonValue[ name ]))</span>
+<span class="lineNum">     364 </span><span class="lineNoCov">          0 :                 return false;</span>
+<span class="lineNum">     365 </span>            :         }
+<span class="lineNum">     366 </span><span class="lineCov">         49 :         return true;</span>
+<span class="lineNum">     367 </span>            :     }
+<span class="lineNum">     368 </span>            : 
+<a name="369"><span class="lineNum">     369 </span>            :     // builtin conversions</a>
+<span class="lineNum">     370 </span>            :     template&lt; class T &gt;
+<span class="lineNum">     371 </span><span class="lineCov">        470 :     bool _fromPOD( const Allocator&amp; allocator, const Schema::Field&amp; field,</span>
+<span class="lineNum">     372 </span>            :                   Json::Value&amp; jsonValue ) const
+<span class="lineNum">     373 </span>            :     {
+<span class="lineNum">     374 </span><span class="lineCov">        470 :         const size_t offset = _getOffset( field );</span>
+<span class="lineNum">     375 </span><span class="lineCov">        470 :         const size_t nElements = _getNElements( field );</span>
+<span class="lineNum">     376 </span>            : 
+<span class="lineNum">     377 </span><span class="lineCov">        470 :         switch( nElements )</span>
+<span class="lineNum">     378 </span>            :         {
+<span class="lineNum">     379 </span>            :         case 0: // dynamic array
+<span class="lineNum">     380 </span><span class="lineCov">         38 :             return _fromPODDynamic&lt; T &gt;( allocator, field, jsonValue );</span>
+<span class="lineNum">     381 </span>            : 
+<span class="lineNum">     382 </span>            :         case 1: // single element
+<span class="lineNum">     383 </span>            :             return _fromPODItem&lt; T &gt;( allocator.getItem&lt; T &gt;( offset ),
+<span class="lineNum">     384 </span><span class="lineCov">        394 :                                      jsonValue );</span>
+<span class="lineNum">     385 </span>            :         default: // static array
+<span class="lineNum">     386 </span>            :         {
+<span class="lineNum">     387 </span><span class="lineCov">         38 :             const T* data = allocator.getItemPtr&lt; T &gt;( offset );</span>
+<span class="lineNum">     388 </span><span class="lineCov">         38 :             jsonValue.resize( nElements );</span>
+<span class="lineNum">     389 </span><span class="lineCov">        186 :             for( size_t i = 0; i &lt; nElements; ++i )</span>
+<span class="lineNum">     390 </span><span class="lineCov">        148 :                 if( !_fromPODItem&lt; T &gt;( data[ i ], jsonValue[ uint32_t( i )]))</span>
+<span class="lineNum">     391 </span><span class="lineNoCov">          0 :                     return false;</span>
+<span class="lineNum">     392 </span><span class="lineCov">         38 :             return true;</span>
+<span class="lineNum">     393 </span>            :         }
+<span class="lineNum">     394 </span>            :         }
+<span class="lineNum">     395 </span>            :     }
+<a name="396"><span class="lineNum">     396 </span>            : </a>
+<span class="lineNum">     397 </span>            :     template&lt; class T &gt;
+<span class="lineNum">     398 </span><span class="lineCov">        668 :     bool _fromPODItem( const T&amp; value, Json::Value&amp; jsonValue ) const</span>
+<span class="lineNum">     399 </span>            :     {
+<span class="lineNum">     400 </span>            :         if( std::is_floating_point&lt; T &gt;::value )
+<span class="lineNum">     401 </span><span class="lineCov">        234 :             jsonValue = Json::Value( double( value ));</span>
+<span class="lineNum">     402 </span>            :         else if( std::is_same&lt; bool, T &gt;::value )
+<span class="lineNum">     403 </span><span class="lineCov">          6 :             jsonValue = Json::Value( bool( value ));</span>
+<span class="lineNum">     404 </span>            :         else if( std::is_signed&lt; T &gt;::value )
+<span class="lineNum">     405 </span><span class="lineCov">        202 :             jsonValue = Json::Value( Json::Int64( value ));</span>
+<span class="lineNum">     406 </span>            :         else
+<span class="lineNum">     407 </span><span class="lineCov">        226 :             jsonValue = Json::Value( Json::UInt64( value ));</span>
+<span class="lineNum">     408 </span><span class="lineCov">        668 :         return true;</span>
+<span class="lineNum">     409 </span>            :     }
+<a name="410"><span class="lineNum">     410 </span>            : </a>
+<span class="lineNum">     411 </span>            :     template&lt; class T &gt;
+<span class="lineNum">     412 </span><span class="lineCov">         36 :     bool _fromPODDynamic( const Allocator&amp; allocator,</span>
+<span class="lineNum">     413 </span>            :                           const Schema::Field&amp; field,
+<span class="lineNum">     414 </span>            :                           Json::Value&amp; jsonValue ) const
+<span class="lineNum">     415 </span>            :     {
+<span class="lineNum">     416 </span><span class="lineCov">         36 :         if( _isStatic( field ))</span>
+<span class="lineNum">     417 </span><span class="lineNoCov">          0 :             throw std::runtime_error( &quot;Internal JSON converter error&quot; );</span>
+<span class="lineNum">     418 </span>            : 
+<span class="lineNum">     419 </span><span class="lineCov">         36 :         const size_t index = _getIndex( field );</span>
+<span class="lineNum">     420 </span><span class="lineCov">         36 :         const T* data = allocator.getDynamic&lt; T &gt;( index );</span>
+<span class="lineNum">     421 </span><span class="lineCov">         36 :         const size_t size = allocator.getDynamicSize( index ) / sizeof(T);</span>
+<span class="lineNum">     422 </span><span class="lineCov">        180 :         for( size_t i = 0; i &lt; size; ++i )</span>
+<span class="lineNum">     423 </span><span class="lineCov">        144 :             if( !_fromPODItem( data[i], jsonValue[ uint32_t( i )]))</span>
+<span class="lineNum">     424 </span><span class="lineNoCov">          0 :                 return false;</span>
+<span class="lineNum">     425 </span><span class="lineCov">         36 :         return true;</span>
+<span class="lineNum">     426 </span>            :     }
+<a name="427"><span class="lineNum">     427 </span>            : </a>
+<span class="lineNum">     428 </span>            :     template&lt; class T &gt;
+<span class="lineNum">     429 </span><span class="lineCov">        214 :     bool _toPOD( Allocator&amp; allocator, const Schema::Field&amp; field,</span>
+<span class="lineNum">     430 </span>            :                     const Json::Value&amp; jsonValue )
+<span class="lineNum">     431 </span>            :     {
+<span class="lineNum">     432 </span><span class="lineCov">        214 :         const size_t offset = _getOffset( field );</span>
+<span class="lineNum">     433 </span><span class="lineCov">        214 :         const size_t nElements = _getNElements( field );</span>
+<span class="lineNum">     434 </span>            : 
+<span class="lineNum">     435 </span><span class="lineCov">        214 :         switch( nElements )</span>
+<span class="lineNum">     436 </span>            :         {
+<span class="lineNum">     437 </span>            :         case 0: // dynamic array
+<span class="lineNum">     438 </span><span class="lineCov">         38 :             return _toPODDynamic&lt; T &gt;( allocator, field, jsonValue );</span>
+<span class="lineNum">     439 </span>            : 
+<span class="lineNum">     440 </span>            :         case 1: // single element
+<span class="lineNum">     441 </span>            :             return _toPODItem&lt; T &gt;( allocator.getItem&lt;T&gt;( offset ),
+<span class="lineNum">     442 </span><span class="lineCov">        138 :                                        jsonValue );</span>
+<span class="lineNum">     443 </span>            : 
+<span class="lineNum">     444 </span>            :         default: // static array
+<span class="lineNum">     445 </span>            :         {
+<span class="lineNum">     446 </span><span class="lineCov">         38 :             if( jsonValue.size() != nElements )</span>
+<span class="lineNum">     447 </span>            :             {
+<span class="lineNum">     448 </span><span class="lineNoCov">          0 :                 std::cerr &lt;&lt; &quot;JSON array '&quot; &lt;&lt; _getName( field ) &lt;&lt; &quot;': '&quot;</span>
+<span class="lineNum">     449 </span><span class="lineNoCov">          0 :                           &lt;&lt; jsonValue &lt;&lt; &quot;' does not match array size &quot;</span>
+<span class="lineNum">     450 </span><span class="lineNoCov">          0 :                           &lt;&lt; nElements &lt;&lt; std::endl;</span>
+<span class="lineNum">     451 </span><span class="lineNoCov">          0 :                 return false;</span>
+<span class="lineNum">     452 </span>            :             }
+<span class="lineNum">     453 </span>            : 
+<span class="lineNum">     454 </span><span class="lineCov">         38 :             T* data = allocator.getItemPtr&lt; T &gt;( offset );</span>
+<span class="lineNum">     455 </span><span class="lineCov">        186 :             for( size_t i = 0; i &lt; nElements; ++i )</span>
+<span class="lineNum">     456 </span><span class="lineCov">        148 :                 if( !_toPODItem&lt; T &gt;( data[ i ], jsonValue[ uint32_t( i )]))</span>
+<span class="lineNum">     457 </span><span class="lineNoCov">          0 :                     return false;</span>
+<span class="lineNum">     458 </span><span class="lineCov">         38 :             return true;</span>
+<span class="lineNum">     459 </span>            :         }
+<span class="lineNum">     460 </span>            :         }
+<span class="lineNum">     461 </span>            :     }
+<a name="462"><span class="lineNum">     462 </span>            : </a>
+<span class="lineNum">     463 </span>            :     template&lt; class T &gt;
+<span class="lineNum">     464 </span><span class="lineCov">        412 :     bool _toPODItem( T&amp; value, const Json::Value&amp; jsonValue )</span>
+<span class="lineNum">     465 </span>            :     {
+<span class="lineNum">     466 </span><span class="lineCov">        412 :         if( std::is_floating_point&lt; T &gt;( ))</span>
+<span class="lineNum">     467 </span><span class="lineCov">         60 :             value = T( jsonValue.asDouble( ));</span>
+<span class="lineNum">     468 </span>            :         else if( std::is_same&lt; bool, T &gt;::value )
+<span class="lineNum">     469 </span><span class="lineCov">          6 :             value = jsonValue.asBool();</span>
+<span class="lineNum">     470 </span>            :         else if( std::is_signed&lt; T &gt;::value )
+<span class="lineNum">     471 </span><span class="lineCov">        161 :             value = T( jsonValue.asInt64( ));</span>
+<span class="lineNum">     472 </span>            :         else
+<span class="lineNum">     473 </span><span class="lineCov">        185 :             value = T( jsonValue.asUInt64( ));</span>
+<span class="lineNum">     474 </span><span class="lineCov">        412 :         return true;</span>
+<span class="lineNum">     475 </span>            :     }
+<a name="476"><span class="lineNum">     476 </span>            : </a>
+<span class="lineNum">     477 </span>            :     template&lt; class T &gt;
+<span class="lineNum">     478 </span><span class="lineCov">         36 :     bool _toPODDynamic( Allocator&amp; allocator, const Schema::Field&amp; field,</span>
+<span class="lineNum">     479 </span>            :                            const Json::Value&amp; jsonValue )
+<span class="lineNum">     480 </span>            :     {
+<span class="lineNum">     481 </span><span class="lineCov">         36 :         if( _isStatic( field ))</span>
+<span class="lineNum">     482 </span><span class="lineNoCov">          0 :             throw std::runtime_error( &quot;Internal JSON converter error&quot; );</span>
+<span class="lineNum">     483 </span>            : 
+<span class="lineNum">     484 </span><span class="lineCov">         36 :         const size_t index = _getIndex( field );</span>
+<span class="lineNum">     485 </span><span class="lineCov">         36 :         const size_t size = jsonValue.size();</span>
+<span class="lineNum">     486 </span>            :         T* data = reinterpret_cast&lt; T* &gt;(
+<span class="lineNum">     487 </span>            :             allocator.updateAllocation( index, false /*no copy*/,
+<span class="lineNum">     488 </span><span class="lineCov">         36 :                                         size * sizeof( T )));</span>
+<span class="lineNum">     489 </span>            : 
+<span class="lineNum">     490 </span><span class="lineCov">        180 :         for( size_t i = 0; i &lt; size; ++i )</span>
+<span class="lineNum">     491 </span><span class="lineCov">        144 :             if( !_toPODItem&lt; T &gt;( data[i], jsonValue[ uint32_t( i )]))</span>
+<span class="lineNum">     492 </span><span class="lineNoCov">          0 :                 return false;</span>
+<span class="lineNum">     493 </span><span class="lineCov">         36 :         return true;</span>
+<span class="lineNum">     494 </span>            :     }
+<a name="495"><span class="lineNum">     495 </span>            : };</a>
+<span class="lineNum">     496 </span>            : 
+<span class="lineNum">     497 </span><span class="lineCov">          2 : template&lt;&gt; bool JSONConverter::_fromPODItem&lt; std::string &gt;(</span>
+<span class="lineNum">     498 </span>            :     const std::string&amp; value, Json::Value&amp; jsonValue ) const
+<span class="lineNum">     499 </span>            : {
+<span class="lineNum">     500 </span><span class="lineCov">          2 :     jsonValue = Json::Value( value );</span>
+<span class="lineNum">     501 </span><span class="lineCov">          2 :     return true;</span>
+<a name="502"><span class="lineNum">     502 </span>            : }</a>
+<span class="lineNum">     503 </span>            : 
+<span class="lineNum">     504 </span><span class="lineCov">         18 : template&lt;&gt; bool JSONConverter::_fromPODItem&lt; uint128_t &gt;(</span>
+<span class="lineNum">     505 </span>            :     const uint128_t&amp; value, Json::Value&amp; jsonValue ) const
+<span class="lineNum">     506 </span>            : {
+<span class="lineNum">     507 </span><span class="lineCov">         18 :     jsonValue[&quot;high&quot;] = Json::UInt64( value.high( ));</span>
+<span class="lineNum">     508 </span><span class="lineCov">         18 :     jsonValue[&quot;low&quot;] = Json::UInt64( value.low( ));</span>
+<span class="lineNum">     509 </span><span class="lineCov">         18 :     return true;</span>
+<span class="lineNum">     510 </span>            : }
+<a name="511"><span class="lineNum">     511 </span>            : </a>
+<span class="lineNum">     512 </span>            : template&lt;&gt;
+<span class="lineNum">     513 </span><span class="lineCov">          2 : bool JSONConverter::_fromPODDynamic&lt; char &gt;( const Allocator&amp; allocator,</span>
+<span class="lineNum">     514 </span>            :                                              const Schema::Field&amp; field,
+<span class="lineNum">     515 </span>            :                                              Json::Value&amp; jsonValue ) const
+<span class="lineNum">     516 </span>            : {
+<span class="lineNum">     517 </span><span class="lineCov">          2 :     if( _isStatic( field ))</span>
+<span class="lineNum">     518 </span><span class="lineNoCov">          0 :         throw std::runtime_error( &quot;Internal JSON converter error&quot; );</span>
+<span class="lineNum">     519 </span>            : 
+<span class="lineNum">     520 </span><span class="lineCov">          2 :     const size_t index = _getIndex( field );</span>
+<span class="lineNum">     521 </span><span class="lineCov">          2 :     const size_t size = allocator.getDynamicSize( index );</span>
+<span class="lineNum">     522 </span>            : 
+<span class="lineNum">     523 </span><span class="lineCov">          2 :     const uint8_t* ptr =  allocator.getDynamic&lt; const uint8_t &gt;( index );</span>
+<span class="lineNum">     524 </span><span class="lineCov">          2 :     const std::string value( ptr, ptr + size );</span>
+<span class="lineNum">     525 </span><span class="lineCov">          2 :     return _fromPODItem( value, jsonValue );</span>
+<span class="lineNum">     526 </span>            : }
+<a name="527"><span class="lineNum">     527 </span>            : </a>
+<span class="lineNum">     528 </span>            : template&lt;&gt;
+<span class="lineNum">     529 </span><span class="lineCov">          2 : bool JSONConverter::_toPODDynamic&lt; char &gt;( Allocator&amp; allocator,</span>
+<span class="lineNum">     530 </span>            :                                            const Schema::Field&amp; field,
+<span class="lineNum">     531 </span>            :                                            const Json::Value&amp; jsonValue )
+<span class="lineNum">     532 </span>            : {
+<span class="lineNum">     533 </span><span class="lineCov">          2 :     if( _isStatic( field ))</span>
+<span class="lineNum">     534 </span><span class="lineNoCov">          0 :         throw std::runtime_error( &quot;Internal JSON converter error&quot; );</span>
+<span class="lineNum">     535 </span>            : 
+<span class="lineNum">     536 </span><span class="lineCov">          2 :     const size_t index = _getIndex( field );</span>
+<span class="lineNum">     537 </span><span class="lineCov">          2 :     const std::string&amp; value = jsonValue.asString();</span>
+<span class="lineNum">     538 </span>            : 
+<span class="lineNum">     539 </span>            :     void* array = allocator.updateAllocation( index, false /*no copy*/,
+<span class="lineNum">     540 </span><span class="lineCov">          2 :                                               value.length( ));</span>
+<span class="lineNum">     541 </span><span class="lineCov">          2 :     ::memcpy( array, value.c_str(), value.length( ));</span>
+<span class="lineNum">     542 </span><span class="lineCov">          2 :     return true;</span>
+<a name="543"><span class="lineNum">     543 </span>            : }</a>
+<span class="lineNum">     544 </span>            : 
+<span class="lineNum">     545 </span><span class="lineCov">         18 : template&lt;&gt; bool JSONConverter::_toPODItem&lt; uint128_t &gt;(</span>
+<span class="lineNum">     546 </span>            :     uint128_t&amp; value, const Json::Value&amp; jsonValue )
+<span class="lineNum">     547 </span>            : {
+<span class="lineNum">     548 </span><span class="lineCov">         36 :     value = uint128_t( jsonValue[&quot;high&quot;].asUInt64(),</span>
+<span class="lineNum">     549 </span><span class="lineCov">         36 :                        jsonValue[&quot;low&quot;].asUInt64( ));</span>
+<span class="lineNum">     550 </span><span class="lineCov">         18 :     return true;</span>
+<a name="551"><span class="lineNum">     551 </span>            : }</a>
+<span class="lineNum">     552 </span>            : 
+<span class="lineNum">     553 </span><span class="lineNoCov">          0 : template&lt;&gt; bool JSONConverter::_toPODItem&lt; std::string &gt;(</span>
+<span class="lineNum">     554 </span>            :     std::string&amp; value, const Json::Value&amp; jsonValue )
+<span class="lineNum">     555 </span>            : {
+<span class="lineNum">     556 </span><span class="lineNoCov">          0 :     value = jsonValue.asString();</span>
+<span class="lineNum">     557 </span><span class="lineNoCov">          0 :     return true;</span>
+<span class="lineNum">     558 </span>            : }
+<span class="lineNum">     559 </span>            : 
+<span class="lineNum">     560 </span>            : }
+<span class="lineNum">     561 </span>            : } // zerobuf
+</pre>
+      </td>
+    </tr>
+  </table>
+  <br>
+
+  <table width="100%" border=0 cellspacing=0 cellpadding=0>
+    <tr><td class="ruler"><img src="../../glass.png" width=3 height=3 alt=""></td></tr>
+    <tr><td class="versionInfo">Generated by: <a href="http://ltp.sourceforge.net/coverage/lcov.php" target="_parent">LCOV version 1.11 pre (CVS 1.77)</a></td></tr>
+  </table>
+  <br>
+
+</body>
+</html>

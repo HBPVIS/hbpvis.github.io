@@ -1,0 +1,157 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN">
+
+<html lang="en">
+
+<head>
+  <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+  <title>LCOV - ZeroBuf - zerobuf/Allocator.h</title>
+  <link rel="stylesheet" type="text/css" href="../gcov.css">
+</head>
+
+<body>
+
+  <table width="100%" border=0 cellspacing=0 cellpadding=0>
+    <tr><td class="title">LCOV - code coverage report</td></tr>
+    <tr><td class="ruler"><img src="../glass.png" width=3 height=3 alt=""></td></tr>
+
+    <tr>
+      <td width="100%">
+        <table cellpadding=1 border=0 width="100%">
+          <tr>
+            <td width="10%" class="headerItem">Current view:</td>
+            <td width="35%" class="headerValue"><a href="../index.html">top level</a> - <a href="index.html">zerobuf</a> - Allocator.h<span style="font-size: 80%;"> (source / <a href="Allocator.h.func-sort-c.html">functions</a>)</span></td>
+            <td width="5%"></td>
+            <td width="15%"></td>
+            <td width="10%" class="headerCovTableHead">Hit</td>
+            <td width="10%" class="headerCovTableHead">Total</td>
+            <td width="15%" class="headerCovTableHead">Coverage</td>
+          </tr>
+          <tr>
+            <td class="headerItem">Test:</td>
+            <td class="headerValue">ZeroBuf</td>
+            <td></td>
+            <td class="headerItem">Lines:</td>
+            <td class="headerCovTableEntry">27</td>
+            <td class="headerCovTableEntry">29</td>
+            <td class="headerCovTableEntryHi">93.1 %</td>
+          </tr>
+          <tr>
+            <td class="headerItem">Date:</td>
+            <td class="headerValue">2015-12-22 14:56:45</td>
+            <td></td>
+            <td class="headerItem">Functions:</td>
+            <td class="headerCovTableEntry">85</td>
+            <td class="headerCovTableEntry">92</td>
+            <td class="headerCovTableEntryHi">92.4 %</td>
+          </tr>
+          <tr><td><img src="../glass.png" width=3 height=3 alt=""></td></tr>
+        </table>
+      </td>
+    </tr>
+
+    <tr><td class="ruler"><img src="../glass.png" width=3 height=3 alt=""></td></tr>
+  </table>
+
+  <table cellpadding=0 cellspacing=0 border=0>
+    <tr>
+      <td><br></td>
+    </tr>
+    <tr>
+      <td>
+<pre class="sourceHeading">          Line data    Source code</pre>
+<pre class="source">
+<a name="1"><span class="lineNum">       1 </span>            : </a>
+<span class="lineNum">       2 </span>            : /* Copyright (c) 2015, Human Brain Project
+<span class="lineNum">       3 </span>            :  *                     Stefan.Eilemann@epfl.ch
+<span class="lineNum">       4 </span>            :  *                     grigori.chevtchenko@epfl.ch
+<span class="lineNum">       5 </span>            :  */
+<span class="lineNum">       6 </span>            : 
+<span class="lineNum">       7 </span>            : #ifndef ZEROBUF_ALLOCATOR_H
+<span class="lineNum">       8 </span>            : #define ZEROBUF_ALLOCATOR_H
+<span class="lineNum">       9 </span>            : 
+<span class="lineNum">      10 </span>            : #include &lt;zerobuf/Types.h&gt;
+<span class="lineNum">      11 </span>            : 
+<span class="lineNum">      12 </span>            : namespace zerobuf
+<span class="lineNum">      13 </span>            : {
+<span class="lineNum">      14 </span>            : /**
+<span class="lineNum">      15 </span>            :  * Allocator base class and interface.
+<span class="lineNum">      16 </span>            :  *
+<span class="lineNum">      17 </span>            :  * Implements part of the binary data layout by providing access to the stored
+<span class="lineNum">      18 </span>            :  * elements. Not intended to be used by application code.
+<span class="lineNum">      19 </span>            :  */
+<span class="lineNum">      20 </span>            : class Allocator
+<a name="21"><span class="lineNum">      21 </span>            : {</a>
+<a name="22"><span class="lineNum">      22 </span>            : public:</a>
+<span class="lineNum">      23 </span><span class="lineCov">        609 :     Allocator() {}</span>
+<span class="lineNum">      24 </span><span class="lineCov">        609 :     virtual ~Allocator() {}</span>
+<span class="lineNum">      25 </span>            : 
+<span class="lineNum">      26 </span>            :     virtual uint8_t* getData() = 0;
+<span class="lineNum">      27 </span>            :     virtual const uint8_t* getData() const = 0;
+<a name="28"><span class="lineNum">      28 </span>            :     virtual size_t getSize() const = 0;</a>
+<span class="lineNum">      29 </span>            :     virtual void copyBuffer( const void* data, size_t size ) = 0;
+<span class="lineNum">      30 </span><span class="lineCov">          3 :     virtual bool canMove() const { return false; } // allocation is moveable</span>
+<span class="lineNum">      31 </span>            : 
+<span class="lineNum">      32 </span>            :     /**
+<span class="lineNum">      33 </span>            :      * Update allocation of the dynamic elem at index to have newSize bytes.
+<span class="lineNum">      34 </span>            :      *
+<span class="lineNum">      35 </span>            :      * The offset and size fields in the static section are updated as needed.
+<span class="lineNum">      36 </span>            :      * Does not copy the old data to the new location.
+<span class="lineNum">      37 </span>            :      *
+<a name="38"><span class="lineNum">      38 </span>            :      * @return the pointer to the elem at the new place.</a>
+<span class="lineNum">      39 </span>            :      */
+<span class="lineNum">      40 </span><span class="lineNoCov">          0 :     virtual uint8_t* updateAllocation( size_t /*index*/, bool /*copy*/,</span>
+<span class="lineNum">      41 </span>            :                                        size_t /*newSize*/ )
+<span class="lineNum">      42 </span><span class="lineNoCov">          0 :         { throw std::runtime_error( &quot;Dynamic allocation not implemented&quot; ); }</span>
+<a name="43"><span class="lineNum">      43 </span>            : </a>
+<span class="lineNum">      44 </span>            : 
+<span class="lineNum">      45 </span><span class="lineCov">       6433 :     template&lt; class T &gt; T* getItemPtr( const size_t offset )</span>
+<a name="46"><span class="lineNum">      46 </span><span class="lineCov">       6433 :         { return reinterpret_cast&lt; T* &gt;( getData() + offset ); }</span></a>
+<span class="lineNum">      47 </span>            : 
+<span class="lineNum">      48 </span><span class="lineCov">       1511 :     template&lt; class T &gt; const T* getItemPtr( const size_t offset ) const</span>
+<a name="49"><span class="lineNum">      49 </span><span class="lineCov">       1511 :         { return reinterpret_cast&lt; const T* &gt;( getData() + offset ); }</span></a>
+<span class="lineNum">      50 </span>            : 
+<span class="lineNum">      51 </span><span class="lineCov">       6336 :     template&lt; class T &gt; T&amp; getItem( const size_t offset )</span>
+<a name="52"><span class="lineNum">      52 </span><span class="lineCov">       6336 :         { return *getItemPtr&lt; T &gt;( offset ); }</span></a>
+<span class="lineNum">      53 </span>            : 
+<span class="lineNum">      54 </span><span class="lineCov">       1397 :     template&lt; class T &gt; T getItem( const size_t offset ) const</span>
+<a name="55"><span class="lineNum">      55 </span><span class="lineCov">       1397 :         { return *getItemPtr&lt; T &gt;( offset ); }</span></a>
+<span class="lineNum">      56 </span>            : 
+<span class="lineNum">      57 </span><span class="lineCov">        182 :     template&lt; class T &gt; T* getDynamic( const size_t index )</span>
+<a name="58"><span class="lineNum">      58 </span><span class="lineCov">        182 :         { return reinterpret_cast&lt; T* &gt;( getData() + _getOffset( index )); }</span></a>
+<span class="lineNum">      59 </span>            : 
+<span class="lineNum">      60 </span><span class="lineCov">        173 :     template&lt; class T &gt; const T* getDynamic( const size_t index ) const</span>
+<a name="61"><span class="lineNum">      61 </span><span class="lineCov">        173 :         { return reinterpret_cast&lt; const T* &gt;( getData() + _getOffset(index)); }</span></a>
+<span class="lineNum">      62 </span>            : 
+<span class="lineNum">      63 </span><span class="lineCov">         18 :     uint64_t getDynamicOffset( const size_t index ) const</span>
+<a name="64"><span class="lineNum">      64 </span><span class="lineCov">         18 :         { return _getOffset( index ); }</span></a>
+<span class="lineNum">      65 </span>            : 
+<span class="lineNum">      66 </span><span class="lineCov">        293 :     size_t getDynamicSize( const size_t index ) const</span>
+<span class="lineNum">      67 </span><span class="lineCov">        293 :         { return _getSize( index ); }</span>
+<a name="68"><span class="lineNum">      68 </span>            : </a>
+<span class="lineNum">      69 </span>            : protected:
+<a name="70"><span class="lineNum">      70 </span><span class="lineCov">       3710 :     uint64_t&amp; _getOffset( const size_t i )</span></a>
+<span class="lineNum">      71 </span><span class="lineCov">       3710 :         { return getItem&lt; uint64_t &gt;( 4 + i * 16 ); }</span>
+<a name="72"><span class="lineNum">      72 </span><span class="lineCov">        191 :     uint64_t _getOffset( const size_t i ) const</span></a>
+<span class="lineNum">      73 </span><span class="lineCov">        191 :         { return getItem&lt; uint64_t &gt;( 4 + i * 16 ); }</span>
+<a name="74"><span class="lineNum">      74 </span><span class="lineCov">       1756 :     uint64_t&amp; _getSize( const size_t i )</span></a>
+<span class="lineNum">      75 </span><span class="lineCov">       1756 :         { return getItem&lt; uint64_t &gt;( 4 + 8 + i * 16 ); }</span>
+<span class="lineNum">      76 </span><span class="lineCov">        293 :     uint64_t _getSize( const size_t i ) const</span>
+<span class="lineNum">      77 </span><span class="lineCov">        293 :         { return getItem&lt; uint64_t &gt;( 4 + 8 + i * 16 ); }</span>
+<span class="lineNum">      78 </span>            : };
+<span class="lineNum">      79 </span>            : }
+<span class="lineNum">      80 </span>            : 
+<span class="lineNum">      81 </span>            : #endif
+</pre>
+      </td>
+    </tr>
+  </table>
+  <br>
+
+  <table width="100%" border=0 cellspacing=0 cellpadding=0>
+    <tr><td class="ruler"><img src="../glass.png" width=3 height=3 alt=""></td></tr>
+    <tr><td class="versionInfo">Generated by: <a href="http://ltp.sourceforge.net/coverage/lcov.php" target="_parent">LCOV version 1.11 pre (CVS 1.77)</a></td></tr>
+  </table>
+  <br>
+
+</body>
+</html>
