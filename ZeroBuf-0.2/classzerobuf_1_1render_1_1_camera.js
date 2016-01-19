@@ -12,11 +12,11 @@ var classzerobuf_1_1render_1_1_camera =
     [ "getOrigin", "classzerobuf_1_1render_1_1_camera.html#ae1969ff8b04211b63e74db221bcc1a15", null ],
     [ "getOrigin", "classzerobuf_1_1render_1_1_camera.html#ad0433f1f41c787c09797597f080c15a8", null ],
     [ "getSchemas", "classzerobuf_1_1render_1_1_camera.html#a650765929dd8820ada4f0345a5fed0fa", null ],
+    [ "getTypeIdentifier", "classzerobuf_1_1render_1_1_camera.html#afaba17d86f17da79840ff2fa5ed0076d", null ],
     [ "getUp", "classzerobuf_1_1render_1_1_camera.html#acf4373b6aaf3702f4f7c02a2d6fd929d", null ],
     [ "getUp", "classzerobuf_1_1render_1_1_camera.html#af3bd9734aa48761a7407ebdd73588827", null ],
     [ "getZerobufNumDynamics", "classzerobuf_1_1render_1_1_camera.html#ac4f680354a9e535551b8f479e7bac162", null ],
     [ "getZerobufStaticSize", "classzerobuf_1_1render_1_1_camera.html#aa2afffc00df349cb40ccea95b6a85917", null ],
-    [ "getZerobufType", "classzerobuf_1_1render_1_1_camera.html#a2f208cac9330f605405793a244f7941c", null ],
     [ "operator=", "classzerobuf_1_1render_1_1_camera.html#af91fe75b700c67e9c0bc93ca7d00cb10", null ],
     [ "operator=", "classzerobuf_1_1render_1_1_camera.html#a2020eef4c312934f881f43093b198e55", null ],
     [ "schema", "classzerobuf_1_1render_1_1_camera.html#a6ff4945350afdda454502b9e0dcf4ddb", null ],
@@ -24,6 +24,7 @@ var classzerobuf_1_1render_1_1_camera =
     [ "setLookAt", "classzerobuf_1_1render_1_1_camera.html#a3a367218083b2ca4aac036ed1b1d74b8", null ],
     [ "setOrigin", "classzerobuf_1_1render_1_1_camera.html#a4ae8160d841a3515360d1b9575e52fcf", null ],
     [ "setUp", "classzerobuf_1_1render_1_1_camera.html#a68015680d7b9b08b5896cdc613fbf045", null ],
+    [ "TYPE_IDENTIFIER", "classzerobuf_1_1render_1_1_camera.html#a79b282d1a64ae749b9d4fcf8c0521f3f", null ],
     [ "ZEROBUF_NUM_DYNAMICS", "classzerobuf_1_1render_1_1_camera.html#a0d28fdbb5587f7977eeb6a1202b910d3", null ],
-    [ "ZEROBUF_TYPE", "classzerobuf_1_1render_1_1_camera.html#aace034a5c5c505718d3f89d1cf7b0cdc", null ]
+    [ "ZEROBUF_STATIC_SIZE", "classzerobuf_1_1render_1_1_camera.html#a5a094b5cd12220495933d955618003c0", null ]
 ];

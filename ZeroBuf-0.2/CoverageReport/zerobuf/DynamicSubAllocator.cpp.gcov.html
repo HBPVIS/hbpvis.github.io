@@ -37,7 +37,7 @@
           </tr>
           <tr>
             <td class="headerItem">Date:</td>
-            <td class="headerValue">2015-12-22 15:26:22</td>
+            <td class="headerValue">2016-01-14 17:47:43</td>
             <td></td>
             <td class="headerItem">Functions:</td>
             <td class="headerCovTableEntry">10</td>
@@ -74,22 +74,22 @@
 <span class="lineNum">      12 </span>            : namespace zerobuf
 <a name="13"><span class="lineNum">      13 </span>            : {</a>
 <span class="lineNum">      14 </span>            : template&lt; class A &gt;
-<span class="lineNum">      15 </span><span class="lineCov">         44 : DynamicSubAllocatorBase&lt; A &gt;::DynamicSubAllocatorBase(</span>
+<span class="lineNum">      15 </span><span class="lineCov">         66 : DynamicSubAllocatorBase&lt; A &gt;::DynamicSubAllocatorBase(</span>
 <span class="lineNum">      16 </span>            :     A&amp; parent, const size_t headerIndex, const size_t elementIndex,
 <span class="lineNum">      17 </span>            :     const size_t size )
 <span class="lineNum">      18 </span>            :     : _parent( parent )
 <span class="lineNum">      19 </span>            :     , _header( headerIndex )
 <span class="lineNum">      20 </span>            :     , _element( elementIndex )
-<span class="lineNum">      21 </span><span class="lineCov">         44 :     , _size( size )</span>
-<span class="lineNum">      22 </span><span class="lineCov">         44 : {}</span>
+<span class="lineNum">      21 </span><span class="lineCov">         66 :     , _size( size )</span>
+<span class="lineNum">      22 </span><span class="lineCov">         66 : {}</span>
 <a name="23"><span class="lineNum">      23 </span>            : </a>
 <span class="lineNum">      24 </span>            : template&lt; class A &gt;
-<span class="lineNum">      25 </span><span class="lineCov">         88 : DynamicSubAllocatorBase&lt; A &gt;::~DynamicSubAllocatorBase()</span>
-<a name="26"><span class="lineNum">      26 </span><span class="lineCov">         88 : {}</span></a>
+<span class="lineNum">      25 </span><span class="lineCov">        132 : DynamicSubAllocatorBase&lt; A &gt;::~DynamicSubAllocatorBase()</span>
+<a name="26"><span class="lineNum">      26 </span><span class="lineCov">        132 : {}</span></a>
 <span class="lineNum">      27 </span>            : 
-<span class="lineNum">      28 </span><span class="lineCov">          5 : template&lt; class A &gt; uint8_t* DynamicSubAllocatorBase&lt; A &gt;::getData()</span>
+<span class="lineNum">      28 </span><span class="lineCov">          6 : template&lt; class A &gt; uint8_t* DynamicSubAllocatorBase&lt; A &gt;::getData()</span>
 <span class="lineNum">      29 </span>            : {
-<span class="lineNum">      30 </span><span class="lineCov">          5 :     return _parent.template getDynamic&lt; uint8_t &gt;( _header ) + _element * _size;</span>
+<span class="lineNum">      30 </span><span class="lineCov">          6 :     return _parent.template getDynamic&lt; uint8_t &gt;( _header ) + _element * _size;</span>
 <a name="31"><span class="lineNum">      31 </span>            : }</a>
 <span class="lineNum">      32 </span>            : 
 <span class="lineNum">      33 </span><span class="lineNoCov">          0 : template&lt;&gt; uint8_t* DynamicSubAllocatorBase&lt; const Allocator &gt;::getData()</span>
@@ -97,9 +97,9 @@
 <span class="lineNum">      35 </span><span class="lineNoCov">          0 :     throw std::runtime_error( &quot;Non-const data access on const data&quot; );</span>
 <a name="36"><span class="lineNum">      36 </span>            : }</a>
 <span class="lineNum">      37 </span>            : 
-<span class="lineNum">      38 </span><span class="lineCov">        150 : template&lt; class A &gt; const uint8_t* DynamicSubAllocatorBase&lt; A &gt;::getData() const</span>
+<span class="lineNum">      38 </span><span class="lineCov">        236 : template&lt; class A &gt; const uint8_t* DynamicSubAllocatorBase&lt; A &gt;::getData() const</span>
 <span class="lineNum">      39 </span>            : {
-<span class="lineNum">      40 </span><span class="lineCov">        150 :     return _parent.template getDynamic&lt; uint8_t &gt;( _header ) + _element * _size;</span>
+<span class="lineNum">      40 </span><span class="lineCov">        236 :     return _parent.template getDynamic&lt; uint8_t &gt;( _header ) + _element * _size;</span>
 <span class="lineNum">      41 </span>            : }
 <a name="42"><span class="lineNum">      42 </span>            : </a>
 <span class="lineNum">      43 </span>            : template&lt; class A &gt;

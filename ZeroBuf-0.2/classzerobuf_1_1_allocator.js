@@ -2,11 +2,13 @@ var classzerobuf_1_1_allocator =
 [
     [ "Allocator", "classzerobuf_1_1_allocator.html#ac78dfb4ac6327a4b299bbc73cf691008", null ],
     [ "~Allocator", "classzerobuf_1_1_allocator.html#a91806e37dfece4ee0a15e32df4c09c42", null ],
+    [ "_checkIndex", "classzerobuf_1_1_allocator.html#ad6e717ef3e479e1743f0a5a868dd68fb", null ],
     [ "_getOffset", "classzerobuf_1_1_allocator.html#aa0e7043400ecb48b3e53e2a599655684", null ],
     [ "_getOffset", "classzerobuf_1_1_allocator.html#a6edcaff725014ddc03ed43d6a0f06073", null ],
     [ "_getSize", "classzerobuf_1_1_allocator.html#a7e1493d182a377244bfff7a9a5ff0261", null ],
     [ "_getSize", "classzerobuf_1_1_allocator.html#a6bc632187e305fc7477c7214bd3179cc", null ],
-    [ "canMove", "classzerobuf_1_1_allocator.html#a49a93258938eb604af4ba44c369cd05a", null ],
+    [ "check", "classzerobuf_1_1_allocator.html#a601f86d4e5b16c6e43ceeb0117691f63", null ],
+    [ "compact", "classzerobuf_1_1_allocator.html#a6d44bf9a23402d9d310bd7eec546c887", null ],
     [ "copyBuffer", "classzerobuf_1_1_allocator.html#ac5466c39920203818d9a65890cde6e65", null ],
     [ "getData", "classzerobuf_1_1_allocator.html#af3f502c217b18c036a370088f833c9bb", null ],
     [ "getData", "classzerobuf_1_1_allocator.html#ab693b8a647523b09754d468662d5ffbf", null ],
@@ -19,5 +21,6 @@ var classzerobuf_1_1_allocator =
     [ "getItemPtr", "classzerobuf_1_1_allocator.html#a70a65c81163dda46b883672d96740b89", null ],
     [ "getItemPtr", "classzerobuf_1_1_allocator.html#a74225d1f5043276c16ed5de20e494200", null ],
     [ "getSize", "classzerobuf_1_1_allocator.html#a0d27dbd1a65f6f767e1ff928593fcf16", null ],
+    [ "isMovable", "classzerobuf_1_1_allocator.html#a694ef8c7541336689e95d72c6a134251", null ],
     [ "updateAllocation", "classzerobuf_1_1_allocator.html#a59b22f7bccb9384c0cb3069c076b3a51", null ]
 ];

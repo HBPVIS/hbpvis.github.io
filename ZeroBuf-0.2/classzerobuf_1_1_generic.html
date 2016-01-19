@@ -125,7 +125,7 @@ $(document).ready(function(){initNavTree('classzerobuf_1_1_generic.html','');});
 <div id="dynsection-0-content" class="dyncontent" style="display:none;">
 <div class="center"><img src="classzerobuf_1_1_generic__inherit__graph.png" border="0" usemap="#zerobuf_1_1_generic_inherit__map" alt="Inheritance graph"/></div>
 <map name="zerobuf_1_1_generic_inherit__map" id="zerobuf_1_1_generic_inherit__map">
-<area shape="rect" id="node2" href="classzerobuf_1_1_zerobuf.html" title="Base class for all zerobufs. " alt="" coords="5,6,219,303"/></map>
+<area shape="rect" id="node2" href="classzerobuf_1_1_zerobuf.html" title="Base class for all zerobufs. " alt="" coords="5,131,219,443"/></map>
 </div>
 <div id="dynsection-1" onclick="return toggleVisibility(this)" class="dynheader closed" style="cursor:pointer;">
   <img id="dynsection-1-trigger" src="closed.png" alt="+"/> Collaboration diagram for zerobuf::Generic:</div>
@@ -134,7 +134,7 @@ $(document).ready(function(){initNavTree('classzerobuf_1_1_generic.html','');});
 <div id="dynsection-1-content" class="dyncontent" style="display:none;">
 <div class="center"><img src="classzerobuf_1_1_generic__coll__graph.png" border="0" usemap="#zerobuf_1_1_generic_coll__map" alt="Collaboration graph"/></div>
 <map name="zerobuf_1_1_generic_coll__map" id="zerobuf_1_1_generic_coll__map">
-<area shape="rect" id="node2" href="classzerobuf_1_1_zerobuf.html" title="Base class for all zerobufs. " alt="" coords="5,6,219,303"/></map>
+<area shape="rect" id="node2" href="classzerobuf_1_1_zerobuf.html" title="Base class for all zerobufs. " alt="" coords="5,131,219,443"/></map>
 </div>
 <table class="memberdecls">
 <tr class="heading"><td colspan="2"><h2 class="groupheader"><a name="pub-methods"></a>
@@ -142,8 +142,9 @@ Public Member Functions</h2></td></tr>
 <tr class="memitem:ac881e5bece8cd31bade6e7188e1901db"><td class="memItemLeft" align="right" valign="top"><a class="anchor" id="ac881e5bece8cd31bade6e7188e1901db"></a>
 &#160;</td><td class="memItemRight" valign="bottom"><b>Generic</b> (const Schemas &amp;schemas)</td></tr>
 <tr class="separator:ac881e5bece8cd31bade6e7188e1901db"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a65281452b945d2a4696951ffa848a92d"><td class="memItemLeft" align="right" valign="top">uint128_t&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classzerobuf_1_1_generic.html#a65281452b945d2a4696951ffa848a92d">getZerobufType</a> () const final</td></tr>
-<tr class="separator:a65281452b945d2a4696951ffa848a92d"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a0f77b582cb668ca33ae73663307b2f18"><td class="memItemLeft" align="right" valign="top"><a class="anchor" id="a0f77b582cb668ca33ae73663307b2f18"></a>
+uint128_t&#160;</td><td class="memItemRight" valign="bottom"><b>getTypeIdentifier</b> () const final</td></tr>
+<tr class="separator:a0f77b582cb668ca33ae73663307b2f18"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a058126817d991208173b39a97ad85d91"><td class="memItemLeft" align="right" valign="top">size_t&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classzerobuf_1_1_generic.html#a058126817d991208173b39a97ad85d91">getZerobufStaticSize</a> () const final</td></tr>
 <tr class="separator:a058126817d991208173b39a97ad85d91"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:ae8d5c7f1b0ed51d2722823ece4813a21"><td class="memItemLeft" align="right" valign="top">size_t&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classzerobuf_1_1_generic.html#ae8d5c7f1b0ed51d2722823ece4813a21">getZerobufNumDynamics</a> () const final</td></tr>
@@ -154,22 +155,9 @@ Public Member Functions</h2></td></tr>
 <tr class="memitem:a4c2c30f520aec716f884b7130cd7533e inherit pub_methods_classzerobuf_1_1_zerobuf"><td class="memItemLeft" align="right" valign="top">virtual void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classzerobuf_1_1_zerobuf.html#a4c2c30f520aec716f884b7130cd7533e">notifyChanging</a> ()</td></tr>
 <tr class="memdesc:a4c2c30f520aec716f884b7130cd7533e inherit pub_methods_classzerobuf_1_1_zerobuf"><td class="mdescLeft">&#160;</td><td class="mdescRight">Called if any data in this object is about to change.  <a href="#a4c2c30f520aec716f884b7130cd7533e">More...</a><br/></td></tr>
 <tr class="separator:a4c2c30f520aec716f884b7130cd7533e inherit pub_methods_classzerobuf_1_1_zerobuf"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a0abde868d3c291f1737896de072e576b inherit pub_methods_classzerobuf_1_1_zerobuf"><td class="memItemLeft" align="right" valign="top">virtual void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classzerobuf_1_1_zerobuf.html#a0abde868d3c291f1737896de072e576b">notifyReceived</a> ()</td></tr>
-<tr class="memdesc:a0abde868d3c291f1737896de072e576b inherit pub_methods_classzerobuf_1_1_zerobuf"><td class="mdescLeft">&#160;</td><td class="mdescRight">Called by ZeroEQ subscriber upon receive() of this object.  <a href="#a0abde868d3c291f1737896de072e576b">More...</a><br/></td></tr>
-<tr class="separator:a0abde868d3c291f1737896de072e576b inherit pub_methods_classzerobuf_1_1_zerobuf"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a05f5e9cb7d70ac8b3c7c4be3bd394ec6 inherit pub_methods_classzerobuf_1_1_zerobuf"><td class="memItemLeft" align="right" valign="top">const void *&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classzerobuf_1_1_zerobuf.html#a05f5e9cb7d70ac8b3c7c4be3bd394ec6">getZerobufData</a> () const </td></tr>
-<tr class="separator:a05f5e9cb7d70ac8b3c7c4be3bd394ec6 inherit pub_methods_classzerobuf_1_1_zerobuf"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a77619a15f72aebf53fbd30b3ff742bdd inherit pub_methods_classzerobuf_1_1_zerobuf"><td class="memItemLeft" align="right" valign="top">size_t&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classzerobuf_1_1_zerobuf.html#a77619a15f72aebf53fbd30b3ff742bdd">getZerobufSize</a> () const </td></tr>
-<tr class="separator:a77619a15f72aebf53fbd30b3ff742bdd inherit pub_methods_classzerobuf_1_1_zerobuf"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:ae92f50b93c2ef3ab77165625a961e677 inherit pub_methods_classzerobuf_1_1_zerobuf"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classzerobuf_1_1_zerobuf.html#ae92f50b93c2ef3ab77165625a961e677">copyZerobufData</a> (const void *data, size_t size)</td></tr>
-<tr class="memdesc:ae92f50b93c2ef3ab77165625a961e677 inherit pub_methods_classzerobuf_1_1_zerobuf"><td class="mdescLeft">&#160;</td><td class="mdescRight">Copy the raw data into the zerobuf.  <a href="#ae92f50b93c2ef3ab77165625a961e677">More...</a><br/></td></tr>
-<tr class="separator:ae92f50b93c2ef3ab77165625a961e677 inherit pub_methods_classzerobuf_1_1_zerobuf"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a4f8a435ad4c74c49d55a71fc0001f50f inherit pub_methods_classzerobuf_1_1_zerobuf"><td class="memItemLeft" align="right" valign="top">std::string&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classzerobuf_1_1_zerobuf.html#a4f8a435ad4c74c49d55a71fc0001f50f">toJSON</a> () const </td></tr>
-<tr class="memdesc:a4f8a435ad4c74c49d55a71fc0001f50f inherit pub_methods_classzerobuf_1_1_zerobuf"><td class="mdescLeft">&#160;</td><td class="mdescRight">Convert the given instance to a JSON representation.  <a href="#a4f8a435ad4c74c49d55a71fc0001f50f">More...</a><br/></td></tr>
-<tr class="separator:a4f8a435ad4c74c49d55a71fc0001f50f inherit pub_methods_classzerobuf_1_1_zerobuf"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:addaf4f41b07d8c5fe7a2af496cb5ef8b inherit pub_methods_classzerobuf_1_1_zerobuf"><td class="memItemLeft" align="right" valign="top">bool&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classzerobuf_1_1_zerobuf.html#addaf4f41b07d8c5fe7a2af496cb5ef8b">fromJSON</a> (const std::string &amp;json)</td></tr>
-<tr class="memdesc:addaf4f41b07d8c5fe7a2af496cb5ef8b inherit pub_methods_classzerobuf_1_1_zerobuf"><td class="mdescLeft">&#160;</td><td class="mdescRight">Convert the given JSON string into this object.  <a href="#addaf4f41b07d8c5fe7a2af496cb5ef8b">More...</a><br/></td></tr>
-<tr class="separator:addaf4f41b07d8c5fe7a2af496cb5ef8b inherit pub_methods_classzerobuf_1_1_zerobuf"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a37fff3a7faebd32287c5bd048f35adb0 inherit pub_methods_classzerobuf_1_1_zerobuf"><td class="memItemLeft" align="right" valign="top">virtual void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classzerobuf_1_1_zerobuf.html#a37fff3a7faebd32287c5bd048f35adb0">compact</a> (float threshold=0.1f)</td></tr>
+<tr class="memdesc:a37fff3a7faebd32287c5bd048f35adb0 inherit pub_methods_classzerobuf_1_1_zerobuf"><td class="mdescLeft">&#160;</td><td class="mdescRight">Remove unused holes from the zerobuf.  <a href="#a37fff3a7faebd32287c5bd048f35adb0">More...</a><br/></td></tr>
+<tr class="separator:a37fff3a7faebd32287c5bd048f35adb0 inherit pub_methods_classzerobuf_1_1_zerobuf"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a4c0c78fa19481f9db82bbbd3c1b6d316 inherit pub_methods_classzerobuf_1_1_zerobuf"><td class="memItemLeft" align="right" valign="top"><a class="el" href="classzerobuf_1_1_zerobuf.html">Zerobuf</a> &amp;&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classzerobuf_1_1_zerobuf.html#a4c0c78fa19481f9db82bbbd3c1b6d316">operator=</a> (const <a class="el" href="classzerobuf_1_1_zerobuf.html">Zerobuf</a> &amp;rhs)</td></tr>
 <tr class="memdesc:a4c0c78fa19481f9db82bbbd3c1b6d316 inherit pub_methods_classzerobuf_1_1_zerobuf"><td class="mdescLeft">&#160;</td><td class="mdescRight">Assignment operator.  <a href="#a4c0c78fa19481f9db82bbbd3c1b6d316">More...</a><br/></td></tr>
 <tr class="separator:a4c0c78fa19481f9db82bbbd3c1b6d316 inherit pub_methods_classzerobuf_1_1_zerobuf"><td class="memSeparator" colspan="2">&#160;</td></tr>
@@ -186,6 +174,9 @@ Public Member Functions</h2></td></tr>
 <tr class="memitem:a7c269d62b1f5c25ef1663654f6ef8a3d inherit pub_methods_classzerobuf_1_1_zerobuf"><td class="memItemLeft" align="right" valign="top"><a class="anchor" id="a7c269d62b1f5c25ef1663654f6ef8a3d"></a>
 void&#160;</td><td class="memItemRight" valign="bottom"><b>reset</b> (AllocatorPtr allocator)</td></tr>
 <tr class="separator:a7c269d62b1f5c25ef1663654f6ef8a3d inherit pub_methods_classzerobuf_1_1_zerobuf"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a395626f282fb7752810e3d121f894754 inherit pub_methods_classzerobuf_1_1_zerobuf"><td class="memItemLeft" align="right" valign="top"><a class="anchor" id="a395626f282fb7752810e3d121f894754"></a>
+void&#160;</td><td class="memItemRight" valign="bottom"><b>check</b> () const </td></tr>
+<tr class="separator:a395626f282fb7752810e3d121f894754 inherit pub_methods_classzerobuf_1_1_zerobuf"><td class="memSeparator" colspan="2">&#160;</td></tr>
 </table><table class="memberdecls">
 <tr class="heading"><td colspan="2"><h2 class="groupheader"><a name="inherited"></a>
 Additional Inherited Members</h2></td></tr>
@@ -205,7 +196,7 @@ void&#160;</td><td class="memItemRight" valign="bottom"><b>_copyZerobufArray</b>
 </table>
 <a name="details" id="details"></a><h2 class="groupheader">Detailed Description</h2>
 <div class="textblock"><p>A ZeroBuf object which holds values described by the given schemas. </p>
-<p>The main purpose is to create an object at runtime for JSON conversion using <a class="el" href="classzerobuf_1_1_zerobuf.html#a4f8a435ad4c74c49d55a71fc0001f50f" title="Convert the given instance to a JSON representation. ">toJSON()</a> and <a class="el" href="classzerobuf_1_1_zerobuf.html#addaf4f41b07d8c5fe7a2af496cb5ef8b" title="Convert the given JSON string into this object. ">fromJSON()</a> without having the schema file nor the generated class file available. Does not provide any semantic methods. </p>
+<p>The main purpose is to create an object at runtime for JSON conversion using toJSON() and fromJSON() without having the schema file nor the generated class file available. Does not provide any semantic methods. </p>
 
 <p>Definition at line <a class="el" href="_generic_8h_source.html#l00023">23</a> of file <a class="el" href="_generic_8h_source.html">Generic.h</a>.</p>
 </div><h2 class="groupheader">Member Function Documentation</h2>
@@ -287,32 +278,6 @@ void&#160;</td><td class="memItemRight" valign="bottom"><b>_copyZerobufArray</b>
 
 </div>
 </div>
-<a class="anchor" id="a65281452b945d2a4696951ffa848a92d"></a>
-<div class="memitem">
-<div class="memproto">
-<table class="mlabels">
-  <tr>
-  <td class="mlabels-left">
-      <table class="memname">
-        <tr>
-          <td class="memname">uint128_t zerobuf::Generic::getZerobufType </td>
-          <td>(</td>
-          <td class="paramname"></td><td>)</td>
-          <td> const</td>
-        </tr>
-      </table>
-  </td>
-  <td class="mlabels-right">
-<span class="mlabels"><span class="mlabel">final</span><span class="mlabel">virtual</span></span>  </td>
-  </tr>
-</table>
-</div><div class="memdoc">
-<dl class="section return"><dt>Returns</dt><dd>the type of this object, hashed from its schema. </dd></dl>
-
-<p>Implements <a class="el" href="classzerobuf_1_1_zerobuf.html#a851441b77306a98485a5b566af562d6a">zerobuf::Zerobuf</a>.</p>
-
-</div>
-</div>
 <hr/>The documentation for this class was generated from the following file:<ul>
 <li><a class="el" href="_generic_8h_source.html">Generic.h</a></li>
 </ul>
@@ -322,7 +287,7 @@ void&#160;</td><td class="memItemRight" valign="bottom"><b>_copyZerobufArray</b>
 <div id="nav-path" class="navpath"><!-- id is needed for treeview function! -->
   <ul>
     <li class="navelem"><a class="el" href="namespacezerobuf.html">zerobuf</a></li><li class="navelem"><a class="el" href="classzerobuf_1_1_generic.html">Generic</a></li>
-    <li class="footer">Generated on Tue Dec 22 2015 15:26:18 for ZeroBuf by
+    <li class="footer">Generated on Thu Jan 14 2016 17:47:38 for ZeroBuf by
     <a href="http://www.doxygen.org/index.html">
     <img class="footer" src="doxygen.png" alt="doxygen"/></a> 1.8.6 </li>
   </ul>

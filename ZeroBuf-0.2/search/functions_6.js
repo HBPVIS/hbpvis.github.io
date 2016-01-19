@@ -1,7 +1,4 @@
 var searchData=
 [
-  ['operator_21_3d',['operator!=',['../classzerobuf_1_1_vector.html#a2a2458e25d3ef96e824337a9372ba6fd',1,'zerobuf::Vector::operator!=()'],['../classzerobuf_1_1_zerobuf.html#a85526a2c9e327fd6349616146b64bfc9',1,'zerobuf::Zerobuf::operator!=()']]],
-  ['operator_3d',['operator=',['../classzerobuf_1_1_zerobuf.html#a4c0c78fa19481f9db82bbbd3c1b6d316',1,'zerobuf::Zerobuf::operator=(const Zerobuf &amp;rhs)'],['../classzerobuf_1_1_zerobuf.html#a244f95b56828cadd84e72d36f114b656',1,'zerobuf::Zerobuf::operator=(Zerobuf &amp;&amp;rhs)']]],
-  ['operator_3d_3d',['operator==',['../classzerobuf_1_1_vector.html#a7da69e756bf564112ea525a548e84edf',1,'zerobuf::Vector::operator==()'],['../classzerobuf_1_1_zerobuf.html#a53ff18b391418c5b2c5c20aad33ee858',1,'zerobuf::Zerobuf::operator==()']]],
-  ['operator_5b_5d',['operator[]',['../classzerobuf_1_1_vector.html#ab1201bdafc553e91fb479250ec27ea94',1,'zerobuf::Vector::operator[](const size_t index) const '],['../classzerobuf_1_1_vector.html#a608120baab0a758b217f713ec3acd57f',1,'zerobuf::Vector::operator[](const size_t index)'],['../classzerobuf_1_1_vector.html#a57ef437418a51f8fdbf1c6c88d842420',1,'zerobuf::Vector::operator[](const size_t index) const '],['../classzerobuf_1_1_vector.html#af9bc708c06797efc3ae042a3647a259b',1,'zerobuf::Vector::operator[](const size_t index)']]]
+  ['push_5fback',['push_back',['../classzerobuf_1_1_vector.html#a3e0d021448316dba456cc0118a562292',1,'zerobuf::Vector::push_back(const typename std::enable_if&lt; !std::is_base_of&lt; Zerobuf, Q &gt;::value, Q &gt;::type &amp;)'],['../classzerobuf_1_1_vector.html#ad80419326920b94b1845b9448e410f48',1,'zerobuf::Vector::push_back(const typename std::enable_if&lt; std::is_base_of&lt; Zerobuf, Q &gt;::value, Q &gt;::type &amp;)']]]
 ];

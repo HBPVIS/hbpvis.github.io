@@ -13,6 +13,7 @@ var files =
     [ "render.h", "render_8h_source.html", null ],
     [ "Schema.h", "_schema_8h_source.html", null ],
     [ "Types.h", "_types_8h_source.html", null ],
+    [ "types.h", "types_8h_source.html", null ],
     [ "Vector.h", "_vector_8h_source.html", null ],
     [ "render/version.h", "render_2version_8h.html", "render_2version_8h" ],
     [ "version.h", "version_8h.html", "version_8h" ],

@@ -125,6 +125,8 @@ $(document).ready(function(){initNavTree('classzerobuf_1_1_allocator.html','');}
 </div>
 <div id="dynsection-0-content" class="dyncontent" style="display:none;">
 <div class="center"><img src="classzerobuf_1_1_allocator__coll__graph.png" border="0" usemap="#zerobuf_1_1_allocator_coll__map" alt="Collaboration graph"/></div>
+<map name="zerobuf_1_1_allocator_coll__map" id="zerobuf_1_1_allocator_coll__map">
+</map>
 </div>
 <table class="memberdecls">
 <tr class="heading"><td colspan="2"><h2 class="groupheader"><a name="pub-methods"></a>
@@ -141,9 +143,12 @@ virtual size_t&#160;</td><td class="memItemRight" valign="bottom"><b>getSize</b>
 <tr class="memitem:ac5466c39920203818d9a65890cde6e65"><td class="memItemLeft" align="right" valign="top"><a class="anchor" id="ac5466c39920203818d9a65890cde6e65"></a>
 virtual void&#160;</td><td class="memItemRight" valign="bottom"><b>copyBuffer</b> (const void *data, size_t size)=0</td></tr>
 <tr class="separator:ac5466c39920203818d9a65890cde6e65"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a49a93258938eb604af4ba44c369cd05a"><td class="memItemLeft" align="right" valign="top"><a class="anchor" id="a49a93258938eb604af4ba44c369cd05a"></a>
-virtual bool&#160;</td><td class="memItemRight" valign="bottom"><b>canMove</b> () const </td></tr>
-<tr class="separator:a49a93258938eb604af4ba44c369cd05a"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a6d44bf9a23402d9d310bd7eec546c887"><td class="memItemLeft" align="right" valign="top"><a class="anchor" id="a6d44bf9a23402d9d310bd7eec546c887"></a>
+virtual void&#160;</td><td class="memItemRight" valign="bottom"><b>compact</b> (float)</td></tr>
+<tr class="separator:a6d44bf9a23402d9d310bd7eec546c887"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a694ef8c7541336689e95d72c6a134251"><td class="memItemLeft" align="right" valign="top"><a class="anchor" id="a694ef8c7541336689e95d72c6a134251"></a>
+virtual bool&#160;</td><td class="memItemRight" valign="bottom"><b>isMovable</b> () const </td></tr>
+<tr class="separator:a694ef8c7541336689e95d72c6a134251"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a59b22f7bccb9384c0cb3069c076b3a51"><td class="memItemLeft" align="right" valign="top">virtual uint8_t *&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classzerobuf_1_1_allocator.html#a59b22f7bccb9384c0cb3069c076b3a51">updateAllocation</a> (size_t, bool, size_t)</td></tr>
 <tr class="memdesc:a59b22f7bccb9384c0cb3069c076b3a51"><td class="mdescLeft">&#160;</td><td class="mdescRight">Update allocation of the dynamic elem at index to have newSize bytes.  <a href="#a59b22f7bccb9384c0cb3069c076b3a51">More...</a><br/></td></tr>
 <tr class="separator:a59b22f7bccb9384c0cb3069c076b3a51"><td class="memSeparator" colspan="2">&#160;</td></tr>
@@ -177,6 +182,9 @@ uint64_t&#160;</td><td class="memItemRight" valign="bottom"><b>getDynamicOffset<
 <tr class="memitem:af5800d856f54ea2892de9820116c9f5d"><td class="memItemLeft" align="right" valign="top"><a class="anchor" id="af5800d856f54ea2892de9820116c9f5d"></a>
 size_t&#160;</td><td class="memItemRight" valign="bottom"><b>getDynamicSize</b> (const size_t index) const </td></tr>
 <tr class="separator:af5800d856f54ea2892de9820116c9f5d"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a601f86d4e5b16c6e43ceeb0117691f63"><td class="memItemLeft" align="right" valign="top"><a class="anchor" id="a601f86d4e5b16c6e43ceeb0117691f63"></a>
+void&#160;</td><td class="memItemRight" valign="bottom"><b>check</b> (const size_t numDynamics) const </td></tr>
+<tr class="separator:a601f86d4e5b16c6e43ceeb0117691f63"><td class="memSeparator" colspan="2">&#160;</td></tr>
 </table><table class="memberdecls">
 <tr class="heading"><td colspan="2"><h2 class="groupheader"><a name="pro-methods"></a>
 Protected Member Functions</h2></td></tr>
@@ -192,6 +200,9 @@ uint64_t &amp;&#160;</td><td class="memItemRight" valign="bottom"><b>_getSize</b
 <tr class="memitem:a6bc632187e305fc7477c7214bd3179cc"><td class="memItemLeft" align="right" valign="top"><a class="anchor" id="a6bc632187e305fc7477c7214bd3179cc"></a>
 uint64_t&#160;</td><td class="memItemRight" valign="bottom"><b>_getSize</b> (const size_t i) const </td></tr>
 <tr class="separator:a6bc632187e305fc7477c7214bd3179cc"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:ad6e717ef3e479e1743f0a5a868dd68fb"><td class="memItemLeft" align="right" valign="top"><a class="anchor" id="ad6e717ef3e479e1743f0a5a868dd68fb"></a>
+void&#160;</td><td class="memItemRight" valign="bottom"><b>_checkIndex</b> (const size_t i) const </td></tr>
+<tr class="separator:ad6e717ef3e479e1743f0a5a868dd68fb"><td class="memSeparator" colspan="2">&#160;</td></tr>
 </table>
 <a name="details" id="details"></a><h2 class="groupheader">Detailed Description</h2>
 <div class="textblock"><p><a class="el" href="classzerobuf_1_1_allocator.html" title="Allocator base class and interface. ">Allocator</a> base class and interface. </p>
@@ -241,20 +252,7 @@ uint64_t&#160;</td><td class="memItemRight" valign="bottom"><b>_getSize</b> (con
 <p>The offset and size fields in the static section are updated as needed. Does not copy the old data to the new location.</p>
 <dl class="section return"><dt>Returns</dt><dd>the pointer to the elem at the new place. </dd></dl>
 
-<p>Definition at line <a class="el" href="_allocator_8h_source.html#l00040">40</a> of file <a class="el" href="_allocator_8h_source.html">Allocator.h</a>.</p>
-
-<p>Referenced by <a class="el" href="classzerobuf_1_1_vector.html#ab38f84c7f23e4eb6e3f00a9e925f70cc">zerobuf::Vector&lt; T &gt;::clear()</a>, and <a class="el" href="classzerobuf_1_1_vector.html#a54402c2ccc7b6b90fabcf2b6813fe3fa">zerobuf::Vector&lt; T &gt;::push_back()</a>.</p>
-
-<p><div id="dynsection-1" onclick="return toggleVisibility(this)" class="dynheader closed" style="cursor:pointer;">
-  <img id="dynsection-1-trigger" src="closed.png" alt="+"/> Here is the caller graph for this function:</div>
-<div id="dynsection-1-summary" class="dynsummary" style="display:block;">
-</div>
-<div id="dynsection-1-content" class="dyncontent" style="display:none;">
-<div class="center"><img src="classzerobuf_1_1_allocator_a59b22f7bccb9384c0cb3069c076b3a51_icgraph.png" border="0" usemap="#classzerobuf_1_1_allocator_a59b22f7bccb9384c0cb3069c076b3a51_icgraph" alt=""/></div>
-<map name="classzerobuf_1_1_allocator_a59b22f7bccb9384c0cb3069c076b3a51_icgraph" id="classzerobuf_1_1_allocator_a59b22f7bccb9384c0cb3069c076b3a51_icgraph">
-<area shape="rect" id="node2" href="classzerobuf_1_1_vector.html#ab38f84c7f23e4eb6e3f00a9e925f70cc" title="Empty the vector. " alt="" coords="210,5,369,32"/><area shape="rect" id="node3" href="classzerobuf_1_1_vector.html#a54402c2ccc7b6b90fabcf2b6813fe3fa" title="Insert a builtin element at the end of the vector. " alt="" coords="192,56,387,83"/></map>
-</div>
-</p>
+<p>Definition at line <a class="el" href="_allocator_8h_source.html#l00042">42</a> of file <a class="el" href="_allocator_8h_source.html">Allocator.h</a>.</p>
 
 </div>
 </div>
@@ -267,7 +265,7 @@ uint64_t&#160;</td><td class="memItemRight" valign="bottom"><b>_getSize</b> (con
 <div id="nav-path" class="navpath"><!-- id is needed for treeview function! -->
   <ul>
     <li class="navelem"><a class="el" href="namespacezerobuf.html">zerobuf</a></li><li class="navelem"><a class="el" href="classzerobuf_1_1_allocator.html">Allocator</a></li>
-    <li class="footer">Generated on Tue Dec 22 2015 15:26:18 for ZeroBuf by
+    <li class="footer">Generated on Thu Jan 14 2016 17:47:38 for ZeroBuf by
     <a href="http://www.doxygen.org/index.html">
     <img class="footer" src="doxygen.png" alt="doxygen"/></a> 1.8.6 </li>
   </ul>

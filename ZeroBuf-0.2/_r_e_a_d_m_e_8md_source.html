@@ -119,29 +119,30 @@ $(document).ready(function(){initNavTree('_r_e_a_d_m_e_8md.html','');});
 <div class="line"><a name="l00009"></a><span class="lineno">    9</span>&#160;shortcomings:</div>
 <div class="line"><a name="l00010"></a><span class="lineno">   10</span>&#160;</div>
 <div class="line"><a name="l00011"></a><span class="lineno">   11</span>&#160;* Direct <span class="keyword">get</span> and set functionality on the defined data members</div>
-<div class="line"><a name="l00012"></a><span class="lineno">   12</span>&#160;* A single, in-memory buffer storing all data members, which is directly</div>
+<div class="line"><a name="l00012"></a><span class="lineno">   12</span>&#160;* A single memory buffer storing all data members, which is directly</div>
 <div class="line"><a name="l00013"></a><span class="lineno">   13</span>&#160;  serializable</div>
-<div class="line"><a name="l00014"></a><span class="lineno">   14</span>&#160;* Usable, random access to the the data members</div>
+<div class="line"><a name="l00014"></a><span class="lineno">   14</span>&#160;* Usable, random read and write access to the the data members</div>
 <div class="line"><a name="l00015"></a><span class="lineno">   15</span>&#160;* Zero copy of the data used by the (C++) implementation from and to the network</div>
 <div class="line"><a name="l00016"></a><span class="lineno">   16</span>&#160;</div>
-<div class="line"><a name="l00017"></a><span class="lineno">   17</span>&#160;<span class="preprocessor"># V1 Features</span></div>
+<div class="line"><a name="l00017"></a><span class="lineno">   17</span>&#160;<span class="preprocessor"># Features</span></div>
 <div class="line"><a name="l00018"></a><span class="lineno">   18</span>&#160;<span class="preprocessor"></span></div>
-<div class="line"><a name="l00019"></a><span class="lineno">   19</span>&#160;* Storage of (u)int[8,16,32,64,128]_t, <span class="keywordtype">float</span>, <span class="keywordtype">double</span> single elements, fixed</div>
-<div class="line"><a name="l00020"></a><span class="lineno">   20</span>&#160;  size arrays and dynamic arrays</div>
-<div class="line"><a name="l00021"></a><span class="lineno">   21</span>&#160;* Access to arrays using raw pointers, iterators, std::array,</div>
-<div class="line"><a name="l00022"></a><span class="lineno">   22</span>&#160;  std::<span class="keywordtype">string</span> and std::vector</div>
-<div class="line"><a name="l00023"></a><span class="lineno">   23</span>&#160;</div>
-<div class="line"><a name="l00024"></a><span class="lineno">   24</span>&#160;<span class="preprocessor"># Extensions to flatbuffers grammar</span></div>
-<div class="line"><a name="l00025"></a><span class="lineno">   25</span>&#160;<span class="preprocessor"></span></div>
-<div class="line"><a name="l00026"></a><span class="lineno">   26</span>&#160;* Arrays can have an optional fixed size specified as part of the type,</div>
-<div class="line"><a name="l00027"></a><span class="lineno">   27</span>&#160;  e.g., ```matrix:[<span class="keywordtype">float</span>:16]``` <span class="keywordflow">for</span> a 16 value <span class="keywordtype">float</span> array</div>
+<div class="line"><a name="l00019"></a><span class="lineno">   19</span>&#160;* Storage of (u)int[8,16,32,64,128]_t, <span class="keywordtype">float</span>, <span class="keywordtype">double</span> single elements,</div>
+<div class="line"><a name="l00020"></a><span class="lineno">   20</span>&#160;  static and dynamic sub-structures, fixed size and dynamic arrays of</div>
+<div class="line"><a name="l00021"></a><span class="lineno">   21</span>&#160;  static-sized elements</div>
+<div class="line"><a name="l00022"></a><span class="lineno">   22</span>&#160;* Access to arrays using raw pointers, iterators, std::array,</div>
+<div class="line"><a name="l00023"></a><span class="lineno">   23</span>&#160;  std::<span class="keywordtype">string</span> and std::vector</div>
+<div class="line"><a name="l00024"></a><span class="lineno">   24</span>&#160;</div>
+<div class="line"><a name="l00025"></a><span class="lineno">   25</span>&#160;<span class="preprocessor"># Extensions to flatbuffers grammar</span></div>
+<div class="line"><a name="l00026"></a><span class="lineno">   26</span>&#160;<span class="preprocessor"></span></div>
+<div class="line"><a name="l00027"></a><span class="lineno">   27</span>&#160;* Arrays can have an optional fixed size specified as part of the type,</div>
+<div class="line"><a name="l00028"></a><span class="lineno">   28</span>&#160;  e.g., ```matrix:[<span class="keywordtype">float</span>:16]``` <span class="keywordflow">for</span> a 16 value <span class="keywordtype">float</span> array</div>
 </div><!-- fragment --></div><!-- contents -->
 </div><!-- doc-content -->
 <!-- start footer part -->
 <div id="nav-path" class="navpath"><!-- id is needed for treeview function! -->
   <ul>
     <li class="navelem"><b>README.md</b></li>
-    <li class="footer">Generated on Tue Dec 22 2015 15:26:18 for ZeroBuf by
+    <li class="footer">Generated on Thu Jan 14 2016 17:47:38 for ZeroBuf by
     <a href="http://www.doxygen.org/index.html">
     <img class="footer" src="doxygen.png" alt="doxygen"/></a> 1.8.6 </li>
   </ul>

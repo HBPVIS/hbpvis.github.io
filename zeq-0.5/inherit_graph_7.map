@@ -1,0 +1,6 @@
+<map id="Graphical Class Hierarchy" name="Graphical Class Hierarchy">
+<area shape="rect" id="node1" href="$classzeq_1_1_receiver.html" title="Base class for entities receiving data. " alt="" coords="5,56,112,83"/>
+<area shape="rect" id="node2" href="$classzeq_1_1connection_1_1_broker.html" title="Brokers subscription requests for a zeq::Receiver. " alt="" coords="160,5,333,32"/>
+<area shape="rect" id="node3" href="$classzeq_1_1http_1_1_server.html" title="Serves HTTP GET and POST requests for servus::Serializable objects. " alt="" coords="182,56,311,83"/>
+<area shape="rect" id="node4" href="$classzeq_1_1_subscriber.html" title="Subscribes to Publisher to receive events. " alt="" coords="186,107,307,133"/>
+</map>
