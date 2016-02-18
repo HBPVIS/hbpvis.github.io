@@ -1,4 +1,4 @@
 var searchData=
 [
-  ['updateallocation',['updateAllocation',['../classzerobuf_1_1_allocator.html#a59b22f7bccb9384c0cb3069c076b3a51',1,'zerobuf::Allocator']]]
+  ['size',['size',['../classzerobuf_1_1_vector.html#ae74a41e9bba6c3756e7f7047fe3d058a',1,'zerobuf::Vector']]]
 ];

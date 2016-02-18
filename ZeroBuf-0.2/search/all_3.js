@@ -1,4 +1,5 @@
 var searchData=
 [
-  ['empty',['empty',['../classzerobuf_1_1_vector.html#ad74eb97898174e3cfaf0c44fbcb6360b',1,'zerobuf::Vector']]]
+  ['data',['data',['../classzerobuf_1_1_vector.html#a1b1c10b4e256f289f88e801741cf5355',1,'zerobuf::Vector::data()'],['../classzerobuf_1_1_vector.html#a65879bdf813915615e08d3344882cf8c',1,'zerobuf::Vector::data() const ']]],
+  ['defines_2eh',['defines.h',['../defines_8h.html',1,'']]]
 ];

@@ -27,6 +27,20 @@
            </Node>
           </Subnodes>
          </Node>
+         <Node>
+          <Name>Namespace Members</Name>
+          <Path>namespacemembers.html</Path>
+          <Subnodes>
+           <Node>
+            <Name>All</Name>
+            <Path>namespacemembers.html</Path>
+           </Node>
+           <Node>
+            <Name>Typedefs</Name>
+            <Path>namespacemembers_type.html</Path>
+           </Node>
+          </Subnodes>
+         </Node>
         </Subnodes>
        </Node>
        <Node>
@@ -85,14 +99,24 @@
                   <Anchor>ab9199aae865515b9e74a42a0b9c33e16</Anchor>
                  </Node>
                  <Node>
-                  <Name>getSchemas</Name>
+                  <Name>_createJSON</Name>
                   <Path>classzerobuf_1_1render_1_1_vector3f.html</Path>
-                  <Anchor>ab6f517ba913b19f51095666f96e10cd7</Anchor>
+                  <Anchor>a8d74adca6dcf26ce2004625e3472d08a</Anchor>
+                 </Node>
+                 <Node>
+                  <Name>_parseJSON</Name>
+                  <Path>classzerobuf_1_1render_1_1_vector3f.html</Path>
+                  <Anchor>abb85eda0de92185cafc86b4116f51e06</Anchor>
                  </Node>
                  <Node>
                   <Name>getTypeIdentifier</Name>
                   <Path>classzerobuf_1_1render_1_1_vector3f.html</Path>
                   <Anchor>a229be7c44084a5a3806ad66272ec3661</Anchor>
+                 </Node>
+                 <Node>
+                  <Name>getTypeName</Name>
+                  <Path>classzerobuf_1_1render_1_1_vector3f.html</Path>
+                  <Anchor>aaff4349a3a8cc02655e819b59c6c0f93</Anchor>
                  </Node>
                  <Node>
                   <Name>getX</Name>
@@ -128,16 +152,6 @@
                   <Name>operator=</Name>
                   <Path>classzerobuf_1_1render_1_1_vector3f.html</Path>
                   <Anchor>a4702234e441d9029e4a6ac12c69c3824</Anchor>
-                 </Node>
-                 <Node>
-                  <Name>schema</Name>
-                  <Path>classzerobuf_1_1render_1_1_vector3f.html</Path>
-                  <Anchor>a139f631d523b3b246a072bbf29c4b82e</Anchor>
-                 </Node>
-                 <Node>
-                  <Name>schemas</Name>
-                  <Path>classzerobuf_1_1render_1_1_vector3f.html</Path>
-                  <Anchor>a0d1937aaa7ac7e930e835c6bb5f17f98</Anchor>
                  </Node>
                  <Node>
                   <Name>setX</Name>
@@ -211,6 +225,16 @@
                   <Anchor>a4382352f7ecd4c4fbf60a4650c317fd9</Anchor>
                  </Node>
                  <Node>
+                  <Name>_createJSON</Name>
+                  <Path>classzerobuf_1_1render_1_1_camera.html</Path>
+                  <Anchor>a3575bb7fab51778dee1cac771a02bb2a</Anchor>
+                 </Node>
+                 <Node>
+                  <Name>_parseJSON</Name>
+                  <Path>classzerobuf_1_1render_1_1_camera.html</Path>
+                  <Anchor>a17158db4cf1500ad9c46fcdb8556ad6e</Anchor>
+                 </Node>
+                 <Node>
                   <Name>getLookAt</Name>
                   <Path>classzerobuf_1_1render_1_1_camera.html</Path>
                   <Anchor>a0a4e8219e53e34c6741c56228729e991</Anchor>
@@ -231,14 +255,14 @@
                   <Anchor>ad0433f1f41c787c09797597f080c15a8</Anchor>
                  </Node>
                  <Node>
-                  <Name>getSchemas</Name>
-                  <Path>classzerobuf_1_1render_1_1_camera.html</Path>
-                  <Anchor>a650765929dd8820ada4f0345a5fed0fa</Anchor>
-                 </Node>
-                 <Node>
                   <Name>getTypeIdentifier</Name>
                   <Path>classzerobuf_1_1render_1_1_camera.html</Path>
                   <Anchor>afaba17d86f17da79840ff2fa5ed0076d</Anchor>
+                 </Node>
+                 <Node>
+                  <Name>getTypeName</Name>
+                  <Path>classzerobuf_1_1render_1_1_camera.html</Path>
+                  <Anchor>a4fc2bb61ab47e23a58e1d6479473c93c</Anchor>
                  </Node>
                  <Node>
                   <Name>getUp</Name>
@@ -271,16 +295,6 @@
                   <Anchor>a2020eef4c312934f881f43093b198e55</Anchor>
                  </Node>
                  <Node>
-                  <Name>schema</Name>
-                  <Path>classzerobuf_1_1render_1_1_camera.html</Path>
-                  <Anchor>a6ff4945350afdda454502b9e0dcf4ddb</Anchor>
-                 </Node>
-                 <Node>
-                  <Name>schemas</Name>
-                  <Path>classzerobuf_1_1render_1_1_camera.html</Path>
-                  <Anchor>a2771c88993a0a86a7f0f4b49cf09ef99</Anchor>
-                 </Node>
-                 <Node>
                   <Name>setLookAt</Name>
                   <Path>classzerobuf_1_1render_1_1_camera.html</Path>
                   <Anchor>a3a367218083b2ca4aac036ed1b1d74b8</Anchor>
@@ -309,6 +323,137 @@
                   <Name>ZEROBUF_STATIC_SIZE</Name>
                   <Path>classzerobuf_1_1render_1_1_camera.html</Path>
                   <Anchor>a5a094b5cd12220495933d955618003c0</Anchor>
+                 </Node>
+                </Subnodes>
+               </Node>
+               <Node>
+                <Name>LookupTable1D</Name>
+                <Path>classzerobuf_1_1render_1_1_lookup_table1_d.html</Path>
+                <Subnodes>
+                 <Node>
+                  <Name>LookupTable1D</Name>
+                  <Path>classzerobuf_1_1render_1_1_lookup_table1_d.html</Path>
+                  <Anchor>a35fb4084598eec637a60f68999dfa880</Anchor>
+                 </Node>
+                 <Node>
+                  <Name>LookupTable1D</Name>
+                  <Path>classzerobuf_1_1render_1_1_lookup_table1_d.html</Path>
+                  <Anchor>a81b3692cc31c72929e469204a2e7f974</Anchor>
+                 </Node>
+                 <Node>
+                  <Name>LookupTable1D</Name>
+                  <Path>classzerobuf_1_1render_1_1_lookup_table1_d.html</Path>
+                  <Anchor>ac8542433d6d9687ba76f9289291e87de</Anchor>
+                 </Node>
+                 <Node>
+                  <Name>LookupTable1D</Name>
+                  <Path>classzerobuf_1_1render_1_1_lookup_table1_d.html</Path>
+                  <Anchor>a58e382dacbb06e1ee36b4418acbefb6c</Anchor>
+                 </Node>
+                 <Node>
+                  <Name>LookupTable1D</Name>
+                  <Path>classzerobuf_1_1render_1_1_lookup_table1_d.html</Path>
+                  <Anchor>a9f9f7cb20f092dfdb76adaf4b02b2511</Anchor>
+                 </Node>
+                 <Node>
+                  <Name>LookupTable1D</Name>
+                  <Path>classzerobuf_1_1render_1_1_lookup_table1_d.html</Path>
+                  <Anchor>ad695bc470f9f6630615d9c5527a18c5d</Anchor>
+                 </Node>
+                 <Node>
+                  <Name>~LookupTable1D</Name>
+                  <Path>classzerobuf_1_1render_1_1_lookup_table1_d.html</Path>
+                  <Anchor>afe486ac6230f272ccaa731dccb938019</Anchor>
+                 </Node>
+                 <Node>
+                  <Name>_createJSON</Name>
+                  <Path>classzerobuf_1_1render_1_1_lookup_table1_d.html</Path>
+                  <Anchor>a76ea0c4208b87a3932edf7114cfad649</Anchor>
+                 </Node>
+                 <Node>
+                  <Name>_parseJSON</Name>
+                  <Path>classzerobuf_1_1render_1_1_lookup_table1_d.html</Path>
+                  <Anchor>a27fd9635ead0e4850054f5ffde7d4f1f</Anchor>
+                 </Node>
+                 <Node>
+                  <Name>getLut</Name>
+                  <Path>classzerobuf_1_1render_1_1_lookup_table1_d.html</Path>
+                  <Anchor>aeb7d2bfc2a4edc3a186e8ae4cbf7fd6d</Anchor>
+                 </Node>
+                 <Node>
+                  <Name>getLut</Name>
+                  <Path>classzerobuf_1_1render_1_1_lookup_table1_d.html</Path>
+                  <Anchor>a7ff1bb608b63ddbc9df63fe34d6cb867</Anchor>
+                 </Node>
+                 <Node>
+                  <Name>getLutSize</Name>
+                  <Path>classzerobuf_1_1render_1_1_lookup_table1_d.html</Path>
+                  <Anchor>a138408817dff62948ac0fd198eb8753e</Anchor>
+                 </Node>
+                 <Node>
+                  <Name>getLutVector</Name>
+                  <Path>classzerobuf_1_1render_1_1_lookup_table1_d.html</Path>
+                  <Anchor>a323dc684ce0cb6aa16cceacf2b3b4383</Anchor>
+                 </Node>
+                 <Node>
+                  <Name>getTypeIdentifier</Name>
+                  <Path>classzerobuf_1_1render_1_1_lookup_table1_d.html</Path>
+                  <Anchor>a09f73d0d247df4a4afd492db1da93487</Anchor>
+                 </Node>
+                 <Node>
+                  <Name>getTypeName</Name>
+                  <Path>classzerobuf_1_1render_1_1_lookup_table1_d.html</Path>
+                  <Anchor>a7c4679d8f762c90ca405811c24595249</Anchor>
+                 </Node>
+                 <Node>
+                  <Name>getZerobufNumDynamics</Name>
+                  <Path>classzerobuf_1_1render_1_1_lookup_table1_d.html</Path>
+                  <Anchor>ac280c0d9af57df3c34094a6945214e1e</Anchor>
+                 </Node>
+                 <Node>
+                  <Name>getZerobufStaticSize</Name>
+                  <Path>classzerobuf_1_1render_1_1_lookup_table1_d.html</Path>
+                  <Anchor>afe78432698497318756ffccdb48661f9</Anchor>
+                 </Node>
+                 <Node>
+                  <Name>operator=</Name>
+                  <Path>classzerobuf_1_1render_1_1_lookup_table1_d.html</Path>
+                  <Anchor>aff84758c5805c53262b3d70a94b45453</Anchor>
+                 </Node>
+                 <Node>
+                  <Name>operator=</Name>
+                  <Path>classzerobuf_1_1render_1_1_lookup_table1_d.html</Path>
+                  <Anchor>a36a3cf2fe4605a017602983505484ad7</Anchor>
+                 </Node>
+                 <Node>
+                  <Name>setLut</Name>
+                  <Path>classzerobuf_1_1render_1_1_lookup_table1_d.html</Path>
+                  <Anchor>aef84b7a8928a409eb22f0ff63b80db33</Anchor>
+                 </Node>
+                 <Node>
+                  <Name>setLut</Name>
+                  <Path>classzerobuf_1_1render_1_1_lookup_table1_d.html</Path>
+                  <Anchor>a125ff5e6fd9e99e1a5185de31a5830d2</Anchor>
+                 </Node>
+                 <Node>
+                  <Name>setLut</Name>
+                  <Path>classzerobuf_1_1render_1_1_lookup_table1_d.html</Path>
+                  <Anchor>ac68b888d0801e4d20881ecbb167f35c0</Anchor>
+                 </Node>
+                 <Node>
+                  <Name>TYPE_IDENTIFIER</Name>
+                  <Path>classzerobuf_1_1render_1_1_lookup_table1_d.html</Path>
+                  <Anchor>a105ee2880b86e76c1cd288ad59149056</Anchor>
+                 </Node>
+                 <Node>
+                  <Name>ZEROBUF_NUM_DYNAMICS</Name>
+                  <Path>classzerobuf_1_1render_1_1_lookup_table1_d.html</Path>
+                  <Anchor>af665749b1e202edf20c49c13ba302e1e</Anchor>
+                 </Node>
+                 <Node>
+                  <Name>ZEROBUF_STATIC_SIZE</Name>
+                  <Path>classzerobuf_1_1render_1_1_lookup_table1_d.html</Path>
+                  <Anchor>af810b09cf2810d97aae542d852a91cca</Anchor>
                  </Node>
                 </Subnodes>
                </Node>
@@ -436,115 +581,6 @@
               </Subnodes>
              </Node>
              <Node>
-              <Name>Generic</Name>
-              <Path>classzerobuf_1_1_generic.html</Path>
-              <Subnodes>
-               <Node>
-                <Name>Generic</Name>
-                <Path>classzerobuf_1_1_generic.html</Path>
-                <Anchor>ac881e5bece8cd31bade6e7188e1901db</Anchor>
-               </Node>
-               <Node>
-                <Name>getSchemas</Name>
-                <Path>classzerobuf_1_1_generic.html</Path>
-                <Anchor>ab1a13686fc186b0d9387ebda258bb830</Anchor>
-               </Node>
-               <Node>
-                <Name>getTypeIdentifier</Name>
-                <Path>classzerobuf_1_1_generic.html</Path>
-                <Anchor>a0f77b582cb668ca33ae73663307b2f18</Anchor>
-               </Node>
-               <Node>
-                <Name>getZerobufNumDynamics</Name>
-                <Path>classzerobuf_1_1_generic.html</Path>
-                <Anchor>ae8d5c7f1b0ed51d2722823ece4813a21</Anchor>
-               </Node>
-               <Node>
-                <Name>getZerobufStaticSize</Name>
-                <Path>classzerobuf_1_1_generic.html</Path>
-                <Anchor>a058126817d991208173b39a97ad85d91</Anchor>
-               </Node>
-              </Subnodes>
-             </Node>
-             <Node>
-              <Name>Schema</Name>
-              <Path>structzerobuf_1_1_schema.html</Path>
-              <Subnodes>
-               <Node>
-                <Name>Field</Name>
-                <Path>structzerobuf_1_1_schema.html</Path>
-                <Anchor>aa879e145837e69d67212587fb807b40b</Anchor>
-               </Node>
-               <Node>
-                <Name>FieldEnum</Name>
-                <Path>structzerobuf_1_1_schema.html</Path>
-                <Anchor>a6de4a889382d6b4979594d4cf75bb1df</Anchor>
-                <Subnodes>
-                 <Node>
-                  <Name>FIELD_NAME</Name>
-                  <Path>structzerobuf_1_1_schema.html</Path>
-                  <Anchor>a6de4a889382d6b4979594d4cf75bb1dfad544a8efca67d8345fd44653efed2afa</Anchor>
-                 </Node>
-                 <Node>
-                  <Name>FIELD_TYPE</Name>
-                  <Path>structzerobuf_1_1_schema.html</Path>
-                  <Anchor>a6de4a889382d6b4979594d4cf75bb1dfa52b00ee3d8adb96266a1d52845351e5b</Anchor>
-                 </Node>
-                 <Node>
-                  <Name>FIELD_OFFSET</Name>
-                  <Path>structzerobuf_1_1_schema.html</Path>
-                  <Anchor>a6de4a889382d6b4979594d4cf75bb1dfa8125c6c488b30422dc4e4de119637346</Anchor>
-                 </Node>
-                 <Node>
-                  <Name>FIELD_SIZE</Name>
-                  <Path>structzerobuf_1_1_schema.html</Path>
-                  <Anchor>a6de4a889382d6b4979594d4cf75bb1dfa23872e21f84d057abfbd19e12166cac6</Anchor>
-                 </Node>
-                 <Node>
-                  <Name>FIELD_ELEMENTS</Name>
-                  <Path>structzerobuf_1_1_schema.html</Path>
-                  <Anchor>a6de4a889382d6b4979594d4cf75bb1dfa49cdd28c0bd83680bcca2ff1009d37cc</Anchor>
-                 </Node>
-                </Subnodes>
-               </Node>
-               <Node>
-                <Name>operator!=</Name>
-                <Path>structzerobuf_1_1_schema.html</Path>
-                <Anchor>a29ee2fa548af44f369c7a973bdf1561c</Anchor>
-               </Node>
-               <Node>
-                <Name>operator==</Name>
-                <Path>structzerobuf_1_1_schema.html</Path>
-                <Anchor>ae4fd8d1d24fa4737df3d688c1685b8d6</Anchor>
-               </Node>
-               <Node>
-                <Name>ZEROBUF_TYPE</Name>
-                <Path>structzerobuf_1_1_schema.html</Path>
-                <Anchor>a9e3feb1fb1c443983911489449688afd</Anchor>
-               </Node>
-               <Node>
-                <Name>fields</Name>
-                <Path>structzerobuf_1_1_schema.html</Path>
-                <Anchor>ab14d0f36dedb10ecb39eb444daf21d53</Anchor>
-               </Node>
-               <Node>
-                <Name>numDynamics</Name>
-                <Path>structzerobuf_1_1_schema.html</Path>
-                <Anchor>a66ae6fa3f0b75cd6618575b570da98e7</Anchor>
-               </Node>
-               <Node>
-                <Name>staticSize</Name>
-                <Path>structzerobuf_1_1_schema.html</Path>
-                <Anchor>a9fb53a01616b6bc61ea696b33bc9a164</Anchor>
-               </Node>
-               <Node>
-                <Name>type</Name>
-                <Path>structzerobuf_1_1_schema.html</Path>
-                <Anchor>aab2de389963b0918eafd6bf62324624e</Anchor>
-               </Node>
-              </Subnodes>
-             </Node>
-             <Node>
               <Name>Vector</Name>
               <Path>classzerobuf_1_1_vector.html</Path>
               <Subnodes>
@@ -582,6 +618,26 @@
                 <Name>empty</Name>
                 <Path>classzerobuf_1_1_vector.html</Path>
                 <Anchor>ad74eb97898174e3cfaf0c44fbcb6360b</Anchor>
+               </Node>
+               <Node>
+                <Name>fromJSON</Name>
+                <Path>classzerobuf_1_1_vector.html</Path>
+                <Anchor>a4fa39e5f86efd5cb3724f366d8ec7864</Anchor>
+               </Node>
+               <Node>
+                <Name>fromJSON</Name>
+                <Path>classzerobuf_1_1_vector.html</Path>
+                <Anchor>a57d8f5a62a2204bb955c0a5782b5129b</Anchor>
+               </Node>
+               <Node>
+                <Name>fromJSON</Name>
+                <Path>classzerobuf_1_1_vector.html</Path>
+                <Anchor>a2ee04bb0fc6b00c6a0c7323f06b093ff</Anchor>
+               </Node>
+               <Node>
+                <Name>fromJSONBinary</Name>
+                <Path>classzerobuf_1_1_vector.html</Path>
+                <Anchor>ac323185159135eb262b576f139afa76f</Anchor>
                </Node>
                <Node>
                 <Name>operator!=</Name>
@@ -637,6 +693,21 @@
                 <Name>size</Name>
                 <Path>classzerobuf_1_1_vector.html</Path>
                 <Anchor>ae74a41e9bba6c3756e7f7047fe3d058a</Anchor>
+               </Node>
+               <Node>
+                <Name>toJSON</Name>
+                <Path>classzerobuf_1_1_vector.html</Path>
+                <Anchor>a53a2ea111103312aaa2c0605162d2325</Anchor>
+               </Node>
+               <Node>
+                <Name>toJSON</Name>
+                <Path>classzerobuf_1_1_vector.html</Path>
+                <Anchor>a782fba85e3dd082e4d0bfb4a3f3b6289</Anchor>
+               </Node>
+               <Node>
+                <Name>toJSONBinary</Name>
+                <Path>classzerobuf_1_1_vector.html</Path>
+                <Anchor>a381bf0680d0eac1eb992a8b0af6c4251</Anchor>
                </Node>
               </Subnodes>
              </Node>
@@ -711,6 +782,16 @@
                 <Anchor>a031cca0422d2cda2c27dab67cd67a39a</Anchor>
                </Node>
                <Node>
+                <Name>_createJSON</Name>
+                <Path>classzerobuf_1_1_zerobuf.html</Path>
+                <Anchor>acebc8eefbb49abee8d6c706985fb6db1</Anchor>
+               </Node>
+               <Node>
+                <Name>_parseJSON</Name>
+                <Path>classzerobuf_1_1_zerobuf.html</Path>
+                <Anchor>affcf4505eda975dffda9be053d3b7479</Anchor>
+               </Node>
+               <Node>
                 <Name>check</Name>
                 <Path>classzerobuf_1_1_zerobuf.html</Path>
                 <Anchor>a395626f282fb7752810e3d121f894754</Anchor>
@@ -729,11 +810,6 @@
                 <Name>getAllocator</Name>
                 <Path>classzerobuf_1_1_zerobuf.html</Path>
                 <Anchor>aec7cff72de3fb484f475fd7f1abe50c8</Anchor>
-               </Node>
-               <Node>
-                <Name>getSchemas</Name>
-                <Path>classzerobuf_1_1_zerobuf.html</Path>
-                <Anchor>a21c687908a2a3c4eb6961dd3436b7af6</Anchor>
                </Node>
                <Node>
                 <Name>getZerobufNumDynamics</Name>
@@ -774,6 +850,16 @@
                 <Name>reset</Name>
                 <Path>classzerobuf_1_1_zerobuf.html</Path>
                 <Anchor>a7c269d62b1f5c25ef1663654f6ef8a3d</Anchor>
+               </Node>
+               <Node>
+                <Name>fromJSON</Name>
+                <Path>classzerobuf_1_1_zerobuf.html</Path>
+                <Anchor>aa5439adcbe9a7c5a08ffaf98779045f4</Anchor>
+               </Node>
+               <Node>
+                <Name>toJSON</Name>
+                <Path>classzerobuf_1_1_zerobuf.html</Path>
+                <Anchor>ac449ee75e32e54785c7dedfea97a3646</Anchor>
                </Node>
               </Subnodes>
              </Node>
@@ -850,12 +936,12 @@
               <Path>classzerobuf_1_1_zerobuf.html</Path>
               <Subnodes>
                <Node>
-                <Name>zerobuf::Generic</Name>
-                <Path>classzerobuf_1_1_generic.html</Path>
-               </Node>
-               <Node>
                 <Name>zerobuf::render::Camera</Name>
                 <Path>classzerobuf_1_1render_1_1_camera.html</Path>
+               </Node>
+               <Node>
+                <Name>zerobuf::render::LookupTable1D</Name>
+                <Path>classzerobuf_1_1render_1_1_lookup_table1_d.html</Path>
                </Node>
                <Node>
                 <Name>zerobuf::render::Vector3f</Name>
@@ -868,10 +954,6 @@
            <Node>
             <Name>zerobuf::Allocator</Name>
             <Path>classzerobuf_1_1_allocator.html</Path>
-           </Node>
-           <Node>
-            <Name>zerobuf::Schema</Name>
-            <Path>structzerobuf_1_1_schema.html</Path>
            </Node>
            <Node>
             <Name>zerobuf::Vector&lt; T &gt;</Name>
@@ -898,22 +980,6 @@
            <Node>
             <Name>Functions</Name>
             <Path>functions_func.html</Path>
-           </Node>
-           <Node>
-            <Name>Variables</Name>
-            <Path>functions_vars.html</Path>
-           </Node>
-           <Node>
-            <Name>Typedefs</Name>
-            <Path>functions_type.html</Path>
-           </Node>
-           <Node>
-            <Name>Enumerations</Name>
-            <Path>functions_enum.html</Path>
-           </Node>
-           <Node>
-            <Name>Enumerator</Name>
-            <Path>functions_eval.html</Path>
            </Node>
           </Subnodes>
          </Node>
@@ -1004,24 +1070,16 @@
             <Path>render_2defines_linux_8h_source.html</Path>
            </Node>
            <Node>
-            <Name>Generic.h</Name>
-            <Path>_generic_8h_source.html</Path>
+            <Name>json.h</Name>
+            <Path>json_8h_source.html</Path>
            </Node>
            <Node>
-            <Name>json-forwards.h</Name>
-            <Path>json-forwards_8h_source.html</Path>
+            <Name>lookupTable1D.h</Name>
+            <Path>lookup_table1_d_8h_source.html</Path>
            </Node>
            <Node>
             <Name>render.h</Name>
             <Path>render_8h_source.html</Path>
-           </Node>
-           <Node>
-            <Name>Schema.h</Name>
-            <Path>_schema_8h_source.html</Path>
-           </Node>
-           <Node>
-            <Name>Types.h</Name>
-            <Path>_types_8h_source.html</Path>
            </Node>
            <Node>
             <Name>types.h</Name>

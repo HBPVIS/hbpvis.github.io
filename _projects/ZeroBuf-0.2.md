@@ -4,7 +4,7 @@ version: "0.2"
 major: 0
 minor: 2
 description: Zero-copy, zero-serialize, zero-hassle protocol buffers
-updated: 14/01/16
+updated: 18/02/16
 homepage: https://github.com/HBPVIS/ZeroBuf
 repository: https://github.com/HBPVIS/ZeroBuf
 issuesurl: https://github.com/HBPVIS/ZeroBuf
@@ -12,17 +12,16 @@ packageurl:
 license: LGPL
 maturity: EP
 maintainers: Human Brain Project (HBPVis@googlegroups.com)
-contributors: Chevtchenko Grigori; Daniel Nachbaur; Raphael Dumusc; Stefan Eilemann
+contributors: Ahmet Bilgili; Bernd Hentschel; Chevtchenko Grigori; Daniel Nachbaur; Pablo Toharia; Raphael Dumusc; Stefan Eilemann
 readmetype: text/x-markdown
 ---
 ZeroBuf
 =======
 
-[TOC]
-
 # Overview
 
-ZeroBuf is a replacement for FlatBuffers, resolving the following
+ZeroBuf implements zero-copy, zero-serialize, zero-hassle protocol
+buffers. It is a replacement for FlatBuffers, resolving the following
 shortcomings:
 
 * Direct get and set functionality on the defined data members
@@ -38,9 +37,12 @@ shortcomings:
   static-sized elements
 * Access to arrays using raw pointers, iterators, std::array,
   std::string and std::vector
+* Conversion to and from a JSON representation
 
 # Extensions to flatbuffers grammar
 
 * Arrays can have an optional fixed size specified as part of the type,
   e.g., ```matrix:[float:16]``` for a 16 value float array
+* byte and ubyte data is base64 encoded in JSON, int8_t and uint8_t are
+  represented as value arrays
 

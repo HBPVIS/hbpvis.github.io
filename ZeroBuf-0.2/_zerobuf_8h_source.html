@@ -94,7 +94,7 @@ $(document).ready(function(){initNavTree('_zerobuf_8h_source.html','');});
      onmouseover="return searchBox.OnSearchSelectShow()"
      onmouseout="return searchBox.OnSearchSelectHide()"
      onkeydown="return searchBox.OnSearchSelectKey(event)">
-<a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(0)"><span class="SelectionMark">&#160;</span>All</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(1)"><span class="SelectionMark">&#160;</span>Classes</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(2)"><span class="SelectionMark">&#160;</span>Namespaces</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(3)"><span class="SelectionMark">&#160;</span>Files</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(4)"><span class="SelectionMark">&#160;</span>Functions</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(5)"><span class="SelectionMark">&#160;</span>Variables</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(6)"><span class="SelectionMark">&#160;</span>Typedefs</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(7)"><span class="SelectionMark">&#160;</span>Enumerations</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(8)"><span class="SelectionMark">&#160;</span>Enumerator</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(9)"><span class="SelectionMark">&#160;</span>Macros</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(10)"><span class="SelectionMark">&#160;</span>Pages</a></div>
+<a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(0)"><span class="SelectionMark">&#160;</span>All</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(1)"><span class="SelectionMark">&#160;</span>Classes</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(2)"><span class="SelectionMark">&#160;</span>Namespaces</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(3)"><span class="SelectionMark">&#160;</span>Files</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(4)"><span class="SelectionMark">&#160;</span>Functions</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(5)"><span class="SelectionMark">&#160;</span>Typedefs</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(6)"><span class="SelectionMark">&#160;</span>Macros</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(7)"><span class="SelectionMark">&#160;</span>Pages</a></div>
 
 <!-- iframe showing the search results (closed by default) -->
 <div id="MSearchResultsWindow">
@@ -119,20 +119,19 @@ $(document).ready(function(){initNavTree('_zerobuf_8h_source.html','');});
 <div class="line"><a name="l00009"></a><span class="lineno">    9</span>&#160;<span class="preprocessor"></span></div>
 <div class="line"><a name="l00010"></a><span class="lineno">   10</span>&#160;<span class="preprocessor">#include &lt;<a class="code" href="api_8h.html">zerobuf/api.h</a>&gt;</span></div>
 <div class="line"><a name="l00011"></a><span class="lineno">   11</span>&#160;<span class="preprocessor">#include &lt;zerobuf/types.h&gt;</span></div>
-<div class="line"><a name="l00012"></a><span class="lineno">   12</span>&#160;<span class="preprocessor">#include &lt;servus/serializable.h&gt;</span> <span class="comment">// base class</span></div>
-<div class="line"><a name="l00013"></a><span class="lineno">   13</span>&#160;<span class="preprocessor">#include &lt;servus/uint128_t.h&gt;</span> <span class="comment">// used inline in operator &lt;&lt;</span></div>
-<div class="line"><a name="l00014"></a><span class="lineno">   14</span>&#160;</div>
-<div class="line"><a name="l00015"></a><span class="lineno">   15</span>&#160;<span class="keyword">namespace </span>zerobuf</div>
-<div class="line"><a name="l00016"></a><span class="lineno">   16</span>&#160;{</div>
-<div class="line"><a name="l00017"></a><span class="lineno">   17</span>&#160;</div>
-<div class="line"><a name="l00024"></a><span class="lineno"><a class="line" href="classzerobuf_1_1_zerobuf.html">   24</a></span>&#160;<span class="keyword">class </span><a class="code" href="classzerobuf_1_1_zerobuf.html">Zerobuf</a> : <span class="keyword">public</span> servus::Serializable</div>
-<div class="line"><a name="l00025"></a><span class="lineno">   25</span>&#160;{</div>
-<div class="line"><a name="l00026"></a><span class="lineno">   26</span>&#160;<span class="keyword">public</span>:</div>
-<div class="line"><a name="l00028"></a><span class="lineno">   28</span>&#160;    <span class="keyword">virtual</span> <span class="keywordtype">size_t</span> <a class="code" href="classzerobuf_1_1_zerobuf.html#a4d8ea576a72eb2fe06794d68aaf8e535">getZerobufStaticSize</a>() <span class="keyword">const</span> = 0;</div>
-<div class="line"><a name="l00029"></a><span class="lineno">   29</span>&#160;</div>
-<div class="line"><a name="l00031"></a><span class="lineno">   31</span>&#160;    <span class="keyword">virtual</span> <span class="keywordtype">size_t</span> <a class="code" href="classzerobuf_1_1_zerobuf.html#a2f080ec3bf8a11ea8a2e4c30febbd87e">getZerobufNumDynamics</a>() <span class="keyword">const</span> = 0;</div>
+<div class="line"><a name="l00012"></a><span class="lineno">   12</span>&#160;<span class="preprocessor">#include &lt;zerobuf/json.h&gt;</span> <span class="comment">// friend</span></div>
+<div class="line"><a name="l00013"></a><span class="lineno">   13</span>&#160;<span class="preprocessor">#include &lt;servus/serializable.h&gt;</span> <span class="comment">// base class</span></div>
+<div class="line"><a name="l00014"></a><span class="lineno">   14</span>&#160;<span class="preprocessor">#include &lt;servus/uint128_t.h&gt;</span> <span class="comment">// used inline in operator &lt;&lt;</span></div>
+<div class="line"><a name="l00015"></a><span class="lineno">   15</span>&#160;</div>
+<div class="line"><a name="l00016"></a><span class="lineno">   16</span>&#160;<span class="keyword">namespace </span>zerobuf</div>
+<div class="line"><a name="l00017"></a><span class="lineno">   17</span>&#160;{</div>
+<div class="line"><a name="l00018"></a><span class="lineno">   18</span>&#160;</div>
+<div class="line"><a name="l00027"></a><span class="lineno"><a class="line" href="classzerobuf_1_1_zerobuf.html">   27</a></span>&#160;<span class="keyword">class </span><a class="code" href="classzerobuf_1_1_zerobuf.html">Zerobuf</a> : <span class="keyword">public</span> servus::Serializable</div>
+<div class="line"><a name="l00028"></a><span class="lineno">   28</span>&#160;{</div>
+<div class="line"><a name="l00029"></a><span class="lineno">   29</span>&#160;<span class="keyword">public</span>:</div>
+<div class="line"><a name="l00031"></a><span class="lineno">   31</span>&#160;    <span class="keyword">virtual</span> <span class="keywordtype">size_t</span> <a class="code" href="classzerobuf_1_1_zerobuf.html#a4d8ea576a72eb2fe06794d68aaf8e535">getZerobufStaticSize</a>() <span class="keyword">const</span> = 0;</div>
 <div class="line"><a name="l00032"></a><span class="lineno">   32</span>&#160;</div>
-<div class="line"><a name="l00034"></a><span class="lineno">   34</span>&#160;    <span class="keyword">virtual</span> Schemas <a class="code" href="classzerobuf_1_1_zerobuf.html#a21c687908a2a3c4eb6961dd3436b7af6">getSchemas</a>() <span class="keyword">const</span> = 0;</div>
+<div class="line"><a name="l00034"></a><span class="lineno">   34</span>&#160;    <span class="keyword">virtual</span> <span class="keywordtype">size_t</span> <a class="code" href="classzerobuf_1_1_zerobuf.html#a2f080ec3bf8a11ea8a2e4c30febbd87e">getZerobufNumDynamics</a>() <span class="keyword">const</span> = 0;</div>
 <div class="line"><a name="l00035"></a><span class="lineno">   35</span>&#160;</div>
 <div class="line"><a name="l00037"></a><span class="lineno"><a class="line" href="classzerobuf_1_1_zerobuf.html#a4c2c30f520aec716f884b7130cd7533e">   37</a></span>&#160;    <span class="keyword">virtual</span> <span class="keywordtype">void</span> <a class="code" href="classzerobuf_1_1_zerobuf.html#a4c2c30f520aec716f884b7130cd7533e">notifyChanging</a>() {}</div>
 <div class="line"><a name="l00038"></a><span class="lineno">   38</span>&#160;</div>
@@ -162,34 +161,39 @@ $(document).ready(function(){initNavTree('_zerobuf_8h_source.html','');});
 <div class="line"><a name="l00078"></a><span class="lineno">   78</span>&#160;</div>
 <div class="line"><a name="l00079"></a><span class="lineno">   79</span>&#160;    ZEROBUF_API <span class="keywordtype">void</span> _copyZerobufArray( <span class="keyword">const</span> <span class="keywordtype">void</span>* data, <span class="keywordtype">size_t</span> size,</div>
 <div class="line"><a name="l00080"></a><span class="lineno">   80</span>&#160;                                        <span class="keywordtype">size_t</span> arrayNum );</div>
-<div class="line"><a name="l00081"></a><span class="lineno">   81</span>&#160;<span class="keyword">private</span>:</div>
-<div class="line"><a name="l00082"></a><span class="lineno">   82</span>&#160;    AllocatorPtr _allocator;</div>
-<div class="line"><a name="l00083"></a><span class="lineno">   83</span>&#160;</div>
-<div class="line"><a name="l00084"></a><span class="lineno">   84</span>&#160;    Zerobuf() = <span class="keyword">delete</span>;</div>
-<div class="line"><a name="l00085"></a><span class="lineno">   85</span>&#160;    Zerobuf( <span class="keyword">const</span> Zerobuf&amp; zerobuf ) = <span class="keyword">delete</span>;</div>
+<div class="line"><a name="l00081"></a><span class="lineno">   81</span>&#160;</div>
+<div class="line"><a name="l00082"></a><span class="lineno">   82</span>&#160;    ZEROBUF_API <span class="keyword">virtual</span> <span class="keywordtype">void</span> _parseJSON( <span class="keyword">const</span> Json::Value&amp; json );</div>
+<div class="line"><a name="l00083"></a><span class="lineno">   83</span>&#160;    ZEROBUF_API <span class="keyword">virtual</span> <span class="keywordtype">void</span> _createJSON( Json::Value&amp; json ) <span class="keyword">const</span>;</div>
+<div class="line"><a name="l00084"></a><span class="lineno">   84</span>&#160;    <span class="keyword">friend</span> <span class="keywordtype">void</span> fromJSON( <span class="keyword">const</span> Json::Value&amp;,Zerobuf&amp; );</div>
+<div class="line"><a name="l00085"></a><span class="lineno">   85</span>&#160;    <span class="keyword">friend</span> <span class="keywordtype">void</span> toJSON( <span class="keyword">const</span> Zerobuf&amp;, Json::Value&amp; );</div>
 <div class="line"><a name="l00086"></a><span class="lineno">   86</span>&#160;</div>
-<div class="line"><a name="l00087"></a><span class="lineno">   87</span>&#160;    <span class="keywordtype">bool</span> _fromBinary( <span class="keyword">const</span> <span class="keywordtype">void</span>* data, <span class="keyword">const</span> <span class="keywordtype">size_t</span> size ) <span class="keyword">final</span>;</div>
-<div class="line"><a name="l00088"></a><span class="lineno">   88</span>&#160;    Data _toBinary() const final;</div>
-<div class="line"><a name="l00089"></a><span class="lineno">   89</span>&#160;    <span class="keywordtype">bool</span> _fromJSON( const std::<span class="keywordtype">string</span>&amp; json ) final;</div>
-<div class="line"><a name="l00090"></a><span class="lineno">   90</span>&#160;    std::<span class="keywordtype">string</span> _toJSON() const final;</div>
-<div class="line"><a name="l00091"></a><span class="lineno">   91</span>&#160;};</div>
+<div class="line"><a name="l00087"></a><span class="lineno">   87</span>&#160;<span class="keyword">private</span>:</div>
+<div class="line"><a name="l00088"></a><span class="lineno">   88</span>&#160;    AllocatorPtr _allocator;</div>
+<div class="line"><a name="l00089"></a><span class="lineno">   89</span>&#160;</div>
+<div class="line"><a name="l00090"></a><span class="lineno">   90</span>&#160;    Zerobuf() = <span class="keyword">delete</span>;</div>
+<div class="line"><a name="l00091"></a><span class="lineno">   91</span>&#160;    Zerobuf( <span class="keyword">const</span> Zerobuf&amp; zerobuf ) = <span class="keyword">delete</span>;</div>
 <div class="line"><a name="l00092"></a><span class="lineno">   92</span>&#160;</div>
-<div class="line"><a name="l00093"></a><span class="lineno">   93</span>&#160;inline std::ostream&amp; operator &lt;&lt; ( std::ostream&amp; os, const Zerobuf&amp; zerobuf )</div>
-<div class="line"><a name="l00094"></a><span class="lineno">   94</span>&#160;{</div>
-<div class="line"><a name="l00095"></a><span class="lineno">   95</span>&#160;    <span class="keywordflow">return</span> os &lt;&lt; zerobuf.getTypeIdentifier() &lt;&lt; <span class="stringliteral">&quot;: &quot;</span> &lt;&lt; zerobuf.toJSON();</div>
-<div class="line"><a name="l00096"></a><span class="lineno">   96</span>&#160;}</div>
-<div class="line"><a name="l00097"></a><span class="lineno">   97</span>&#160;</div>
-<div class="line"><a name="l00098"></a><span class="lineno">   98</span>&#160;}</div>
-<div class="line"><a name="l00099"></a><span class="lineno">   99</span>&#160;</div>
-<div class="line"><a name="l00100"></a><span class="lineno">  100</span>&#160;<span class="preprocessor">#endif</span></div>
+<div class="line"><a name="l00093"></a><span class="lineno">   93</span>&#160;    <span class="keywordtype">bool</span> _fromBinary( <span class="keyword">const</span> <span class="keywordtype">void</span>* data, <span class="keyword">const</span> <span class="keywordtype">size_t</span> size ) <span class="keyword">final</span>;</div>
+<div class="line"><a name="l00094"></a><span class="lineno">   94</span>&#160;    Data _toBinary() const final;</div>
+<div class="line"><a name="l00095"></a><span class="lineno">   95</span>&#160;    <span class="keywordtype">bool</span> _fromJSON( const std::<span class="keywordtype">string</span>&amp; json ) final;</div>
+<div class="line"><a name="l00096"></a><span class="lineno">   96</span>&#160;    std::<span class="keywordtype">string</span> _toJSON() const final;</div>
+<div class="line"><a name="l00097"></a><span class="lineno">   97</span>&#160;};</div>
+<div class="line"><a name="l00098"></a><span class="lineno">   98</span>&#160;</div>
+<div class="line"><a name="l00099"></a><span class="lineno">   99</span>&#160;inline std::ostream&amp; operator &lt;&lt; ( std::ostream&amp; os, const Zerobuf&amp; zerobuf )</div>
+<div class="line"><a name="l00100"></a><span class="lineno">  100</span>&#160;{</div>
+<div class="line"><a name="l00101"></a><span class="lineno">  101</span>&#160;    <span class="keywordflow">return</span> os &lt;&lt; <span class="stringliteral">&quot;\&quot;&quot;</span> &lt;&lt; zerobuf.getTypeName() &lt;&lt; <span class="stringliteral">&quot;\&quot; : &quot;</span> &lt;&lt; zerobuf.toJSON();</div>
+<div class="line"><a name="l00102"></a><span class="lineno">  102</span>&#160;}</div>
+<div class="line"><a name="l00103"></a><span class="lineno">  103</span>&#160;</div>
+<div class="line"><a name="l00104"></a><span class="lineno">  104</span>&#160;}</div>
+<div class="line"><a name="l00105"></a><span class="lineno">  105</span>&#160;</div>
+<div class="line"><a name="l00106"></a><span class="lineno">  106</span>&#160;<span class="preprocessor">#endif</span></div>
 <div class="ttc" id="api_8h_html"><div class="ttname"><a href="api_8h.html">api.h</a></div><div class="ttdoc">Defines export visibility macros for library ZeroBuf. </div></div>
-<div class="ttc" id="classzerobuf_1_1_zerobuf_html_a21c687908a2a3c4eb6961dd3436b7af6"><div class="ttname"><a href="classzerobuf_1_1_zerobuf.html#a21c687908a2a3c4eb6961dd3436b7af6">zerobuf::Zerobuf::getSchemas</a></div><div class="ttdeci">virtual Schemas getSchemas() const =0</div></div>
 <div class="ttc" id="classzerobuf_1_1_zerobuf_html_a4c0c78fa19481f9db82bbbd3c1b6d316"><div class="ttname"><a href="classzerobuf_1_1_zerobuf.html#a4c0c78fa19481f9db82bbbd3c1b6d316">zerobuf::Zerobuf::operator=</a></div><div class="ttdeci">Zerobuf &amp; operator=(const Zerobuf &amp;rhs)</div><div class="ttdoc">Assignment operator. </div></div>
 <div class="ttc" id="classzerobuf_1_1_zerobuf_html_a4d8ea576a72eb2fe06794d68aaf8e535"><div class="ttname"><a href="classzerobuf_1_1_zerobuf.html#a4d8ea576a72eb2fe06794d68aaf8e535">zerobuf::Zerobuf::getZerobufStaticSize</a></div><div class="ttdeci">virtual size_t getZerobufStaticSize() const =0</div></div>
 <div class="ttc" id="classzerobuf_1_1_zerobuf_html_a4c2c30f520aec716f884b7130cd7533e"><div class="ttname"><a href="classzerobuf_1_1_zerobuf.html#a4c2c30f520aec716f884b7130cd7533e">zerobuf::Zerobuf::notifyChanging</a></div><div class="ttdeci">virtual void notifyChanging()</div><div class="ttdoc">Called if any data in this object is about to change. </div><div class="ttdef"><b>Definition:</b> <a href="_zerobuf_8h_source.html#l00037">Zerobuf.h:37</a></div></div>
 <div class="ttc" id="classzerobuf_1_1_zerobuf_html_a53ff18b391418c5b2c5c20aad33ee858"><div class="ttname"><a href="classzerobuf_1_1_zerobuf.html#a53ff18b391418c5b2c5c20aad33ee858">zerobuf::Zerobuf::operator==</a></div><div class="ttdeci">bool operator==(const Zerobuf &amp;rhs) const </div></div>
 <div class="ttc" id="classzerobuf_1_1_zerobuf_html_a85526a2c9e327fd6349616146b64bfc9"><div class="ttname"><a href="classzerobuf_1_1_zerobuf.html#a85526a2c9e327fd6349616146b64bfc9">zerobuf::Zerobuf::operator!=</a></div><div class="ttdeci">bool operator!=(const Zerobuf &amp;rhs) const </div></div>
-<div class="ttc" id="classzerobuf_1_1_zerobuf_html"><div class="ttname"><a href="classzerobuf_1_1_zerobuf.html">zerobuf::Zerobuf</a></div><div class="ttdoc">Base class for all zerobufs. </div><div class="ttdef"><b>Definition:</b> <a href="_zerobuf_8h_source.html#l00024">Zerobuf.h:24</a></div></div>
+<div class="ttc" id="classzerobuf_1_1_zerobuf_html"><div class="ttname"><a href="classzerobuf_1_1_zerobuf.html">zerobuf::Zerobuf</a></div><div class="ttdoc">Base class for all Zerobuf serializable objects. </div><div class="ttdef"><b>Definition:</b> <a href="_zerobuf_8h_source.html#l00027">Zerobuf.h:27</a></div></div>
 <div class="ttc" id="classzerobuf_1_1_zerobuf_html_a2f080ec3bf8a11ea8a2e4c30febbd87e"><div class="ttname"><a href="classzerobuf_1_1_zerobuf.html#a2f080ec3bf8a11ea8a2e4c30febbd87e">zerobuf::Zerobuf::getZerobufNumDynamics</a></div><div class="ttdeci">virtual size_t getZerobufNumDynamics() const =0</div></div>
 <div class="ttc" id="classzerobuf_1_1_zerobuf_html_a37fff3a7faebd32287c5bd048f35adb0"><div class="ttname"><a href="classzerobuf_1_1_zerobuf.html#a37fff3a7faebd32287c5bd048f35adb0">zerobuf::Zerobuf::compact</a></div><div class="ttdeci">virtual void compact(float threshold=0.1f)</div><div class="ttdoc">Remove unused holes from the zerobuf. </div></div>
 </div><!-- fragment --></div><!-- contents -->
@@ -198,7 +202,7 @@ $(document).ready(function(){initNavTree('_zerobuf_8h_source.html','');});
 <div id="nav-path" class="navpath"><!-- id is needed for treeview function! -->
   <ul>
     <li class="navelem"><a class="el" href="dir_e3a4aa6ae53c85312025264fe419cff9.html">install</a></li><li class="navelem"><a class="el" href="dir_5c761713bf5d0875d267b95dac50e2aa.html">include</a></li><li class="navelem"><a class="el" href="dir_47d354867bd4e7b66263af16dd3c1340.html">zerobuf</a></li><li class="navelem"><b>Zerobuf.h</b></li>
-    <li class="footer">Generated on Thu Jan 14 2016 17:47:38 for ZeroBuf by
+    <li class="footer">Generated on Thu Feb 18 2016 10:18:06 for ZeroBuf by
     <a href="http://www.doxygen.org/index.html">
     <img class="footer" src="doxygen.png" alt="doxygen"/></a> 1.8.6 </li>
   </ul>

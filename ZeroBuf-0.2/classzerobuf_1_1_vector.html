@@ -96,7 +96,7 @@ $(document).ready(function(){initNavTree('classzerobuf_1_1_vector.html','');});
      onmouseover="return searchBox.OnSearchSelectShow()"
      onmouseout="return searchBox.OnSearchSelectHide()"
      onkeydown="return searchBox.OnSearchSelectKey(event)">
-<a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(0)"><span class="SelectionMark">&#160;</span>All</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(1)"><span class="SelectionMark">&#160;</span>Classes</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(2)"><span class="SelectionMark">&#160;</span>Namespaces</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(3)"><span class="SelectionMark">&#160;</span>Files</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(4)"><span class="SelectionMark">&#160;</span>Functions</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(5)"><span class="SelectionMark">&#160;</span>Variables</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(6)"><span class="SelectionMark">&#160;</span>Typedefs</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(7)"><span class="SelectionMark">&#160;</span>Enumerations</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(8)"><span class="SelectionMark">&#160;</span>Enumerator</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(9)"><span class="SelectionMark">&#160;</span>Macros</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(10)"><span class="SelectionMark">&#160;</span>Pages</a></div>
+<a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(0)"><span class="SelectionMark">&#160;</span>All</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(1)"><span class="SelectionMark">&#160;</span>Classes</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(2)"><span class="SelectionMark">&#160;</span>Namespaces</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(3)"><span class="SelectionMark">&#160;</span>Files</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(4)"><span class="SelectionMark">&#160;</span>Functions</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(5)"><span class="SelectionMark">&#160;</span>Typedefs</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(6)"><span class="SelectionMark">&#160;</span>Macros</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(7)"><span class="SelectionMark">&#160;</span>Pages</a></div>
 
 <!-- iframe showing the search results (closed by default) -->
 <div id="MSearchResultsWindow">
@@ -180,10 +180,35 @@ void&#160;</td><td class="memItemRight" valign="bottom"><b>reset</b> (<a class="
 <tr class="memitem:a194d1c7324990991dc183ff83120b684"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classzerobuf_1_1_vector.html#a194d1c7324990991dc183ff83120b684">compact</a> (float)</td></tr>
 <tr class="memdesc:a194d1c7324990991dc183ff83120b684"><td class="mdescLeft">&#160;</td><td class="mdescRight">Remove unused memory from vector and all members.  <a href="#a194d1c7324990991dc183ff83120b684">More...</a><br/></td></tr>
 <tr class="separator:a194d1c7324990991dc183ff83120b684"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a4fa39e5f86efd5cb3724f366d8ec7864"><td class="memTemplParams" colspan="2">template&lt;class Q  = T&gt; </td></tr>
+<tr class="memitem:a4fa39e5f86efd5cb3724f366d8ec7864"><td class="memTemplItemLeft" align="right" valign="top">void&#160;</td><td class="memTemplItemRight" valign="bottom"><a class="el" href="classzerobuf_1_1_vector.html#a4fa39e5f86efd5cb3724f366d8ec7864">fromJSON</a> (const Json::Value &amp;json, const typename std::enable_if&lt; std::is_base_of&lt; <a class="el" href="classzerobuf_1_1_zerobuf.html">Zerobuf</a>, Q &gt;::value, Q &gt;::type *=nullptr)</td></tr>
+<tr class="memdesc:a4fa39e5f86efd5cb3724f366d8ec7864"><td class="mdescLeft">&#160;</td><td class="mdescRight">Update this vector from its JSON representation.  <a href="#a4fa39e5f86efd5cb3724f366d8ec7864">More...</a><br/></td></tr>
+<tr class="separator:a4fa39e5f86efd5cb3724f366d8ec7864"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a57d8f5a62a2204bb955c0a5782b5129b"><td class="memTemplParams" colspan="2">template&lt;class Q  = T&gt; </td></tr>
+<tr class="memitem:a57d8f5a62a2204bb955c0a5782b5129b"><td class="memTemplItemLeft" align="right" valign="top">void&#160;</td><td class="memTemplItemRight" valign="bottom"><a class="el" href="classzerobuf_1_1_vector.html#a57d8f5a62a2204bb955c0a5782b5129b">fromJSON</a> (const Json::Value &amp;json, const typename std::enable_if&lt; !std::is_base_of&lt; <a class="el" href="classzerobuf_1_1_zerobuf.html">Zerobuf</a>, Q &gt;::value, Q &gt;::type *=nullptr)</td></tr>
+<tr class="memdesc:a57d8f5a62a2204bb955c0a5782b5129b"><td class="mdescLeft">&#160;</td><td class="mdescRight">Update this vector from its JSON representation.  <a href="#a57d8f5a62a2204bb955c0a5782b5129b">More...</a><br/></td></tr>
+<tr class="separator:a57d8f5a62a2204bb955c0a5782b5129b"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a53a2ea111103312aaa2c0605162d2325"><td class="memTemplParams" colspan="2">template&lt;class Q  = T&gt; </td></tr>
+<tr class="memitem:a53a2ea111103312aaa2c0605162d2325"><td class="memTemplItemLeft" align="right" valign="top">void&#160;</td><td class="memTemplItemRight" valign="bottom"><a class="el" href="classzerobuf_1_1_vector.html#a53a2ea111103312aaa2c0605162d2325">toJSON</a> (Json::Value &amp;json, const typename std::enable_if&lt; std::is_base_of&lt; <a class="el" href="classzerobuf_1_1_zerobuf.html">Zerobuf</a>, Q &gt;::value, Q &gt;::type *=nullptr) const </td></tr>
+<tr class="separator:a53a2ea111103312aaa2c0605162d2325"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a782fba85e3dd082e4d0bfb4a3f3b6289"><td class="memTemplParams" colspan="2">template&lt;class Q  = T&gt; </td></tr>
+<tr class="memitem:a782fba85e3dd082e4d0bfb4a3f3b6289"><td class="memTemplItemLeft" align="right" valign="top">void&#160;</td><td class="memTemplItemRight" valign="bottom"><a class="el" href="classzerobuf_1_1_vector.html#a782fba85e3dd082e4d0bfb4a3f3b6289">toJSON</a> (Json::Value &amp;json, const typename std::enable_if&lt; !std::is_base_of&lt; <a class="el" href="classzerobuf_1_1_zerobuf.html">Zerobuf</a>, Q &gt;::value, Q &gt;::type *=nullptr) const </td></tr>
+<tr class="separator:a782fba85e3dd082e4d0bfb4a3f3b6289"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:ac323185159135eb262b576f139afa76f"><td class="memTemplParams" colspan="2">template&lt;class Q  = T&gt; </td></tr>
+<tr class="memitem:ac323185159135eb262b576f139afa76f"><td class="memTemplItemLeft" align="right" valign="top">void&#160;</td><td class="memTemplItemRight" valign="bottom"><a class="el" href="classzerobuf_1_1_vector.html#ac323185159135eb262b576f139afa76f">fromJSONBinary</a> (const Json::Value &amp;json, const typename std::enable_if&lt; std::is_pod&lt; Q &gt;::value, Q &gt;::type *=nullptr)</td></tr>
+<tr class="memdesc:ac323185159135eb262b576f139afa76f"><td class="mdescLeft">&#160;</td><td class="mdescRight">Update this vector from its JSON, base64-encoded representation.  <a href="#ac323185159135eb262b576f139afa76f">More...</a><br/></td></tr>
+<tr class="separator:ac323185159135eb262b576f139afa76f"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a381bf0680d0eac1eb992a8b0af6c4251"><td class="memTemplParams" colspan="2">template&lt;class Q  = T&gt; </td></tr>
+<tr class="memitem:a381bf0680d0eac1eb992a8b0af6c4251"><td class="memTemplItemLeft" align="right" valign="top">void&#160;</td><td class="memTemplItemRight" valign="bottom"><a class="el" href="classzerobuf_1_1_vector.html#a381bf0680d0eac1eb992a8b0af6c4251">toJSONBinary</a> (Json::Value &amp;json, const typename std::enable_if&lt; std::is_pod&lt; Q &gt;::value, Q &gt;::type *=nullptr) const </td></tr>
+<tr class="separator:a381bf0680d0eac1eb992a8b0af6c4251"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a54402c2ccc7b6b90fabcf2b6813fe3fa"><td class="memTemplParams" colspan="2"><a class="anchor" id="a54402c2ccc7b6b90fabcf2b6813fe3fa"></a>
 template&lt;class Q &gt; </td></tr>
 <tr class="memitem:a54402c2ccc7b6b90fabcf2b6813fe3fa"><td class="memTemplItemLeft" align="right" valign="top">void&#160;</td><td class="memTemplItemRight" valign="bottom"><b>push_back</b> (const typename std::enable_if&lt;!std::is_base_of&lt; <a class="el" href="classzerobuf_1_1_zerobuf.html">Zerobuf</a>, Q &gt;::value, Q &gt;::type &amp;value)</td></tr>
 <tr class="separator:a54402c2ccc7b6b90fabcf2b6813fe3fa"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a2ee04bb0fc6b00c6a0c7323f06b093ff"><td class="memTemplParams" colspan="2"><a class="anchor" id="a2ee04bb0fc6b00c6a0c7323f06b093ff"></a>
+template&lt;class Q &gt; </td></tr>
+<tr class="memitem:a2ee04bb0fc6b00c6a0c7323f06b093ff"><td class="memTemplItemLeft" align="right" valign="top">void&#160;</td><td class="memTemplItemRight" valign="bottom"><b>fromJSON</b> (const Json::Value &amp;json, const typename std::enable_if&lt;!std::is_base_of&lt; <a class="el" href="classzerobuf_1_1_zerobuf.html">Zerobuf</a>, Q &gt;::value, Q &gt;::type *)</td></tr>
+<tr class="separator:a2ee04bb0fc6b00c6a0c7323f06b093ff"><td class="memSeparator" colspan="2">&#160;</td></tr>
 </table>
 <a name="details" id="details"></a><h2 class="groupheader">Detailed Description</h2>
 <div class="textblock"><h3>template&lt;class T&gt;<br/>
@@ -197,7 +222,7 @@ class zerobuf::Vector&lt; T &gt;</h3>
   </dd>
 </dl>
 
-<p>Definition at line <a class="el" href="types_8h_source.html#l00028">28</a> of file <a class="el" href="types_8h_source.html">types.h</a>.</p>
+<p>Definition at line <a class="el" href="types_8h_source.html#l00029">29</a> of file <a class="el" href="types_8h_source.html">types.h</a>.</p>
 </div><h2 class="groupheader">Member Function Documentation</h2>
 <a class="anchor" id="ab38f84c7f23e4eb6e3f00a9e925f70cc"></a>
 <div class="memitem">
@@ -224,7 +249,7 @@ template&lt;class T &gt; </div>
 
 <p>Empty the vector. </p>
 
-<p>Definition at line <a class="el" href="_vector_8h_source.html#l00127">127</a> of file <a class="el" href="_vector_8h_source.html">Vector.h</a>.</p>
+<p>Definition at line <a class="el" href="_vector_8h_source.html#l00157">157</a> of file <a class="el" href="_vector_8h_source.html">Vector.h</a>.</p>
 
 </div>
 </div>
@@ -342,6 +367,122 @@ template&lt;class T &gt; </div>
 
 </div>
 </div>
+<a class="anchor" id="a4fa39e5f86efd5cb3724f366d8ec7864"></a>
+<div class="memitem">
+<div class="memproto">
+<div class="memtemplate">
+template&lt;class T &gt; </div>
+<div class="memtemplate">
+template&lt;class Q &gt; </div>
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">void <a class="el" href="classzerobuf_1_1_vector.html">zerobuf::Vector</a>&lt; T &gt;::fromJSON </td>
+          <td>(</td>
+          <td class="paramtype">const Json::Value &amp;&#160;</td>
+          <td class="paramname"><em>json</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">const typename std::enable_if&lt; std::is_base_of&lt; <a class="el" href="classzerobuf_1_1_zerobuf.html">Zerobuf</a>, Q &gt;::value, Q &gt;::type *&#160;</td>
+          <td class="paramname"> = <code>nullptr</code>&#160;</td>
+        </tr>
+        <tr>
+          <td></td>
+          <td>)</td>
+          <td></td><td></td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">inline</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+<p>Update this vector from its JSON representation. </p>
+
+<p>Definition at line <a class="el" href="_vector_8h_source.html#l00258">258</a> of file <a class="el" href="_vector_8h_source.html">Vector.h</a>.</p>
+
+</div>
+</div>
+<a class="anchor" id="a57d8f5a62a2204bb955c0a5782b5129b"></a>
+<div class="memitem">
+<div class="memproto">
+<div class="memtemplate">
+template&lt;class T &gt; </div>
+<div class="memtemplate">
+template&lt;class Q  = T&gt; </div>
+      <table class="memname">
+        <tr>
+          <td class="memname">void <a class="el" href="classzerobuf_1_1_vector.html">zerobuf::Vector</a>&lt; T &gt;::fromJSON </td>
+          <td>(</td>
+          <td class="paramtype">const Json::Value &amp;&#160;</td>
+          <td class="paramname"><em>json</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">const typename std::enable_if&lt; !std::is_base_of&lt; <a class="el" href="classzerobuf_1_1_zerobuf.html">Zerobuf</a>, Q &gt;::value, Q &gt;::type *&#160;</td>
+          <td class="paramname"> = <code>nullptr</code>&#160;</td>
+        </tr>
+        <tr>
+          <td></td>
+          <td>)</td>
+          <td></td><td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p>Update this vector from its JSON representation. </p>
+
+</div>
+</div>
+<a class="anchor" id="ac323185159135eb262b576f139afa76f"></a>
+<div class="memitem">
+<div class="memproto">
+<div class="memtemplate">
+template&lt;class T &gt; </div>
+<div class="memtemplate">
+template&lt;class Q &gt; </div>
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">void <a class="el" href="classzerobuf_1_1_vector.html">zerobuf::Vector</a>&lt; T &gt;::fromJSONBinary </td>
+          <td>(</td>
+          <td class="paramtype">const Json::Value &amp;&#160;</td>
+          <td class="paramname"><em>json</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">const typename std::enable_if&lt; std::is_pod&lt; Q &gt;::value, Q &gt;::type *&#160;</td>
+          <td class="paramname"> = <code>nullptr</code>&#160;</td>
+        </tr>
+        <tr>
+          <td></td>
+          <td>)</td>
+          <td></td><td></td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">inline</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+<p>Update this vector from its JSON, base64-encoded representation. </p>
+
+<p>Definition at line <a class="el" href="_vector_8h_source.html#l00299">299</a> of file <a class="el" href="_vector_8h_source.html">Vector.h</a>.</p>
+
+</div>
+</div>
 <a class="anchor" id="a2a2458e25d3ef96e824337a9372ba6fd"></a>
 <div class="memitem">
 <div class="memproto">
@@ -367,7 +508,7 @@ template&lt;class T &gt; </div>
 </div><div class="memdoc">
 <dl class="section return"><dt>Returns</dt><dd>false if the two vectors are identical. </dd></dl>
 
-<p>Definition at line <a class="el" href="_vector_8h_source.html#l00151">151</a> of file <a class="el" href="_vector_8h_source.html">Vector.h</a>.</p>
+<p>Definition at line <a class="el" href="_vector_8h_source.html#l00181">181</a> of file <a class="el" href="_vector_8h_source.html">Vector.h</a>.</p>
 
 </div>
 </div>
@@ -396,7 +537,7 @@ template&lt;class T &gt; </div>
 </div><div class="memdoc">
 <dl class="section return"><dt>Returns</dt><dd>true if the two vectors of buitins are identical. </dd></dl>
 
-<p>Definition at line <a class="el" href="_vector_8h_source.html#l00134">134</a> of file <a class="el" href="_vector_8h_source.html">Vector.h</a>.</p>
+<p>Definition at line <a class="el" href="_vector_8h_source.html#l00164">164</a> of file <a class="el" href="_vector_8h_source.html">Vector.h</a>.</p>
 
 </div>
 </div>
@@ -427,7 +568,7 @@ template&lt;class Q &gt; </div>
 </div><div class="memdoc">
 <dl class="section return"><dt>Returns</dt><dd>a builtin const element </dd></dl>
 
-<p>Definition at line <a class="el" href="_vector_8h_source.html#l00158">158</a> of file <a class="el" href="_vector_8h_source.html">Vector.h</a>.</p>
+<p>Definition at line <a class="el" href="_vector_8h_source.html#l00188">188</a> of file <a class="el" href="_vector_8h_source.html">Vector.h</a>.</p>
 
 </div>
 </div>
@@ -458,7 +599,7 @@ template&lt;class Q &gt; </div>
 </div><div class="memdoc">
 <dl class="section return"><dt>Returns</dt><dd>a builtin element </dd></dl>
 
-<p>Definition at line <a class="el" href="_vector_8h_source.html#l00168">168</a> of file <a class="el" href="_vector_8h_source.html">Vector.h</a>.</p>
+<p>Definition at line <a class="el" href="_vector_8h_source.html#l00198">198</a> of file <a class="el" href="_vector_8h_source.html">Vector.h</a>.</p>
 
 </div>
 </div>
@@ -489,7 +630,7 @@ template&lt;class Q &gt; </div>
 </div><div class="memdoc">
 <dl class="section return"><dt>Returns</dt><dd>a Zerobuf-derived const element </dd></dl>
 
-<p>Definition at line <a class="el" href="_vector_8h_source.html#l00178">178</a> of file <a class="el" href="_vector_8h_source.html">Vector.h</a>.</p>
+<p>Definition at line <a class="el" href="_vector_8h_source.html#l00208">208</a> of file <a class="el" href="_vector_8h_source.html">Vector.h</a>.</p>
 
 </div>
 </div>
@@ -520,7 +661,7 @@ template&lt;class Q &gt; </div>
 </div><div class="memdoc">
 <dl class="section return"><dt>Returns</dt><dd>a Zerobuf-derived element </dd></dl>
 
-<p>Definition at line <a class="el" href="_vector_8h_source.html#l00192">192</a> of file <a class="el" href="_vector_8h_source.html">Vector.h</a>.</p>
+<p>Definition at line <a class="el" href="_vector_8h_source.html#l00222">222</a> of file <a class="el" href="_vector_8h_source.html">Vector.h</a>.</p>
 
 </div>
 </div>
@@ -574,7 +715,7 @@ template&lt;class Q &gt; </div>
 
 <p>Insert a Zerobuf-derived element at the end of the vector. </p>
 
-<p>Definition at line <a class="el" href="_vector_8h_source.html#l00216">216</a> of file <a class="el" href="_vector_8h_source.html">Vector.h</a>.</p>
+<p>Definition at line <a class="el" href="_vector_8h_source.html#l00246">246</a> of file <a class="el" href="_vector_8h_source.html">Vector.h</a>.</p>
 
 </div>
 </div>
@@ -606,6 +747,129 @@ template&lt;class T &gt; </div>
 
 </div>
 </div>
+<a class="anchor" id="a53a2ea111103312aaa2c0605162d2325"></a>
+<div class="memitem">
+<div class="memproto">
+<div class="memtemplate">
+template&lt;class T &gt; </div>
+<div class="memtemplate">
+template&lt;class Q &gt; </div>
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">void <a class="el" href="classzerobuf_1_1_vector.html">zerobuf::Vector</a>&lt; T &gt;::toJSON </td>
+          <td>(</td>
+          <td class="paramtype">Json::Value &amp;&#160;</td>
+          <td class="paramname"><em>json</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">const typename std::enable_if&lt; std::is_base_of&lt; <a class="el" href="classzerobuf_1_1_zerobuf.html">Zerobuf</a>, Q &gt;::value, Q &gt;::type *&#160;</td>
+          <td class="paramname"> = <code>nullptr</code>&#160;</td>
+        </tr>
+        <tr>
+          <td></td>
+          <td>)</td>
+          <td></td><td> const</td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">inline</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+<dl class="section return"><dt>Returns</dt><dd>the JSON representation of this vector. </dd></dl>
+
+<p>Definition at line <a class="el" href="_vector_8h_source.html#l00280">280</a> of file <a class="el" href="_vector_8h_source.html">Vector.h</a>.</p>
+
+</div>
+</div>
+<a class="anchor" id="a782fba85e3dd082e4d0bfb4a3f3b6289"></a>
+<div class="memitem">
+<div class="memproto">
+<div class="memtemplate">
+template&lt;class T &gt; </div>
+<div class="memtemplate">
+template&lt;class Q &gt; </div>
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">void <a class="el" href="classzerobuf_1_1_vector.html">zerobuf::Vector</a>&lt; T &gt;::toJSON </td>
+          <td>(</td>
+          <td class="paramtype">Json::Value &amp;&#160;</td>
+          <td class="paramname"><em>json</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">const typename std::enable_if&lt; !std::is_base_of&lt; <a class="el" href="classzerobuf_1_1_zerobuf.html">Zerobuf</a>, Q &gt;::value, Q &gt;::type *&#160;</td>
+          <td class="paramname"> = <code>nullptr</code>&#160;</td>
+        </tr>
+        <tr>
+          <td></td>
+          <td>)</td>
+          <td></td><td> const</td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">inline</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+<dl class="section return"><dt>Returns</dt><dd>the JSON representation of this vector. </dd></dl>
+
+<p>Definition at line <a class="el" href="_vector_8h_source.html#l00290">290</a> of file <a class="el" href="_vector_8h_source.html">Vector.h</a>.</p>
+
+</div>
+</div>
+<a class="anchor" id="a381bf0680d0eac1eb992a8b0af6c4251"></a>
+<div class="memitem">
+<div class="memproto">
+<div class="memtemplate">
+template&lt;class T &gt; </div>
+<div class="memtemplate">
+template&lt;class Q &gt; </div>
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">void <a class="el" href="classzerobuf_1_1_vector.html">zerobuf::Vector</a>&lt; T &gt;::toJSONBinary </td>
+          <td>(</td>
+          <td class="paramtype">Json::Value &amp;&#160;</td>
+          <td class="paramname"><em>json</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">const typename std::enable_if&lt; std::is_pod&lt; Q &gt;::value, Q &gt;::type *&#160;</td>
+          <td class="paramname"> = <code>nullptr</code>&#160;</td>
+        </tr>
+        <tr>
+          <td></td>
+          <td>)</td>
+          <td></td><td> const</td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">inline</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+<dl class="section return"><dt>Returns</dt><dd>the JSON representation of this vector, with base64 encoding. </dd></dl>
+
+<p>Definition at line <a class="el" href="_vector_8h_source.html#l00307">307</a> of file <a class="el" href="_vector_8h_source.html">Vector.h</a>.</p>
+
+</div>
+</div>
 <hr/>The documentation for this class was generated from the following files:<ul>
 <li><a class="el" href="types_8h_source.html">types.h</a></li>
 <li><a class="el" href="_vector_8h_source.html">Vector.h</a></li>
@@ -616,7 +880,7 @@ template&lt;class T &gt; </div>
 <div id="nav-path" class="navpath"><!-- id is needed for treeview function! -->
   <ul>
     <li class="navelem"><a class="el" href="namespacezerobuf.html">zerobuf</a></li><li class="navelem"><a class="el" href="classzerobuf_1_1_vector.html">Vector</a></li>
-    <li class="footer">Generated on Thu Jan 14 2016 17:47:38 for ZeroBuf by
+    <li class="footer">Generated on Thu Feb 18 2016 10:18:06 for ZeroBuf by
     <a href="http://www.doxygen.org/index.html">
     <img class="footer" src="doxygen.png" alt="doxygen"/></a> 1.8.6 </li>
   </ul>

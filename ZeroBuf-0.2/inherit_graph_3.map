@@ -1,3 +1,6 @@
 <map id="Graphical Class Hierarchy" name="Graphical Class Hierarchy">
-<area shape="rect" id="node1" href="$classzerobuf_1_1_version.html" title="Information about the current ZeroBuf version. " alt="" coords="5,5,131,32"/>
+<area shape="rect" id="node2" href="$classzerobuf_1_1_zerobuf.html" title="Base class for all Zerobuf serializable objects. " alt="" coords="150,56,279,83"/>
+<area shape="rect" id="node3" href="$classzerobuf_1_1render_1_1_camera.html" title="zerobuf::render::Camera" alt="" coords="351,5,529,32"/>
+<area shape="rect" id="node4" href="$classzerobuf_1_1render_1_1_lookup_table1_d.html" title="zerobuf::render::LookupTable1D" alt="" coords="328,56,552,83"/>
+<area shape="rect" id="node5" href="$classzerobuf_1_1render_1_1_vector3f.html" title="zerobuf::render::Vector3f" alt="" coords="349,107,531,133"/>
 </map>

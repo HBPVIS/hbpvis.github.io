@@ -94,7 +94,7 @@ $(document).ready(function(){initNavTree('_r_e_a_d_m_e_8md.html','');});
      onmouseover="return searchBox.OnSearchSelectShow()"
      onmouseout="return searchBox.OnSearchSelectHide()"
      onkeydown="return searchBox.OnSearchSelectKey(event)">
-<a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(0)"><span class="SelectionMark">&#160;</span>All</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(1)"><span class="SelectionMark">&#160;</span>Classes</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(2)"><span class="SelectionMark">&#160;</span>Namespaces</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(3)"><span class="SelectionMark">&#160;</span>Files</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(4)"><span class="SelectionMark">&#160;</span>Functions</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(5)"><span class="SelectionMark">&#160;</span>Variables</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(6)"><span class="SelectionMark">&#160;</span>Typedefs</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(7)"><span class="SelectionMark">&#160;</span>Enumerations</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(8)"><span class="SelectionMark">&#160;</span>Enumerator</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(9)"><span class="SelectionMark">&#160;</span>Macros</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(10)"><span class="SelectionMark">&#160;</span>Pages</a></div>
+<a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(0)"><span class="SelectionMark">&#160;</span>All</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(1)"><span class="SelectionMark">&#160;</span>Classes</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(2)"><span class="SelectionMark">&#160;</span>Namespaces</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(3)"><span class="SelectionMark">&#160;</span>Files</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(4)"><span class="SelectionMark">&#160;</span>Functions</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(5)"><span class="SelectionMark">&#160;</span>Typedefs</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(6)"><span class="SelectionMark">&#160;</span>Macros</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(7)"><span class="SelectionMark">&#160;</span>Pages</a></div>
 
 <!-- iframe showing the search results (closed by default) -->
 <div id="MSearchResultsWindow">
@@ -111,38 +111,40 @@ $(document).ready(function(){initNavTree('_r_e_a_d_m_e_8md.html','');});
 <div class="fragment"><div class="line"><a name="l00001"></a><span class="lineno">    1</span>&#160;ZeroBuf</div>
 <div class="line"><a name="l00002"></a><span class="lineno">    2</span>&#160;=======</div>
 <div class="line"><a name="l00003"></a><span class="lineno">    3</span>&#160;</div>
-<div class="line"><a name="l00004"></a><span class="lineno">    4</span>&#160;[TOC]</div>
-<div class="line"><a name="l00005"></a><span class="lineno">    5</span>&#160;</div>
-<div class="line"><a name="l00006"></a><span class="lineno">    6</span>&#160;<span class="preprocessor"># Overview</span></div>
-<div class="line"><a name="l00007"></a><span class="lineno">    7</span>&#160;<span class="preprocessor"></span></div>
-<div class="line"><a name="l00008"></a><span class="lineno">    8</span>&#160;ZeroBuf is a replacement <span class="keywordflow">for</span> FlatBuffers, resolving the following</div>
-<div class="line"><a name="l00009"></a><span class="lineno">    9</span>&#160;shortcomings:</div>
-<div class="line"><a name="l00010"></a><span class="lineno">   10</span>&#160;</div>
-<div class="line"><a name="l00011"></a><span class="lineno">   11</span>&#160;* Direct <span class="keyword">get</span> and set functionality on the defined data members</div>
-<div class="line"><a name="l00012"></a><span class="lineno">   12</span>&#160;* A single memory buffer storing all data members, which is directly</div>
-<div class="line"><a name="l00013"></a><span class="lineno">   13</span>&#160;  serializable</div>
-<div class="line"><a name="l00014"></a><span class="lineno">   14</span>&#160;* Usable, random read and write access to the the data members</div>
-<div class="line"><a name="l00015"></a><span class="lineno">   15</span>&#160;* Zero copy of the data used by the (C++) implementation from and to the network</div>
-<div class="line"><a name="l00016"></a><span class="lineno">   16</span>&#160;</div>
-<div class="line"><a name="l00017"></a><span class="lineno">   17</span>&#160;<span class="preprocessor"># Features</span></div>
-<div class="line"><a name="l00018"></a><span class="lineno">   18</span>&#160;<span class="preprocessor"></span></div>
-<div class="line"><a name="l00019"></a><span class="lineno">   19</span>&#160;* Storage of (u)int[8,16,32,64,128]_t, <span class="keywordtype">float</span>, <span class="keywordtype">double</span> single elements,</div>
-<div class="line"><a name="l00020"></a><span class="lineno">   20</span>&#160;  static and dynamic sub-structures, fixed size and dynamic arrays of</div>
-<div class="line"><a name="l00021"></a><span class="lineno">   21</span>&#160;  static-sized elements</div>
-<div class="line"><a name="l00022"></a><span class="lineno">   22</span>&#160;* Access to arrays using raw pointers, iterators, std::array,</div>
-<div class="line"><a name="l00023"></a><span class="lineno">   23</span>&#160;  std::<span class="keywordtype">string</span> and std::vector</div>
+<div class="line"><a name="l00004"></a><span class="lineno">    4</span>&#160;<span class="preprocessor"># Overview</span></div>
+<div class="line"><a name="l00005"></a><span class="lineno">    5</span>&#160;<span class="preprocessor"></span></div>
+<div class="line"><a name="l00006"></a><span class="lineno">    6</span>&#160;ZeroBuf implements zero-copy, zero-serialize, zero-hassle protocol</div>
+<div class="line"><a name="l00007"></a><span class="lineno">    7</span>&#160;buffers. It is a replacement <span class="keywordflow">for</span> FlatBuffers, resolving the following</div>
+<div class="line"><a name="l00008"></a><span class="lineno">    8</span>&#160;shortcomings:</div>
+<div class="line"><a name="l00009"></a><span class="lineno">    9</span>&#160;</div>
+<div class="line"><a name="l00010"></a><span class="lineno">   10</span>&#160;* Direct <span class="keyword">get</span> and set functionality on the defined data members</div>
+<div class="line"><a name="l00011"></a><span class="lineno">   11</span>&#160;* A single memory buffer storing all data members, which is directly</div>
+<div class="line"><a name="l00012"></a><span class="lineno">   12</span>&#160;  serializable</div>
+<div class="line"><a name="l00013"></a><span class="lineno">   13</span>&#160;* Usable, random read and write access to the the data members</div>
+<div class="line"><a name="l00014"></a><span class="lineno">   14</span>&#160;* Zero copy of the data used by the (C++) implementation from and to the network</div>
+<div class="line"><a name="l00015"></a><span class="lineno">   15</span>&#160;</div>
+<div class="line"><a name="l00016"></a><span class="lineno">   16</span>&#160;<span class="preprocessor"># Features</span></div>
+<div class="line"><a name="l00017"></a><span class="lineno">   17</span>&#160;<span class="preprocessor"></span></div>
+<div class="line"><a name="l00018"></a><span class="lineno">   18</span>&#160;* Storage of (u)int[8,16,32,64,128]_t, <span class="keywordtype">float</span>, <span class="keywordtype">double</span> single elements,</div>
+<div class="line"><a name="l00019"></a><span class="lineno">   19</span>&#160;  static and dynamic sub-structures, fixed size and dynamic arrays of</div>
+<div class="line"><a name="l00020"></a><span class="lineno">   20</span>&#160;  static-sized elements</div>
+<div class="line"><a name="l00021"></a><span class="lineno">   21</span>&#160;* Access to arrays using raw pointers, iterators, std::array,</div>
+<div class="line"><a name="l00022"></a><span class="lineno">   22</span>&#160;  std::<span class="keywordtype">string</span> and std::vector</div>
+<div class="line"><a name="l00023"></a><span class="lineno">   23</span>&#160;* Conversion to and from a JSON representation</div>
 <div class="line"><a name="l00024"></a><span class="lineno">   24</span>&#160;</div>
 <div class="line"><a name="l00025"></a><span class="lineno">   25</span>&#160;<span class="preprocessor"># Extensions to flatbuffers grammar</span></div>
 <div class="line"><a name="l00026"></a><span class="lineno">   26</span>&#160;<span class="preprocessor"></span></div>
 <div class="line"><a name="l00027"></a><span class="lineno">   27</span>&#160;* Arrays can have an optional fixed size specified as part of the type,</div>
 <div class="line"><a name="l00028"></a><span class="lineno">   28</span>&#160;  e.g., ```matrix:[<span class="keywordtype">float</span>:16]``` <span class="keywordflow">for</span> a 16 value <span class="keywordtype">float</span> array</div>
+<div class="line"><a name="l00029"></a><span class="lineno">   29</span>&#160;* byte and ubyte data is base64 encoded in JSON, int8_t and uint8_t are</div>
+<div class="line"><a name="l00030"></a><span class="lineno">   30</span>&#160;  represented as value arrays</div>
 </div><!-- fragment --></div><!-- contents -->
 </div><!-- doc-content -->
 <!-- start footer part -->
 <div id="nav-path" class="navpath"><!-- id is needed for treeview function! -->
   <ul>
     <li class="navelem"><b>README.md</b></li>
-    <li class="footer">Generated on Thu Jan 14 2016 17:47:38 for ZeroBuf by
+    <li class="footer">Generated on Thu Feb 18 2016 10:18:06 for ZeroBuf by
     <a href="http://www.doxygen.org/index.html">
     <img class="footer" src="doxygen.png" alt="doxygen"/></a> 1.8.6 </li>
   </ul>

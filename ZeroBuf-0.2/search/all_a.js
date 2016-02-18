@@ -1,6 +1,4 @@
 var searchData=
 [
-  ['schema',['Schema',['../structzerobuf_1_1_schema.html',1,'zerobuf']]],
-  ['size',['size',['../classzerobuf_1_1_vector.html#ae74a41e9bba6c3756e7f7047fe3d058a',1,'zerobuf::Vector']]],
-  ['staticsize',['staticSize',['../structzerobuf_1_1_schema.html#a9fb53a01616b6bc61ea696b33bc9a164',1,'zerobuf::Schema']]]
+  ['push_5fback',['push_back',['../classzerobuf_1_1_vector.html#a3e0d021448316dba456cc0118a562292',1,'zerobuf::Vector::push_back(const typename std::enable_if&lt; !std::is_base_of&lt; Zerobuf, Q &gt;::value, Q &gt;::type &amp;)'],['../classzerobuf_1_1_vector.html#ad80419326920b94b1845b9448e410f48',1,'zerobuf::Vector::push_back(const typename std::enable_if&lt; std::is_base_of&lt; Zerobuf, Q &gt;::value, Q &gt;::type &amp;)']]]
 ];

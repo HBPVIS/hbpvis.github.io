@@ -71,6 +71,7 @@ var searchBox = new SearchBox("searchBox", "search",false,'Search');
   <div id="navrow2" class="tabs2">
     <ul class="tablist">
       <li><a href="namespaces.html"><span>Namespace&#160;List</span></a></li>
+      <li><a href="namespacemembers.html"><span>Namespace&#160;Members</span></a></li>
     </ul>
   </div>
 </div><!-- top -->
@@ -93,7 +94,7 @@ $(document).ready(function(){initNavTree('namespacezerobuf.html','');});
      onmouseover="return searchBox.OnSearchSelectShow()"
      onmouseout="return searchBox.OnSearchSelectHide()"
      onkeydown="return searchBox.OnSearchSelectKey(event)">
-<a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(0)"><span class="SelectionMark">&#160;</span>All</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(1)"><span class="SelectionMark">&#160;</span>Classes</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(2)"><span class="SelectionMark">&#160;</span>Namespaces</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(3)"><span class="SelectionMark">&#160;</span>Files</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(4)"><span class="SelectionMark">&#160;</span>Functions</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(5)"><span class="SelectionMark">&#160;</span>Variables</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(6)"><span class="SelectionMark">&#160;</span>Typedefs</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(7)"><span class="SelectionMark">&#160;</span>Enumerations</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(8)"><span class="SelectionMark">&#160;</span>Enumerator</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(9)"><span class="SelectionMark">&#160;</span>Macros</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(10)"><span class="SelectionMark">&#160;</span>Pages</a></div>
+<a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(0)"><span class="SelectionMark">&#160;</span>All</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(1)"><span class="SelectionMark">&#160;</span>Classes</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(2)"><span class="SelectionMark">&#160;</span>Namespaces</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(3)"><span class="SelectionMark">&#160;</span>Files</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(4)"><span class="SelectionMark">&#160;</span>Functions</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(5)"><span class="SelectionMark">&#160;</span>Typedefs</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(6)"><span class="SelectionMark">&#160;</span>Macros</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(7)"><span class="SelectionMark">&#160;</span>Pages</a></div>
 
 <!-- iframe showing the search results (closed by default) -->
 <div id="MSearchResultsWindow">
@@ -112,19 +113,13 @@ $(document).ready(function(){initNavTree('namespacezerobuf.html','');});
 </div><!--header-->
 <div class="contents">
 
-<p>ZeroBuf is a replacement for FlatBuffers and protobuf.  
+<p>Zero-copy, zero-serialize, zero-hassle protocol buffers.  
 <a href="#details">More...</a></p>
 <table class="memberdecls">
 <tr class="heading"><td colspan="2"><h2 class="groupheader"><a name="nested-classes"></a>
 Classes</h2></td></tr>
 <tr class="memitem:"><td class="memItemLeft" align="right" valign="top">class &#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classzerobuf_1_1_allocator.html">Allocator</a></td></tr>
 <tr class="memdesc:"><td class="mdescLeft">&#160;</td><td class="mdescRight"><a class="el" href="classzerobuf_1_1_allocator.html" title="Allocator base class and interface. ">Allocator</a> base class and interface.  <a href="classzerobuf_1_1_allocator.html#details">More...</a><br/></td></tr>
-<tr class="separator:"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:"><td class="memItemLeft" align="right" valign="top">class &#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classzerobuf_1_1_generic.html">Generic</a></td></tr>
-<tr class="memdesc:"><td class="mdescLeft">&#160;</td><td class="mdescRight">A ZeroBuf object which holds values described by the given schemas.  <a href="classzerobuf_1_1_generic.html#details">More...</a><br/></td></tr>
-<tr class="separator:"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:"><td class="memItemLeft" align="right" valign="top">struct &#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="structzerobuf_1_1_schema.html">Schema</a></td></tr>
-<tr class="memdesc:"><td class="mdescLeft">&#160;</td><td class="mdescRight">A runtime optimized representation of the schema file input.  <a href="structzerobuf_1_1_schema.html#details">More...</a><br/></td></tr>
 <tr class="separator:"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:"><td class="memItemLeft" align="right" valign="top">class &#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classzerobuf_1_1_vector.html">Vector</a></td></tr>
 <tr class="memdesc:"><td class="mdescLeft">&#160;</td><td class="mdescRight">STL-like vector abstraction for dynamic arrays in a zerobuf.  <a href="classzerobuf_1_1_vector.html#details">More...</a><br/></td></tr>
@@ -133,7 +128,7 @@ Classes</h2></td></tr>
 <tr class="memdesc:"><td class="mdescLeft">&#160;</td><td class="mdescRight">Information about the current ZeroBuf version.  <a href="classzerobuf_1_1_version.html#details">More...</a><br/></td></tr>
 <tr class="separator:"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:"><td class="memItemLeft" align="right" valign="top">class &#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classzerobuf_1_1_zerobuf.html">Zerobuf</a></td></tr>
-<tr class="memdesc:"><td class="mdescLeft">&#160;</td><td class="mdescRight">Base class for all zerobufs.  <a href="classzerobuf_1_1_zerobuf.html#details">More...</a><br/></td></tr>
+<tr class="memdesc:"><td class="mdescLeft">&#160;</td><td class="mdescRight">Base class for all <a class="el" href="classzerobuf_1_1_zerobuf.html" title="Base class for all Zerobuf serializable objects. ">Zerobuf</a> serializable objects.  <a href="classzerobuf_1_1_zerobuf.html#details">More...</a><br/></td></tr>
 <tr class="separator:"><td class="memSeparator" colspan="2">&#160;</td></tr>
 </table><table class="memberdecls">
 <tr class="heading"><td colspan="2"><h2 class="groupheader"><a name="typedef-members"></a>
@@ -147,17 +142,18 @@ typedef std::unique_ptr&lt; const <br class="typebreak"/>
 <a class="el" href="classzerobuf_1_1_allocator.html">Allocator</a> &gt;&#160;</td><td class="memItemRight" valign="bottom"><b>ConstAllocatorPtr</b></td></tr>
 <tr class="separator:a0ca84622549a834a626b82648a7273a1"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:ad5aa6107b52e508e981cdbd1911a624b"><td class="memItemLeft" align="right" valign="top"><a class="anchor" id="ad5aa6107b52e508e981cdbd1911a624b"></a>
-typedef std::vector&lt; <a class="el" href="structzerobuf_1_1_schema.html">Schema</a> &gt;&#160;</td><td class="memItemRight" valign="bottom"><b>Schemas</b></td></tr>
+typedef std::vector&lt; Schema &gt;&#160;</td><td class="memItemRight" valign="bottom"><b>Schemas</b></td></tr>
 <tr class="separator:ad5aa6107b52e508e981cdbd1911a624b"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a7d7b8d750529b735dc7e11a36c792ee0"><td class="memItemLeft" align="right" valign="top"><a class="anchor" id="a7d7b8d750529b735dc7e11a36c792ee0"></a>
+typedef uint8_t&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="namespacezerobuf.html#a7d7b8d750529b735dc7e11a36c792ee0">byte_t</a></td></tr>
+<tr class="memdesc:a7d7b8d750529b735dc7e11a36c792ee0"><td class="mdescLeft">&#160;</td><td class="mdescRight">alias type for base64 encoded fields <br/></td></tr>
+<tr class="separator:a7d7b8d750529b735dc7e11a36c792ee0"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:aee2ffb94feafa9cd3b253c18ade285c1"><td class="memItemLeft" align="right" valign="top"><a class="anchor" id="aee2ffb94feafa9cd3b253c18ade285c1"></a>
 typedef servus::Serializable::Data&#160;</td><td class="memItemRight" valign="bottom"><b>Data</b></td></tr>
 <tr class="separator:aee2ffb94feafa9cd3b253c18ade285c1"><td class="memSeparator" colspan="2">&#160;</td></tr>
 </table><table class="memberdecls">
 <tr class="heading"><td colspan="2"><h2 class="groupheader"><a name="func-members"></a>
 Functions</h2></td></tr>
-<tr class="memitem:a682e7ce61064287650c152ec53a9eb27"><td class="memItemLeft" align="right" valign="top"><a class="anchor" id="a682e7ce61064287650c152ec53a9eb27"></a>
-std::ostream &amp;&#160;</td><td class="memItemRight" valign="bottom"><b>operator&lt;&lt;</b> (std::ostream &amp;os, const <a class="el" href="structzerobuf_1_1_schema.html">Schema</a> &amp;schema)</td></tr>
-<tr class="separator:a682e7ce61064287650c152ec53a9eb27"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:abf582dbfb630552511f15341334a6bdd"><td class="memTemplParams" colspan="2"><a class="anchor" id="abf582dbfb630552511f15341334a6bdd"></a>
 template&lt;class T &gt; </td></tr>
 <tr class="memitem:abf582dbfb630552511f15341334a6bdd"><td class="memTemplItemLeft" align="right" valign="top">std::ostream &amp;&#160;</td><td class="memTemplItemRight" valign="bottom"><b>operator&lt;&lt;</b> (std::ostream &amp;os, const <a class="el" href="classzerobuf_1_1_vector.html">Vector</a>&lt; T &gt; &amp;vector)</td></tr>
@@ -167,15 +163,15 @@ std::ostream &amp;&#160;</td><td class="memItemRight" valign="bottom"><b>operato
 <tr class="separator:a7b7fe9f8b4a6f430c4c09e2714a33e34"><td class="memSeparator" colspan="2">&#160;</td></tr>
 </table>
 <a name="details" id="details"></a><h2 class="groupheader">Detailed Description</h2>
-<div class="textblock"><p>ZeroBuf is a replacement for FlatBuffers and protobuf. </p>
-<p>It provides direct get and set functionality on the defined data members; a single, in-memory buffer storing all data members, which is directly serializable; Usable, random access to the the data members; and zero copy of the data used by the (C++) implementation from and to the network. </p>
+<div class="textblock"><p>Zero-copy, zero-serialize, zero-hassle protocol buffers. </p>
+<p><a class="el" href="classzerobuf_1_1_zerobuf.html" title="Base class for all Zerobuf serializable objects. ">Zerobuf</a> uses a schema language (currently FlatBuffers .fbs) generating C++ classes which provide direct get and set access on the defined data members; a single, in-memory buffer storing all data members, which is directly serializable; Easy to use, random access to the the data members; and zero copy of the data used by the (C++) implementation from and to the network. </p>
 </div></div><!-- contents -->
 </div><!-- doc-content -->
 <!-- start footer part -->
 <div id="nav-path" class="navpath"><!-- id is needed for treeview function! -->
   <ul>
     <li class="navelem"><a class="el" href="namespacezerobuf.html">zerobuf</a></li>
-    <li class="footer">Generated on Thu Jan 14 2016 17:47:38 for ZeroBuf by
+    <li class="footer">Generated on Thu Feb 18 2016 10:18:06 for ZeroBuf by
     <a href="http://www.doxygen.org/index.html">
     <img class="footer" src="doxygen.png" alt="doxygen"/></a> 1.8.6 </li>
   </ul>
