@@ -37,7 +37,7 @@
           </tr>
           <tr>
             <td class="headerItem">Date:</td>
-            <td class="headerValue">2016-02-18 10:18:10</td>
+            <td class="headerValue">2016-02-18 10:30:22</td>
             <td></td>
             <td class="headerItem">Functions:</td>
             <td class="headerCovTableEntry">35</td>
@@ -97,8 +97,8 @@
 <span class="lineNum">      35 </span><span class="lineCov">          5 : template&lt;&gt; std::string fromJSON( const Json::Value&amp; json )</span>
 <a name="36"><span class="lineNum">      36 </span><span class="lineCov">          5 :     { return json.asString(); }</span></a>
 <span class="lineNum">      37 </span>            : 
-<span class="lineNum">      38 </span><span class="lineCov">        528 : template&lt; class T &gt; void toJSON( const T&amp; value, Json::Value&amp; json )</span>
-<span class="lineNum">      39 </span><span class="lineCov">        528 :     { json = Json::Value( value ); }</span>
+<span class="lineNum">      38 </span><span class="lineCov">        546 : template&lt; class T &gt; void toJSON( const T&amp; value, Json::Value&amp; json )</span>
+<span class="lineNum">      39 </span><span class="lineCov">        546 :     { json = Json::Value( value ); }</span>
 <span class="lineNum">      40 </span>            : template void toJSON( const bool&amp;, Json::Value&amp; );
 <span class="lineNum">      41 </span>            : template void toJSON( const int8_t&amp;, Json::Value&amp; );
 <span class="lineNum">      42 </span>            : template void toJSON( const int16_t&amp;, Json::Value&amp; );
@@ -132,10 +132,10 @@
 <span class="lineNum">      70 </span><span class="lineCov">         29 :     zerobuf._parseJSON( json );</span>
 <a name="71"><span class="lineNum">      71 </span><span class="lineCov">         29 : }</span></a>
 <span class="lineNum">      72 </span>            : 
-<span class="lineNum">      73 </span><span class="lineCov">         82 : void toJSON( const Zerobuf&amp; zerobuf, Json::Value&amp; json )</span>
+<span class="lineNum">      73 </span><span class="lineCov">         88 : void toJSON( const Zerobuf&amp; zerobuf, Json::Value&amp; json )</span>
 <span class="lineNum">      74 </span>            : {
-<span class="lineNum">      75 </span><span class="lineCov">         82 :     zerobuf._createJSON( json );</span>
-<a name="76"><span class="lineNum">      76 </span><span class="lineCov">         82 : }</span></a>
+<span class="lineNum">      75 </span><span class="lineCov">         88 :     zerobuf._createJSON( json );</span>
+<a name="76"><span class="lineNum">      76 </span><span class="lineCov">         88 : }</span></a>
 <span class="lineNum">      77 </span>            : 
 <span class="lineNum">      78 </span><span class="lineCov">          8 : std::string fromJSONBinary( const Json::Value&amp; json )</span>
 <span class="lineNum">      79 </span>            : {
@@ -153,9 +153,9 @@
 <span class="lineNum">      91 </span><span class="lineCov">        200 :     return json[ field ];</span>
 <a name="92"><span class="lineNum">      92 </span>            : }</a>
 <span class="lineNum">      93 </span>            : 
-<span class="lineNum">      94 </span><span class="lineCov">        576 : Json::Value&amp; getJSONField( Json::Value&amp; json, const std::string&amp; field )</span>
+<span class="lineNum">      94 </span><span class="lineCov">        600 : Json::Value&amp; getJSONField( Json::Value&amp; json, const std::string&amp; field )</span>
 <span class="lineNum">      95 </span>            : {
-<span class="lineNum">      96 </span><span class="lineCov">        576 :     return json[ field ];</span>
+<span class="lineNum">      96 </span><span class="lineCov">        600 :     return json[ field ];</span>
 <a name="97"><span class="lineNum">      97 </span>            : }</a>
 <span class="lineNum">      98 </span>            : 
 <span class="lineNum">      99 </span><span class="lineCov">        216 : const Json::Value&amp; getJSONField( const Json::Value&amp; json, const size_t index )</span>
