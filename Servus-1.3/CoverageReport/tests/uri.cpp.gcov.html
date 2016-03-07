@@ -1,0 +1,366 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN">
+
+<html lang="en">
+
+<head>
+  <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+  <title>LCOV - Servus - tests/uri.cpp</title>
+  <link rel="stylesheet" type="text/css" href="../gcov.css">
+</head>
+
+<body>
+
+  <table width="100%" border=0 cellspacing=0 cellpadding=0>
+    <tr><td class="title">LCOV - code coverage report</td></tr>
+    <tr><td class="ruler"><img src="../glass.png" width=3 height=3 alt=""></td></tr>
+
+    <tr>
+      <td width="100%">
+        <table cellpadding=1 border=0 width="100%">
+          <tr>
+            <td width="10%" class="headerItem">Current view:</td>
+            <td width="35%" class="headerValue"><a href="../index.html">top level</a> - <a href="index.html">tests</a> - uri.cpp<span style="font-size: 80%;"> (source / <a href="uri.cpp.func-sort-c.html">functions</a>)</span></td>
+            <td width="5%"></td>
+            <td width="15%"></td>
+            <td width="10%" class="headerCovTableHead">Hit</td>
+            <td width="10%" class="headerCovTableHead">Total</td>
+            <td width="15%" class="headerCovTableHead">Coverage</td>
+          </tr>
+          <tr>
+            <td class="headerItem">Test:</td>
+            <td class="headerValue">Servus</td>
+            <td></td>
+            <td class="headerItem">Lines:</td>
+            <td class="headerCovTableEntry">199</td>
+            <td class="headerCovTableEntry">199</td>
+            <td class="headerCovTableEntryHi">100.0 %</td>
+          </tr>
+          <tr>
+            <td class="headerItem">Date:</td>
+            <td class="headerValue">2016-03-07 14:09:42</td>
+            <td></td>
+            <td class="headerItem">Functions:</td>
+            <td class="headerCovTableEntry">22</td>
+            <td class="headerCovTableEntry">22</td>
+            <td class="headerCovTableEntryHi">100.0 %</td>
+          </tr>
+          <tr><td><img src="../glass.png" width=3 height=3 alt=""></td></tr>
+        </table>
+      </td>
+    </tr>
+
+    <tr><td class="ruler"><img src="../glass.png" width=3 height=3 alt=""></td></tr>
+  </table>
+
+  <table cellpadding=0 cellspacing=0 border=0>
+    <tr>
+      <td><br></td>
+    </tr>
+    <tr>
+      <td>
+<pre class="sourceHeading">          Line data    Source code</pre>
+<pre class="source">
+<a name="1"><span class="lineNum">       1 </span>            : /* Copyright (c) 2013-2014, ahmet.bilgili@epfl.ch</a>
+<span class="lineNum">       2 </span>            :  *                    2015, Juan Hernando &lt;jhernando@fi.upm.es&gt;
+<span class="lineNum">       3 </span>            :  *
+<span class="lineNum">       4 </span>            :  * This file is part of Servus &lt;https://github.com/HBPVIS/Servus&gt;
+<span class="lineNum">       5 </span>            :  *
+<span class="lineNum">       6 </span>            :  * This library is free software; you can redistribute it and/or modify it under
+<span class="lineNum">       7 </span>            :  * the terms of the GNU Lesser General Public License version 3.0 as published
+<span class="lineNum">       8 </span>            :  * by the Free Software Foundation.
+<span class="lineNum">       9 </span>            :  *
+<span class="lineNum">      10 </span>            :  * This library is distributed in the hope that it will be useful, but WITHOUT
+<span class="lineNum">      11 </span>            :  * ANY WARRANTY; without even the implied warranty of MERCHANTABILITY or FITNESS
+<span class="lineNum">      12 </span>            :  * FOR A PARTICULAR PURPOSE.  See the GNU Lesser General Public License for more
+<span class="lineNum">      13 </span>            :  * details.
+<span class="lineNum">      14 </span>            :  *
+<span class="lineNum">      15 </span>            :  * You should have received a copy of the GNU Lesser General Public License
+<span class="lineNum">      16 </span>            :  * along with this library; if not, write to the Free Software Foundation, Inc.,
+<span class="lineNum">      17 </span>            :  * 51 Franklin Street, Fifth Floor, Boston, MA 02110-1301 USA.
+<span class="lineNum">      18 </span>            :  */
+<span class="lineNum">      19 </span>            : 
+<span class="lineNum">      20 </span>            : #define BOOST_TEST_MODULE servus_uri
+<span class="lineNum">      21 </span>            : #include &lt;boost/test/unit_test.hpp&gt;
+<span class="lineNum">      22 </span>            : 
+<span class="lineNum">      23 </span>            : #include &lt;servus/uri.h&gt;
+<a name="24"><span class="lineNum">      24 </span>            : </a>
+<span class="lineNum">      25 </span>            : 
+<span class="lineNum">      26 </span><span class="lineCov">          3 : BOOST_AUTO_TEST_CASE(test_uri_parts)</span>
+<span class="lineNum">      27 </span>            : {
+<span class="lineNum">      28 </span>            :     const std::string uriStr =
+<span class="lineNum">      29 </span><span class="lineCov">          1 :         &quot;http://bob@www.example.com:8080/path/?key=value,foo=bar#fragment&quot;;</span>
+<span class="lineNum">      30 </span><span class="lineCov">          1 :     BOOST_REQUIRE_NO_THROW( servus::URI uri( uriStr ));</span>
+<span class="lineNum">      31 </span><span class="lineCov">          2 :     servus::URI uri( uriStr );</span>
+<span class="lineNum">      32 </span>            : 
+<span class="lineNum">      33 </span><span class="lineCov">          1 :     BOOST_CHECK_EQUAL( uri.getScheme(), &quot;http&quot; );</span>
+<span class="lineNum">      34 </span><span class="lineCov">          1 :     BOOST_CHECK_EQUAL( uri.getHost(), &quot;www.example.com&quot; );</span>
+<span class="lineNum">      35 </span><span class="lineCov">          1 :     BOOST_CHECK_EQUAL( uri.getUserinfo(), &quot;bob&quot; );</span>
+<span class="lineNum">      36 </span><span class="lineCov">          1 :     BOOST_CHECK_EQUAL( uri.getPort(), 8080 );</span>
+<span class="lineNum">      37 </span><span class="lineCov">          1 :     BOOST_CHECK_EQUAL( uri.getAuthority(), &quot;bob@www.example.com:8080&quot; );</span>
+<span class="lineNum">      38 </span><span class="lineCov">          1 :     BOOST_CHECK_EQUAL( uri.getPath(), &quot;/path/&quot; );</span>
+<span class="lineNum">      39 </span><span class="lineCov">          1 :     BOOST_CHECK_EQUAL( uri.getQuery(), &quot;key=value,foo=bar&quot; );</span>
+<span class="lineNum">      40 </span><span class="lineCov">          1 :     BOOST_CHECK_EQUAL( uri.getFragment(), &quot;fragment&quot; );</span>
+<span class="lineNum">      41 </span>            : 
+<span class="lineNum">      42 </span><span class="lineCov">          2 :     const servus::URI hostPortURI( &quot;foo://hostname:12345&quot; );</span>
+<span class="lineNum">      43 </span><span class="lineCov">          1 :     BOOST_CHECK_EQUAL( hostPortURI.getScheme() ,  &quot;foo&quot; );</span>
+<span class="lineNum">      44 </span><span class="lineCov">          1 :     BOOST_CHECK_EQUAL( hostPortURI.getHost() , &quot;hostname&quot; );</span>
+<span class="lineNum">      45 </span><span class="lineCov">          1 :     BOOST_CHECK( hostPortURI.getUserinfo().empty() );</span>
+<span class="lineNum">      46 </span><span class="lineCov">          1 :     BOOST_CHECK_EQUAL( hostPortURI.getPort(), 12345 );</span>
+<span class="lineNum">      47 </span><span class="lineCov">          1 :     BOOST_CHECK_EQUAL( hostPortURI.getAuthority(), &quot;hostname:12345&quot; );</span>
+<span class="lineNum">      48 </span>            : 
+<span class="lineNum">      49 </span><span class="lineCov">          2 :     const servus::URI userHostURI( &quot;foo://alice@hostname&quot; );</span>
+<span class="lineNum">      50 </span><span class="lineCov">          1 :     BOOST_CHECK_EQUAL( userHostURI.getScheme() ,  &quot;foo&quot; );</span>
+<span class="lineNum">      51 </span><span class="lineCov">          1 :     BOOST_CHECK_EQUAL( userHostURI.getHost() , &quot;hostname&quot; );</span>
+<span class="lineNum">      52 </span><span class="lineCov">          1 :     BOOST_CHECK_EQUAL( userHostURI.getUserinfo(), &quot;alice&quot; );</span>
+<span class="lineNum">      53 </span><span class="lineCov">          1 :     BOOST_CHECK_EQUAL( userHostURI.getPort(), 0 );</span>
+<span class="lineNum">      54 </span><span class="lineCov">          1 :     BOOST_CHECK_EQUAL( userHostURI.getAuthority(), &quot;alice@hostname&quot; );</span>
+<span class="lineNum">      55 </span>            : 
+<span class="lineNum">      56 </span><span class="lineCov">          2 :     const servus::URI uppercaseURI( &quot;FOO://&quot; );</span>
+<span class="lineNum">      57 </span><span class="lineCov">          1 :     BOOST_CHECK_EQUAL( uppercaseURI.getScheme(), &quot;foo&quot; );</span>
+<span class="lineNum">      58 </span>            : 
+<span class="lineNum">      59 </span><span class="lineCov">          2 :     servus::URI noauthority( &quot;scheme:///path&quot; );</span>
+<span class="lineNum">      60 </span><span class="lineCov">          1 :     BOOST_CHECK_EQUAL( noauthority.getScheme(), &quot;scheme&quot; );</span>
+<span class="lineNum">      61 </span><span class="lineCov">          1 :     BOOST_CHECK( noauthority.getHost().empty( ));</span>
+<span class="lineNum">      62 </span><span class="lineCov">          1 :     BOOST_CHECK( noauthority.getAuthority().empty( ));</span>
+<span class="lineNum">      63 </span><span class="lineCov">          1 :     BOOST_CHECK_EQUAL( noauthority.getPath(), &quot;/path&quot; );</span>
+<span class="lineNum">      64 </span><span class="lineCov">          1 :     BOOST_CHECK( noauthority.getQuery().empty( ));</span>
+<span class="lineNum">      65 </span><span class="lineCov">          1 :     BOOST_CHECK( noauthority.getFragment().empty( ));</span>
+<span class="lineNum">      66 </span>            : 
+<span class="lineNum">      67 </span><span class="lineCov">          2 :     servus::URI query( &quot;scheme:///?query=no_fragment&quot; );</span>
+<span class="lineNum">      68 </span><span class="lineCov">          1 :     BOOST_CHECK_EQUAL( query.getScheme(), &quot;scheme&quot; );</span>
+<span class="lineNum">      69 </span><span class="lineCov">          1 :     BOOST_CHECK_EQUAL( query.getPath(), &quot;/&quot; );</span>
+<span class="lineNum">      70 </span><span class="lineCov">          1 :     BOOST_CHECK( query.getHost().empty( ));</span>
+<span class="lineNum">      71 </span><span class="lineCov">          1 :     BOOST_CHECK_EQUAL( query.getQuery(), &quot;query=no_fragment&quot; );</span>
+<span class="lineNum">      72 </span><span class="lineCov">          1 :     BOOST_CHECK( query.getFragment().empty( ));</span>
+<span class="lineNum">      73 </span>            : 
+<span class="lineNum">      74 </span><span class="lineCov">          2 :     servus::URI fragment( &quot;scheme:///#fragment,no,query&quot; );</span>
+<span class="lineNum">      75 </span><span class="lineCov">          1 :     BOOST_CHECK_EQUAL( fragment.getScheme(), &quot;scheme&quot; );</span>
+<span class="lineNum">      76 </span><span class="lineCov">          1 :     BOOST_CHECK_EQUAL( fragment.getPath(), &quot;/&quot; );</span>
+<span class="lineNum">      77 </span><span class="lineCov">          1 :     BOOST_CHECK( fragment.getHost().empty( ));</span>
+<span class="lineNum">      78 </span><span class="lineCov">          1 :     BOOST_CHECK( fragment.getQuery().empty( ));</span>
+<span class="lineNum">      79 </span><span class="lineCov">          2 :     BOOST_CHECK_EQUAL( fragment.getFragment(), &quot;fragment,no,query&quot; );</span>
+<a name="80"><span class="lineNum">      80 </span><span class="lineCov">          1 : }</span></a>
+<span class="lineNum">      81 </span>            : 
+<span class="lineNum">      82 </span><span class="lineCov">          3 : BOOST_AUTO_TEST_CASE(test_setters)</span>
+<span class="lineNum">      83 </span>            : {
+<span class="lineNum">      84 </span><span class="lineCov">          1 :     servus::URI uri;</span>
+<span class="lineNum">      85 </span><span class="lineCov">          1 :     uri.setScheme( &quot;foo&quot; );</span>
+<span class="lineNum">      86 </span><span class="lineCov">          1 :     BOOST_CHECK_EQUAL( uri.getScheme(), &quot;foo&quot; );</span>
+<span class="lineNum">      87 </span><span class="lineCov">          1 :     uri.setHost( &quot;host&quot; );</span>
+<span class="lineNum">      88 </span><span class="lineCov">          1 :     BOOST_CHECK_EQUAL( uri.getHost(), &quot;host&quot; );</span>
+<span class="lineNum">      89 </span><span class="lineCov">          1 :     uri.setPort( 12345 );</span>
+<span class="lineNum">      90 </span><span class="lineCov">          1 :     BOOST_CHECK_EQUAL( uri.getPort(), 12345 );</span>
+<span class="lineNum">      91 </span><span class="lineCov">          1 :     uri.setPath( &quot;path&quot; );</span>
+<span class="lineNum">      92 </span><span class="lineCov">          1 :     BOOST_CHECK_EQUAL( uri.getPath(), &quot;path&quot; );</span>
+<span class="lineNum">      93 </span><span class="lineCov">          1 :     uri.setFragment( &quot;fragment&quot; );</span>
+<span class="lineNum">      94 </span><span class="lineCov">          1 :     BOOST_CHECK_EQUAL( uri.getFragment(), &quot;fragment&quot; );</span>
+<span class="lineNum">      95 </span>            : 
+<span class="lineNum">      96 </span>            :     // The query setter is tested independently.
+<a name="97"><span class="lineNum">      97 </span><span class="lineCov">          1 : }</span></a>
+<span class="lineNum">      98 </span>            : 
+<span class="lineNum">      99 </span><span class="lineCov">          3 : BOOST_AUTO_TEST_CASE(test_empty_uri)</span>
+<span class="lineNum">     100 </span>            : {
+<span class="lineNum">     101 </span><span class="lineCov">          1 :     servus::URI empty;</span>
+<span class="lineNum">     102 </span><span class="lineCov">          1 :     BOOST_CHECK( empty.getScheme().empty( ));</span>
+<span class="lineNum">     103 </span><span class="lineCov">          1 :     BOOST_CHECK( empty.getHost().empty( ));</span>
+<span class="lineNum">     104 </span><span class="lineCov">          1 :     BOOST_CHECK( empty.getUserinfo().empty( ));</span>
+<span class="lineNum">     105 </span><span class="lineCov">          1 :     BOOST_CHECK_EQUAL( empty.getPort(), 0 );</span>
+<span class="lineNum">     106 </span><span class="lineCov">          1 :     BOOST_CHECK( empty.getPath().empty( ));</span>
+<span class="lineNum">     107 </span><span class="lineCov">          1 :     BOOST_CHECK( empty.getQuery().empty( ));</span>
+<span class="lineNum">     108 </span><span class="lineCov">          1 :     BOOST_CHECK( empty.getFragment().empty( ));</span>
+<a name="109"><span class="lineNum">     109 </span><span class="lineCov">          1 : }</span></a>
+<span class="lineNum">     110 </span>            : 
+<span class="lineNum">     111 </span><span class="lineCov">          3 : BOOST_AUTO_TEST_CASE(test_file_uris)</span>
+<span class="lineNum">     112 </span>            : {
+<span class="lineNum">     113 </span><span class="lineCov">          1 :     servus::URI file1( &quot;/bla.txt&quot; );</span>
+<span class="lineNum">     114 </span><span class="lineCov">          1 :     BOOST_CHECK_EQUAL( file1.getPath(), &quot;/bla.txt&quot; );</span>
+<span class="lineNum">     115 </span><span class="lineCov">          1 :     BOOST_CHECK( file1.getHost().empty( ));</span>
+<span class="lineNum">     116 </span><span class="lineCov">          1 :     BOOST_CHECK( file1.getScheme().empty( ));</span>
+<span class="lineNum">     117 </span><span class="lineCov">          1 :     BOOST_CHECK( file1.getQuery().empty( ));</span>
+<span class="lineNum">     118 </span><span class="lineCov">          1 :     BOOST_CHECK( file1.getFragment().empty( ));</span>
+<span class="lineNum">     119 </span>            : 
+<span class="lineNum">     120 </span><span class="lineCov">          2 :     servus::URI file2( &quot;bla.txt&quot; );</span>
+<span class="lineNum">     121 </span><span class="lineCov">          1 :     BOOST_CHECK_EQUAL( file2.getPath(), &quot;bla.txt&quot; );</span>
+<span class="lineNum">     122 </span><span class="lineCov">          1 :     BOOST_CHECK( file2.getHost().empty( ));</span>
+<span class="lineNum">     123 </span><span class="lineCov">          1 :     BOOST_CHECK( file2.getScheme().empty( ));</span>
+<span class="lineNum">     124 </span><span class="lineCov">          1 :     BOOST_CHECK( file2.getQuery().empty( ));</span>
+<span class="lineNum">     125 </span><span class="lineCov">          1 :     BOOST_CHECK( file2.getFragment().empty( ));</span>
+<span class="lineNum">     126 </span>            : 
+<span class="lineNum">     127 </span><span class="lineCov">          2 :     servus::URI file3( &quot;file:///bla.txt&quot; );</span>
+<span class="lineNum">     128 </span><span class="lineCov">          1 :     BOOST_CHECK_EQUAL( file3.getPath(), &quot;/bla.txt&quot; );</span>
+<span class="lineNum">     129 </span><span class="lineCov">          1 :     BOOST_CHECK( file3.getHost().empty( ));</span>
+<span class="lineNum">     130 </span><span class="lineCov">          1 :     BOOST_CHECK_EQUAL( file3.getScheme(), &quot;file&quot; );</span>
+<span class="lineNum">     131 </span><span class="lineCov">          1 :     BOOST_CHECK( file3.getQuery().empty( ));</span>
+<span class="lineNum">     132 </span><span class="lineCov">          1 :     BOOST_CHECK( file3.getFragment().empty( ));</span>
+<span class="lineNum">     133 </span>            : 
+<span class="lineNum">     134 </span>            :     // This is an exception to the generic syntax
+<span class="lineNum">     135 </span><span class="lineCov">          2 :     servus::URI file4( &quot;file://bla.txt&quot; );</span>
+<span class="lineNum">     136 </span><span class="lineCov">          1 :     BOOST_CHECK_EQUAL( file4.getPath(), &quot;bla.txt&quot; );</span>
+<span class="lineNum">     137 </span><span class="lineCov">          1 :     BOOST_CHECK( file4.getHost().empty( ));</span>
+<span class="lineNum">     138 </span><span class="lineCov">          1 :     BOOST_CHECK_EQUAL( file4.getScheme(), &quot;file&quot; );</span>
+<span class="lineNum">     139 </span><span class="lineCov">          1 :     BOOST_CHECK( file4.getQuery().empty( ));</span>
+<span class="lineNum">     140 </span><span class="lineCov">          1 :     BOOST_CHECK( file4.getFragment().empty( ));</span>
+<span class="lineNum">     141 </span>            : 
+<span class="lineNum">     142 </span><span class="lineCov">          2 :     servus::URI file5( &quot;scheme://bla.txt&quot; );</span>
+<span class="lineNum">     143 </span><span class="lineCov">          1 :     BOOST_CHECK_EQUAL( file5.getHost(), &quot;bla.txt&quot; );</span>
+<span class="lineNum">     144 </span><span class="lineCov">          1 :     BOOST_CHECK( file5.getPath().empty( ));</span>
+<span class="lineNum">     145 </span><span class="lineCov">          1 :     BOOST_CHECK_EQUAL( file5.getScheme(), &quot;scheme&quot; );</span>
+<span class="lineNum">     146 </span><span class="lineCov">          1 :     BOOST_CHECK( file5.getQuery().empty( ));</span>
+<span class="lineNum">     147 </span><span class="lineCov">          2 :     BOOST_CHECK( file5.getFragment().empty( ));</span>
+<a name="148"><span class="lineNum">     148 </span><span class="lineCov">          1 : }</span></a>
+<span class="lineNum">     149 </span>            : 
+<span class="lineNum">     150 </span><span class="lineCov">          3 : BOOST_AUTO_TEST_CASE(test_uri_query)</span>
+<span class="lineNum">     151 </span>            : {
+<span class="lineNum">     152 </span>            :     const std::string uriStr =
+<span class="lineNum">     153 </span><span class="lineCov">          1 :         &quot;http://bob@www.example.com:8080/path/?key=value,foo=bar#fragment&quot;;</span>
+<span class="lineNum">     154 </span><span class="lineCov">          2 :     servus::URI uri( uriStr );</span>
+<span class="lineNum">     155 </span>            : 
+<span class="lineNum">     156 </span><span class="lineCov">          1 :     BOOST_CHECK( uri.findQuery( &quot;key&quot; ) != uri.queryEnd( ));</span>
+<span class="lineNum">     157 </span><span class="lineCov">          1 :     BOOST_CHECK( uri.findQuery( &quot;foo&quot; ) != uri.queryEnd( ));</span>
+<span class="lineNum">     158 </span><span class="lineCov">          1 :     BOOST_CHECK( uri.findQuery( &quot;bar&quot; ) == uri.queryEnd( ));</span>
+<span class="lineNum">     159 </span><span class="lineCov">          1 :     BOOST_CHECK_EQUAL( uri.findQuery( &quot;key&quot; )-&gt;second, &quot;value&quot; );</span>
+<span class="lineNum">     160 </span><span class="lineCov">          1 :     BOOST_CHECK_EQUAL( uri.findQuery( &quot;foo&quot; )-&gt;second, &quot;bar&quot; );</span>
+<span class="lineNum">     161 </span>            : 
+<span class="lineNum">     162 </span><span class="lineCov">          1 :     uri.addQuery( &quot;hans&quot;, &quot;dampf&quot; );</span>
+<span class="lineNum">     163 </span><span class="lineCov">          1 :     BOOST_CHECK_EQUAL( uri.findQuery( &quot;key&quot; )-&gt;second, &quot;value&quot; );</span>
+<span class="lineNum">     164 </span><span class="lineCov">          1 :     BOOST_CHECK_EQUAL( uri.findQuery( &quot;foo&quot; )-&gt;second, &quot;bar&quot; );</span>
+<span class="lineNum">     165 </span><span class="lineCov">          1 :     BOOST_CHECK_EQUAL( uri.findQuery( &quot;hans&quot; )-&gt;second, &quot;dampf&quot; );</span>
+<span class="lineNum">     166 </span><span class="lineCov">          2 :     BOOST_CHECK( uri.getQuery().find( &quot;hans=dampf&quot; ) != std::string::npos );</span>
+<a name="167"><span class="lineNum">     167 </span><span class="lineCov">          1 : }</span></a>
+<span class="lineNum">     168 </span>            : 
+<span class="lineNum">     169 </span><span class="lineCov">          3 : BOOST_AUTO_TEST_CASE(test_uri_comparisons)</span>
+<span class="lineNum">     170 </span>            : {
+<span class="lineNum">     171 </span>            :     const std::string uriStr =
+<span class="lineNum">     172 </span><span class="lineCov">          1 :         &quot;http://bob@www.example.com:8080/path/?key=value,foo=bar#fragment&quot;;</span>
+<span class="lineNum">     173 </span><span class="lineCov">          2 :     servus::URI uri( uriStr );</span>
+<span class="lineNum">     174 </span>            : 
+<span class="lineNum">     175 </span><span class="lineCov">          1 :     BOOST_CHECK( uri == uri );</span>
+<span class="lineNum">     176 </span><span class="lineCov">          1 :     BOOST_CHECK( uri == servus::URI( uriStr ));</span>
+<span class="lineNum">     177 </span><span class="lineCov">          1 :     BOOST_CHECK( uri != servus::URI(</span>
+<span class="lineNum">     178 </span>            :                            &quot;http://bob@www.example.com:8080/path/?key=value&quot; ));
+<span class="lineNum">     179 </span><span class="lineCov">          1 :     BOOST_CHECK( uri != servus::URI(</span>
+<span class="lineNum">     180 </span>            :           &quot;http://bob@www.example.com:8030/path/?key=value,foo=bar#fragment&quot; ));
+<span class="lineNum">     181 </span><span class="lineCov">          1 :     BOOST_CHECK( uri != servus::URI(</span>
+<span class="lineNum">     182 </span>            :                   &quot;http://bob@foo.com:8080/path/?key=value,foo=bar#fragment&quot; ));
+<span class="lineNum">     183 </span>            : 
+<span class="lineNum">     184 </span><span class="lineCov">          2 :     std::stringstream sstr;</span>
+<span class="lineNum">     185 </span><span class="lineCov">          1 :     sstr &lt;&lt; uri;</span>
+<span class="lineNum">     186 </span><span class="lineCov">          1 :     BOOST_CHECK_EQUAL( sstr.str(), uriStr );</span>
+<span class="lineNum">     187 </span>            : 
+<span class="lineNum">     188 </span><span class="lineCov">          1 :     sstr.str( &quot;&quot; );</span>
+<span class="lineNum">     189 </span><span class="lineCov">          1 :     sstr &lt;&lt; servus::URI( &quot;http://www.example.com/path&quot; );</span>
+<span class="lineNum">     190 </span><span class="lineCov">          1 :     BOOST_CHECK_EQUAL( sstr.str(), &quot;http://www.example.com/path&quot; );</span>
+<span class="lineNum">     191 </span>            : 
+<span class="lineNum">     192 </span><span class="lineCov">          1 :     sstr.str( &quot;&quot; );</span>
+<span class="lineNum">     193 </span><span class="lineCov">          1 :     sstr &lt;&lt; servus::URI( &quot;/path&quot; );</span>
+<span class="lineNum">     194 </span><span class="lineCov">          2 :     BOOST_CHECK_EQUAL( sstr.str(), &quot;/path&quot; );</span>
+<a name="195"><span class="lineNum">     195 </span><span class="lineCov">          1 : }</span></a>
+<span class="lineNum">     196 </span>            : 
+<span class="lineNum">     197 </span><span class="lineCov">          3 : BOOST_AUTO_TEST_CASE(test_invalid_uri)</span>
+<span class="lineNum">     198 </span>            : {
+<span class="lineNum">     199 </span><span class="lineCov">          1 :     BOOST_CHECK_THROW( servus::URI uri( &quot;bad_schema://&quot; ),</span>
+<span class="lineNum">     200 </span>            :                        std::exception );
+<span class="lineNum">     201 </span><span class="lineCov">          1 :     BOOST_CHECK_THROW( servus::URI uri( &quot;8ad-schema://&quot; ),</span>
+<span class="lineNum">     202 </span>            :                        std::exception );
+<span class="lineNum">     203 </span><span class="lineCov">          1 :     BOOST_CHECK_NO_THROW( servus::URI uri( &quot;g00d-sch+ma://&quot; ));</span>
+<span class="lineNum">     204 </span><span class="lineCov">          1 :     BOOST_CHECK_THROW( servus::URI uri( &quot;http://host:port&quot; ),</span>
+<span class="lineNum">     205 </span>            :                        std::exception );
+<span class="lineNum">     206 </span><span class="lineCov">          1 :     BOOST_CHECK_THROW( servus::URI uri( &quot;http://host:&quot; ),</span>
+<span class="lineNum">     207 </span>            :                        std::exception );
+<span class="lineNum">     208 </span><span class="lineCov">          1 :     BOOST_CHECK_THROW( servus::URI skypeCrasher( &quot;http://:&quot; ),</span>
+<span class="lineNum">     209 </span>            :                        std::exception );
+<a name="210"><span class="lineNum">     210 </span><span class="lineCov">          1 : }</span></a>
+<span class="lineNum">     211 </span>            : 
+<span class="lineNum">     212 </span><span class="lineCov">          3 : BOOST_AUTO_TEST_CASE(test_corner_cases)</span>
+<span class="lineNum">     213 </span>            : {
+<span class="lineNum">     214 </span><span class="lineCov">          1 :     servus::URI uri1( &quot;path/foo:bar&quot; );</span>
+<span class="lineNum">     215 </span><span class="lineCov">          1 :     BOOST_CHECK_EQUAL( uri1.getPath(), &quot;path/foo:bar&quot; );</span>
+<span class="lineNum">     216 </span><span class="lineCov">          2 :     servus::URI uri2( &quot;//path/foo:bar&quot; );</span>
+<span class="lineNum">     217 </span><span class="lineCov">          1 :     BOOST_CHECK_EQUAL( uri2.getPath(), &quot;//path/foo:bar&quot; );</span>
+<span class="lineNum">     218 </span><span class="lineCov">          2 :     servus::URI uri3( &quot;?/##&quot; );</span>
+<span class="lineNum">     219 </span><span class="lineCov">          1 :     BOOST_CHECK_EQUAL( uri3.getQuery(), &quot;/&quot; );</span>
+<span class="lineNum">     220 </span><span class="lineCov">          1 :     BOOST_CHECK_EQUAL( uri3.getFragment(), &quot;#&quot; );</span>
+<span class="lineNum">     221 </span><span class="lineCov">          2 :     servus::URI uri4( &quot;#:&quot; );</span>
+<span class="lineNum">     222 </span><span class="lineCov">          1 :     BOOST_CHECK_EQUAL( uri4.getFragment(), &quot;:&quot; );</span>
+<span class="lineNum">     223 </span><span class="lineCov">          2 :     servus::URI uri5( &quot;/foo#?&quot; );</span>
+<span class="lineNum">     224 </span><span class="lineCov">          1 :     BOOST_CHECK_EQUAL( uri5.getPath(), &quot;/foo&quot; );</span>
+<span class="lineNum">     225 </span><span class="lineCov">          1 :     BOOST_CHECK_EQUAL( uri5.getFragment(), &quot;?&quot; );</span>
+<span class="lineNum">     226 </span><span class="lineCov">          2 :     servus::URI uri6( &quot;foo://*:0&quot; );</span>
+<span class="lineNum">     227 </span><span class="lineCov">          1 :     BOOST_CHECK_EQUAL( uri6.getScheme(), &quot;foo&quot; );</span>
+<span class="lineNum">     228 </span><span class="lineCov">          2 :     BOOST_CHECK_EQUAL( uri6.getHost(), &quot;*&quot; );</span>
+<a name="229"><span class="lineNum">     229 </span><span class="lineCov">          1 : }</span></a>
+<span class="lineNum">     230 </span>            : 
+<span class="lineNum">     231 </span><span class="lineCov">          3 : BOOST_AUTO_TEST_CASE(test_print)</span>
+<span class="lineNum">     232 </span>            : {
+<span class="lineNum">     233 </span><span class="lineCov">          1 :     servus::URI uri;</span>
+<span class="lineNum">     234 </span><span class="lineCov">          1 :     BOOST_CHECK_EQUAL( std::to_string( uri ), &quot;&quot; );</span>
+<span class="lineNum">     235 </span>            : 
+<span class="lineNum">     236 </span><span class="lineCov">          1 :     uri.setPath( &quot;/path&quot; );</span>
+<span class="lineNum">     237 </span><span class="lineCov">          1 :     BOOST_CHECK_EQUAL( std::to_string( uri ), &quot;/path&quot; );</span>
+<span class="lineNum">     238 </span>            : 
+<span class="lineNum">     239 </span><span class="lineCov">          1 :     uri.setUserInfo( &quot;user&quot; );</span>
+<span class="lineNum">     240 </span>            :     // No hostname yet, user info ignored.
+<span class="lineNum">     241 </span><span class="lineCov">          1 :     BOOST_CHECK_EQUAL( std::to_string( uri ), &quot;/path&quot; );</span>
+<span class="lineNum">     242 </span>            : 
+<span class="lineNum">     243 </span><span class="lineCov">          1 :     uri.setPort( 1024 );</span>
+<span class="lineNum">     244 </span>            :     // No hostname yet, port ignored.
+<span class="lineNum">     245 </span><span class="lineCov">          1 :     BOOST_CHECK_EQUAL( std::to_string( uri ), &quot;/path&quot; );</span>
+<span class="lineNum">     246 </span>            : 
+<span class="lineNum">     247 </span><span class="lineCov">          1 :     uri.setHost( &quot;localhost&quot; );</span>
+<span class="lineNum">     248 </span><span class="lineCov">          1 :     BOOST_CHECK_EQUAL( std::to_string( uri ), &quot;user@localhost:1024/path&quot; );</span>
+<span class="lineNum">     249 </span>            : 
+<span class="lineNum">     250 </span><span class="lineCov">          1 :     uri.setScheme( &quot;foo&quot; );</span>
+<span class="lineNum">     251 </span><span class="lineCov">          1 :     BOOST_CHECK_EQUAL( std::to_string( uri ),</span>
+<span class="lineNum">     252 </span>            :                        &quot;foo://user@localhost:1024/path&quot; );
+<span class="lineNum">     253 </span>            : 
+<span class="lineNum">     254 </span><span class="lineCov">          1 :     uri.setHost( &quot;&quot; );</span>
+<span class="lineNum">     255 </span><span class="lineCov">          1 :     BOOST_CHECK_EQUAL( std::to_string( uri ), &quot;foo:///path&quot; );</span>
+<span class="lineNum">     256 </span>            : 
+<span class="lineNum">     257 </span><span class="lineCov">          1 :     uri.setHost( &quot;localhost&quot; );</span>
+<span class="lineNum">     258 </span><span class="lineCov">          1 :     uri.setFragment( &quot;fragment&quot; );</span>
+<span class="lineNum">     259 </span><span class="lineCov">          1 :     BOOST_CHECK_EQUAL( std::to_string( uri ),</span>
+<span class="lineNum">     260 </span>            :                        &quot;foo://user@localhost:1024/path#fragment&quot; );
+<span class="lineNum">     261 </span>            : 
+<span class="lineNum">     262 </span><span class="lineCov">          1 :     uri.setFragment( &quot;&quot; );</span>
+<span class="lineNum">     263 </span><span class="lineCov">          1 :     uri.addQuery( &quot;key&quot;, &quot;value&quot;);</span>
+<span class="lineNum">     264 </span><span class="lineCov">          1 :     BOOST_CHECK_EQUAL( std::to_string( uri ),</span>
+<span class="lineNum">     265 </span>            :                        &quot;foo://user@localhost:1024/path?key=value&quot; );
+<span class="lineNum">     266 </span>            : 
+<span class="lineNum">     267 </span><span class="lineCov">          1 :     uri.setFragment( &quot;fragment&quot; );</span>
+<span class="lineNum">     268 </span><span class="lineCov">          1 :     BOOST_CHECK_EQUAL( std::to_string( uri ),</span>
+<span class="lineNum">     269 </span><span class="lineCov">          1 :                        &quot;foo://user@localhost:1024/path?key=value#fragment&quot; );</span>
+<a name="270"><span class="lineNum">     270 </span><span class="lineCov">          1 : }</span></a>
+<span class="lineNum">     271 </span>            : 
+<span class="lineNum">     272 </span><span class="lineCov">          3 : BOOST_AUTO_TEST_CASE(test_host_port_without_schema)</span>
+<span class="lineNum">     273 </span>            : {
+<span class="lineNum">     274 </span><span class="lineCov">          1 :     const servus::URI uri( &quot;host:12345&quot; );</span>
+<span class="lineNum">     275 </span><span class="lineCov">          1 :     BOOST_CHECK_EQUAL( uri.getHost(), &quot;&quot; );</span>
+<span class="lineNum">     276 </span><span class="lineCov">          1 :     BOOST_CHECK_EQUAL( uri.getPort(), 0 );</span>
+<span class="lineNum">     277 </span><span class="lineCov">          1 :     BOOST_CHECK_EQUAL( uri.getPath(), &quot;host:12345&quot; );</span>
+<span class="lineNum">     278 </span>            : 
+<span class="lineNum">     279 </span><span class="lineCov">          2 :     servus::URI uri2;</span>
+<span class="lineNum">     280 </span><span class="lineCov">          1 :     uri2.setHost( &quot;host&quot; );</span>
+<span class="lineNum">     281 </span><span class="lineCov">          1 :     uri2.setPort( 12345 );</span>
+<span class="lineNum">     282 </span><span class="lineCov">          1 :     BOOST_CHECK( uri2.getScheme().empty( ));</span>
+<span class="lineNum">     283 </span><span class="lineCov">          1 :     BOOST_CHECK_EQUAL( uri2.getHost(), &quot;host&quot; );</span>
+<span class="lineNum">     284 </span><span class="lineCov">          1 :     BOOST_CHECK_EQUAL( uri2.getPort(), 12345 );</span>
+<span class="lineNum">     285 </span>            : 
+<span class="lineNum">     286 </span><span class="lineCov">          2 :     const servus::URI uri3( uri2 );</span>
+<span class="lineNum">     287 </span><span class="lineCov">          1 :     BOOST_CHECK( uri3.getScheme().empty( ));</span>
+<a name="288"><span class="lineNum">     288 </span><span class="lineCov">          1 :     BOOST_CHECK_EQUAL( uri3.getHost(), &quot;host&quot; );</span></a>
+<span class="lineNum">     289 </span><span class="lineCov">          2 :     BOOST_CHECK_EQUAL( uri3.getPort(), 12345 );</span>
+<span class="lineNum">     290 </span><span class="lineCov">          4 : }</span>
+</pre>
+      </td>
+    </tr>
+  </table>
+  <br>
+
+  <table width="100%" border=0 cellspacing=0 cellpadding=0>
+    <tr><td class="ruler"><img src="../glass.png" width=3 height=3 alt=""></td></tr>
+    <tr><td class="versionInfo">Generated by: <a href="http://ltp.sourceforge.net/coverage/lcov.php" target="_parent">LCOV version 1.11</a></td></tr>
+  </table>
+  <br>
+
+</body>
+</html>
