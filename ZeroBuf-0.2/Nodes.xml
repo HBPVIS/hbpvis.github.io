@@ -7,11 +7,11 @@
       <Subnodes>
        <Node>
         <Name>Changelog</Name>
-        <Path>md__home_eilemann_config_8bbp__zero_buf_doc__changelog.html</Path>
+        <Path>md__home_favreau_docs__zero_buf_doc__changelog.html</Path>
        </Node>
        <Node>
         <Name>Zerobuf Binary Encoding</Name>
-        <Path>md__home_eilemann_config_8bbp__zero_buf_doc__zerobuf.html</Path>
+        <Path>md__home_favreau_docs__zero_buf_doc__zerobuf.html</Path>
        </Node>
        <Node>
         <Name>Namespaces</Name>
@@ -169,11 +169,6 @@
                   <Anchor>a38d9d6ef8e650917c05d66f61cbbda67</Anchor>
                  </Node>
                  <Node>
-                  <Name>TYPE_IDENTIFIER</Name>
-                  <Path>classzerobuf_1_1render_1_1_vector3f.html</Path>
-                  <Anchor>acee81ece203ce164f28e389b47ca7dc7</Anchor>
-                 </Node>
-                 <Node>
                   <Name>ZEROBUF_NUM_DYNAMICS</Name>
                   <Path>classzerobuf_1_1render_1_1_vector3f.html</Path>
                   <Anchor>a8d2975b834bb70ee84c85f3eb4a1503e</Anchor>
@@ -310,11 +305,6 @@
                   <Anchor>a68015680d7b9b08b5896cdc613fbf045</Anchor>
                  </Node>
                  <Node>
-                  <Name>TYPE_IDENTIFIER</Name>
-                  <Path>classzerobuf_1_1render_1_1_camera.html</Path>
-                  <Anchor>a79b282d1a64ae749b9d4fcf8c0521f3f</Anchor>
-                 </Node>
-                 <Node>
                   <Name>ZEROBUF_NUM_DYNAMICS</Name>
                   <Path>classzerobuf_1_1render_1_1_camera.html</Path>
                   <Anchor>a0d28fdbb5587f7977eeb6a1202b910d3</Anchor>
@@ -323,6 +313,142 @@
                   <Name>ZEROBUF_STATIC_SIZE</Name>
                   <Path>classzerobuf_1_1render_1_1_camera.html</Path>
                   <Anchor>a5a094b5cd12220495933d955618003c0</Anchor>
+                 </Node>
+                </Subnodes>
+               </Node>
+               <Node>
+                <Name>ImageJPEG</Name>
+                <Path>classzerobuf_1_1render_1_1_image_j_p_e_g.html</Path>
+                <Subnodes>
+                 <Node>
+                  <Name>Data</Name>
+                  <Path>classzerobuf_1_1render_1_1_image_j_p_e_g.html</Path>
+                  <Anchor>aa7b08f0db7b9ff69bace2059c6abb047</Anchor>
+                 </Node>
+                 <Node>
+                  <Name>ImageJPEG</Name>
+                  <Path>classzerobuf_1_1render_1_1_image_j_p_e_g.html</Path>
+                  <Anchor>a14fbed340dbd4872d962ea3837fe8026</Anchor>
+                 </Node>
+                 <Node>
+                  <Name>ImageJPEG</Name>
+                  <Path>classzerobuf_1_1render_1_1_image_j_p_e_g.html</Path>
+                  <Anchor>ad2c29da73a624b6805331bafaef837ac</Anchor>
+                 </Node>
+                 <Node>
+                  <Name>ImageJPEG</Name>
+                  <Path>classzerobuf_1_1render_1_1_image_j_p_e_g.html</Path>
+                  <Anchor>a3cc139bec19b7f7f5eb71ba8a60d8813</Anchor>
+                 </Node>
+                 <Node>
+                  <Name>ImageJPEG</Name>
+                  <Path>classzerobuf_1_1render_1_1_image_j_p_e_g.html</Path>
+                  <Anchor>ac542aaf12906aef0d15587d036bf13fe</Anchor>
+                 </Node>
+                 <Node>
+                  <Name>ImageJPEG</Name>
+                  <Path>classzerobuf_1_1render_1_1_image_j_p_e_g.html</Path>
+                  <Anchor>abf606304550a08cea34bba59ac7f098b</Anchor>
+                 </Node>
+                 <Node>
+                  <Name>ImageJPEG</Name>
+                  <Path>classzerobuf_1_1render_1_1_image_j_p_e_g.html</Path>
+                  <Anchor>a81df6cdc24852c5cc899426d9e87855e</Anchor>
+                 </Node>
+                 <Node>
+                  <Name>~ImageJPEG</Name>
+                  <Path>classzerobuf_1_1render_1_1_image_j_p_e_g.html</Path>
+                  <Anchor>a9bf918ac5b9572eccb8055e931c61de1</Anchor>
+                 </Node>
+                 <Node>
+                  <Name>_createJSON</Name>
+                  <Path>classzerobuf_1_1render_1_1_image_j_p_e_g.html</Path>
+                  <Anchor>a3636c042fb9968dbab21570444456e22</Anchor>
+                 </Node>
+                 <Node>
+                  <Name>_parseJSON</Name>
+                  <Path>classzerobuf_1_1render_1_1_image_j_p_e_g.html</Path>
+                  <Anchor>ad13b5c55441c087348c80f07eca1acda</Anchor>
+                 </Node>
+                 <Node>
+                  <Name>compact</Name>
+                  <Path>classzerobuf_1_1render_1_1_image_j_p_e_g.html</Path>
+                  <Anchor>a6ac0dc7c921dde5d848fcb64a6d7fa0f</Anchor>
+                 </Node>
+                 <Node>
+                  <Name>getData</Name>
+                  <Path>classzerobuf_1_1render_1_1_image_j_p_e_g.html</Path>
+                  <Anchor>a258ba1f12837b0cb3d5fcfd15e61e2f3</Anchor>
+                 </Node>
+                 <Node>
+                  <Name>getData</Name>
+                  <Path>classzerobuf_1_1render_1_1_image_j_p_e_g.html</Path>
+                  <Anchor>a5613201c7edc897b3fbaa5a95427fede</Anchor>
+                 </Node>
+                 <Node>
+                  <Name>getDataString</Name>
+                  <Path>classzerobuf_1_1render_1_1_image_j_p_e_g.html</Path>
+                  <Anchor>ac7d00a6c6dee3b527056f69ef30f52bc</Anchor>
+                 </Node>
+                 <Node>
+                  <Name>getDataVector</Name>
+                  <Path>classzerobuf_1_1render_1_1_image_j_p_e_g.html</Path>
+                  <Anchor>a18f26efdd306a684d4cc1667e2c588d8</Anchor>
+                 </Node>
+                 <Node>
+                  <Name>getTypeIdentifier</Name>
+                  <Path>classzerobuf_1_1render_1_1_image_j_p_e_g.html</Path>
+                  <Anchor>a7bd0c2a3b25fae6e1dcda2d863cecdac</Anchor>
+                 </Node>
+                 <Node>
+                  <Name>getTypeName</Name>
+                  <Path>classzerobuf_1_1render_1_1_image_j_p_e_g.html</Path>
+                  <Anchor>ad7cf7b0c8f353976be1a636aba6ea3e3</Anchor>
+                 </Node>
+                 <Node>
+                  <Name>getZerobufNumDynamics</Name>
+                  <Path>classzerobuf_1_1render_1_1_image_j_p_e_g.html</Path>
+                  <Anchor>ae3ee200a582ccf0f6d2b04286d154f93</Anchor>
+                 </Node>
+                 <Node>
+                  <Name>getZerobufStaticSize</Name>
+                  <Path>classzerobuf_1_1render_1_1_image_j_p_e_g.html</Path>
+                  <Anchor>a4a990b6bfa6076d66c8e33e6e1324eae</Anchor>
+                 </Node>
+                 <Node>
+                  <Name>operator=</Name>
+                  <Path>classzerobuf_1_1render_1_1_image_j_p_e_g.html</Path>
+                  <Anchor>aa95056a9187417d5c3e0f31cbb896016</Anchor>
+                 </Node>
+                 <Node>
+                  <Name>operator=</Name>
+                  <Path>classzerobuf_1_1render_1_1_image_j_p_e_g.html</Path>
+                  <Anchor>afbdbb674b083b9e1ea53bb8788c9d591</Anchor>
+                 </Node>
+                 <Node>
+                  <Name>setData</Name>
+                  <Path>classzerobuf_1_1render_1_1_image_j_p_e_g.html</Path>
+                  <Anchor>ab9f982373cae996844b7dfd75cdf252a</Anchor>
+                 </Node>
+                 <Node>
+                  <Name>setData</Name>
+                  <Path>classzerobuf_1_1render_1_1_image_j_p_e_g.html</Path>
+                  <Anchor>a3dda43623fefd0ee0ec649835ee36300</Anchor>
+                 </Node>
+                 <Node>
+                  <Name>setData</Name>
+                  <Path>classzerobuf_1_1render_1_1_image_j_p_e_g.html</Path>
+                  <Anchor>aaf6f38dc044791545211b6fee63a9aaf</Anchor>
+                 </Node>
+                 <Node>
+                  <Name>ZEROBUF_NUM_DYNAMICS</Name>
+                  <Path>classzerobuf_1_1render_1_1_image_j_p_e_g.html</Path>
+                  <Anchor>a372b61a37792bf2b6b69418458e92ef1</Anchor>
+                 </Node>
+                 <Node>
+                  <Name>ZEROBUF_STATIC_SIZE</Name>
+                  <Path>classzerobuf_1_1render_1_1_image_j_p_e_g.html</Path>
+                  <Anchor>a6363e67f2e3f7d422f9cb45eeb116784</Anchor>
                  </Node>
                 </Subnodes>
                </Node>
@@ -439,11 +565,6 @@
                   <Name>setLut</Name>
                   <Path>classzerobuf_1_1render_1_1_lookup_table1_d.html</Path>
                   <Anchor>ac68b888d0801e4d20881ecbb167f35c0</Anchor>
-                 </Node>
-                 <Node>
-                  <Name>TYPE_IDENTIFIER</Name>
-                  <Path>classzerobuf_1_1render_1_1_lookup_table1_d.html</Path>
-                  <Anchor>a105ee2880b86e76c1cd288ad59149056</Anchor>
                  </Node>
                  <Node>
                   <Name>ZEROBUF_NUM_DYNAMICS</Name>
@@ -940,6 +1061,10 @@
                 <Path>classzerobuf_1_1render_1_1_camera.html</Path>
                </Node>
                <Node>
+                <Name>zerobuf::render::ImageJPEG</Name>
+                <Path>classzerobuf_1_1render_1_1_image_j_p_e_g.html</Path>
+               </Node>
+               <Node>
                 <Name>zerobuf::render::LookupTable1D</Name>
                 <Path>classzerobuf_1_1render_1_1_lookup_table1_d.html</Path>
                </Node>
@@ -950,6 +1075,10 @@
               </Subnodes>
              </Node>
             </Subnodes>
+           </Node>
+           <Node>
+            <Name>zerobuf::Vector&lt; uint8_t &gt;</Name>
+            <Path>classzerobuf_1_1_vector.html</Path>
            </Node>
            <Node>
             <Name>zerobuf::Allocator</Name>
@@ -1068,6 +1197,10 @@
            <Node>
             <Name>render/definesLinux.h</Name>
             <Path>render_2defines_linux_8h_source.html</Path>
+           </Node>
+           <Node>
+            <Name>imageJPEG.h</Name>
+            <Path>image_j_p_e_g_8h_source.html</Path>
            </Node>
            <Node>
             <Name>json.h</Name>

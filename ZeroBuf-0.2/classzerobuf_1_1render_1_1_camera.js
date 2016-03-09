@@ -24,7 +24,6 @@ var classzerobuf_1_1render_1_1_camera =
     [ "setLookAt", "classzerobuf_1_1render_1_1_camera.html#a3a367218083b2ca4aac036ed1b1d74b8", null ],
     [ "setOrigin", "classzerobuf_1_1render_1_1_camera.html#a4ae8160d841a3515360d1b9575e52fcf", null ],
     [ "setUp", "classzerobuf_1_1render_1_1_camera.html#a68015680d7b9b08b5896cdc613fbf045", null ],
-    [ "TYPE_IDENTIFIER", "classzerobuf_1_1render_1_1_camera.html#a79b282d1a64ae749b9d4fcf8c0521f3f", null ],
     [ "ZEROBUF_NUM_DYNAMICS", "classzerobuf_1_1render_1_1_camera.html#a0d28fdbb5587f7977eeb6a1202b910d3", null ],
     [ "ZEROBUF_STATIC_SIZE", "classzerobuf_1_1render_1_1_camera.html#a5a094b5cd12220495933d955618003c0", null ]
 ];

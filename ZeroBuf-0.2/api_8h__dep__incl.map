@@ -1,9 +1,10 @@
 <map id="api.h" name="api.h">
-<area shape="rect" id="node2" href="$json_8h_source.html" title="json.h" alt="" coords="47,80,107,107"/>
-<area shape="rect" id="node7" href="$_zerobuf_8h_source.html" title="Zerobuf.h" alt="" coords="103,155,187,181"/>
-<area shape="rect" id="node8" href="$version_8h.html" title="Defines version macros and class for library ZeroBuf. " alt="" coords="183,80,261,107"/>
-<area shape="rect" id="node3" href="$_vector_8h_source.html" title="Vector.h" alt="" coords="31,229,104,256"/>
-<area shape="rect" id="node4" href="$camera_8h_source.html" title="camera.h" alt="" coords="156,304,237,331"/>
-<area shape="rect" id="node6" href="$lookup_table1_d_8h_source.html" title="lookupTable1D.h" alt="" coords="5,304,131,331"/>
-<area shape="rect" id="node5" href="$render_8h_source.html" title="render.h" alt="" coords="95,379,168,405"/>
+<area shape="rect" id="node2" href="$json_8h_source.html" title="json.h" alt="" coords="118,80,177,107"/>
+<area shape="rect" id="node8" href="$_zerobuf_8h_source.html" title="Zerobuf.h" alt="" coords="174,155,257,181"/>
+<area shape="rect" id="node9" href="$version_8h.html" title="Defines version macros and class for library ZeroBuf. " alt="" coords="253,80,332,107"/>
+<area shape="rect" id="node3" href="$_vector_8h_source.html" title="Vector.h" alt="" coords="104,229,177,256"/>
+<area shape="rect" id="node4" href="$camera_8h_source.html" title="camera.h" alt="" coords="5,304,87,331"/>
+<area shape="rect" id="node6" href="$image_j_p_e_g_8h_source.html" title="imageJPEG.h" alt="" coords="113,304,215,331"/>
+<area shape="rect" id="node7" href="$lookup_table1_d_8h_source.html" title="lookupTable1D.h" alt="" coords="239,304,365,331"/>
+<area shape="rect" id="node5" href="$render_8h_source.html" title="render.h" alt="" coords="127,379,200,405"/>
 </map>

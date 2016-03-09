@@ -200,17 +200,17 @@
   </Token>
   <Token>
     <TokenIdentifier>
-      <Name>md__home_eilemann_config.bbp_ZeroBuf_doc_Changelog</Name>
+      <Name>md__home_favreau_docs_ZeroBuf_doc_Changelog</Name>
       <APILanguage>markdown</APILanguage>
     </TokenIdentifier>
-    <Path>md__home_eilemann_config_8bbp__zero_buf_doc__changelog.html</Path>
+    <Path>md__home_favreau_docs__zero_buf_doc__changelog.html</Path>
   </Token>
   <Token>
     <TokenIdentifier>
-      <Name>md__home_eilemann_config.bbp_ZeroBuf_doc_Zerobuf</Name>
+      <Name>md__home_favreau_docs_ZeroBuf_doc_Zerobuf</Name>
       <APILanguage>markdown</APILanguage>
     </TokenIdentifier>
-    <Path>md__home_eilemann_config_8bbp__zero_buf_doc__zerobuf.html</Path>
+    <Path>md__home_favreau_docs__zero_buf_doc__zerobuf.html</Path>
   </Token>
   <Token>
     <TokenIdentifier>
@@ -876,6 +876,119 @@
     <Path>classzerobuf_1_1_zerobuf.html</Path>
     <Anchor>a37fff3a7faebd32287c5bd048f35adb0</Anchor>
     <Abstract>Remove unused holes from the zerobuf. </Abstract>
+    <DeclaredIn>Zerobuf.h</DeclaredIn>
+  </Token>
+  <Token>
+    <TokenIdentifier>
+      <Name>operator=</Name>
+      <APILanguage>cpp</APILanguage>
+      <Type>instm</Type>
+      <Scope>zerobuf::Zerobuf</Scope>
+    </TokenIdentifier>
+    <Path>classzerobuf_1_1_zerobuf.html</Path>
+    <Anchor>a4c0c78fa19481f9db82bbbd3c1b6d316</Anchor>
+    <Abstract>Assignment operator. </Abstract>
+    <DeclaredIn>Zerobuf.h</DeclaredIn>
+  </Token>
+  <Token>
+    <TokenIdentifier>
+      <Name>Zerobuf</Name>
+      <APILanguage>cpp</APILanguage>
+      <Type>instm</Type>
+      <Scope>zerobuf::Zerobuf</Scope>
+    </TokenIdentifier>
+    <Path>classzerobuf_1_1_zerobuf.html</Path>
+    <Anchor>a7750907a69d676c5a4a6141295e08486</Anchor>
+    <Abstract>Move ctor. </Abstract>
+    <DeclaredIn>Zerobuf.h</DeclaredIn>
+  </Token>
+  <Token>
+    <TokenIdentifier>
+      <Name>operator=</Name>
+      <APILanguage>cpp</APILanguage>
+      <Type>instm</Type>
+      <Scope>zerobuf::Zerobuf</Scope>
+    </TokenIdentifier>
+    <Path>classzerobuf_1_1_zerobuf.html</Path>
+    <Anchor>a244f95b56828cadd84e72d36f114b656</Anchor>
+    <Abstract>Move operator. </Abstract>
+    <DeclaredIn>Zerobuf.h</DeclaredIn>
+  </Token>
+  <Token>
+    <TokenIdentifier>
+      <Name>operator==</Name>
+      <APILanguage>cpp</APILanguage>
+      <Type>instm</Type>
+      <Scope>zerobuf::Zerobuf</Scope>
+    </TokenIdentifier>
+    <Path>classzerobuf_1_1_zerobuf.html</Path>
+    <Anchor>a53ff18b391418c5b2c5c20aad33ee858</Anchor>
+    <DeclaredIn>Zerobuf.h</DeclaredIn>
+  </Token>
+  <Token>
+    <TokenIdentifier>
+      <Name>operator!=</Name>
+      <APILanguage>cpp</APILanguage>
+      <Type>instm</Type>
+      <Scope>zerobuf::Zerobuf</Scope>
+    </TokenIdentifier>
+    <Path>classzerobuf_1_1_zerobuf.html</Path>
+    <Anchor>a85526a2c9e327fd6349616146b64bfc9</Anchor>
+    <DeclaredIn>Zerobuf.h</DeclaredIn>
+  </Token>
+  <Token>
+    <TokenIdentifier>
+      <Name>zerobuf::render::ImageJPEG</Name>
+      <APILanguage>c</APILanguage>
+      <Type>cl</Type>
+      <Scope>zerobuf::render::ImageJPEG</Scope>
+    </TokenIdentifier>
+    <Path>classzerobuf_1_1render_1_1_image_j_p_e_g.html</Path>
+  </Token>
+  <Token>
+    <TokenIdentifier>
+      <Name>compact</Name>
+      <APILanguage>cpp</APILanguage>
+      <Type>instm</Type>
+      <Scope>zerobuf::render::ImageJPEG</Scope>
+    </TokenIdentifier>
+    <Path>classzerobuf_1_1render_1_1_image_j_p_e_g.html</Path>
+    <Anchor>a6ac0dc7c921dde5d848fcb64a6d7fa0f</Anchor>
+    <Abstract>Remove unused holes from the zerobuf. </Abstract>
+    <DeclaredIn>imageJPEG.h</DeclaredIn>
+  </Token>
+  <Token>
+    <TokenIdentifier>
+      <Name>getZerobufStaticSize</Name>
+      <APILanguage>cpp</APILanguage>
+      <Type>instm</Type>
+      <Scope>zerobuf::render::ImageJPEG</Scope>
+    </TokenIdentifier>
+    <Path>classzerobuf_1_1render_1_1_image_j_p_e_g.html</Path>
+    <Anchor>a4a990b6bfa6076d66c8e33e6e1324eae</Anchor>
+    <DeclaredIn>imageJPEG.h</DeclaredIn>
+  </Token>
+  <Token>
+    <TokenIdentifier>
+      <Name>getZerobufNumDynamics</Name>
+      <APILanguage>cpp</APILanguage>
+      <Type>instm</Type>
+      <Scope>zerobuf::render::ImageJPEG</Scope>
+    </TokenIdentifier>
+    <Path>classzerobuf_1_1render_1_1_image_j_p_e_g.html</Path>
+    <Anchor>ae3ee200a582ccf0f6d2b04286d154f93</Anchor>
+    <DeclaredIn>imageJPEG.h</DeclaredIn>
+  </Token>
+  <Token>
+    <TokenIdentifier>
+      <Name>notifyChanging</Name>
+      <APILanguage>cpp</APILanguage>
+      <Type>instm</Type>
+      <Scope>zerobuf::Zerobuf</Scope>
+    </TokenIdentifier>
+    <Path>classzerobuf_1_1_zerobuf.html</Path>
+    <Anchor>a4c2c30f520aec716f884b7130cd7533e</Anchor>
+    <Abstract>Called if any data in this object is about to change. </Abstract>
     <DeclaredIn>Zerobuf.h</DeclaredIn>
   </Token>
   <Token>

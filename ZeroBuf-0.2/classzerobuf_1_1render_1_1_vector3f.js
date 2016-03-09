@@ -21,7 +21,6 @@ var classzerobuf_1_1render_1_1_vector3f =
     [ "setX", "classzerobuf_1_1render_1_1_vector3f.html#a9c5369cdca92c418ff26040e28d9b1e5", null ],
     [ "setY", "classzerobuf_1_1render_1_1_vector3f.html#a0d47eec75ff77b8cea59812baadb3644", null ],
     [ "setZ", "classzerobuf_1_1render_1_1_vector3f.html#a38d9d6ef8e650917c05d66f61cbbda67", null ],
-    [ "TYPE_IDENTIFIER", "classzerobuf_1_1render_1_1_vector3f.html#acee81ece203ce164f28e389b47ca7dc7", null ],
     [ "ZEROBUF_NUM_DYNAMICS", "classzerobuf_1_1render_1_1_vector3f.html#a8d2975b834bb70ee84c85f3eb4a1503e", null ],
     [ "ZEROBUF_STATIC_SIZE", "classzerobuf_1_1render_1_1_vector3f.html#a5e1ffcec46765b747c5c22389e6ee915", null ]
 ];

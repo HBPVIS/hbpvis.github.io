@@ -8,6 +8,7 @@ var files =
     [ "render/defines.h", "render_2defines_8h_source.html", null ],
     [ "definesLinux.h", "defines_linux_8h_source.html", null ],
     [ "render/definesLinux.h", "render_2defines_linux_8h_source.html", null ],
+    [ "imageJPEG.h", "image_j_p_e_g_8h_source.html", null ],
     [ "json.h", "json_8h_source.html", null ],
     [ "lookupTable1D.h", "lookup_table1_d_8h_source.html", null ],
     [ "render.h", "render_8h_source.html", null ],

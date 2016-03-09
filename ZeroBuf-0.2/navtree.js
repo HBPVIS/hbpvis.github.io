@@ -1,8 +1,8 @@
 var NAVTREE =
 [
   [ "ZeroBuf", "index.html", [
-    [ "Changelog", "md__home_eilemann_config_8bbp__zero_buf_doc__changelog.html", null ],
-    [ "Zerobuf Binary Encoding", "md__home_eilemann_config_8bbp__zero_buf_doc__zerobuf.html", null ],
+    [ "Changelog", "md__home_favreau_docs__zero_buf_doc__changelog.html", null ],
+    [ "Zerobuf Binary Encoding", "md__home_favreau_docs__zero_buf_doc__zerobuf.html", null ],
     [ "Namespaces", null, [
       [ "Namespace List", "namespaces.html", "namespaces" ],
       [ "Namespace Members", "namespacemembers.html", [
@@ -31,7 +31,8 @@ var NAVTREE =
 
 var NAVTREEINDEX =
 [
-".html"
+".html",
+"version_8h.html#a1f7d45ddcdc5e7fd684b0102e3d9a59a"
 ];
 
 var SYNCONMSG = 'click to disable panel synchronisation';

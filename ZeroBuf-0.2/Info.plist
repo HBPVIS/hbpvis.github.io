@@ -14,7 +14,7 @@
      <key>DocSetPublisherIdentifier</key>
      <string>eu.humanbrainproject.zerobuf.documentation</string>
      <key>DocSetPublisherName</key>
-     <string>HBPVIS</string>
+     <string>favreau</string>
      <key>DashDocSetFamily</key>
      <string>doxy</string>
      <key>DocSetPlatformFamily</key>
