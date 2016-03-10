@@ -1,5 +1,5 @@
 <map id="zeq::Receiver" name="zeq::Receiver">
-<area shape="rect" id="node2" href="$classzeq_1_1connection_1_1_broker.html" title="Brokers subscription requests for a zeq::Receiver. " alt="" coords="5,314,179,435"/>
-<area shape="rect" id="node3" href="$classzeq_1_1http_1_1_server.html" title="Serves HTTP GET and POST requests for servus::Serializable objects. " alt="" coords="203,248,332,501"/>
-<area shape="rect" id="node4" href="$classzeq_1_1_subscriber.html" title="Subscribes to Publisher to receive events. " alt="" coords="357,263,477,487"/>
+<area shape="rect" id="node3" href="$classzeq_1_1connection_1_1_broker.html" title="Brokers subscription requests for a zeq::Receiver. " alt="" coords="5,425,192,562"/>
+<area shape="rect" id="node5" href="$classzeq_1_1http_1_1_server.html" title="Serves HTTP GET and PUT requests for servus::Serializable objects. " alt="" coords="216,277,357,709"/>
+<area shape="rect" id="node7" href="$classzeq_1_1_subscriber.html" title="Subscribes to Publisher to receive events. " alt="" coords="381,364,507,623"/>
 </map>

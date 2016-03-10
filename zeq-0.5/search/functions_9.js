@@ -2,7 +2,6 @@ var searchData=
 [
   ['serializejson',['serializeJSON',['../namespacezeq_1_1vocabulary.html#a331aea81006cbd1c4803652d64e33850',1,'zeq::vocabulary']]],
   ['serializerequest',['serializeRequest',['../namespacezeq_1_1vocabulary.html#abfecbbc1af49dfc33f8c3ed9af49f927',1,'zeq::vocabulary']]],
-  ['serializeschemas',['serializeSchemas',['../namespacezeq_1_1vocabulary.html#ad2dde429b3576d763209dfbfb4edfcc6',1,'zeq::vocabulary']]],
   ['serializevocabulary',['serializeVocabulary',['../namespacezeq_1_1vocabulary.html#aaaba03f06faca60894e23100795d61df',1,'zeq::vocabulary']]],
   ['server',['Server',['../classzeq_1_1http_1_1_server.html#a67210df2aae3b09e00d288f3095f27eb',1,'zeq::http::Server']]],
   ['subscribe',['subscribe',['../classzeq_1_1connection_1_1_service.html#ada4998dfa110cedfb6c4b74c25ce64f9',1,'zeq::connection::Service::subscribe(const std::string &amp;address, const Publisher &amp;publisher)'],['../classzeq_1_1connection_1_1_service.html#a85e440aac566bd7c4af65d28ffdbddc5',1,'zeq::connection::Service::subscribe(const std::string &amp;hostname, const std::string &amp;name, const Publisher &amp;publisher)'],['../classzeq_1_1http_1_1_server.html#a45c338f09f3b62ebe3bc4647cd8226ab',1,'zeq::http::Server::subscribe()'],['../classzeq_1_1_subscriber.html#a885dbce002f64b801109f09e64af45a2',1,'zeq::Subscriber::subscribe()']]],

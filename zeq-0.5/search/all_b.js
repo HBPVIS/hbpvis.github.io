@@ -2,7 +2,6 @@ var searchData=
 [
   ['serializejson',['serializeJSON',['../namespacezeq_1_1vocabulary.html#a331aea81006cbd1c4803652d64e33850',1,'zeq::vocabulary']]],
   ['serializerequest',['serializeRequest',['../namespacezeq_1_1vocabulary.html#abfecbbc1af49dfc33f8c3ed9af49f927',1,'zeq::vocabulary']]],
-  ['serializeschemas',['serializeSchemas',['../namespacezeq_1_1vocabulary.html#ad2dde429b3576d763209dfbfb4edfcc6',1,'zeq::vocabulary']]],
   ['serializevocabulary',['serializeVocabulary',['../namespacezeq_1_1vocabulary.html#aaaba03f06faca60894e23100795d61df',1,'zeq::vocabulary']]],
   ['server',['Server',['../classzeq_1_1http_1_1_server.html#a67210df2aae3b09e00d288f3095f27eb',1,'zeq::http::Server']]],
   ['server',['Server',['../classzeq_1_1http_1_1_server.html',1,'zeq::http']]],

@@ -200,10 +200,10 @@
   </Token>
   <Token>
     <TokenIdentifier>
-      <Name>md__home_eilemann_config.bbp_zeq_doc_Changelog</Name>
+      <Name>Changelog</Name>
       <APILanguage>markdown</APILanguage>
     </TokenIdentifier>
-    <Path>md__home_eilemann_config_8bbp_zeq_doc__changelog.html</Path>
+    <Path>_changelog.html</Path>
   </Token>
   <Token>
     <TokenIdentifier>
@@ -939,7 +939,7 @@
     </TokenIdentifier>
     <Path>classzeq_1_1_u_r_i.html</Path>
     <Anchor>a732844b2e298f4ccac84f3a4e42c083c</Anchor>
-    <Abstract>Create a default URI in the form &amp;quot;tcp://&amp;quot;. </Abstract>
+    <Abstract>Create a default URI in the form &quot;tcp://&quot;. </Abstract>
     <DeclaredIn>uri.h</DeclaredIn>
   </Token>
   <Token>
@@ -951,7 +951,7 @@
     </TokenIdentifier>
     <Path>classzeq_1_1_u_r_i.html</Path>
     <Anchor>a7d1b05e46cccd70e1fb76503b05f9046</Anchor>
-    <Abstract>Create URI from string, set schema to &amp;quot;tcp&amp;quot; if empty. </Abstract>
+    <Abstract>Create URI from string, set schema to &quot;tcp&quot; if empty. </Abstract>
     <DeclaredIn>uri.h</DeclaredIn>
   </Token>
   <Token>
@@ -963,7 +963,7 @@
     </TokenIdentifier>
     <Path>classzeq_1_1_u_r_i.html</Path>
     <Anchor>a3a15ce09c9e9e9c7bc09917ecc31e6a4</Anchor>
-    <Abstract>Create URI from string, set schema to &amp;quot;tcp&amp;quot; if empty. </Abstract>
+    <Abstract>Create URI from string, set schema to &quot;tcp&quot; if empty. </Abstract>
     <DeclaredIn>uri.h</DeclaredIn>
   </Token>
   <Token>
@@ -975,7 +975,7 @@
     </TokenIdentifier>
     <Path>classzeq_1_1_u_r_i.html</Path>
     <Anchor>a653b5f5b562b1a864cc1c8707a08ad8c</Anchor>
-    <Abstract>Convert from servus::URI, set schema to &amp;quot;tcp&amp;quot; if empty. </Abstract>
+    <Abstract>Convert from servus::URI, set schema to &quot;tcp&quot; if empty. </Abstract>
     <DeclaredIn>uri.h</DeclaredIn>
   </Token>
   <Token>
@@ -1290,6 +1290,17 @@
   </Token>
   <Token>
     <TokenIdentifier>
+      <Name>zeq::hbp::data::CellSetBinaryOp</Name>
+      <APILanguage>c</APILanguage>
+      <Type>cl</Type>
+      <Scope>zeq::hbp::data::CellSetBinaryOp</Scope>
+    </TokenIdentifier>
+    <Path>structzeq_1_1hbp_1_1data_1_1_cell_set_binary_op.html</Path>
+    <Abstract>Stores two unsigned int vectors and an operation flag. </Abstract>
+    <DeclaredIn>vocabulary.h</DeclaredIn>
+  </Token>
+  <Token>
+    <TokenIdentifier>
       <Name>zeq::hbp::data::Frame</Name>
       <APILanguage>c</APILanguage>
       <Type>cl</Type>
@@ -1312,17 +1323,6 @@
   </Token>
   <Token>
     <TokenIdentifier>
-      <Name>zeq::hbp::data::CellSetBinaryOp</Name>
-      <APILanguage>c</APILanguage>
-      <Type>cl</Type>
-      <Scope>zeq::hbp::data::CellSetBinaryOp</Scope>
-    </TokenIdentifier>
-    <Path>structzeq_1_1hbp_1_1data_1_1_cell_set_binary_op.html</Path>
-    <Abstract>Stores two unsigned int vectors and an operation flag. </Abstract>
-    <DeclaredIn>vocabulary.h</DeclaredIn>
-  </Token>
-  <Token>
-    <TokenIdentifier>
       <Name>zeq::http</Name>
       <APILanguage>c</APILanguage>
       <Type>ns</Type>
@@ -1339,31 +1339,31 @@
       <Scope>zeq::http::Server</Scope>
     </TokenIdentifier>
     <Path>classzeq_1_1http_1_1_server.html</Path>
-    <Abstract>Serves HTTP GET and POST requests for servus::Serializable objects. </Abstract>
+    <Abstract>Serves HTTP GET and PUT requests for servus::Serializable objects. </Abstract>
     <DeclaredIn>server.h</DeclaredIn>
   </Token>
   <Token>
     <TokenIdentifier>
-      <Name>Server</Name>
+      <Name>add</Name>
       <APILanguage>cpp</APILanguage>
       <Type>instm</Type>
       <Scope>zeq::http::Server</Scope>
     </TokenIdentifier>
     <Path>classzeq_1_1http_1_1_server.html</Path>
-    <Anchor>a67210df2aae3b09e00d288f3095f27eb</Anchor>
-    <Abstract>Construct a new HTTP server. </Abstract>
+    <Anchor>a12375938cc7ec5b0037f9c9ba7845d8f</Anchor>
+    <Abstract>Subscribe and register the given object. </Abstract>
     <DeclaredIn>server.h</DeclaredIn>
   </Token>
   <Token>
     <TokenIdentifier>
-      <Name>getURI</Name>
+      <Name>remove</Name>
       <APILanguage>cpp</APILanguage>
       <Type>instm</Type>
       <Scope>zeq::http::Server</Scope>
     </TokenIdentifier>
     <Path>classzeq_1_1http_1_1_server.html</Path>
-    <Anchor>a6380225606ed1f0f0fe0e7cb03b915af</Anchor>
-    <Abstract>Get the publisher URI. </Abstract>
+    <Anchor>aebf0b405fca90f6b1e15b9d51a2d78f5</Anchor>
+    <Abstract>Unsubscribe and unregister the given object. </Abstract>
     <DeclaredIn>server.h</DeclaredIn>
   </Token>
   <Token>
@@ -1399,7 +1399,7 @@
     </TokenIdentifier>
     <Path>classzeq_1_1http_1_1_server.html</Path>
     <Anchor>a4a103758b9d5919585aa4b3ddee0d94d</Anchor>
-    <Abstract>Subscribe ther serializable object to serve HTTP GET requests. </Abstract>
+    <Abstract>Subscribe a serializable object to serve HTTP GET requests. </Abstract>
     <DeclaredIn>server.h</DeclaredIn>
   </Token>
   <Token>
@@ -1464,13 +1464,37 @@
   </Token>
   <Token>
     <TokenIdentifier>
+      <Name>Server</Name>
+      <APILanguage>cpp</APILanguage>
+      <Type>instm</Type>
+      <Scope>zeq::http::Server</Scope>
+    </TokenIdentifier>
+    <Path>classzeq_1_1http_1_1_server.html</Path>
+    <Anchor>a67210df2aae3b09e00d288f3095f27eb</Anchor>
+    <Abstract>Construct a new HTTP server. </Abstract>
+    <DeclaredIn>server.h</DeclaredIn>
+  </Token>
+  <Token>
+    <TokenIdentifier>
+      <Name>getURI</Name>
+      <APILanguage>cpp</APILanguage>
+      <Type>instm</Type>
+      <Scope>zeq::http::Server</Scope>
+    </TokenIdentifier>
+    <Path>classzeq_1_1http_1_1_server.html</Path>
+    <Anchor>a6380225606ed1f0f0fe0e7cb03b915af</Anchor>
+    <Abstract>Get the publisher URI. </Abstract>
+    <DeclaredIn>server.h</DeclaredIn>
+  </Token>
+  <Token>
+    <TokenIdentifier>
       <Name>parse</Name>
       <APILanguage>cpp</APILanguage>
       <Type>clm</Type>
       <Scope>zeq::http::Server</Scope>
     </TokenIdentifier>
     <Path>classzeq_1_1http_1_1_server.html</Path>
-    <Anchor>a913903c417eb5e970485e6afad7c93b1</Anchor>
+    <Anchor>a7a2760a5737483bd4af8d7065f68e0d7</Anchor>
     <Abstract>Create a new Server when requested. </Abstract>
     <DeclaredIn>server.h</DeclaredIn>
   </Token>
@@ -1542,30 +1566,6 @@
     <Path>namespacezeq_1_1vocabulary.html</Path>
     <Anchor>afd538e101e07561b3a7b749a8ab81513</Anchor>
     <Abstract>Deserialize the given request event into a uint128_t. </Abstract>
-    <DeclaredIn>vocabulary.h</DeclaredIn>
-  </Token>
-  <Token>
-    <TokenIdentifier>
-      <Name>serializeSchemas</Name>
-      <APILanguage>cpp</APILanguage>
-      <Type>func</Type>
-      <Scope>zeq::vocabulary</Scope>
-    </TokenIdentifier>
-    <Path>namespacezeq_1_1vocabulary.html</Path>
-    <Anchor>ad2dde429b3576d763209dfbfb4edfcc6</Anchor>
-    <Abstract>Serialize the given zerobuf::Schema into an Event. </Abstract>
-    <DeclaredIn>vocabulary.h</DeclaredIn>
-  </Token>
-  <Token>
-    <TokenIdentifier>
-      <Name>deserializeSchemas</Name>
-      <APILanguage>cpp</APILanguage>
-      <Type>func</Type>
-      <Scope>zeq::vocabulary</Scope>
-    </TokenIdentifier>
-    <Path>namespacezeq_1_1vocabulary.html</Path>
-    <Anchor>ae49f5644e89bf00fa8c4c604366fb173</Anchor>
-    <Abstract>Deserialize the given event into zerobuf::Schema. </Abstract>
     <DeclaredIn>vocabulary.h</DeclaredIn>
   </Token>
   <Token>

@@ -29,7 +29,7 @@
        </Node>
        <Node>
         <Name>Changelog</Name>
-        <Path>md__home_eilemann_config_8bbp_zeq_doc__changelog.html</Path>
+        <Path>_changelog.html</Path>
        </Node>
        <Node>
         <Name>HTTP Server for ZeroEq Events</Name>
@@ -201,6 +201,37 @@
                 <Path></Path>
                 <Subnodes>
                  <Node>
+                  <Name>CellSetBinaryOp</Name>
+                  <Path>structzeq_1_1hbp_1_1data_1_1_cell_set_binary_op.html</Path>
+                  <Subnodes>
+                   <Node>
+                    <Name>CellSetBinaryOp</Name>
+                    <Path>structzeq_1_1hbp_1_1data_1_1_cell_set_binary_op.html</Path>
+                    <Anchor>a50ec9473c3bebfbf1ed9e27cabe68a9c</Anchor>
+                   </Node>
+                   <Node>
+                    <Name>CellSetBinaryOp</Name>
+                    <Path>structzeq_1_1hbp_1_1data_1_1_cell_set_binary_op.html</Path>
+                    <Anchor>a4c3dd4eb08966f1f30e37774d8a46854</Anchor>
+                   </Node>
+                   <Node>
+                    <Name>first</Name>
+                    <Path>structzeq_1_1hbp_1_1data_1_1_cell_set_binary_op.html</Path>
+                    <Anchor>a64a46f0349c7e8c9552ab5c06c202900</Anchor>
+                   </Node>
+                   <Node>
+                    <Name>operation</Name>
+                    <Path>structzeq_1_1hbp_1_1data_1_1_cell_set_binary_op.html</Path>
+                    <Anchor>ad776d55b7cdddc8646574137e2babf98</Anchor>
+                   </Node>
+                   <Node>
+                    <Name>second</Name>
+                    <Path>structzeq_1_1hbp_1_1data_1_1_cell_set_binary_op.html</Path>
+                    <Anchor>aadec6be6190e55ffe0b0f04723cc78ff</Anchor>
+                   </Node>
+                  </Subnodes>
+                 </Node>
+                 <Node>
                   <Name>Frame</Name>
                   <Path>structzeq_1_1hbp_1_1data_1_1_frame.html</Path>
                   <Subnodes>
@@ -262,37 +293,6 @@
                    </Node>
                   </Subnodes>
                  </Node>
-                 <Node>
-                  <Name>CellSetBinaryOp</Name>
-                  <Path>structzeq_1_1hbp_1_1data_1_1_cell_set_binary_op.html</Path>
-                  <Subnodes>
-                   <Node>
-                    <Name>CellSetBinaryOp</Name>
-                    <Path>structzeq_1_1hbp_1_1data_1_1_cell_set_binary_op.html</Path>
-                    <Anchor>a50ec9473c3bebfbf1ed9e27cabe68a9c</Anchor>
-                   </Node>
-                   <Node>
-                    <Name>CellSetBinaryOp</Name>
-                    <Path>structzeq_1_1hbp_1_1data_1_1_cell_set_binary_op.html</Path>
-                    <Anchor>a4c3dd4eb08966f1f30e37774d8a46854</Anchor>
-                   </Node>
-                   <Node>
-                    <Name>first</Name>
-                    <Path>structzeq_1_1hbp_1_1data_1_1_cell_set_binary_op.html</Path>
-                    <Anchor>a64a46f0349c7e8c9552ab5c06c202900</Anchor>
-                   </Node>
-                   <Node>
-                    <Name>operation</Name>
-                    <Path>structzeq_1_1hbp_1_1data_1_1_cell_set_binary_op.html</Path>
-                    <Anchor>ad776d55b7cdddc8646574137e2babf98</Anchor>
-                   </Node>
-                   <Node>
-                    <Name>second</Name>
-                    <Path>structzeq_1_1hbp_1_1data_1_1_cell_set_binary_op.html</Path>
-                    <Anchor>aadec6be6190e55ffe0b0f04723cc78ff</Anchor>
-                   </Node>
-                  </Subnodes>
-                 </Node>
                 </Subnodes>
                </Node>
               </Subnodes>
@@ -336,6 +336,11 @@
                   <Anchor>a13ea753943fdc2a587ff51e5ac4bf5d9</Anchor>
                  </Node>
                  <Node>
+                  <Name>add</Name>
+                  <Path>classzeq_1_1http_1_1_server.html</Path>
+                  <Anchor>a12375938cc7ec5b0037f9c9ba7845d8f</Anchor>
+                 </Node>
+                 <Node>
                   <Name>getURI</Name>
                   <Path>classzeq_1_1http_1_1_server.html</Path>
                   <Anchor>a6380225606ed1f0f0fe0e7cb03b915af</Anchor>
@@ -343,17 +348,22 @@
                  <Node>
                   <Name>parse</Name>
                   <Path>classzeq_1_1http_1_1_server.html</Path>
-                  <Anchor>a913903c417eb5e970485e6afad7c93b1</Anchor>
+                  <Anchor>a7a2760a5737483bd4af8d7065f68e0d7</Anchor>
                  </Node>
                  <Node>
                   <Name>parse</Name>
                   <Path>classzeq_1_1http_1_1_server.html</Path>
-                  <Anchor>a9c770a868429e44d0bcf192d3354bf93</Anchor>
+                  <Anchor>a205838e7f7ff9a67b45884f487fff016</Anchor>
                  </Node>
                  <Node>
                   <Name>register_</Name>
                   <Path>classzeq_1_1http_1_1_server.html</Path>
                   <Anchor>a4a103758b9d5919585aa4b3ddee0d94d</Anchor>
+                 </Node>
+                 <Node>
+                  <Name>remove</Name>
+                  <Path>classzeq_1_1http_1_1_server.html</Path>
+                  <Anchor>aebf0b405fca90f6b1e15b9d51a2d78f5</Anchor>
                  </Node>
                  <Node>
                   <Name>subscribe</Name>
@@ -373,10 +383,6 @@
                 </Subnodes>
                </Node>
               </Subnodes>
-             </Node>
-             <Node>
-              <Name>vocabulary</Name>
-              <Path>namespacezeq_1_1vocabulary.html</Path>
              </Node>
              <Node>
               <Name>Event</Name>
