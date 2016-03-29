@@ -6,23 +6,6 @@
       <Path>index.html</Path>
       <Subnodes>
        <Node>
-        <Name>Introduction</Name>
-        <Path>index.html</Path>
-        <Anchor>Introduction</Anchor>
-        <Subnodes>
-         <Node>
-          <Name>Features</Name>
-          <Path>index.html</Path>
-          <Anchor>Features</Anchor>
-         </Node>
-        </Subnodes>
-       </Node>
-       <Node>
-        <Name>Building</Name>
-        <Path>index.html</Path>
-        <Anchor>Building</Anchor>
-       </Node>
-       <Node>
         <Name>Changelog</Name>
         <Path>_changelog.html</Path>
         <Subnodes>

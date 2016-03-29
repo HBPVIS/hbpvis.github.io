@@ -4,10 +4,10 @@ version: "1.3"
 major: 1
 minor: 3
 description: C++ network oriented utilities including a zeroconf implementation
-updated: 07/03/16
-homepage: https://github.com/HBPVIS/Servus
-repository: https://github.com/HBPVIS/Servus.git
-issuesurl: https://github.com/HBPVIS/Servus/issues
+updated: 29/03/16
+homepage: git@github.com:HBPVIS/Servus.git
+repository: git@github.com:HBPVIS/Servus.git
+issuesurl: git@github.com:HBPVIS/Servus/issues
 packageurl: 
 license: 
 maturity: EP
@@ -17,17 +17,17 @@ readmetype: text/x-markdown
 ---
 [TOC]
 
-# Introduction {#Introduction}
+# Introduction
 
 Servus is a small C++ network utility library that provides a zeroconf
 API, URI parsing and UUIDs.
 
-Servus 1.2 can be retrieved by cloning the
+Servus can be retrieved by cloning the
 [source code](https://github.com/HBPVIS/servus). Please file a
-[Bug Report](https://github.com/HBPVis/servus/issues) if you find any issues
-with this release.
+[Bug Report](https://github.com/HBPVis/servus/issues) if you find any
+issues with this release.
 
-## Features {#Features}
+## Features
 
 Servus provides classes for:
 
@@ -37,7 +37,7 @@ Servus provides classes for:
 * Zeroconf announcement and browsing using Avahi or DNSSD
 * Detailed @ref Changelog
 
-# Building {#Building}
+# Building
 
 Servus is a cross-platform library, the only mandatory dependency is a
 C++11 compiler. Zeroconf will be available in those platforms were
