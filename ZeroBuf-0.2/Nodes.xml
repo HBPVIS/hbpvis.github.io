@@ -7,11 +7,11 @@
       <Subnodes>
        <Node>
         <Name>Changelog</Name>
-        <Path>md__home_favreau_docs__zero_buf_doc__changelog.html</Path>
+        <Path>Changelog.html</Path>
        </Node>
        <Node>
         <Name>Zerobuf Binary Encoding</Name>
-        <Path>md__home_favreau_docs__zero_buf_doc__zerobuf.html</Path>
+        <Path>Binary.html</Path>
        </Node>
        <Node>
         <Name>Namespaces</Name>
@@ -45,7 +45,7 @@
        </Node>
        <Node>
         <Name>Classes</Name>
-        <Path></Path>
+        <Path>annotated.html</Path>
         <Subnodes>
          <Node>
           <Name>Class List</Name>
@@ -59,127 +59,6 @@
               <Name>render</Name>
               <Path></Path>
               <Subnodes>
-               <Node>
-                <Name>Vector3f</Name>
-                <Path>classzerobuf_1_1render_1_1_vector3f.html</Path>
-                <Subnodes>
-                 <Node>
-                  <Name>Vector3f</Name>
-                  <Path>classzerobuf_1_1render_1_1_vector3f.html</Path>
-                  <Anchor>abf783ce2baa697382122be57f530a6e3</Anchor>
-                 </Node>
-                 <Node>
-                  <Name>Vector3f</Name>
-                  <Path>classzerobuf_1_1render_1_1_vector3f.html</Path>
-                  <Anchor>a8d32688d98e9b08485cd111e8cb06189</Anchor>
-                 </Node>
-                 <Node>
-                  <Name>Vector3f</Name>
-                  <Path>classzerobuf_1_1render_1_1_vector3f.html</Path>
-                  <Anchor>a21a9b4663df5ad45807734afb97df657</Anchor>
-                 </Node>
-                 <Node>
-                  <Name>Vector3f</Name>
-                  <Path>classzerobuf_1_1render_1_1_vector3f.html</Path>
-                  <Anchor>ac2d0015a449c237982c17eceb4071778</Anchor>
-                 </Node>
-                 <Node>
-                  <Name>Vector3f</Name>
-                  <Path>classzerobuf_1_1render_1_1_vector3f.html</Path>
-                  <Anchor>a3356d9de20aff39d4cc052c8d7120313</Anchor>
-                 </Node>
-                 <Node>
-                  <Name>Vector3f</Name>
-                  <Path>classzerobuf_1_1render_1_1_vector3f.html</Path>
-                  <Anchor>a475e86a11b63eaa147c9ad78f9624f21</Anchor>
-                 </Node>
-                 <Node>
-                  <Name>~Vector3f</Name>
-                  <Path>classzerobuf_1_1render_1_1_vector3f.html</Path>
-                  <Anchor>ab9199aae865515b9e74a42a0b9c33e16</Anchor>
-                 </Node>
-                 <Node>
-                  <Name>_createJSON</Name>
-                  <Path>classzerobuf_1_1render_1_1_vector3f.html</Path>
-                  <Anchor>a8d74adca6dcf26ce2004625e3472d08a</Anchor>
-                 </Node>
-                 <Node>
-                  <Name>_parseJSON</Name>
-                  <Path>classzerobuf_1_1render_1_1_vector3f.html</Path>
-                  <Anchor>abb85eda0de92185cafc86b4116f51e06</Anchor>
-                 </Node>
-                 <Node>
-                  <Name>getTypeIdentifier</Name>
-                  <Path>classzerobuf_1_1render_1_1_vector3f.html</Path>
-                  <Anchor>a229be7c44084a5a3806ad66272ec3661</Anchor>
-                 </Node>
-                 <Node>
-                  <Name>getTypeName</Name>
-                  <Path>classzerobuf_1_1render_1_1_vector3f.html</Path>
-                  <Anchor>aaff4349a3a8cc02655e819b59c6c0f93</Anchor>
-                 </Node>
-                 <Node>
-                  <Name>getX</Name>
-                  <Path>classzerobuf_1_1render_1_1_vector3f.html</Path>
-                  <Anchor>a763c0ca190424b88685a4be2ae0206cb</Anchor>
-                 </Node>
-                 <Node>
-                  <Name>getY</Name>
-                  <Path>classzerobuf_1_1render_1_1_vector3f.html</Path>
-                  <Anchor>a12d4038b2a847efb9e947e21b28f17bc</Anchor>
-                 </Node>
-                 <Node>
-                  <Name>getZ</Name>
-                  <Path>classzerobuf_1_1render_1_1_vector3f.html</Path>
-                  <Anchor>ac9183d1ee6f3f6f23af13722d9f126ac</Anchor>
-                 </Node>
-                 <Node>
-                  <Name>getZerobufNumDynamics</Name>
-                  <Path>classzerobuf_1_1render_1_1_vector3f.html</Path>
-                  <Anchor>a76bca8ab84b59d9a8f1b33d5423b29d9</Anchor>
-                 </Node>
-                 <Node>
-                  <Name>getZerobufStaticSize</Name>
-                  <Path>classzerobuf_1_1render_1_1_vector3f.html</Path>
-                  <Anchor>a41f699fc4feaf00a283496732d058c9f</Anchor>
-                 </Node>
-                 <Node>
-                  <Name>operator=</Name>
-                  <Path>classzerobuf_1_1render_1_1_vector3f.html</Path>
-                  <Anchor>a6d07a93e1f7fa04d7376f3956938b6dc</Anchor>
-                 </Node>
-                 <Node>
-                  <Name>operator=</Name>
-                  <Path>classzerobuf_1_1render_1_1_vector3f.html</Path>
-                  <Anchor>a4702234e441d9029e4a6ac12c69c3824</Anchor>
-                 </Node>
-                 <Node>
-                  <Name>setX</Name>
-                  <Path>classzerobuf_1_1render_1_1_vector3f.html</Path>
-                  <Anchor>a9c5369cdca92c418ff26040e28d9b1e5</Anchor>
-                 </Node>
-                 <Node>
-                  <Name>setY</Name>
-                  <Path>classzerobuf_1_1render_1_1_vector3f.html</Path>
-                  <Anchor>a0d47eec75ff77b8cea59812baadb3644</Anchor>
-                 </Node>
-                 <Node>
-                  <Name>setZ</Name>
-                  <Path>classzerobuf_1_1render_1_1_vector3f.html</Path>
-                  <Anchor>a38d9d6ef8e650917c05d66f61cbbda67</Anchor>
-                 </Node>
-                 <Node>
-                  <Name>ZEROBUF_NUM_DYNAMICS</Name>
-                  <Path>classzerobuf_1_1render_1_1_vector3f.html</Path>
-                  <Anchor>a8d2975b834bb70ee84c85f3eb4a1503e</Anchor>
-                 </Node>
-                 <Node>
-                  <Name>ZEROBUF_STATIC_SIZE</Name>
-                  <Path>classzerobuf_1_1render_1_1_vector3f.html</Path>
-                  <Anchor>a5e1ffcec46765b747c5c22389e6ee915</Anchor>
-                 </Node>
-                </Subnodes>
-               </Node>
                <Node>
                 <Name>Camera</Name>
                 <Path>classzerobuf_1_1render_1_1_camera.html</Path>
@@ -373,7 +252,7 @@
                  <Node>
                   <Name>compact</Name>
                   <Path>classzerobuf_1_1render_1_1_image_j_p_e_g.html</Path>
-                  <Anchor>a6ac0dc7c921dde5d848fcb64a6d7fa0f</Anchor>
+                  <Anchor>a75a9b2c000891dbcb3a8e8477014dd47</Anchor>
                  </Node>
                  <Node>
                   <Name>getData</Name>
@@ -578,6 +457,127 @@
                  </Node>
                 </Subnodes>
                </Node>
+               <Node>
+                <Name>Vector3f</Name>
+                <Path>classzerobuf_1_1render_1_1_vector3f.html</Path>
+                <Subnodes>
+                 <Node>
+                  <Name>Vector3f</Name>
+                  <Path>classzerobuf_1_1render_1_1_vector3f.html</Path>
+                  <Anchor>abf783ce2baa697382122be57f530a6e3</Anchor>
+                 </Node>
+                 <Node>
+                  <Name>Vector3f</Name>
+                  <Path>classzerobuf_1_1render_1_1_vector3f.html</Path>
+                  <Anchor>a8d32688d98e9b08485cd111e8cb06189</Anchor>
+                 </Node>
+                 <Node>
+                  <Name>Vector3f</Name>
+                  <Path>classzerobuf_1_1render_1_1_vector3f.html</Path>
+                  <Anchor>a21a9b4663df5ad45807734afb97df657</Anchor>
+                 </Node>
+                 <Node>
+                  <Name>Vector3f</Name>
+                  <Path>classzerobuf_1_1render_1_1_vector3f.html</Path>
+                  <Anchor>ac2d0015a449c237982c17eceb4071778</Anchor>
+                 </Node>
+                 <Node>
+                  <Name>Vector3f</Name>
+                  <Path>classzerobuf_1_1render_1_1_vector3f.html</Path>
+                  <Anchor>a3356d9de20aff39d4cc052c8d7120313</Anchor>
+                 </Node>
+                 <Node>
+                  <Name>Vector3f</Name>
+                  <Path>classzerobuf_1_1render_1_1_vector3f.html</Path>
+                  <Anchor>a475e86a11b63eaa147c9ad78f9624f21</Anchor>
+                 </Node>
+                 <Node>
+                  <Name>~Vector3f</Name>
+                  <Path>classzerobuf_1_1render_1_1_vector3f.html</Path>
+                  <Anchor>ab9199aae865515b9e74a42a0b9c33e16</Anchor>
+                 </Node>
+                 <Node>
+                  <Name>_createJSON</Name>
+                  <Path>classzerobuf_1_1render_1_1_vector3f.html</Path>
+                  <Anchor>a8d74adca6dcf26ce2004625e3472d08a</Anchor>
+                 </Node>
+                 <Node>
+                  <Name>_parseJSON</Name>
+                  <Path>classzerobuf_1_1render_1_1_vector3f.html</Path>
+                  <Anchor>abb85eda0de92185cafc86b4116f51e06</Anchor>
+                 </Node>
+                 <Node>
+                  <Name>getTypeIdentifier</Name>
+                  <Path>classzerobuf_1_1render_1_1_vector3f.html</Path>
+                  <Anchor>a229be7c44084a5a3806ad66272ec3661</Anchor>
+                 </Node>
+                 <Node>
+                  <Name>getTypeName</Name>
+                  <Path>classzerobuf_1_1render_1_1_vector3f.html</Path>
+                  <Anchor>aaff4349a3a8cc02655e819b59c6c0f93</Anchor>
+                 </Node>
+                 <Node>
+                  <Name>getX</Name>
+                  <Path>classzerobuf_1_1render_1_1_vector3f.html</Path>
+                  <Anchor>a763c0ca190424b88685a4be2ae0206cb</Anchor>
+                 </Node>
+                 <Node>
+                  <Name>getY</Name>
+                  <Path>classzerobuf_1_1render_1_1_vector3f.html</Path>
+                  <Anchor>a12d4038b2a847efb9e947e21b28f17bc</Anchor>
+                 </Node>
+                 <Node>
+                  <Name>getZ</Name>
+                  <Path>classzerobuf_1_1render_1_1_vector3f.html</Path>
+                  <Anchor>ac9183d1ee6f3f6f23af13722d9f126ac</Anchor>
+                 </Node>
+                 <Node>
+                  <Name>getZerobufNumDynamics</Name>
+                  <Path>classzerobuf_1_1render_1_1_vector3f.html</Path>
+                  <Anchor>a76bca8ab84b59d9a8f1b33d5423b29d9</Anchor>
+                 </Node>
+                 <Node>
+                  <Name>getZerobufStaticSize</Name>
+                  <Path>classzerobuf_1_1render_1_1_vector3f.html</Path>
+                  <Anchor>a41f699fc4feaf00a283496732d058c9f</Anchor>
+                 </Node>
+                 <Node>
+                  <Name>operator=</Name>
+                  <Path>classzerobuf_1_1render_1_1_vector3f.html</Path>
+                  <Anchor>a6d07a93e1f7fa04d7376f3956938b6dc</Anchor>
+                 </Node>
+                 <Node>
+                  <Name>operator=</Name>
+                  <Path>classzerobuf_1_1render_1_1_vector3f.html</Path>
+                  <Anchor>a4702234e441d9029e4a6ac12c69c3824</Anchor>
+                 </Node>
+                 <Node>
+                  <Name>setX</Name>
+                  <Path>classzerobuf_1_1render_1_1_vector3f.html</Path>
+                  <Anchor>a9c5369cdca92c418ff26040e28d9b1e5</Anchor>
+                 </Node>
+                 <Node>
+                  <Name>setY</Name>
+                  <Path>classzerobuf_1_1render_1_1_vector3f.html</Path>
+                  <Anchor>a0d47eec75ff77b8cea59812baadb3644</Anchor>
+                 </Node>
+                 <Node>
+                  <Name>setZ</Name>
+                  <Path>classzerobuf_1_1render_1_1_vector3f.html</Path>
+                  <Anchor>a38d9d6ef8e650917c05d66f61cbbda67</Anchor>
+                 </Node>
+                 <Node>
+                  <Name>ZEROBUF_NUM_DYNAMICS</Name>
+                  <Path>classzerobuf_1_1render_1_1_vector3f.html</Path>
+                  <Anchor>a8d2975b834bb70ee84c85f3eb4a1503e</Anchor>
+                 </Node>
+                 <Node>
+                  <Name>ZEROBUF_STATIC_SIZE</Name>
+                  <Path>classzerobuf_1_1render_1_1_vector3f.html</Path>
+                  <Anchor>a5e1ffcec46765b747c5c22389e6ee915</Anchor>
+                 </Node>
+                </Subnodes>
+               </Node>
               </Subnodes>
              </Node>
              <Node>
@@ -773,22 +773,22 @@
                <Node>
                 <Name>operator[]</Name>
                 <Path>classzerobuf_1_1_vector.html</Path>
-                <Anchor>a0a8f58d8c170990c3854e8e73fa385b9</Anchor>
-               </Node>
-               <Node>
-                <Name>operator[]</Name>
-                <Path>classzerobuf_1_1_vector.html</Path>
-                <Anchor>aa8f1b399f9e03795c81e38bd8dc2e424</Anchor>
-               </Node>
-               <Node>
-                <Name>operator[]</Name>
-                <Path>classzerobuf_1_1_vector.html</Path>
                 <Anchor>a37f78dd14a1e4124214f0c18e4cb6043</Anchor>
                </Node>
                <Node>
                 <Name>operator[]</Name>
                 <Path>classzerobuf_1_1_vector.html</Path>
                 <Anchor>a6f04f85b36243fcca988be5da6300e67</Anchor>
+               </Node>
+               <Node>
+                <Name>operator[]</Name>
+                <Path>classzerobuf_1_1_vector.html</Path>
+                <Anchor>a57ef437418a51f8fdbf1c6c88d842420</Anchor>
+               </Node>
+               <Node>
+                <Name>operator[]</Name>
+                <Path>classzerobuf_1_1_vector.html</Path>
+                <Anchor>af9bc708c06797efc3ae042a3647a259b</Anchor>
                </Node>
                <Node>
                 <Name>push_back</Name>

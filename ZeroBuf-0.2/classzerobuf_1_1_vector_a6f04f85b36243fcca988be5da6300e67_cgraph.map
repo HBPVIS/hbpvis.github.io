@@ -1,0 +1,7 @@
+<map id="zerobuf::Vector::operator[]" name="zerobuf::Vector::operator[]">
+<area shape="rect" id="node2" href="$classzerobuf_1_1_vector.html#a1b1c10b4e256f289f88e801741cf5355" title="zerobuf::Vector::data" alt="" coords="488,8,644,35"/>
+<area shape="rect" id="node3" href="$classzerobuf_1_1_vector.html#a37f78dd14a1e4124214f0c18e4cb6043" title="zerobuf::Vector::operator[]" alt="" coords="247,33,439,60"/>
+<area shape="rect" id="node4" href="$classzerobuf_1_1_vector.html#ae74a41e9bba6c3756e7f7047fe3d058a" title="zerobuf::Vector::size" alt="" coords="490,71,642,97"/>
+<area shape="rect" id="node5" href="$classzerobuf_1_1_vector.html#a3e0d021448316dba456cc0118a562292" title="Insert a builtin element at the end of the vector. " alt="" coords="245,135,440,161"/>
+<area shape="rect" id="node6" href="$classzerobuf_1_1_allocator.html#a59b22f7bccb9384c0cb3069c076b3a51" title="Update allocation of the dynamic elem at index to have newSize bytes. " alt="" coords="274,186,411,227"/>
+</map>

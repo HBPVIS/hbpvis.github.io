@@ -4,15 +4,15 @@ version: "0.2"
 major: 0
 minor: 2
 description: Zero-copy, zero-serialize, zero-hassle protocol buffers
-updated: 18/02/16
-homepage: https://github.com/HBPVIS/ZeroBuf
-repository: https://github.com/HBPVIS/ZeroBuf
-issuesurl: https://github.com/HBPVIS/ZeroBuf
+updated: 26/04/16
+homepage: git@github.com:HBPVIS/ZeroBuf
+repository: git@github.com:HBPVIS/ZeroBuf
+issuesurl: git@github.com:HBPVIS/ZeroBuf
 packageurl: 
 license: LGPL
 maturity: EP
 maintainers: Human Brain Project (HBPVis@googlegroups.com)
-contributors: Ahmet Bilgili; Bernd Hentschel; Chevtchenko Grigori; Daniel Nachbaur; Pablo Toharia; Raphael Dumusc; Stefan Eilemann
+contributors: 0x5f3759df - ( i  1 ); Ahmet Bilgili; Bernd Hentschel; Chevtchenko Grigori; Cyrille Favreau; Daniel Nachbaur; Pablo Toharia; Raphael Dumusc; Stefan Eilemann
 readmetype: text/x-markdown
 ---
 ZeroBuf

@@ -1,0 +1,282 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN">
+
+<html lang="en">
+
+<head>
+  <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+  <title>LCOV - ZeroBuf - tests/jsonSerialization.cpp</title>
+  <link rel="stylesheet" type="text/css" href="../gcov.css">
+</head>
+
+<body>
+
+  <table width="100%" border=0 cellspacing=0 cellpadding=0>
+    <tr><td class="title">LCOV - code coverage report</td></tr>
+    <tr><td class="ruler"><img src="../glass.png" width=3 height=3 alt=""></td></tr>
+
+    <tr>
+      <td width="100%">
+        <table cellpadding=1 border=0 width="100%">
+          <tr>
+            <td width="10%" class="headerItem">Current view:</td>
+            <td width="35%" class="headerValue"><a href="../index.html">top level</a> - <a href="index.html">tests</a> - jsonSerialization.cpp<span style="font-size: 80%;"> (source / <a href="jsonSerialization.cpp.func-sort-c.html">functions</a>)</span></td>
+            <td width="5%"></td>
+            <td width="15%"></td>
+            <td width="10%" class="headerCovTableHead">Hit</td>
+            <td width="10%" class="headerCovTableHead">Total</td>
+            <td width="15%" class="headerCovTableHead">Coverage</td>
+          </tr>
+          <tr>
+            <td class="headerItem">Test:</td>
+            <td class="headerValue">ZeroBuf</td>
+            <td></td>
+            <td class="headerItem">Lines:</td>
+            <td class="headerCovTableEntry">21</td>
+            <td class="headerCovTableEntry">21</td>
+            <td class="headerCovTableEntryHi">100.0 %</td>
+          </tr>
+          <tr>
+            <td class="headerItem">Date:</td>
+            <td class="headerValue">2016-04-26 17:42:28</td>
+            <td></td>
+            <td class="headerItem">Functions:</td>
+            <td class="headerCovTableEntry">6</td>
+            <td class="headerCovTableEntry">6</td>
+            <td class="headerCovTableEntryHi">100.0 %</td>
+          </tr>
+          <tr><td><img src="../glass.png" width=3 height=3 alt=""></td></tr>
+        </table>
+      </td>
+    </tr>
+
+    <tr><td class="ruler"><img src="../glass.png" width=3 height=3 alt=""></td></tr>
+  </table>
+
+  <table cellpadding=0 cellspacing=0 border=0>
+    <tr>
+      <td><br></td>
+    </tr>
+    <tr>
+      <td>
+<pre class="sourceHeading">          Line data    Source code</pre>
+<pre class="source">
+<a name="1"><span class="lineNum">       1 </span>            : </a>
+<span class="lineNum">       2 </span>            : /* Copyright (c) 2015, Human Brain Project
+<span class="lineNum">       3 </span>            :  *                     Daniel Nachbaur &lt;danielnachbaur@epfl.ch&gt;
+<span class="lineNum">       4 </span>            :  */
+<span class="lineNum">       5 </span>            : 
+<span class="lineNum">       6 </span>            : #define BOOST_TEST_MODULE jsonSerialization
+<span class="lineNum">       7 </span>            : 
+<span class="lineNum">       8 </span>            : #include &lt;boost/test/unit_test.hpp&gt;
+<span class="lineNum">       9 </span>            : 
+<a name="10"><span class="lineNum">      10 </span>            : #include &quot;serialization.h&quot;</a>
+<span class="lineNum">      11 </span>            : 
+<span class="lineNum">      12 </span><span class="lineCov">          4 : const std::string expectedNestedJson( &quot;{\n&quot;</span>
+<span class="lineNum">      13 </span>            :                                       &quot;   \&quot;intvalue\&quot; : 42,\n&quot;
+<span class="lineNum">      14 </span>            :                                       &quot;   \&quot;uintvalue\&quot; : 4200\n&quot;
+<span class="lineNum">      15 </span><span class="lineCov">          4 :                                       &quot;}\n&quot; );</span>
+<span class="lineNum">      16 </span><span class="lineCov">          4 : const std::string expectedJson( &quot;{\n&quot;</span>
+<span class="lineNum">      17 </span>            :                                 &quot;   \&quot;boolvalue\&quot; : true,\n&quot;
+<span class="lineNum">      18 </span>            :                                 &quot;   \&quot;bytearray\&quot; : \&quot;AQECAw==\&quot;,\n&quot;
+<span class="lineNum">      19 </span>            :                                 &quot;   \&quot;bytedynamic\&quot; : \&quot;AQECAw==\&quot;,\n&quot;
+<span class="lineNum">      20 </span>            :                                 &quot;   \&quot;bytevalue\&quot; : 42,\n&quot;
+<span class="lineNum">      21 </span>            :                                 &quot;   \&quot;doublearray\&quot; : [ 1, 1, 2, 3 ],\n&quot;
+<span class="lineNum">      22 </span>            :                                 &quot;   \&quot;doubledynamic\&quot; : [ 1, 1, 2, 3 ],\n&quot;
+<span class="lineNum">      23 </span>            :                                 &quot;   \&quot;doublevalue\&quot; : 42,\n&quot;
+<span class="lineNum">      24 </span>            :                                 &quot;   \&quot;enumeration\&quot; : 1,\n&quot;
+<span class="lineNum">      25 </span>            :                                 &quot;   \&quot;enumerations\&quot; : [ 0, 1 ],\n&quot;
+<span class="lineNum">      26 </span>            :                                 &quot;   \&quot;falseBool\&quot; : false,\n&quot;
+<span class="lineNum">      27 </span>            :                                 &quot;   \&quot;floatarray\&quot; : [ 1, 1, 2, 3 ],\n&quot;
+<span class="lineNum">      28 </span>            :                                 &quot;   \&quot;floatdynamic\&quot; : [ 1, 1, 2, 3 ],\n&quot;
+<span class="lineNum">      29 </span>            :                                 &quot;   \&quot;floatvalue\&quot; : 42,\n&quot;
+<span class="lineNum">      30 </span>            :                                 &quot;   \&quot;int16_tarray\&quot; : [ 1, 1, 2, 3 ],\n&quot;
+<span class="lineNum">      31 </span>            :                                 &quot;   \&quot;int16_tdynamic\&quot; : [ 1, 1, 2, 3 ],\n&quot;
+<span class="lineNum">      32 </span>            :                                 &quot;   \&quot;int16_tvalue\&quot; : 42,\n&quot;
+<span class="lineNum">      33 </span>            :                                 &quot;   \&quot;int32_tarray\&quot; : [ 1, 1, 2, 3 ],\n&quot;
+<span class="lineNum">      34 </span>            :                                 &quot;   \&quot;int32_tdynamic\&quot; : [ 1, 1, 2, 3 ],\n&quot;
+<span class="lineNum">      35 </span>            :                                 &quot;   \&quot;int32_tvalue\&quot; : 42,\n&quot;
+<span class="lineNum">      36 </span>            :                                 &quot;   \&quot;int64_tarray\&quot; : [ 1, 1, 2, 3 ],\n&quot;
+<span class="lineNum">      37 </span>            :                                 &quot;   \&quot;int64_tdynamic\&quot; : [ 1, 1, 2, 3 ],\n&quot;
+<span class="lineNum">      38 </span>            :                                 &quot;   \&quot;int64_tvalue\&quot; : 42,\n&quot;
+<span class="lineNum">      39 </span>            :                                 &quot;   \&quot;int8_tarray\&quot; : [ 1, 1, 2, 3 ],\n&quot;
+<span class="lineNum">      40 </span>            :                                 &quot;   \&quot;int8_tdynamic\&quot; : [ 1, 1, 2, 3 ],\n&quot;
+<span class="lineNum">      41 </span>            :                                 &quot;   \&quot;int8_tvalue\&quot; : 42,\n&quot;
+<span class="lineNum">      42 </span>            :                                 &quot;   \&quot;intarray\&quot; : [ 1, 1, 2, 3 ],\n&quot;
+<span class="lineNum">      43 </span>            :                                 &quot;   \&quot;intdynamic\&quot; : [ 1, 1, 2, 3 ],\n&quot;
+<span class="lineNum">      44 </span>            :                                 &quot;   \&quot;intvalue\&quot; : 42,\n&quot;
+<span class="lineNum">      45 </span>            :                                 &quot;   \&quot;nested\&quot; : {\n&quot;
+<span class="lineNum">      46 </span>            :                                 &quot;      \&quot;intvalue\&quot; : 42,\n&quot;
+<span class="lineNum">      47 </span>            :                                 &quot;      \&quot;uintvalue\&quot; : 4200\n&quot;
+<span class="lineNum">      48 </span>            :                                 &quot;   },\n&quot;
+<span class="lineNum">      49 </span>            :                                 &quot;   \&quot;nestedMember\&quot; : {\n&quot;
+<span class="lineNum">      50 </span>            :                                 &quot;      \&quot;intvalue\&quot; : 7,\n&quot;
+<span class="lineNum">      51 </span>            :                                 &quot;      \&quot;name\&quot; : \&quot;Hugo\&quot;\n&quot;
+<span class="lineNum">      52 </span>            :                                 &quot;   },\n&quot;
+<span class="lineNum">      53 </span>            :                                 &quot;   \&quot;nestedarray\&quot; : [\n&quot;
+<span class="lineNum">      54 </span>            :                                 &quot;      {\n&quot;
+<span class="lineNum">      55 </span>            :                                 &quot;         \&quot;intvalue\&quot; : 42,\n&quot;
+<span class="lineNum">      56 </span>            :                                 &quot;         \&quot;uintvalue\&quot; : 4200\n&quot;
+<span class="lineNum">      57 </span>            :                                 &quot;      },\n&quot;
+<span class="lineNum">      58 </span>            :                                 &quot;      {\n&quot;
+<span class="lineNum">      59 </span>            :                                 &quot;         \&quot;intvalue\&quot; : 43,\n&quot;
+<span class="lineNum">      60 </span>            :                                 &quot;         \&quot;uintvalue\&quot; : 4201\n&quot;
+<span class="lineNum">      61 </span>            :                                 &quot;      },\n&quot;
+<span class="lineNum">      62 </span>            :                                 &quot;      {\n&quot;
+<span class="lineNum">      63 </span>            :                                 &quot;         \&quot;intvalue\&quot; : 44,\n&quot;
+<span class="lineNum">      64 </span>            :                                 &quot;         \&quot;uintvalue\&quot; : 4202\n&quot;
+<span class="lineNum">      65 </span>            :                                 &quot;      },\n&quot;
+<span class="lineNum">      66 </span>            :                                 &quot;      {\n&quot;
+<span class="lineNum">      67 </span>            :                                 &quot;         \&quot;intvalue\&quot; : 45,\n&quot;
+<span class="lineNum">      68 </span>            :                                 &quot;         \&quot;uintvalue\&quot; : 4203\n&quot;
+<span class="lineNum">      69 </span>            :                                 &quot;      }\n&quot;
+<span class="lineNum">      70 </span>            :                                 &quot;   ],\n&quot;
+<span class="lineNum">      71 </span>            :                                 &quot;   \&quot;nesteddynamic\&quot; : [\n&quot;
+<span class="lineNum">      72 </span>            :                                 &quot;      {\n&quot;
+<span class="lineNum">      73 </span>            :                                 &quot;         \&quot;intvalue\&quot; : 42,\n&quot;
+<span class="lineNum">      74 </span>            :                                 &quot;         \&quot;uintvalue\&quot; : 4200\n&quot;
+<span class="lineNum">      75 </span>            :                                 &quot;      },\n&quot;
+<span class="lineNum">      76 </span>            :                                 &quot;      {\n&quot;
+<span class="lineNum">      77 </span>            :                                 &quot;         \&quot;intvalue\&quot; : 43,\n&quot;
+<span class="lineNum">      78 </span>            :                                 &quot;         \&quot;uintvalue\&quot; : 4201\n&quot;
+<span class="lineNum">      79 </span>            :                                 &quot;      },\n&quot;
+<span class="lineNum">      80 </span>            :                                 &quot;      {\n&quot;
+<span class="lineNum">      81 </span>            :                                 &quot;         \&quot;intvalue\&quot; : 44,\n&quot;
+<span class="lineNum">      82 </span>            :                                 &quot;         \&quot;uintvalue\&quot; : 4202\n&quot;
+<span class="lineNum">      83 </span>            :                                 &quot;      },\n&quot;
+<span class="lineNum">      84 </span>            :                                 &quot;      {\n&quot;
+<span class="lineNum">      85 </span>            :                                 &quot;         \&quot;intvalue\&quot; : 45,\n&quot;
+<span class="lineNum">      86 </span>            :                                 &quot;         \&quot;uintvalue\&quot; : 4203\n&quot;
+<span class="lineNum">      87 </span>            :                                 &quot;      },\n&quot;
+<span class="lineNum">      88 </span>            :                                 &quot;      {\n&quot;
+<span class="lineNum">      89 </span>            :                                 &quot;         \&quot;intvalue\&quot; : 46,\n&quot;
+<span class="lineNum">      90 </span>            :                                 &quot;         \&quot;uintvalue\&quot; : 4204\n&quot;
+<span class="lineNum">      91 </span>            :                                 &quot;      },\n&quot;
+<span class="lineNum">      92 </span>            :                                 &quot;      {\n&quot;
+<span class="lineNum">      93 </span>            :                                 &quot;         \&quot;intvalue\&quot; : 47,\n&quot;
+<span class="lineNum">      94 </span>            :                                 &quot;         \&quot;uintvalue\&quot; : 4205\n&quot;
+<span class="lineNum">      95 </span>            :                                 &quot;      },\n&quot;
+<span class="lineNum">      96 </span>            :                                 &quot;      {\n&quot;
+<span class="lineNum">      97 </span>            :                                 &quot;         \&quot;intvalue\&quot; : 48,\n&quot;
+<span class="lineNum">      98 </span>            :                                 &quot;         \&quot;uintvalue\&quot; : 4206\n&quot;
+<span class="lineNum">      99 </span>            :                                 &quot;      },\n&quot;
+<span class="lineNum">     100 </span>            :                                 &quot;      {\n&quot;
+<span class="lineNum">     101 </span>            :                                 &quot;         \&quot;intvalue\&quot; : 49,\n&quot;
+<span class="lineNum">     102 </span>            :                                 &quot;         \&quot;uintvalue\&quot; : 4207\n&quot;
+<span class="lineNum">     103 </span>            :                                 &quot;      },\n&quot;
+<span class="lineNum">     104 </span>            :                                 &quot;      {\n&quot;
+<span class="lineNum">     105 </span>            :                                 &quot;         \&quot;intvalue\&quot; : 50,\n&quot;
+<span class="lineNum">     106 </span>            :                                 &quot;         \&quot;uintvalue\&quot; : 4208\n&quot;
+<span class="lineNum">     107 </span>            :                                 &quot;      },\n&quot;
+<span class="lineNum">     108 </span>            :                                 &quot;      {\n&quot;
+<span class="lineNum">     109 </span>            :                                 &quot;         \&quot;intvalue\&quot; : 51,\n&quot;
+<span class="lineNum">     110 </span>            :                                 &quot;         \&quot;uintvalue\&quot; : 4209\n&quot;
+<span class="lineNum">     111 </span>            :                                 &quot;      }\n&quot;
+<span class="lineNum">     112 </span>            :                                 &quot;   ],\n&quot;
+<span class="lineNum">     113 </span>            :                                 &quot;   \&quot;shortarray\&quot; : [ 1, 1, 2, 3 ],\n&quot;
+<span class="lineNum">     114 </span>            :                                 &quot;   \&quot;shortdynamic\&quot; : [ 1, 1, 2, 3 ],\n&quot;
+<span class="lineNum">     115 </span>            :                                 &quot;   \&quot;shortvalue\&quot; : 42,\n&quot;
+<span class="lineNum">     116 </span>            :                                 &quot;   \&quot;stringvalue\&quot; : \&quot;testmessage\&quot;,\n&quot;
+<span class="lineNum">     117 </span>            :                                 &quot;   \&quot;trueBool\&quot; : true,\n&quot;
+<span class="lineNum">     118 </span>            :                                 &quot;   \&quot;ubytearray\&quot; : \&quot;AQECAw==\&quot;,\n&quot;
+<span class="lineNum">     119 </span>            :                                 &quot;   \&quot;ubytedynamic\&quot; : \&quot;AQECAw==\&quot;,\n&quot;
+<span class="lineNum">     120 </span>            :                                 &quot;   \&quot;ubytevalue\&quot; : 42,\n&quot;
+<span class="lineNum">     121 </span>            :                                 &quot;   \&quot;uint128_tarray\&quot; : [\n&quot;
+<span class="lineNum">     122 </span>            :                                 &quot;      {\n&quot;
+<span class="lineNum">     123 </span>            :                                 &quot;         \&quot;high\&quot; : 0,\n&quot;
+<span class="lineNum">     124 </span>            :                                 &quot;         \&quot;low\&quot; : 1\n&quot;
+<span class="lineNum">     125 </span>            :                                 &quot;      },\n&quot;
+<span class="lineNum">     126 </span>            :                                 &quot;      {\n&quot;
+<span class="lineNum">     127 </span>            :                                 &quot;         \&quot;high\&quot; : 0,\n&quot;
+<span class="lineNum">     128 </span>            :                                 &quot;         \&quot;low\&quot; : 1\n&quot;
+<span class="lineNum">     129 </span>            :                                 &quot;      },\n&quot;
+<span class="lineNum">     130 </span>            :                                 &quot;      {\n&quot;
+<span class="lineNum">     131 </span>            :                                 &quot;         \&quot;high\&quot; : 0,\n&quot;
+<span class="lineNum">     132 </span>            :                                 &quot;         \&quot;low\&quot; : 2\n&quot;
+<span class="lineNum">     133 </span>            :                                 &quot;      },\n&quot;
+<span class="lineNum">     134 </span>            :                                 &quot;      {\n&quot;
+<span class="lineNum">     135 </span>            :                                 &quot;         \&quot;high\&quot; : 0,\n&quot;
+<span class="lineNum">     136 </span>            :                                 &quot;         \&quot;low\&quot; : 3\n&quot;
+<span class="lineNum">     137 </span>            :                                 &quot;      }\n&quot;
+<span class="lineNum">     138 </span>            :                                 &quot;   ],\n&quot;
+<span class="lineNum">     139 </span>            :                                 &quot;   \&quot;uint128_tdynamic\&quot; : [\n&quot;
+<span class="lineNum">     140 </span>            :                                 &quot;      {\n&quot;
+<span class="lineNum">     141 </span>            :                                 &quot;         \&quot;high\&quot; : 0,\n&quot;
+<span class="lineNum">     142 </span>            :                                 &quot;         \&quot;low\&quot; : 1\n&quot;
+<span class="lineNum">     143 </span>            :                                 &quot;      },\n&quot;
+<span class="lineNum">     144 </span>            :                                 &quot;      {\n&quot;
+<span class="lineNum">     145 </span>            :                                 &quot;         \&quot;high\&quot; : 0,\n&quot;
+<span class="lineNum">     146 </span>            :                                 &quot;         \&quot;low\&quot; : 1\n&quot;
+<span class="lineNum">     147 </span>            :                                 &quot;      },\n&quot;
+<span class="lineNum">     148 </span>            :                                 &quot;      {\n&quot;
+<span class="lineNum">     149 </span>            :                                 &quot;         \&quot;high\&quot; : 0,\n&quot;
+<span class="lineNum">     150 </span>            :                                 &quot;         \&quot;low\&quot; : 2\n&quot;
+<span class="lineNum">     151 </span>            :                                 &quot;      },\n&quot;
+<span class="lineNum">     152 </span>            :                                 &quot;      {\n&quot;
+<span class="lineNum">     153 </span>            :                                 &quot;         \&quot;high\&quot; : 0,\n&quot;
+<span class="lineNum">     154 </span>            :                                 &quot;         \&quot;low\&quot; : 3\n&quot;
+<span class="lineNum">     155 </span>            :                                 &quot;      }\n&quot;
+<span class="lineNum">     156 </span>            :                                 &quot;   ],\n&quot;
+<span class="lineNum">     157 </span>            :                                 &quot;   \&quot;uint128_tvalue\&quot; : {\n&quot;
+<span class="lineNum">     158 </span>            :                                 &quot;      \&quot;high\&quot; : 0,\n&quot;
+<span class="lineNum">     159 </span>            :                                 &quot;      \&quot;low\&quot; : 42\n&quot;
+<span class="lineNum">     160 </span>            :                                 &quot;   },\n&quot;
+<span class="lineNum">     161 </span>            :                                 &quot;   \&quot;uint16_tarray\&quot; : [ 1, 1, 2, 3 ],\n&quot;
+<span class="lineNum">     162 </span>            :                                 &quot;   \&quot;uint16_tdynamic\&quot; : [ 1, 1, 2, 3 ],\n&quot;
+<span class="lineNum">     163 </span>            :                                 &quot;   \&quot;uint16_tvalue\&quot; : 42,\n&quot;
+<span class="lineNum">     164 </span>            :                                 &quot;   \&quot;uint32_tarray\&quot; : [ 1, 1, 2, 3 ],\n&quot;
+<span class="lineNum">     165 </span>            :                                 &quot;   \&quot;uint32_tdynamic\&quot; : [ 1, 1, 2, 3 ],\n&quot;
+<span class="lineNum">     166 </span>            :                                 &quot;   \&quot;uint32_tvalue\&quot; : 42,\n&quot;
+<span class="lineNum">     167 </span>            :                                 &quot;   \&quot;uint64_tarray\&quot; : [ 1, 1, 2, 3 ],\n&quot;
+<span class="lineNum">     168 </span>            :                                 &quot;   \&quot;uint64_tdynamic\&quot; : [ 1, 1, 2, 3 ],\n&quot;
+<span class="lineNum">     169 </span>            :                                 &quot;   \&quot;uint64_tvalue\&quot; : 42,\n&quot;
+<span class="lineNum">     170 </span>            :                                 &quot;   \&quot;uint8_tarray\&quot; : [ 1, 1, 2, 3 ],\n&quot;
+<span class="lineNum">     171 </span>            :                                 &quot;   \&quot;uint8_tdynamic\&quot; : [ 1, 1, 2, 3 ],\n&quot;
+<span class="lineNum">     172 </span>            :                                 &quot;   \&quot;uint8_tvalue\&quot; : 42,\n&quot;
+<span class="lineNum">     173 </span>            :                                 &quot;   \&quot;uintarray\&quot; : [ 1, 1, 2, 3 ],\n&quot;
+<span class="lineNum">     174 </span>            :                                 &quot;   \&quot;uintdynamic\&quot; : [ 1, 1, 2, 3 ],\n&quot;
+<span class="lineNum">     175 </span>            :                                 &quot;   \&quot;uintvalue\&quot; : 42,\n&quot;
+<span class="lineNum">     176 </span>            :                                 &quot;   \&quot;ulongarray\&quot; : [ 1, 1, 2, 3 ],\n&quot;
+<span class="lineNum">     177 </span>            :                                 &quot;   \&quot;ulongdynamic\&quot; : [ 1, 1, 2, 3 ],\n&quot;
+<span class="lineNum">     178 </span>            :                                 &quot;   \&quot;ulongvalue\&quot; : 42,\n&quot;
+<span class="lineNum">     179 </span>            :                                 &quot;   \&quot;ushortarray\&quot; : [ 1, 1, 2, 3 ],\n&quot;
+<span class="lineNum">     180 </span>            :                                 &quot;   \&quot;ushortdynamic\&quot; : [ 1, 1, 2, 3 ],\n&quot;
+<span class="lineNum">     181 </span>            :                                 &quot;   \&quot;ushortvalue\&quot; : 42\n&quot;
+<a name="182"><span class="lineNum">     182 </span><span class="lineCov">          4 :                                 &quot;}\n&quot; );</span></a>
+<span class="lineNum">     183 </span>            : 
+<span class="lineNum">     184 </span><span class="lineCov">          6 : BOOST_AUTO_TEST_CASE(zerobufToJSON)</span>
+<span class="lineNum">     185 </span>            : {
+<span class="lineNum">     186 </span><span class="lineCov">          4 :     const test::TestSchema&amp; object( getTestObject( ));</span>
+<span class="lineNum">     187 </span><span class="lineCov">          4 :     const std::string&amp; json = object.toJSON();</span>
+<span class="lineNum">     188 </span><span class="lineCov">          2 :     BOOST_CHECK_EQUAL( json, expectedJson );</span>
+<span class="lineNum">     189 </span>            : 
+<span class="lineNum">     190 </span><span class="lineCov">          2 :     const test::TestNested&amp; constNested = object.getNested();</span>
+<span class="lineNum">     191 </span><span class="lineCov">          2 :     BOOST_CHECK_EQUAL( constNested.toJSON(), expectedNestedJson );</span>
+<span class="lineNum">     192 </span>            : 
+<span class="lineNum">     193 </span><span class="lineCov">          4 :     test::TestNested nested = object.getNested();</span>
+<span class="lineNum">     194 </span><span class="lineCov">          2 :     BOOST_CHECK_EQUAL( nested.toJSON(), expectedNestedJson );</span>
+<a name="195"><span class="lineNum">     195 </span><span class="lineCov">          2 : }</span></a>
+<span class="lineNum">     196 </span>            : 
+<span class="lineNum">     197 </span><span class="lineCov">          6 : BOOST_AUTO_TEST_CASE(zerobufFromJSON)</span>
+<span class="lineNum">     198 </span>            : {
+<span class="lineNum">     199 </span><span class="lineCov">          4 :     test::TestNested nested;</span>
+<span class="lineNum">     200 </span><span class="lineCov">          2 :     nested.fromJSON( expectedNestedJson );</span>
+<span class="lineNum">     201 </span><span class="lineCov">          2 :     checkTestObject( nested );</span>
+<span class="lineNum">     202 </span>            : 
+<span class="lineNum">     203 </span><span class="lineCov">          4 :     test::TestSchema object;</span>
+<a name="204"><span class="lineNum">     204 </span><span class="lineCov">          2 :     object.fromJSON( expectedJson );</span></a>
+<span class="lineNum">     205 </span><span class="lineCov">          2 :     checkTestObject( object );</span>
+<span class="lineNum">     206 </span><span class="lineCov">          8 : }</span>
+</pre>
+      </td>
+    </tr>
+  </table>
+  <br>
+
+  <table width="100%" border=0 cellspacing=0 cellpadding=0>
+    <tr><td class="ruler"><img src="../glass.png" width=3 height=3 alt=""></td></tr>
+    <tr><td class="versionInfo">Generated by: <a href="http://ltp.sourceforge.net/coverage/lcov.php" target="_parent">LCOV version 1.11 pre (CVS 1.77)</a></td></tr>
+  </table>
+  <br>
+
+</body>
+</html>
