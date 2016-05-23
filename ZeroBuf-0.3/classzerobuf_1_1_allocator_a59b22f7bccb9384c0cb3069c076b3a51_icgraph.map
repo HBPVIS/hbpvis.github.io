@@ -1,0 +1,5 @@
+<map id="zerobuf::Allocator::updateAllocation" name="zerobuf::Allocator::updateAllocation">
+<area shape="rect" id="node3" href="$classzerobuf_1_1_vector.html#ab38f84c7f23e4eb6e3f00a9e925f70cc" title="Empty the vector. " alt="" coords="219,5,389,35"/>
+<area shape="rect" id="node5" href="$classzerobuf_1_1_vector.html#a4fa39e5f86efd5cb3724f366d8ec7864" title="Update this vector from its JSON representation. " alt="" coords="203,59,405,88"/>
+<area shape="rect" id="node7" href="$classzerobuf_1_1_vector.html#ad80419326920b94b1845b9448e410f48" title="Insert a Zerobuf&#45;derived element at the end of the vector. " alt="" coords="201,112,407,141"/>
+</map>

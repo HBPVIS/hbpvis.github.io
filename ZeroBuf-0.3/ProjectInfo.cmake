@@ -1,0 +1,7 @@
+set(ZEROBUF_MATURITY "EP")
+set(ZEROBUF_DESCRIPTION "")
+set(ZEROBUF_GIT_ROOT_URL "https://github.com/HBPVIS/ZeroBuf.git")
+set(ZEROBUF_PACKAGE_URL "")
+set(ZEROBUF_CI_URL "https://travis-ci.org/HBPVIS/ZeroBuf")
+set(ZEROBUF_CI_PNG "https://travis-ci.org/HBPVIS/ZeroBuf.png")
+set(ZEROBUF_ISSUES_URL "https://github.com/HBPVIS/ZeroBuf/issues")

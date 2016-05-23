@@ -1,0 +1,8 @@
+<map id="Graphical Class Hierarchy" name="Graphical Class Hierarchy">
+<area shape="rect" id="node1" href="$classzerobuf_1_1_allocator.html" title="Allocator base class and interface. " alt="" coords="7,75,148,104"/>
+<area shape="rect" id="node3" href="$classzerobuf_1_1_dynamic_sub_allocator_base.html" title="A zerobuf child allocator which manages a dynamic allocation of statically&#45;sized members. " alt="" coords="211,5,435,51"/>
+<area shape="rect" id="node5" href="$classzerobuf_1_1_non_moving_base_allocator.html" title="Allocator base class which does not move existing fields. " alt="" coords="199,75,447,104"/>
+<area shape="rect" id="node11" href="$classzerobuf_1_1_static_sub_allocator_base.html" title="A zerobuf child allocator which manages a static sub&#45;struct. " alt="" coords="220,127,425,174"/>
+<area shape="rect" id="node7" href="$classzerobuf_1_1_non_moving_allocator.html" title="A zerobuf root allocator which does not move existing fields. " alt="" coords="509,44,723,73"/>
+<area shape="rect" id="node9" href="$classzerobuf_1_1_non_moving_sub_allocator_base.html" title="A zerobuf child allocator which does not move existing fields. " alt="" coords="497,97,735,143"/>
+</map>
