@@ -1,0 +1,4 @@
+<map id="zeroeq::http::Server::add" name="zeroeq::http::Server::add">
+<area shape="rect" id="node3" href="$classzeroeq_1_1http_1_1_server.html#a44c715fe1281aa97d76a33a09a839cfd" title="Subscribe a serializable object to serve HTTP GET requests. " alt="" coords="251,5,413,51"/>
+<area shape="rect" id="node5" href="$classzeroeq_1_1http_1_1_server.html#a7be2de3324ede2ddc8bd29a2451d0579" title="Subscribe a serializable object to receive updates from HTTP PUT requests. " alt="" coords="251,74,413,121"/>
+</map>

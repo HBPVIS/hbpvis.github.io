@@ -1,0 +1,4 @@
+<map id="zeroeq::http::Server::remove" name="zeroeq::http::Server::remove">
+<area shape="rect" id="node3" href="$classzeroeq_1_1http_1_1_server.html#a269e0c8574c9d628d84b282db5bed4c4" title="Unsubscribe the given object for GET requests. " alt="" coords="216,5,379,51"/>
+<area shape="rect" id="node5" href="$classzeroeq_1_1http_1_1_server.html#aa25448b524c29696bf214a8ca18b5b9c" title="Unsubscribe the given object to stop applying updates. " alt="" coords="216,74,379,121"/>
+</map>
