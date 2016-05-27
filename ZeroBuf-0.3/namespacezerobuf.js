@@ -1,6 +1,7 @@
 var namespacezerobuf =
 [
     [ "Allocator", "classzerobuf_1_1_allocator.html", "classzerobuf_1_1_allocator" ],
+    [ "ConstAllocator", "classzerobuf_1_1_const_allocator.html", "classzerobuf_1_1_const_allocator" ],
     [ "DynamicSubAllocatorBase", "classzerobuf_1_1_dynamic_sub_allocator_base.html", "classzerobuf_1_1_dynamic_sub_allocator_base" ],
     [ "NonMovingAllocator", "classzerobuf_1_1_non_moving_allocator.html", "classzerobuf_1_1_non_moving_allocator" ],
     [ "NonMovingBaseAllocator", "classzerobuf_1_1_non_moving_base_allocator.html", "classzerobuf_1_1_non_moving_base_allocator" ],

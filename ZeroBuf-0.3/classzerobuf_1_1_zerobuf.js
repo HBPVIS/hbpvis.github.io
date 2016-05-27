@@ -1,8 +1,8 @@
 var classzerobuf_1_1_zerobuf =
 [
+    [ "~Zerobuf", "classzerobuf_1_1_zerobuf.html#a5337b7733438b7348af0b7576ef50f49", null ],
     [ "Zerobuf", "classzerobuf_1_1_zerobuf.html#a7750907a69d676c5a4a6141295e08486", null ],
     [ "Zerobuf", "classzerobuf_1_1_zerobuf.html#aad9bee4f2834338ca5e756b86b94902c", null ],
-    [ "~Zerobuf", "classzerobuf_1_1_zerobuf.html#a5337b7733438b7348af0b7576ef50f49", null ],
     [ "_copyZerobufArray", "classzerobuf_1_1_zerobuf.html#a031cca0422d2cda2c27dab67cd67a39a", null ],
     [ "_createJSON", "classzerobuf_1_1_zerobuf.html#acebc8eefbb49abee8d6c706985fb6db1", null ],
     [ "_fromBinary", "classzerobuf_1_1_zerobuf.html#a9fe9397bda7d0302742121af353dbf16", null ],

@@ -160,6 +160,17 @@
   </Token>
   <Token>
     <TokenIdentifier>
+      <Name>zerobuf::ConstAllocator</Name>
+      <APILanguage>c</APILanguage>
+      <Type>cl</Type>
+      <Scope>zerobuf::ConstAllocator</Scope>
+    </TokenIdentifier>
+    <Path>classzerobuf_1_1_const_allocator.html</Path>
+    <Abstract>A zerobuf root allocator which gives read-only access to its data. </Abstract>
+    <DeclaredIn>ConstAllocator.h</DeclaredIn>
+  </Token>
+  <Token>
+    <TokenIdentifier>
       <Name>zerobuf::DynamicSubAllocatorBase</Name>
       <APILanguage>c</APILanguage>
       <Type>tmplt</Type>

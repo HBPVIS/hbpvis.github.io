@@ -1,11 +1,12 @@
 <map id="api.h" name="api.h">
-<area shape="rect" id="node3" href="$_dynamic_sub_allocator_8h_source.html" title="DynamicSubAllocator.h" alt="" coords="5,160,179,189"/>
-<area shape="rect" id="node7" href="$json_8h_source.html" title="json.h" alt="" coords="211,83,272,112"/>
-<area shape="rect" id="node10" href="$_zerobuf_8h_source.html" title="Zerobuf.h" alt="" coords="253,160,339,189"/>
-<area shape="rect" id="node13" href="$_non_moving_allocator_8h_source.html" title="NonMovingAllocator.h" alt="" coords="363,160,528,189"/>
-<area shape="rect" id="node15" href="$_non_moving_base_allocator_8h_source.html" title="NonMovingBaseAllocator.h" alt="" coords="397,83,595,112"/>
-<area shape="rect" id="node18" href="$_non_moving_sub_allocator_8h_source.html" title="NonMovingSubAllocator.h" alt="" coords="552,160,741,189"/>
-<area shape="rect" id="node21" href="$_static_sub_allocator_8h_source.html" title="StaticSubAllocator.h" alt="" coords="669,83,827,112"/>
-<area shape="rect" id="node23" href="$version_8h.html" title="Defines version macros and class for library ZeroBuf. " alt="" coords="851,83,933,112"/>
-<area shape="rect" id="node5" href="$_vector_8h_source.html" title="Vector.h" alt="" coords="177,237,255,267"/>
+<area shape="rect" id="node3" href="$_const_allocator_8h_source.html" title="ConstAllocator.h" alt="" coords="7,83,137,112"/>
+<area shape="rect" id="node5" href="$_dynamic_sub_allocator_8h_source.html" title="DynamicSubAllocator.h" alt="" coords="5,160,179,189"/>
+<area shape="rect" id="node9" href="$json_8h_source.html" title="json.h" alt="" coords="212,83,273,112"/>
+<area shape="rect" id="node12" href="$_zerobuf_8h_source.html" title="Zerobuf.h" alt="" coords="253,160,339,189"/>
+<area shape="rect" id="node15" href="$_non_moving_allocator_8h_source.html" title="NonMovingAllocator.h" alt="" coords="363,160,528,189"/>
+<area shape="rect" id="node17" href="$_non_moving_base_allocator_8h_source.html" title="NonMovingBaseAllocator.h" alt="" coords="399,83,596,112"/>
+<area shape="rect" id="node20" href="$_non_moving_sub_allocator_8h_source.html" title="NonMovingSubAllocator.h" alt="" coords="552,160,741,189"/>
+<area shape="rect" id="node23" href="$_static_sub_allocator_8h_source.html" title="StaticSubAllocator.h" alt="" coords="671,83,828,112"/>
+<area shape="rect" id="node25" href="$version_8h.html" title="Defines version macros and class for library ZeroBuf. " alt="" coords="852,83,935,112"/>
+<area shape="rect" id="node7" href="$_vector_8h_source.html" title="Vector.h" alt="" coords="177,237,255,267"/>
 </map>

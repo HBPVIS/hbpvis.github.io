@@ -37,7 +37,7 @@
           </tr>
           <tr>
             <td class="headerItem">Date:</td>
-            <td class="headerValue">2016-05-24 01:08:08</td>
+            <td class="headerValue">2016-05-28 01:08:28</td>
             <td></td>
             <td class="headerItem">Functions:</td>
             <td class="headerCovTableEntry">108</td>
@@ -192,7 +192,7 @@
 <span class="lineNum">     130 </span>            : }
 <a name="131"><span class="lineNum">     131 </span>            : </a>
 <span class="lineNum">     132 </span>            : /// Returns true if ch is a control character (in range [0,32[).
-<span class="lineNum">     133 </span><span class="lineCov">       3315 : static inline bool isControlCharacter(char ch) { return ch &gt; 0 &amp;&amp; ch &lt;= 0x1F; }</span>
+<span class="lineNum">     133 </span><span class="lineCov">       5087 : static inline bool isControlCharacter(char ch) { return ch &gt; 0 &amp;&amp; ch &lt;= 0x1F; }</span>
 <span class="lineNum">     134 </span>            : 
 <span class="lineNum">     135 </span>            : enum {
 <span class="lineNum">     136 </span>            :   /// Constant that specify the size of the buffer that must be passed to
@@ -208,27 +208,27 @@
 <span class="lineNum">     146 </span>            :  * @param current Input/Output string buffer.
 <a name="147"><span class="lineNum">     147 </span>            :  *        Must have at least uintToStringBufferSize chars free.</a>
 <span class="lineNum">     148 </span>            :  */
-<span class="lineNum">     149 </span><span class="lineCov">        385 : static inline void uintToString(LargestUInt value, char*&amp; current) {</span>
-<span class="lineNum">     150 </span><span class="lineCov">        385 :   *--current = 0;</span>
-<span class="lineNum">     151 </span><span class="lineCov">        531 :   do {</span>
-<span class="lineNum">     152 </span><span class="lineCov">        531 :     *--current = char(value % 10) + '0';</span>
-<span class="lineNum">     153 </span><span class="lineCov">        531 :     value /= 10;</span>
+<span class="lineNum">     149 </span><span class="lineCov">        567 : static inline void uintToString(LargestUInt value, char*&amp; current) {</span>
+<span class="lineNum">     150 </span><span class="lineCov">        567 :   *--current = 0;</span>
+<span class="lineNum">     151 </span><span class="lineCov">        715 :   do {</span>
+<span class="lineNum">     152 </span><span class="lineCov">        715 :     *--current = char(value % 10) + '0';</span>
+<span class="lineNum">     153 </span><span class="lineCov">        715 :     value /= 10;</span>
 <span class="lineNum">     154 </span>            :   } while (value != 0);
-<span class="lineNum">     155 </span><span class="lineCov">        385 : }</span>
+<span class="lineNum">     155 </span><span class="lineCov">        567 : }</span>
 <span class="lineNum">     156 </span>            : 
 <span class="lineNum">     157 </span>            : /** Change ',' to '.' everywhere in buffer.
 <span class="lineNum">     158 </span>            :  *
 <span class="lineNum">     159 </span>            :  * We had a sophisticated way, but it did not work in WinCE.
 <a name="160"><span class="lineNum">     160 </span>            :  * @see https://github.com/open-source-parsers/jsoncpp/pull/9</a>
 <span class="lineNum">     161 </span>            :  */
-<span class="lineNum">     162 </span><span class="lineCov">         28 : static inline void fixNumericLocale(char* begin, char* end) {</span>
-<span class="lineNum">     163 </span><span class="lineCov">         88 :   while (begin &lt; end) {</span>
-<span class="lineNum">     164 </span><span class="lineCov">         32 :     if (*begin == ',') {</span>
+<span class="lineNum">     162 </span><span class="lineCov">         48 : static inline void fixNumericLocale(char* begin, char* end) {</span>
+<span class="lineNum">     163 </span><span class="lineCov">        182 :   while (begin &lt; end) {</span>
+<span class="lineNum">     164 </span><span class="lineCov">         86 :     if (*begin == ',') {</span>
 <span class="lineNum">     165 </span><span class="lineNoCov">          0 :       *begin = '.';</span>
 <span class="lineNum">     166 </span>            :     }
-<span class="lineNum">     167 </span><span class="lineCov">         32 :     ++begin;</span>
+<span class="lineNum">     167 </span><span class="lineCov">         86 :     ++begin;</span>
 <span class="lineNum">     168 </span>            :   }
-<span class="lineNum">     169 </span><span class="lineCov">         28 : }</span>
+<span class="lineNum">     169 </span><span class="lineCov">         48 : }</span>
 <span class="lineNum">     170 </span>            : 
 <span class="lineNum">     171 </span>            : } // namespace Json {
 <span class="lineNum">     172 </span>            : 
@@ -2473,8 +2473,8 @@
 <span class="lineNum">    2411 </span>            : #endif
 <a name="2412"><span class="lineNum">    2412 </span>            : static const unsigned char ALIGNAS(8) kNull[sizeof(Value)] = { 0 };</a>
 <span class="lineNum">    2413 </span>            : const unsigned char&amp; kNullRef = kNull[0];
-<span class="lineNum">    2414 </span><span class="lineCov">          5 : const Value&amp; Value::null = reinterpret_cast&lt;const Value&amp;&gt;(kNullRef);</span>
-<span class="lineNum">    2415 </span><span class="lineCov">          5 : const Value&amp; Value::nullRef = null;</span>
+<span class="lineNum">    2414 </span><span class="lineCov">          6 : const Value&amp; Value::null = reinterpret_cast&lt;const Value&amp;&gt;(kNullRef);</span>
+<span class="lineNum">    2415 </span><span class="lineCov">          6 : const Value&amp; Value::nullRef = null;</span>
 <span class="lineNum">    2416 </span>            : 
 <span class="lineNum">    2417 </span>            : const Int Value::minInt = Int(~(UInt(-1) / 2));
 <span class="lineNum">    2418 </span>            : const Int Value::maxInt = Int(UInt(-1) / 2);
@@ -2519,62 +2519,62 @@
 <span class="lineNum">    2457 </span>            :  *               computed using strlen(value).
 <a name="2458"><span class="lineNum">    2458 </span>            :  * @return Pointer on the duplicate instance of string.</a>
 <span class="lineNum">    2459 </span>            :  */
-<span class="lineNum">    2460 </span><span class="lineCov">       1160 : static inline char* duplicateStringValue(const char* value,</span>
+<span class="lineNum">    2460 </span><span class="lineCov">       1504 : static inline char* duplicateStringValue(const char* value,</span>
 <span class="lineNum">    2461 </span>            :                                          size_t length) {
 <span class="lineNum">    2462 </span>            :   // Avoid an integer overflow in the call to malloc below by limiting length
 <span class="lineNum">    2463 </span>            :   // to a sane value.
-<span class="lineNum">    2464 </span><span class="lineCov">       1160 :   if (length &gt;= (size_t)Value::maxInt)</span>
+<span class="lineNum">    2464 </span><span class="lineCov">       1504 :   if (length &gt;= (size_t)Value::maxInt)</span>
 <span class="lineNum">    2465 </span><span class="lineNoCov">          0 :     length = Value::maxInt - 1;</span>
 <span class="lineNum">    2466 </span>            : 
-<span class="lineNum">    2467 </span><span class="lineCov">       1160 :   char* newString = static_cast&lt;char*&gt;(malloc(length + 1));</span>
-<span class="lineNum">    2468 </span><span class="lineCov">       1160 :   if (newString == NULL) {</span>
+<span class="lineNum">    2467 </span><span class="lineCov">       1504 :   char* newString = static_cast&lt;char*&gt;(malloc(length + 1));</span>
+<span class="lineNum">    2468 </span><span class="lineCov">       1504 :   if (newString == NULL) {</span>
 <span class="lineNum">    2469 </span>            :     throwRuntimeError(
 <span class="lineNum">    2470 </span>            :         &quot;in Json::Value::duplicateStringValue(): &quot;
 <span class="lineNum">    2471 </span><span class="lineNoCov">          0 :         &quot;Failed to allocate string value buffer&quot;);</span>
 <span class="lineNum">    2472 </span>            :   }
-<span class="lineNum">    2473 </span><span class="lineCov">       1160 :   memcpy(newString, value, length);</span>
-<span class="lineNum">    2474 </span><span class="lineCov">       1160 :   newString[length] = 0;</span>
-<span class="lineNum">    2475 </span><span class="lineCov">       1160 :   return newString;</span>
+<span class="lineNum">    2473 </span><span class="lineCov">       1504 :   memcpy(newString, value, length);</span>
+<span class="lineNum">    2474 </span><span class="lineCov">       1504 :   newString[length] = 0;</span>
+<span class="lineNum">    2475 </span><span class="lineCov">       1504 :   return newString;</span>
 <span class="lineNum">    2476 </span>            : }
 <span class="lineNum">    2477 </span>            : 
 <a name="2478"><span class="lineNum">    2478 </span>            : /* Record the length as a prefix.</a>
 <span class="lineNum">    2479 </span>            :  */
-<span class="lineNum">    2480 </span><span class="lineCov">         36 : static inline char* duplicateAndPrefixStringValue(</span>
+<span class="lineNum">    2480 </span><span class="lineCov">         48 : static inline char* duplicateAndPrefixStringValue(</span>
 <span class="lineNum">    2481 </span>            :     const char* value,
 <span class="lineNum">    2482 </span>            :     unsigned int length)
 <span class="lineNum">    2483 </span>            : {
 <span class="lineNum">    2484 </span>            :   // Avoid an integer overflow in the call to malloc below by limiting length
 <span class="lineNum">    2485 </span>            :   // to a sane value.
-<span class="lineNum">    2486 </span><span class="lineCov">         36 :   JSON_ASSERT_MESSAGE(length &lt;= (unsigned)Value::maxInt - sizeof(unsigned) - 1U,</span>
+<span class="lineNum">    2486 </span><span class="lineCov">         48 :   JSON_ASSERT_MESSAGE(length &lt;= (unsigned)Value::maxInt - sizeof(unsigned) - 1U,</span>
 <span class="lineNum">    2487 </span>            :                       &quot;in Json::Value::duplicateAndPrefixStringValue(): &quot;
 <span class="lineNum">    2488 </span>            :                       &quot;length too big for prefixing&quot;);
-<span class="lineNum">    2489 </span><span class="lineCov">         36 :   unsigned actualLength = length + sizeof(unsigned) + 1U;</span>
-<span class="lineNum">    2490 </span><span class="lineCov">         36 :   char* newString = static_cast&lt;char*&gt;(malloc(actualLength));</span>
-<span class="lineNum">    2491 </span><span class="lineCov">         36 :   if (newString == 0) {</span>
+<span class="lineNum">    2489 </span><span class="lineCov">         48 :   unsigned actualLength = length + sizeof(unsigned) + 1U;</span>
+<span class="lineNum">    2490 </span><span class="lineCov">         48 :   char* newString = static_cast&lt;char*&gt;(malloc(actualLength));</span>
+<span class="lineNum">    2491 </span><span class="lineCov">         48 :   if (newString == 0) {</span>
 <span class="lineNum">    2492 </span>            :     throwRuntimeError(
 <span class="lineNum">    2493 </span>            :         &quot;in Json::Value::duplicateAndPrefixStringValue(): &quot;
 <span class="lineNum">    2494 </span><span class="lineNoCov">          0 :         &quot;Failed to allocate string value buffer&quot;);</span>
 <span class="lineNum">    2495 </span>            :   }
-<span class="lineNum">    2496 </span><span class="lineCov">         36 :   *reinterpret_cast&lt;unsigned*&gt;(newString) = length;</span>
-<span class="lineNum">    2497 </span><span class="lineCov">         36 :   memcpy(newString + sizeof(unsigned), value, length);</span>
-<span class="lineNum">    2498 </span><span class="lineCov">         36 :   newString[actualLength - 1U] = 0; // to avoid buffer over-run accidents by users later</span>
-<a name="2499"><span class="lineNum">    2499 </span><span class="lineCov">         36 :   return newString;</span></a>
+<span class="lineNum">    2496 </span><span class="lineCov">         48 :   *reinterpret_cast&lt;unsigned*&gt;(newString) = length;</span>
+<span class="lineNum">    2497 </span><span class="lineCov">         48 :   memcpy(newString + sizeof(unsigned), value, length);</span>
+<span class="lineNum">    2498 </span><span class="lineCov">         48 :   newString[actualLength - 1U] = 0; // to avoid buffer over-run accidents by users later</span>
+<a name="2499"><span class="lineNum">    2499 </span><span class="lineCov">         48 :   return newString;</span></a>
 <span class="lineNum">    2500 </span>            : }
-<span class="lineNum">    2501 </span><span class="lineCov">         36 : inline static void decodePrefixedString(</span>
+<span class="lineNum">    2501 </span><span class="lineCov">         48 : inline static void decodePrefixedString(</span>
 <span class="lineNum">    2502 </span>            :     bool isPrefixed, char const* prefixed,
 <span class="lineNum">    2503 </span>            :     unsigned* length, char const** value)
 <span class="lineNum">    2504 </span>            : {
-<span class="lineNum">    2505 </span><span class="lineCov">         36 :   if (!isPrefixed) {</span>
+<span class="lineNum">    2505 </span><span class="lineCov">         48 :   if (!isPrefixed) {</span>
 <span class="lineNum">    2506 </span><span class="lineNoCov">          0 :     *length = static_cast&lt;unsigned int&gt;(strlen(prefixed));</span>
 <span class="lineNum">    2507 </span><span class="lineNoCov">          0 :     *value = prefixed;</span>
 <span class="lineNum">    2508 </span>            :   } else {
-<span class="lineNum">    2509 </span><span class="lineCov">         36 :     *length = *reinterpret_cast&lt;unsigned const*&gt;(prefixed);</span>
-<span class="lineNum">    2510 </span><span class="lineCov">         36 :     *value = prefixed + sizeof(unsigned);</span>
+<span class="lineNum">    2509 </span><span class="lineCov">         48 :     *length = *reinterpret_cast&lt;unsigned const*&gt;(prefixed);</span>
+<span class="lineNum">    2510 </span><span class="lineCov">         48 :     *value = prefixed + sizeof(unsigned);</span>
 <span class="lineNum">    2511 </span>            :   }
-<span class="lineNum">    2512 </span><span class="lineCov">         36 : }</span>
+<span class="lineNum">    2512 </span><span class="lineCov">         48 : }</span>
 <a name="2513"><span class="lineNum">    2513 </span>            : /** Free the string duplicated by duplicateStringValue()/duplicateAndPrefixStringValue().</a>
 <span class="lineNum">    2514 </span>            :  */
-<span class="lineNum">    2515 </span><span class="lineCov">       1196 : static inline void releaseStringValue(char* value) { free(value); }</span>
+<span class="lineNum">    2515 </span><span class="lineCov">       1552 : static inline void releaseStringValue(char* value) { free(value); }</span>
 <span class="lineNum">    2516 </span>            : 
 <span class="lineNum">    2517 </span>            : } // namespace Json
 <span class="lineNum">    2518 </span>            : 
@@ -2672,32 +2672,32 @@
 <span class="lineNum">    2610 </span>            : // Notes: policy_ indicates if the string was allocated when
 <a name="2611"><span class="lineNum">    2611 </span>            : // a string is stored.</a>
 <span class="lineNum">    2612 </span>            : 
-<a name="2613"><span class="lineNum">    2613 </span><span class="lineCov">       1264 : Value::CZString::CZString(ArrayIndex index) : cstr_(0), index_(index) {}</span></a>
+<a name="2613"><span class="lineNum">    2613 </span><span class="lineCov">       1796 : Value::CZString::CZString(ArrayIndex index) : cstr_(0), index_(index) {}</span></a>
 <span class="lineNum">    2614 </span>            : 
-<span class="lineNum">    2615 </span><span class="lineCov">       1160 : Value::CZString::CZString(char const* str, unsigned length, DuplicationPolicy allocate)</span>
-<span class="lineNum">    2616 </span><span class="lineCov">       1160 :     : cstr_(str)</span>
+<span class="lineNum">    2615 </span><span class="lineCov">       1504 : Value::CZString::CZString(char const* str, unsigned length, DuplicationPolicy allocate)</span>
+<span class="lineNum">    2616 </span><span class="lineCov">       1504 :     : cstr_(str)</span>
 <span class="lineNum">    2617 </span>            : {
 <span class="lineNum">    2618 </span>            :   // allocate != duplicate
-<span class="lineNum">    2619 </span><span class="lineCov">       1160 :   storage_.policy_ = allocate;</span>
-<span class="lineNum">    2620 </span><span class="lineCov">       1160 :   storage_.length_ = length;</span>
-<a name="2621"><span class="lineNum">    2621 </span><span class="lineCov">       1160 : }</span></a>
+<span class="lineNum">    2619 </span><span class="lineCov">       1504 :   storage_.policy_ = allocate;</span>
+<span class="lineNum">    2620 </span><span class="lineCov">       1504 :   storage_.length_ = length;</span>
+<a name="2621"><span class="lineNum">    2621 </span><span class="lineCov">       1504 : }</span></a>
 <span class="lineNum">    2622 </span>            : 
-<span class="lineNum">    2623 </span><span class="lineCov">       2042 : Value::CZString::CZString(const CZString&amp; other)</span>
-<span class="lineNum">    2624 </span><span class="lineCov">       3846 :     : cstr_(other.storage_.policy_ != noDuplication &amp;&amp; other.cstr_ != 0</span>
-<span class="lineNum">    2625 </span><span class="lineCov">       1160 :                 ? duplicateStringValue(other.cstr_, other.storage_.length_)</span>
-<span class="lineNum">    2626 </span><span class="lineCov">       3202 :                 : other.cstr_)</span>
+<span class="lineNum">    2623 </span><span class="lineCov">       2666 : Value::CZString::CZString(const CZString&amp; other)</span>
+<span class="lineNum">    2624 </span><span class="lineCov">       5022 :     : cstr_(other.storage_.policy_ != noDuplication &amp;&amp; other.cstr_ != 0</span>
+<span class="lineNum">    2625 </span><span class="lineCov">       1504 :                 ? duplicateStringValue(other.cstr_, other.storage_.length_)</span>
+<span class="lineNum">    2626 </span><span class="lineCov">       4170 :                 : other.cstr_)</span>
 <span class="lineNum">    2627 </span>            : {
 <span class="lineNum">    2628 </span>            :   storage_.policy_ = (other.cstr_
 <span class="lineNum">    2629 </span>            :                  ? (other.storage_.policy_ == noDuplication
 <span class="lineNum">    2630 </span>            :                      ? noDuplication : duplicate)
-<span class="lineNum">    2631 </span><span class="lineCov">       2042 :                  : other.storage_.policy_);</span>
-<span class="lineNum">    2632 </span><span class="lineCov">       2042 :   storage_.length_ = other.storage_.length_;</span>
-<a name="2633"><span class="lineNum">    2633 </span><span class="lineCov">       2042 : }</span></a>
+<span class="lineNum">    2631 </span><span class="lineCov">       2666 :                  : other.storage_.policy_);</span>
+<span class="lineNum">    2632 </span><span class="lineCov">       2666 :   storage_.length_ = other.storage_.length_;</span>
+<a name="2633"><span class="lineNum">    2633 </span><span class="lineCov">       2666 : }</span></a>
 <span class="lineNum">    2634 </span>            : 
-<span class="lineNum">    2635 </span><span class="lineCov">       4466 : Value::CZString::~CZString() {</span>
-<span class="lineNum">    2636 </span><span class="lineCov">       4466 :   if (cstr_ &amp;&amp; storage_.policy_ == duplicate)</span>
-<span class="lineNum">    2637 </span><span class="lineCov">       1160 :     releaseStringValue(const_cast&lt;char*&gt;(cstr_));</span>
-<a name="2638"><span class="lineNum">    2638 </span><span class="lineCov">       4466 : }</span></a>
+<span class="lineNum">    2635 </span><span class="lineCov">       5966 : Value::CZString::~CZString() {</span>
+<span class="lineNum">    2636 </span><span class="lineCov">       5966 :   if (cstr_ &amp;&amp; storage_.policy_ == duplicate)</span>
+<span class="lineNum">    2637 </span><span class="lineCov">       1504 :     releaseStringValue(const_cast&lt;char*&gt;(cstr_));</span>
+<a name="2638"><span class="lineNum">    2638 </span><span class="lineCov">       5966 : }</span></a>
 <span class="lineNum">    2639 </span>            : 
 <span class="lineNum">    2640 </span><span class="lineNoCov">          0 : void Value::CZString::swap(CZString&amp; other) {</span>
 <span class="lineNum">    2641 </span><span class="lineNoCov">          0 :   std::swap(cstr_, other.cstr_);</span>
@@ -2709,35 +2709,35 @@
 <span class="lineNum">    2647 </span><span class="lineNoCov">          0 :   return *this;</span>
 <a name="2648"><span class="lineNum">    2648 </span>            : }</a>
 <span class="lineNum">    2649 </span>            : 
-<span class="lineNum">    2650 </span><span class="lineCov">       9137 : bool Value::CZString::operator&lt;(const CZString&amp; other) const {</span>
-<span class="lineNum">    2651 </span><span class="lineCov">       9137 :   if (!cstr_) return index_ &lt; other.index_;</span>
+<span class="lineNum">    2650 </span><span class="lineCov">      12779 : bool Value::CZString::operator&lt;(const CZString&amp; other) const {</span>
+<span class="lineNum">    2651 </span><span class="lineCov">      12779 :   if (!cstr_) return index_ &lt; other.index_;</span>
 <span class="lineNum">    2652 </span>            :   //return strcmp(cstr_, other.cstr_) &lt; 0;
 <span class="lineNum">    2653 </span>            :   // Assume both are strings.
-<span class="lineNum">    2654 </span><span class="lineCov">       5258 :   unsigned this_len = this-&gt;storage_.length_;</span>
-<span class="lineNum">    2655 </span><span class="lineCov">       5258 :   unsigned other_len = other.storage_.length_;</span>
-<span class="lineNum">    2656 </span><span class="lineCov">       5258 :   unsigned min_len = std::min(this_len, other_len);</span>
-<span class="lineNum">    2657 </span><span class="lineCov">       5258 :   int comp = memcmp(this-&gt;cstr_, other.cstr_, min_len);</span>
-<span class="lineNum">    2658 </span><span class="lineCov">       5258 :   if (comp &lt; 0) return true;</span>
-<span class="lineNum">    2659 </span><span class="lineCov">       2376 :   if (comp &gt; 0) return false;</span>
-<span class="lineNum">    2660 </span><span class="lineCov">       1235 :   return (this_len &lt; other_len);</span>
+<span class="lineNum">    2654 </span><span class="lineCov">       7256 :   unsigned this_len = this-&gt;storage_.length_;</span>
+<span class="lineNum">    2655 </span><span class="lineCov">       7256 :   unsigned other_len = other.storage_.length_;</span>
+<span class="lineNum">    2656 </span><span class="lineCov">       7256 :   unsigned min_len = std::min(this_len, other_len);</span>
+<span class="lineNum">    2657 </span><span class="lineCov">       7256 :   int comp = memcmp(this-&gt;cstr_, other.cstr_, min_len);</span>
+<span class="lineNum">    2658 </span><span class="lineCov">       7256 :   if (comp &lt; 0) return true;</span>
+<span class="lineNum">    2659 </span><span class="lineCov">       3400 :   if (comp &gt; 0) return false;</span>
+<span class="lineNum">    2660 </span><span class="lineCov">       1595 :   return (this_len &lt; other_len);</span>
 <a name="2661"><span class="lineNum">    2661 </span>            : }</a>
 <span class="lineNum">    2662 </span>            : 
-<span class="lineNum">    2663 </span><span class="lineCov">        144 : bool Value::CZString::operator==(const CZString&amp; other) const {</span>
-<span class="lineNum">    2664 </span><span class="lineCov">        144 :   if (!cstr_) return index_ == other.index_;</span>
+<span class="lineNum">    2663 </span><span class="lineCov">        266 : bool Value::CZString::operator==(const CZString&amp; other) const {</span>
+<span class="lineNum">    2664 </span><span class="lineCov">        266 :   if (!cstr_) return index_ == other.index_;</span>
 <span class="lineNum">    2665 </span>            :   //return strcmp(cstr_, other.cstr_) == 0;
 <span class="lineNum">    2666 </span>            :   // Assume both are strings.
-<span class="lineNum">    2667 </span><span class="lineCov">        144 :   unsigned this_len = this-&gt;storage_.length_;</span>
-<span class="lineNum">    2668 </span><span class="lineCov">        144 :   unsigned other_len = other.storage_.length_;</span>
-<span class="lineNum">    2669 </span><span class="lineCov">        144 :   if (this_len != other_len) return false;</span>
-<span class="lineNum">    2670 </span><span class="lineCov">          2 :   int comp = memcmp(this-&gt;cstr_, other.cstr_, this_len);</span>
-<span class="lineNum">    2671 </span><span class="lineCov">          2 :   return comp == 0;</span>
+<span class="lineNum">    2667 </span><span class="lineCov">        266 :   unsigned this_len = this-&gt;storage_.length_;</span>
+<span class="lineNum">    2668 </span><span class="lineCov">        266 :   unsigned other_len = other.storage_.length_;</span>
+<span class="lineNum">    2669 </span><span class="lineCov">        266 :   if (this_len != other_len) return false;</span>
+<span class="lineNum">    2670 </span><span class="lineCov">          4 :   int comp = memcmp(this-&gt;cstr_, other.cstr_, this_len);</span>
+<span class="lineNum">    2671 </span><span class="lineCov">          4 :   return comp == 0;</span>
 <a name="2672"><span class="lineNum">    2672 </span>            : }</a>
 <span class="lineNum">    2673 </span>            : 
-<span class="lineNum">    2674 </span><span class="lineCov">        140 : ArrayIndex Value::CZString::index() const { return index_; }</span>
+<span class="lineNum">    2674 </span><span class="lineCov">        212 : ArrayIndex Value::CZString::index() const { return index_; }</span>
 <a name="2675"><span class="lineNum">    2675 </span>            : </a>
 <a name="2676"><span class="lineNum">    2676 </span>            : //const char* Value::CZString::c_str() const { return cstr_; }</a>
-<a name="2677"><span class="lineNum">    2677 </span><span class="lineCov">        367 : const char* Value::CZString::data() const { return cstr_; }</span></a>
-<span class="lineNum">    2678 </span><span class="lineCov">        367 : unsigned Value::CZString::length() const { return storage_.length_; }</span>
+<a name="2677"><span class="lineNum">    2677 </span><span class="lineCov">        539 : const char* Value::CZString::data() const { return cstr_; }</span></a>
+<span class="lineNum">    2678 </span><span class="lineCov">        539 : unsigned Value::CZString::length() const { return storage_.length_; }</span>
 <span class="lineNum">    2679 </span><span class="lineNoCov">          0 : bool Value::CZString::isStaticString() const { return storage_.policy_ == noDuplication; }</span>
 <span class="lineNum">    2680 </span>            : 
 <span class="lineNum">    2681 </span>            : // //////////////////////////////////////////////////////////////////
@@ -2752,11 +2752,11 @@
 <span class="lineNum">    2690 </span>            :  * memset( this, 0, sizeof(Value) )
 <a name="2691"><span class="lineNum">    2691 </span>            :  * This optimization is used in ValueInternalMap fast allocator.</a>
 <span class="lineNum">    2692 </span>            :  */
-<span class="lineNum">    2693 </span><span class="lineCov">        642 : Value::Value(ValueType type) {</span>
-<span class="lineNum">    2694 </span><span class="lineCov">        642 :   initBasic(type);</span>
-<span class="lineNum">    2695 </span><span class="lineCov">        642 :   switch (type) {</span>
+<span class="lineNum">    2693 </span><span class="lineCov">        704 : Value::Value(ValueType type) {</span>
+<span class="lineNum">    2694 </span><span class="lineCov">        704 :   initBasic(type);</span>
+<span class="lineNum">    2695 </span><span class="lineCov">        704 :   switch (type) {</span>
 <span class="lineNum">    2696 </span>            :   case nullValue:
-<span class="lineNum">    2697 </span><span class="lineCov">        367 :     break;</span>
+<span class="lineNum">    2697 </span><span class="lineCov">        369 :     break;</span>
 <span class="lineNum">    2698 </span>            :   case intValue:
 <span class="lineNum">    2699 </span>            :   case uintValue:
 <span class="lineNum">    2700 </span><span class="lineNoCov">          0 :     value_.int_ = 0;</span>
@@ -2769,40 +2769,40 @@
 <span class="lineNum">    2707 </span><span class="lineNoCov">          0 :     break;</span>
 <span class="lineNum">    2708 </span>            :   case arrayValue:
 <span class="lineNum">    2709 </span>            :   case objectValue:
-<span class="lineNum">    2710 </span><span class="lineCov">        275 :     value_.map_ = new ObjectValues();</span>
-<span class="lineNum">    2711 </span><span class="lineCov">        275 :     break;</span>
+<span class="lineNum">    2710 </span><span class="lineCov">        335 :     value_.map_ = new ObjectValues();</span>
+<span class="lineNum">    2711 </span><span class="lineCov">        335 :     break;</span>
 <span class="lineNum">    2712 </span>            :   case booleanValue:
 <span class="lineNum">    2713 </span><span class="lineNoCov">          0 :     value_.bool_ = false;</span>
 <span class="lineNum">    2714 </span><span class="lineNoCov">          0 :     break;</span>
 <span class="lineNum">    2715 </span>            :   default:
 <span class="lineNum">    2716 </span><span class="lineNoCov">          0 :     JSON_ASSERT_UNREACHABLE;</span>
 <span class="lineNum">    2717 </span>            :   }
-<a name="2718"><span class="lineNum">    2718 </span><span class="lineCov">        642 : }</span></a>
+<a name="2718"><span class="lineNum">    2718 </span><span class="lineCov">        704 : }</span></a>
 <span class="lineNum">    2719 </span>            : 
-<span class="lineNum">    2720 </span><span class="lineCov">        159 : Value::Value(Int value) {</span>
-<span class="lineNum">    2721 </span><span class="lineCov">        159 :   initBasic(intValue);</span>
-<span class="lineNum">    2722 </span><span class="lineCov">        159 :   value_.int_ = value;</span>
-<a name="2723"><span class="lineNum">    2723 </span><span class="lineCov">        159 : }</span></a>
+<span class="lineNum">    2720 </span><span class="lineCov">        221 : Value::Value(Int value) {</span>
+<span class="lineNum">    2721 </span><span class="lineCov">        221 :   initBasic(intValue);</span>
+<span class="lineNum">    2722 </span><span class="lineCov">        221 :   value_.int_ = value;</span>
+<a name="2723"><span class="lineNum">    2723 </span><span class="lineCov">        221 : }</span></a>
 <span class="lineNum">    2724 </span>            : 
-<span class="lineNum">    2725 </span><span class="lineCov">        156 : Value::Value(UInt value) {</span>
-<span class="lineNum">    2726 </span><span class="lineCov">        156 :   initBasic(uintValue);</span>
-<span class="lineNum">    2727 </span><span class="lineCov">        156 :   value_.uint_ = value;</span>
-<a name="2728"><span class="lineNum">    2728 </span><span class="lineCov">        156 : }</span></a>
+<span class="lineNum">    2725 </span><span class="lineCov">        226 : Value::Value(UInt value) {</span>
+<span class="lineNum">    2726 </span><span class="lineCov">        226 :   initBasic(uintValue);</span>
+<span class="lineNum">    2727 </span><span class="lineCov">        226 :   value_.uint_ = value;</span>
+<a name="2728"><span class="lineNum">    2728 </span><span class="lineCov">        226 : }</span></a>
 <span class="lineNum">    2729 </span>            : #if defined(JSON_HAS_INT64)
-<span class="lineNum">    2730 </span><span class="lineCov">        313 : Value::Value(Int64 value) {</span>
-<span class="lineNum">    2731 </span><span class="lineCov">        313 :   initBasic(intValue);</span>
-<a name="2732"><span class="lineNum">    2732 </span><span class="lineCov">        313 :   value_.int_ = value;</span></a>
-<span class="lineNum">    2733 </span><span class="lineCov">        313 : }</span>
-<span class="lineNum">    2734 </span><span class="lineCov">         56 : Value::Value(UInt64 value) {</span>
-<span class="lineNum">    2735 </span><span class="lineCov">         56 :   initBasic(uintValue);</span>
-<span class="lineNum">    2736 </span><span class="lineCov">         56 :   value_.uint_ = value;</span>
-<span class="lineNum">    2737 </span><span class="lineCov">         56 : }</span>
+<span class="lineNum">    2730 </span><span class="lineCov">        323 : Value::Value(Int64 value) {</span>
+<span class="lineNum">    2731 </span><span class="lineCov">        323 :   initBasic(intValue);</span>
+<a name="2732"><span class="lineNum">    2732 </span><span class="lineCov">        323 :   value_.int_ = value;</span></a>
+<span class="lineNum">    2733 </span><span class="lineCov">        323 : }</span>
+<span class="lineNum">    2734 </span><span class="lineCov">         96 : Value::Value(UInt64 value) {</span>
+<span class="lineNum">    2735 </span><span class="lineCov">         96 :   initBasic(uintValue);</span>
+<span class="lineNum">    2736 </span><span class="lineCov">         96 :   value_.uint_ = value;</span>
+<span class="lineNum">    2737 </span><span class="lineCov">         96 : }</span>
 <a name="2738"><span class="lineNum">    2738 </span>            : #endif // defined(JSON_HAS_INT64)</a>
 <span class="lineNum">    2739 </span>            : 
-<span class="lineNum">    2740 </span><span class="lineCov">         28 : Value::Value(double value) {</span>
-<span class="lineNum">    2741 </span><span class="lineCov">         28 :   initBasic(realValue);</span>
-<span class="lineNum">    2742 </span><span class="lineCov">         28 :   value_.real_ = value;</span>
-<a name="2743"><span class="lineNum">    2743 </span><span class="lineCov">         28 : }</span></a>
+<span class="lineNum">    2740 </span><span class="lineCov">         48 : Value::Value(double value) {</span>
+<span class="lineNum">    2741 </span><span class="lineCov">         48 :   initBasic(realValue);</span>
+<span class="lineNum">    2742 </span><span class="lineCov">         48 :   value_.real_ = value;</span>
+<a name="2743"><span class="lineNum">    2743 </span><span class="lineCov">         48 : }</span></a>
 <span class="lineNum">    2744 </span>            : 
 <span class="lineNum">    2745 </span><span class="lineNoCov">          0 : Value::Value(const char* value) {</span>
 <span class="lineNum">    2746 </span><span class="lineNoCov">          0 :   initBasic(stringValue, true);</span>
@@ -2815,11 +2815,11 @@
 <span class="lineNum">    2753 </span><span class="lineNoCov">          0 :       duplicateAndPrefixStringValue(beginValue, static_cast&lt;unsigned&gt;(endValue - beginValue));</span>
 <a name="2754"><span class="lineNum">    2754 </span><span class="lineNoCov">          0 : }</span></a>
 <span class="lineNum">    2755 </span>            : 
-<span class="lineNum">    2756 </span><span class="lineCov">         36 : Value::Value(const std::string&amp; value) {</span>
-<span class="lineNum">    2757 </span><span class="lineCov">         36 :   initBasic(stringValue, true);</span>
+<span class="lineNum">    2756 </span><span class="lineCov">         48 : Value::Value(const std::string&amp; value) {</span>
+<span class="lineNum">    2757 </span><span class="lineCov">         48 :   initBasic(stringValue, true);</span>
 <span class="lineNum">    2758 </span>            :   value_.string_ =
-<span class="lineNum">    2759 </span><span class="lineCov">         36 :       duplicateAndPrefixStringValue(value.data(), static_cast&lt;unsigned&gt;(value.length()));</span>
-<a name="2760"><span class="lineNum">    2760 </span><span class="lineCov">         36 : }</span></a>
+<span class="lineNum">    2759 </span><span class="lineCov">         48 :       duplicateAndPrefixStringValue(value.data(), static_cast&lt;unsigned&gt;(value.length()));</span>
+<a name="2760"><span class="lineNum">    2760 </span><span class="lineCov">         48 : }</span></a>
 <span class="lineNum">    2761 </span>            : 
 <span class="lineNum">    2762 </span><span class="lineNoCov">          0 : Value::Value(const StaticString&amp; value) {</span>
 <span class="lineNum">    2763 </span><span class="lineNoCov">          0 :   initBasic(stringValue);</span>
@@ -2833,24 +2833,24 @@
 <span class="lineNum">    2771 </span>            : }
 <a name="2772"><span class="lineNum">    2772 </span>            : #endif</a>
 <span class="lineNum">    2773 </span>            : 
-<span class="lineNum">    2774 </span><span class="lineCov">         12 : Value::Value(bool value) {</span>
-<span class="lineNum">    2775 </span><span class="lineCov">         12 :   initBasic(booleanValue);</span>
-<span class="lineNum">    2776 </span><span class="lineCov">         12 :   value_.bool_ = value;</span>
-<a name="2777"><span class="lineNum">    2777 </span><span class="lineCov">         12 : }</span></a>
+<span class="lineNum">    2774 </span><span class="lineCov">         18 : Value::Value(bool value) {</span>
+<span class="lineNum">    2775 </span><span class="lineCov">         18 :   initBasic(booleanValue);</span>
+<span class="lineNum">    2776 </span><span class="lineCov">         18 :   value_.bool_ = value;</span>
+<a name="2777"><span class="lineNum">    2777 </span><span class="lineCov">         18 : }</span></a>
 <span class="lineNum">    2778 </span>            : 
-<span class="lineNum">    2779 </span><span class="lineCov">       2042 : Value::Value(Value const&amp; other)</span>
+<span class="lineNum">    2779 </span><span class="lineCov">       2666 : Value::Value(Value const&amp; other)</span>
 <span class="lineNum">    2780 </span>            :     : type_(other.type_), allocated_(false)
 <span class="lineNum">    2781 </span>            :       ,
-<span class="lineNum">    2782 </span><span class="lineCov">       2042 :       comments_(0), start_(other.start_), limit_(other.limit_)</span>
+<span class="lineNum">    2782 </span><span class="lineCov">       2666 :       comments_(0), start_(other.start_), limit_(other.limit_)</span>
 <span class="lineNum">    2783 </span>            : {
-<span class="lineNum">    2784 </span><span class="lineCov">       2042 :   switch (type_) {</span>
+<span class="lineNum">    2784 </span><span class="lineCov">       2666 :   switch (type_) {</span>
 <span class="lineNum">    2785 </span>            :   case nullValue:
 <span class="lineNum">    2786 </span>            :   case intValue:
 <span class="lineNum">    2787 </span>            :   case uintValue:
 <span class="lineNum">    2788 </span>            :   case realValue:
 <span class="lineNum">    2789 </span>            :   case booleanValue:
-<span class="lineNum">    2790 </span><span class="lineCov">       2042 :     value_ = other.value_;</span>
-<span class="lineNum">    2791 </span><span class="lineCov">       2042 :     break;</span>
+<span class="lineNum">    2790 </span><span class="lineCov">       2666 :     value_ = other.value_;</span>
+<span class="lineNum">    2791 </span><span class="lineCov">       2666 :     break;</span>
 <span class="lineNum">    2792 </span>            :   case stringValue:
 <span class="lineNum">    2793 </span><span class="lineNoCov">          0 :     if (other.value_.string_ &amp;&amp; other.allocated_) {</span>
 <span class="lineNum">    2794 </span>            :       unsigned len;
@@ -2871,7 +2871,7 @@
 <span class="lineNum">    2809 </span>            :   default:
 <span class="lineNum">    2810 </span><span class="lineNoCov">          0 :     JSON_ASSERT_UNREACHABLE;</span>
 <span class="lineNum">    2811 </span>            :   }
-<span class="lineNum">    2812 </span><span class="lineCov">       2042 :   if (other.comments_) {</span>
+<span class="lineNum">    2812 </span><span class="lineCov">       2666 :   if (other.comments_) {</span>
 <span class="lineNum">    2813 </span><span class="lineNoCov">          0 :     comments_ = new CommentInfo[numberOfCommentPlacement];</span>
 <span class="lineNum">    2814 </span><span class="lineNoCov">          0 :     for (int comment = 0; comment &lt; numberOfCommentPlacement; ++comment) {</span>
 <span class="lineNum">    2815 </span><span class="lineNoCov">          0 :       const CommentInfo&amp; otherComment = other.comments_[comment];</span>
@@ -2880,55 +2880,55 @@
 <span class="lineNum">    2818 </span><span class="lineNoCov">          0 :             otherComment.comment_, strlen(otherComment.comment_));</span>
 <span class="lineNum">    2819 </span>            :     }
 <span class="lineNum">    2820 </span>            :   }
-<a name="2821"><span class="lineNum">    2821 </span><span class="lineCov">       2042 : }</span></a>
+<a name="2821"><span class="lineNum">    2821 </span><span class="lineCov">       2666 : }</span></a>
 <span class="lineNum">    2822 </span>            : 
-<span class="lineNum">    2823 </span><span class="lineCov">       3444 : Value::~Value() {</span>
-<span class="lineNum">    2824 </span><span class="lineCov">       3444 :   switch (type_) {</span>
+<span class="lineNum">    2823 </span><span class="lineCov">       4350 : Value::~Value() {</span>
+<span class="lineNum">    2824 </span><span class="lineCov">       4350 :   switch (type_) {</span>
 <span class="lineNum">    2825 </span>            :   case nullValue:
 <span class="lineNum">    2826 </span>            :   case intValue:
 <span class="lineNum">    2827 </span>            :   case uintValue:
 <span class="lineNum">    2828 </span>            :   case realValue:
 <span class="lineNum">    2829 </span>            :   case booleanValue:
-<span class="lineNum">    2830 </span><span class="lineCov">       3133 :     break;</span>
+<span class="lineNum">    2830 </span><span class="lineCov">       3967 :     break;</span>
 <span class="lineNum">    2831 </span>            :   case stringValue:
-<span class="lineNum">    2832 </span><span class="lineCov">         36 :     if (allocated_)</span>
-<span class="lineNum">    2833 </span><span class="lineCov">         36 :       releaseStringValue(value_.string_);</span>
-<span class="lineNum">    2834 </span><span class="lineCov">         36 :     break;</span>
+<span class="lineNum">    2832 </span><span class="lineCov">         48 :     if (allocated_)</span>
+<span class="lineNum">    2833 </span><span class="lineCov">         48 :       releaseStringValue(value_.string_);</span>
+<span class="lineNum">    2834 </span><span class="lineCov">         48 :     break;</span>
 <span class="lineNum">    2835 </span>            :   case arrayValue:
 <span class="lineNum">    2836 </span>            :   case objectValue:
-<span class="lineNum">    2837 </span><span class="lineCov">        275 :     delete value_.map_;</span>
-<span class="lineNum">    2838 </span><span class="lineCov">        275 :     break;</span>
+<span class="lineNum">    2837 </span><span class="lineCov">        335 :     delete value_.map_;</span>
+<span class="lineNum">    2838 </span><span class="lineCov">        335 :     break;</span>
 <span class="lineNum">    2839 </span>            :   default:
 <span class="lineNum">    2840 </span><span class="lineNoCov">          0 :     JSON_ASSERT_UNREACHABLE;</span>
 <span class="lineNum">    2841 </span>            :   }
 <span class="lineNum">    2842 </span>            : 
-<span class="lineNum">    2843 </span><span class="lineCov">       3444 :   if (comments_)</span>
+<span class="lineNum">    2843 </span><span class="lineCov">       4350 :   if (comments_)</span>
 <span class="lineNum">    2844 </span><span class="lineNoCov">          0 :     delete[] comments_;</span>
-<a name="2845"><span class="lineNum">    2845 </span><span class="lineCov">       3444 : }</span></a>
+<a name="2845"><span class="lineNum">    2845 </span><span class="lineCov">       4350 : }</span></a>
 <span class="lineNum">    2846 </span>            : 
-<span class="lineNum">    2847 </span><span class="lineCov">        918 : Value&amp; Value::operator=(Value other) {</span>
-<span class="lineNum">    2848 </span><span class="lineCov">        918 :   swap(other);</span>
-<span class="lineNum">    2849 </span><span class="lineCov">        918 :   return *this;</span>
+<span class="lineNum">    2847 </span><span class="lineCov">       1198 : Value&amp; Value::operator=(Value other) {</span>
+<span class="lineNum">    2848 </span><span class="lineCov">       1198 :   swap(other);</span>
+<span class="lineNum">    2849 </span><span class="lineCov">       1198 :   return *this;</span>
 <a name="2850"><span class="lineNum">    2850 </span>            : }</a>
 <span class="lineNum">    2851 </span>            : 
-<span class="lineNum">    2852 </span><span class="lineCov">       1351 : void Value::swapPayload(Value&amp; other) {</span>
-<span class="lineNum">    2853 </span><span class="lineCov">       1351 :   ValueType temp = type_;</span>
-<span class="lineNum">    2854 </span><span class="lineCov">       1351 :   type_ = other.type_;</span>
-<span class="lineNum">    2855 </span><span class="lineCov">       1351 :   other.type_ = temp;</span>
-<span class="lineNum">    2856 </span><span class="lineCov">       1351 :   std::swap(value_, other.value_);</span>
-<span class="lineNum">    2857 </span><span class="lineCov">       1351 :   int temp2 = allocated_;</span>
-<span class="lineNum">    2858 </span><span class="lineCov">       1351 :   allocated_ = other.allocated_;</span>
-<span class="lineNum">    2859 </span><span class="lineCov">       1351 :   other.allocated_ = temp2;</span>
-<a name="2860"><span class="lineNum">    2860 </span><span class="lineCov">       1351 : }</span></a>
+<span class="lineNum">    2852 </span><span class="lineCov">       1631 : void Value::swapPayload(Value&amp; other) {</span>
+<span class="lineNum">    2853 </span><span class="lineCov">       1631 :   ValueType temp = type_;</span>
+<span class="lineNum">    2854 </span><span class="lineCov">       1631 :   type_ = other.type_;</span>
+<span class="lineNum">    2855 </span><span class="lineCov">       1631 :   other.type_ = temp;</span>
+<span class="lineNum">    2856 </span><span class="lineCov">       1631 :   std::swap(value_, other.value_);</span>
+<span class="lineNum">    2857 </span><span class="lineCov">       1631 :   int temp2 = allocated_;</span>
+<span class="lineNum">    2858 </span><span class="lineCov">       1631 :   allocated_ = other.allocated_;</span>
+<span class="lineNum">    2859 </span><span class="lineCov">       1631 :   other.allocated_ = temp2;</span>
+<a name="2860"><span class="lineNum">    2860 </span><span class="lineCov">       1631 : }</span></a>
 <span class="lineNum">    2861 </span>            : 
-<span class="lineNum">    2862 </span><span class="lineCov">        918 : void Value::swap(Value&amp; other) {</span>
-<span class="lineNum">    2863 </span><span class="lineCov">        918 :   swapPayload(other);</span>
-<span class="lineNum">    2864 </span><span class="lineCov">        918 :   std::swap(comments_, other.comments_);</span>
-<span class="lineNum">    2865 </span><span class="lineCov">        918 :   std::swap(start_, other.start_);</span>
-<span class="lineNum">    2866 </span><span class="lineCov">        918 :   std::swap(limit_, other.limit_);</span>
-<a name="2867"><span class="lineNum">    2867 </span><span class="lineCov">        918 : }</span></a>
+<span class="lineNum">    2862 </span><span class="lineCov">       1198 : void Value::swap(Value&amp; other) {</span>
+<span class="lineNum">    2863 </span><span class="lineCov">       1198 :   swapPayload(other);</span>
+<span class="lineNum">    2864 </span><span class="lineCov">       1198 :   std::swap(comments_, other.comments_);</span>
+<span class="lineNum">    2865 </span><span class="lineCov">       1198 :   std::swap(start_, other.start_);</span>
+<span class="lineNum">    2866 </span><span class="lineCov">       1198 :   std::swap(limit_, other.limit_);</span>
+<a name="2867"><span class="lineNum">    2867 </span><span class="lineCov">       1198 : }</span></a>
 <span class="lineNum">    2868 </span>            : 
-<a name="2869"><span class="lineNum">    2869 </span><span class="lineCov">        639 : ValueType Value::type() const { return type_; }</span></a>
+<a name="2869"><span class="lineNum">    2869 </span><span class="lineCov">        953 : ValueType Value::type() const { return type_; }</span></a>
 <span class="lineNum">    2870 </span>            : 
 <span class="lineNum">    2871 </span><span class="lineNoCov">          0 : int Value::compare(const Value&amp; other) const {</span>
 <span class="lineNum">    2872 </span><span class="lineNoCov">          0 :   if (*this &lt; other)</span>
@@ -3046,13 +3046,13 @@
 <span class="lineNum">    2984 </span><span class="lineNoCov">          0 :   return this_str;</span>
 <a name="2985"><span class="lineNum">    2985 </span>            : }</a>
 <span class="lineNum">    2986 </span>            : 
-<span class="lineNum">    2987 </span><span class="lineCov">         23 : bool Value::getString(char const** str, char const** end) const {</span>
-<span class="lineNum">    2988 </span><span class="lineCov">         23 :   if (type_ != stringValue) return false;</span>
-<span class="lineNum">    2989 </span><span class="lineCov">         23 :   if (value_.string_ == 0) return false;</span>
+<span class="lineNum">    2987 </span><span class="lineCov">         35 : bool Value::getString(char const** str, char const** end) const {</span>
+<span class="lineNum">    2988 </span><span class="lineCov">         35 :   if (type_ != stringValue) return false;</span>
+<span class="lineNum">    2989 </span><span class="lineCov">         35 :   if (value_.string_ == 0) return false;</span>
 <span class="lineNum">    2990 </span>            :   unsigned length;
-<span class="lineNum">    2991 </span><span class="lineCov">         23 :   decodePrefixedString(this-&gt;allocated_, this-&gt;value_.string_, &amp;length, str);</span>
-<span class="lineNum">    2992 </span><span class="lineCov">         23 :   *end = *str + length;</span>
-<span class="lineNum">    2993 </span><span class="lineCov">         23 :   return true;</span>
+<span class="lineNum">    2991 </span><span class="lineCov">         35 :   decodePrefixedString(this-&gt;allocated_, this-&gt;value_.string_, &amp;length, str);</span>
+<span class="lineNum">    2992 </span><span class="lineCov">         35 :   *end = *str + length;</span>
+<span class="lineNum">    2993 </span><span class="lineCov">         35 :   return true;</span>
 <a name="2994"><span class="lineNum">    2994 </span>            : }</a>
 <span class="lineNum">    2995 </span>            : 
 <span class="lineNum">    2996 </span><span class="lineCov">         13 : std::string Value::asString() const {</span>
@@ -3136,10 +3136,10 @@
 <span class="lineNum">    3074 </span>            : 
 <a name="3075"><span class="lineNum">    3075 </span>            : #if defined(JSON_HAS_INT64)</a>
 <span class="lineNum">    3076 </span>            : 
-<span class="lineNum">    3077 </span><span class="lineCov">        187 : Value::Int64 Value::asInt64() const {</span>
-<span class="lineNum">    3078 </span><span class="lineCov">        187 :   switch (type_) {</span>
+<span class="lineNum">    3077 </span><span class="lineCov">        259 : Value::Int64 Value::asInt64() const {</span>
+<span class="lineNum">    3078 </span><span class="lineCov">        259 :   switch (type_) {</span>
 <span class="lineNum">    3079 </span>            :   case intValue:
-<span class="lineNum">    3080 </span><span class="lineCov">        187 :     return Int64(value_.int_);</span>
+<span class="lineNum">    3080 </span><span class="lineCov">        259 :     return Int64(value_.int_);</span>
 <span class="lineNum">    3081 </span>            :   case uintValue:
 <span class="lineNum">    3082 </span><span class="lineNoCov">          0 :     JSON_ASSERT_MESSAGE(isInt64(), &quot;LargestUInt out of Int64 range&quot;);</span>
 <span class="lineNum">    3083 </span><span class="lineNoCov">          0 :     return Int64(value_.uint_);</span>
@@ -3157,13 +3157,13 @@
 <span class="lineNum">    3095 </span><span class="lineNoCov">          0 :   JSON_FAIL_MESSAGE(&quot;Value is not convertible to Int64.&quot;);</span>
 <a name="3096"><span class="lineNum">    3096 </span>            : }</a>
 <span class="lineNum">    3097 </span>            : 
-<span class="lineNum">    3098 </span><span class="lineCov">        268 : Value::UInt64 Value::asUInt64() const {</span>
-<span class="lineNum">    3099 </span><span class="lineCov">        268 :   switch (type_) {</span>
+<span class="lineNum">    3098 </span><span class="lineCov">        378 : Value::UInt64 Value::asUInt64() const {</span>
+<span class="lineNum">    3099 </span><span class="lineCov">        378 :   switch (type_) {</span>
 <span class="lineNum">    3100 </span>            :   case intValue:
 <span class="lineNum">    3101 </span><span class="lineCov">         56 :     JSON_ASSERT_MESSAGE(isUInt64(), &quot;LargestInt out of UInt64 range&quot;);</span>
 <span class="lineNum">    3102 </span><span class="lineCov">         56 :     return UInt64(value_.int_);</span>
 <span class="lineNum">    3103 </span>            :   case uintValue:
-<span class="lineNum">    3104 </span><span class="lineCov">        212 :     return UInt64(value_.uint_);</span>
+<span class="lineNum">    3104 </span><span class="lineCov">        322 :     return UInt64(value_.uint_);</span>
 <span class="lineNum">    3105 </span>            :   case realValue:
 <span class="lineNum">    3106 </span><span class="lineNoCov">          0 :     JSON_ASSERT_MESSAGE(InRange(value_.real_, 0, maxUInt64),</span>
 <span class="lineNum">    3107 </span>            :                         &quot;double out of UInt64 range&quot;);
@@ -3179,24 +3179,24 @@
 <span class="lineNum">    3117 </span>            : }
 <a name="3118"><span class="lineNum">    3118 </span>            : #endif // if defined(JSON_HAS_INT64)</a>
 <span class="lineNum">    3119 </span>            : 
-<span class="lineNum">    3120 </span><span class="lineCov">        173 : LargestInt Value::asLargestInt() const {</span>
+<span class="lineNum">    3120 </span><span class="lineCov">        245 : LargestInt Value::asLargestInt() const {</span>
 <span class="lineNum">    3121 </span>            : #if defined(JSON_NO_INT64)
 <span class="lineNum">    3122 </span>            :   return asInt();
 <span class="lineNum">    3123 </span>            : #else
-<span class="lineNum">    3124 </span><span class="lineCov">        173 :   return asInt64();</span>
+<span class="lineNum">    3124 </span><span class="lineCov">        245 :   return asInt64();</span>
 <span class="lineNum">    3125 </span>            : #endif
 <a name="3126"><span class="lineNum">    3126 </span>            : }</a>
 <span class="lineNum">    3127 </span>            : 
-<span class="lineNum">    3128 </span><span class="lineCov">        212 : LargestUInt Value::asLargestUInt() const {</span>
+<span class="lineNum">    3128 </span><span class="lineCov">        322 : LargestUInt Value::asLargestUInt() const {</span>
 <span class="lineNum">    3129 </span>            : #if defined(JSON_NO_INT64)
 <span class="lineNum">    3130 </span>            :   return asUInt();
 <span class="lineNum">    3131 </span>            : #else
-<span class="lineNum">    3132 </span><span class="lineCov">        212 :   return asUInt64();</span>
+<span class="lineNum">    3132 </span><span class="lineCov">        322 :   return asUInt64();</span>
 <span class="lineNum">    3133 </span>            : #endif
 <a name="3134"><span class="lineNum">    3134 </span>            : }</a>
 <span class="lineNum">    3135 </span>            : 
-<span class="lineNum">    3136 </span><span class="lineCov">         42 : double Value::asDouble() const {</span>
-<span class="lineNum">    3137 </span><span class="lineCov">         42 :   switch (type_) {</span>
+<span class="lineNum">    3136 </span><span class="lineCov">         62 : double Value::asDouble() const {</span>
+<span class="lineNum">    3137 </span><span class="lineCov">         62 :   switch (type_) {</span>
 <span class="lineNum">    3138 </span>            :   case intValue:
 <span class="lineNum">    3139 </span><span class="lineCov">         14 :     return static_cast&lt;double&gt;(value_.int_);</span>
 <span class="lineNum">    3140 </span>            :   case uintValue:
@@ -3206,7 +3206,7 @@
 <span class="lineNum">    3144 </span>            :     return integerToDouble(value_.uint_);
 <span class="lineNum">    3145 </span>            : #endif // if !defined(JSON_USE_INT64_DOUBLE_CONVERSION)
 <span class="lineNum">    3146 </span>            :   case realValue:
-<span class="lineNum">    3147 </span><span class="lineCov">         28 :     return value_.real_;</span>
+<span class="lineNum">    3147 </span><span class="lineCov">         48 :     return value_.real_;</span>
 <span class="lineNum">    3148 </span>            :   case nullValue:
 <span class="lineNum">    3149 </span><span class="lineNoCov">          0 :     return 0.0;</span>
 <span class="lineNum">    3150 </span>            :   case booleanValue:
@@ -3239,10 +3239,10 @@
 <span class="lineNum">    3177 </span><span class="lineNoCov">          0 :   JSON_FAIL_MESSAGE(&quot;Value is not convertible to float.&quot;);</span>
 <a name="3178"><span class="lineNum">    3178 </span>            : }</a>
 <span class="lineNum">    3179 </span>            : 
-<span class="lineNum">    3180 </span><span class="lineCov">         12 : bool Value::asBool() const {</span>
-<span class="lineNum">    3181 </span><span class="lineCov">         12 :   switch (type_) {</span>
+<span class="lineNum">    3180 </span><span class="lineCov">         18 : bool Value::asBool() const {</span>
+<span class="lineNum">    3181 </span><span class="lineCov">         18 :   switch (type_) {</span>
 <span class="lineNum">    3182 </span>            :   case booleanValue:
-<span class="lineNum">    3183 </span><span class="lineCov">         12 :     return value_.bool_;</span>
+<span class="lineNum">    3183 </span><span class="lineCov">         18 :     return value_.bool_;</span>
 <span class="lineNum">    3184 </span>            :   case nullValue:
 <span class="lineNum">    3185 </span><span class="lineNoCov">          0 :     return false;</span>
 <span class="lineNum">    3186 </span>            :   case intValue:
@@ -3291,8 +3291,8 @@
 <span class="lineNum">    3229 </span>            : }
 <a name="3230"><span class="lineNum">    3230 </span>            : </a>
 <span class="lineNum">    3231 </span>            : /// Number of values in array or object
-<span class="lineNum">    3232 </span><span class="lineCov">        171 : ArrayIndex Value::size() const {</span>
-<span class="lineNum">    3233 </span><span class="lineCov">        171 :   switch (type_) {</span>
+<span class="lineNum">    3232 </span><span class="lineCov">        247 : ArrayIndex Value::size() const {</span>
+<span class="lineNum">    3233 </span><span class="lineCov">        247 :   switch (type_) {</span>
 <span class="lineNum">    3234 </span>            :   case nullValue:
 <span class="lineNum">    3235 </span>            :   case intValue:
 <span class="lineNum">    3236 </span>            :   case uintValue:
@@ -3301,14 +3301,14 @@
 <span class="lineNum">    3239 </span>            :   case stringValue:
 <span class="lineNum">    3240 </span><span class="lineCov">         17 :     return 0;</span>
 <span class="lineNum">    3241 </span>            :   case arrayValue: // size of the array is highest index + 1
-<span class="lineNum">    3242 </span><span class="lineCov">        140 :     if (!value_.map_-&gt;empty()) {</span>
-<span class="lineNum">    3243 </span><span class="lineCov">        140 :       ObjectValues::const_iterator itLast = value_.map_-&gt;end();</span>
-<span class="lineNum">    3244 </span><span class="lineCov">        140 :       --itLast;</span>
-<span class="lineNum">    3245 </span><span class="lineCov">        140 :       return (*itLast).first.index() + 1;</span>
+<span class="lineNum">    3242 </span><span class="lineCov">        212 :     if (!value_.map_-&gt;empty()) {</span>
+<span class="lineNum">    3243 </span><span class="lineCov">        212 :       ObjectValues::const_iterator itLast = value_.map_-&gt;end();</span>
+<span class="lineNum">    3244 </span><span class="lineCov">        212 :       --itLast;</span>
+<span class="lineNum">    3245 </span><span class="lineCov">        212 :       return (*itLast).first.index() + 1;</span>
 <span class="lineNum">    3246 </span>            :     }
 <span class="lineNum">    3247 </span><span class="lineNoCov">          0 :     return 0;</span>
 <span class="lineNum">    3248 </span>            :   case objectValue:
-<span class="lineNum">    3249 </span><span class="lineCov">         14 :     return ArrayIndex(value_.map_-&gt;size());</span>
+<span class="lineNum">    3249 </span><span class="lineCov">         18 :     return ArrayIndex(value_.map_-&gt;size());</span>
 <span class="lineNum">    3250 </span>            :   }
 <span class="lineNum">    3251 </span><span class="lineNoCov">          0 :   JSON_ASSERT_UNREACHABLE;</span>
 <span class="lineNum">    3252 </span>            :   return 0; // unreachable;
@@ -3357,20 +3357,20 @@
 <span class="lineNum">    3295 </span>            :   }
 <a name="3296"><span class="lineNum">    3296 </span><span class="lineNoCov">          0 : }</span></a>
 <span class="lineNum">    3297 </span>            : 
-<span class="lineNum">    3298 </span><span class="lineCov">        441 : Value&amp; Value::operator[](ArrayIndex index) {</span>
-<span class="lineNum">    3299 </span><span class="lineCov">        441 :   JSON_ASSERT_MESSAGE(</span>
+<span class="lineNum">    3298 </span><span class="lineCov">        581 : Value&amp; Value::operator[](ArrayIndex index) {</span>
+<span class="lineNum">    3299 </span><span class="lineCov">        581 :   JSON_ASSERT_MESSAGE(</span>
 <span class="lineNum">    3300 </span>            :       type_ == nullValue || type_ == arrayValue,
 <span class="lineNum">    3301 </span>            :       &quot;in Json::Value::operator[](ArrayIndex): requires arrayValue&quot;);
-<span class="lineNum">    3302 </span><span class="lineCov">        441 :   if (type_ == nullValue)</span>
-<span class="lineNum">    3303 </span><span class="lineCov">         61 :     *this = Value(arrayValue);</span>
-<span class="lineNum">    3304 </span><span class="lineCov">        441 :   CZString key(index);</span>
-<span class="lineNum">    3305 </span><span class="lineCov">        441 :   ObjectValues::iterator it = value_.map_-&gt;lower_bound(key);</span>
-<span class="lineNum">    3306 </span><span class="lineCov">        441 :   if (it != value_.map_-&gt;end() &amp;&amp; (*it).first == key)</span>
+<span class="lineNum">    3302 </span><span class="lineCov">        581 :   if (type_ == nullValue)</span>
+<span class="lineNum">    3303 </span><span class="lineCov">         97 :     *this = Value(arrayValue);</span>
+<span class="lineNum">    3304 </span><span class="lineCov">        581 :   CZString key(index);</span>
+<span class="lineNum">    3305 </span><span class="lineCov">        581 :   ObjectValues::iterator it = value_.map_-&gt;lower_bound(key);</span>
+<span class="lineNum">    3306 </span><span class="lineCov">        581 :   if (it != value_.map_-&gt;end() &amp;&amp; (*it).first == key)</span>
 <span class="lineNum">    3307 </span><span class="lineNoCov">          0 :     return (*it).second;</span>
 <span class="lineNum">    3308 </span>            : 
-<span class="lineNum">    3309 </span><span class="lineCov">        882 :   ObjectValues::value_type defaultValue(key, nullRef);</span>
-<span class="lineNum">    3310 </span><span class="lineCov">        441 :   it = value_.map_-&gt;insert(it, defaultValue);</span>
-<span class="lineNum">    3311 </span><span class="lineCov">        882 :   return (*it).second;</span>
+<span class="lineNum">    3309 </span><span class="lineCov">       1162 :   ObjectValues::value_type defaultValue(key, nullRef);</span>
+<span class="lineNum">    3310 </span><span class="lineCov">        581 :   it = value_.map_-&gt;insert(it, defaultValue);</span>
+<span class="lineNum">    3311 </span><span class="lineCov">       1162 :   return (*it).second;</span>
 <a name="3312"><span class="lineNum">    3312 </span>            : }</a>
 <span class="lineNum">    3313 </span>            : 
 <span class="lineNum">    3314 </span><span class="lineCov">        216 : Value&amp; Value::operator[](int index) {</span>
@@ -3380,33 +3380,33 @@
 <span class="lineNum">    3318 </span><span class="lineCov">        216 :   return (*this)[ArrayIndex(index)];</span>
 <a name="3319"><span class="lineNum">    3319 </span>            : }</a>
 <span class="lineNum">    3320 </span>            : 
-<span class="lineNum">    3321 </span><span class="lineCov">        823 : const Value&amp; Value::operator[](ArrayIndex index) const {</span>
-<span class="lineNum">    3322 </span><span class="lineCov">        823 :   JSON_ASSERT_MESSAGE(</span>
+<span class="lineNum">    3321 </span><span class="lineCov">       1215 : const Value&amp; Value::operator[](ArrayIndex index) const {</span>
+<span class="lineNum">    3322 </span><span class="lineCov">       1215 :   JSON_ASSERT_MESSAGE(</span>
 <span class="lineNum">    3323 </span>            :       type_ == nullValue || type_ == arrayValue,
 <span class="lineNum">    3324 </span>            :       &quot;in Json::Value::operator[](ArrayIndex)const: requires arrayValue&quot;);
-<span class="lineNum">    3325 </span><span class="lineCov">        823 :   if (type_ == nullValue)</span>
+<span class="lineNum">    3325 </span><span class="lineCov">       1215 :   if (type_ == nullValue)</span>
 <span class="lineNum">    3326 </span><span class="lineNoCov">          0 :     return nullRef;</span>
-<span class="lineNum">    3327 </span><span class="lineCov">        823 :   CZString key(index);</span>
-<span class="lineNum">    3328 </span><span class="lineCov">        823 :   ObjectValues::const_iterator it = value_.map_-&gt;find(key);</span>
-<span class="lineNum">    3329 </span><span class="lineCov">        823 :   if (it == value_.map_-&gt;end())</span>
+<span class="lineNum">    3327 </span><span class="lineCov">       1215 :   CZString key(index);</span>
+<span class="lineNum">    3328 </span><span class="lineCov">       1215 :   ObjectValues::const_iterator it = value_.map_-&gt;find(key);</span>
+<span class="lineNum">    3329 </span><span class="lineCov">       1215 :   if (it == value_.map_-&gt;end())</span>
 <span class="lineNum">    3330 </span><span class="lineNoCov">          0 :     return nullRef;</span>
-<span class="lineNum">    3331 </span><span class="lineCov">        823 :   return (*it).second;</span>
+<span class="lineNum">    3331 </span><span class="lineCov">       1215 :   return (*it).second;</span>
 <a name="3332"><span class="lineNum">    3332 </span>            : }</a>
 <span class="lineNum">    3333 </span>            : 
-<span class="lineNum">    3334 </span><span class="lineCov">        566 : const Value&amp; Value::operator[](int index) const {</span>
-<span class="lineNum">    3335 </span><span class="lineCov">        566 :   JSON_ASSERT_MESSAGE(</span>
+<span class="lineNum">    3334 </span><span class="lineCov">        942 : const Value&amp; Value::operator[](int index) const {</span>
+<span class="lineNum">    3335 </span><span class="lineCov">        942 :   JSON_ASSERT_MESSAGE(</span>
 <span class="lineNum">    3336 </span>            :       index &gt;= 0,
 <span class="lineNum">    3337 </span>            :       &quot;in Json::Value::operator[](int index) const: index cannot be negative&quot;);
-<span class="lineNum">    3338 </span><span class="lineCov">        566 :   return (*this)[ArrayIndex(index)];</span>
+<span class="lineNum">    3338 </span><span class="lineCov">        942 :   return (*this)[ArrayIndex(index)];</span>
 <a name="3339"><span class="lineNum">    3339 </span>            : }</a>
 <span class="lineNum">    3340 </span>            : 
-<span class="lineNum">    3341 </span><span class="lineCov">       1402 : void Value::initBasic(ValueType type, bool allocated) {</span>
-<span class="lineNum">    3342 </span><span class="lineCov">       1402 :   type_ = type;</span>
-<span class="lineNum">    3343 </span><span class="lineCov">       1402 :   allocated_ = allocated;</span>
-<span class="lineNum">    3344 </span><span class="lineCov">       1402 :   comments_ = 0;</span>
-<span class="lineNum">    3345 </span><span class="lineCov">       1402 :   start_ = 0;</span>
-<span class="lineNum">    3346 </span><span class="lineCov">       1402 :   limit_ = 0;</span>
-<span class="lineNum">    3347 </span><span class="lineCov">       1402 : }</span>
+<span class="lineNum">    3341 </span><span class="lineCov">       1684 : void Value::initBasic(ValueType type, bool allocated) {</span>
+<span class="lineNum">    3342 </span><span class="lineCov">       1684 :   type_ = type;</span>
+<span class="lineNum">    3343 </span><span class="lineCov">       1684 :   allocated_ = allocated;</span>
+<span class="lineNum">    3344 </span><span class="lineCov">       1684 :   comments_ = 0;</span>
+<span class="lineNum">    3345 </span><span class="lineCov">       1684 :   start_ = 0;</span>
+<span class="lineNum">    3346 </span><span class="lineCov">       1684 :   limit_ = 0;</span>
+<span class="lineNum">    3347 </span><span class="lineCov">       1684 : }</span>
 <span class="lineNum">    3348 </span>            : 
 <span class="lineNum">    3349 </span>            : // Access an object value by name, create a null member if it does not exist.
 <a name="3350"><span class="lineNum">    3350 </span>            : // @pre Type of '*this' is object or null.</a>
@@ -3430,23 +3430,23 @@
 <span class="lineNum">    3368 </span>            : }
 <a name="3369"><span class="lineNum">    3369 </span>            : </a>
 <span class="lineNum">    3370 </span>            : // @param key is not null-terminated.
-<span class="lineNum">    3371 </span><span class="lineCov">        580 : Value&amp; Value::resolveReference(char const* key, char const* end)</span>
+<span class="lineNum">    3371 </span><span class="lineCov">        752 : Value&amp; Value::resolveReference(char const* key, char const* end)</span>
 <span class="lineNum">    3372 </span>            : {
-<span class="lineNum">    3373 </span><span class="lineCov">        580 :   JSON_ASSERT_MESSAGE(</span>
+<span class="lineNum">    3373 </span><span class="lineCov">        752 :   JSON_ASSERT_MESSAGE(</span>
 <span class="lineNum">    3374 </span>            :       type_ == nullValue || type_ == objectValue,
 <span class="lineNum">    3375 </span>            :       &quot;in Json::Value::resolveReference(key, end): requires objectValue&quot;);
-<span class="lineNum">    3376 </span><span class="lineCov">        580 :   if (type_ == nullValue)</span>
-<span class="lineNum">    3377 </span><span class="lineCov">        116 :     *this = Value(objectValue);</span>
+<span class="lineNum">    3376 </span><span class="lineCov">        752 :   if (type_ == nullValue)</span>
+<span class="lineNum">    3377 </span><span class="lineCov">        140 :     *this = Value(objectValue);</span>
 <span class="lineNum">    3378 </span>            :   CZString actualKey(
-<span class="lineNum">    3379 </span><span class="lineCov">        580 :       key, static_cast&lt;unsigned&gt;(end-key), CZString::duplicateOnCopy);</span>
-<span class="lineNum">    3380 </span><span class="lineCov">        580 :   ObjectValues::iterator it = value_.map_-&gt;lower_bound(actualKey);</span>
-<span class="lineNum">    3381 </span><span class="lineCov">        580 :   if (it != value_.map_-&gt;end() &amp;&amp; (*it).first == actualKey)</span>
+<span class="lineNum">    3379 </span><span class="lineCov">        752 :       key, static_cast&lt;unsigned&gt;(end-key), CZString::duplicateOnCopy);</span>
+<span class="lineNum">    3380 </span><span class="lineCov">        752 :   ObjectValues::iterator it = value_.map_-&gt;lower_bound(actualKey);</span>
+<span class="lineNum">    3381 </span><span class="lineCov">        752 :   if (it != value_.map_-&gt;end() &amp;&amp; (*it).first == actualKey)</span>
 <span class="lineNum">    3382 </span><span class="lineNoCov">          0 :     return (*it).second;</span>
 <span class="lineNum">    3383 </span>            : 
-<span class="lineNum">    3384 </span><span class="lineCov">       1160 :   ObjectValues::value_type defaultValue(actualKey, nullRef);</span>
-<span class="lineNum">    3385 </span><span class="lineCov">        580 :   it = value_.map_-&gt;insert(it, defaultValue);</span>
-<span class="lineNum">    3386 </span><span class="lineCov">        580 :   Value&amp; value = (*it).second;</span>
-<span class="lineNum">    3387 </span><span class="lineCov">       1160 :   return value;</span>
+<span class="lineNum">    3384 </span><span class="lineCov">       1504 :   ObjectValues::value_type defaultValue(actualKey, nullRef);</span>
+<span class="lineNum">    3385 </span><span class="lineCov">        752 :   it = value_.map_-&gt;insert(it, defaultValue);</span>
+<span class="lineNum">    3386 </span><span class="lineCov">        752 :   Value&amp; value = (*it).second;</span>
+<span class="lineNum">    3387 </span><span class="lineCov">       1504 :   return value;</span>
 <a name="3388"><span class="lineNum">    3388 </span>            : }</a>
 <span class="lineNum">    3389 </span>            : 
 <span class="lineNum">    3390 </span><span class="lineNoCov">          0 : Value Value::get(ArrayIndex index, const Value&amp; defaultValue) const {</span>
@@ -3456,16 +3456,16 @@
 <span class="lineNum">    3394 </span>            : 
 <a name="3395"><span class="lineNum">    3395 </span><span class="lineNoCov">          0 : bool Value::isValidIndex(ArrayIndex index) const { return index &lt; size(); }</span></a>
 <span class="lineNum">    3396 </span>            : 
-<span class="lineNum">    3397 </span><span class="lineCov">        580 : Value const* Value::find(char const* key, char const* end) const</span>
+<span class="lineNum">    3397 </span><span class="lineCov">        752 : Value const* Value::find(char const* key, char const* end) const</span>
 <span class="lineNum">    3398 </span>            : {
-<span class="lineNum">    3399 </span><span class="lineCov">        580 :   JSON_ASSERT_MESSAGE(</span>
+<span class="lineNum">    3399 </span><span class="lineCov">        752 :   JSON_ASSERT_MESSAGE(</span>
 <span class="lineNum">    3400 </span>            :       type_ == nullValue || type_ == objectValue,
 <span class="lineNum">    3401 </span>            :       &quot;in Json::Value::find(key, end, found): requires objectValue or nullValue&quot;);
-<span class="lineNum">    3402 </span><span class="lineCov">        580 :   if (type_ == nullValue) return NULL;</span>
-<span class="lineNum">    3403 </span><span class="lineCov">        580 :   CZString actualKey(key, static_cast&lt;unsigned&gt;(end-key), CZString::noDuplication);</span>
-<span class="lineNum">    3404 </span><span class="lineCov">        580 :   ObjectValues::const_iterator it = value_.map_-&gt;find(actualKey);</span>
-<span class="lineNum">    3405 </span><span class="lineCov">        580 :   if (it == value_.map_-&gt;end()) return NULL;</span>
-<a name="3406"><span class="lineNum">    3406 </span><span class="lineCov">        580 :   return &amp;(*it).second;</span></a>
+<span class="lineNum">    3402 </span><span class="lineCov">        752 :   if (type_ == nullValue) return NULL;</span>
+<span class="lineNum">    3403 </span><span class="lineCov">        752 :   CZString actualKey(key, static_cast&lt;unsigned&gt;(end-key), CZString::noDuplication);</span>
+<span class="lineNum">    3404 </span><span class="lineCov">        752 :   ObjectValues::const_iterator it = value_.map_-&gt;find(actualKey);</span>
+<span class="lineNum">    3405 </span><span class="lineCov">        752 :   if (it == value_.map_-&gt;end()) return NULL;</span>
+<a name="3406"><span class="lineNum">    3406 </span><span class="lineCov">        752 :   return &amp;(*it).second;</span></a>
 <span class="lineNum">    3407 </span>            : }
 <span class="lineNum">    3408 </span><span class="lineCov">         28 : const Value&amp; Value::operator[](const char* key) const</span>
 <span class="lineNum">    3409 </span>            : {
@@ -3473,19 +3473,19 @@
 <span class="lineNum">    3411 </span><span class="lineCov">         28 :   if (!found) return nullRef;</span>
 <a name="3412"><span class="lineNum">    3412 </span><span class="lineCov">         28 :   return *found;</span></a>
 <span class="lineNum">    3413 </span>            : }
-<span class="lineNum">    3414 </span><span class="lineCov">        552 : Value const&amp; Value::operator[](std::string const&amp; key) const</span>
+<span class="lineNum">    3414 </span><span class="lineCov">        724 : Value const&amp; Value::operator[](std::string const&amp; key) const</span>
 <span class="lineNum">    3415 </span>            : {
-<span class="lineNum">    3416 </span><span class="lineCov">        552 :   Value const* found = find(key.data(), key.data() + key.length());</span>
-<span class="lineNum">    3417 </span><span class="lineCov">        552 :   if (!found) return nullRef;</span>
-<span class="lineNum">    3418 </span><span class="lineCov">        552 :   return *found;</span>
+<span class="lineNum">    3416 </span><span class="lineCov">        724 :   Value const* found = find(key.data(), key.data() + key.length());</span>
+<span class="lineNum">    3417 </span><span class="lineCov">        724 :   if (!found) return nullRef;</span>
+<span class="lineNum">    3418 </span><span class="lineCov">        724 :   return *found;</span>
 <a name="3419"><span class="lineNum">    3419 </span>            : }</a>
 <span class="lineNum">    3420 </span>            : 
-<span class="lineNum">    3421 </span><span class="lineCov">         28 : Value&amp; Value::operator[](const char* key) {</span>
-<span class="lineNum">    3422 </span><span class="lineCov">         28 :   return resolveReference(key, key + strlen(key));</span>
+<span class="lineNum">    3421 </span><span class="lineCov">         48 : Value&amp; Value::operator[](const char* key) {</span>
+<span class="lineNum">    3422 </span><span class="lineCov">         48 :   return resolveReference(key, key + strlen(key));</span>
 <a name="3423"><span class="lineNum">    3423 </span>            : }</a>
 <span class="lineNum">    3424 </span>            : 
-<span class="lineNum">    3425 </span><span class="lineCov">        552 : Value&amp; Value::operator[](const std::string&amp; key) {</span>
-<span class="lineNum">    3426 </span><span class="lineCov">        552 :   return resolveReference(key.data(), key.data() + key.length());</span>
+<span class="lineNum">    3425 </span><span class="lineCov">        704 : Value&amp; Value::operator[](const std::string&amp; key) {</span>
+<span class="lineNum">    3426 </span><span class="lineCov">        704 :   return resolveReference(key.data(), key.data() + key.length());</span>
 <a name="3427"><span class="lineNum">    3427 </span>            : }</a>
 <span class="lineNum">    3428 </span>            : 
 <span class="lineNum">    3429 </span><span class="lineNoCov">          0 : Value&amp; Value::operator[](const StaticString&amp; key) {</span>
@@ -3608,21 +3608,21 @@
 <span class="lineNum">    3546 </span>            : }
 <a name="3547"><span class="lineNum">    3547 </span>            : #endif</a>
 <span class="lineNum">    3548 </span>            : 
-<span class="lineNum">    3549 </span><span class="lineCov">        116 : Value::Members Value::getMemberNames() const {</span>
-<span class="lineNum">    3550 </span><span class="lineCov">        116 :   JSON_ASSERT_MESSAGE(</span>
+<span class="lineNum">    3549 </span><span class="lineCov">        140 : Value::Members Value::getMemberNames() const {</span>
+<span class="lineNum">    3550 </span><span class="lineCov">        140 :   JSON_ASSERT_MESSAGE(</span>
 <span class="lineNum">    3551 </span>            :       type_ == nullValue || type_ == objectValue,
 <span class="lineNum">    3552 </span>            :       &quot;in Json::Value::getMemberNames(), value must be objectValue&quot;);
-<span class="lineNum">    3553 </span><span class="lineCov">        116 :   if (type_ == nullValue)</span>
+<span class="lineNum">    3553 </span><span class="lineCov">        140 :   if (type_ == nullValue)</span>
 <span class="lineNum">    3554 </span><span class="lineNoCov">          0 :     return Value::Members();</span>
-<span class="lineNum">    3555 </span><span class="lineCov">        116 :   Members members;</span>
-<span class="lineNum">    3556 </span><span class="lineCov">        116 :   members.reserve(value_.map_-&gt;size());</span>
-<span class="lineNum">    3557 </span><span class="lineCov">        116 :   ObjectValues::const_iterator it = value_.map_-&gt;begin();</span>
-<span class="lineNum">    3558 </span><span class="lineCov">        116 :   ObjectValues::const_iterator itEnd = value_.map_-&gt;end();</span>
-<span class="lineNum">    3559 </span><span class="lineCov">        483 :   for (; it != itEnd; ++it) {</span>
-<span class="lineNum">    3560 </span><span class="lineCov">        367 :     members.push_back(std::string((*it).first.data(),</span>
-<span class="lineNum">    3561 </span><span class="lineCov">        734 :                                   (*it).first.length()));</span>
+<span class="lineNum">    3555 </span><span class="lineCov">        140 :   Members members;</span>
+<span class="lineNum">    3556 </span><span class="lineCov">        140 :   members.reserve(value_.map_-&gt;size());</span>
+<span class="lineNum">    3557 </span><span class="lineCov">        140 :   ObjectValues::const_iterator it = value_.map_-&gt;begin();</span>
+<span class="lineNum">    3558 </span><span class="lineCov">        140 :   ObjectValues::const_iterator itEnd = value_.map_-&gt;end();</span>
+<span class="lineNum">    3559 </span><span class="lineCov">        679 :   for (; it != itEnd; ++it) {</span>
+<span class="lineNum">    3560 </span><span class="lineCov">        539 :     members.push_back(std::string((*it).first.data(),</span>
+<span class="lineNum">    3561 </span><span class="lineCov">       1078 :                                   (*it).first.length()));</span>
 <span class="lineNum">    3562 </span>            :   }
-<span class="lineNum">    3563 </span><span class="lineCov">        116 :   return members;</span>
+<span class="lineNum">    3563 </span><span class="lineCov">        140 :   return members;</span>
 <span class="lineNum">    3564 </span>            : }
 <span class="lineNum">    3565 </span>            : //
 <span class="lineNum">    3566 </span>            : //# ifdef JSON_USE_CPPTL
@@ -3743,9 +3743,9 @@
 <span class="lineNum">    3681 </span>            : 
 <a name="3682"><span class="lineNum">    3682 </span><span class="lineNoCov">          0 : bool Value::isString() const { return type_ == stringValue; }</span></a>
 <span class="lineNum">    3683 </span>            : 
-<a name="3684"><span class="lineNum">    3684 </span><span class="lineCov">        198 : bool Value::isArray() const { return type_ == arrayValue; }</span></a>
+<a name="3684"><span class="lineNum">    3684 </span><span class="lineCov">        326 : bool Value::isArray() const { return type_ == arrayValue; }</span></a>
 <span class="lineNum">    3685 </span>            : 
-<a name="3686"><span class="lineNum">    3686 </span><span class="lineCov">        198 : bool Value::isObject() const { return type_ == objectValue; }</span></a>
+<a name="3686"><span class="lineNum">    3686 </span><span class="lineCov">        326 : bool Value::isObject() const { return type_ == objectValue; }</span></a>
 <span class="lineNum">    3687 </span>            : 
 <span class="lineNum">    3688 </span><span class="lineNoCov">          0 : void Value::setComment(const char* comment, size_t len, CommentPlacement placement) {</span>
 <span class="lineNum">    3689 </span><span class="lineNoCov">          0 :   if (!comments_)</span>
@@ -3765,8 +3765,8 @@
 <span class="lineNum">    3703 </span><span class="lineNoCov">          0 :   setComment(comment.c_str(), comment.length(), placement);</span>
 <a name="3704"><span class="lineNum">    3704 </span><span class="lineNoCov">          0 : }</span></a>
 <span class="lineNum">    3705 </span>            : 
-<span class="lineNum">    3706 </span><span class="lineCov">       1917 : bool Value::hasComment(CommentPlacement placement) const {</span>
-<span class="lineNum">    3707 </span><span class="lineCov">       1917 :   return comments_ != 0 &amp;&amp; comments_[placement].comment_ != 0;</span>
+<span class="lineNum">    3706 </span><span class="lineCov">       2859 : bool Value::hasComment(CommentPlacement placement) const {</span>
+<span class="lineNum">    3707 </span><span class="lineCov">       2859 :   return comments_ != 0 &amp;&amp; comments_[placement].comment_ != 0;</span>
 <a name="3708"><span class="lineNum">    3708 </span>            : }</a>
 <span class="lineNum">    3709 </span>            : 
 <span class="lineNum">    3710 </span><span class="lineNoCov">          0 : std::string Value::getComment(CommentPlacement placement) const {</span>
@@ -3783,9 +3783,9 @@
 <span class="lineNum">    3721 </span>            : 
 <a name="3722"><span class="lineNum">    3722 </span><span class="lineNoCov">          0 : size_t Value::getOffsetLimit() const { return limit_; }</span></a>
 <span class="lineNum">    3723 </span>            : 
-<span class="lineNum">    3724 </span><span class="lineCov">         47 : std::string Value::toStyledString() const {</span>
-<span class="lineNum">    3725 </span><span class="lineCov">         47 :   StyledWriter writer;</span>
-<span class="lineNum">    3726 </span><span class="lineCov">         47 :   return writer.write(*this);</span>
+<span class="lineNum">    3724 </span><span class="lineCov">         49 : std::string Value::toStyledString() const {</span>
+<span class="lineNum">    3725 </span><span class="lineCov">         49 :   StyledWriter writer;</span>
+<span class="lineNum">    3726 </span><span class="lineCov">         49 :   return writer.write(*this);</span>
 <a name="3727"><span class="lineNum">    3727 </span>            : }</a>
 <span class="lineNum">    3728 </span>            : 
 <span class="lineNum">    3729 </span><span class="lineNoCov">          0 : Value::const_iterator Value::begin() const {</span>
@@ -4044,43 +4044,43 @@
 <span class="lineNum">    3982 </span>            : typedef std::auto_ptr&lt;StreamWriter&gt;   StreamWriterPtr;
 <a name="3983"><span class="lineNum">    3983 </span>            : #endif</a>
 <span class="lineNum">    3984 </span>            : 
-<span class="lineNum">    3985 </span><span class="lineCov">        367 : static bool containsControlCharacter(const char* str) {</span>
-<span class="lineNum">    3986 </span><span class="lineCov">       3943 :   while (*str) {</span>
-<span class="lineNum">    3987 </span><span class="lineCov">       3209 :     if (isControlCharacter(*(str++)))</span>
+<span class="lineNum">    3985 </span><span class="lineCov">        539 : static bool containsControlCharacter(const char* str) {</span>
+<span class="lineNum">    3986 </span><span class="lineCov">       6027 :   while (*str) {</span>
+<span class="lineNum">    3987 </span><span class="lineCov">       4949 :     if (isControlCharacter(*(str++)))</span>
 <span class="lineNum">    3988 </span><span class="lineNoCov">          0 :       return true;</span>
 <span class="lineNum">    3989 </span>            :   }
-<span class="lineNum">    3990 </span><span class="lineCov">        367 :   return false;</span>
+<span class="lineNum">    3990 </span><span class="lineCov">        539 :   return false;</span>
 <a name="3991"><span class="lineNum">    3991 </span>            : }</a>
 <span class="lineNum">    3992 </span>            : 
-<span class="lineNum">    3993 </span><span class="lineCov">         23 : static bool containsControlCharacter0(const char* str, unsigned len) {</span>
-<span class="lineNum">    3994 </span><span class="lineCov">         23 :   char const* end = str + len;</span>
-<span class="lineNum">    3995 </span><span class="lineCov">        152 :   while (end != str) {</span>
-<span class="lineNum">    3996 </span><span class="lineCov">        106 :     if (isControlCharacter(*str) || 0==*str)</span>
+<span class="lineNum">    3993 </span><span class="lineCov">         35 : static bool containsControlCharacter0(const char* str, unsigned len) {</span>
+<span class="lineNum">    3994 </span><span class="lineCov">         35 :   char const* end = str + len;</span>
+<span class="lineNum">    3995 </span><span class="lineCov">        208 :   while (end != str) {</span>
+<span class="lineNum">    3996 </span><span class="lineCov">        138 :     if (isControlCharacter(*str) || 0==*str)</span>
 <span class="lineNum">    3997 </span><span class="lineNoCov">          0 :       return true;</span>
-<span class="lineNum">    3998 </span><span class="lineCov">        106 :     ++str;</span>
+<span class="lineNum">    3998 </span><span class="lineCov">        138 :     ++str;</span>
 <span class="lineNum">    3999 </span>            :   }
-<span class="lineNum">    4000 </span><span class="lineCov">         23 :   return false;</span>
+<span class="lineNum">    4000 </span><span class="lineCov">         35 :   return false;</span>
 <a name="4001"><span class="lineNum">    4001 </span>            : }</a>
 <span class="lineNum">    4002 </span>            : 
-<span class="lineNum">    4003 </span><span class="lineCov">        173 : std::string valueToString(LargestInt value) {</span>
+<span class="lineNum">    4003 </span><span class="lineCov">        245 : std::string valueToString(LargestInt value) {</span>
 <span class="lineNum">    4004 </span>            :   UIntToStringBuffer buffer;
-<span class="lineNum">    4005 </span><span class="lineCov">        173 :   char* current = buffer + sizeof(buffer);</span>
-<span class="lineNum">    4006 </span><span class="lineCov">        173 :   bool isNegative = value &lt; 0;</span>
-<span class="lineNum">    4007 </span><span class="lineCov">        173 :   if (isNegative)</span>
+<span class="lineNum">    4005 </span><span class="lineCov">        245 :   char* current = buffer + sizeof(buffer);</span>
+<span class="lineNum">    4006 </span><span class="lineCov">        245 :   bool isNegative = value &lt; 0;</span>
+<span class="lineNum">    4007 </span><span class="lineCov">        245 :   if (isNegative)</span>
 <span class="lineNum">    4008 </span><span class="lineCov">          8 :     value = -value;</span>
-<span class="lineNum">    4009 </span><span class="lineCov">        173 :   uintToString(LargestUInt(value), current);</span>
-<span class="lineNum">    4010 </span><span class="lineCov">        173 :   if (isNegative)</span>
+<span class="lineNum">    4009 </span><span class="lineCov">        245 :   uintToString(LargestUInt(value), current);</span>
+<span class="lineNum">    4010 </span><span class="lineCov">        245 :   if (isNegative)</span>
 <span class="lineNum">    4011 </span><span class="lineCov">          8 :     *--current = '-';</span>
-<span class="lineNum">    4012 </span><span class="lineCov">        173 :   assert(current &gt;= buffer);</span>
-<span class="lineNum">    4013 </span><span class="lineCov">        173 :   return current;</span>
+<span class="lineNum">    4012 </span><span class="lineCov">        245 :   assert(current &gt;= buffer);</span>
+<span class="lineNum">    4013 </span><span class="lineCov">        245 :   return current;</span>
 <a name="4014"><span class="lineNum">    4014 </span>            : }</a>
 <span class="lineNum">    4015 </span>            : 
-<span class="lineNum">    4016 </span><span class="lineCov">        212 : std::string valueToString(LargestUInt value) {</span>
+<span class="lineNum">    4016 </span><span class="lineCov">        322 : std::string valueToString(LargestUInt value) {</span>
 <span class="lineNum">    4017 </span>            :   UIntToStringBuffer buffer;
-<span class="lineNum">    4018 </span><span class="lineCov">        212 :   char* current = buffer + sizeof(buffer);</span>
-<span class="lineNum">    4019 </span><span class="lineCov">        212 :   uintToString(value, current);</span>
-<span class="lineNum">    4020 </span><span class="lineCov">        212 :   assert(current &gt;= buffer);</span>
-<span class="lineNum">    4021 </span><span class="lineCov">        212 :   return current;</span>
+<span class="lineNum">    4018 </span><span class="lineCov">        322 :   char* current = buffer + sizeof(buffer);</span>
+<span class="lineNum">    4019 </span><span class="lineCov">        322 :   uintToString(value, current);</span>
+<span class="lineNum">    4020 </span><span class="lineCov">        322 :   assert(current &gt;= buffer);</span>
+<span class="lineNum">    4021 </span><span class="lineCov">        322 :   return current;</span>
 <span class="lineNum">    4022 </span>            : }
 <span class="lineNum">    4023 </span>            : 
 <a name="4024"><span class="lineNum">    4024 </span>            : #if defined(JSON_HAS_INT64)</a>
@@ -4095,11 +4095,11 @@
 <span class="lineNum">    4033 </span>            : 
 <a name="4034"><span class="lineNum">    4034 </span>            : #endif // # if defined(JSON_HAS_INT64)</a>
 <span class="lineNum">    4035 </span>            : 
-<span class="lineNum">    4036 </span><span class="lineCov">         28 : std::string valueToString(double value) {</span>
+<span class="lineNum">    4036 </span><span class="lineCov">         48 : std::string valueToString(double value) {</span>
 <span class="lineNum">    4037 </span>            :   // Allocate a buffer that is more than large enough to store the 16 digits of
 <span class="lineNum">    4038 </span>            :   // precision requested below.
 <span class="lineNum">    4039 </span>            :   char buffer[32];
-<span class="lineNum">    4040 </span><span class="lineCov">         28 :   int len = -1;</span>
+<span class="lineNum">    4040 </span><span class="lineCov">         48 :   int len = -1;</span>
 <span class="lineNum">    4041 </span>            : 
 <span class="lineNum">    4042 </span>            : // Print into the buffer. We need not request the alternative representation
 <span class="lineNum">    4043 </span>            : // that always has a decimal point because JSON doesn't distingish the
@@ -4113,8 +4113,8 @@
 <span class="lineNum">    4051 </span>            :   len = sprintf_s(buffer, sizeof(buffer), &quot;%.17g&quot;, value);
 <span class="lineNum">    4052 </span>            : #endif
 <span class="lineNum">    4053 </span>            : #else
-<span class="lineNum">    4054 </span><span class="lineCov">         28 :   if (isfinite(value)) {</span>
-<span class="lineNum">    4055 </span><span class="lineCov">         28 :     len = snprintf(buffer, sizeof(buffer), &quot;%.17g&quot;, value);</span>
+<span class="lineNum">    4054 </span><span class="lineCov">         48 :   if (isfinite(value)) {</span>
+<span class="lineNum">    4055 </span><span class="lineCov">         48 :     len = snprintf(buffer, sizeof(buffer), &quot;%.17g&quot;, value);</span>
 <span class="lineNum">    4056 </span>            :   } else {
 <span class="lineNum">    4057 </span>            :     // IEEE standard states that NaN values will not compare to themselves
 <span class="lineNum">    4058 </span><span class="lineNoCov">          0 :     if (value != value) {</span>
@@ -4127,20 +4127,20 @@
 <span class="lineNum">    4065 </span>            :     // For those, we do not need to call fixNumLoc, but it is fast.
 <span class="lineNum">    4066 </span>            :   }
 <span class="lineNum">    4067 </span>            : #endif
-<span class="lineNum">    4068 </span><span class="lineCov">         28 :   assert(len &gt;= 0);</span>
-<span class="lineNum">    4069 </span><span class="lineCov">         28 :   fixNumericLocale(buffer, buffer + len);</span>
-<span class="lineNum">    4070 </span><span class="lineCov">         28 :   return buffer;</span>
+<span class="lineNum">    4068 </span><span class="lineCov">         48 :   assert(len &gt;= 0);</span>
+<span class="lineNum">    4069 </span><span class="lineCov">         48 :   fixNumericLocale(buffer, buffer + len);</span>
+<span class="lineNum">    4070 </span><span class="lineCov">         48 :   return buffer;</span>
 <a name="4071"><span class="lineNum">    4071 </span>            : }</a>
 <span class="lineNum">    4072 </span>            : 
-<a name="4073"><span class="lineNum">    4073 </span><span class="lineCov">          6 : std::string valueToString(bool value) { return value ? &quot;true&quot; : &quot;false&quot;; }</span></a>
+<a name="4073"><span class="lineNum">    4073 </span><span class="lineCov">         12 : std::string valueToString(bool value) { return value ? &quot;true&quot; : &quot;false&quot;; }</span></a>
 <span class="lineNum">    4074 </span>            : 
-<span class="lineNum">    4075 </span><span class="lineCov">        367 : std::string valueToQuotedString(const char* value) {</span>
-<span class="lineNum">    4076 </span><span class="lineCov">        367 :   if (value == NULL)</span>
+<span class="lineNum">    4075 </span><span class="lineCov">        539 : std::string valueToQuotedString(const char* value) {</span>
+<span class="lineNum">    4076 </span><span class="lineCov">        539 :   if (value == NULL)</span>
 <span class="lineNum">    4077 </span><span class="lineNoCov">          0 :     return &quot;&quot;;</span>
 <span class="lineNum">    4078 </span>            :   // Not sure how to handle unicode...
-<span class="lineNum">    4079 </span><span class="lineCov">        734 :   if (strpbrk(value, &quot;\&quot;\\\b\f\n\r\t&quot;) == NULL &amp;&amp;</span>
-<span class="lineNum">    4080 </span><span class="lineCov">        367 :       !containsControlCharacter(value))</span>
-<span class="lineNum">    4081 </span><span class="lineCov">        367 :     return std::string(&quot;\&quot;&quot;) + value + &quot;\&quot;&quot;;</span>
+<span class="lineNum">    4079 </span><span class="lineCov">       1078 :   if (strpbrk(value, &quot;\&quot;\\\b\f\n\r\t&quot;) == NULL &amp;&amp;</span>
+<span class="lineNum">    4080 </span><span class="lineCov">        539 :       !containsControlCharacter(value))</span>
+<span class="lineNum">    4081 </span><span class="lineCov">        539 :     return std::string(&quot;\&quot;&quot;) + value + &quot;\&quot;&quot;;</span>
 <span class="lineNum">    4082 </span>            :   // We have to walk value and escape any special characters.
 <span class="lineNum">    4083 </span>            :   // Appending to std::string is not efficient, but this should be rare.
 <span class="lineNum">    4084 </span>            :   // (Note: forward slashes are *not* rare, but I am not escaping them.)
@@ -4197,27 +4197,27 @@
 <span class="lineNum">    4135 </span>            : }
 <a name="4136"><span class="lineNum">    4136 </span>            : </a>
 <span class="lineNum">    4137 </span>            : // https://github.com/upcaste/upcaste/blob/master/src/upcore/src/cstring/strnpbrk.cpp
-<span class="lineNum">    4138 </span><span class="lineCov">         23 : static char const* strnpbrk(char const* s, char const* accept, size_t n) {</span>
-<span class="lineNum">    4139 </span><span class="lineCov">         23 :   assert((s || !n) &amp;&amp; accept);</span>
+<span class="lineNum">    4138 </span><span class="lineCov">         35 : static char const* strnpbrk(char const* s, char const* accept, size_t n) {</span>
+<span class="lineNum">    4139 </span><span class="lineCov">         35 :   assert((s || !n) &amp;&amp; accept);</span>
 <span class="lineNum">    4140 </span>            : 
-<span class="lineNum">    4141 </span><span class="lineCov">         23 :   char const* const end = s + n;</span>
-<span class="lineNum">    4142 </span><span class="lineCov">        129 :   for (char const* cur = s; cur &lt; end; ++cur) {</span>
-<span class="lineNum">    4143 </span><span class="lineCov">        106 :     int const c = *cur;</span>
-<span class="lineNum">    4144 </span><span class="lineCov">        848 :     for (char const* a = accept; *a; ++a) {</span>
-<span class="lineNum">    4145 </span><span class="lineCov">        742 :       if (*a == c) {</span>
+<span class="lineNum">    4141 </span><span class="lineCov">         35 :   char const* const end = s + n;</span>
+<span class="lineNum">    4142 </span><span class="lineCov">        173 :   for (char const* cur = s; cur &lt; end; ++cur) {</span>
+<span class="lineNum">    4143 </span><span class="lineCov">        138 :     int const c = *cur;</span>
+<span class="lineNum">    4144 </span><span class="lineCov">       1104 :     for (char const* a = accept; *a; ++a) {</span>
+<span class="lineNum">    4145 </span><span class="lineCov">        966 :       if (*a == c) {</span>
 <span class="lineNum">    4146 </span><span class="lineNoCov">          0 :         return cur;</span>
 <span class="lineNum">    4147 </span>            :       }
 <span class="lineNum">    4148 </span>            :     }
 <span class="lineNum">    4149 </span>            :   }
-<a name="4150"><span class="lineNum">    4150 </span><span class="lineCov">         23 :   return NULL;</span></a>
+<a name="4150"><span class="lineNum">    4150 </span><span class="lineCov">         35 :   return NULL;</span></a>
 <span class="lineNum">    4151 </span>            : }
-<span class="lineNum">    4152 </span><span class="lineCov">         23 : static std::string valueToQuotedStringN(const char* value, unsigned length) {</span>
-<span class="lineNum">    4153 </span><span class="lineCov">         23 :   if (value == NULL)</span>
+<span class="lineNum">    4152 </span><span class="lineCov">         35 : static std::string valueToQuotedStringN(const char* value, unsigned length) {</span>
+<span class="lineNum">    4153 </span><span class="lineCov">         35 :   if (value == NULL)</span>
 <span class="lineNum">    4154 </span><span class="lineNoCov">          0 :     return &quot;&quot;;</span>
 <span class="lineNum">    4155 </span>            :   // Not sure how to handle unicode...
-<span class="lineNum">    4156 </span><span class="lineCov">         46 :   if (strnpbrk(value, &quot;\&quot;\\\b\f\n\r\t&quot;, length) == NULL &amp;&amp;</span>
-<span class="lineNum">    4157 </span><span class="lineCov">         23 :       !containsControlCharacter0(value, length))</span>
-<span class="lineNum">    4158 </span><span class="lineCov">         23 :     return std::string(&quot;\&quot;&quot;) + value + &quot;\&quot;&quot;;</span>
+<span class="lineNum">    4156 </span><span class="lineCov">         70 :   if (strnpbrk(value, &quot;\&quot;\\\b\f\n\r\t&quot;, length) == NULL &amp;&amp;</span>
+<span class="lineNum">    4157 </span><span class="lineCov">         35 :       !containsControlCharacter0(value, length))</span>
+<span class="lineNum">    4158 </span><span class="lineCov">         35 :     return std::string(&quot;\&quot;&quot;) + value + &quot;\&quot;&quot;;</span>
 <span class="lineNum">    4159 </span>            :   // We have to walk value and escape any special characters.
 <span class="lineNum">    4160 </span>            :   // Appending to std::string is not efficient, but this should be rare.
 <span class="lineNum">    4161 </span>            :   // (Note: forward slashes are *not* rare, but I am not escaping them.)
@@ -4276,7 +4276,7 @@
 <span class="lineNum">    4214 </span>            : 
 <a name="4215"><span class="lineNum">    4215 </span>            : // Class Writer</a>
 <span class="lineNum">    4216 </span>            : // //////////////////////////////////////////////////////////////////
-<span class="lineNum">    4217 </span><span class="lineCov">         47 : Writer::~Writer() {}</span>
+<span class="lineNum">    4217 </span><span class="lineCov">         49 : Writer::~Writer() {}</span>
 <span class="lineNum">    4218 </span>            : 
 <span class="lineNum">    4219 </span>            : // Class FastWriter
 <a name="4220"><span class="lineNum">    4220 </span>            : // //////////////////////////////////////////////////////////////////</a>
@@ -4356,183 +4356,183 @@
 <span class="lineNum">    4294 </span>            : // Class StyledWriter
 <a name="4295"><span class="lineNum">    4295 </span>            : // //////////////////////////////////////////////////////////////////</a>
 <span class="lineNum">    4296 </span>            : 
-<span class="lineNum">    4297 </span><span class="lineCov">         47 : StyledWriter::StyledWriter()</span>
-<a name="4298"><span class="lineNum">    4298 </span><span class="lineCov">         47 :     : rightMargin_(74), indentSize_(3), addChildValues_() {}</span></a>
+<span class="lineNum">    4297 </span><span class="lineCov">         49 : StyledWriter::StyledWriter()</span>
+<a name="4298"><span class="lineNum">    4298 </span><span class="lineCov">         49 :     : rightMargin_(74), indentSize_(3), addChildValues_() {}</span></a>
 <span class="lineNum">    4299 </span>            : 
-<span class="lineNum">    4300 </span><span class="lineCov">         47 : std::string StyledWriter::write(const Value&amp; root) {</span>
-<span class="lineNum">    4301 </span><span class="lineCov">         47 :   document_ = &quot;&quot;;</span>
-<span class="lineNum">    4302 </span><span class="lineCov">         47 :   addChildValues_ = false;</span>
-<span class="lineNum">    4303 </span><span class="lineCov">         47 :   indentString_ = &quot;&quot;;</span>
-<span class="lineNum">    4304 </span><span class="lineCov">         47 :   writeCommentBeforeValue(root);</span>
-<span class="lineNum">    4305 </span><span class="lineCov">         47 :   writeValue(root);</span>
-<span class="lineNum">    4306 </span><span class="lineCov">         47 :   writeCommentAfterValueOnSameLine(root);</span>
-<span class="lineNum">    4307 </span><span class="lineCov">         47 :   document_ += &quot;\n&quot;;</span>
-<span class="lineNum">    4308 </span><span class="lineCov">         47 :   return document_;</span>
+<span class="lineNum">    4300 </span><span class="lineCov">         49 : std::string StyledWriter::write(const Value&amp; root) {</span>
+<span class="lineNum">    4301 </span><span class="lineCov">         49 :   document_ = &quot;&quot;;</span>
+<span class="lineNum">    4302 </span><span class="lineCov">         49 :   addChildValues_ = false;</span>
+<span class="lineNum">    4303 </span><span class="lineCov">         49 :   indentString_ = &quot;&quot;;</span>
+<span class="lineNum">    4304 </span><span class="lineCov">         49 :   writeCommentBeforeValue(root);</span>
+<span class="lineNum">    4305 </span><span class="lineCov">         49 :   writeValue(root);</span>
+<span class="lineNum">    4306 </span><span class="lineCov">         49 :   writeCommentAfterValueOnSameLine(root);</span>
+<span class="lineNum">    4307 </span><span class="lineCov">         49 :   document_ += &quot;\n&quot;;</span>
+<span class="lineNum">    4308 </span><span class="lineCov">         49 :   return document_;</span>
 <a name="4309"><span class="lineNum">    4309 </span>            : }</a>
 <span class="lineNum">    4310 </span>            : 
-<span class="lineNum">    4311 </span><span class="lineCov">        639 : void StyledWriter::writeValue(const Value&amp; value) {</span>
-<span class="lineNum">    4312 </span><span class="lineCov">        639 :   switch (value.type()) {</span>
+<span class="lineNum">    4311 </span><span class="lineCov">        953 : void StyledWriter::writeValue(const Value&amp; value) {</span>
+<span class="lineNum">    4312 </span><span class="lineCov">        953 :   switch (value.type()) {</span>
 <span class="lineNum">    4313 </span>            :   case nullValue:
-<span class="lineNum">    4314 </span><span class="lineCov">         20 :     pushValue(&quot;null&quot;);</span>
-<span class="lineNum">    4315 </span><span class="lineCov">         20 :     break;</span>
+<span class="lineNum">    4314 </span><span class="lineCov">         54 :     pushValue(&quot;null&quot;);</span>
+<span class="lineNum">    4315 </span><span class="lineCov">         54 :     break;</span>
 <span class="lineNum">    4316 </span>            :   case intValue:
-<span class="lineNum">    4317 </span><span class="lineCov">        173 :     pushValue(valueToString(value.asLargestInt()));</span>
-<span class="lineNum">    4318 </span><span class="lineCov">        173 :     break;</span>
+<span class="lineNum">    4317 </span><span class="lineCov">        245 :     pushValue(valueToString(value.asLargestInt()));</span>
+<span class="lineNum">    4318 </span><span class="lineCov">        245 :     break;</span>
 <span class="lineNum">    4319 </span>            :   case uintValue:
-<span class="lineNum">    4320 </span><span class="lineCov">        212 :     pushValue(valueToString(value.asLargestUInt()));</span>
-<span class="lineNum">    4321 </span><span class="lineCov">        212 :     break;</span>
+<span class="lineNum">    4320 </span><span class="lineCov">        322 :     pushValue(valueToString(value.asLargestUInt()));</span>
+<span class="lineNum">    4321 </span><span class="lineCov">        322 :     break;</span>
 <span class="lineNum">    4322 </span>            :   case realValue:
-<span class="lineNum">    4323 </span><span class="lineCov">         28 :     pushValue(valueToString(value.asDouble()));</span>
-<span class="lineNum">    4324 </span><span class="lineCov">         28 :     break;</span>
+<span class="lineNum">    4323 </span><span class="lineCov">         48 :     pushValue(valueToString(value.asDouble()));</span>
+<span class="lineNum">    4324 </span><span class="lineCov">         48 :     break;</span>
 <span class="lineNum">    4325 </span>            :   case stringValue:
 <span class="lineNum">    4326 </span>            :   {
 <span class="lineNum">    4327 </span>            :     // Is NULL possible for value.string_?
 <span class="lineNum">    4328 </span>            :     char const* str;
 <span class="lineNum">    4329 </span>            :     char const* end;
-<span class="lineNum">    4330 </span><span class="lineCov">         23 :     bool ok = value.getString(&amp;str, &amp;end);</span>
-<span class="lineNum">    4331 </span><span class="lineCov">         23 :     if (ok) pushValue(valueToQuotedStringN(str, static_cast&lt;unsigned&gt;(end-str)));</span>
+<span class="lineNum">    4330 </span><span class="lineCov">         35 :     bool ok = value.getString(&amp;str, &amp;end);</span>
+<span class="lineNum">    4331 </span><span class="lineCov">         35 :     if (ok) pushValue(valueToQuotedStringN(str, static_cast&lt;unsigned&gt;(end-str)));</span>
 <span class="lineNum">    4332 </span><span class="lineNoCov">          0 :     else pushValue(&quot;&quot;);</span>
-<span class="lineNum">    4333 </span><span class="lineCov">         23 :     break;</span>
+<span class="lineNum">    4333 </span><span class="lineCov">         35 :     break;</span>
 <span class="lineNum">    4334 </span>            :   }
 <span class="lineNum">    4335 </span>            :   case booleanValue:
-<span class="lineNum">    4336 </span><span class="lineCov">          6 :     pushValue(valueToString(value.asBool()));</span>
-<span class="lineNum">    4337 </span><span class="lineCov">          6 :     break;</span>
+<span class="lineNum">    4336 </span><span class="lineCov">         12 :     pushValue(valueToString(value.asBool()));</span>
+<span class="lineNum">    4337 </span><span class="lineCov">         12 :     break;</span>
 <span class="lineNum">    4338 </span>            :   case arrayValue:
-<span class="lineNum">    4339 </span><span class="lineCov">         61 :     writeArrayValue(value);</span>
-<span class="lineNum">    4340 </span><span class="lineCov">         61 :     break;</span>
+<span class="lineNum">    4339 </span><span class="lineCov">         97 :     writeArrayValue(value);</span>
+<span class="lineNum">    4340 </span><span class="lineCov">         97 :     break;</span>
 <span class="lineNum">    4341 </span>            :   case objectValue: {
-<span class="lineNum">    4342 </span><span class="lineCov">        116 :     Value::Members members(value.getMemberNames());</span>
-<span class="lineNum">    4343 </span><span class="lineCov">        116 :     if (members.empty())</span>
+<span class="lineNum">    4342 </span><span class="lineCov">        140 :     Value::Members members(value.getMemberNames());</span>
+<span class="lineNum">    4343 </span><span class="lineCov">        140 :     if (members.empty())</span>
 <span class="lineNum">    4344 </span><span class="lineNoCov">          0 :       pushValue(&quot;{}&quot;);</span>
 <span class="lineNum">    4345 </span>            :     else {
-<span class="lineNum">    4346 </span><span class="lineCov">        116 :       writeWithIndent(&quot;{&quot;);</span>
-<span class="lineNum">    4347 </span><span class="lineCov">        116 :       indent();</span>
-<span class="lineNum">    4348 </span><span class="lineCov">        116 :       Value::Members::iterator it = members.begin();</span>
+<span class="lineNum">    4346 </span><span class="lineCov">        140 :       writeWithIndent(&quot;{&quot;);</span>
+<span class="lineNum">    4347 </span><span class="lineCov">        140 :       indent();</span>
+<span class="lineNum">    4348 </span><span class="lineCov">        140 :       Value::Members::iterator it = members.begin();</span>
 <span class="lineNum">    4349 </span>            :       for (;;) {
-<span class="lineNum">    4350 </span><span class="lineCov">        367 :         const std::string&amp; name = *it;</span>
-<span class="lineNum">    4351 </span><span class="lineCov">        367 :         const Value&amp; childValue = value[name];</span>
-<span class="lineNum">    4352 </span><span class="lineCov">        367 :         writeCommentBeforeValue(childValue);</span>
-<span class="lineNum">    4353 </span><span class="lineCov">        367 :         writeWithIndent(valueToQuotedString(name.c_str()));</span>
-<span class="lineNum">    4354 </span><span class="lineCov">        367 :         document_ += &quot; : &quot;;</span>
-<span class="lineNum">    4355 </span><span class="lineCov">        367 :         writeValue(childValue);</span>
-<span class="lineNum">    4356 </span><span class="lineCov">        367 :         if (++it == members.end()) {</span>
-<span class="lineNum">    4357 </span><span class="lineCov">        116 :           writeCommentAfterValueOnSameLine(childValue);</span>
-<span class="lineNum">    4358 </span><span class="lineCov">        116 :           break;</span>
+<span class="lineNum">    4350 </span><span class="lineCov">        539 :         const std::string&amp; name = *it;</span>
+<span class="lineNum">    4351 </span><span class="lineCov">        539 :         const Value&amp; childValue = value[name];</span>
+<span class="lineNum">    4352 </span><span class="lineCov">        539 :         writeCommentBeforeValue(childValue);</span>
+<span class="lineNum">    4353 </span><span class="lineCov">        539 :         writeWithIndent(valueToQuotedString(name.c_str()));</span>
+<span class="lineNum">    4354 </span><span class="lineCov">        539 :         document_ += &quot; : &quot;;</span>
+<span class="lineNum">    4355 </span><span class="lineCov">        539 :         writeValue(childValue);</span>
+<span class="lineNum">    4356 </span><span class="lineCov">        539 :         if (++it == members.end()) {</span>
+<span class="lineNum">    4357 </span><span class="lineCov">        140 :           writeCommentAfterValueOnSameLine(childValue);</span>
+<span class="lineNum">    4358 </span><span class="lineCov">        140 :           break;</span>
 <span class="lineNum">    4359 </span>            :         }
-<span class="lineNum">    4360 </span><span class="lineCov">        251 :         document_ += ',';</span>
-<span class="lineNum">    4361 </span><span class="lineCov">        251 :         writeCommentAfterValueOnSameLine(childValue);</span>
-<span class="lineNum">    4362 </span><span class="lineCov">        251 :       }</span>
-<span class="lineNum">    4363 </span><span class="lineCov">        116 :       unindent();</span>
-<span class="lineNum">    4364 </span><span class="lineCov">        116 :       writeWithIndent(&quot;}&quot;);</span>
-<span class="lineNum">    4365 </span><span class="lineCov">        116 :     }</span>
-<span class="lineNum">    4366 </span><span class="lineCov">        116 :   } break;</span>
+<span class="lineNum">    4360 </span><span class="lineCov">        399 :         document_ += ',';</span>
+<span class="lineNum">    4361 </span><span class="lineCov">        399 :         writeCommentAfterValueOnSameLine(childValue);</span>
+<span class="lineNum">    4362 </span><span class="lineCov">        399 :       }</span>
+<span class="lineNum">    4363 </span><span class="lineCov">        140 :       unindent();</span>
+<span class="lineNum">    4364 </span><span class="lineCov">        140 :       writeWithIndent(&quot;}&quot;);</span>
+<span class="lineNum">    4365 </span><span class="lineCov">        140 :     }</span>
+<span class="lineNum">    4366 </span><span class="lineCov">        140 :   } break;</span>
 <span class="lineNum">    4367 </span>            :   }
-<a name="4368"><span class="lineNum">    4368 </span><span class="lineCov">        639 : }</span></a>
+<a name="4368"><span class="lineNum">    4368 </span><span class="lineCov">        953 : }</span></a>
 <span class="lineNum">    4369 </span>            : 
-<span class="lineNum">    4370 </span><span class="lineCov">         61 : void StyledWriter::writeArrayValue(const Value&amp; value) {</span>
-<span class="lineNum">    4371 </span><span class="lineCov">         61 :   unsigned size = value.size();</span>
-<span class="lineNum">    4372 </span><span class="lineCov">         61 :   if (size == 0)</span>
+<span class="lineNum">    4370 </span><span class="lineCov">         97 : void StyledWriter::writeArrayValue(const Value&amp; value) {</span>
+<span class="lineNum">    4371 </span><span class="lineCov">         97 :   unsigned size = value.size();</span>
+<span class="lineNum">    4372 </span><span class="lineCov">         97 :   if (size == 0)</span>
 <span class="lineNum">    4373 </span><span class="lineNoCov">          0 :     pushValue(&quot;[]&quot;);</span>
 <span class="lineNum">    4374 </span>            :   else {
-<span class="lineNum">    4375 </span><span class="lineCov">         61 :     bool isArrayMultiLine = isMultineArray(value);</span>
-<span class="lineNum">    4376 </span><span class="lineCov">         61 :     if (isArrayMultiLine) {</span>
-<span class="lineNum">    4377 </span><span class="lineCov">         14 :       writeWithIndent(&quot;[&quot;);</span>
-<span class="lineNum">    4378 </span><span class="lineCov">         14 :       indent();</span>
-<span class="lineNum">    4379 </span><span class="lineCov">         14 :       bool hasChildValue = !childValues_.empty();</span>
-<span class="lineNum">    4380 </span><span class="lineCov">         14 :       unsigned index = 0;</span>
+<span class="lineNum">    4375 </span><span class="lineCov">         97 :     bool isArrayMultiLine = isMultineArray(value);</span>
+<span class="lineNum">    4376 </span><span class="lineCov">         97 :     if (isArrayMultiLine) {</span>
+<span class="lineNum">    4377 </span><span class="lineCov">         18 :       writeWithIndent(&quot;[&quot;);</span>
+<span class="lineNum">    4378 </span><span class="lineCov">         18 :       indent();</span>
+<span class="lineNum">    4379 </span><span class="lineCov">         18 :       bool hasChildValue = !childValues_.empty();</span>
+<span class="lineNum">    4380 </span><span class="lineCov">         18 :       unsigned index = 0;</span>
 <span class="lineNum">    4381 </span>            :       for (;;) {
-<span class="lineNum">    4382 </span><span class="lineCov">         41 :         const Value&amp; childValue = value[index];</span>
-<span class="lineNum">    4383 </span><span class="lineCov">         41 :         writeCommentBeforeValue(childValue);</span>
-<span class="lineNum">    4384 </span><span class="lineCov">         41 :         if (hasChildValue)</span>
+<span class="lineNum">    4382 </span><span class="lineCov">         57 :         const Value&amp; childValue = value[index];</span>
+<span class="lineNum">    4383 </span><span class="lineCov">         57 :         writeCommentBeforeValue(childValue);</span>
+<span class="lineNum">    4384 </span><span class="lineCov">         57 :         if (hasChildValue)</span>
 <span class="lineNum">    4385 </span><span class="lineNoCov">          0 :           writeWithIndent(childValues_[index]);</span>
 <span class="lineNum">    4386 </span>            :         else {
-<span class="lineNum">    4387 </span><span class="lineCov">         41 :           writeIndent();</span>
-<span class="lineNum">    4388 </span><span class="lineCov">         41 :           writeValue(childValue);</span>
+<span class="lineNum">    4387 </span><span class="lineCov">         57 :           writeIndent();</span>
+<span class="lineNum">    4388 </span><span class="lineCov">         57 :           writeValue(childValue);</span>
 <span class="lineNum">    4389 </span>            :         }
-<span class="lineNum">    4390 </span><span class="lineCov">         41 :         if (++index == size) {</span>
-<span class="lineNum">    4391 </span><span class="lineCov">         14 :           writeCommentAfterValueOnSameLine(childValue);</span>
-<span class="lineNum">    4392 </span><span class="lineCov">         14 :           break;</span>
+<span class="lineNum">    4390 </span><span class="lineCov">         57 :         if (++index == size) {</span>
+<span class="lineNum">    4391 </span><span class="lineCov">         18 :           writeCommentAfterValueOnSameLine(childValue);</span>
+<span class="lineNum">    4392 </span><span class="lineCov">         18 :           break;</span>
 <span class="lineNum">    4393 </span>            :         }
-<span class="lineNum">    4394 </span><span class="lineCov">         27 :         document_ += ',';</span>
-<span class="lineNum">    4395 </span><span class="lineCov">         27 :         writeCommentAfterValueOnSameLine(childValue);</span>
-<span class="lineNum">    4396 </span><span class="lineCov">         27 :       }</span>
-<span class="lineNum">    4397 </span><span class="lineCov">         14 :       unindent();</span>
-<span class="lineNum">    4398 </span><span class="lineCov">         14 :       writeWithIndent(&quot;]&quot;);</span>
+<span class="lineNum">    4394 </span><span class="lineCov">         39 :         document_ += ',';</span>
+<span class="lineNum">    4395 </span><span class="lineCov">         39 :         writeCommentAfterValueOnSameLine(childValue);</span>
+<span class="lineNum">    4396 </span><span class="lineCov">         39 :       }</span>
+<span class="lineNum">    4397 </span><span class="lineCov">         18 :       unindent();</span>
+<span class="lineNum">    4398 </span><span class="lineCov">         18 :       writeWithIndent(&quot;]&quot;);</span>
 <span class="lineNum">    4399 </span>            :     } else // output on a single line
 <span class="lineNum">    4400 </span>            :     {
-<span class="lineNum">    4401 </span><span class="lineCov">         47 :       assert(childValues_.size() == size);</span>
-<span class="lineNum">    4402 </span><span class="lineCov">         47 :       document_ += &quot;[ &quot;;</span>
-<span class="lineNum">    4403 </span><span class="lineCov">        231 :       for (unsigned index = 0; index &lt; size; ++index) {</span>
-<span class="lineNum">    4404 </span><span class="lineCov">        184 :         if (index &gt; 0)</span>
-<span class="lineNum">    4405 </span><span class="lineCov">        137 :           document_ += &quot;, &quot;;</span>
-<span class="lineNum">    4406 </span><span class="lineCov">        184 :         document_ += childValues_[index];</span>
+<span class="lineNum">    4401 </span><span class="lineCov">         79 :       assert(childValues_.size() == size);</span>
+<span class="lineNum">    4402 </span><span class="lineCov">         79 :       document_ += &quot;[ &quot;;</span>
+<span class="lineNum">    4403 </span><span class="lineCov">        387 :       for (unsigned index = 0; index &lt; size; ++index) {</span>
+<span class="lineNum">    4404 </span><span class="lineCov">        308 :         if (index &gt; 0)</span>
+<span class="lineNum">    4405 </span><span class="lineCov">        229 :           document_ += &quot;, &quot;;</span>
+<span class="lineNum">    4406 </span><span class="lineCov">        308 :         document_ += childValues_[index];</span>
 <span class="lineNum">    4407 </span>            :       }
-<span class="lineNum">    4408 </span><span class="lineCov">         47 :       document_ += &quot; ]&quot;;</span>
+<span class="lineNum">    4408 </span><span class="lineCov">         79 :       document_ += &quot; ]&quot;;</span>
 <span class="lineNum">    4409 </span>            :     }
 <span class="lineNum">    4410 </span>            :   }
-<a name="4411"><span class="lineNum">    4411 </span><span class="lineCov">         61 : }</span></a>
+<a name="4411"><span class="lineNum">    4411 </span><span class="lineCov">         97 : }</span></a>
 <span class="lineNum">    4412 </span>            : 
-<span class="lineNum">    4413 </span><span class="lineCov">         61 : bool StyledWriter::isMultineArray(const Value&amp; value) {</span>
-<span class="lineNum">    4414 </span><span class="lineCov">         61 :   int size = value.size();</span>
-<span class="lineNum">    4415 </span><span class="lineCov">         61 :   bool isMultiLine = size * 3 &gt;= rightMargin_;</span>
-<span class="lineNum">    4416 </span><span class="lineCov">         61 :   childValues_.clear();</span>
-<span class="lineNum">    4417 </span><span class="lineCov">        259 :   for (int index = 0; index &lt; size &amp;&amp; !isMultiLine; ++index) {</span>
-<span class="lineNum">    4418 </span><span class="lineCov">        198 :     const Value&amp; childValue = value[index];</span>
+<span class="lineNum">    4413 </span><span class="lineCov">         97 : bool StyledWriter::isMultineArray(const Value&amp; value) {</span>
+<span class="lineNum">    4414 </span><span class="lineCov">         97 :   int size = value.size();</span>
+<span class="lineNum">    4415 </span><span class="lineCov">         97 :   bool isMultiLine = size * 3 &gt;= rightMargin_;</span>
+<span class="lineNum">    4416 </span><span class="lineCov">         97 :   childValues_.clear();</span>
+<span class="lineNum">    4417 </span><span class="lineCov">        423 :   for (int index = 0; index &lt; size &amp;&amp; !isMultiLine; ++index) {</span>
+<span class="lineNum">    4418 </span><span class="lineCov">        326 :     const Value&amp; childValue = value[index];</span>
 <span class="lineNum">    4419 </span>            :     isMultiLine =
-<span class="lineNum">    4420 </span><span class="lineCov">        212 :         isMultiLine || ((childValue.isArray() || childValue.isObject()) &amp;&amp;</span>
-<span class="lineNum">    4421 </span><span class="lineCov">        212 :                         childValue.size() &gt; 0);</span>
+<span class="lineNum">    4420 </span><span class="lineCov">        344 :         isMultiLine || ((childValue.isArray() || childValue.isObject()) &amp;&amp;</span>
+<span class="lineNum">    4421 </span><span class="lineCov">        344 :                         childValue.size() &gt; 0);</span>
 <span class="lineNum">    4422 </span>            :   }
-<span class="lineNum">    4423 </span><span class="lineCov">         61 :   if (!isMultiLine) // check if line length &gt; max line length</span>
+<span class="lineNum">    4423 </span><span class="lineCov">         97 :   if (!isMultiLine) // check if line length &gt; max line length</span>
 <span class="lineNum">    4424 </span>            :   {
-<span class="lineNum">    4425 </span><span class="lineCov">         47 :     childValues_.reserve(size);</span>
-<span class="lineNum">    4426 </span><span class="lineCov">         47 :     addChildValues_ = true;</span>
-<span class="lineNum">    4427 </span><span class="lineCov">         47 :     int lineLength = 4 + (size - 1) * 2; // '[ ' + ', '*n + ' ]'</span>
-<span class="lineNum">    4428 </span><span class="lineCov">        231 :     for (int index = 0; index &lt; size; ++index) {</span>
-<span class="lineNum">    4429 </span><span class="lineCov">        184 :       if (hasCommentForValue(value[index])) {</span>
+<span class="lineNum">    4425 </span><span class="lineCov">         79 :     childValues_.reserve(size);</span>
+<span class="lineNum">    4426 </span><span class="lineCov">         79 :     addChildValues_ = true;</span>
+<span class="lineNum">    4427 </span><span class="lineCov">         79 :     int lineLength = 4 + (size - 1) * 2; // '[ ' + ', '*n + ' ]'</span>
+<span class="lineNum">    4428 </span><span class="lineCov">        387 :     for (int index = 0; index &lt; size; ++index) {</span>
+<span class="lineNum">    4429 </span><span class="lineCov">        308 :       if (hasCommentForValue(value[index])) {</span>
 <span class="lineNum">    4430 </span><span class="lineNoCov">          0 :         isMultiLine = true;</span>
 <span class="lineNum">    4431 </span>            :       }
-<span class="lineNum">    4432 </span><span class="lineCov">        184 :       writeValue(value[index]);</span>
-<span class="lineNum">    4433 </span><span class="lineCov">        184 :       lineLength += int(childValues_[index].length());</span>
+<span class="lineNum">    4432 </span><span class="lineCov">        308 :       writeValue(value[index]);</span>
+<span class="lineNum">    4433 </span><span class="lineCov">        308 :       lineLength += int(childValues_[index].length());</span>
 <span class="lineNum">    4434 </span>            :     }
-<span class="lineNum">    4435 </span><span class="lineCov">         47 :     addChildValues_ = false;</span>
-<span class="lineNum">    4436 </span><span class="lineCov">         47 :     isMultiLine = isMultiLine || lineLength &gt;= rightMargin_;</span>
+<span class="lineNum">    4435 </span><span class="lineCov">         79 :     addChildValues_ = false;</span>
+<span class="lineNum">    4436 </span><span class="lineCov">         79 :     isMultiLine = isMultiLine || lineLength &gt;= rightMargin_;</span>
 <span class="lineNum">    4437 </span>            :   }
-<span class="lineNum">    4438 </span><span class="lineCov">         61 :   return isMultiLine;</span>
+<span class="lineNum">    4438 </span><span class="lineCov">         97 :   return isMultiLine;</span>
 <a name="4439"><span class="lineNum">    4439 </span>            : }</a>
 <span class="lineNum">    4440 </span>            : 
-<span class="lineNum">    4441 </span><span class="lineCov">        462 : void StyledWriter::pushValue(const std::string&amp; value) {</span>
-<span class="lineNum">    4442 </span><span class="lineCov">        462 :   if (addChildValues_)</span>
-<span class="lineNum">    4443 </span><span class="lineCov">        184 :     childValues_.push_back(value);</span>
+<span class="lineNum">    4441 </span><span class="lineCov">        716 : void StyledWriter::pushValue(const std::string&amp; value) {</span>
+<span class="lineNum">    4442 </span><span class="lineCov">        716 :   if (addChildValues_)</span>
+<span class="lineNum">    4443 </span><span class="lineCov">        308 :     childValues_.push_back(value);</span>
 <span class="lineNum">    4444 </span>            :   else
-<span class="lineNum">    4445 </span><span class="lineCov">        278 :     document_ += value;</span>
-<a name="4446"><span class="lineNum">    4446 </span><span class="lineCov">        462 : }</span></a>
+<span class="lineNum">    4445 </span><span class="lineCov">        408 :     document_ += value;</span>
+<a name="4446"><span class="lineNum">    4446 </span><span class="lineCov">        716 : }</span></a>
 <span class="lineNum">    4447 </span>            : 
-<span class="lineNum">    4448 </span><span class="lineCov">        668 : void StyledWriter::writeIndent() {</span>
-<span class="lineNum">    4449 </span><span class="lineCov">        668 :   if (!document_.empty()) {</span>
-<span class="lineNum">    4450 </span><span class="lineCov">        621 :     char last = document_[document_.length() - 1];</span>
-<span class="lineNum">    4451 </span><span class="lineCov">        621 :     if (last == ' ') // already indented</span>
-<span class="lineNum">    4452 </span><span class="lineCov">        751 :       return;</span>
-<span class="lineNum">    4453 </span><span class="lineCov">        538 :     if (last != '\n') // Comments may add new-line</span>
-<span class="lineNum">    4454 </span><span class="lineCov">        538 :       document_ += '\n';</span>
+<span class="lineNum">    4448 </span><span class="lineCov">        912 : void StyledWriter::writeIndent() {</span>
+<span class="lineNum">    4449 </span><span class="lineCov">        912 :   if (!document_.empty()) {</span>
+<span class="lineNum">    4450 </span><span class="lineCov">        863 :     char last = document_[document_.length() - 1];</span>
+<span class="lineNum">    4451 </span><span class="lineCov">        863 :     if (last == ' ') // already indented</span>
+<span class="lineNum">    4452 </span><span class="lineCov">       1021 :       return;</span>
+<span class="lineNum">    4453 </span><span class="lineCov">        754 :     if (last != '\n') // Comments may add new-line</span>
+<span class="lineNum">    4454 </span><span class="lineCov">        754 :       document_ += '\n';</span>
 <span class="lineNum">    4455 </span>            :   }
-<span class="lineNum">    4456 </span><span class="lineCov">        585 :   document_ += indentString_;</span>
+<span class="lineNum">    4456 </span><span class="lineCov">        803 :   document_ += indentString_;</span>
 <a name="4457"><span class="lineNum">    4457 </span>            : }</a>
 <span class="lineNum">    4458 </span>            : 
-<span class="lineNum">    4459 </span><span class="lineCov">        627 : void StyledWriter::writeWithIndent(const std::string&amp; value) {</span>
-<span class="lineNum">    4460 </span><span class="lineCov">        627 :   writeIndent();</span>
-<span class="lineNum">    4461 </span><span class="lineCov">        627 :   document_ += value;</span>
-<a name="4462"><span class="lineNum">    4462 </span><span class="lineCov">        627 : }</span></a>
+<span class="lineNum">    4459 </span><span class="lineCov">        855 : void StyledWriter::writeWithIndent(const std::string&amp; value) {</span>
+<span class="lineNum">    4460 </span><span class="lineCov">        855 :   writeIndent();</span>
+<span class="lineNum">    4461 </span><span class="lineCov">        855 :   document_ += value;</span>
+<a name="4462"><span class="lineNum">    4462 </span><span class="lineCov">        855 : }</span></a>
 <span class="lineNum">    4463 </span>            : 
-<a name="4464"><span class="lineNum">    4464 </span><span class="lineCov">        130 : void StyledWriter::indent() { indentString_ += std::string(indentSize_, ' '); }</span></a>
+<a name="4464"><span class="lineNum">    4464 </span><span class="lineCov">        158 : void StyledWriter::indent() { indentString_ += std::string(indentSize_, ' '); }</span></a>
 <span class="lineNum">    4465 </span>            : 
-<span class="lineNum">    4466 </span><span class="lineCov">        130 : void StyledWriter::unindent() {</span>
-<span class="lineNum">    4467 </span><span class="lineCov">        130 :   assert(int(indentString_.size()) &gt;= indentSize_);</span>
-<span class="lineNum">    4468 </span><span class="lineCov">        130 :   indentString_.resize(indentString_.size() - indentSize_);</span>
-<a name="4469"><span class="lineNum">    4469 </span><span class="lineCov">        130 : }</span></a>
+<span class="lineNum">    4466 </span><span class="lineCov">        158 : void StyledWriter::unindent() {</span>
+<span class="lineNum">    4467 </span><span class="lineCov">        158 :   assert(int(indentString_.size()) &gt;= indentSize_);</span>
+<span class="lineNum">    4468 </span><span class="lineCov">        158 :   indentString_.resize(indentString_.size() - indentSize_);</span>
+<a name="4469"><span class="lineNum">    4469 </span><span class="lineCov">        158 : }</span></a>
 <span class="lineNum">    4470 </span>            : 
-<span class="lineNum">    4471 </span><span class="lineCov">        455 : void StyledWriter::writeCommentBeforeValue(const Value&amp; root) {</span>
-<span class="lineNum">    4472 </span><span class="lineCov">        455 :   if (!root.hasComment(commentBefore))</span>
-<span class="lineNum">    4473 </span><span class="lineCov">        910 :     return;</span>
+<span class="lineNum">    4471 </span><span class="lineCov">        645 : void StyledWriter::writeCommentBeforeValue(const Value&amp; root) {</span>
+<span class="lineNum">    4472 </span><span class="lineCov">        645 :   if (!root.hasComment(commentBefore))</span>
+<span class="lineNum">    4473 </span><span class="lineCov">       1290 :     return;</span>
 <span class="lineNum">    4474 </span>            : 
 <span class="lineNum">    4475 </span><span class="lineNoCov">          0 :   document_ += &quot;\n&quot;;</span>
 <span class="lineNum">    4476 </span><span class="lineNoCov">          0 :   writeIndent();</span>
@@ -4550,21 +4550,21 @@
 <span class="lineNum">    4488 </span><span class="lineNoCov">          0 :   document_ += &quot;\n&quot;;</span>
 <a name="4489"><span class="lineNum">    4489 </span>            : }</a>
 <span class="lineNum">    4490 </span>            : 
-<span class="lineNum">    4491 </span><span class="lineCov">        455 : void StyledWriter::writeCommentAfterValueOnSameLine(const Value&amp; root) {</span>
-<span class="lineNum">    4492 </span><span class="lineCov">        455 :   if (root.hasComment(commentAfterOnSameLine))</span>
+<span class="lineNum">    4491 </span><span class="lineCov">        645 : void StyledWriter::writeCommentAfterValueOnSameLine(const Value&amp; root) {</span>
+<span class="lineNum">    4492 </span><span class="lineCov">        645 :   if (root.hasComment(commentAfterOnSameLine))</span>
 <span class="lineNum">    4493 </span><span class="lineNoCov">          0 :     document_ += &quot; &quot; + root.getComment(commentAfterOnSameLine);</span>
 <span class="lineNum">    4494 </span>            : 
-<span class="lineNum">    4495 </span><span class="lineCov">        455 :   if (root.hasComment(commentAfter)) {</span>
+<span class="lineNum">    4495 </span><span class="lineCov">        645 :   if (root.hasComment(commentAfter)) {</span>
 <span class="lineNum">    4496 </span><span class="lineNoCov">          0 :     document_ += &quot;\n&quot;;</span>
 <span class="lineNum">    4497 </span><span class="lineNoCov">          0 :     document_ += root.getComment(commentAfter);</span>
 <span class="lineNum">    4498 </span><span class="lineNoCov">          0 :     document_ += &quot;\n&quot;;</span>
 <span class="lineNum">    4499 </span>            :   }
-<a name="4500"><span class="lineNum">    4500 </span><span class="lineCov">        455 : }</span></a>
+<a name="4500"><span class="lineNum">    4500 </span><span class="lineCov">        645 : }</span></a>
 <span class="lineNum">    4501 </span>            : 
-<span class="lineNum">    4502 </span><span class="lineCov">        184 : bool StyledWriter::hasCommentForValue(const Value&amp; value) {</span>
-<span class="lineNum">    4503 </span><span class="lineCov">        368 :   return value.hasComment(commentBefore) ||</span>
-<span class="lineNum">    4504 </span><span class="lineCov">        368 :          value.hasComment(commentAfterOnSameLine) ||</span>
-<span class="lineNum">    4505 </span><span class="lineCov">        368 :          value.hasComment(commentAfter);</span>
+<span class="lineNum">    4502 </span><span class="lineCov">        308 : bool StyledWriter::hasCommentForValue(const Value&amp; value) {</span>
+<span class="lineNum">    4503 </span><span class="lineCov">        616 :   return value.hasComment(commentBefore) ||</span>
+<span class="lineNum">    4504 </span><span class="lineCov">        616 :          value.hasComment(commentAfterOnSameLine) ||</span>
+<span class="lineNum">    4505 </span><span class="lineCov">        616 :          value.hasComment(commentAfter);</span>
 <span class="lineNum">    4506 </span>            : }
 <span class="lineNum">    4507 </span>            : 
 <span class="lineNum">    4508 </span>            : // Class StyledStreamWriter
@@ -5166,7 +5166,7 @@
 <span class="lineNum">    5104 </span><span class="lineNoCov">          0 :   return sout;</span>
 <a name="5105"><span class="lineNum">    5105 </span>            : }</a>
 <span class="lineNum">    5106 </span>            : 
-<span class="lineNum">    5107 </span><span class="lineCov">         15 : } // namespace Json</span>
+<span class="lineNum">    5107 </span><span class="lineCov">         18 : } // namespace Json</span>
 <span class="lineNum">    5108 </span>            : 
 <span class="lineNum">    5109 </span>            : // //////////////////////////////////////////////////////////////////////
 <span class="lineNum">    5110 </span>            : // End of content of file: src/lib_json/json_writer.cpp

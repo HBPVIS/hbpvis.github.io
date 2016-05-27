@@ -22,5 +22,6 @@ var classzerobuf_1_1_allocator =
     [ "getItemPtr", "classzerobuf_1_1_allocator.html#a74225d1f5043276c16ed5de20e494200", null ],
     [ "getSize", "classzerobuf_1_1_allocator.html#a0d27dbd1a65f6f767e1ff928593fcf16", null ],
     [ "isMovable", "classzerobuf_1_1_allocator.html#a694ef8c7541336689e95d72c6a134251", null ],
+    [ "isMutable", "classzerobuf_1_1_allocator.html#a5b19a0fa561ecce6cfb735c0297e204e", null ],
     [ "updateAllocation", "classzerobuf_1_1_allocator.html#a59b22f7bccb9384c0cb3069c076b3a51", null ]
 ];

@@ -1,5 +1,4 @@
 var searchData=
 [
-  ['vector',['Vector',['../classzerobuf_1_1_vector.html',1,'zerobuf']]],
-  ['version',['Version',['../classzerobuf_1_1_version.html',1,'zerobuf']]]
+  ['staticsuballocatorbase',['StaticSubAllocatorBase',['../classzerobuf_1_1_static_sub_allocator_base.html',1,'zerobuf']]]
 ];

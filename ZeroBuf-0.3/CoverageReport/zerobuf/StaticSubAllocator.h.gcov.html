@@ -32,17 +32,17 @@
             <td></td>
             <td class="headerItem">Lines:</td>
             <td class="headerCovTableEntry">1</td>
-            <td class="headerCovTableEntry">1</td>
-            <td class="headerCovTableEntryHi">100.0 %</td>
+            <td class="headerCovTableEntry">2</td>
+            <td class="headerCovTableEntryMed">50.0 %</td>
           </tr>
           <tr>
             <td class="headerItem">Date:</td>
-            <td class="headerValue">2016-05-24 01:08:08</td>
+            <td class="headerValue">2016-05-28 01:08:28</td>
             <td></td>
             <td class="headerItem">Functions:</td>
             <td class="headerCovTableEntry">1</td>
-            <td class="headerCovTableEntry">2</td>
-            <td class="headerCovTableEntryMed">50.0 %</td>
+            <td class="headerCovTableEntry">4</td>
+            <td class="headerCovTableEntryLo">25.0 %</td>
           </tr>
           <tr><td><img src="../glass.png" width=3 height=3 alt=""></td></tr>
         </table>
@@ -83,25 +83,26 @@
 <span class="lineNum">      21 </span>            : 
 <a name="22"><span class="lineNum">      22 </span>            :     ZEROBUF_API uint8_t* getData() final;</a>
 <span class="lineNum">      23 </span>            :     ZEROBUF_API const uint8_t* getData() const final;
-<span class="lineNum">      24 </span><span class="lineCov">          1 :     size_t getSize() const  final { return _size; }</span>
+<a name="24"><span class="lineNum">      24 </span><span class="lineCov">          1 :     size_t getSize() const  final { return _size; }</span></a>
 <span class="lineNum">      25 </span>            :     ZEROBUF_API void copyBuffer( const void* data, size_t size ) final;
-<span class="lineNum">      26 </span>            : 
-<span class="lineNum">      27 </span>            : private:
-<span class="lineNum">      28 </span>            :     A&amp; _parent;
-<span class="lineNum">      29 </span>            :     const size_t _offset;
-<span class="lineNum">      30 </span>            :     const size_t _size;
-<span class="lineNum">      31 </span>            : 
-<span class="lineNum">      32 </span>            :     StaticSubAllocatorBase( const StaticSubAllocatorBase&lt; A &gt;&amp; ) = delete;
-<span class="lineNum">      33 </span>            :     StaticSubAllocatorBase&lt; A &gt;&amp; operator = (
-<span class="lineNum">      34 </span>            :             const StaticSubAllocatorBase&lt; A &gt;&amp; ) = delete;
-<span class="lineNum">      35 </span>            : };
-<span class="lineNum">      36 </span>            : 
-<span class="lineNum">      37 </span>            : typedef StaticSubAllocatorBase&lt; Allocator &gt; StaticSubAllocator;
-<span class="lineNum">      38 </span>            : typedef StaticSubAllocatorBase&lt; const Allocator &gt; ConstStaticSubAllocator;
-<span class="lineNum">      39 </span>            : 
-<span class="lineNum">      40 </span>            : }
-<span class="lineNum">      41 </span>            : 
-<span class="lineNum">      42 </span>            : #endif
+<span class="lineNum">      26 </span><span class="lineNoCov">          0 :     bool isMutable() const final { return _parent.isMutable(); }</span>
+<span class="lineNum">      27 </span>            : 
+<span class="lineNum">      28 </span>            : private:
+<span class="lineNum">      29 </span>            :     A&amp; _parent;
+<span class="lineNum">      30 </span>            :     const size_t _offset;
+<span class="lineNum">      31 </span>            :     const size_t _size;
+<span class="lineNum">      32 </span>            : 
+<span class="lineNum">      33 </span>            :     StaticSubAllocatorBase( const StaticSubAllocatorBase&lt; A &gt;&amp; ) = delete;
+<span class="lineNum">      34 </span>            :     StaticSubAllocatorBase&lt; A &gt;&amp; operator = (
+<span class="lineNum">      35 </span>            :             const StaticSubAllocatorBase&lt; A &gt;&amp; ) = delete;
+<span class="lineNum">      36 </span>            : };
+<span class="lineNum">      37 </span>            : 
+<span class="lineNum">      38 </span>            : typedef StaticSubAllocatorBase&lt; Allocator &gt; StaticSubAllocator;
+<span class="lineNum">      39 </span>            : typedef StaticSubAllocatorBase&lt; const Allocator &gt; ConstStaticSubAllocator;
+<span class="lineNum">      40 </span>            : 
+<span class="lineNum">      41 </span>            : }
+<span class="lineNum">      42 </span>            : 
+<span class="lineNum">      43 </span>            : #endif
 </pre>
       </td>
     </tr>

@@ -1,7 +1,8 @@
 <map id="zerobuf::Allocator" name="zerobuf::Allocator">
-<area shape="rect" id="node3" href="$classzerobuf_1_1_dynamic_sub_allocator_base.html" title="A zerobuf child allocator which manages a dynamic allocation of statically&#45;sized members. " alt="" coords="5,400,237,589"/>
-<area shape="rect" id="node5" href="$classzerobuf_1_1_non_moving_base_allocator.html" title="Allocator base class which does not move existing fields. " alt="" coords="261,417,509,572"/>
-<area shape="rect" id="node11" href="$classzerobuf_1_1_static_sub_allocator_base.html" title="A zerobuf child allocator which manages a static sub&#45;struct. " alt="" coords="533,400,747,589"/>
-<area shape="rect" id="node7" href="$classzerobuf_1_1_non_moving_allocator.html" title="A zerobuf root allocator which does not move existing fields. " alt="" coords="152,637,365,827"/>
-<area shape="rect" id="node9" href="$classzerobuf_1_1_non_moving_sub_allocator_base.html" title="A zerobuf child allocator which does not move existing fields. " alt="" coords="389,637,635,827"/>
+<area shape="rect" id="node3" href="$classzerobuf_1_1_const_allocator.html" title="A zerobuf root allocator which gives read&#45;only access to its data. " alt="" coords="5,427,187,581"/>
+<area shape="rect" id="node5" href="$classzerobuf_1_1_dynamic_sub_allocator_base.html" title="A zerobuf child allocator which manages a dynamic allocation of statically&#45;sized members. " alt="" coords="211,401,443,607"/>
+<area shape="rect" id="node7" href="$classzerobuf_1_1_non_moving_base_allocator.html" title="Allocator base class which does not move existing fields. " alt="" coords="467,427,715,581"/>
+<area shape="rect" id="node13" href="$classzerobuf_1_1_static_sub_allocator_base.html" title="A zerobuf child allocator which manages a static sub&#45;struct. " alt="" coords="739,401,952,607"/>
+<area shape="rect" id="node9" href="$classzerobuf_1_1_non_moving_allocator.html" title="A zerobuf root allocator which does not move existing fields. " alt="" coords="357,665,571,855"/>
+<area shape="rect" id="node11" href="$classzerobuf_1_1_non_moving_sub_allocator_base.html" title="A zerobuf child allocator which does not move existing fields. " alt="" coords="595,657,840,863"/>
 </map>

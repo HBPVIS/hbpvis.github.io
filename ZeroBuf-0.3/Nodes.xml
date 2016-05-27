@@ -170,9 +170,45 @@
                 <Anchor>a694ef8c7541336689e95d72c6a134251</Anchor>
                </Node>
                <Node>
+                <Name>isMutable</Name>
+                <Path>classzerobuf_1_1_allocator.html</Path>
+                <Anchor>a5b19a0fa561ecce6cfb735c0297e204e</Anchor>
+               </Node>
+               <Node>
                 <Name>updateAllocation</Name>
                 <Path>classzerobuf_1_1_allocator.html</Path>
                 <Anchor>a59b22f7bccb9384c0cb3069c076b3a51</Anchor>
+               </Node>
+              </Subnodes>
+             </Node>
+             <Node>
+              <Name>ConstAllocator</Name>
+              <Path>classzerobuf_1_1_const_allocator.html</Path>
+              <Subnodes>
+               <Node>
+                <Name>ConstAllocator</Name>
+                <Path>classzerobuf_1_1_const_allocator.html</Path>
+                <Anchor>a63b746e6202caea82ad3e898204b04d3</Anchor>
+               </Node>
+               <Node>
+                <Name>~ConstAllocator</Name>
+                <Path>classzerobuf_1_1_const_allocator.html</Path>
+                <Anchor>abbd0233b526a0bf3ea2cc26df7755d9a</Anchor>
+               </Node>
+               <Node>
+                <Name>getData</Name>
+                <Path>classzerobuf_1_1_const_allocator.html</Path>
+                <Anchor>a8a5e2adc0b9994d41461550c02e83fac</Anchor>
+               </Node>
+               <Node>
+                <Name>getSize</Name>
+                <Path>classzerobuf_1_1_const_allocator.html</Path>
+                <Anchor>af73a06069e3f048f490a8fd799020745</Anchor>
+               </Node>
+               <Node>
+                <Name>isMutable</Name>
+                <Path>classzerobuf_1_1_const_allocator.html</Path>
+                <Anchor>a0885987fed43ededfff113bd34f22b27</Anchor>
                </Node>
               </Subnodes>
              </Node>
@@ -209,6 +245,11 @@
                 <Name>getSize</Name>
                 <Path>classzerobuf_1_1_dynamic_sub_allocator_base.html</Path>
                 <Anchor>a0f1c7e67a806db7f3615f7653c25dd2e</Anchor>
+               </Node>
+               <Node>
+                <Name>isMutable</Name>
+                <Path>classzerobuf_1_1_dynamic_sub_allocator_base.html</Path>
+                <Anchor>ac7fb788dc0296b5a8b54a28f8e63c013</Anchor>
                </Node>
               </Subnodes>
              </Node>
@@ -318,6 +359,11 @@
                 <Path>classzerobuf_1_1_non_moving_sub_allocator_base.html</Path>
                 <Anchor>a2243352636776ea55c74c314a4441dfd</Anchor>
                </Node>
+               <Node>
+                <Name>isMutable</Name>
+                <Path>classzerobuf_1_1_non_moving_sub_allocator_base.html</Path>
+                <Anchor>aa8c01a4be9cb4f64c0847342b67c0897</Anchor>
+               </Node>
               </Subnodes>
              </Node>
              <Node>
@@ -353,6 +399,11 @@
                 <Name>getSize</Name>
                 <Path>classzerobuf_1_1_static_sub_allocator_base.html</Path>
                 <Anchor>ad5059703967665e5eacca21296fc26c1</Anchor>
+               </Node>
+               <Node>
+                <Name>isMutable</Name>
+                <Path>classzerobuf_1_1_static_sub_allocator_base.html</Path>
+                <Anchor>acd796e9845b24ca6c9d3fd38958c52c7</Anchor>
                </Node>
               </Subnodes>
              </Node>
@@ -558,6 +609,11 @@
               <Path>classzerobuf_1_1_zerobuf.html</Path>
               <Subnodes>
                <Node>
+                <Name>~Zerobuf</Name>
+                <Path>classzerobuf_1_1_zerobuf.html</Path>
+                <Anchor>a5337b7733438b7348af0b7576ef50f49</Anchor>
+               </Node>
+               <Node>
                 <Name>Zerobuf</Name>
                 <Path>classzerobuf_1_1_zerobuf.html</Path>
                 <Anchor>a7750907a69d676c5a4a6141295e08486</Anchor>
@@ -566,11 +622,6 @@
                 <Name>Zerobuf</Name>
                 <Path>classzerobuf_1_1_zerobuf.html</Path>
                 <Anchor>aad9bee4f2834338ca5e756b86b94902c</Anchor>
-               </Node>
-               <Node>
-                <Name>~Zerobuf</Name>
-                <Path>classzerobuf_1_1_zerobuf.html</Path>
-                <Anchor>a5337b7733438b7348af0b7576ef50f49</Anchor>
                </Node>
                <Node>
                 <Name>_copyZerobufArray</Name>
@@ -691,6 +742,10 @@
             <Path>classzerobuf_1_1_allocator.html</Path>
             <Subnodes>
              <Node>
+              <Name>zerobuf::ConstAllocator</Name>
+              <Path>classzerobuf_1_1_const_allocator.html</Path>
+             </Node>
+             <Node>
               <Name>zerobuf::DynamicSubAllocatorBase&lt; A &gt;</Name>
               <Path>classzerobuf_1_1_dynamic_sub_allocator_base.html</Path>
              </Node>
@@ -777,6 +832,10 @@
               <Anchor>a81e23a217f6b53539a9d43dee86777b8</Anchor>
              </Node>
             </Subnodes>
+           </Node>
+           <Node>
+            <Name>ConstAllocator.h</Name>
+            <Path>_const_allocator_8h_source.html</Path>
            </Node>
            <Node>
             <Name>defines.h</Name>

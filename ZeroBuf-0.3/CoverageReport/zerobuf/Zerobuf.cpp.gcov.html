@@ -37,7 +37,7 @@
           </tr>
           <tr>
             <td class="headerItem">Date:</td>
-            <td class="headerValue">2016-05-24 01:08:08</td>
+            <td class="headerValue">2016-05-28 01:08:28</td>
             <td></td>
             <td class="headerItem">Functions:</td>
             <td class="headerCovTableEntry">19</td>
@@ -79,16 +79,16 @@
 <span class="lineNum">      17 </span>            : namespace zerobuf
 <a name="18"><span class="lineNum">      18 </span>            : {</a>
 <span class="lineNum">      19 </span>            : 
-<span class="lineNum">      20 </span><span class="lineCov">        315 : Zerobuf::Zerobuf( AllocatorPtr alloc )</span>
-<span class="lineNum">      21 </span><span class="lineCov">        315 :     : _allocator( std::move( alloc ))</span>
+<span class="lineNum">      20 </span><span class="lineCov">        329 : Zerobuf::Zerobuf( AllocatorPtr alloc )</span>
+<span class="lineNum">      21 </span><span class="lineCov">        329 :     : _allocator( std::move( alloc ))</span>
 <span class="lineNum">      22 </span>            : {
-<span class="lineNum">      23 </span><span class="lineCov">        627 :     if( _allocator &amp;&amp;</span>
-<span class="lineNum">      24 </span><span class="lineCov">        312 :         ((const Allocator*)_allocator.get( ))-&gt;getItem&lt; uint32_t &gt;( 0 ) !=</span>
-<span class="lineNum">      25 </span><span class="lineCov">        315 :         ZEROBUF_VERSION_ABI )</span>
+<span class="lineNum">      23 </span><span class="lineCov">        655 :     if( _allocator &amp;&amp;</span>
+<span class="lineNum">      24 </span><span class="lineCov">        326 :         ((const Allocator*)_allocator.get( ))-&gt;getItem&lt; uint32_t &gt;( 0 ) !=</span>
+<span class="lineNum">      25 </span><span class="lineCov">        329 :         ZEROBUF_VERSION_ABI )</span>
 <span class="lineNum">      26 </span>            :     {
-<span class="lineNum">      27 </span><span class="lineCov">        253 :         _allocator-&gt;getItem&lt; uint32_t &gt;( 0 ) = ZEROBUF_VERSION_ABI;</span>
+<span class="lineNum">      27 </span><span class="lineCov">        260 :         _allocator-&gt;getItem&lt; uint32_t &gt;( 0 ) = ZEROBUF_VERSION_ABI;</span>
 <span class="lineNum">      28 </span>            :     }
-<a name="29"><span class="lineNum">      29 </span><span class="lineCov">        315 : }</span></a>
+<a name="29"><span class="lineNum">      29 </span><span class="lineCov">        329 : }</span></a>
 <span class="lineNum">      30 </span>            : 
 <span class="lineNum">      31 </span><span class="lineCov">        153 : Zerobuf::Zerobuf( Zerobuf&amp;&amp; rhs )</span>
 <span class="lineNum">      32 </span>            : {
@@ -99,8 +99,8 @@
 <span class="lineNum">      37 </span><span class="lineCov">        153 :     version = ZEROBUF_VERSION_ABI;</span>
 <a name="38"><span class="lineNum">      38 </span><span class="lineCov">        153 : }</span></a>
 <span class="lineNum">      39 </span>            : 
-<span class="lineNum">      40 </span><span class="lineCov">        468 : Zerobuf::~Zerobuf()</span>
-<a name="41"><span class="lineNum">      41 </span><span class="lineCov">        468 : {}</span></a>
+<span class="lineNum">      40 </span><span class="lineCov">        482 : Zerobuf::~Zerobuf()</span>
+<a name="41"><span class="lineNum">      41 </span><span class="lineCov">        482 : {}</span></a>
 <span class="lineNum">      42 </span>            : 
 <span class="lineNum">      43 </span><span class="lineCov">         44 : Zerobuf&amp; Zerobuf::operator = ( const Zerobuf&amp; rhs )</span>
 <span class="lineNum">      44 </span>            : {
@@ -167,16 +167,16 @@
 <span class="lineNum">     105 </span><span class="lineNoCov">          0 :     return true;</span>
 <a name="106"><span class="lineNum">     106 </span>            : }</a>
 <span class="lineNum">     107 </span>            : 
-<span class="lineNum">     108 </span><span class="lineCov">       1083 : Data Zerobuf::_toBinary() const</span>
+<span class="lineNum">     108 </span><span class="lineCov">       1084 : Data Zerobuf::_toBinary() const</span>
 <span class="lineNum">     109 </span>            : {
-<span class="lineNum">     110 </span><span class="lineCov">       1083 :     if( !_allocator )</span>
+<span class="lineNum">     110 </span><span class="lineCov">       1084 :     if( !_allocator )</span>
 <span class="lineNum">     111 </span><span class="lineCov">          2 :         return Data();</span>
 <span class="lineNum">     112 </span>            : 
-<a name="113"><span class="lineNum">     113 </span><span class="lineCov">       1081 :     Data data;</span></a>
-<span class="lineNum">     114 </span><span class="lineCov">       2162 :     data.ptr = std::shared_ptr&lt; const void &gt;( _allocator-&gt;getData(),</span>
-<span class="lineNum">     115 </span><span class="lineCov">       2162 :                                               []( const void* ){} );</span>
-<span class="lineNum">     116 </span><span class="lineCov">       1081 :     data.size = _allocator-&gt;getSize();</span>
-<span class="lineNum">     117 </span><span class="lineCov">       1081 :     return data;</span>
+<a name="113"><span class="lineNum">     113 </span><span class="lineCov">       1082 :     Data data;</span></a>
+<span class="lineNum">     114 </span><span class="lineCov">       2164 :     data.ptr = std::shared_ptr&lt; const void &gt;( _allocator-&gt;getData(),</span>
+<span class="lineNum">     115 </span><span class="lineCov">       2164 :                                               []( const void* ){} );</span>
+<span class="lineNum">     116 </span><span class="lineCov">       1082 :     data.size = _allocator-&gt;getSize();</span>
+<span class="lineNum">     117 </span><span class="lineCov">       1082 :     return data;</span>
 <a name="118"><span class="lineNum">     118 </span>            : }</a>
 <span class="lineNum">     119 </span>            : 
 <span class="lineNum">     120 </span><span class="lineCov">          6 : bool Zerobuf::_fromJSON( const std::string&amp; string )</span>
@@ -199,14 +199,14 @@
 <span class="lineNum">     137 </span><span class="lineCov">          8 :     return true;</span>
 <a name="138"><span class="lineNum">     138 </span>            : }</a>
 <span class="lineNum">     139 </span>            : 
-<span class="lineNum">     140 </span><span class="lineCov">         49 : std::string Zerobuf::_toJSON() const</span>
+<span class="lineNum">     140 </span><span class="lineCov">         51 : std::string Zerobuf::_toJSON() const</span>
 <span class="lineNum">     141 </span>            : {
-<span class="lineNum">     142 </span><span class="lineCov">         49 :     if( !_allocator )</span>
+<span class="lineNum">     142 </span><span class="lineCov">         51 :     if( !_allocator )</span>
 <span class="lineNum">     143 </span><span class="lineCov">          2 :         return &quot;{}&quot;;</span>
 <span class="lineNum">     144 </span>            : 
-<span class="lineNum">     145 </span><span class="lineCov">         47 :     Json::Value json;</span>
-<span class="lineNum">     146 </span><span class="lineCov">         47 :     _createJSON( json );</span>
-<span class="lineNum">     147 </span><span class="lineCov">         47 :     return json.toStyledString();</span>
+<span class="lineNum">     145 </span><span class="lineCov">         49 :     Json::Value json;</span>
+<span class="lineNum">     146 </span><span class="lineCov">         49 :     _createJSON( json );</span>
+<span class="lineNum">     147 </span><span class="lineCov">         49 :     return json.toStyledString();</span>
 <a name="148"><span class="lineNum">     148 </span>            : }</a>
 <span class="lineNum">     149 </span>            : 
 <span class="lineNum">     150 </span><span class="lineNoCov">          0 : void Zerobuf::_parseJSON( const Json::Value&amp; )</span>
@@ -222,14 +222,14 @@
 <span class="lineNum">     160 </span>            : 
 <a name="161"><span class="lineNum">     161 </span>            : }</a>
 <span class="lineNum">     162 </span>            : 
-<span class="lineNum">     163 </span><span class="lineCov">         23 : bool Zerobuf::operator == ( const Zerobuf&amp; rhs ) const</span>
+<span class="lineNum">     163 </span><span class="lineCov">         24 : bool Zerobuf::operator == ( const Zerobuf&amp; rhs ) const</span>
 <span class="lineNum">     164 </span>            : {
-<span class="lineNum">     165 </span><span class="lineCov">         92 :     if( this == &amp;rhs ||</span>
-<span class="lineNum">     166 </span><span class="lineCov">         50 :         ( !_allocator &amp;&amp; getTypeIdentifier() == rhs.getTypeIdentifier( )))</span>
+<span class="lineNum">     165 </span><span class="lineCov">         96 :     if( this == &amp;rhs ||</span>
+<span class="lineNum">     166 </span><span class="lineCov">         52 :         ( !_allocator &amp;&amp; getTypeIdentifier() == rhs.getTypeIdentifier( )))</span>
 <span class="lineNum">     167 </span>            :     {
 <span class="lineNum">     168 </span><span class="lineCov">          2 :         return true;</span>
 <span class="lineNum">     169 </span>            :     }
-<span class="lineNum">     170 </span><span class="lineCov">         21 :     return toJSON() == rhs.toJSON();</span>
+<span class="lineNum">     170 </span><span class="lineCov">         22 :     return toJSON() == rhs.toJSON();</span>
 <a name="171"><span class="lineNum">     171 </span>            : }</a>
 <span class="lineNum">     172 </span>            : 
 <span class="lineNum">     173 </span><span class="lineNoCov">          0 : bool Zerobuf::operator != ( const Zerobuf&amp; rhs ) const</span>
@@ -242,20 +242,20 @@
 <span class="lineNum">     180 </span><span class="lineCov">         12 :     _allocator.swap( allocator );</span>
 <a name="181"><span class="lineNum">     181 </span><span class="lineCov">         12 : }</span></a>
 <span class="lineNum">     182 </span>            : 
-<span class="lineNum">     183 </span><span class="lineCov">       1032 : Allocator&amp; Zerobuf::getAllocator()</span>
+<span class="lineNum">     183 </span><span class="lineCov">       1144 : Allocator&amp; Zerobuf::getAllocator()</span>
 <span class="lineNum">     184 </span>            : {
-<span class="lineNum">     185 </span><span class="lineCov">       1032 :     if( !_allocator )</span>
+<span class="lineNum">     185 </span><span class="lineCov">       1144 :     if( !_allocator )</span>
 <span class="lineNum">     186 </span><span class="lineNoCov">          0 :         throw std::runtime_error( &quot;Empty Zerobuf has no allocator&quot; );</span>
 <span class="lineNum">     187 </span>            : 
-<span class="lineNum">     188 </span><span class="lineCov">       1032 :     return *_allocator;</span>
+<span class="lineNum">     188 </span><span class="lineCov">       1144 :     return *_allocator;</span>
 <a name="189"><span class="lineNum">     189 </span>            : }</a>
 <span class="lineNum">     190 </span>            : 
-<span class="lineNum">     191 </span><span class="lineCov">        857 : const Allocator&amp; Zerobuf::getAllocator() const</span>
+<span class="lineNum">     191 </span><span class="lineCov">        969 : const Allocator&amp; Zerobuf::getAllocator() const</span>
 <span class="lineNum">     192 </span>            : {
-<span class="lineNum">     193 </span><span class="lineCov">        857 :     if( !_allocator )</span>
+<span class="lineNum">     193 </span><span class="lineCov">        969 :     if( !_allocator )</span>
 <span class="lineNum">     194 </span><span class="lineNoCov">          0 :         throw std::runtime_error( &quot;Empty Zerobuf has no allocator&quot; );</span>
 <span class="lineNum">     195 </span>            : 
-<span class="lineNum">     196 </span><span class="lineCov">        857 :     return *_allocator;</span>
+<span class="lineNum">     196 </span><span class="lineCov">        969 :     return *_allocator;</span>
 <a name="197"><span class="lineNum">     197 </span>            : }</a>
 <span class="lineNum">     198 </span>            : 
 <span class="lineNum">     199 </span><span class="lineCov">       2126 : void Zerobuf::_copyZerobufArray( const void* data, const size_t size,</span>
@@ -276,7 +276,7 @@
 <span class="lineNum">     214 </span><span class="lineCov">        104 :         getAllocator().check( getZerobufNumDynamics( ));</span>
 <a name="215"><span class="lineNum">     215 </span><span class="lineCov">        104 : }</span></a>
 <span class="lineNum">     216 </span>            : 
-<span class="lineNum">     217 </span><span class="lineCov">         15 : }</span>
+<span class="lineNum">     217 </span><span class="lineCov">         18 : }</span>
 </pre>
       </td>
     </tr>

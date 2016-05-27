@@ -128,7 +128,7 @@ $(document).ready(function(){initNavTree('classzerobuf_1_1_allocator.html','');}
 <div id="dynsection-0-content" class="dyncontent" style="display:none;">
 <div class="center"><img src="classzerobuf_1_1_allocator__inherit__graph.png" border="0" usemap="#zerobuf_1_1_allocator_inherit__map" alt="Inheritance graph"/></div>
 <map name="zerobuf_1_1_allocator_inherit__map" id="zerobuf_1_1_allocator_inherit__map">
-<area shape="rect" id="node3" href="classzerobuf_1_1_dynamic_sub_allocator_base.html" title="A zerobuf child allocator which manages a dynamic allocation of statically&#45;sized members. " alt="" coords="5,400,237,589"/><area shape="rect" id="node5" href="classzerobuf_1_1_non_moving_base_allocator.html" title="Allocator base class which does not move existing fields. " alt="" coords="261,417,509,572"/><area shape="rect" id="node11" href="classzerobuf_1_1_static_sub_allocator_base.html" title="A zerobuf child allocator which manages a static sub&#45;struct. " alt="" coords="533,400,747,589"/><area shape="rect" id="node7" href="classzerobuf_1_1_non_moving_allocator.html" title="A zerobuf root allocator which does not move existing fields. " alt="" coords="152,637,365,827"/><area shape="rect" id="node9" href="classzerobuf_1_1_non_moving_sub_allocator_base.html" title="A zerobuf child allocator which does not move existing fields. " alt="" coords="389,637,635,827"/></map>
+<area shape="rect" id="node3" href="classzerobuf_1_1_const_allocator.html" title="A zerobuf root allocator which gives read&#45;only access to its data. " alt="" coords="5,427,187,581"/><area shape="rect" id="node5" href="classzerobuf_1_1_dynamic_sub_allocator_base.html" title="A zerobuf child allocator which manages a dynamic allocation of statically&#45;sized members. " alt="" coords="211,401,443,607"/><area shape="rect" id="node7" href="classzerobuf_1_1_non_moving_base_allocator.html" title="Allocator base class which does not move existing fields. " alt="" coords="467,427,715,581"/><area shape="rect" id="node13" href="classzerobuf_1_1_static_sub_allocator_base.html" title="A zerobuf child allocator which manages a static sub&#45;struct. " alt="" coords="739,401,952,607"/><area shape="rect" id="node9" href="classzerobuf_1_1_non_moving_allocator.html" title="A zerobuf root allocator which does not move existing fields. " alt="" coords="357,665,571,855"/><area shape="rect" id="node11" href="classzerobuf_1_1_non_moving_sub_allocator_base.html" title="A zerobuf child allocator which does not move existing fields. " alt="" coords="595,657,840,863"/></map>
 </div>
 <div id="dynsection-1" onclick="return toggleVisibility(this)" class="dynheader closed" style="cursor:pointer;">
   <img id="dynsection-1-trigger" src="closed.png" alt="+"/> Collaboration diagram for zerobuf::Allocator:</div>
@@ -158,6 +158,9 @@ virtual void&#160;</td><td class="memItemRight" valign="bottom"><b>compact</b> (
 <tr class="memitem:a694ef8c7541336689e95d72c6a134251"><td class="memItemLeft" align="right" valign="top"><a class="anchor" id="a694ef8c7541336689e95d72c6a134251"></a>
 virtual bool&#160;</td><td class="memItemRight" valign="bottom"><b>isMovable</b> () const </td></tr>
 <tr class="separator:a694ef8c7541336689e95d72c6a134251"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a5b19a0fa561ecce6cfb735c0297e204e"><td class="memItemLeft" align="right" valign="top"><a class="anchor" id="a5b19a0fa561ecce6cfb735c0297e204e"></a>
+virtual bool&#160;</td><td class="memItemRight" valign="bottom"><b>isMutable</b> () const </td></tr>
+<tr class="separator:a5b19a0fa561ecce6cfb735c0297e204e"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a59b22f7bccb9384c0cb3069c076b3a51"><td class="memItemLeft" align="right" valign="top">virtual uint8_t *&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classzerobuf_1_1_allocator.html#a59b22f7bccb9384c0cb3069c076b3a51">updateAllocation</a> (size_t, bool, size_t)</td></tr>
 <tr class="memdesc:a59b22f7bccb9384c0cb3069c076b3a51"><td class="mdescLeft">&#160;</td><td class="mdescRight">Update allocation of the dynamic elem at index to have newSize bytes.  <a href="#a59b22f7bccb9384c0cb3069c076b3a51">More...</a><br /></td></tr>
 <tr class="separator:a59b22f7bccb9384c0cb3069c076b3a51"><td class="memSeparator" colspan="2">&#160;</td></tr>
@@ -263,7 +266,7 @@ void&#160;</td><td class="memItemRight" valign="bottom"><b>_checkIndex</b> (cons
 
 <p>Reimplemented in <a class="el" href="classzerobuf_1_1_non_moving_base_allocator.html#a6b79b7fcbb0548e5475f185e19d7efdf">zerobuf::NonMovingBaseAllocator</a>.</p>
 
-<p>Definition at line <a class="el" href="_allocator_8h_source.html#l00042">42</a> of file <a class="el" href="_allocator_8h_source.html">Allocator.h</a>.</p>
+<p>Definition at line <a class="el" href="_allocator_8h_source.html#l00043">43</a> of file <a class="el" href="_allocator_8h_source.html">Allocator.h</a>.</p>
 
 <p>Referenced by <a class="el" href="classzerobuf_1_1_vector.html#ab38f84c7f23e4eb6e3f00a9e925f70cc">zerobuf::Vector&lt; T &gt;::clear()</a>, <a class="el" href="classzerobuf_1_1_vector.html#a4fa39e5f86efd5cb3724f366d8ec7864">zerobuf::Vector&lt; T &gt;::fromJSON()</a>, and <a class="el" href="classzerobuf_1_1_vector.html#ad80419326920b94b1845b9448e410f48">zerobuf::Vector&lt; T &gt;::push_back()</a>.</p>
 
@@ -289,7 +292,7 @@ void&#160;</td><td class="memItemRight" valign="bottom"><b>_checkIndex</b> (cons
 <div id="nav-path" class="navpath"><!-- id is needed for treeview function! -->
   <ul>
     <li class="navelem"><a class="el" href="namespacezerobuf.html">zerobuf</a></li><li class="navelem"><a class="el" href="classzerobuf_1_1_allocator.html">Allocator</a></li>
-    <li class="footer">Generated on Tue May 24 2016 01:08:01 for ZeroBuf by
+    <li class="footer">Generated on Sat May 28 2016 01:08:21 for ZeroBuf by
     <a href="http://www.doxygen.org/index.html">
     <img class="footer" src="doxygen.png" alt="doxygen"/></a> 1.8.9.1 </li>
   </ul>

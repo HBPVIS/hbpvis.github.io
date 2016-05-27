@@ -37,7 +37,7 @@
           </tr>
           <tr>
             <td class="headerItem">Date:</td>
-            <td class="headerValue">2016-05-24 01:08:08</td>
+            <td class="headerValue">2016-05-28 01:08:28</td>
             <td></td>
             <td class="headerItem">Functions:</td>
             <td class="headerCovTableEntry">4</td>
@@ -81,9 +81,9 @@
 <span class="lineNum">      19 </span>            :     ZEROBUF_API NonMovingAllocator( size_t staticSize, size_t numDynamic );
 <a name="20"><span class="lineNum">      20 </span>            :     ZEROBUF_API ~NonMovingAllocator();</a>
 <a name="21"><span class="lineNum">      21 </span>            : </a>
-<a name="22"><span class="lineNum">      22 </span><span class="lineCov">      21558 :     uint8_t* getData() final { return _data; }</span></a>
-<span class="lineNum">      23 </span><span class="lineCov">      37822 :     const uint8_t* getData() const final { return _data; }</span>
-<a name="24"><span class="lineNum">      24 </span><span class="lineCov">      20422 :     size_t getSize() const final { return _size; }</span></a>
+<a name="22"><span class="lineNum">      22 </span><span class="lineCov">      20459 :     uint8_t* getData() final { return _data; }</span></a>
+<span class="lineNum">      23 </span><span class="lineCov">      39177 :     const uint8_t* getData() const final { return _data; }</span>
+<a name="24"><span class="lineNum">      24 </span><span class="lineCov">      20483 :     size_t getSize() const final { return _size; }</span></a>
 <span class="lineNum">      25 </span>            :     ZEROBUF_API void copyBuffer( const void* data, size_t size ) final;
 <span class="lineNum">      26 </span><span class="lineCov">          2 :     bool isMovable() const final { return true; }</span>
 <span class="lineNum">      27 </span>            : 
