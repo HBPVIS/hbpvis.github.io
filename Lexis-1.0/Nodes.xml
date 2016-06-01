@@ -89,6 +89,11 @@
                     <Anchor>a2702a836fcf6c417dc5147a2f83f80b7</Anchor>
                    </Node>
                    <Node>
+                    <Name>create</Name>
+                    <Path>classlexis_1_1data_1_1detail_1_1_progress.html</Path>
+                    <Anchor>a2bde06b2189c0b45761e975533da05df</Anchor>
+                   </Node>
+                   <Node>
                     <Name>getAmount</Name>
                     <Path>classlexis_1_1data_1_1detail_1_1_progress.html</Path>
                     <Anchor>ae8dac35b9073cfdec4d4424a976507eb</Anchor>
@@ -163,7 +168,198 @@
                     <Path>classlexis_1_1data_1_1detail_1_1_progress.html</Path>
                     <Anchor>a16b471b91fd594e2ee4f13688ad6f5cb</Anchor>
                    </Node>
+                   <Node>
+                    <Name>ZEROBUF_TYPE_IDENTIFIER</Name>
+                    <Path>classlexis_1_1data_1_1detail_1_1_progress.html</Path>
+                    <Anchor>ace0809155c8c1c1a0faaafca9e2e2030</Anchor>
+                   </Node>
+                   <Node>
+                    <Name>ZEROBUF_TYPE_NAME</Name>
+                    <Path>classlexis_1_1data_1_1detail_1_1_progress.html</Path>
+                    <Anchor>ab8645f959cb952e06110fed2c5747ea7</Anchor>
+                   </Node>
                   </Subnodes>
+                 </Node>
+                </Subnodes>
+               </Node>
+               <Node>
+                <Name>CellSetBinaryOp</Name>
+                <Path>classlexis_1_1data_1_1_cell_set_binary_op.html</Path>
+                <Subnodes>
+                 <Node>
+                  <Name>First</Name>
+                  <Path>classlexis_1_1data_1_1_cell_set_binary_op.html</Path>
+                  <Anchor>a949885f44e221a157f3a56ffa89a327c</Anchor>
+                 </Node>
+                 <Node>
+                  <Name>Second</Name>
+                  <Path>classlexis_1_1data_1_1_cell_set_binary_op.html</Path>
+                  <Anchor>a5859608132db564a3f2a3ee45d7068ef</Anchor>
+                 </Node>
+                 <Node>
+                  <Name>CellSetBinaryOp</Name>
+                  <Path>classlexis_1_1data_1_1_cell_set_binary_op.html</Path>
+                  <Anchor>a5fbfc5cfd88653db3fe9bc517c8135a6</Anchor>
+                 </Node>
+                 <Node>
+                  <Name>CellSetBinaryOp</Name>
+                  <Path>classlexis_1_1data_1_1_cell_set_binary_op.html</Path>
+                  <Anchor>a53bc0b5612c8c2a0703145eb636b6358</Anchor>
+                 </Node>
+                 <Node>
+                  <Name>CellSetBinaryOp</Name>
+                  <Path>classlexis_1_1data_1_1_cell_set_binary_op.html</Path>
+                  <Anchor>a4d3fadeb54260ae14c2b5099e2eeb975</Anchor>
+                 </Node>
+                 <Node>
+                  <Name>CellSetBinaryOp</Name>
+                  <Path>classlexis_1_1data_1_1_cell_set_binary_op.html</Path>
+                  <Anchor>a6f4134e9749e719b05ce64459a2b4df2</Anchor>
+                 </Node>
+                 <Node>
+                  <Name>CellSetBinaryOp</Name>
+                  <Path>classlexis_1_1data_1_1_cell_set_binary_op.html</Path>
+                  <Anchor>a1f71894ad8337aa8416192e971204473</Anchor>
+                 </Node>
+                 <Node>
+                  <Name>CellSetBinaryOp</Name>
+                  <Path>classlexis_1_1data_1_1_cell_set_binary_op.html</Path>
+                  <Anchor>aaeb89c42ba70952a7dff53140b1bbc32</Anchor>
+                 </Node>
+                 <Node>
+                  <Name>~CellSetBinaryOp</Name>
+                  <Path>classlexis_1_1data_1_1_cell_set_binary_op.html</Path>
+                  <Anchor>a2c7a388a63dee5a406d4b653e500763d</Anchor>
+                 </Node>
+                 <Node>
+                  <Name>_createJSON</Name>
+                  <Path>classlexis_1_1data_1_1_cell_set_binary_op.html</Path>
+                  <Anchor>a167feee1b1e5611b0ee835bfce2dbbb3</Anchor>
+                 </Node>
+                 <Node>
+                  <Name>_parseJSON</Name>
+                  <Path>classlexis_1_1data_1_1_cell_set_binary_op.html</Path>
+                  <Anchor>a3f51e404732ef88ea22cc22d4576c3d5</Anchor>
+                 </Node>
+                 <Node>
+                  <Name>compact</Name>
+                  <Path>classlexis_1_1data_1_1_cell_set_binary_op.html</Path>
+                  <Anchor>a57c8c0aa2c5051b991666984ad085bb0</Anchor>
+                 </Node>
+                 <Node>
+                  <Name>create</Name>
+                  <Path>classlexis_1_1data_1_1_cell_set_binary_op.html</Path>
+                  <Anchor>a879568596f98c7b2893f253bf0566388</Anchor>
+                 </Node>
+                 <Node>
+                  <Name>getFirst</Name>
+                  <Path>classlexis_1_1data_1_1_cell_set_binary_op.html</Path>
+                  <Anchor>afdb900856094024b9e57d4cc63b8a67b</Anchor>
+                 </Node>
+                 <Node>
+                  <Name>getFirst</Name>
+                  <Path>classlexis_1_1data_1_1_cell_set_binary_op.html</Path>
+                  <Anchor>aa208c3511207c5fc6336f0a30104cbb1</Anchor>
+                 </Node>
+                 <Node>
+                  <Name>getFirstVector</Name>
+                  <Path>classlexis_1_1data_1_1_cell_set_binary_op.html</Path>
+                  <Anchor>ae121a751e31986f7701647f513402cab</Anchor>
+                 </Node>
+                 <Node>
+                  <Name>getOperation</Name>
+                  <Path>classlexis_1_1data_1_1_cell_set_binary_op.html</Path>
+                  <Anchor>acdf289f1342519056b8a8a57d46ae71a</Anchor>
+                 </Node>
+                 <Node>
+                  <Name>getSecond</Name>
+                  <Path>classlexis_1_1data_1_1_cell_set_binary_op.html</Path>
+                  <Anchor>a5f85842da12eaeb2c32c7c0c035af0d3</Anchor>
+                 </Node>
+                 <Node>
+                  <Name>getSecond</Name>
+                  <Path>classlexis_1_1data_1_1_cell_set_binary_op.html</Path>
+                  <Anchor>a7cf030a9ac1ddcc702bf7d561e4e14ba</Anchor>
+                 </Node>
+                 <Node>
+                  <Name>getSecondVector</Name>
+                  <Path>classlexis_1_1data_1_1_cell_set_binary_op.html</Path>
+                  <Anchor>a0eca556aa0d379755e24bec0dff7d2df</Anchor>
+                 </Node>
+                 <Node>
+                  <Name>getTypeIdentifier</Name>
+                  <Path>classlexis_1_1data_1_1_cell_set_binary_op.html</Path>
+                  <Anchor>a4b2a571604af36dd6b8857a5a0c42ed8</Anchor>
+                 </Node>
+                 <Node>
+                  <Name>getTypeName</Name>
+                  <Path>classlexis_1_1data_1_1_cell_set_binary_op.html</Path>
+                  <Anchor>a9ecfa6efe111c211077e1b5f14386ff5</Anchor>
+                 </Node>
+                 <Node>
+                  <Name>getZerobufNumDynamics</Name>
+                  <Path>classlexis_1_1data_1_1_cell_set_binary_op.html</Path>
+                  <Anchor>a4e497b0b0394a04b74a02c167d776abf</Anchor>
+                 </Node>
+                 <Node>
+                  <Name>getZerobufStaticSize</Name>
+                  <Path>classlexis_1_1data_1_1_cell_set_binary_op.html</Path>
+                  <Anchor>ac0d99f32539331495e8bb73fe4fd09df</Anchor>
+                 </Node>
+                 <Node>
+                  <Name>operator=</Name>
+                  <Path>classlexis_1_1data_1_1_cell_set_binary_op.html</Path>
+                  <Anchor>a288a4d7097d0213433aa34fb4d17b4a8</Anchor>
+                 </Node>
+                 <Node>
+                  <Name>operator=</Name>
+                  <Path>classlexis_1_1data_1_1_cell_set_binary_op.html</Path>
+                  <Anchor>a0e55d2ca15897272c206d8dc08b80519</Anchor>
+                 </Node>
+                 <Node>
+                  <Name>setFirst</Name>
+                  <Path>classlexis_1_1data_1_1_cell_set_binary_op.html</Path>
+                  <Anchor>a5e944c55779cc859960f07e5708ab1d3</Anchor>
+                 </Node>
+                 <Node>
+                  <Name>setFirst</Name>
+                  <Path>classlexis_1_1data_1_1_cell_set_binary_op.html</Path>
+                  <Anchor>a398f58d7a137be630eafaa71556f5368</Anchor>
+                 </Node>
+                 <Node>
+                  <Name>setOperation</Name>
+                  <Path>classlexis_1_1data_1_1_cell_set_binary_op.html</Path>
+                  <Anchor>a61ae3f38439173ea471f79a61fd60915</Anchor>
+                 </Node>
+                 <Node>
+                  <Name>setSecond</Name>
+                  <Path>classlexis_1_1data_1_1_cell_set_binary_op.html</Path>
+                  <Anchor>a4b828a7aeeda3278cae26a11d10ae773</Anchor>
+                 </Node>
+                 <Node>
+                  <Name>setSecond</Name>
+                  <Path>classlexis_1_1data_1_1_cell_set_binary_op.html</Path>
+                  <Anchor>a350e8fb6d6be62f0c1ac8cd0358c7a5a</Anchor>
+                 </Node>
+                 <Node>
+                  <Name>ZEROBUF_NUM_DYNAMICS</Name>
+                  <Path>classlexis_1_1data_1_1_cell_set_binary_op.html</Path>
+                  <Anchor>ad06f2eb0fb56d41451b2ed12bb42dd5b</Anchor>
+                 </Node>
+                 <Node>
+                  <Name>ZEROBUF_STATIC_SIZE</Name>
+                  <Path>classlexis_1_1data_1_1_cell_set_binary_op.html</Path>
+                  <Anchor>aec2c102d0921018f981766f61d15e494</Anchor>
+                 </Node>
+                 <Node>
+                  <Name>ZEROBUF_TYPE_IDENTIFIER</Name>
+                  <Path>classlexis_1_1data_1_1_cell_set_binary_op.html</Path>
+                  <Anchor>a5700a7eeede6581124d5115ed4933030</Anchor>
+                 </Node>
+                 <Node>
+                  <Name>ZEROBUF_TYPE_NAME</Name>
+                  <Path>classlexis_1_1data_1_1_cell_set_binary_op.html</Path>
+                  <Anchor>a237557a0b903720e7b5df3e303534b29</Anchor>
                  </Node>
                 </Subnodes>
                </Node>
@@ -215,6 +411,11 @@
                   <Name>_parseJSON</Name>
                   <Path>classlexis_1_1data_1_1_frame_range.html</Path>
                   <Anchor>a2c2b3383fba9220a6a4c1cc845e38c06</Anchor>
+                 </Node>
+                 <Node>
+                  <Name>create</Name>
+                  <Path>classlexis_1_1data_1_1_frame_range.html</Path>
+                  <Anchor>a3b9ac39a06c6a9dcc27b764c097ba6e6</Anchor>
                  </Node>
                  <Node>
                   <Name>getEnd</Name>
@@ -276,6 +477,16 @@
                   <Path>classlexis_1_1data_1_1_frame_range.html</Path>
                   <Anchor>a73e1abb56b709989fd7a5168d30b11c2</Anchor>
                  </Node>
+                 <Node>
+                  <Name>ZEROBUF_TYPE_IDENTIFIER</Name>
+                  <Path>classlexis_1_1data_1_1_frame_range.html</Path>
+                  <Anchor>a915a881b2969ce2c64e9fdfd76a460cb</Anchor>
+                 </Node>
+                 <Node>
+                  <Name>ZEROBUF_TYPE_NAME</Name>
+                  <Path>classlexis_1_1data_1_1_frame_range.html</Path>
+                  <Anchor>a44ce46979ac115531622ec7917c466bd</Anchor>
+                 </Node>
                 </Subnodes>
                </Node>
                <Node>
@@ -311,6 +522,288 @@
                   <Name>restart</Name>
                   <Path>classlexis_1_1data_1_1_progress.html</Path>
                   <Anchor>adcabb13e459bbec5e5eddc9541613d4b</Anchor>
+                 </Node>
+                </Subnodes>
+               </Node>
+               <Node>
+                <Name>SelectedIDs</Name>
+                <Path>classlexis_1_1data_1_1_selected_i_ds.html</Path>
+                <Subnodes>
+                 <Node>
+                  <Name>Ids</Name>
+                  <Path>classlexis_1_1data_1_1_selected_i_ds.html</Path>
+                  <Anchor>a18237c71725f461755d169f7f4b49102</Anchor>
+                 </Node>
+                 <Node>
+                  <Name>SelectedIDs</Name>
+                  <Path>classlexis_1_1data_1_1_selected_i_ds.html</Path>
+                  <Anchor>a55586557baff130ce359fc1c2845f090</Anchor>
+                 </Node>
+                 <Node>
+                  <Name>SelectedIDs</Name>
+                  <Path>classlexis_1_1data_1_1_selected_i_ds.html</Path>
+                  <Anchor>ae432dff80a8ef5034ee129332071ea9d</Anchor>
+                 </Node>
+                 <Node>
+                  <Name>SelectedIDs</Name>
+                  <Path>classlexis_1_1data_1_1_selected_i_ds.html</Path>
+                  <Anchor>a5ccb4303f20415ef28e7c84e3260a2cd</Anchor>
+                 </Node>
+                 <Node>
+                  <Name>SelectedIDs</Name>
+                  <Path>classlexis_1_1data_1_1_selected_i_ds.html</Path>
+                  <Anchor>a9db555026ad598c000af766a88009d36</Anchor>
+                 </Node>
+                 <Node>
+                  <Name>SelectedIDs</Name>
+                  <Path>classlexis_1_1data_1_1_selected_i_ds.html</Path>
+                  <Anchor>ae7f2682a8dd2daf9fadd0478773bd4e1</Anchor>
+                 </Node>
+                 <Node>
+                  <Name>SelectedIDs</Name>
+                  <Path>classlexis_1_1data_1_1_selected_i_ds.html</Path>
+                  <Anchor>a04840a44d05ef7ee9251866314a2060e</Anchor>
+                 </Node>
+                 <Node>
+                  <Name>~SelectedIDs</Name>
+                  <Path>classlexis_1_1data_1_1_selected_i_ds.html</Path>
+                  <Anchor>a3d6dd658fd756769665890cb9479b49b</Anchor>
+                 </Node>
+                 <Node>
+                  <Name>_createJSON</Name>
+                  <Path>classlexis_1_1data_1_1_selected_i_ds.html</Path>
+                  <Anchor>a065041a519b3e85ede656c3d535aab6d</Anchor>
+                 </Node>
+                 <Node>
+                  <Name>_parseJSON</Name>
+                  <Path>classlexis_1_1data_1_1_selected_i_ds.html</Path>
+                  <Anchor>ab916611c9c464262344365c3e0b5946f</Anchor>
+                 </Node>
+                 <Node>
+                  <Name>compact</Name>
+                  <Path>classlexis_1_1data_1_1_selected_i_ds.html</Path>
+                  <Anchor>a9e90ff32786e9966680d23a2ac8b602f</Anchor>
+                 </Node>
+                 <Node>
+                  <Name>create</Name>
+                  <Path>classlexis_1_1data_1_1_selected_i_ds.html</Path>
+                  <Anchor>af2d30d904b0242ce64d51b89378891a2</Anchor>
+                 </Node>
+                 <Node>
+                  <Name>getIds</Name>
+                  <Path>classlexis_1_1data_1_1_selected_i_ds.html</Path>
+                  <Anchor>a78d6f0aea607d7d32a40dd74f28015e0</Anchor>
+                 </Node>
+                 <Node>
+                  <Name>getIds</Name>
+                  <Path>classlexis_1_1data_1_1_selected_i_ds.html</Path>
+                  <Anchor>a172b33872a7a483d4b8266f41a99b5ee</Anchor>
+                 </Node>
+                 <Node>
+                  <Name>getIdsVector</Name>
+                  <Path>classlexis_1_1data_1_1_selected_i_ds.html</Path>
+                  <Anchor>abd87111a67d36f557b571c79809464e2</Anchor>
+                 </Node>
+                 <Node>
+                  <Name>getTypeIdentifier</Name>
+                  <Path>classlexis_1_1data_1_1_selected_i_ds.html</Path>
+                  <Anchor>aec7c9938602e4c179b3d96ab726bd1e3</Anchor>
+                 </Node>
+                 <Node>
+                  <Name>getTypeName</Name>
+                  <Path>classlexis_1_1data_1_1_selected_i_ds.html</Path>
+                  <Anchor>a8d136527f01fcc1e6268529a420ea362</Anchor>
+                 </Node>
+                 <Node>
+                  <Name>getZerobufNumDynamics</Name>
+                  <Path>classlexis_1_1data_1_1_selected_i_ds.html</Path>
+                  <Anchor>a3f2d0e7bb53335395cc9f84d9ab1ec58</Anchor>
+                 </Node>
+                 <Node>
+                  <Name>getZerobufStaticSize</Name>
+                  <Path>classlexis_1_1data_1_1_selected_i_ds.html</Path>
+                  <Anchor>adc82345d6a353cd9c25ffe12efbe7a85</Anchor>
+                 </Node>
+                 <Node>
+                  <Name>operator=</Name>
+                  <Path>classlexis_1_1data_1_1_selected_i_ds.html</Path>
+                  <Anchor>ac220c26f986d69b66f272fe7dc0a778c</Anchor>
+                 </Node>
+                 <Node>
+                  <Name>operator=</Name>
+                  <Path>classlexis_1_1data_1_1_selected_i_ds.html</Path>
+                  <Anchor>ac9af89123d687c8e8521899fac3dc95d</Anchor>
+                 </Node>
+                 <Node>
+                  <Name>setIds</Name>
+                  <Path>classlexis_1_1data_1_1_selected_i_ds.html</Path>
+                  <Anchor>ac1eb687e0e401373b01d74478af9afa0</Anchor>
+                 </Node>
+                 <Node>
+                  <Name>setIds</Name>
+                  <Path>classlexis_1_1data_1_1_selected_i_ds.html</Path>
+                  <Anchor>a050700a7454f09aa64db66643ca46833</Anchor>
+                 </Node>
+                 <Node>
+                  <Name>ZEROBUF_NUM_DYNAMICS</Name>
+                  <Path>classlexis_1_1data_1_1_selected_i_ds.html</Path>
+                  <Anchor>a5a07ad2be211f62229f3eb79e57e3036</Anchor>
+                 </Node>
+                 <Node>
+                  <Name>ZEROBUF_STATIC_SIZE</Name>
+                  <Path>classlexis_1_1data_1_1_selected_i_ds.html</Path>
+                  <Anchor>aafb4699ddb48f90965708af0e51d98a8</Anchor>
+                 </Node>
+                 <Node>
+                  <Name>ZEROBUF_TYPE_IDENTIFIER</Name>
+                  <Path>classlexis_1_1data_1_1_selected_i_ds.html</Path>
+                  <Anchor>a40138f848a2fa9330d548739ca5ef2ba</Anchor>
+                 </Node>
+                 <Node>
+                  <Name>ZEROBUF_TYPE_NAME</Name>
+                  <Path>classlexis_1_1data_1_1_selected_i_ds.html</Path>
+                  <Anchor>a3380b393a4193defb9c0137d99e39bd5</Anchor>
+                 </Node>
+                </Subnodes>
+               </Node>
+               <Node>
+                <Name>ToggleIDRequest</Name>
+                <Path>classlexis_1_1data_1_1_toggle_i_d_request.html</Path>
+                <Subnodes>
+                 <Node>
+                  <Name>Ids</Name>
+                  <Path>classlexis_1_1data_1_1_toggle_i_d_request.html</Path>
+                  <Anchor>a61bfd9cc1b20c0309af83d4f69756797</Anchor>
+                 </Node>
+                 <Node>
+                  <Name>ToggleIDRequest</Name>
+                  <Path>classlexis_1_1data_1_1_toggle_i_d_request.html</Path>
+                  <Anchor>a9d29d560294cfbb89d6c58e980b78706</Anchor>
+                 </Node>
+                 <Node>
+                  <Name>ToggleIDRequest</Name>
+                  <Path>classlexis_1_1data_1_1_toggle_i_d_request.html</Path>
+                  <Anchor>aabf9f498cff5934fb305623ca0867788</Anchor>
+                 </Node>
+                 <Node>
+                  <Name>ToggleIDRequest</Name>
+                  <Path>classlexis_1_1data_1_1_toggle_i_d_request.html</Path>
+                  <Anchor>a08aa07a3cf639c1c69196dd1a7f1b65e</Anchor>
+                 </Node>
+                 <Node>
+                  <Name>ToggleIDRequest</Name>
+                  <Path>classlexis_1_1data_1_1_toggle_i_d_request.html</Path>
+                  <Anchor>acdffa730c7540ae11c122807da03931b</Anchor>
+                 </Node>
+                 <Node>
+                  <Name>ToggleIDRequest</Name>
+                  <Path>classlexis_1_1data_1_1_toggle_i_d_request.html</Path>
+                  <Anchor>a7d8416ac9f6dbb9db45b26db4337d21e</Anchor>
+                 </Node>
+                 <Node>
+                  <Name>ToggleIDRequest</Name>
+                  <Path>classlexis_1_1data_1_1_toggle_i_d_request.html</Path>
+                  <Anchor>ae82ad596c1c7090786827b0a7eb1efdc</Anchor>
+                 </Node>
+                 <Node>
+                  <Name>~ToggleIDRequest</Name>
+                  <Path>classlexis_1_1data_1_1_toggle_i_d_request.html</Path>
+                  <Anchor>af5569e1de599009e8708e5bd55291dcf</Anchor>
+                 </Node>
+                 <Node>
+                  <Name>_createJSON</Name>
+                  <Path>classlexis_1_1data_1_1_toggle_i_d_request.html</Path>
+                  <Anchor>a534db1e61112c9b311265a8fa0391f36</Anchor>
+                 </Node>
+                 <Node>
+                  <Name>_parseJSON</Name>
+                  <Path>classlexis_1_1data_1_1_toggle_i_d_request.html</Path>
+                  <Anchor>ae010d686f4cc65b4fd7808355158d44a</Anchor>
+                 </Node>
+                 <Node>
+                  <Name>compact</Name>
+                  <Path>classlexis_1_1data_1_1_toggle_i_d_request.html</Path>
+                  <Anchor>afc1c38758668bd411c8001424bce0523</Anchor>
+                 </Node>
+                 <Node>
+                  <Name>create</Name>
+                  <Path>classlexis_1_1data_1_1_toggle_i_d_request.html</Path>
+                  <Anchor>abca3253aa0f5396fcb6ceef56f98390d</Anchor>
+                 </Node>
+                 <Node>
+                  <Name>getIds</Name>
+                  <Path>classlexis_1_1data_1_1_toggle_i_d_request.html</Path>
+                  <Anchor>a977c6670c486bfde5d834f87ecf9450d</Anchor>
+                 </Node>
+                 <Node>
+                  <Name>getIds</Name>
+                  <Path>classlexis_1_1data_1_1_toggle_i_d_request.html</Path>
+                  <Anchor>a3746bc23415346d005e22dc4b56fbd6d</Anchor>
+                 </Node>
+                 <Node>
+                  <Name>getIdsVector</Name>
+                  <Path>classlexis_1_1data_1_1_toggle_i_d_request.html</Path>
+                  <Anchor>a700e7caeb04cf643be8a0fe773bf52bf</Anchor>
+                 </Node>
+                 <Node>
+                  <Name>getTypeIdentifier</Name>
+                  <Path>classlexis_1_1data_1_1_toggle_i_d_request.html</Path>
+                  <Anchor>a6e185f022b4c63dfa60a208fbbee99b8</Anchor>
+                 </Node>
+                 <Node>
+                  <Name>getTypeName</Name>
+                  <Path>classlexis_1_1data_1_1_toggle_i_d_request.html</Path>
+                  <Anchor>a4eaab3be49a572440950b1f3e4294911</Anchor>
+                 </Node>
+                 <Node>
+                  <Name>getZerobufNumDynamics</Name>
+                  <Path>classlexis_1_1data_1_1_toggle_i_d_request.html</Path>
+                  <Anchor>a3c8121726f29095df59d29c14c42f91c</Anchor>
+                 </Node>
+                 <Node>
+                  <Name>getZerobufStaticSize</Name>
+                  <Path>classlexis_1_1data_1_1_toggle_i_d_request.html</Path>
+                  <Anchor>a59e5da3191c29db63c89049090b4a134</Anchor>
+                 </Node>
+                 <Node>
+                  <Name>operator=</Name>
+                  <Path>classlexis_1_1data_1_1_toggle_i_d_request.html</Path>
+                  <Anchor>af9cad58243cbfd1bf5e5ef2edc9e4f92</Anchor>
+                 </Node>
+                 <Node>
+                  <Name>operator=</Name>
+                  <Path>classlexis_1_1data_1_1_toggle_i_d_request.html</Path>
+                  <Anchor>a801c762d6b16ae4256375df14c2292db</Anchor>
+                 </Node>
+                 <Node>
+                  <Name>setIds</Name>
+                  <Path>classlexis_1_1data_1_1_toggle_i_d_request.html</Path>
+                  <Anchor>a1b771a826560b120261ab5314b6e1a3c</Anchor>
+                 </Node>
+                 <Node>
+                  <Name>setIds</Name>
+                  <Path>classlexis_1_1data_1_1_toggle_i_d_request.html</Path>
+                  <Anchor>a8a72a59dcbb54e5565be444f665030c0</Anchor>
+                 </Node>
+                 <Node>
+                  <Name>ZEROBUF_NUM_DYNAMICS</Name>
+                  <Path>classlexis_1_1data_1_1_toggle_i_d_request.html</Path>
+                  <Anchor>a1526608166629c491e90354145a3b3c6</Anchor>
+                 </Node>
+                 <Node>
+                  <Name>ZEROBUF_STATIC_SIZE</Name>
+                  <Path>classlexis_1_1data_1_1_toggle_i_d_request.html</Path>
+                  <Anchor>a8dc6e6afbe96a06606a134d1aebc195d</Anchor>
+                 </Node>
+                 <Node>
+                  <Name>ZEROBUF_TYPE_IDENTIFIER</Name>
+                  <Path>classlexis_1_1data_1_1_toggle_i_d_request.html</Path>
+                  <Anchor>a7cbc06f64a5b28ff403de17e4cf11d53</Anchor>
+                 </Node>
+                 <Node>
+                  <Name>ZEROBUF_TYPE_NAME</Name>
+                  <Path>classlexis_1_1data_1_1_toggle_i_d_request.html</Path>
+                  <Anchor>a392cc0f31994c856121ae1a739012fad</Anchor>
                  </Node>
                 </Subnodes>
                </Node>
@@ -374,6 +867,16 @@
                   <Path>classlexis_1_1render_1_1_exit.html</Path>
                   <Anchor>a7a6e6d89877b5bfb432c4f7692b8b54c</Anchor>
                  </Node>
+                 <Node>
+                  <Name>ZEROBUF_TYPE_IDENTIFIER</Name>
+                  <Path>classlexis_1_1render_1_1_exit.html</Path>
+                  <Anchor>ab1b5aceb670c8259b57095931fbaa584</Anchor>
+                 </Node>
+                 <Node>
+                  <Name>ZEROBUF_TYPE_NAME</Name>
+                  <Path>classlexis_1_1render_1_1_exit.html</Path>
+                  <Anchor>abdf6249a97f4421c2f9c2bff097b6a7d</Anchor>
+                 </Node>
                 </Subnodes>
                </Node>
                <Node>
@@ -424,6 +927,11 @@
                   <Name>_parseJSON</Name>
                   <Path>classlexis_1_1render_1_1_frame.html</Path>
                   <Anchor>afad21d8c65729665455dca6f7980187f</Anchor>
+                 </Node>
+                 <Node>
+                  <Name>create</Name>
+                  <Path>classlexis_1_1render_1_1_frame.html</Path>
+                  <Anchor>a1d6c3caa42d15dabe76aba1cd722c733</Anchor>
                  </Node>
                  <Node>
                   <Name>getCurrent</Name>
@@ -505,6 +1013,16 @@
                   <Path>classlexis_1_1render_1_1_frame.html</Path>
                   <Anchor>a105998438d098b2e8d4cdd4799ed3810</Anchor>
                  </Node>
+                 <Node>
+                  <Name>ZEROBUF_TYPE_IDENTIFIER</Name>
+                  <Path>classlexis_1_1render_1_1_frame.html</Path>
+                  <Anchor>aa526e9ea3b76cb3f0f740da172e19e34</Anchor>
+                 </Node>
+                 <Node>
+                  <Name>ZEROBUF_TYPE_NAME</Name>
+                  <Path>classlexis_1_1render_1_1_frame.html</Path>
+                  <Anchor>a58cc6f74cd7129e524b10a4d650c401c</Anchor>
+                 </Node>
                 </Subnodes>
                </Node>
                <Node>
@@ -565,6 +1083,11 @@
                   <Name>compact</Name>
                   <Path>classlexis_1_1render_1_1_image_j_p_e_g.html</Path>
                   <Anchor>a7fd938249cde2cc0c28759d50218eee1</Anchor>
+                 </Node>
+                 <Node>
+                  <Name>create</Name>
+                  <Path>classlexis_1_1render_1_1_image_j_p_e_g.html</Path>
+                  <Anchor>af08db494dd9dbcdda39791087b4307bc</Anchor>
                  </Node>
                  <Node>
                   <Name>getData</Name>
@@ -631,6 +1154,16 @@
                   <Path>classlexis_1_1render_1_1_image_j_p_e_g.html</Path>
                   <Anchor>a889cfa2c710de854d0d36dd99fbf8fc9</Anchor>
                  </Node>
+                 <Node>
+                  <Name>ZEROBUF_TYPE_IDENTIFIER</Name>
+                  <Path>classlexis_1_1render_1_1_image_j_p_e_g.html</Path>
+                  <Anchor>a750c495d9eb276819c5af733a622ae32</Anchor>
+                 </Node>
+                 <Node>
+                  <Name>ZEROBUF_TYPE_NAME</Name>
+                  <Path>classlexis_1_1render_1_1_image_j_p_e_g.html</Path>
+                  <Anchor>aa0204de055414cbef93f89f11914a9c8</Anchor>
+                 </Node>
                 </Subnodes>
                </Node>
                <Node>
@@ -681,6 +1214,11 @@
                   <Name>_parseJSON</Name>
                   <Path>classlexis_1_1render_1_1_look_out.html</Path>
                   <Anchor>ac8676d65e0dc07e14129b7992f27f82c</Anchor>
+                 </Node>
+                 <Node>
+                  <Name>create</Name>
+                  <Path>classlexis_1_1render_1_1_look_out.html</Path>
+                  <Anchor>a1853e97a9322ebb0a653335dd41ac453</Anchor>
                  </Node>
                  <Node>
                   <Name>getMatrix</Name>
@@ -752,6 +1290,16 @@
                   <Path>classlexis_1_1render_1_1_look_out.html</Path>
                   <Anchor>ab5abbcb99e6f4243c7d72b573f9a0ffe</Anchor>
                  </Node>
+                 <Node>
+                  <Name>ZEROBUF_TYPE_IDENTIFIER</Name>
+                  <Path>classlexis_1_1render_1_1_look_out.html</Path>
+                  <Anchor>a37da34db78566d29ec05f39794f07700</Anchor>
+                 </Node>
+                 <Node>
+                  <Name>ZEROBUF_TYPE_NAME</Name>
+                  <Path>classlexis_1_1render_1_1_look_out.html</Path>
+                  <Anchor>ae7cebd918048638fab0171a633d085c1</Anchor>
+                 </Node>
                 </Subnodes>
                </Node>
                <Node>
@@ -802,6 +1350,11 @@
                   <Name>_parseJSON</Name>
                   <Path>classlexis_1_1render_1_1_lookup_table1_d.html</Path>
                   <Anchor>aa48c7e7f38dd6857577fa77fcc40a82b</Anchor>
+                 </Node>
+                 <Node>
+                  <Name>create</Name>
+                  <Path>classlexis_1_1render_1_1_lookup_table1_d.html</Path>
+                  <Anchor>a95bb59e34ec923253776819431ab3ee3</Anchor>
                  </Node>
                  <Node>
                   <Name>getLut</Name>
@@ -873,7 +1426,133 @@
                   <Path>classlexis_1_1render_1_1_lookup_table1_d.html</Path>
                   <Anchor>a9e4fdec2b5d42082ff77ab4e3807f8bf</Anchor>
                  </Node>
+                 <Node>
+                  <Name>ZEROBUF_TYPE_IDENTIFIER</Name>
+                  <Path>classlexis_1_1render_1_1_lookup_table1_d.html</Path>
+                  <Anchor>a60cd35a74892154a962d50097cb768df</Anchor>
+                 </Node>
+                 <Node>
+                  <Name>ZEROBUF_TYPE_NAME</Name>
+                  <Path>classlexis_1_1render_1_1_lookup_table1_d.html</Path>
+                  <Anchor>a84982bceeda9467bf364158b1fac5442</Anchor>
+                 </Node>
                 </Subnodes>
+               </Node>
+              </Subnodes>
+             </Node>
+             <Node>
+              <Name>Request</Name>
+              <Path>classlexis_1_1_request.html</Path>
+              <Subnodes>
+               <Node>
+                <Name>Request</Name>
+                <Path>classlexis_1_1_request.html</Path>
+                <Anchor>a68cd907410ae625f66ab8cedfc1b0bf6</Anchor>
+               </Node>
+               <Node>
+                <Name>Request</Name>
+                <Path>classlexis_1_1_request.html</Path>
+                <Anchor>ab8c571887b0f072026eceb16351917cb</Anchor>
+               </Node>
+               <Node>
+                <Name>Request</Name>
+                <Path>classlexis_1_1_request.html</Path>
+                <Anchor>af655337fd7803b48163062c0981e4126</Anchor>
+               </Node>
+               <Node>
+                <Name>Request</Name>
+                <Path>classlexis_1_1_request.html</Path>
+                <Anchor>a69cb7b61238ee421396e06b3597facb4</Anchor>
+               </Node>
+               <Node>
+                <Name>Request</Name>
+                <Path>classlexis_1_1_request.html</Path>
+                <Anchor>abde814d0bd9ebc5dffc51c350ce326d9</Anchor>
+               </Node>
+               <Node>
+                <Name>Request</Name>
+                <Path>classlexis_1_1_request.html</Path>
+                <Anchor>a919f5e10f3b71feaf9fd243c4a3a9044</Anchor>
+               </Node>
+               <Node>
+                <Name>~Request</Name>
+                <Path>classlexis_1_1_request.html</Path>
+                <Anchor>ac1500bdc62c081019c75eb823ae99ea0</Anchor>
+               </Node>
+               <Node>
+                <Name>_createJSON</Name>
+                <Path>classlexis_1_1_request.html</Path>
+                <Anchor>af9fe04bd6e2c753ee9856bbe3660bf69</Anchor>
+               </Node>
+               <Node>
+                <Name>_parseJSON</Name>
+                <Path>classlexis_1_1_request.html</Path>
+                <Anchor>a65ae74574da0a67e80f2cb76033c4159</Anchor>
+               </Node>
+               <Node>
+                <Name>create</Name>
+                <Path>classlexis_1_1_request.html</Path>
+                <Anchor>a36ab5adc3e19a464495e010652e0affa</Anchor>
+               </Node>
+               <Node>
+                <Name>getEvent</Name>
+                <Path>classlexis_1_1_request.html</Path>
+                <Anchor>a144dc4d7c939c454c97eea197db6ef54</Anchor>
+               </Node>
+               <Node>
+                <Name>getTypeIdentifier</Name>
+                <Path>classlexis_1_1_request.html</Path>
+                <Anchor>af5241dd1ce1ef7384c28e889834ebc89</Anchor>
+               </Node>
+               <Node>
+                <Name>getTypeName</Name>
+                <Path>classlexis_1_1_request.html</Path>
+                <Anchor>a7af67cc16c102c2a24b0330f2264e281</Anchor>
+               </Node>
+               <Node>
+                <Name>getZerobufNumDynamics</Name>
+                <Path>classlexis_1_1_request.html</Path>
+                <Anchor>a2e64d005076cb2535376eb90f802a8d6</Anchor>
+               </Node>
+               <Node>
+                <Name>getZerobufStaticSize</Name>
+                <Path>classlexis_1_1_request.html</Path>
+                <Anchor>a340efb82b6f4605e2090e01969b4ee7d</Anchor>
+               </Node>
+               <Node>
+                <Name>operator=</Name>
+                <Path>classlexis_1_1_request.html</Path>
+                <Anchor>a2051b7fa02a43d43d9b38d524b952639</Anchor>
+               </Node>
+               <Node>
+                <Name>operator=</Name>
+                <Path>classlexis_1_1_request.html</Path>
+                <Anchor>adc4e0a5f66c8ac7e72d76a07ebb83d52</Anchor>
+               </Node>
+               <Node>
+                <Name>setEvent</Name>
+                <Path>classlexis_1_1_request.html</Path>
+                <Anchor>aa3d64e72f6be2b7157d3a272574a305b</Anchor>
+               </Node>
+               <Node>
+                <Name>ZEROBUF_NUM_DYNAMICS</Name>
+                <Path>classlexis_1_1_request.html</Path>
+                <Anchor>a9be30bd88e3af7aaace2e039fe642244</Anchor>
+               </Node>
+               <Node>
+                <Name>ZEROBUF_STATIC_SIZE</Name>
+                <Path>classlexis_1_1_request.html</Path>
+                <Anchor>a3ec00cb23c0041ae48ce5666832c11e4</Anchor>
+               </Node>
+               <Node>
+                <Name>ZEROBUF_TYPE_IDENTIFIER</Name>
+                <Path>classlexis_1_1_request.html</Path>
+                <Anchor>a84649b789d0fb96bf140baeed03076e6</Anchor>
+               </Node>
+               <Node>
+                <Name>ZEROBUF_TYPE_NAME</Name>
+                <Path>classlexis_1_1_request.html</Path>
+                <Anchor>a7e4861fda8e9015ce33f91663a45d822</Anchor>
                </Node>
               </Subnodes>
              </Node>
@@ -944,6 +1623,10 @@
             <Path></Path>
             <Subnodes>
              <Node>
+              <Name>lexis::data::CellSetBinaryOp</Name>
+              <Path>classlexis_1_1data_1_1_cell_set_binary_op.html</Path>
+             </Node>
+             <Node>
               <Name>lexis::data::detail::Progress</Name>
               <Path>classlexis_1_1data_1_1detail_1_1_progress.html</Path>
               <Subnodes>
@@ -956,6 +1639,14 @@
              <Node>
               <Name>lexis::data::FrameRange</Name>
               <Path>classlexis_1_1data_1_1_frame_range.html</Path>
+             </Node>
+             <Node>
+              <Name>lexis::data::SelectedIDs</Name>
+              <Path>classlexis_1_1data_1_1_selected_i_ds.html</Path>
+             </Node>
+             <Node>
+              <Name>lexis::data::ToggleIDRequest</Name>
+              <Path>classlexis_1_1data_1_1_toggle_i_d_request.html</Path>
              </Node>
              <Node>
               <Name>lexis::render::Exit</Name>
@@ -976,6 +1667,10 @@
              <Node>
               <Name>lexis::render::LookupTable1D</Name>
               <Path>classlexis_1_1render_1_1_lookup_table1_d.html</Path>
+             </Node>
+             <Node>
+              <Name>lexis::Request</Name>
+              <Path>classlexis_1_1_request.html</Path>
              </Node>
             </Subnodes>
            </Node>
@@ -1032,6 +1727,10 @@
             </Subnodes>
            </Node>
            <Node>
+            <Name>cellSetBinaryOp.h</Name>
+            <Path>cell_set_binary_op_8h_source.html</Path>
+           </Node>
+           <Node>
             <Name>defines.h</Name>
             <Path>defines_8h.html</Path>
            </Node>
@@ -1074,6 +1773,14 @@
            <Node>
             <Name>progress.h</Name>
             <Path>progress_8h_source.html</Path>
+           </Node>
+           <Node>
+            <Name>request.h</Name>
+            <Path>request_8h_source.html</Path>
+           </Node>
+           <Node>
+            <Name>selections.h</Name>
+            <Path>selections_8h_source.html</Path>
            </Node>
            <Node>
             <Name>version.h</Name>

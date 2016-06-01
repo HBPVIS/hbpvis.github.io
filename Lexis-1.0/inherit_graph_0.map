@@ -1,10 +1,14 @@
 <map id="Graphical Class Hierarchy" name="Graphical Class Hierarchy">
-<area shape="rect" id="node3" href="$classlexis_1_1data_1_1detail_1_1_progress.html" title="lexis::data::detail\l::Progress" alt="" coords="165,5,307,51"/>
-<area shape="rect" id="node7" href="$classlexis_1_1data_1_1_frame_range.html" title="lexis::data::FrameRange" alt="" coords="143,75,329,104"/>
-<area shape="rect" id="node9" href="$classlexis_1_1render_1_1_exit.html" title="lexis::render::Exit" alt="" coords="165,128,307,157"/>
-<area shape="rect" id="node11" href="$classlexis_1_1render_1_1_frame.html" title="lexis::render::Frame" alt="" coords="157,181,315,211"/>
-<area shape="rect" id="node13" href="$classlexis_1_1render_1_1_image_j_p_e_g.html" title="lexis::render::ImageJPEG" alt="" coords="141,235,331,264"/>
-<area shape="rect" id="node15" href="$classlexis_1_1render_1_1_look_out.html" title="lexis::render::LookOut" alt="" coords="149,288,323,317"/>
-<area shape="rect" id="node17" href="$classlexis_1_1render_1_1_lookup_table1_d.html" title="lexis::render::LookupTable1D" alt="" coords="128,341,344,371"/>
-<area shape="rect" id="node5" href="$classlexis_1_1data_1_1_progress.html" title="Drop&#45;in progress meter for boost::progress_display. " alt="" coords="393,13,553,43"/>
+<area shape="rect" id="node3" href="$classlexis_1_1data_1_1_cell_set_binary_op.html" title="lexis::data::CellSetBinaryOp" alt="" coords="131,5,344,35"/>
+<area shape="rect" id="node5" href="$classlexis_1_1data_1_1detail_1_1_progress.html" title="lexis::data::detail\l::Progress" alt="" coords="167,58,308,105"/>
+<area shape="rect" id="node9" href="$classlexis_1_1data_1_1_frame_range.html" title="lexis::data::FrameRange" alt="" coords="144,128,331,157"/>
+<area shape="rect" id="node11" href="$classlexis_1_1data_1_1_selected_i_ds.html" title="lexis::data::SelectedIDs" alt="" coords="144,181,331,211"/>
+<area shape="rect" id="node13" href="$classlexis_1_1data_1_1_toggle_i_d_request.html" title="lexis::data::ToggleIDRequest" alt="" coords="129,235,345,264"/>
+<area shape="rect" id="node15" href="$classlexis_1_1render_1_1_exit.html" title="lexis::render::Exit" alt="" coords="167,288,308,317"/>
+<area shape="rect" id="node17" href="$classlexis_1_1render_1_1_frame.html" title="lexis::render::Frame" alt="" coords="159,341,316,371"/>
+<area shape="rect" id="node19" href="$classlexis_1_1render_1_1_image_j_p_e_g.html" title="lexis::render::ImageJPEG" alt="" coords="143,395,332,424"/>
+<area shape="rect" id="node21" href="$classlexis_1_1render_1_1_look_out.html" title="lexis::render::LookOut" alt="" coords="151,448,324,477"/>
+<area shape="rect" id="node23" href="$classlexis_1_1render_1_1_lookup_table1_d.html" title="lexis::render::LookupTable1D" alt="" coords="129,501,345,531"/>
+<area shape="rect" id="node25" href="$classlexis_1_1_request.html" title="lexis::Request" alt="" coords="179,555,296,584"/>
+<area shape="rect" id="node7" href="$classlexis_1_1data_1_1_progress.html" title="Drop&#45;in progress meter for boost::progress_display. " alt="" coords="396,67,556,96"/>
 </map>

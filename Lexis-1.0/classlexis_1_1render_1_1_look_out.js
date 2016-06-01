@@ -9,6 +9,7 @@ var classlexis_1_1render_1_1_look_out =
     [ "~LookOut", "classlexis_1_1render_1_1_look_out.html#ab605547e6cf5e5730b31bd203fe4b0fd", null ],
     [ "_createJSON", "classlexis_1_1render_1_1_look_out.html#adec68d609a889f1c87a0b2bb049ae6f1", null ],
     [ "_parseJSON", "classlexis_1_1render_1_1_look_out.html#ac8676d65e0dc07e14129b7992f27f82c", null ],
+    [ "create", "classlexis_1_1render_1_1_look_out.html#a1853e97a9322ebb0a653335dd41ac453", null ],
     [ "getMatrix", "classlexis_1_1render_1_1_look_out.html#a50da24acf12b2b6e7a402511e6672dbd", null ],
     [ "getMatrix", "classlexis_1_1render_1_1_look_out.html#a4f7c4b8cd83597a892edbbb776294da4", null ],
     [ "getMatrixSize", "classlexis_1_1render_1_1_look_out.html#a7f991ed0d9be7bfa24b7dde8969cd1de", null ],
@@ -22,5 +23,7 @@ var classlexis_1_1render_1_1_look_out =
     [ "setMatrix", "classlexis_1_1render_1_1_look_out.html#afd4486c6baa990cbd0e265f9ef3ee7d2", null ],
     [ "setMatrix", "classlexis_1_1render_1_1_look_out.html#a6bb784e91485d9d4dc99327132f3a871", null ],
     [ "ZEROBUF_NUM_DYNAMICS", "classlexis_1_1render_1_1_look_out.html#a77758a25512173666f32e2327a3e1ed8", null ],
-    [ "ZEROBUF_STATIC_SIZE", "classlexis_1_1render_1_1_look_out.html#ab5abbcb99e6f4243c7d72b573f9a0ffe", null ]
+    [ "ZEROBUF_STATIC_SIZE", "classlexis_1_1render_1_1_look_out.html#ab5abbcb99e6f4243c7d72b573f9a0ffe", null ],
+    [ "ZEROBUF_TYPE_IDENTIFIER", "classlexis_1_1render_1_1_look_out.html#a37da34db78566d29ec05f39794f07700", null ],
+    [ "ZEROBUF_TYPE_NAME", "classlexis_1_1render_1_1_look_out.html#ae7cebd918048638fab0171a633d085c1", null ]
 ];

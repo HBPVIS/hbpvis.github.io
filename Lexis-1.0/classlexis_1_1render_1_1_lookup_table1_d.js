@@ -9,6 +9,7 @@ var classlexis_1_1render_1_1_lookup_table1_d =
     [ "~LookupTable1D", "classlexis_1_1render_1_1_lookup_table1_d.html#ad69343147e63a4781992417b955f6c99", null ],
     [ "_createJSON", "classlexis_1_1render_1_1_lookup_table1_d.html#a67075842f470e37c5bb0593fced69a00", null ],
     [ "_parseJSON", "classlexis_1_1render_1_1_lookup_table1_d.html#aa48c7e7f38dd6857577fa77fcc40a82b", null ],
+    [ "create", "classlexis_1_1render_1_1_lookup_table1_d.html#a95bb59e34ec923253776819431ab3ee3", null ],
     [ "getLut", "classlexis_1_1render_1_1_lookup_table1_d.html#aa045047524cbbfa149cda12c221f20e6", null ],
     [ "getLut", "classlexis_1_1render_1_1_lookup_table1_d.html#ac4c22e14d9bd7b9ca0fa23344e0f483a", null ],
     [ "getLutSize", "classlexis_1_1render_1_1_lookup_table1_d.html#a2a3f697c56eec3c0cf09a86354dc1ca2", null ],
@@ -22,5 +23,7 @@ var classlexis_1_1render_1_1_lookup_table1_d =
     [ "setLut", "classlexis_1_1render_1_1_lookup_table1_d.html#acd5117af296da131895cbea3e8dbe4fd", null ],
     [ "setLut", "classlexis_1_1render_1_1_lookup_table1_d.html#a3d07f22bb5c955755db44b88357be496", null ],
     [ "ZEROBUF_NUM_DYNAMICS", "classlexis_1_1render_1_1_lookup_table1_d.html#aa9f50613c55f30b603ede50308f84ea6", null ],
-    [ "ZEROBUF_STATIC_SIZE", "classlexis_1_1render_1_1_lookup_table1_d.html#a9e4fdec2b5d42082ff77ab4e3807f8bf", null ]
+    [ "ZEROBUF_STATIC_SIZE", "classlexis_1_1render_1_1_lookup_table1_d.html#a9e4fdec2b5d42082ff77ab4e3807f8bf", null ],
+    [ "ZEROBUF_TYPE_IDENTIFIER", "classlexis_1_1render_1_1_lookup_table1_d.html#a60cd35a74892154a962d50097cb768df", null ],
+    [ "ZEROBUF_TYPE_NAME", "classlexis_1_1render_1_1_lookup_table1_d.html#a84982bceeda9467bf364158b1fac5442", null ]
 ];

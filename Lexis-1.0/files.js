@@ -1,6 +1,7 @@
 var files =
 [
     [ "api.h", "api_8h.html", "api_8h" ],
+    [ "cellSetBinaryOp.h", "cell_set_binary_op_8h_source.html", null ],
     [ "defines.h", "defines_8h.html", null ],
     [ "definesLinux.h", "defines_linux_8h_source.html", null ],
     [ "exit.h", "exit_8h_source.html", null ],
@@ -12,5 +13,7 @@ var files =
     [ "lookupTable1D.h", "lookup_table1_d_8h_source.html", null ],
     [ "Progress.h", "_progress_8h_source.html", null ],
     [ "progress.h", "progress_8h_source.html", null ],
+    [ "request.h", "request_8h_source.html", null ],
+    [ "selections.h", "selections_8h_source.html", null ],
     [ "version.h", "version_8h.html", "version_8h" ]
 ];

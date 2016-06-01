@@ -11,6 +11,7 @@ var classlexis_1_1data_1_1detail_1_1_progress =
     [ "_createJSON", "classlexis_1_1data_1_1detail_1_1_progress.html#a3ad60d3d9c3f963ef5926e0afea210cb", null ],
     [ "_parseJSON", "classlexis_1_1data_1_1detail_1_1_progress.html#abc4e4bcc9553af2569c0c215065764f6", null ],
     [ "compact", "classlexis_1_1data_1_1detail_1_1_progress.html#a2702a836fcf6c417dc5147a2f83f80b7", null ],
+    [ "create", "classlexis_1_1data_1_1detail_1_1_progress.html#a2bde06b2189c0b45761e975533da05df", null ],
     [ "getAmount", "classlexis_1_1data_1_1detail_1_1_progress.html#ae8dac35b9073cfdec4d4424a976507eb", null ],
     [ "getOperation", "classlexis_1_1data_1_1detail_1_1_progress.html#ac8e7eeefb58e4ff093fe280379f38aee", null ],
     [ "getOperation", "classlexis_1_1data_1_1detail_1_1_progress.html#ab444640365e87c8aefd506771f25d546", null ],
@@ -25,5 +26,7 @@ var classlexis_1_1data_1_1detail_1_1_progress =
     [ "setOperation", "classlexis_1_1data_1_1detail_1_1_progress.html#aafb98546a02713cde02f6757aa0e2ffa", null ],
     [ "setOperation", "classlexis_1_1data_1_1detail_1_1_progress.html#ae3a4e55c4c13317dca6f1c30fd6dfcfe", null ],
     [ "ZEROBUF_NUM_DYNAMICS", "classlexis_1_1data_1_1detail_1_1_progress.html#ac2d8034894fa3be7bca0eec8415a7ed5", null ],
-    [ "ZEROBUF_STATIC_SIZE", "classlexis_1_1data_1_1detail_1_1_progress.html#a16b471b91fd594e2ee4f13688ad6f5cb", null ]
+    [ "ZEROBUF_STATIC_SIZE", "classlexis_1_1data_1_1detail_1_1_progress.html#a16b471b91fd594e2ee4f13688ad6f5cb", null ],
+    [ "ZEROBUF_TYPE_IDENTIFIER", "classlexis_1_1data_1_1detail_1_1_progress.html#ace0809155c8c1c1a0faaafca9e2e2030", null ],
+    [ "ZEROBUF_TYPE_NAME", "classlexis_1_1data_1_1detail_1_1_progress.html#ab8645f959cb952e06110fed2c5747ea7", null ]
 ];

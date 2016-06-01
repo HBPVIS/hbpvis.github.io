@@ -9,6 +9,7 @@ var classlexis_1_1data_1_1_frame_range =
     [ "~FrameRange", "classlexis_1_1data_1_1_frame_range.html#ada6df3587f99f50041b11e0981a67477", null ],
     [ "_createJSON", "classlexis_1_1data_1_1_frame_range.html#a74f0ee7f6b1b17b51807a816fe3037ec", null ],
     [ "_parseJSON", "classlexis_1_1data_1_1_frame_range.html#a2c2b3383fba9220a6a4c1cc845e38c06", null ],
+    [ "create", "classlexis_1_1data_1_1_frame_range.html#a3b9ac39a06c6a9dcc27b764c097ba6e6", null ],
     [ "getEnd", "classlexis_1_1data_1_1_frame_range.html#aa9cf20f2b8583db651654db36a9c82bf", null ],
     [ "getStart", "classlexis_1_1data_1_1_frame_range.html#ad6466c296e2f3ac7a9183f62e172247f", null ],
     [ "getTypeIdentifier", "classlexis_1_1data_1_1_frame_range.html#a086ced2ef525a3703a6263c0419e8cb1", null ],
@@ -20,5 +21,7 @@ var classlexis_1_1data_1_1_frame_range =
     [ "setEnd", "classlexis_1_1data_1_1_frame_range.html#a4f90b0ff0c93c3c2e3ebcac299a00770", null ],
     [ "setStart", "classlexis_1_1data_1_1_frame_range.html#ae3a5b57ccdaf66552550dba5b56a5eb3", null ],
     [ "ZEROBUF_NUM_DYNAMICS", "classlexis_1_1data_1_1_frame_range.html#af46859de88798fc16745803971195599", null ],
-    [ "ZEROBUF_STATIC_SIZE", "classlexis_1_1data_1_1_frame_range.html#a73e1abb56b709989fd7a5168d30b11c2", null ]
+    [ "ZEROBUF_STATIC_SIZE", "classlexis_1_1data_1_1_frame_range.html#a73e1abb56b709989fd7a5168d30b11c2", null ],
+    [ "ZEROBUF_TYPE_IDENTIFIER", "classlexis_1_1data_1_1_frame_range.html#a915a881b2969ce2c64e9fdfd76a460cb", null ],
+    [ "ZEROBUF_TYPE_NAME", "classlexis_1_1data_1_1_frame_range.html#a44ce46979ac115531622ec7917c466bd", null ]
 ];

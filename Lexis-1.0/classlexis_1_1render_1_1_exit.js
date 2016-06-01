@@ -9,5 +9,7 @@ var classlexis_1_1render_1_1_exit =
     [ "getZerobufStaticSize", "classlexis_1_1render_1_1_exit.html#adc4018e6fbb04b39b91644bf9802d4bb", null ],
     [ "operator=", "classlexis_1_1render_1_1_exit.html#a17e8702d8c113f19cb9324f9da56cdfe", null ],
     [ "ZEROBUF_NUM_DYNAMICS", "classlexis_1_1render_1_1_exit.html#a6ea0f257a350dd900b389be400bc4dd1", null ],
-    [ "ZEROBUF_STATIC_SIZE", "classlexis_1_1render_1_1_exit.html#a7a6e6d89877b5bfb432c4f7692b8b54c", null ]
+    [ "ZEROBUF_STATIC_SIZE", "classlexis_1_1render_1_1_exit.html#a7a6e6d89877b5bfb432c4f7692b8b54c", null ],
+    [ "ZEROBUF_TYPE_IDENTIFIER", "classlexis_1_1render_1_1_exit.html#ab1b5aceb670c8259b57095931fbaa584", null ],
+    [ "ZEROBUF_TYPE_NAME", "classlexis_1_1render_1_1_exit.html#abdf6249a97f4421c2f9c2bff097b6a7d", null ]
 ];

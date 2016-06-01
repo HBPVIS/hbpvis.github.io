@@ -108,6 +108,27 @@
   </Token>
   <Token>
     <TokenIdentifier>
+      <Name>lexis::Request</Name>
+      <APILanguage>c</APILanguage>
+      <Type>cl</Type>
+      <Scope>lexis::Request</Scope>
+    </TokenIdentifier>
+    <Path>classlexis_1_1_request.html</Path>
+  </Token>
+  <Token>
+    <TokenIdentifier>
+      <Name>setEvent</Name>
+      <APILanguage>cpp</APILanguage>
+      <Type>instm</Type>
+      <Scope>lexis::Request</Scope>
+    </TokenIdentifier>
+    <Path>classlexis_1_1_request.html</Path>
+    <Anchor>aa3d64e72f6be2b7157d3a272574a305b</Anchor>
+    <Abstract>Set the value of the ::zerobuf::uint128_t fixed size member. </Abstract>
+    <DeclaredIn>request.h</DeclaredIn>
+  </Token>
+  <Token>
+    <TokenIdentifier>
       <Name>lexis::Version</Name>
       <APILanguage>c</APILanguage>
       <Type>cl</Type>
@@ -208,6 +229,99 @@
   </Token>
   <Token>
     <TokenIdentifier>
+      <Name>lexis::data::CellSetBinaryOp</Name>
+      <APILanguage>c</APILanguage>
+      <Type>cl</Type>
+      <Scope>lexis::data::CellSetBinaryOp</Scope>
+    </TokenIdentifier>
+    <Path>classlexis_1_1data_1_1_cell_set_binary_op.html</Path>
+  </Token>
+  <Token>
+    <TokenIdentifier>
+      <Name>getFirst</Name>
+      <APILanguage>cpp</APILanguage>
+      <Type>instm</Type>
+      <Scope>lexis::data::CellSetBinaryOp</Scope>
+    </TokenIdentifier>
+    <Path>classlexis_1_1data_1_1_cell_set_binary_op.html</Path>
+    <Anchor>afdb900856094024b9e57d4cc63b8a67b</Anchor>
+    <Abstract>Get a reference to the uint32_t dynamic member. </Abstract>
+    <DeclaredIn>cellSetBinaryOp.h</DeclaredIn>
+  </Token>
+  <Token>
+    <TokenIdentifier>
+      <Name>setFirst</Name>
+      <APILanguage>cpp</APILanguage>
+      <Type>instm</Type>
+      <Scope>lexis::data::CellSetBinaryOp</Scope>
+    </TokenIdentifier>
+    <Path>classlexis_1_1data_1_1_cell_set_binary_op.html</Path>
+    <Anchor>a5e944c55779cc859960f07e5708ab1d3</Anchor>
+    <Abstract>Set the value of the uint32_t dynamic object from a uint32_t* and size. </Abstract>
+    <DeclaredIn>cellSetBinaryOp.h</DeclaredIn>
+  </Token>
+  <Token>
+    <TokenIdentifier>
+      <Name>setFirst</Name>
+      <APILanguage>cpp</APILanguage>
+      <Type>instm</Type>
+      <Scope>lexis::data::CellSetBinaryOp</Scope>
+    </TokenIdentifier>
+    <Path>classlexis_1_1data_1_1_cell_set_binary_op.html</Path>
+    <Anchor>a398f58d7a137be630eafaa71556f5368</Anchor>
+    <Abstract>Set the value of the uint32_t dynamic object from a uint32_t std::vector. </Abstract>
+    <DeclaredIn>cellSetBinaryOp.h</DeclaredIn>
+  </Token>
+  <Token>
+    <TokenIdentifier>
+      <Name>getSecond</Name>
+      <APILanguage>cpp</APILanguage>
+      <Type>instm</Type>
+      <Scope>lexis::data::CellSetBinaryOp</Scope>
+    </TokenIdentifier>
+    <Path>classlexis_1_1data_1_1_cell_set_binary_op.html</Path>
+    <Anchor>a5f85842da12eaeb2c32c7c0c035af0d3</Anchor>
+    <Abstract>Get a reference to the uint32_t dynamic member. </Abstract>
+    <DeclaredIn>cellSetBinaryOp.h</DeclaredIn>
+  </Token>
+  <Token>
+    <TokenIdentifier>
+      <Name>setSecond</Name>
+      <APILanguage>cpp</APILanguage>
+      <Type>instm</Type>
+      <Scope>lexis::data::CellSetBinaryOp</Scope>
+    </TokenIdentifier>
+    <Path>classlexis_1_1data_1_1_cell_set_binary_op.html</Path>
+    <Anchor>a4b828a7aeeda3278cae26a11d10ae773</Anchor>
+    <Abstract>Set the value of the uint32_t dynamic object from a uint32_t* and size. </Abstract>
+    <DeclaredIn>cellSetBinaryOp.h</DeclaredIn>
+  </Token>
+  <Token>
+    <TokenIdentifier>
+      <Name>setSecond</Name>
+      <APILanguage>cpp</APILanguage>
+      <Type>instm</Type>
+      <Scope>lexis::data::CellSetBinaryOp</Scope>
+    </TokenIdentifier>
+    <Path>classlexis_1_1data_1_1_cell_set_binary_op.html</Path>
+    <Anchor>a350e8fb6d6be62f0c1ac8cd0358c7a5a</Anchor>
+    <Abstract>Set the value of the uint32_t dynamic object from a uint32_t std::vector. </Abstract>
+    <DeclaredIn>cellSetBinaryOp.h</DeclaredIn>
+  </Token>
+  <Token>
+    <TokenIdentifier>
+      <Name>setOperation</Name>
+      <APILanguage>cpp</APILanguage>
+      <Type>instm</Type>
+      <Scope>lexis::data::CellSetBinaryOp</Scope>
+    </TokenIdentifier>
+    <Path>classlexis_1_1data_1_1_cell_set_binary_op.html</Path>
+    <Anchor>a61ae3f38439173ea471f79a61fd60915</Anchor>
+    <Abstract>Set the value of the CellSetBinaryOpType fixed size member. </Abstract>
+    <DeclaredIn>cellSetBinaryOp.h</DeclaredIn>
+  </Token>
+  <Token>
+    <TokenIdentifier>
       <Name>lexis::data::FrameRange</Name>
       <APILanguage>c</APILanguage>
       <Type>cl</Type>
@@ -297,6 +411,96 @@
     <Anchor>a58a50b8b29a04301348a9fe70a9f2d62</Anchor>
     <Abstract>Set the value of the float fixed size member. </Abstract>
     <DeclaredIn>progress.h</DeclaredIn>
+  </Token>
+  <Token>
+    <TokenIdentifier>
+      <Name>lexis::data::SelectedIDs</Name>
+      <APILanguage>c</APILanguage>
+      <Type>cl</Type>
+      <Scope>lexis::data::SelectedIDs</Scope>
+    </TokenIdentifier>
+    <Path>classlexis_1_1data_1_1_selected_i_ds.html</Path>
+  </Token>
+  <Token>
+    <TokenIdentifier>
+      <Name>getIds</Name>
+      <APILanguage>cpp</APILanguage>
+      <Type>instm</Type>
+      <Scope>lexis::data::SelectedIDs</Scope>
+    </TokenIdentifier>
+    <Path>classlexis_1_1data_1_1_selected_i_ds.html</Path>
+    <Anchor>a78d6f0aea607d7d32a40dd74f28015e0</Anchor>
+    <Abstract>Get a reference to the uint32_t dynamic member. </Abstract>
+    <DeclaredIn>selections.h</DeclaredIn>
+  </Token>
+  <Token>
+    <TokenIdentifier>
+      <Name>setIds</Name>
+      <APILanguage>cpp</APILanguage>
+      <Type>instm</Type>
+      <Scope>lexis::data::SelectedIDs</Scope>
+    </TokenIdentifier>
+    <Path>classlexis_1_1data_1_1_selected_i_ds.html</Path>
+    <Anchor>ac1eb687e0e401373b01d74478af9afa0</Anchor>
+    <Abstract>Set the value of the uint32_t dynamic object from a uint32_t* and size. </Abstract>
+    <DeclaredIn>selections.h</DeclaredIn>
+  </Token>
+  <Token>
+    <TokenIdentifier>
+      <Name>setIds</Name>
+      <APILanguage>cpp</APILanguage>
+      <Type>instm</Type>
+      <Scope>lexis::data::SelectedIDs</Scope>
+    </TokenIdentifier>
+    <Path>classlexis_1_1data_1_1_selected_i_ds.html</Path>
+    <Anchor>a050700a7454f09aa64db66643ca46833</Anchor>
+    <Abstract>Set the value of the uint32_t dynamic object from a uint32_t std::vector. </Abstract>
+    <DeclaredIn>selections.h</DeclaredIn>
+  </Token>
+  <Token>
+    <TokenIdentifier>
+      <Name>lexis::data::ToggleIDRequest</Name>
+      <APILanguage>c</APILanguage>
+      <Type>cl</Type>
+      <Scope>lexis::data::ToggleIDRequest</Scope>
+    </TokenIdentifier>
+    <Path>classlexis_1_1data_1_1_toggle_i_d_request.html</Path>
+  </Token>
+  <Token>
+    <TokenIdentifier>
+      <Name>getIds</Name>
+      <APILanguage>cpp</APILanguage>
+      <Type>instm</Type>
+      <Scope>lexis::data::ToggleIDRequest</Scope>
+    </TokenIdentifier>
+    <Path>classlexis_1_1data_1_1_toggle_i_d_request.html</Path>
+    <Anchor>a977c6670c486bfde5d834f87ecf9450d</Anchor>
+    <Abstract>Get a reference to the uint32_t dynamic member. </Abstract>
+    <DeclaredIn>selections.h</DeclaredIn>
+  </Token>
+  <Token>
+    <TokenIdentifier>
+      <Name>setIds</Name>
+      <APILanguage>cpp</APILanguage>
+      <Type>instm</Type>
+      <Scope>lexis::data::ToggleIDRequest</Scope>
+    </TokenIdentifier>
+    <Path>classlexis_1_1data_1_1_toggle_i_d_request.html</Path>
+    <Anchor>a1b771a826560b120261ab5314b6e1a3c</Anchor>
+    <Abstract>Set the value of the uint32_t dynamic object from a uint32_t* and size. </Abstract>
+    <DeclaredIn>selections.h</DeclaredIn>
+  </Token>
+  <Token>
+    <TokenIdentifier>
+      <Name>setIds</Name>
+      <APILanguage>cpp</APILanguage>
+      <Type>instm</Type>
+      <Scope>lexis::data::ToggleIDRequest</Scope>
+    </TokenIdentifier>
+    <Path>classlexis_1_1data_1_1_toggle_i_d_request.html</Path>
+    <Anchor>a8a72a59dcbb54e5565be444f665030c0</Anchor>
+    <Abstract>Set the value of the uint32_t dynamic object from a uint32_t std::vector. </Abstract>
+    <DeclaredIn>selections.h</DeclaredIn>
   </Token>
   <Token>
     <TokenIdentifier>

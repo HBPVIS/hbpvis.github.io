@@ -113,42 +113,46 @@ $(document).ready(function(){initNavTree('exit_8h_source.html','');});
 <div class="line"><a name="l00002"></a><span class="lineno">    2</span>&#160;</div>
 <div class="line"><a name="l00003"></a><span class="lineno">    3</span>&#160;<span class="preprocessor">#pragma once</span></div>
 <div class="line"><a name="l00004"></a><span class="lineno">    4</span>&#160;<span class="preprocessor">#include &lt;zerobuf/Zerobuf.h&gt;</span> <span class="comment">// base class</span></div>
-<div class="line"><a name="l00005"></a><span class="lineno">    5</span>&#160;<span class="preprocessor">#include &lt;zerobuf/Vector.h&gt;</span> <span class="comment">// member</span></div>
-<div class="line"><a name="l00006"></a><span class="lineno">    6</span>&#160;<span class="preprocessor">#include &lt;array&gt;</span> <span class="comment">// member</span></div>
-<div class="line"><a name="l00007"></a><span class="lineno">    7</span>&#160;</div>
-<div class="line"><a name="l00008"></a><span class="lineno">    8</span>&#160;<span class="keyword">namespace </span><a class="code" href="namespacelexis.html">lexis</a></div>
-<div class="line"><a name="l00009"></a><span class="lineno">    9</span>&#160;{</div>
-<div class="line"><a name="l00010"></a><span class="lineno">   10</span>&#160;<span class="keyword">namespace </span>render</div>
+<div class="line"><a name="l00005"></a><span class="lineno">    5</span>&#160;<span class="preprocessor">#include &lt;zerobuf/ConstAllocator.h&gt;</span> <span class="comment">// static create</span></div>
+<div class="line"><a name="l00006"></a><span class="lineno">    6</span>&#160;<span class="preprocessor">#include &lt;zerobuf/Vector.h&gt;</span> <span class="comment">// member</span></div>
+<div class="line"><a name="l00007"></a><span class="lineno">    7</span>&#160;<span class="preprocessor">#include &lt;array&gt;</span> <span class="comment">// member</span></div>
+<div class="line"><a name="l00008"></a><span class="lineno">    8</span>&#160;<span class="preprocessor">#include &lt;memory&gt;</span> <span class="comment">// std::unique_ptr</span></div>
+<div class="line"><a name="l00009"></a><span class="lineno">    9</span>&#160;</div>
+<div class="line"><a name="l00010"></a><span class="lineno">   10</span>&#160;<span class="keyword">namespace </span><a class="code" href="namespacelexis.html">lexis</a></div>
 <div class="line"><a name="l00011"></a><span class="lineno">   11</span>&#160;{</div>
-<div class="line"><a name="l00012"></a><span class="lineno">   12</span>&#160;</div>
-<div class="line"><a name="l00013"></a><span class="lineno"><a class="line" href="classlexis_1_1render_1_1_exit.html">   13</a></span>&#160;<span class="keyword">class </span><a class="code" href="classlexis_1_1render_1_1_exit.html">Exit</a> : <span class="keyword">public</span> ::zerobuf::Zerobuf</div>
-<div class="line"><a name="l00014"></a><span class="lineno">   14</span>&#160;{</div>
-<div class="line"><a name="l00015"></a><span class="lineno">   15</span>&#160;<span class="keyword">public</span>:</div>
-<div class="line"><a name="l00016"></a><span class="lineno">   16</span>&#160;    <a class="code" href="classlexis_1_1render_1_1_exit.html">Exit</a>();</div>
-<div class="line"><a name="l00017"></a><span class="lineno">   17</span>&#160;    <a class="code" href="classlexis_1_1render_1_1_exit.html">Exit</a>( <span class="keyword">const</span> <a class="code" href="classlexis_1_1render_1_1_exit.html">Exit</a>&amp; );</div>
-<div class="line"><a name="l00018"></a><span class="lineno">   18</span>&#160;    <span class="keyword">virtual</span> ~<a class="code" href="classlexis_1_1render_1_1_exit.html">Exit</a>();</div>
-<div class="line"><a name="l00019"></a><span class="lineno">   19</span>&#160;    <a class="code" href="classlexis_1_1render_1_1_exit.html">Exit</a>&amp; operator = ( <span class="keyword">const</span> <a class="code" href="classlexis_1_1render_1_1_exit.html">Exit</a>&amp; ) { <span class="keywordflow">return</span> *<span class="keyword">this</span>; }</div>
-<div class="line"><a name="l00020"></a><span class="lineno">   20</span>&#160;</div>
-<div class="line"><a name="l00021"></a><span class="lineno">   21</span>&#160;    <span class="comment">// Introspection</span></div>
-<div class="line"><a name="l00022"></a><span class="lineno">   22</span>&#160;    std::string getTypeName() <span class="keyword">const</span> <span class="keyword">final</span> { <span class="keywordflow">return</span> <span class="stringliteral">&quot;lexis::render::Exit&quot;</span>; }</div>
-<div class="line"><a name="l00023"></a><span class="lineno">   23</span>&#160;    ::zerobuf::uint128_t getTypeIdentifier() <span class="keyword">const</span> <span class="keyword">final</span> { return ::zerobuf::uint128_t( 0x1833ec4caa0244c4ull, 0x1891e6dfc5353a41ull ); }</div>
-<div class="line"><a name="l00024"></a><span class="lineno">   24</span>&#160;    <span class="keywordtype">size_t</span> getZerobufStaticSize() <span class="keyword">const</span> <span class="keyword">final</span> { <span class="keywordflow">return</span> 0; }</div>
-<div class="line"><a name="l00025"></a><span class="lineno">   25</span>&#160;    <span class="keyword">static</span> <span class="keywordtype">size_t</span> ZEROBUF_STATIC_SIZE() { <span class="keywordflow">return</span> 0; }</div>
-<div class="line"><a name="l00026"></a><span class="lineno">   26</span>&#160;    <span class="keywordtype">size_t</span> getZerobufNumDynamics() <span class="keyword">const</span> <span class="keyword">final</span> { <span class="keywordflow">return</span> 0; }</div>
-<div class="line"><a name="l00027"></a><span class="lineno">   27</span>&#160;    <span class="keyword">static</span> <span class="keywordtype">size_t</span> ZEROBUF_NUM_DYNAMICS() { <span class="keywordflow">return</span> 0; }</div>
-<div class="line"><a name="l00028"></a><span class="lineno">   28</span>&#160;};</div>
-<div class="line"><a name="l00029"></a><span class="lineno">   29</span>&#160;</div>
-<div class="line"><a name="l00030"></a><span class="lineno">   30</span>&#160;}</div>
-<div class="line"><a name="l00031"></a><span class="lineno">   31</span>&#160;}</div>
-<div class="ttc" id="classlexis_1_1render_1_1_exit_html"><div class="ttname"><a href="classlexis_1_1render_1_1_exit.html">lexis::render::Exit</a></div><div class="ttdef"><b>Definition:</b> <a href="exit_8h_source.html#l00013">exit.h:13</a></div></div>
-<div class="ttc" id="namespacelexis_html"><div class="ttname"><a href="namespacelexis.html">lexis</a></div><div class="ttdef"><b>Definition:</b> <a href="progress_8h_source.html#l00008">progress.h:8</a></div></div>
+<div class="line"><a name="l00012"></a><span class="lineno">   12</span>&#160;<span class="keyword">namespace </span>render</div>
+<div class="line"><a name="l00013"></a><span class="lineno">   13</span>&#160;{</div>
+<div class="line"><a name="l00014"></a><span class="lineno">   14</span>&#160;</div>
+<div class="line"><a name="l00015"></a><span class="lineno"><a class="line" href="classlexis_1_1render_1_1_exit.html">   15</a></span>&#160;<span class="keyword">class </span><a class="code" href="classlexis_1_1render_1_1_exit.html">Exit</a> : <span class="keyword">public</span> ::zerobuf::Zerobuf</div>
+<div class="line"><a name="l00016"></a><span class="lineno">   16</span>&#160;{</div>
+<div class="line"><a name="l00017"></a><span class="lineno">   17</span>&#160;<span class="keyword">public</span>:</div>
+<div class="line"><a name="l00018"></a><span class="lineno">   18</span>&#160;    <a class="code" href="classlexis_1_1render_1_1_exit.html">Exit</a>();</div>
+<div class="line"><a name="l00019"></a><span class="lineno">   19</span>&#160;    <a class="code" href="classlexis_1_1render_1_1_exit.html">Exit</a>( <span class="keyword">const</span> <a class="code" href="classlexis_1_1render_1_1_exit.html">Exit</a>&amp; );</div>
+<div class="line"><a name="l00020"></a><span class="lineno">   20</span>&#160;    <span class="keyword">virtual</span> ~<a class="code" href="classlexis_1_1render_1_1_exit.html">Exit</a>();</div>
+<div class="line"><a name="l00021"></a><span class="lineno">   21</span>&#160;    <a class="code" href="classlexis_1_1render_1_1_exit.html">Exit</a>&amp; operator = ( <span class="keyword">const</span> <a class="code" href="classlexis_1_1render_1_1_exit.html">Exit</a>&amp; ) { <span class="keywordflow">return</span> *<span class="keyword">this</span>; }</div>
+<div class="line"><a name="l00022"></a><span class="lineno">   22</span>&#160;</div>
+<div class="line"><a name="l00023"></a><span class="lineno">   23</span>&#160;    <span class="comment">// Introspection</span></div>
+<div class="line"><a name="l00024"></a><span class="lineno">   24</span>&#160;    std::string getTypeName() <span class="keyword">const</span> <span class="keyword">final</span> { <span class="keywordflow">return</span> <span class="stringliteral">&quot;lexis::render::Exit&quot;</span>; }</div>
+<div class="line"><a name="l00025"></a><span class="lineno">   25</span>&#160;    <span class="keyword">static</span> std::string ZEROBUF_TYPE_NAME() { <span class="keywordflow">return</span> <span class="stringliteral">&quot;lexis::render::Exit&quot;</span>; }</div>
+<div class="line"><a name="l00026"></a><span class="lineno">   26</span>&#160;    ::zerobuf::uint128_t getTypeIdentifier() <span class="keyword">const</span> <span class="keyword">final</span> { return ::zerobuf::uint128_t( 0x1833ec4caa0244c4ull, 0x1891e6dfc5353a41ull ); }</div>
+<div class="line"><a name="l00027"></a><span class="lineno">   27</span>&#160;    static ::zerobuf::uint128_t ZEROBUF_TYPE_IDENTIFIER() { return ::zerobuf::uint128_t( 0x1833ec4caa0244c4ull, 0x1891e6dfc5353a41ull ); }</div>
+<div class="line"><a name="l00028"></a><span class="lineno">   28</span>&#160;    <span class="keywordtype">size_t</span> getZerobufStaticSize() <span class="keyword">const</span> <span class="keyword">final</span> { <span class="keywordflow">return</span> 0; }</div>
+<div class="line"><a name="l00029"></a><span class="lineno">   29</span>&#160;    <span class="keyword">static</span> <span class="keywordtype">size_t</span> ZEROBUF_STATIC_SIZE() { <span class="keywordflow">return</span> 0; }</div>
+<div class="line"><a name="l00030"></a><span class="lineno">   30</span>&#160;    <span class="keywordtype">size_t</span> getZerobufNumDynamics() <span class="keyword">const</span> <span class="keyword">final</span> { <span class="keywordflow">return</span> 0; }</div>
+<div class="line"><a name="l00031"></a><span class="lineno">   31</span>&#160;    <span class="keyword">static</span> <span class="keywordtype">size_t</span> ZEROBUF_NUM_DYNAMICS() { <span class="keywordflow">return</span> 0; }</div>
+<div class="line"><a name="l00032"></a><span class="lineno">   32</span>&#160;};</div>
+<div class="line"><a name="l00033"></a><span class="lineno">   33</span>&#160;</div>
+<div class="line"><a name="l00034"></a><span class="lineno">   34</span>&#160;}</div>
+<div class="line"><a name="l00035"></a><span class="lineno">   35</span>&#160;}</div>
+<div class="ttc" id="classlexis_1_1render_1_1_exit_html"><div class="ttname"><a href="classlexis_1_1render_1_1_exit.html">lexis::render::Exit</a></div><div class="ttdef"><b>Definition:</b> <a href="exit_8h_source.html#l00015">exit.h:15</a></div></div>
+<div class="ttc" id="namespacelexis_html"><div class="ttname"><a href="namespacelexis.html">lexis</a></div><div class="ttdef"><b>Definition:</b> <a href="cell_set_binary_op_8h_source.html#l00010">cellSetBinaryOp.h:10</a></div></div>
 </div><!-- fragment --></div><!-- contents -->
 </div><!-- doc-content -->
 <!-- start footer part -->
 <div id="nav-path" class="navpath"><!-- id is needed for treeview function! -->
   <ul>
-    <li class="navelem"><a class="el" href="dir_1b14a0a6623fe15697eec24a1194671c.html">install</a></li><li class="navelem"><a class="el" href="dir_39a37ee0a0bf867c0da6a8fd9a2e71b8.html">include</a></li><li class="navelem"><a class="el" href="dir_9885354a0a5ad1e0efe3a4fb86c63b40.html">lexis</a></li><li class="navelem"><a class="el" href="dir_6d722d09b4890a7e475fb29e001e8eea.html">render</a></li><li class="navelem"><b>exit.h</b></li>
-    <li class="footer">Generated on Tue May 24 2016 03:13:23 for Lexis by
+    <li class="navelem"><a class="el" href="dir_7326560f897e2cabccff6c7b20ef4977.html">install</a></li><li class="navelem"><a class="el" href="dir_7b6b68484907c37737281866b24c9b13.html">include</a></li><li class="navelem"><a class="el" href="dir_a927f83f796ddc26e9ef7fcb96884d9b.html">lexis</a></li><li class="navelem"><a class="el" href="dir_5e13268a43aa8e3034b0a9bd4dfc65dc.html">render</a></li><li class="navelem"><b>exit.h</b></li>
+    <li class="footer">Generated on Wed Jun 1 2016 15:12:19 for Lexis by
     <a href="http://www.doxygen.org/index.html">
     <img class="footer" src="doxygen.png" alt="doxygen"/></a> 1.8.9.1 </li>
   </ul>

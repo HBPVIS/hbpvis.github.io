@@ -1,4 +1,4 @@
 var searchData=
 [
-  ['exit',['Exit',['../classlexis_1_1render_1_1_exit.html',1,'lexis::render']]]
+  ['cellsetbinaryop',['CellSetBinaryOp',['../classlexis_1_1data_1_1_cell_set_binary_op.html',1,'lexis::data']]]
 ];
