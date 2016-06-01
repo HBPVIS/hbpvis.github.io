@@ -1,4 +1,6 @@
 var searchData=
 [
-  ['event_20communication',['Event Communication',['../md__jenkins_03_workspace_oss_8_zero_e_q_8documentation_build_type__debug_platform_cscsviz-vm_sources_doc_feature__events.html',1,'']]]
+  ['event_20communication',['Event Communication',['../eventbased.html',1,'']]],
+  ['eventfunc',['EventFunc',['../namespacezeroeq.html#a83bb7afc9a4e9fb88ab994f70c8225c5',1,'zeroeq']]],
+  ['eventpayloadfunc',['EventPayloadFunc',['../namespacezeroeq.html#a35175c71f3908d8dd4c7ff6c1eb39b54',1,'zeroeq']]]
 ];

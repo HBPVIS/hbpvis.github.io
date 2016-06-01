@@ -8,5 +8,7 @@ var classzeroeq_1_1_publisher =
     [ "getAddress", "classzeroeq_1_1_publisher.html#a65b7e3ab2034e7b844ae495ce3e5f9d2", null ],
     [ "getSession", "classzeroeq_1_1_publisher.html#a123ee1cefda5367bfda5ad1d45c95960", null ],
     [ "getURI", "classzeroeq_1_1_publisher.html#ad34ac013ef42bf120b37e00caa2a7613", null ],
-    [ "publish", "classzeroeq_1_1_publisher.html#a0b630f6cb6176fc697b516f531d9cf54", null ]
+    [ "publish", "classzeroeq_1_1_publisher.html#a0b630f6cb6176fc697b516f531d9cf54", null ],
+    [ "publish", "classzeroeq_1_1_publisher.html#aebc18419655d08f3cdd6467edf5af10b", null ],
+    [ "publish", "classzeroeq_1_1_publisher.html#aee75dc306eca5563aa673379b2368a99", null ]
 ];

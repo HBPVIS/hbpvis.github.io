@@ -150,15 +150,30 @@ Public Member Functions</h2></td></tr>
 <tr class="memitem:a7be2de3324ede2ddc8bd29a2451d0579"><td class="memItemLeft" align="right" valign="top">bool&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classzeroeq_1_1http_1_1_server.html#a7be2de3324ede2ddc8bd29a2451d0579">subscribe</a> (servus::Serializable &amp;object)</td></tr>
 <tr class="memdesc:a7be2de3324ede2ddc8bd29a2451d0579"><td class="mdescLeft">&#160;</td><td class="mdescRight">Subscribe a serializable object to receive updates from HTTP PUT requests.  <a href="#a7be2de3324ede2ddc8bd29a2451d0579">More...</a><br /></td></tr>
 <tr class="separator:a7be2de3324ede2ddc8bd29a2451d0579"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:ab70dc697b1414fde629e68143eac6ac2"><td class="memItemLeft" align="right" valign="top">bool&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classzeroeq_1_1http_1_1_server.html#ab70dc697b1414fde629e68143eac6ac2">subscribe</a> (const std::string &amp;event, const <a class="el" href="namespacezeroeq.html#a4aebbbb7639d0b0a854bc88e41d64760">PUTFunc</a> &amp;func)</td></tr>
+<tr class="memdesc:ab70dc697b1414fde629e68143eac6ac2"><td class="mdescLeft">&#160;</td><td class="mdescRight">Subscribe an event to receive HTTP PUT requests.  <a href="#ab70dc697b1414fde629e68143eac6ac2">More...</a><br /></td></tr>
+<tr class="separator:ab70dc697b1414fde629e68143eac6ac2"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:aa1a705af3252e5f22920ff82f37a8a7b"><td class="memItemLeft" align="right" valign="top">bool&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classzeroeq_1_1http_1_1_server.html#aa1a705af3252e5f22920ff82f37a8a7b">subscribe</a> (const std::string &amp;event, const <a class="el" href="namespacezeroeq.html#a280eae381af4892d971d57bedce964e4">PUTPayloadFunc</a> &amp;func)</td></tr>
+<tr class="memdesc:aa1a705af3252e5f22920ff82f37a8a7b"><td class="mdescLeft">&#160;</td><td class="mdescRight">Subscribe an event to receive HTTP PUT requests with payload.  <a href="#aa1a705af3252e5f22920ff82f37a8a7b">More...</a><br /></td></tr>
+<tr class="separator:aa1a705af3252e5f22920ff82f37a8a7b"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:aa25448b524c29696bf214a8ca18b5b9c"><td class="memItemLeft" align="right" valign="top">bool&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classzeroeq_1_1http_1_1_server.html#aa25448b524c29696bf214a8ca18b5b9c">unsubscribe</a> (const servus::Serializable &amp;object)</td></tr>
 <tr class="memdesc:aa25448b524c29696bf214a8ca18b5b9c"><td class="mdescLeft">&#160;</td><td class="mdescRight">Unsubscribe the given object to stop applying updates.  <a href="#aa25448b524c29696bf214a8ca18b5b9c">More...</a><br /></td></tr>
 <tr class="separator:aa25448b524c29696bf214a8ca18b5b9c"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a1f8037427d1afea9583c8833349d4288"><td class="memItemLeft" align="right" valign="top">bool&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classzeroeq_1_1http_1_1_server.html#a1f8037427d1afea9583c8833349d4288">unsubscribe</a> (const std::string &amp;event)</td></tr>
+<tr class="memdesc:a1f8037427d1afea9583c8833349d4288"><td class="mdescLeft">&#160;</td><td class="mdescRight">Unsubscribe the given event to stop receiving PUT requests.  <a href="#a1f8037427d1afea9583c8833349d4288">More...</a><br /></td></tr>
+<tr class="separator:a1f8037427d1afea9583c8833349d4288"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a44c715fe1281aa97d76a33a09a839cfd"><td class="memItemLeft" align="right" valign="top">bool&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classzeroeq_1_1http_1_1_server.html#a44c715fe1281aa97d76a33a09a839cfd">register_</a> (servus::Serializable &amp;object)</td></tr>
 <tr class="memdesc:a44c715fe1281aa97d76a33a09a839cfd"><td class="mdescLeft">&#160;</td><td class="mdescRight">Subscribe a serializable object to serve HTTP GET requests.  <a href="#a44c715fe1281aa97d76a33a09a839cfd">More...</a><br /></td></tr>
 <tr class="separator:a44c715fe1281aa97d76a33a09a839cfd"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a923f2932c8047f80c03e5e6cdac44ce1"><td class="memItemLeft" align="right" valign="top">bool&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classzeroeq_1_1http_1_1_server.html#a923f2932c8047f80c03e5e6cdac44ce1">register_</a> (const std::string &amp;event, const <a class="el" href="namespacezeroeq.html#a5b004b2ff75a0a6c93c1c3d4df3985ae">GETFunc</a> &amp;func)</td></tr>
+<tr class="memdesc:a923f2932c8047f80c03e5e6cdac44ce1"><td class="mdescLeft">&#160;</td><td class="mdescRight">Subscribe an event to serve HTTP GET requests.  <a href="#a923f2932c8047f80c03e5e6cdac44ce1">More...</a><br /></td></tr>
+<tr class="separator:a923f2932c8047f80c03e5e6cdac44ce1"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a269e0c8574c9d628d84b282db5bed4c4"><td class="memItemLeft" align="right" valign="top">bool&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classzeroeq_1_1http_1_1_server.html#a269e0c8574c9d628d84b282db5bed4c4">unregister</a> (const servus::Serializable &amp;object)</td></tr>
 <tr class="memdesc:a269e0c8574c9d628d84b282db5bed4c4"><td class="mdescLeft">&#160;</td><td class="mdescRight">Unsubscribe the given object for GET requests.  <a href="#a269e0c8574c9d628d84b282db5bed4c4">More...</a><br /></td></tr>
 <tr class="separator:a269e0c8574c9d628d84b282db5bed4c4"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:ab18ea2a94416f596c08cb0c13ede36d2"><td class="memItemLeft" align="right" valign="top">bool&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classzeroeq_1_1http_1_1_server.html#ab18ea2a94416f596c08cb0c13ede36d2">unregister</a> (const std::string &amp;event)</td></tr>
+<tr class="memdesc:ab18ea2a94416f596c08cb0c13ede36d2"><td class="mdescLeft">&#160;</td><td class="mdescRight">Unsubscribe the given event name for GET requests.  <a href="#ab18ea2a94416f596c08cb0c13ede36d2">More...</a><br /></td></tr>
+<tr class="separator:ab18ea2a94416f596c08cb0c13ede36d2"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="inherit_header pub_methods_classzeroeq_1_1_receiver"><td colspan="2" onclick="javascript:toggleInherit('pub_methods_classzeroeq_1_1_receiver')"><img src="closed.png" alt="-"/>&#160;Public Member Functions inherited from <a class="el" href="classzeroeq_1_1_receiver.html">zeroeq::Receiver</a></td></tr>
 <tr class="memitem:ad5773a0809d164c0a047821503c28c6d inherit pub_methods_classzeroeq_1_1_receiver"><td class="memItemLeft" align="right" valign="top">&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classzeroeq_1_1_receiver.html#ad5773a0809d164c0a047821503c28c6d">Receiver</a> ()</td></tr>
 <tr class="memdesc:ad5773a0809d164c0a047821503c28c6d inherit pub_methods_classzeroeq_1_1_receiver"><td class="mdescLeft">&#160;</td><td class="mdescRight">Create a new standalone receiver.  <a href="#ad5773a0809d164c0a047821503c28c6d">More...</a><br /></td></tr>
@@ -293,6 +308,10 @@ void *&#160;</td><td class="memItemRight" valign="bottom"><b>getZMQContext</b> (
 <div class="line">    {</div>
 <div class="line">        <span class="keywordflow">if</span>( ::zmq_connect( _socket, std::to_string( uri ).c_str( )) == -1 )</div>
 <div class="line">            <span class="keywordflow">throw</span> std::runtime_error( <span class="stringliteral">&quot;Connect failed&quot;</span> );</div>
+<div class="line"></div>
+<div class="line">        <span class="comment">// Get server identity</span></div>
+<div class="line">        BOOST_CHECK_EQUAL( zmq_getsockopt( _socket, ZMQ_IDENTITY, _id,</div>
+<div class="line">                                           &amp;_idSize ), 0 );</div>
 <div class="line">    }</div>
 <div class="line"></div>
 <div class="line">    ~Client()</div>
@@ -303,26 +322,25 @@ void *&#160;</td><td class="memItemRight" valign="bottom"><b>getZMQContext</b> (
 <div class="line">            ::zmq_ctx_destroy( _ctx );</div>
 <div class="line">    }</div>
 <div class="line"></div>
-<div class="line">    <span class="keywordtype">void</span> test( <span class="keyword">const</span> std::string&amp; request, <span class="keyword">const</span> std::string&amp; expected,</div>
-<div class="line">               <span class="keyword">const</span> <span class="keywordtype">int</span> line )</div>
+<div class="line">    <span class="keywordtype">void</span> sendRequest( <span class="keyword">const</span> std::string&amp; request )</div>
 <div class="line">    {</div>
-<div class="line">        <span class="comment">// Get server identity</span></div>
-<div class="line">        uint8_t <span class="keywordtype">id</span>[256];</div>
-<div class="line">        <span class="keywordtype">size_t</span> idSize = <span class="keyword">sizeof</span>( id );</div>
-<div class="line">        BOOST_CHECK_EQUAL( zmq_getsockopt( _socket, ZMQ_IDENTITY, <span class="keywordtype">id</span>, &amp;idSize ),</div>
-<div class="line">                           0 );</div>
-<div class="line"></div>
-<div class="line">        <span class="keywordflow">if</span>( ::zmq_send( _socket, <span class="keywordtype">id</span>, idSize, ZMQ_SNDMORE ) != <span class="keywordtype">int</span>( idSize ) ||</div>
+<div class="line">        <span class="keywordflow">if</span>( ::zmq_send( _socket, _id, _idSize, ZMQ_SNDMORE ) != <span class="keywordtype">int</span>(_idSize) ||</div>
 <div class="line">            ::zmq_send( _socket, request.c_str(), request.length(), 0 ) !=</div>
 <div class="line">            <span class="keywordtype">int</span>( request.length( )))</div>
 <div class="line">        {</div>
 <div class="line">            <span class="keywordflow">throw</span> std::runtime_error( <span class="stringliteral">&quot;Send failed&quot;</span> );</div>
 <div class="line">        }</div>
+<div class="line">    }</div>
+<div class="line"></div>
+<div class="line">    <span class="keywordtype">void</span> test( <span class="keyword">const</span> std::string&amp; request, <span class="keyword">const</span> std::string&amp; expected,</div>
+<div class="line">               <span class="keyword">const</span> <span class="keywordtype">int</span> line )</div>
+<div class="line">    {</div>
+<div class="line">        sendRequest( request );</div>
 <div class="line"></div>
 <div class="line">        std::string response;</div>
 <div class="line">        <span class="keywordflow">while</span>( response.size() &lt; expected.size( ))</div>
 <div class="line">        {</div>
-<div class="line">            <span class="keywordflow">if</span>( ::zmq_recv( _socket, <span class="keywordtype">id</span>, idSize, 0 ) != int( idSize ))</div>
+<div class="line">            <span class="keywordflow">if</span>( ::zmq_recv( _socket, _id, _idSize, 0 ) != int( _idSize ))</div>
 <div class="line">                <span class="keywordflow">throw</span> std::runtime_error( <span class="stringliteral">&quot;Recv failed&quot;</span> );</div>
 <div class="line"></div>
 <div class="line">            <span class="keywordtype">char</span> msg[256];</div>
@@ -339,6 +357,9 @@ void *&#160;</td><td class="memItemRight" valign="bottom"><b>getZMQContext</b> (
 <div class="line"><span class="keyword">private</span>:</div>
 <div class="line">    <span class="keywordtype">void</span>* _ctx;</div>
 <div class="line">    <span class="keywordtype">void</span>* _socket;</div>
+<div class="line"></div>
+<div class="line">    uint8_t _id[256];</div>
+<div class="line">    <span class="keywordtype">size_t</span> _idSize = <span class="keyword">sizeof</span>( _id );</div>
 <div class="line">};</div>
 <div class="line"></div>
 <div class="line">}</div>
@@ -434,10 +455,22 @@ void *&#160;</td><td class="memItemRight" valign="bottom"><b>getZMQContext</b> (
 <div class="line">    BOOST_CHECK( server.<a class="code" href="classzeroeq_1_1http_1_1_server.html#a269e0c8574c9d628d84b282db5bed4c4">unregister</a>( foo ));</div>
 <div class="line">    BOOST_CHECK( !server.<a class="code" href="classzeroeq_1_1http_1_1_server.html#a269e0c8574c9d628d84b282db5bed4c4">unregister</a>( foo ));</div>
 <div class="line"></div>
+<div class="line">    BOOST_CHECK( server.<a class="code" href="classzeroeq_1_1http_1_1_server.html#a44c715fe1281aa97d76a33a09a839cfd">register_</a>( <span class="stringliteral">&quot;foo&quot;</span>, [](){ return <span class="stringliteral">&quot;bla&quot;</span>; } ));</div>
+<div class="line">    BOOST_CHECK( !server.<a class="code" href="classzeroeq_1_1http_1_1_server.html#a44c715fe1281aa97d76a33a09a839cfd">register_</a>( <span class="stringliteral">&quot;foo&quot;</span>, [](){ return <span class="stringliteral">&quot;bla&quot;</span>; } ));</div>
+<div class="line">    BOOST_CHECK( server.<a class="code" href="classzeroeq_1_1http_1_1_server.html#a269e0c8574c9d628d84b282db5bed4c4">unregister</a>( <span class="stringliteral">&quot;foo&quot;</span> ));</div>
+<div class="line">    BOOST_CHECK( !server.<a class="code" href="classzeroeq_1_1http_1_1_server.html#a269e0c8574c9d628d84b282db5bed4c4">unregister</a>( <span class="stringliteral">&quot;foo&quot;</span> ));</div>
+<div class="line"></div>
 <div class="line">    BOOST_CHECK( server.<a class="code" href="classzeroeq_1_1http_1_1_server.html#a7be2de3324ede2ddc8bd29a2451d0579">subscribe</a>( foo ));</div>
 <div class="line">    BOOST_CHECK( !server.<a class="code" href="classzeroeq_1_1http_1_1_server.html#a7be2de3324ede2ddc8bd29a2451d0579">subscribe</a>( foo ));</div>
 <div class="line">    BOOST_CHECK( server.<a class="code" href="classzeroeq_1_1http_1_1_server.html#aa25448b524c29696bf214a8ca18b5b9c">unsubscribe</a>( foo ));</div>
 <div class="line">    BOOST_CHECK( !server.<a class="code" href="classzeroeq_1_1http_1_1_server.html#aa25448b524c29696bf214a8ca18b5b9c">unsubscribe</a>( foo ));</div>
+<div class="line"></div>
+<div class="line">    BOOST_CHECK( server.<a class="code" href="classzeroeq_1_1http_1_1_server.html#a7be2de3324ede2ddc8bd29a2451d0579">subscribe</a>( <span class="stringliteral">&quot;foo&quot;</span>, <a class="code" href="namespacezeroeq.html#a280eae381af4892d971d57bedce964e4">zeroeq::PUTPayloadFunc</a></div>
+<div class="line">                                  ([]( <span class="keyword">const</span> std::string&amp; ) { return true; })));</div>
+<div class="line">    BOOST_CHECK( !server.<a class="code" href="classzeroeq_1_1http_1_1_server.html#a7be2de3324ede2ddc8bd29a2451d0579">subscribe</a>( <span class="stringliteral">&quot;foo&quot;</span>, <a class="code" href="namespacezeroeq.html#a280eae381af4892d971d57bedce964e4">zeroeq::PUTPayloadFunc</a></div>
+<div class="line">                                  ([]( <span class="keyword">const</span> std::string&amp; ) { return true; })));</div>
+<div class="line">    BOOST_CHECK( server.<a class="code" href="classzeroeq_1_1http_1_1_server.html#aa25448b524c29696bf214a8ca18b5b9c">unsubscribe</a>( <span class="stringliteral">&quot;foo&quot;</span> ));</div>
+<div class="line">    BOOST_CHECK( !server.<a class="code" href="classzeroeq_1_1http_1_1_server.html#aa25448b524c29696bf214a8ca18b5b9c">unsubscribe</a>( <span class="stringliteral">&quot;foo&quot;</span> ));</div>
 <div class="line"></div>
 <div class="line">    BOOST_CHECK( server.<a class="code" href="classzeroeq_1_1http_1_1_server.html#a8f30b97ff1204cb3d15ffdaffa1def10">add</a>( foo ));</div>
 <div class="line">    BOOST_CHECK( !server.<a class="code" href="classzeroeq_1_1http_1_1_server.html#a8f30b97ff1204cb3d15ffdaffa1def10">add</a>( foo ));</div>
@@ -445,7 +478,7 @@ void *&#160;</td><td class="memItemRight" valign="bottom"><b>getZMQContext</b> (
 <div class="line">    BOOST_CHECK( !server.<a class="code" href="classzeroeq_1_1http_1_1_server.html#aa0161832121d27b55ff81b993f12f1a7">remove</a>( foo ));</div>
 <div class="line">}</div>
 <div class="line"></div>
-<div class="line">BOOST_AUTO_TEST_CASE(<span class="keyword">get</span>)</div>
+<div class="line">BOOST_AUTO_TEST_CASE(get_serializable)</div>
 <div class="line">{</div>
 <div class="line">    <span class="keywordtype">bool</span> running = <span class="keyword">true</span>;</div>
 <div class="line">    <a class="code" href="classzeroeq_1_1http_1_1_server.html">zeroeq::http::Server</a> server;</div>
@@ -466,6 +499,31 @@ void *&#160;</td><td class="memItemRight" valign="bottom"><b>getZMQContext</b> (
 <div class="line">                 <span class="stringliteral">&quot;Content-Length: 48\r\n\r\n&quot;</span> )+</div>
 <div class="line">                 jsonGet, __LINE__ );</div>
 <div class="line">    BOOST_CHECK( foo.getNotified( ));</div>
+<div class="line"></div>
+<div class="line">    running = <span class="keyword">false</span>;</div>
+<div class="line">    thread.join();</div>
+<div class="line">}</div>
+<div class="line"></div>
+<div class="line">BOOST_AUTO_TEST_CASE(get_event)</div>
+<div class="line">{</div>
+<div class="line">    <span class="keywordtype">bool</span> running = <span class="keyword">true</span>;</div>
+<div class="line">    <a class="code" href="classzeroeq_1_1http_1_1_server.html">zeroeq::http::Server</a> server;</div>
+<div class="line"></div>
+<div class="line">    <span class="keywordtype">bool</span> requested = <span class="keyword">false</span>;</div>
+<div class="line">    server.<a class="code" href="classzeroeq_1_1http_1_1_server.html#a44c715fe1281aa97d76a33a09a839cfd">register_</a>( <span class="stringliteral">&quot;test::Foo&quot;</span>, [&amp;](){ requested = <span class="keyword">true</span>; <span class="keywordflow">return</span> jsonGet; } );</div>
+<div class="line"></div>
+<div class="line">    std::thread thread( [&amp;]() { <span class="keywordflow">while</span>( running ) server.<a class="code" href="classzeroeq_1_1_receiver.html#a97e7e5ce4223d96ebcb541e564efec49">receive</a>( 100 ); });</div>
+<div class="line"></div>
+<div class="line">    Client client( server.<a class="code" href="classzeroeq_1_1http_1_1_server.html#a4ffc6547c5e9b49ff838e5b4c568f97d">getURI</a>( ));</div>
+<div class="line"></div>
+<div class="line">    client.test( <span class="stringliteral">&quot;GET /unknown HTTP/1.0\r\n\r\n&quot;</span>, error404, __LINE__ );</div>
+<div class="line">    BOOST_CHECK( !requested );</div>
+<div class="line"></div>
+<div class="line">    client.test( <span class="stringliteral">&quot;GET /test/Foo HTTP/1.0\r\n\r\n&quot;</span>,</div>
+<div class="line">                 std::string( <span class="stringliteral">&quot;HTTP/1.0 200 OK\r\n&quot;</span> + cors_headers +</div>
+<div class="line">                 <span class="stringliteral">&quot;Content-Length: 48\r\n\r\n&quot;</span> )+</div>
+<div class="line">                 jsonGet, __LINE__ );</div>
+<div class="line">    BOOST_CHECK( requested );</div>
 <div class="line"></div>
 <div class="line">    running = <span class="keyword">false</span>;</div>
 <div class="line">    thread.join();</div>
@@ -494,7 +552,7 @@ void *&#160;</td><td class="memItemRight" valign="bottom"><b>getZMQContext</b> (
 <div class="line">    thread.join();</div>
 <div class="line">}</div>
 <div class="line"></div>
-<div class="line">BOOST_AUTO_TEST_CASE(put)</div>
+<div class="line">BOOST_AUTO_TEST_CASE(put_serializable)</div>
 <div class="line">{</div>
 <div class="line">    <span class="keywordtype">bool</span> running = <span class="keyword">true</span>;</div>
 <div class="line">    <a class="code" href="classzeroeq_1_1http_1_1_server.html">zeroeq::http::Server</a> server;</div>
@@ -528,6 +586,56 @@ void *&#160;</td><td class="memItemRight" valign="bottom"><b>getZMQContext</b> (
 <div class="line">                              <span class="stringliteral">&quot;Content-Length: 0\r\n\r\n&quot;</span> ),</div>
 <div class="line">                 __LINE__);</div>
 <div class="line">    BOOST_CHECK( foo.getNotified( ));</div>
+<div class="line"></div>
+<div class="line">    running = <span class="keyword">false</span>;</div>
+<div class="line">    thread.join();</div>
+<div class="line">}</div>
+<div class="line"></div>
+<div class="line">BOOST_AUTO_TEST_CASE(put_event)</div>
+<div class="line">{</div>
+<div class="line">    <span class="keywordtype">bool</span> running = <span class="keyword">true</span>;</div>
+<div class="line">    <a class="code" href="classzeroeq_1_1http_1_1_server.html">zeroeq::http::Server</a> server;</div>
+<div class="line"></div>
+<div class="line">    <span class="keywordtype">bool</span> receivedEmpty = <span class="keyword">false</span>;</div>
+<div class="line">    server.<a class="code" href="classzeroeq_1_1http_1_1_server.html#a7be2de3324ede2ddc8bd29a2451d0579">subscribe</a>( <span class="stringliteral">&quot;empty&quot;</span>, <a class="code" href="namespacezeroeq.html#a4aebbbb7639d0b0a854bc88e41d64760">zeroeq::PUTFunc</a> </div>
+<div class="line">                               ([&amp;]() { receivedEmpty = <span class="keyword">true</span>; <span class="keywordflow">return</span> <span class="keyword">true</span>; } ));</div>
+<div class="line">    server.<a class="code" href="classzeroeq_1_1http_1_1_server.html#a7be2de3324ede2ddc8bd29a2451d0579">subscribe</a>( <span class="stringliteral">&quot;foo&quot;</span>, <a class="code" href="namespacezeroeq.html#a280eae381af4892d971d57bedce964e4">zeroeq::PUTPayloadFunc</a> </div>
+<div class="line">                             ([&amp;]( <span class="keyword">const</span> std::string&amp; received )</div>
+<div class="line">                             { <span class="keywordflow">return</span> jsonPut == received; } ));</div>
+<div class="line"></div>
+<div class="line">    std::thread thread( [&amp;]() { <span class="keywordflow">while</span>( running ) server.<a class="code" href="classzeroeq_1_1_receiver.html#a97e7e5ce4223d96ebcb541e564efec49">receive</a>( 100 ); });</div>
+<div class="line"></div>
+<div class="line">    Client client( server.<a class="code" href="classzeroeq_1_1http_1_1_server.html#a4ffc6547c5e9b49ff838e5b4c568f97d">getURI</a>( ));</div>
+<div class="line">    client.test( std::string( <span class="stringliteral">&quot;PUT /foo HTTP/1.0\r\n\r\n&quot;</span> ) + jsonPut,</div>
+<div class="line">                 error411, __LINE__ );</div>
+<div class="line">    client.test(</div>
+<div class="line">        std::string( <span class="stringliteral">&quot;PUT /foo HTTP/1.0\r\n&quot;</span> + cors_headers +</div>
+<div class="line">                     <span class="stringliteral">&quot;Content-Length: 3\r\n\r\nFoo&quot;</span> ),</div>
+<div class="line">                     error400, __LINE__ );</div>
+<div class="line"></div>
+<div class="line">    client.test( std::string( <span class="stringliteral">&quot;PUT /test/Bar HTTP/1.0\r\n&quot;</span> +</div>
+<div class="line">                              cors_headers +</div>
+<div class="line">                              <span class="stringliteral">&quot;Content-Length: &quot;</span> ) +</div>
+<div class="line">                 std::to_string( jsonPut.length( )) + <span class="stringliteral">&quot;\r\n\r\n&quot;</span> + jsonPut,</div>
+<div class="line">                 error404, __LINE__ );</div>
+<div class="line"></div>
+<div class="line">    client.test( std::string( <span class="stringliteral">&quot;PUT /foo HTTP/1.0\r\n&quot;</span> +</div>
+<div class="line">                              cors_headers +</div>
+<div class="line">                              <span class="stringliteral">&quot;Content-Length: &quot;</span> ) +</div>
+<div class="line">                 std::to_string( jsonPut.length( )) + <span class="stringliteral">&quot;\r\n\r\n&quot;</span> + jsonPut,</div>
+<div class="line">                 std::string( <span class="stringliteral">&quot;HTTP/1.0 200 OK\r\n&quot;</span> +</div>
+<div class="line">                              cors_headers +</div>
+<div class="line">                              <span class="stringliteral">&quot;Content-Length: 0\r\n\r\n&quot;</span> ),</div>
+<div class="line">                 __LINE__);</div>
+<div class="line"></div>
+<div class="line">    client.test( std::string( <span class="stringliteral">&quot;PUT /empty HTTP/1.0\r\n&quot;</span> +</div>
+<div class="line">                              cors_headers +</div>
+<div class="line">                              <span class="stringliteral">&quot;Content-Length: 0&quot;</span> + <span class="stringliteral">&quot;\r\n\r\n&quot;</span>),</div>
+<div class="line">                 std::string( <span class="stringliteral">&quot;HTTP/1.0 200 OK\r\n&quot;</span> +</div>
+<div class="line">                              cors_headers +</div>
+<div class="line">                              <span class="stringliteral">&quot;Content-Length: 0\r\n\r\n&quot;</span> ),</div>
+<div class="line">                 __LINE__);</div>
+<div class="line">    BOOST_CHECK( receivedEmpty );</div>
 <div class="line"></div>
 <div class="line">    running = <span class="keyword">false</span>;</div>
 <div class="line">    thread.join();</div>
@@ -569,6 +677,26 @@ void *&#160;</td><td class="memItemRight" valign="bottom"><b>getZMQContext</b> (
 <div class="line">                              cors_headers +</div>
 <div class="line">                              <span class="stringliteral">&quot;Content-Length: 48\r\n\r\n&quot;</span> )+</div>
 <div class="line">                 jsonGet, __LINE__ );</div>
+<div class="line"></div>
+<div class="line">    running = <span class="keyword">false</span>;</div>
+<div class="line">    thread.join();</div>
+<div class="line">}</div>
+<div class="line"></div>
+<div class="line">BOOST_AUTO_TEST_CASE(issue157)</div>
+<div class="line">{</div>
+<div class="line">    <span class="keywordtype">bool</span> running = <span class="keyword">true</span>;</div>
+<div class="line">    <a class="code" href="classzeroeq_1_1http_1_1_server.html">zeroeq::http::Server</a> server;</div>
+<div class="line">    Foo foo;</div>
+<div class="line">    server.<a class="code" href="classzeroeq_1_1http_1_1_server.html#a44c715fe1281aa97d76a33a09a839cfd">register_</a>( foo );</div>
+<div class="line"></div>
+<div class="line">    std::thread thread( [&amp;]() { <span class="keywordflow">while</span>( running ) server.<a class="code" href="classzeroeq_1_1_receiver.html#a97e7e5ce4223d96ebcb541e564efec49">receive</a>( 100 ); });</div>
+<div class="line"></div>
+<div class="line">    <span class="comment">// Close client before receiving request to provoke #157</span></div>
+<div class="line">    {</div>
+<div class="line">        Client client( server.<a class="code" href="classzeroeq_1_1http_1_1_server.html#a4ffc6547c5e9b49ff838e5b4c568f97d">getURI</a>( ));</div>
+<div class="line">        client.sendRequest( <span class="stringliteral">&quot;GET&quot;</span> + std::string( 4096, <span class="charliteral">&#39; &#39;</span> ) +</div>
+<div class="line">                     <span class="stringliteral">&quot;/test/Foo HTTP/1.0\r\n\r\n&quot;</span> );</div>
+<div class="line">    }</div>
 <div class="line"></div>
 <div class="line">    running = <span class="keyword">false</span>;</div>
 <div class="line">    thread.join();</div>
@@ -824,6 +952,43 @@ void *&#160;</td><td class="memItemRight" valign="bottom"><b>getZMQContext</b> (
 
 </div>
 </div>
+<a class="anchor" id="a923f2932c8047f80c03e5e6cdac44ce1"></a>
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">bool zeroeq::http::Server::register_ </td>
+          <td>(</td>
+          <td class="paramtype">const std::string &amp;&#160;</td>
+          <td class="paramname"><em>event</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">const <a class="el" href="namespacezeroeq.html#a5b004b2ff75a0a6c93c1c3d4df3985ae">GETFunc</a> &amp;&#160;</td>
+          <td class="paramname"><em>func</em>&#160;</td>
+        </tr>
+        <tr>
+          <td></td>
+          <td>)</td>
+          <td></td><td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p>Subscribe an event to serve HTTP GET requests. </p>
+<p>Every request will be directly handled during <a class="el" href="classzeroeq_1_1_receiver.html#a97e7e5ce4223d96ebcb541e564efec49" title="Receive at least one event from all shared receivers. ">receive()</a> by calling the registered GET function.</p>
+<dl class="params"><dt>Parameters</dt><dd>
+  <table class="params">
+    <tr><td class="paramname">event</td><td>the event name to serve during <a class="el" href="classzeroeq_1_1_receiver.html#a97e7e5ce4223d96ebcb541e564efec49" title="Receive at least one event from all shared receivers. ">receive()</a> </td></tr>
+    <tr><td class="paramname">func</td><td>the callback function for serving the GET request </td></tr>
+  </table>
+  </dd>
+</dl>
+<dl class="section return"><dt>Returns</dt><dd>true if subscription was successful, false otherwise </dd></dl>
+
+</div>
+</div>
 <a class="anchor" id="aa0161832121d27b55ff81b993f12f1a7"></a>
 <div class="memitem">
 <div class="memproto">
@@ -905,6 +1070,80 @@ void *&#160;</td><td class="memItemRight" valign="bottom"><b>getZMQContext</b> (
 
 </div>
 </div>
+<a class="anchor" id="ab70dc697b1414fde629e68143eac6ac2"></a>
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">bool zeroeq::http::Server::subscribe </td>
+          <td>(</td>
+          <td class="paramtype">const std::string &amp;&#160;</td>
+          <td class="paramname"><em>event</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">const <a class="el" href="namespacezeroeq.html#a4aebbbb7639d0b0a854bc88e41d64760">PUTFunc</a> &amp;&#160;</td>
+          <td class="paramname"><em>func</em>&#160;</td>
+        </tr>
+        <tr>
+          <td></td>
+          <td>)</td>
+          <td></td><td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p>Subscribe an event to receive HTTP PUT requests. </p>
+<p>Every receival of the event will call the registered callback function.</p>
+<dl class="params"><dt>Parameters</dt><dd>
+  <table class="params">
+    <tr><td class="paramname">event</td><td>the event name to receive PUT requests for during <a class="el" href="classzeroeq_1_1_receiver.html#a97e7e5ce4223d96ebcb541e564efec49" title="Receive at least one event from all shared receivers. ">receive()</a> </td></tr>
+    <tr><td class="paramname">func</td><td>the callback function for serving the PUT request </td></tr>
+  </table>
+  </dd>
+</dl>
+<dl class="section return"><dt>Returns</dt><dd>true if subscription was successful, false otherwise </dd></dl>
+
+</div>
+</div>
+<a class="anchor" id="aa1a705af3252e5f22920ff82f37a8a7b"></a>
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">bool zeroeq::http::Server::subscribe </td>
+          <td>(</td>
+          <td class="paramtype">const std::string &amp;&#160;</td>
+          <td class="paramname"><em>event</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">const <a class="el" href="namespacezeroeq.html#a280eae381af4892d971d57bedce964e4">PUTPayloadFunc</a> &amp;&#160;</td>
+          <td class="paramname"><em>func</em>&#160;</td>
+        </tr>
+        <tr>
+          <td></td>
+          <td>)</td>
+          <td></td><td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p>Subscribe an event to receive HTTP PUT requests with payload. </p>
+<p>Every receival of the event will call the registered callback function.</p>
+<dl class="params"><dt>Parameters</dt><dd>
+  <table class="params">
+    <tr><td class="paramname">event</td><td>the event name to receive PUT requests for during <a class="el" href="classzeroeq_1_1_receiver.html#a97e7e5ce4223d96ebcb541e564efec49" title="Receive at least one event from all shared receivers. ">receive()</a> </td></tr>
+    <tr><td class="paramname">func</td><td>the callback function for serving the PUT request </td></tr>
+  </table>
+  </dd>
+</dl>
+<dl class="section return"><dt>Returns</dt><dd>true if subscription was successful, false otherwise </dd></dl>
+
+</div>
+</div>
 <a class="anchor" id="a269e0c8574c9d628d84b282db5bed4c4"></a>
 <div class="memitem">
 <div class="memproto">
@@ -933,6 +1172,24 @@ void *&#160;</td><td class="memItemRight" valign="bottom"><b>getZMQContext</b> (
 <area shape="rect" id="node3" href="classzeroeq_1_1http_1_1_server.html#aa0161832121d27b55ff81b993f12f1a7" title="Unsubscribe and unregister the given object. " alt="" coords="216,5,379,51"/></map>
 </div>
 </p>
+
+</div>
+</div>
+<a class="anchor" id="ab18ea2a94416f596c08cb0c13ede36d2"></a>
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">bool zeroeq::http::Server::unregister </td>
+          <td>(</td>
+          <td class="paramtype">const std::string &amp;&#160;</td>
+          <td class="paramname"><em>event</em></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p>Unsubscribe the given event name for GET requests. </p>
 
 </div>
 </div>
@@ -967,6 +1224,24 @@ void *&#160;</td><td class="memItemRight" valign="bottom"><b>getZMQContext</b> (
 
 </div>
 </div>
+<a class="anchor" id="a1f8037427d1afea9583c8833349d4288"></a>
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">bool zeroeq::http::Server::unsubscribe </td>
+          <td>(</td>
+          <td class="paramtype">const std::string &amp;&#160;</td>
+          <td class="paramname"><em>event</em></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p>Unsubscribe the given event to stop receiving PUT requests. </p>
+
+</div>
+</div>
 <hr/>The documentation for this class was generated from the following file:<ul>
 <li><a class="el" href="server_8h_source.html">server.h</a></li>
 </ul>
@@ -976,7 +1251,7 @@ void *&#160;</td><td class="memItemRight" valign="bottom"><b>getZMQContext</b> (
 <div id="nav-path" class="navpath"><!-- id is needed for treeview function! -->
   <ul>
     <li class="navelem"><a class="el" href="namespacezeroeq.html">zeroeq</a></li><li class="navelem"><a class="el" href="namespacezeroeq_1_1http.html">http</a></li><li class="navelem"><a class="el" href="classzeroeq_1_1http_1_1_server.html">Server</a></li>
-    <li class="footer">Generated on Tue May 24 2016 01:34:31 for ZeroEQ by
+    <li class="footer">Generated on Wed Jun 1 2016 16:07:23 for ZeroEQ by
     <a href="http://www.doxygen.org/index.html">
     <img class="footer" src="doxygen.png" alt="doxygen"/></a> 1.8.9.1 </li>
   </ul>

@@ -150,7 +150,7 @@ $(document).ready(function(){initNavTree('broker_8h_source.html','');});
 <div class="line"><a name="l00090"></a><span class="lineno">   90</span>&#160;</div>
 <div class="line"><a name="l00091"></a><span class="lineno">   91</span>&#160;    <span class="comment">// Receiver API</span></div>
 <div class="line"><a name="l00092"></a><span class="lineno">   92</span>&#160;    <span class="keywordtype">void</span> addSockets( std::vector&lt; zeroeq::detail::Socket &gt;&amp; entries ) <span class="keyword">final</span>;</div>
-<div class="line"><a name="l00093"></a><span class="lineno">   93</span>&#160;    <span class="keywordtype">void</span> process( zeroeq::detail::Socket&amp; socket ) <span class="keyword">final</span>;</div>
+<div class="line"><a name="l00093"></a><span class="lineno">   93</span>&#160;    <span class="keywordtype">void</span> process( zeroeq::detail::Socket&amp; socket, uint32_t timeout ) <span class="keyword">final</span>;</div>
 <div class="line"><a name="l00094"></a><span class="lineno">   94</span>&#160;    <span class="keywordtype">void</span> addConnection( <span class="keyword">const</span> std::string&amp; ) final { ZEROEQDONTCALL; } <span class="comment">// LCOV_EXCL_LINE</span></div>
 <div class="line"><a name="l00095"></a><span class="lineno">   95</span>&#160;};</div>
 <div class="line"><a name="l00096"></a><span class="lineno">   96</span>&#160;</div>
@@ -171,7 +171,7 @@ $(document).ready(function(){initNavTree('broker_8h_source.html','');});
 <div id="nav-path" class="navpath"><!-- id is needed for treeview function! -->
   <ul>
     <li class="navelem"><a class="el" href="dir_7de9bcfa48655e994ac03cab7708f298.html">install</a></li><li class="navelem"><a class="el" href="dir_3802e021cca8894fa18b50b627c82210.html">include</a></li><li class="navelem"><a class="el" href="dir_348a97abf9fad9b6a043d59fef509b90.html">zeroeq</a></li><li class="navelem"><a class="el" href="dir_e437f8b05ca09f916e63c64436fc169d.html">connection</a></li><li class="navelem"><b>broker.h</b></li>
-    <li class="footer">Generated on Tue May 24 2016 01:34:30 for ZeroEQ by
+    <li class="footer">Generated on Wed Jun 1 2016 16:07:22 for ZeroEQ by
     <a href="http://www.doxygen.org/index.html">
     <img class="footer" src="doxygen.png" alt="doxygen"/></a> 1.8.9.1 </li>
   </ul>

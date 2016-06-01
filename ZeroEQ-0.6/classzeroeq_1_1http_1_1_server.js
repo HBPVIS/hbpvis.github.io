@@ -12,8 +12,13 @@ var classzeroeq_1_1http_1_1_server =
     [ "parse", "classzeroeq_1_1http_1_1_server.html#a5527ac2596c36c45af9dedc8fe1d238d", null ],
     [ "parse", "classzeroeq_1_1http_1_1_server.html#a2fed8117717b9c6bfd82be9176702d3b", null ],
     [ "register_", "classzeroeq_1_1http_1_1_server.html#a44c715fe1281aa97d76a33a09a839cfd", null ],
+    [ "register_", "classzeroeq_1_1http_1_1_server.html#a923f2932c8047f80c03e5e6cdac44ce1", null ],
     [ "remove", "classzeroeq_1_1http_1_1_server.html#aa0161832121d27b55ff81b993f12f1a7", null ],
     [ "subscribe", "classzeroeq_1_1http_1_1_server.html#a7be2de3324ede2ddc8bd29a2451d0579", null ],
+    [ "subscribe", "classzeroeq_1_1http_1_1_server.html#ab70dc697b1414fde629e68143eac6ac2", null ],
+    [ "subscribe", "classzeroeq_1_1http_1_1_server.html#aa1a705af3252e5f22920ff82f37a8a7b", null ],
     [ "unregister", "classzeroeq_1_1http_1_1_server.html#a269e0c8574c9d628d84b282db5bed4c4", null ],
-    [ "unsubscribe", "classzeroeq_1_1http_1_1_server.html#aa25448b524c29696bf214a8ca18b5b9c", null ]
+    [ "unregister", "classzeroeq_1_1http_1_1_server.html#ab18ea2a94416f596c08cb0c13ede36d2", null ],
+    [ "unsubscribe", "classzeroeq_1_1http_1_1_server.html#aa25448b524c29696bf214a8ca18b5b9c", null ],
+    [ "unsubscribe", "classzeroeq_1_1http_1_1_server.html#a1f8037427d1afea9583c8833349d4288", null ]
 ];

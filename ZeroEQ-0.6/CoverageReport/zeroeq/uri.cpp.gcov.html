@@ -37,7 +37,7 @@
           </tr>
           <tr>
             <td class="headerItem">Date:</td>
-            <td class="headerValue">2016-05-24 01:34:58</td>
+            <td class="headerValue">2016-06-01 16:07:52</td>
             <td></td>
             <td class="headerItem">Functions:</td>
             <td class="headerCovTableEntry">15</td>
@@ -89,15 +89,15 @@
 <span class="lineNum">      27 </span>            : }
 <a name="28"><span class="lineNum">      28 </span>            : }</a>
 <span class="lineNum">      29 </span>            : 
-<span class="lineNum">      30 </span><span class="lineCov">         31 : URI::URI()</span>
-<span class="lineNum">      31 </span><span class="lineCov">         31 :     : servus::URI()</span>
+<span class="lineNum">      30 </span><span class="lineCov">         36 : URI::URI()</span>
+<span class="lineNum">      31 </span><span class="lineCov">         36 :     : servus::URI()</span>
 <span class="lineNum">      32 </span>            : {
-<span class="lineNum">      33 </span><span class="lineCov">         31 :     setScheme( DEFAULT_SCHEMA );</span>
-<a name="34"><span class="lineNum">      34 </span><span class="lineCov">         31 : }</span></a>
+<span class="lineNum">      33 </span><span class="lineCov">         36 :     setScheme( DEFAULT_SCHEMA );</span>
+<a name="34"><span class="lineNum">      34 </span><span class="lineCov">         36 : }</span></a>
 <span class="lineNum">      35 </span>            : 
-<span class="lineNum">      36 </span><span class="lineCov">        108 : URI::~URI()</span>
+<span class="lineNum">      36 </span><span class="lineCov">        120 : URI::~URI()</span>
 <span class="lineNum">      37 </span>            : {
-<a name="38"><span class="lineNum">      38 </span><span class="lineCov">        108 : }</span></a>
+<a name="38"><span class="lineNum">      38 </span><span class="lineCov">        120 : }</span></a>
 <span class="lineNum">      39 </span>            : 
 <span class="lineNum">      40 </span><span class="lineCov">          8 : URI::URI( const std::string&amp; uri )</span>
 <span class="lineNum">      41 </span><span class="lineCov">          8 :     : servus::URI( createURI( uri.c_str( )))</span>
@@ -109,11 +109,11 @@
 <span class="lineNum">      47 </span>            : {
 <a name="48"><span class="lineNum">      48 </span><span class="lineCov">         24 : }</span></a>
 <span class="lineNum">      49 </span>            : 
-<span class="lineNum">      50 </span><span class="lineCov">         39 : URI::URI( const URI&amp; from )</span>
-<span class="lineNum">      51 </span><span class="lineCov">         39 :     : servus::URI( from )</span>
+<span class="lineNum">      50 </span><span class="lineCov">         46 : URI::URI( const URI&amp; from )</span>
+<span class="lineNum">      51 </span><span class="lineCov">         46 :     : servus::URI( from )</span>
 <span class="lineNum">      52 </span>            : {
-<span class="lineNum">      53 </span><span class="lineCov">         39 :     assert( !getScheme().empty( ));</span>
-<a name="54"><span class="lineNum">      54 </span><span class="lineCov">         39 : }</span></a>
+<span class="lineNum">      53 </span><span class="lineCov">         46 :     assert( !getScheme().empty( ));</span>
+<a name="54"><span class="lineNum">      54 </span><span class="lineCov">         46 : }</span></a>
 <span class="lineNum">      55 </span>            : 
 <span class="lineNum">      56 </span><span class="lineCov">          6 : URI::URI( const servus::URI&amp; from )</span>
 <span class="lineNum">      57 </span><span class="lineCov">          6 :     : servus::URI( from )</span>

@@ -149,24 +149,31 @@ $(document).ready(function(){initNavTree('subscriber_8h_source.html','');});
 <div class="line"><a name="l00135"></a><span class="lineno">  135</span>&#160;</div>
 <div class="line"><a name="l00149"></a><span class="lineno">  149</span>&#160;    ZEROEQ_API <span class="keywordtype">bool</span> <a class="code" href="classzeroeq_1_1_subscriber.html#aeb6a4dacf8cba7a4e9475f224cd5924c">subscribe</a>( servus::Serializable&amp; serializable );</div>
 <div class="line"><a name="l00150"></a><span class="lineno">  150</span>&#160;</div>
-<div class="line"><a name="l00158"></a><span class="lineno">  158</span>&#160;    ZEROEQ_API <span class="keywordtype">bool</span> <a class="code" href="classzeroeq_1_1_subscriber.html#a896a51a1d6a83e8c945eed8c7007e1d9">unsubscribe</a>( <span class="keyword">const</span> servus::Serializable&amp; serializable );</div>
-<div class="line"><a name="l00159"></a><span class="lineno">  159</span>&#160;</div>
-<div class="line"><a name="l00161"></a><span class="lineno">  161</span>&#160;    ZEROEQ_API <span class="keyword">const</span> std::string&amp; <a class="code" href="classzeroeq_1_1_subscriber.html#a0196f0e0fcac5115fb1b225c2ac38f5f">getSession</a>() <span class="keyword">const</span>;</div>
-<div class="line"><a name="l00162"></a><span class="lineno">  162</span>&#160;</div>
-<div class="line"><a name="l00163"></a><span class="lineno">  163</span>&#160;<span class="keyword">private</span>:</div>
-<div class="line"><a name="l00164"></a><span class="lineno">  164</span>&#160;    <span class="keyword">class </span>Impl;</div>
-<div class="line"><a name="l00165"></a><span class="lineno">  165</span>&#160;    std::unique_ptr&lt; Impl &gt; _impl;</div>
-<div class="line"><a name="l00166"></a><span class="lineno">  166</span>&#160;</div>
-<div class="line"><a name="l00167"></a><span class="lineno">  167</span>&#160;    <span class="comment">// Receiver API</span></div>
-<div class="line"><a name="l00168"></a><span class="lineno">  168</span>&#160;    <span class="keywordtype">void</span> addSockets( std::vector&lt; detail::Socket &gt;&amp; entries ) <span class="keyword">final</span>;</div>
-<div class="line"><a name="l00169"></a><span class="lineno">  169</span>&#160;    <span class="keywordtype">void</span> process( detail::Socket&amp; socket ) <span class="keyword">final</span>;</div>
-<div class="line"><a name="l00170"></a><span class="lineno">  170</span>&#160;    <span class="keywordtype">void</span> update() <span class="keyword">final</span>;</div>
-<div class="line"><a name="l00171"></a><span class="lineno">  171</span>&#160;    <span class="keywordtype">void</span> addConnection( <span class="keyword">const</span> std::string&amp; uri ) <span class="keyword">final</span>;</div>
-<div class="line"><a name="l00172"></a><span class="lineno">  172</span>&#160;};</div>
+<div class="line"><a name="l00160"></a><span class="lineno">  160</span>&#160;    ZEROEQ_API <span class="keywordtype">bool</span> <a class="code" href="classzeroeq_1_1_subscriber.html#aeb6a4dacf8cba7a4e9475f224cd5924c">subscribe</a>( <span class="keyword">const</span> uint128_t&amp; event, <span class="keyword">const</span> <a class="code" href="namespacezeroeq.html#a83bb7afc9a4e9fb88ab994f70c8225c5">EventFunc</a>&amp; func );</div>
+<div class="line"><a name="l00161"></a><span class="lineno">  161</span>&#160;</div>
+<div class="line"><a name="l00171"></a><span class="lineno">  171</span>&#160;    ZEROEQ_API <span class="keywordtype">bool</span> <a class="code" href="classzeroeq_1_1_subscriber.html#aeb6a4dacf8cba7a4e9475f224cd5924c">subscribe</a>( <span class="keyword">const</span> uint128_t&amp; event,</div>
+<div class="line"><a name="l00172"></a><span class="lineno">  172</span>&#160;                               <span class="keyword">const</span> <a class="code" href="namespacezeroeq.html#a35175c71f3908d8dd4c7ff6c1eb39b54">EventPayloadFunc</a>&amp; func );</div>
 <div class="line"><a name="l00173"></a><span class="lineno">  173</span>&#160;</div>
-<div class="line"><a name="l00174"></a><span class="lineno">  174</span>&#160;}</div>
-<div class="line"><a name="l00175"></a><span class="lineno">  175</span>&#160;</div>
-<div class="line"><a name="l00176"></a><span class="lineno">  176</span>&#160;<span class="preprocessor">#endif</span></div>
+<div class="line"><a name="l00181"></a><span class="lineno">  181</span>&#160;    ZEROEQ_API <span class="keywordtype">bool</span> <a class="code" href="classzeroeq_1_1_subscriber.html#a896a51a1d6a83e8c945eed8c7007e1d9">unsubscribe</a>( <span class="keyword">const</span> servus::Serializable&amp; serializable );</div>
+<div class="line"><a name="l00182"></a><span class="lineno">  182</span>&#160;</div>
+<div class="line"><a name="l00183"></a><span class="lineno">  183</span>&#160;    ZEROEQ_API <span class="keywordtype">bool</span> <a class="code" href="classzeroeq_1_1_subscriber.html#a896a51a1d6a83e8c945eed8c7007e1d9">unsubscribe</a>( <span class="keyword">const</span> uint128_t&amp; event );</div>
+<div class="line"><a name="l00184"></a><span class="lineno">  184</span>&#160;</div>
+<div class="line"><a name="l00186"></a><span class="lineno">  186</span>&#160;    ZEROEQ_API <span class="keyword">const</span> std::string&amp; <a class="code" href="classzeroeq_1_1_subscriber.html#a0196f0e0fcac5115fb1b225c2ac38f5f">getSession</a>() <span class="keyword">const</span>;</div>
+<div class="line"><a name="l00187"></a><span class="lineno">  187</span>&#160;</div>
+<div class="line"><a name="l00188"></a><span class="lineno">  188</span>&#160;<span class="keyword">private</span>:</div>
+<div class="line"><a name="l00189"></a><span class="lineno">  189</span>&#160;    <span class="keyword">class </span>Impl;</div>
+<div class="line"><a name="l00190"></a><span class="lineno">  190</span>&#160;    std::unique_ptr&lt; Impl &gt; _impl;</div>
+<div class="line"><a name="l00191"></a><span class="lineno">  191</span>&#160;</div>
+<div class="line"><a name="l00192"></a><span class="lineno">  192</span>&#160;    <span class="comment">// Receiver API</span></div>
+<div class="line"><a name="l00193"></a><span class="lineno">  193</span>&#160;    <span class="keywordtype">void</span> addSockets( std::vector&lt; detail::Socket &gt;&amp; entries ) <span class="keyword">final</span>;</div>
+<div class="line"><a name="l00194"></a><span class="lineno">  194</span>&#160;    <span class="keywordtype">void</span> process( detail::Socket&amp; socket, uint32_t timeout ) <span class="keyword">final</span>;</div>
+<div class="line"><a name="l00195"></a><span class="lineno">  195</span>&#160;    <span class="keywordtype">void</span> update() <span class="keyword">final</span>;</div>
+<div class="line"><a name="l00196"></a><span class="lineno">  196</span>&#160;    <span class="keywordtype">void</span> addConnection( <span class="keyword">const</span> std::string&amp; uri ) <span class="keyword">final</span>;</div>
+<div class="line"><a name="l00197"></a><span class="lineno">  197</span>&#160;};</div>
+<div class="line"><a name="l00198"></a><span class="lineno">  198</span>&#160;</div>
+<div class="line"><a name="l00199"></a><span class="lineno">  199</span>&#160;}</div>
+<div class="line"><a name="l00200"></a><span class="lineno">  200</span>&#160;</div>
+<div class="line"><a name="l00201"></a><span class="lineno">  201</span>&#160;<span class="preprocessor">#endif</span></div>
 <div class="ttc" id="classzeroeq_1_1_u_r_i_html"><div class="ttname"><a href="classzeroeq_1_1_u_r_i.html">zeroeq::URI</a></div><div class="ttdoc">Enhances servus::URI to guarantee the existance of a schema and to allow construction of [host][:port...</div><div class="ttdef"><b>Definition:</b> <a href="uri_8h_source.html#l00020">uri.h:20</a></div></div>
 <div class="ttc" id="classzeroeq_1_1_subscriber_html"><div class="ttname"><a href="classzeroeq_1_1_subscriber.html">zeroeq::Subscriber</a></div><div class="ttdoc">Subscribes to Publisher to receive events. </div><div class="ttdef"><b>Definition:</b> <a href="subscriber_8h_source.html#l00033">subscriber.h:33</a></div></div>
 <div class="ttc" id="classzeroeq_1_1_subscriber_html_a896a51a1d6a83e8c945eed8c7007e1d9"><div class="ttname"><a href="classzeroeq_1_1_subscriber.html#a896a51a1d6a83e8c945eed8c7007e1d9">zeroeq::Subscriber::unsubscribe</a></div><div class="ttdeci">bool unsubscribe(const servus::Serializable &amp;serializable)</div><div class="ttdoc">Unsubscribe a serializable object to stop applying updates from any connected publisher. </div></div>
@@ -174,7 +181,9 @@ $(document).ready(function(){initNavTree('subscriber_8h_source.html','');});
 <div class="ttc" id="classzeroeq_1_1_subscriber_html_adb589547e56d89e5ea4beadde924af81"><div class="ttname"><a href="classzeroeq_1_1_subscriber.html#adb589547e56d89e5ea4beadde924af81">zeroeq::Subscriber::Subscriber</a></div><div class="ttdeci">Subscriber()</div><div class="ttdoc">Create a default subscriber. </div></div>
 <div class="ttc" id="classzeroeq_1_1_subscriber_html_ae83c8480398f8f42d75f27e5794afc7a"><div class="ttname"><a href="classzeroeq_1_1_subscriber.html#ae83c8480398f8f42d75f27e5794afc7a">zeroeq::Subscriber::~Subscriber</a></div><div class="ttdeci">~Subscriber()</div><div class="ttdoc">Destroy this subscriber and withdraw any subscriptions. </div></div>
 <div class="ttc" id="classzeroeq_1_1_subscriber_html_aeb6a4dacf8cba7a4e9475f224cd5924c"><div class="ttname"><a href="classzeroeq_1_1_subscriber.html#aeb6a4dacf8cba7a4e9475f224cd5924c">zeroeq::Subscriber::subscribe</a></div><div class="ttdeci">bool subscribe(servus::Serializable &amp;serializable)</div><div class="ttdoc">Subscribe a serializable object to receive updates from any connected publisher. </div></div>
+<div class="ttc" id="namespacezeroeq_html_a83bb7afc9a4e9fb88ab994f70c8225c5"><div class="ttname"><a href="namespacezeroeq.html#a83bb7afc9a4e9fb88ab994f70c8225c5">zeroeq::EventFunc</a></div><div class="ttdeci">std::function&lt; void() &gt; EventFunc</div><div class="ttdoc">Callback for receival of subscribed event w/o payload. </div><div class="ttdef"><b>Definition:</b> <a href="types_8h_source.html#l00049">types.h:49</a></div></div>
 <div class="ttc" id="classzeroeq_1_1_receiver_html"><div class="ttname"><a href="classzeroeq_1_1_receiver.html">zeroeq::Receiver</a></div><div class="ttdoc">Base class for entities receiving data. </div><div class="ttdef"><b>Definition:</b> <a href="receiver_8h_source.html#l00033">receiver.h:33</a></div></div>
+<div class="ttc" id="namespacezeroeq_html_a35175c71f3908d8dd4c7ff6c1eb39b54"><div class="ttname"><a href="namespacezeroeq.html#a35175c71f3908d8dd4c7ff6c1eb39b54">zeroeq::EventPayloadFunc</a></div><div class="ttdeci">std::function&lt; void(const void *, size_t) &gt; EventPayloadFunc</div><div class="ttdoc">Callback for receival of subscribed event w/ payload. </div><div class="ttdef"><b>Definition:</b> <a href="types_8h_source.html#l00052">types.h:52</a></div></div>
 <div class="ttc" id="namespacezeroeq_html"><div class="ttname"><a href="namespacezeroeq.html">zeroeq</a></div><div class="ttdoc">Publish-subscribe classes for typed events. </div><div class="ttdef"><b>Definition:</b> <a href="broker_8h_source.html#l00012">broker.h:12</a></div></div>
 </div><!-- fragment --></div><!-- contents -->
 </div><!-- doc-content -->
@@ -182,7 +191,7 @@ $(document).ready(function(){initNavTree('subscriber_8h_source.html','');});
 <div id="nav-path" class="navpath"><!-- id is needed for treeview function! -->
   <ul>
     <li class="navelem"><a class="el" href="dir_7de9bcfa48655e994ac03cab7708f298.html">install</a></li><li class="navelem"><a class="el" href="dir_3802e021cca8894fa18b50b627c82210.html">include</a></li><li class="navelem"><a class="el" href="dir_348a97abf9fad9b6a043d59fef509b90.html">zeroeq</a></li><li class="navelem"><b>subscriber.h</b></li>
-    <li class="footer">Generated on Tue May 24 2016 01:34:30 for ZeroEQ by
+    <li class="footer">Generated on Wed Jun 1 2016 16:07:22 for ZeroEQ by
     <a href="http://www.doxygen.org/index.html">
     <img class="footer" src="doxygen.png" alt="doxygen"/></a> 1.8.9.1 </li>
   </ul>

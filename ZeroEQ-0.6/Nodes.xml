@@ -11,7 +11,7 @@
        </Node>
        <Node>
         <Name>Event Communication</Name>
-        <Path>md__jenkins_03_workspace_oss_8_zero_e_q_8documentation_build_type__debug_platform_cscsviz-vm_sources_doc_feature__events.html</Path>
+        <Path>eventbased.html</Path>
        </Node>
        <Node>
         <Name>HTTP Server for ZeroEq Events</Name>
@@ -60,6 +60,10 @@
            <Node>
             <Name>Variables</Name>
             <Path>namespacemembers_vars.html</Path>
+           </Node>
+           <Node>
+            <Name>Typedefs</Name>
+            <Path>namespacemembers_type.html</Path>
            </Node>
            <Node>
             <Name>Enumerations</Name>
@@ -219,6 +223,11 @@
                   <Anchor>a44c715fe1281aa97d76a33a09a839cfd</Anchor>
                  </Node>
                  <Node>
+                  <Name>register_</Name>
+                  <Path>classzeroeq_1_1http_1_1_server.html</Path>
+                  <Anchor>a923f2932c8047f80c03e5e6cdac44ce1</Anchor>
+                 </Node>
+                 <Node>
                   <Name>remove</Name>
                   <Path>classzeroeq_1_1http_1_1_server.html</Path>
                   <Anchor>aa0161832121d27b55ff81b993f12f1a7</Anchor>
@@ -229,14 +238,34 @@
                   <Anchor>a7be2de3324ede2ddc8bd29a2451d0579</Anchor>
                  </Node>
                  <Node>
+                  <Name>subscribe</Name>
+                  <Path>classzeroeq_1_1http_1_1_server.html</Path>
+                  <Anchor>ab70dc697b1414fde629e68143eac6ac2</Anchor>
+                 </Node>
+                 <Node>
+                  <Name>subscribe</Name>
+                  <Path>classzeroeq_1_1http_1_1_server.html</Path>
+                  <Anchor>aa1a705af3252e5f22920ff82f37a8a7b</Anchor>
+                 </Node>
+                 <Node>
                   <Name>unregister</Name>
                   <Path>classzeroeq_1_1http_1_1_server.html</Path>
                   <Anchor>a269e0c8574c9d628d84b282db5bed4c4</Anchor>
                  </Node>
                  <Node>
+                  <Name>unregister</Name>
+                  <Path>classzeroeq_1_1http_1_1_server.html</Path>
+                  <Anchor>ab18ea2a94416f596c08cb0c13ede36d2</Anchor>
+                 </Node>
+                 <Node>
                   <Name>unsubscribe</Name>
                   <Path>classzeroeq_1_1http_1_1_server.html</Path>
                   <Anchor>aa25448b524c29696bf214a8ca18b5b9c</Anchor>
+                 </Node>
+                 <Node>
+                  <Name>unsubscribe</Name>
+                  <Path>classzeroeq_1_1http_1_1_server.html</Path>
+                  <Anchor>a1f8037427d1afea9583c8833349d4288</Anchor>
                  </Node>
                 </Subnodes>
                </Node>
@@ -291,6 +320,16 @@
                 <Path>classzeroeq_1_1_publisher.html</Path>
                 <Anchor>a0b630f6cb6176fc697b516f531d9cf54</Anchor>
                </Node>
+               <Node>
+                <Name>publish</Name>
+                <Path>classzeroeq_1_1_publisher.html</Path>
+                <Anchor>aebc18419655d08f3cdd6467edf5af10b</Anchor>
+               </Node>
+               <Node>
+                <Name>publish</Name>
+                <Path>classzeroeq_1_1_publisher.html</Path>
+                <Anchor>aee75dc306eca5563aa673379b2368a99</Anchor>
+               </Node>
               </Subnodes>
              </Node>
              <Node>
@@ -330,7 +369,7 @@
                <Node>
                 <Name>process</Name>
                 <Path>classzeroeq_1_1_receiver.html</Path>
-                <Anchor>ae7f37b18baebfd82810208e146a0b855</Anchor>
+                <Anchor>a3197718f62ef7f946d0fabaf87864e45</Anchor>
                </Node>
                <Node>
                 <Name>receive</Name>
@@ -414,9 +453,24 @@
                 <Anchor>aeb6a4dacf8cba7a4e9475f224cd5924c</Anchor>
                </Node>
                <Node>
+                <Name>subscribe</Name>
+                <Path>classzeroeq_1_1_subscriber.html</Path>
+                <Anchor>afd90dc280bacefb5f9ae34f63f55388a</Anchor>
+               </Node>
+               <Node>
+                <Name>subscribe</Name>
+                <Path>classzeroeq_1_1_subscriber.html</Path>
+                <Anchor>a09d0a6bb7ae03a089aa3d274b0ad72de</Anchor>
+               </Node>
+               <Node>
                 <Name>unsubscribe</Name>
                 <Path>classzeroeq_1_1_subscriber.html</Path>
                 <Anchor>a896a51a1d6a83e8c945eed8c7007e1d9</Anchor>
+               </Node>
+               <Node>
+                <Name>unsubscribe</Name>
+                <Path>classzeroeq_1_1_subscriber.html</Path>
+                <Anchor>a051e95edfe9c9ce41fda970d72296ecd</Anchor>
                </Node>
               </Subnodes>
              </Node>

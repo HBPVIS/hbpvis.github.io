@@ -4,7 +4,7 @@ version: "0.6"
 major: 0
 minor: 6
 description: ZeroEQ - Zero Event Queue
-updated: 24/05/16
+updated: 01/06/16
 homepage: https://github.com/HBPVIS/ZeroEQ
 repository: https://github.com/HBPVIS/ZeroEQ.git
 issuesurl: https://github.com/HBPVIS/ZeroEQ/issues
@@ -40,6 +40,7 @@ ZeroEQ provides the following major features:
 
 ## List of RFCs
 
+* [Event-based communication](@ref eventbased)
 * [HTTP GET and PUT server](@ref httpserver)
 * [Session filtering and management port](@ref Sessions)
 

@@ -37,7 +37,7 @@
           </tr>
           <tr>
             <td class="headerItem">Date:</td>
-            <td class="headerValue">2016-05-24 01:34:58</td>
+            <td class="headerValue">2016-06-01 16:07:52</td>
             <td></td>
             <td class="headerItem">Functions:</td>
             <td class="headerCovTableEntry">4</td>
@@ -88,22 +88,22 @@
 <span class="lineNum">      26 </span>            : 
 <a name="27"><span class="lineNum">      27 </span>            : namespace</a>
 <span class="lineNum">      28 </span>            : {
-<span class="lineNum">      29 </span><span class="lineCov">         46 : inline std::string buildZmqURI( const std::string&amp; schema,</span>
+<span class="lineNum">      29 </span><span class="lineCov">         54 : inline std::string buildZmqURI( const std::string&amp; schema,</span>
 <span class="lineNum">      30 </span>            :                                 std::string host, const uint16_t port )
 <span class="lineNum">      31 </span>            : {
-<span class="lineNum">      32 </span><span class="lineCov">         46 :     if( host.empty( ))</span>
-<span class="lineNum">      33 </span><span class="lineCov">         26 :         host = &quot;*&quot;;</span>
+<span class="lineNum">      32 </span><span class="lineCov">         54 :     if( host.empty( ))</span>
+<span class="lineNum">      33 </span><span class="lineCov">         31 :         host = &quot;*&quot;;</span>
 <span class="lineNum">      34 </span>            : 
-<span class="lineNum">      35 </span><span class="lineCov">         46 :     const std::string zmqURI( schema + &quot;://&quot; + host );</span>
-<span class="lineNum">      36 </span><span class="lineCov">         46 :     if( port == 0 ) // zmq expects host:* instead of host:0</span>
-<span class="lineNum">      37 </span><span class="lineCov">         30 :         return zmqURI + &quot;:*&quot;;</span>
+<span class="lineNum">      35 </span><span class="lineCov">         54 :     const std::string zmqURI( schema + &quot;://&quot; + host );</span>
+<span class="lineNum">      36 </span><span class="lineCov">         54 :     if( port == 0 ) // zmq expects host:* instead of host:0</span>
+<span class="lineNum">      37 </span><span class="lineCov">         35 :         return zmqURI + &quot;:*&quot;;</span>
 <span class="lineNum">      38 </span>            : 
-<span class="lineNum">      39 </span><span class="lineCov">         16 :     return zmqURI + &quot;:&quot; + std::to_string( int( port ));</span>
+<span class="lineNum">      39 </span><span class="lineCov">         19 :     return zmqURI + &quot;:&quot; + std::to_string( int( port ));</span>
 <a name="40"><span class="lineNum">      40 </span>            : }</a>
 <span class="lineNum">      41 </span>            : 
-<span class="lineNum">      42 </span><span class="lineCov">         46 : inline std::string buildZmqURI( const zeroeq::URI&amp; uri )</span>
+<span class="lineNum">      42 </span><span class="lineCov">         53 : inline std::string buildZmqURI( const zeroeq::URI&amp; uri )</span>
 <span class="lineNum">      43 </span>            : {
-<span class="lineNum">      44 </span><span class="lineCov">         46 :     return buildZmqURI( uri.getScheme(), uri.getHost(), uri.getPort( ));</span>
+<span class="lineNum">      44 </span><span class="lineCov">         53 :     return buildZmqURI( uri.getScheme(), uri.getHost(), uri.getPort( ));</span>
 <a name="45"><span class="lineNum">      45 </span>            : }</a>
 <span class="lineNum">      46 </span>            : 
 <span class="lineNum">      47 </span><span class="lineCov">         22 : inline std::string getUserName()</span>

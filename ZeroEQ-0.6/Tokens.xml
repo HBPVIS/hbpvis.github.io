@@ -108,10 +108,10 @@
   </Token>
   <Token>
     <TokenIdentifier>
-      <Name>md__jenkins_03_workspace_oss.ZeroEQ.documentation_build_type_Debug_platform_cscsviz-vm_sources_doc_feature_Events</Name>
+      <Name>eventbased</Name>
       <APILanguage>markdown</APILanguage>
     </TokenIdentifier>
-    <Path>md__jenkins_03_workspace_oss_8_zero_e_q_8documentation_build_type__debug_platform_cscsviz-vm_sources_doc_feature__events.html</Path>
+    <Path>eventbased.html</Path>
   </Token>
   <Token>
     <TokenIdentifier>
@@ -143,6 +143,66 @@
     </TokenIdentifier>
     <Path>namespacezeroeq.html</Path>
     <Abstract>Publish-subscribe classes for typed events. </Abstract>
+  </Token>
+  <Token>
+    <TokenIdentifier>
+      <Name>EventFunc</Name>
+      <APILanguage>cpp</APILanguage>
+      <Type>tdef</Type>
+      <Scope>zeroeq</Scope>
+    </TokenIdentifier>
+    <Path>namespacezeroeq.html</Path>
+    <Anchor>a83bb7afc9a4e9fb88ab994f70c8225c5</Anchor>
+    <Abstract>Callback for receival of subscribed event w/o payload. </Abstract>
+    <DeclaredIn>types.h</DeclaredIn>
+  </Token>
+  <Token>
+    <TokenIdentifier>
+      <Name>EventPayloadFunc</Name>
+      <APILanguage>cpp</APILanguage>
+      <Type>tdef</Type>
+      <Scope>zeroeq</Scope>
+    </TokenIdentifier>
+    <Path>namespacezeroeq.html</Path>
+    <Anchor>a35175c71f3908d8dd4c7ff6c1eb39b54</Anchor>
+    <Abstract>Callback for receival of subscribed event w/ payload. </Abstract>
+    <DeclaredIn>types.h</DeclaredIn>
+  </Token>
+  <Token>
+    <TokenIdentifier>
+      <Name>PUTFunc</Name>
+      <APILanguage>cpp</APILanguage>
+      <Type>tdef</Type>
+      <Scope>zeroeq</Scope>
+    </TokenIdentifier>
+    <Path>namespacezeroeq.html</Path>
+    <Anchor>a4aebbbb7639d0b0a854bc88e41d64760</Anchor>
+    <Abstract>HTTP PUT callback w/o payload, return reply success. </Abstract>
+    <DeclaredIn>types.h</DeclaredIn>
+  </Token>
+  <Token>
+    <TokenIdentifier>
+      <Name>PUTPayloadFunc</Name>
+      <APILanguage>cpp</APILanguage>
+      <Type>tdef</Type>
+      <Scope>zeroeq</Scope>
+    </TokenIdentifier>
+    <Path>namespacezeroeq.html</Path>
+    <Anchor>a280eae381af4892d971d57bedce964e4</Anchor>
+    <Abstract>HTTP PUT callback w/ JSON payload, return reply success. </Abstract>
+    <DeclaredIn>types.h</DeclaredIn>
+  </Token>
+  <Token>
+    <TokenIdentifier>
+      <Name>GETFunc</Name>
+      <APILanguage>cpp</APILanguage>
+      <Type>tdef</Type>
+      <Scope>zeroeq</Scope>
+    </TokenIdentifier>
+    <Path>namespacezeroeq.html</Path>
+    <Anchor>a5b004b2ff75a0a6c93c1c3d4df3985ae</Anchor>
+    <Abstract>HTTP GET callback to return JSON reply. </Abstract>
+    <DeclaredIn>types.h</DeclaredIn>
   </Token>
   <Token>
     <TokenIdentifier>
@@ -277,6 +337,30 @@
   </Token>
   <Token>
     <TokenIdentifier>
+      <Name>publish</Name>
+      <APILanguage>cpp</APILanguage>
+      <Type>instm</Type>
+      <Scope>zeroeq::Publisher</Scope>
+    </TokenIdentifier>
+    <Path>classzeroeq_1_1_publisher.html</Path>
+    <Anchor>aebc18419655d08f3cdd6467edf5af10b</Anchor>
+    <Abstract>Publish the given event to any subscriber. </Abstract>
+    <DeclaredIn>publisher.h</DeclaredIn>
+  </Token>
+  <Token>
+    <TokenIdentifier>
+      <Name>publish</Name>
+      <APILanguage>cpp</APILanguage>
+      <Type>instm</Type>
+      <Scope>zeroeq::Publisher</Scope>
+    </TokenIdentifier>
+    <Path>classzeroeq_1_1_publisher.html</Path>
+    <Anchor>aee75dc306eca5563aa673379b2368a99</Anchor>
+    <Abstract>Publish the given event with payload to any subscriber. </Abstract>
+    <DeclaredIn>publisher.h</DeclaredIn>
+  </Token>
+  <Token>
+    <TokenIdentifier>
       <Name>getURI</Name>
       <APILanguage>cpp</APILanguage>
       <Type>instm</Type>
@@ -377,7 +461,7 @@
       <Scope>zeroeq::Receiver</Scope>
     </TokenIdentifier>
     <Path>classzeroeq_1_1_receiver.html</Path>
-    <Anchor>ae7f37b18baebfd82810208e146a0b855</Anchor>
+    <Anchor>a3197718f62ef7f946d0fabaf87864e45</Anchor>
     <Abstract>Process data on a signalled socket. </Abstract>
     <DeclaredIn>receiver.h</DeclaredIn>
   </Token>
@@ -534,6 +618,30 @@
     <Path>classzeroeq_1_1_subscriber.html</Path>
     <Anchor>aeb6a4dacf8cba7a4e9475f224cd5924c</Anchor>
     <Abstract>Subscribe a serializable object to receive updates from any connected publisher. </Abstract>
+    <DeclaredIn>subscriber.h</DeclaredIn>
+  </Token>
+  <Token>
+    <TokenIdentifier>
+      <Name>subscribe</Name>
+      <APILanguage>cpp</APILanguage>
+      <Type>instm</Type>
+      <Scope>zeroeq::Subscriber</Scope>
+    </TokenIdentifier>
+    <Path>classzeroeq_1_1_subscriber.html</Path>
+    <Anchor>afd90dc280bacefb5f9ae34f63f55388a</Anchor>
+    <Abstract>Subscribe to an event from any connected publisher. </Abstract>
+    <DeclaredIn>subscriber.h</DeclaredIn>
+  </Token>
+  <Token>
+    <TokenIdentifier>
+      <Name>subscribe</Name>
+      <APILanguage>cpp</APILanguage>
+      <Type>instm</Type>
+      <Scope>zeroeq::Subscriber</Scope>
+    </TokenIdentifier>
+    <Path>classzeroeq_1_1_subscriber.html</Path>
+    <Anchor>a09d0a6bb7ae03a089aa3d274b0ad72de</Anchor>
+    <Abstract>Subscribe to an event with payload from any connected publisher. </Abstract>
     <DeclaredIn>subscriber.h</DeclaredIn>
   </Token>
   <Token>
@@ -903,7 +1011,7 @@
       <Scope>zeroeq::Receiver</Scope>
     </TokenIdentifier>
     <Path>classzeroeq_1_1_receiver.html</Path>
-    <Anchor>ae7f37b18baebfd82810208e146a0b855</Anchor>
+    <Anchor>a3197718f62ef7f946d0fabaf87864e45</Anchor>
     <Abstract>Process data on a signalled socket. </Abstract>
     <DeclaredIn>receiver.h</DeclaredIn>
   </Token>
@@ -1035,6 +1143,30 @@
   </Token>
   <Token>
     <TokenIdentifier>
+      <Name>subscribe</Name>
+      <APILanguage>cpp</APILanguage>
+      <Type>instm</Type>
+      <Scope>zeroeq::http::Server</Scope>
+    </TokenIdentifier>
+    <Path>classzeroeq_1_1http_1_1_server.html</Path>
+    <Anchor>ab70dc697b1414fde629e68143eac6ac2</Anchor>
+    <Abstract>Subscribe an event to receive HTTP PUT requests. </Abstract>
+    <DeclaredIn>server.h</DeclaredIn>
+  </Token>
+  <Token>
+    <TokenIdentifier>
+      <Name>subscribe</Name>
+      <APILanguage>cpp</APILanguage>
+      <Type>instm</Type>
+      <Scope>zeroeq::http::Server</Scope>
+    </TokenIdentifier>
+    <Path>classzeroeq_1_1http_1_1_server.html</Path>
+    <Anchor>aa1a705af3252e5f22920ff82f37a8a7b</Anchor>
+    <Abstract>Subscribe an event to receive HTTP PUT requests with payload. </Abstract>
+    <DeclaredIn>server.h</DeclaredIn>
+  </Token>
+  <Token>
+    <TokenIdentifier>
       <Name>unsubscribe</Name>
       <APILanguage>cpp</APILanguage>
       <Type>instm</Type>
@@ -1043,6 +1175,18 @@
     <Path>classzeroeq_1_1http_1_1_server.html</Path>
     <Anchor>aa25448b524c29696bf214a8ca18b5b9c</Anchor>
     <Abstract>Unsubscribe the given object to stop applying updates. </Abstract>
+    <DeclaredIn>server.h</DeclaredIn>
+  </Token>
+  <Token>
+    <TokenIdentifier>
+      <Name>unsubscribe</Name>
+      <APILanguage>cpp</APILanguage>
+      <Type>instm</Type>
+      <Scope>zeroeq::http::Server</Scope>
+    </TokenIdentifier>
+    <Path>classzeroeq_1_1http_1_1_server.html</Path>
+    <Anchor>a1f8037427d1afea9583c8833349d4288</Anchor>
+    <Abstract>Unsubscribe the given event to stop receiving PUT requests. </Abstract>
     <DeclaredIn>server.h</DeclaredIn>
   </Token>
   <Token>
@@ -1059,6 +1203,18 @@
   </Token>
   <Token>
     <TokenIdentifier>
+      <Name>register_</Name>
+      <APILanguage>cpp</APILanguage>
+      <Type>instm</Type>
+      <Scope>zeroeq::http::Server</Scope>
+    </TokenIdentifier>
+    <Path>classzeroeq_1_1http_1_1_server.html</Path>
+    <Anchor>a923f2932c8047f80c03e5e6cdac44ce1</Anchor>
+    <Abstract>Subscribe an event to serve HTTP GET requests. </Abstract>
+    <DeclaredIn>server.h</DeclaredIn>
+  </Token>
+  <Token>
+    <TokenIdentifier>
       <Name>unregister</Name>
       <APILanguage>cpp</APILanguage>
       <Type>instm</Type>
@@ -1067,6 +1223,18 @@
     <Path>classzeroeq_1_1http_1_1_server.html</Path>
     <Anchor>a269e0c8574c9d628d84b282db5bed4c4</Anchor>
     <Abstract>Unsubscribe the given object for GET requests. </Abstract>
+    <DeclaredIn>server.h</DeclaredIn>
+  </Token>
+  <Token>
+    <TokenIdentifier>
+      <Name>unregister</Name>
+      <APILanguage>cpp</APILanguage>
+      <Type>instm</Type>
+      <Scope>zeroeq::http::Server</Scope>
+    </TokenIdentifier>
+    <Path>classzeroeq_1_1http_1_1_server.html</Path>
+    <Anchor>ab18ea2a94416f596c08cb0c13ede36d2</Anchor>
+    <Abstract>Unsubscribe the given event name for GET requests. </Abstract>
     <DeclaredIn>server.h</DeclaredIn>
   </Token>
   <Token>

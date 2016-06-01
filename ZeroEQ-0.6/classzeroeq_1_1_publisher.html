@@ -145,6 +145,12 @@ Public Member Functions</h2></td></tr>
 <tr class="memitem:a0b630f6cb6176fc697b516f531d9cf54"><td class="memItemLeft" align="right" valign="top">bool&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classzeroeq_1_1_publisher.html#a0b630f6cb6176fc697b516f531d9cf54">publish</a> (const servus::Serializable &amp;serializable)</td></tr>
 <tr class="memdesc:a0b630f6cb6176fc697b516f531d9cf54"><td class="mdescLeft">&#160;</td><td class="mdescRight">Publish the given serializable object to any subscriber.  <a href="#a0b630f6cb6176fc697b516f531d9cf54">More...</a><br /></td></tr>
 <tr class="separator:a0b630f6cb6176fc697b516f531d9cf54"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:aebc18419655d08f3cdd6467edf5af10b"><td class="memItemLeft" align="right" valign="top">bool&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classzeroeq_1_1_publisher.html#aebc18419655d08f3cdd6467edf5af10b">publish</a> (const uint128_t &amp;event)</td></tr>
+<tr class="memdesc:aebc18419655d08f3cdd6467edf5af10b"><td class="mdescLeft">&#160;</td><td class="mdescRight">Publish the given event to any subscriber.  <a href="#aebc18419655d08f3cdd6467edf5af10b">More...</a><br /></td></tr>
+<tr class="separator:aebc18419655d08f3cdd6467edf5af10b"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:aee75dc306eca5563aa673379b2368a99"><td class="memItemLeft" align="right" valign="top">bool&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classzeroeq_1_1_publisher.html#aee75dc306eca5563aa673379b2368a99">publish</a> (const uint128_t &amp;event, const void *data, size_t size)</td></tr>
+<tr class="memdesc:aee75dc306eca5563aa673379b2368a99"><td class="mdescLeft">&#160;</td><td class="mdescRight">Publish the given event with payload to any subscriber.  <a href="#aee75dc306eca5563aa673379b2368a99">More...</a><br /></td></tr>
+<tr class="separator:aee75dc306eca5563aa673379b2368a99"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:ad34ac013ef42bf120b37e00caa2a7613"><td class="memItemLeft" align="right" valign="top">const <a class="el" href="classzeroeq_1_1_u_r_i.html">URI</a> &amp;&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classzeroeq_1_1_publisher.html#ad34ac013ef42bf120b37e00caa2a7613">getURI</a> () const </td></tr>
 <tr class="memdesc:ad34ac013ef42bf120b37e00caa2a7613"><td class="mdescLeft">&#160;</td><td class="mdescRight">Get the publisher <a class="el" href="classzeroeq_1_1_u_r_i.html" title="Enhances servus::URI to guarantee the existance of a schema and to allow construction of [host][:port...">URI</a>.  <a href="#ad34ac013ef42bf120b37e00caa2a7613">More...</a><br /></td></tr>
 <tr class="separator:ad34ac013ef42bf120b37e00caa2a7613"><td class="memSeparator" colspan="2">&#160;</td></tr>
@@ -204,7 +210,11 @@ std::string&#160;</td><td class="memItemRight" valign="bottom"><b>getAddress</b>
 <div class="line">BOOST_AUTO_TEST_CASE(<a class="code" href="classzeroeq_1_1_publisher.html#a0b630f6cb6176fc697b516f531d9cf54">publish</a>)</div>
 <div class="line">{</div>
 <div class="line">    <a class="code" href="classzeroeq_1_1_publisher.html">zeroeq::Publisher</a> publisher( zeroeq::NULL_SESSION );</div>
-<div class="line">    BOOST_CHECK( publisher.publish( test::Echo( test::echoMessage )));</div>
+<div class="line">    test::Echo echo( test::echoMessage );</div>
+<div class="line">    BOOST_CHECK( publisher.publish( echo ));</div>
+<div class="line">    BOOST_CHECK( publisher.publish( echo.getTypeIdentifier(),</div>
+<div class="line">                                    echo.toBinary().ptr.get(),</div>
+<div class="line">                                    echo.toBinary().size ));</div>
 <div class="line">    BOOST_CHECK( publisher.publish(</div>
 <div class="line">                     *::test::getFBEchoOutEvent( ::test::echoMessage )));</div>
 <div class="line">}</div>
@@ -223,8 +233,10 @@ std::string&#160;</td><td class="memItemRight" valign="bottom"><b>getAddress</b>
 <div class="line">BOOST_AUTO_TEST_CASE(publish_empty_event)</div>
 <div class="line">{</div>
 <div class="line">    <a class="code" href="classzeroeq_1_1_publisher.html">zeroeq::Publisher</a> publisher( zeroeq::NULL_SESSION );</div>
+<div class="line">    BOOST_CHECK( publisher.publish( test::Empty( )));</div>
+<div class="line">    BOOST_CHECK( publisher.publish( zeroeq::make_uint128( <span class="stringliteral">&quot;Empty&quot;</span> )));</div>
 <div class="line">    BOOST_CHECK( publisher.publish(</div>
-<div class="line">                      *::test::getFBEchoInEvent( ::zeroeq::EventFunc( ))));</div>
+<div class="line">                      *::test::getFBEchoInEvent( ::zeroeq::FBEventFunc( ))));</div>
 <div class="line">}</div>
 <div class="line"></div>
 <div class="line">BOOST_AUTO_TEST_CASE(multiple_publisher_on_same_host)</div>
@@ -543,10 +555,80 @@ std::string&#160;</td><td class="memItemRight" valign="bottom"><b>getAddress</b>
 </div><div class="memdoc">
 
 <p>Publish the given serializable object to any subscriber. </p>
-<p>If there is no subscriber for that serializable, no event will be sent.</p>
+<p>If there is no subscriber for that serializable, no message will be sent.</p>
 <dl class="params"><dt>Parameters</dt><dd>
   <table class="params">
     <tr><td class="paramname">serializable</td><td>the object to publish </td></tr>
+  </table>
+  </dd>
+</dl>
+<dl class="section return"><dt>Returns</dt><dd>true if publish was successful </dd></dl>
+
+</div>
+</div>
+<a class="anchor" id="aebc18419655d08f3cdd6467edf5af10b"></a>
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">bool zeroeq::Publisher::publish </td>
+          <td>(</td>
+          <td class="paramtype">const uint128_t &amp;&#160;</td>
+          <td class="paramname"><em>event</em></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p>Publish the given event to any subscriber. </p>
+<p>If there is no subscriber for that event, no message will be sent.</p>
+<dl class="params"><dt>Parameters</dt><dd>
+  <table class="params">
+    <tr><td class="paramname">event</td><td>the event identifier to publish </td></tr>
+  </table>
+  </dd>
+</dl>
+<dl class="section return"><dt>Returns</dt><dd>true if publish was successful </dd></dl>
+
+</div>
+</div>
+<a class="anchor" id="aee75dc306eca5563aa673379b2368a99"></a>
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">bool zeroeq::Publisher::publish </td>
+          <td>(</td>
+          <td class="paramtype">const uint128_t &amp;&#160;</td>
+          <td class="paramname"><em>event</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">const void *&#160;</td>
+          <td class="paramname"><em>data</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">size_t&#160;</td>
+          <td class="paramname"><em>size</em>&#160;</td>
+        </tr>
+        <tr>
+          <td></td>
+          <td>)</td>
+          <td></td><td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p>Publish the given event with payload to any subscriber. </p>
+<p>If there is no subscriber for that event, no message will be sent.</p>
+<dl class="params"><dt>Parameters</dt><dd>
+  <table class="params">
+    <tr><td class="paramname">event</td><td>the event identifier to publish </td></tr>
+    <tr><td class="paramname">data</td><td>the payload data of the event </td></tr>
+    <tr><td class="paramname">size</td><td>the size of the payload data </td></tr>
   </table>
   </dd>
 </dl>
@@ -563,7 +645,7 @@ std::string&#160;</td><td class="memItemRight" valign="bottom"><b>getAddress</b>
 <div id="nav-path" class="navpath"><!-- id is needed for treeview function! -->
   <ul>
     <li class="navelem"><a class="el" href="namespacezeroeq.html">zeroeq</a></li><li class="navelem"><a class="el" href="classzeroeq_1_1_publisher.html">Publisher</a></li>
-    <li class="footer">Generated on Tue May 24 2016 01:34:30 for ZeroEQ by
+    <li class="footer">Generated on Wed Jun 1 2016 16:07:22 for ZeroEQ by
     <a href="http://www.doxygen.org/index.html">
     <img class="footer" src="doxygen.png" alt="doxygen"/></a> 1.8.9.1 </li>
   </ul>

@@ -2,7 +2,7 @@ var NAVTREE =
 [
   [ "ZeroEQ", "index.html", [
     [ "Changelog", "_changelog.html", null ],
-    [ "Event Communication", "md__jenkins_03_workspace_oss_8_zero_e_q_8documentation_build_type__debug_platform_cscsviz-vm_sources_doc_feature__events.html", null ],
+    [ "Event Communication", "eventbased.html", null ],
     [ "HTTP Server for ZeroEq Events", "httpserver.html", null ],
     [ "Sessions filtering and management port", "_sessions.html", null ],
     [ "Deprecated List", "deprecated.html", null ],
@@ -11,6 +11,7 @@ var NAVTREE =
       [ "Namespace Members", "namespacemembers.html", [
         [ "All", "namespacemembers.html", null ],
         [ "Variables", "namespacemembers_vars.html", null ],
+        [ "Typedefs", "namespacemembers_type.html", null ],
         [ "Enumerations", "namespacemembers_enum.html", null ],
         [ "Enumerator", "namespacemembers_eval.html", null ]
       ] ]
