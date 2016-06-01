@@ -31,18 +31,18 @@
             <td class="headerValue">Servus</td>
             <td></td>
             <td class="headerItem">Lines:</td>
-            <td class="headerCovTableEntry">0</td>
+            <td class="headerCovTableEntry">4</td>
             <td class="headerCovTableEntry">9</td>
-            <td class="headerCovTableEntryLo">0.0 %</td>
+            <td class="headerCovTableEntryMed">44.4 %</td>
           </tr>
           <tr>
             <td class="headerItem">Date:</td>
-            <td class="headerValue">2016-03-29 17:07:36</td>
+            <td class="headerValue">2016-06-01 15:13:25</td>
             <td></td>
             <td class="headerItem">Functions:</td>
-            <td class="headerCovTableEntry">0</td>
-            <td class="headerCovTableEntry">6</td>
-            <td class="headerCovTableEntryLo">0.0 %</td>
+            <td class="headerCovTableEntry">2</td>
+            <td class="headerCovTableEntry">5</td>
+            <td class="headerCovTableEntryMed">40.0 %</td>
           </tr>
           <tr><td><img src="../glass.png" width=3 height=3 alt=""></td></tr>
         </table>
@@ -84,116 +84,141 @@
 <span class="lineNum">      22 </span>            : 
 <span class="lineNum">      23 </span>            : #include &lt;servus/api.h&gt;
 <span class="lineNum">      24 </span>            : #include &lt;servus/types.h&gt;
-<span class="lineNum">      25 </span>            : #include &lt;functional&gt; // function
-<span class="lineNum">      26 </span>            : #include &lt;memory&gt; // shared_ptr
-<span class="lineNum">      27 </span>            : 
-<span class="lineNum">      28 </span>            : namespace servus
-<span class="lineNum">      29 </span>            : {
-<span class="lineNum">      30 </span>            : 
-<span class="lineNum">      31 </span>            : /** Interface for serializable objects */
-<span class="lineNum">      32 </span>            : class Serializable
-<a name="33"><span class="lineNum">      33 </span>            : {</a>
-<span class="lineNum">      34 </span>            : public:
-<span class="lineNum">      35 </span><span class="lineNoCov">          0 :     virtual ~Serializable() {}</span>
+<span class="lineNum">      25 </span>            : 
+<span class="lineNum">      26 </span>            : #ifdef SERVUS_USE_CXX03
+<span class="lineNum">      27 </span>            : #  include &lt;boost/function/function0.hpp&gt;
+<span class="lineNum">      28 </span>            : #  include &lt;boost/shared_ptr.hpp&gt;
+<span class="lineNum">      29 </span>            : #else
+<span class="lineNum">      30 </span>            : #  include &lt;functional&gt; // function
+<span class="lineNum">      31 </span>            : #  include &lt;memory&gt; // shared_ptr
+<span class="lineNum">      32 </span>            : #endif
+<span class="lineNum">      33 </span>            : 
+<span class="lineNum">      34 </span>            : namespace servus
+<span class="lineNum">      35 </span>            : {
 <span class="lineNum">      36 </span>            : 
-<span class="lineNum">      37 </span>            :     /** @name Serialization methods */
-<span class="lineNum">      38 </span>            :     //@{
-<span class="lineNum">      39 </span>            :     /** Pointer + size wrapper for binary serialization. */
-<span class="lineNum">      40 </span>            :     struct Data
-<span class="lineNum">      41 </span>            :     {
-<span class="lineNum">      42 </span>            :         Data() : size ( 0 ) {}
-<span class="lineNum">      43 </span>            :         std::shared_ptr&lt; const void &gt; ptr; //!&lt; ptr to the binary serialization
-<span class="lineNum">      44 </span>            :         size_t size; //!&lt; The size of the binary serialization
-<span class="lineNum">      45 </span>            :     };
-<span class="lineNum">      46 </span>            : 
-<span class="lineNum">      47 </span>            :     /** @return the fully qualified, demangled class name. */
-<span class="lineNum">      48 </span>            :     virtual std::string getTypeName() const = 0;
-<span class="lineNum">      49 </span>            : 
-<span class="lineNum">      50 </span>            :     /** @return the universally unique identifier of this serializable. */
-<span class="lineNum">      51 </span>            :     SERVUS_API virtual uint128_t getTypeIdentifier() const;
-<span class="lineNum">      52 </span>            : 
-<span class="lineNum">      53 </span>            :     /**
-<span class="lineNum">      54 </span>            :      * Update this serializable from its binary representation.
-<span class="lineNum">      55 </span>            :      * @return true on success, false on error.
-<span class="lineNum">      56 </span>            :      */
-<span class="lineNum">      57 </span>            :     bool fromBinary( const Data&amp; data )
-<span class="lineNum">      58 </span>            :         { return _fromBinary( data.ptr.get(), data.size ); }
-<span class="lineNum">      59 </span>            :     bool fromBinary( const void* data, const size_t size )
-<span class="lineNum">      60 </span>            :         { return _fromBinary( data, size ); }
-<span class="lineNum">      61 </span>            : 
-<span class="lineNum">      62 </span>            :     /**
-<span class="lineNum">      63 </span>            :      * Get a binary representation of this object.
-<span class="lineNum">      64 </span>            :      *
-<span class="lineNum">      65 </span>            :      * The returned data is not thread safe, that is, it should not be modified
-<span class="lineNum">      66 </span>            :      * until the caller of this method has completed its execution.
-<span class="lineNum">      67 </span>            :      *
-<span class="lineNum">      68 </span>            :      * @return the binary representation of this object.
-<span class="lineNum">      69 </span>            :      */
-<span class="lineNum">      70 </span>            :     Data toBinary() const { return _toBinary(); }
-<span class="lineNum">      71 </span>            : 
-<span class="lineNum">      72 </span>            :     /**
-<span class="lineNum">      73 </span>            :      * Update this serializable from its JSON representation.
-<span class="lineNum">      74 </span>            :      * @return true on success, false on error.
-<span class="lineNum">      75 </span>            :      */
-<span class="lineNum">      76 </span>            :     bool fromJSON( const std::string&amp; json ) { return _fromJSON( json ); }
-<span class="lineNum">      77 </span>            : 
-<span class="lineNum">      78 </span>            :     /** @return the JSON representation of this object. */
-<span class="lineNum">      79 </span>            :     std::string toJSON() const { return _toJSON(); }
-<span class="lineNum">      80 </span>            :     //@}
-<span class="lineNum">      81 </span>            : 
-<span class="lineNum">      82 </span>            :     /** @name Change Notifications */
-<span class="lineNum">      83 </span>            :     //@{
-<span class="lineNum">      84 </span>            :     /** Function for change notification. */
-<span class="lineNum">      85 </span>            :     typedef std::function&lt; void() &gt; ChangeFunc;
+<span class="lineNum">      37 </span>            : /** Interface for serializable objects */
+<span class="lineNum">      38 </span>            : class Serializable
+<span class="lineNum">      39 </span>            : {
+<span class="lineNum">      40 </span>            : public:
+<span class="lineNum">      41 </span>            :     SERVUS_API Serializable();
+<span class="lineNum">      42 </span>            :     SERVUS_API virtual ~Serializable();
+<span class="lineNum">      43 </span>            : 
+<span class="lineNum">      44 </span>            :     /** @name Serialization methods */
+<a name="45"><span class="lineNum">      45 </span>            :     //@{</a>
+<span class="lineNum">      46 </span>            :     /** Pointer + size wrapper for binary serialization. */
+<span class="lineNum">      47 </span><span class="lineNoCov">          0 :     struct Data</span>
+<span class="lineNum">      48 </span>            :     {
+<span class="lineNum">      49 </span>            :         Data() : size ( 0 ) {}
+<span class="lineNum">      50 </span>            : #ifdef SERVUS_USE_CXX03
+<span class="lineNum">      51 </span>            :         boost::shared_ptr&lt; const void &gt; ptr; //!&lt; ptr to the binary serialization
+<span class="lineNum">      52 </span>            : #else
+<span class="lineNum">      53 </span>            :         std::shared_ptr&lt; const void &gt; ptr; //!&lt; ptr to the binary serialization
+<span class="lineNum">      54 </span>            : #endif
+<span class="lineNum">      55 </span>            :         size_t size; //!&lt; The size of the binary serialization
+<span class="lineNum">      56 </span>            :     };
+<span class="lineNum">      57 </span>            : 
+<span class="lineNum">      58 </span>            :     /** @return the fully qualified, demangled class name. */
+<span class="lineNum">      59 </span>            :     virtual std::string getTypeName() const = 0;
+<span class="lineNum">      60 </span>            : 
+<span class="lineNum">      61 </span>            :     /** @return the universally unique identifier of this serializable. */
+<span class="lineNum">      62 </span>            :     SERVUS_API virtual uint128_t getTypeIdentifier() const;
+<span class="lineNum">      63 </span>            : 
+<span class="lineNum">      64 </span>            :     /**
+<span class="lineNum">      65 </span>            :      * Update this serializable from its binary representation.
+<span class="lineNum">      66 </span>            :      * @return true on success, false on error.
+<span class="lineNum">      67 </span>            :      */
+<span class="lineNum">      68 </span>            :     SERVUS_API bool fromBinary( const Data&amp; data );
+<span class="lineNum">      69 </span>            :     SERVUS_API bool fromBinary( const void* data, const size_t size );
+<span class="lineNum">      70 </span>            : 
+<span class="lineNum">      71 </span>            :     /**
+<span class="lineNum">      72 </span>            :      * Get a binary representation of this object.
+<span class="lineNum">      73 </span>            :      *
+<span class="lineNum">      74 </span>            :      * The returned data is not thread safe, that is, it should not be modified
+<span class="lineNum">      75 </span>            :      * until the caller of this method has completed its execution.
+<span class="lineNum">      76 </span>            :      *
+<span class="lineNum">      77 </span>            :      * @return the binary representation of this object.
+<span class="lineNum">      78 </span>            :      */
+<span class="lineNum">      79 </span>            :     SERVUS_API Data toBinary() const;
+<span class="lineNum">      80 </span>            : 
+<span class="lineNum">      81 </span>            :     /**
+<span class="lineNum">      82 </span>            :      * Update this serializable from its JSON representation.
+<span class="lineNum">      83 </span>            :      * @return true on success, false on error.
+<span class="lineNum">      84 </span>            :      */
+<span class="lineNum">      85 </span>            :     SERVUS_API bool fromJSON( const std::string&amp; json );
 <span class="lineNum">      86 </span>            : 
-<span class="lineNum">      87 </span>            :     /**
-<span class="lineNum">      88 </span>            :      * Set a new function called after the object has been updated.
-<span class="lineNum">      89 </span>            :      *
-<span class="lineNum">      90 </span>            :      * @return the previously set function.
-<span class="lineNum">      91 </span>            :      */
-<span class="lineNum">      92 </span>            :     SERVUS_API ChangeFunc setUpdatedFunction( const ChangeFunc&amp; func );
-<span class="lineNum">      93 </span>            : 
-<span class="lineNum">      94 </span>            :     /**
-<span class="lineNum">      95 </span>            :      * Set a new function called when a request has been received.
-<span class="lineNum">      96 </span>            :      *
-<span class="lineNum">      97 </span>            :      * Invoked before the object is published.
-<span class="lineNum">      98 </span>            :      * @return the previously set function.
-<span class="lineNum">      99 </span>            :      */
-<span class="lineNum">     100 </span>            :     SERVUS_API ChangeFunc setRequestedFunction( const ChangeFunc&amp; func );
+<span class="lineNum">      87 </span>            :     /** @return the JSON representation of this serializable. */
+<span class="lineNum">      88 </span>            :     SERVUS_API std::string toJSON() const;
+<span class="lineNum">      89 </span>            :     //@}
+<span class="lineNum">      90 </span>            : 
+<span class="lineNum">      91 </span>            :     /** @name Change Notifications */
+<span class="lineNum">      92 </span>            :     //@{
+<span class="lineNum">      93 </span>            :     /** Callbacks for change notifications. */
+<span class="lineNum">      94 </span>            : #ifdef SERVUS_USE_CXX03
+<span class="lineNum">      95 </span>            :     typedef boost::function&lt; void() &gt; DeserializedCallback;
+<span class="lineNum">      96 </span>            :     typedef boost::function&lt; void() &gt; SerializeCallback;
+<span class="lineNum">      97 </span>            : #else
+<span class="lineNum">      98 </span>            :     typedef std::function&lt; void() &gt; DeserializedCallback;
+<span class="lineNum">      99 </span>            :     typedef std::function&lt; void() &gt; SerializeCallback;
+<span class="lineNum">     100 </span>            : #endif
 <span class="lineNum">     101 </span>            : 
-<span class="lineNum">     102 </span>            :     /** @internal used by ZeroEQ to invoke updated function */
-<span class="lineNum">     103 </span>            :     SERVUS_API void notifyUpdated() const;
-<span class="lineNum">     104 </span>            :     /** @internal used by ZeroEQ to invoke updated function */
-<span class="lineNum">     105 </span>            :     SERVUS_API void notifyRequested() const;
-<span class="lineNum">     106 </span>            :     //@}
-<span class="lineNum">     107 </span>            : 
-<span class="lineNum">     108 </span>            : protected:
-<span class="lineNum">     109 </span>            :     /**
-<span class="lineNum">     110 </span>            :      * @name API for serializable sub classes.
-<span class="lineNum">     111 </span>            :      *
-<span class="lineNum">     112 </span>            :      * Endian-safe and 64-bit safe binary encoding is the responsability of the
-<span class="lineNum">     113 </span>            :      * subclass implementation, if needed.
-<a name="114"><span class="lineNum">     114 </span>            :      */</a>
-<span class="lineNum">     115 </span>            :     //@{
-<a name="116"><span class="lineNum">     116 </span><span class="lineNoCov">          0 :     virtual bool _fromBinary( const void* /*data*/, const size_t /*size*/ )</span></a>
-<span class="lineNum">     117 </span><span class="lineNoCov">          0 :         { throw std::runtime_error( &quot;Binary deserialization not implemented&quot; );}</span>
-<span class="lineNum">     118 </span><span class="lineNoCov">          0 :     virtual Data _toBinary() const</span>
-<a name="119"><span class="lineNum">     119 </span><span class="lineNoCov">          0 :         { throw std::runtime_error( &quot;Binary serialization not implemented&quot; ); }</span></a>
-<span class="lineNum">     120 </span>            : 
-<a name="121"><span class="lineNum">     121 </span><span class="lineNoCov">          0 :     virtual bool _fromJSON( const std::string&amp; /*json*/ )</span></a>
-<span class="lineNum">     122 </span><span class="lineNoCov">          0 :         { throw std::runtime_error( &quot;JSON deserialization not implemented&quot; ); }</span>
-<span class="lineNum">     123 </span><span class="lineNoCov">          0 :     virtual std::string _toJSON() const</span>
-<span class="lineNum">     124 </span><span class="lineNoCov">          0 :         { throw std::runtime_error( &quot;JSON serialization not implemented&quot; ); }</span>
+<span class="lineNum">     102 </span>            :     /**
+<span class="lineNum">     103 </span>            :      * Register a function called after the object has been updated remotely
+<span class="lineNum">     104 </span>            :      * (via a subscriber, a http server, loading from file...).
+<span class="lineNum">     105 </span>            :      * Only one callback is supported at the moment, to deregister the callback,
+<span class="lineNum">     106 </span>            :      * call this function with a 'nullptr' (or 0) parameter.
+<span class="lineNum">     107 </span>            :      *
+<span class="lineNum">     108 </span>            :      * @throw if a DeserializedCallback is already registered and the specified
+<span class="lineNum">     109 </span>            :      * callback is not 'nullptr' (or 0)
+<span class="lineNum">     110 </span>            :      */
+<span class="lineNum">     111 </span>            :     SERVUS_API void registerDeserializedCallback(
+<span class="lineNum">     112 </span>            :             const DeserializedCallback&amp; callback );
+<span class="lineNum">     113 </span>            : 
+<span class="lineNum">     114 </span>            :     /**
+<span class="lineNum">     115 </span>            :      * Register a function to be called when the serializable object is about
+<span class="lineNum">     116 </span>            :      * to be serialized.
+<span class="lineNum">     117 </span>            :      * Only one callback is supported at the moment, to deregister the callback,
+<span class="lineNum">     118 </span>            :      * call this function with a 'nullptr' (or 0) parameter.
+<span class="lineNum">     119 </span>            :      *
+<span class="lineNum">     120 </span>            :      * @throw if a SerializedCallback is already registered and the specified
+<span class="lineNum">     121 </span>            :      * callback is not 'nullptr' (or 0)
+<span class="lineNum">     122 </span>            :      */
+<span class="lineNum">     123 </span>            :     SERVUS_API void registerSerializeCallback(
+<span class="lineNum">     124 </span>            :             const SerializeCallback&amp; callback );
 <span class="lineNum">     125 </span>            :     //@}
 <span class="lineNum">     126 </span>            : 
 <span class="lineNum">     127 </span>            : private:
-<span class="lineNum">     128 </span>            :     ChangeFunc _updated;
-<span class="lineNum">     129 </span>            :     ChangeFunc _requested;
-<span class="lineNum">     130 </span>            : };
-<span class="lineNum">     131 </span>            : 
-<span class="lineNum">     132 </span>            : }
-<span class="lineNum">     133 </span>            : 
-<span class="lineNum">     134 </span>            : #endif // SERVUS_SERIALIZABLE_H
+<span class="lineNum">     128 </span>            :     /**
+<span class="lineNum">     129 </span>            :      * @name API for serializable sub classes.
+<span class="lineNum">     130 </span>            :      *
+<span class="lineNum">     131 </span>            :      * Endian-safe and 64-bit safe binary encoding is the responsability of the
+<span class="lineNum">     132 </span>            :      * subclass implementation, if needed.
+<a name="133"><span class="lineNum">     133 </span>            :      */</a>
+<span class="lineNum">     134 </span>            :     //@{
+<a name="135"><span class="lineNum">     135 </span><span class="lineNoCov">          0 :     virtual bool _fromBinary( const void* /*data*/, const size_t /*size*/ )</span></a>
+<span class="lineNum">     136 </span><span class="lineNoCov">          0 :         { throw std::runtime_error( &quot;Binary deserialization not implemented&quot; );}</span>
+<span class="lineNum">     137 </span><span class="lineCov">          1 :     virtual Data _toBinary() const</span>
+<a name="138"><span class="lineNum">     138 </span><span class="lineCov">          1 :         { throw std::runtime_error( &quot;Binary serialization not implemented&quot; ); }</span></a>
+<span class="lineNum">     139 </span>            : 
+<a name="140"><span class="lineNum">     140 </span><span class="lineNoCov">          0 :     virtual bool _fromJSON( const std::string&amp; /*json*/ )</span></a>
+<span class="lineNum">     141 </span><span class="lineNoCov">          0 :         { throw std::runtime_error( &quot;JSON deserialization not implemented&quot; ); }</span>
+<span class="lineNum">     142 </span><span class="lineCov">          1 :     virtual std::string _toJSON() const</span>
+<span class="lineNum">     143 </span><span class="lineCov">          1 :         { throw std::runtime_error( &quot;JSON serialization not implemented&quot; ); }</span>
+<span class="lineNum">     144 </span>            :     //@}
+<span class="lineNum">     145 </span>            : 
+<span class="lineNum">     146 </span>            :     Serializable( const Serializable&amp; );
+<span class="lineNum">     147 </span>            :     Serializable&amp; operator=( const Serializable&amp; );
+<span class="lineNum">     148 </span>            : #ifdef SERVUS_USE_CXX11
+<span class="lineNum">     149 </span>            :     Serializable( Serializable&amp;&amp; ) = delete;
+<span class="lineNum">     150 </span>            :     Serializable&amp; operator=( Serializable&amp;&amp; ) = delete;
+<span class="lineNum">     151 </span>            : #endif
+<span class="lineNum">     152 </span>            : 
+<span class="lineNum">     153 </span>            :     class Impl;
+<span class="lineNum">     154 </span>            :     Impl* _impl;
+<span class="lineNum">     155 </span>            : };
+<span class="lineNum">     156 </span>            : 
+<span class="lineNum">     157 </span>            : }
+<span class="lineNum">     158 </span>            : 
+<span class="lineNum">     159 </span>            : #endif // SERVUS_SERIALIZABLE_H
 </pre>
       </td>
     </tr>

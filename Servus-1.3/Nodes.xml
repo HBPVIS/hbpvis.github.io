@@ -6,6 +6,23 @@
       <Path>index.html</Path>
       <Subnodes>
        <Node>
+        <Name>Introduction</Name>
+        <Path>index.html</Path>
+        <Anchor>Introduction</Anchor>
+        <Subnodes>
+         <Node>
+          <Name>Features</Name>
+          <Path>index.html</Path>
+          <Anchor>Features</Anchor>
+         </Node>
+        </Subnodes>
+       </Node>
+       <Node>
+        <Name>Building</Name>
+        <Path>index.html</Path>
+        <Anchor>Building</Anchor>
+       </Node>
+       <Node>
         <Name>Changelog</Name>
         <Path>_changelog.html</Path>
         <Subnodes>
@@ -183,34 +200,24 @@
                 </Subnodes>
                </Node>
                <Node>
-                <Name>ChangeFunc</Name>
+                <Name>DeserializedCallback</Name>
                 <Path>classservus_1_1_serializable.html</Path>
-                <Anchor>a3bb5476aec0bf76b9e1e86cc60516d81</Anchor>
+                <Anchor>ab521b0997d87ae83ffdc3d28b22fae7e</Anchor>
+               </Node>
+               <Node>
+                <Name>SerializeCallback</Name>
+                <Path>classservus_1_1_serializable.html</Path>
+                <Anchor>aa6733a136a71e7c88a795187bfcc557f</Anchor>
+               </Node>
+               <Node>
+                <Name>Serializable</Name>
+                <Path>classservus_1_1_serializable.html</Path>
+                <Anchor>aff8c3b483a7abdea45568ed82cc43146</Anchor>
                </Node>
                <Node>
                 <Name>~Serializable</Name>
                 <Path>classservus_1_1_serializable.html</Path>
                 <Anchor>a6ed920e10538583670f363fcaff92057</Anchor>
-               </Node>
-               <Node>
-                <Name>_fromBinary</Name>
-                <Path>classservus_1_1_serializable.html</Path>
-                <Anchor>a5bfd6fb37ac8d73d238698b0031faac8</Anchor>
-               </Node>
-               <Node>
-                <Name>_fromJSON</Name>
-                <Path>classservus_1_1_serializable.html</Path>
-                <Anchor>ab802ee84d58850af5f41fd35b581c8e9</Anchor>
-               </Node>
-               <Node>
-                <Name>_toBinary</Name>
-                <Path>classservus_1_1_serializable.html</Path>
-                <Anchor>a51b9339aa6a7bee1882fa0acc90866b2</Anchor>
-               </Node>
-               <Node>
-                <Name>_toJSON</Name>
-                <Path>classservus_1_1_serializable.html</Path>
-                <Anchor>ac51f5eb7360890cac0593f93ac5718b8</Anchor>
                </Node>
                <Node>
                 <Name>fromBinary</Name>
@@ -238,24 +245,14 @@
                 <Anchor>a77802e7202e227e19da2e7f8639bc865</Anchor>
                </Node>
                <Node>
-                <Name>notifyRequested</Name>
+                <Name>registerDeserializedCallback</Name>
                 <Path>classservus_1_1_serializable.html</Path>
-                <Anchor>a17e116e81dd1ade05266461d650afc79</Anchor>
+                <Anchor>adf76c470db7a03ecddcc044601393b7c</Anchor>
                </Node>
                <Node>
-                <Name>notifyUpdated</Name>
+                <Name>registerSerializeCallback</Name>
                 <Path>classservus_1_1_serializable.html</Path>
-                <Anchor>adde7f1969a559ed7030c0bd46eb8b79d</Anchor>
-               </Node>
-               <Node>
-                <Name>setRequestedFunction</Name>
-                <Path>classservus_1_1_serializable.html</Path>
-                <Anchor>af4468b8780f993ad091a99fb77c8c90f</Anchor>
-               </Node>
-               <Node>
-                <Name>setUpdatedFunction</Name>
-                <Path>classservus_1_1_serializable.html</Path>
-                <Anchor>a3a4e4f49ef5d6460111016f34b92dc3b</Anchor>
+                <Anchor>a4e89b420de3dbf0c4f3ac52e230d883d</Anchor>
                </Node>
                <Node>
                 <Name>toBinary</Name>
@@ -734,6 +731,11 @@
                 <Anchor>a015fe4697fc21523dbd5d9a707249e78</Anchor>
                </Node>
                <Node>
+                <Name>setQuery</Name>
+                <Path>classservus_1_1_u_r_i.html</Path>
+                <Anchor>a79cbd19b0f44dd18581bdcdf6af6a7f0</Anchor>
+               </Node>
+               <Node>
                 <Name>setScheme</Name>
                 <Path>classservus_1_1_u_r_i.html</Path>
                 <Anchor>a524231529fd77e76bba0b1c6f6995acb</Anchor>
@@ -1007,19 +1009,11 @@
            </Node>
            <Node>
             <Name>defines.h</Name>
-            <Path>defines_8h.html</Path>
+            <Path>defines_8h_source.html</Path>
            </Node>
            <Node>
-            <Name>qt/defines.h</Name>
-            <Path>qt_2defines_8h_source.html</Path>
-           </Node>
-           <Node>
-            <Name>definesLinux.h</Name>
-            <Path>defines_linux_8h_source.html</Path>
-           </Node>
-           <Node>
-            <Name>qt/definesLinux.h</Name>
-            <Path>qt_2defines_linux_8h_source.html</Path>
+            <Name>qt/jenkins/03/workspace/oss.Servus.documentation/build_type/Debug/platform/cscsviz-vm/build/include/servus/defines.h</Name>
+            <Path>qt_2jenkins_203_2workspace_2oss_8_servus_8documentation_2build__type_2_debug_2platform_2cscsviz-fde648a3fb16ef90b39c3ca9d509d593_source.html</Path>
            </Node>
            <Node>
             <Name>itemModel.h</Name>

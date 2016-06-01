@@ -26,6 +26,7 @@ var classservus_1_1_u_r_i =
     [ "setHost", "classservus_1_1_u_r_i.html#a6f4affc8528b10f05d2f4d5c3b317e35", null ],
     [ "setPath", "classservus_1_1_u_r_i.html#a837209a506bb74eaee164f4f873782ed", null ],
     [ "setPort", "classservus_1_1_u_r_i.html#a015fe4697fc21523dbd5d9a707249e78", null ],
+    [ "setQuery", "classservus_1_1_u_r_i.html#a79cbd19b0f44dd18581bdcdf6af6a7f0", null ],
     [ "setScheme", "classservus_1_1_u_r_i.html#a524231529fd77e76bba0b1c6f6995acb", null ],
     [ "setUserInfo", "classservus_1_1_u_r_i.html#ad7dd3c3e85ee445ae0e275dd004335be", null ]
 ];

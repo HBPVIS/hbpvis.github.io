@@ -1,6 +1,10 @@
 var NAVTREE =
 [
   [ "Servus", "index.html", [
+    [ "Introduction", "index.html#Introduction", [
+      [ "Features", "index.html#Features", null ]
+    ] ],
+    [ "Building", "index.html#Building", null ],
     [ "Changelog", "_changelog.html", [
       [ "git master", "_changelog.html#master", null ]
     ] ],

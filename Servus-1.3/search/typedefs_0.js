@@ -1,4 +1,4 @@
 var searchData=
 [
-  ['changefunc',['ChangeFunc',['../classservus_1_1_serializable.html#a3bb5476aec0bf76b9e1e86cc60516d81',1,'servus::Serializable']]]
+  ['deserializedcallback',['DeserializedCallback',['../classservus_1_1_serializable.html#ab521b0997d87ae83ffdc3d28b22fae7e',1,'servus::Serializable']]]
 ];

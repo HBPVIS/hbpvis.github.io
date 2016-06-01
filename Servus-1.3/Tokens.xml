@@ -423,37 +423,37 @@
   </Token>
   <Token>
     <TokenIdentifier>
-      <Name>ChangeFunc</Name>
+      <Name>DeserializedCallback</Name>
       <APILanguage>cpp</APILanguage>
       <Type>tdef</Type>
       <Scope>servus::Serializable</Scope>
     </TokenIdentifier>
     <Path>classservus_1_1_serializable.html</Path>
-    <Anchor>a3bb5476aec0bf76b9e1e86cc60516d81</Anchor>
-    <Abstract>Function for change notification. </Abstract>
+    <Anchor>ab521b0997d87ae83ffdc3d28b22fae7e</Anchor>
+    <Abstract>Callbacks for change notifications. </Abstract>
   </Token>
   <Token>
     <TokenIdentifier>
-      <Name>setUpdatedFunction</Name>
+      <Name>registerDeserializedCallback</Name>
       <APILanguage>cpp</APILanguage>
       <Type>instm</Type>
       <Scope>servus::Serializable</Scope>
     </TokenIdentifier>
     <Path>classservus_1_1_serializable.html</Path>
-    <Anchor>a3a4e4f49ef5d6460111016f34b92dc3b</Anchor>
-    <Abstract>Set a new function called after the object has been updated. </Abstract>
+    <Anchor>adf76c470db7a03ecddcc044601393b7c</Anchor>
+    <Abstract>Register a function called after the object has been updated remotely (via a subscriber, a http server, loading from file...). </Abstract>
     <DeclaredIn>serializable.h</DeclaredIn>
   </Token>
   <Token>
     <TokenIdentifier>
-      <Name>setRequestedFunction</Name>
+      <Name>registerSerializeCallback</Name>
       <APILanguage>cpp</APILanguage>
       <Type>instm</Type>
       <Scope>servus::Serializable</Scope>
     </TokenIdentifier>
     <Path>classservus_1_1_serializable.html</Path>
-    <Anchor>af4468b8780f993ad091a99fb77c8c90f</Anchor>
-    <Abstract>Set a new function called when a request has been received. </Abstract>
+    <Anchor>a4e89b420de3dbf0c4f3ac52e230d883d</Anchor>
+    <Abstract>Register a function to be called when the serializable object is about to be serialized. </Abstract>
     <DeclaredIn>serializable.h</DeclaredIn>
   </Token>
   <Token>
@@ -1261,7 +1261,7 @@
       <Scope>servus::URI</Scope>
     </TokenIdentifier>
     <Path>classservus_1_1_u_r_i.html</Path>
-    <Abstract>The URI class parses the given uri using the generic syntax from RFC3986. </Abstract>
+    <Abstract>The URI class parses the given uri using the generic syntax from RFC3986 and RFC6570. </Abstract>
     <DeclaredIn>uri.h</DeclaredIn>
   </Token>
   <Token>

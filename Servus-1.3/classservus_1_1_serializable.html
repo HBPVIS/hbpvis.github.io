@@ -32,7 +32,7 @@
  <tr style="height: 56px;">
   <td style="padding-left: 0.5em;">
    <div id="projectname">Servus
-   &#160;<span id="projectnumber">1.3.0</span>
+   &#160;<span id="projectnumber">1.3.1</span>
    </div>
    <div id="projectbrief">C++ network oriented utilities including a zeroconf implementation</div>
   </td>
@@ -155,60 +155,39 @@ bool&#160;</td><td class="memItemRight" valign="bottom"><b>fromBinary</b> (const
 <tr class="memitem:af87ccb0b463f144a4788b1645e293396"><td class="memItemLeft" align="right" valign="top">std::string&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classservus_1_1_serializable.html#af87ccb0b463f144a4788b1645e293396">toJSON</a> () const </td></tr>
 <tr class="separator:af87ccb0b463f144a4788b1645e293396"><td class="memSeparator" colspan="2">&#160;</td></tr>
 </table><table class="memberdecls">
-<tr class="heading"><td colspan="2"><h2 class="groupheader"><a name="pro-methods"></a>
-Protected Member Functions</h2></td></tr>
-<tr><td colspan="2"><div class="groupHeader">API for serializable sub classes.</div></td></tr>
-<tr><td colspan="2"><div class="groupText"><p>Endian-safe and 64-bit safe binary encoding is the responsability of the subclass implementation, if needed. </p>
-</div></td></tr>
-<tr class="memitem:a5bfd6fb37ac8d73d238698b0031faac8"><td class="memItemLeft" align="right" valign="top"><a class="anchor" id="a5bfd6fb37ac8d73d238698b0031faac8"></a>
-virtual bool&#160;</td><td class="memItemRight" valign="bottom"><b>_fromBinary</b> (const void *, const size_t)</td></tr>
-<tr class="separator:a5bfd6fb37ac8d73d238698b0031faac8"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a51b9339aa6a7bee1882fa0acc90866b2"><td class="memItemLeft" align="right" valign="top"><a class="anchor" id="a51b9339aa6a7bee1882fa0acc90866b2"></a>
-virtual <a class="el" href="structservus_1_1_serializable_1_1_data.html">Data</a>&#160;</td><td class="memItemRight" valign="bottom"><b>_toBinary</b> () const </td></tr>
-<tr class="separator:a51b9339aa6a7bee1882fa0acc90866b2"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:ab802ee84d58850af5f41fd35b581c8e9"><td class="memItemLeft" align="right" valign="top"><a class="anchor" id="ab802ee84d58850af5f41fd35b581c8e9"></a>
-virtual bool&#160;</td><td class="memItemRight" valign="bottom"><b>_fromJSON</b> (const std::string &amp;)</td></tr>
-<tr class="separator:ab802ee84d58850af5f41fd35b581c8e9"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:ac51f5eb7360890cac0593f93ac5718b8"><td class="memItemLeft" align="right" valign="top"><a class="anchor" id="ac51f5eb7360890cac0593f93ac5718b8"></a>
-virtual std::string&#160;</td><td class="memItemRight" valign="bottom"><b>_toJSON</b> () const </td></tr>
-<tr class="separator:ac51f5eb7360890cac0593f93ac5718b8"><td class="memSeparator" colspan="2">&#160;</td></tr>
-</table><table class="memberdecls">
 <tr class="heading"><td colspan="2"><h2 class="groupheader"><a name="member-group"></a>
 Change Notifications</h2></td></tr>
-<tr class="memitem:a3bb5476aec0bf76b9e1e86cc60516d81"><td class="memItemLeft" align="right" valign="top">typedef std::function&lt; void() &gt;&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classservus_1_1_serializable.html#a3bb5476aec0bf76b9e1e86cc60516d81">ChangeFunc</a></td></tr>
-<tr class="memdesc:a3bb5476aec0bf76b9e1e86cc60516d81"><td class="mdescLeft">&#160;</td><td class="mdescRight">Function for change notification.  <a href="#a3bb5476aec0bf76b9e1e86cc60516d81">More...</a><br /></td></tr>
-<tr class="separator:a3bb5476aec0bf76b9e1e86cc60516d81"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a3a4e4f49ef5d6460111016f34b92dc3b"><td class="memItemLeft" align="right" valign="top"><a class="el" href="classservus_1_1_serializable.html#a3bb5476aec0bf76b9e1e86cc60516d81">ChangeFunc</a>&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classservus_1_1_serializable.html#a3a4e4f49ef5d6460111016f34b92dc3b">setUpdatedFunction</a> (const <a class="el" href="classservus_1_1_serializable.html#a3bb5476aec0bf76b9e1e86cc60516d81">ChangeFunc</a> &amp;func)</td></tr>
-<tr class="memdesc:a3a4e4f49ef5d6460111016f34b92dc3b"><td class="mdescLeft">&#160;</td><td class="mdescRight">Set a new function called after the object has been updated.  <a href="#a3a4e4f49ef5d6460111016f34b92dc3b">More...</a><br /></td></tr>
-<tr class="separator:a3a4e4f49ef5d6460111016f34b92dc3b"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:af4468b8780f993ad091a99fb77c8c90f"><td class="memItemLeft" align="right" valign="top"><a class="el" href="classservus_1_1_serializable.html#a3bb5476aec0bf76b9e1e86cc60516d81">ChangeFunc</a>&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classservus_1_1_serializable.html#af4468b8780f993ad091a99fb77c8c90f">setRequestedFunction</a> (const <a class="el" href="classservus_1_1_serializable.html#a3bb5476aec0bf76b9e1e86cc60516d81">ChangeFunc</a> &amp;func)</td></tr>
-<tr class="memdesc:af4468b8780f993ad091a99fb77c8c90f"><td class="mdescLeft">&#160;</td><td class="mdescRight">Set a new function called when a request has been received.  <a href="#af4468b8780f993ad091a99fb77c8c90f">More...</a><br /></td></tr>
-<tr class="separator:af4468b8780f993ad091a99fb77c8c90f"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:adde7f1969a559ed7030c0bd46eb8b79d"><td class="memItemLeft" align="right" valign="top"><a class="anchor" id="adde7f1969a559ed7030c0bd46eb8b79d"></a>
-void&#160;</td><td class="memItemRight" valign="bottom"><b>notifyUpdated</b> () const </td></tr>
-<tr class="separator:adde7f1969a559ed7030c0bd46eb8b79d"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a17e116e81dd1ade05266461d650afc79"><td class="memItemLeft" align="right" valign="top"><a class="anchor" id="a17e116e81dd1ade05266461d650afc79"></a>
-void&#160;</td><td class="memItemRight" valign="bottom"><b>notifyRequested</b> () const </td></tr>
-<tr class="separator:a17e116e81dd1ade05266461d650afc79"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:ab521b0997d87ae83ffdc3d28b22fae7e"><td class="memItemLeft" align="right" valign="top">typedef std::function&lt; void() &gt;&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classservus_1_1_serializable.html#ab521b0997d87ae83ffdc3d28b22fae7e">DeserializedCallback</a></td></tr>
+<tr class="memdesc:ab521b0997d87ae83ffdc3d28b22fae7e"><td class="mdescLeft">&#160;</td><td class="mdescRight">Callbacks for change notifications.  <a href="#ab521b0997d87ae83ffdc3d28b22fae7e">More...</a><br /></td></tr>
+<tr class="separator:ab521b0997d87ae83ffdc3d28b22fae7e"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:aa6733a136a71e7c88a795187bfcc557f"><td class="memItemLeft" align="right" valign="top"><a class="anchor" id="aa6733a136a71e7c88a795187bfcc557f"></a>
+typedef std::function&lt; void() &gt;&#160;</td><td class="memItemRight" valign="bottom"><b>SerializeCallback</b></td></tr>
+<tr class="separator:aa6733a136a71e7c88a795187bfcc557f"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:adf76c470db7a03ecddcc044601393b7c"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classservus_1_1_serializable.html#adf76c470db7a03ecddcc044601393b7c">registerDeserializedCallback</a> (const <a class="el" href="classservus_1_1_serializable.html#ab521b0997d87ae83ffdc3d28b22fae7e">DeserializedCallback</a> &amp;callback)</td></tr>
+<tr class="memdesc:adf76c470db7a03ecddcc044601393b7c"><td class="mdescLeft">&#160;</td><td class="mdescRight">Register a function called after the object has been updated remotely (via a subscriber, a http server, loading from file...).  <a href="#adf76c470db7a03ecddcc044601393b7c">More...</a><br /></td></tr>
+<tr class="separator:adf76c470db7a03ecddcc044601393b7c"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a4e89b420de3dbf0c4f3ac52e230d883d"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classservus_1_1_serializable.html#a4e89b420de3dbf0c4f3ac52e230d883d">registerSerializeCallback</a> (const SerializeCallback &amp;callback)</td></tr>
+<tr class="memdesc:a4e89b420de3dbf0c4f3ac52e230d883d"><td class="mdescLeft">&#160;</td><td class="mdescRight">Register a function to be called when the serializable object is about to be serialized.  <a href="#a4e89b420de3dbf0c4f3ac52e230d883d">More...</a><br /></td></tr>
+<tr class="separator:a4e89b420de3dbf0c4f3ac52e230d883d"><td class="memSeparator" colspan="2">&#160;</td></tr>
 </table>
 <a name="details" id="details"></a><h2 class="groupheader">Detailed Description</h2>
 <div class="textblock"><p>Interface for serializable objects. </p>
 
-<p>Definition at line <a class="el" href="serializable_8h_source.html#l00032">32</a> of file <a class="el" href="serializable_8h_source.html">serializable.h</a>.</p>
+<p>Definition at line <a class="el" href="serializable_8h_source.html#l00038">38</a> of file <a class="el" href="serializable_8h_source.html">serializable.h</a>.</p>
 </div><h2 class="groupheader">Member Typedef Documentation</h2>
-<a class="anchor" id="a3bb5476aec0bf76b9e1e86cc60516d81"></a>
+<a class="anchor" id="ab521b0997d87ae83ffdc3d28b22fae7e"></a>
 <div class="memitem">
 <div class="memproto">
       <table class="memname">
         <tr>
-          <td class="memname">typedef std::function&lt; void() &gt; <a class="el" href="classservus_1_1_serializable.html#a3bb5476aec0bf76b9e1e86cc60516d81">servus::Serializable::ChangeFunc</a></td>
+          <td class="memname">typedef std::function&lt; void() &gt; <a class="el" href="classservus_1_1_serializable.html#ab521b0997d87ae83ffdc3d28b22fae7e">servus::Serializable::DeserializedCallback</a></td>
         </tr>
       </table>
 </div><div class="memdoc">
 
-<p>Function for change notification. </p>
+<p>Callbacks for change notifications. </p>
 
-<p>Definition at line <a class="el" href="serializable_8h_source.html#l00085">85</a> of file <a class="el" href="serializable_8h_source.html">serializable.h</a>.</p>
+<p>Definition at line <a class="el" href="serializable_8h_source.html#l00098">98</a> of file <a class="el" href="serializable_8h_source.html">serializable.h</a>.</p>
 
 </div>
 </div>
@@ -216,9 +195,6 @@ void&#160;</td><td class="memItemRight" valign="bottom"><b>notifyRequested</b> (
 <a class="anchor" id="ad22a242cda7fab6d67a93755e8bdb7f1"></a>
 <div class="memitem">
 <div class="memproto">
-<table class="mlabels">
-  <tr>
-  <td class="mlabels-left">
       <table class="memname">
         <tr>
           <td class="memname">bool servus::Serializable::fromBinary </td>
@@ -228,28 +204,16 @@ void&#160;</td><td class="memItemRight" valign="bottom"><b>notifyRequested</b> (
           <td></td>
         </tr>
       </table>
-  </td>
-  <td class="mlabels-right">
-<span class="mlabels"><span class="mlabel">inline</span></span>  </td>
-  </tr>
-</table>
 </div><div class="memdoc">
 
 <p>Update this serializable from its binary representation. </p>
 <dl class="section return"><dt>Returns</dt><dd>true on success, false on error. </dd></dl>
-
-<p>Definition at line <a class="el" href="serializable_8h_source.html#l00057">57</a> of file <a class="el" href="serializable_8h_source.html">serializable.h</a>.</p>
-
-<p>References <a class="el" href="structservus_1_1_serializable_1_1_data.html#ae9999e67e09b83e634c9e0eded65d144">servus::Serializable::Data::ptr</a>, and <a class="el" href="structservus_1_1_serializable_1_1_data.html#a6c225f50408736b544f45984555cf004">servus::Serializable::Data::size</a>.</p>
 
 </div>
 </div>
 <a class="anchor" id="aa2dc11be817dd99bdff1a4dc3cd1d6c0"></a>
 <div class="memitem">
 <div class="memproto">
-<table class="mlabels">
-  <tr>
-  <td class="mlabels-left">
       <table class="memname">
         <tr>
           <td class="memname">bool servus::Serializable::fromJSON </td>
@@ -259,17 +223,10 @@ void&#160;</td><td class="memItemRight" valign="bottom"><b>notifyRequested</b> (
           <td></td>
         </tr>
       </table>
-  </td>
-  <td class="mlabels-right">
-<span class="mlabels"><span class="mlabel">inline</span></span>  </td>
-  </tr>
-</table>
 </div><div class="memdoc">
 
 <p>Update this serializable from its JSON representation. </p>
 <dl class="section return"><dt>Returns</dt><dd>true on success, false on error. </dd></dl>
-
-<p>Definition at line <a class="el" href="serializable_8h_source.html#l00076">76</a> of file <a class="el" href="serializable_8h_source.html">serializable.h</a>.</p>
 
 </div>
 </div>
@@ -321,50 +278,59 @@ void&#160;</td><td class="memItemRight" valign="bottom"><b>notifyRequested</b> (
 
 </div>
 </div>
-<a class="anchor" id="af4468b8780f993ad091a99fb77c8c90f"></a>
+<a class="anchor" id="adf76c470db7a03ecddcc044601393b7c"></a>
 <div class="memitem">
 <div class="memproto">
       <table class="memname">
         <tr>
-          <td class="memname"><a class="el" href="classservus_1_1_serializable.html#a3bb5476aec0bf76b9e1e86cc60516d81">ChangeFunc</a> servus::Serializable::setRequestedFunction </td>
+          <td class="memname">void servus::Serializable::registerDeserializedCallback </td>
           <td>(</td>
-          <td class="paramtype">const <a class="el" href="classservus_1_1_serializable.html#a3bb5476aec0bf76b9e1e86cc60516d81">ChangeFunc</a> &amp;&#160;</td>
-          <td class="paramname"><em>func</em></td><td>)</td>
+          <td class="paramtype">const <a class="el" href="classservus_1_1_serializable.html#ab521b0997d87ae83ffdc3d28b22fae7e">DeserializedCallback</a> &amp;&#160;</td>
+          <td class="paramname"><em>callback</em></td><td>)</td>
           <td></td>
         </tr>
       </table>
 </div><div class="memdoc">
 
-<p>Set a new function called when a request has been received. </p>
-<p>Invoked before the object is published. </p><dl class="section return"><dt>Returns</dt><dd>the previously set function. </dd></dl>
+<p>Register a function called after the object has been updated remotely (via a subscriber, a http server, loading from file...). </p>
+<p>Only one callback is supported at the moment, to deregister the callback, call this function with a 'nullptr' (or 0) parameter.</p>
+<dl class="exception"><dt>Exceptions</dt><dd>
+  <table class="exception">
+    <tr><td class="paramname">if</td><td>a DeserializedCallback is already registered and the specified callback is not 'nullptr' (or 0) </td></tr>
+  </table>
+  </dd>
+</dl>
 
 </div>
 </div>
-<a class="anchor" id="a3a4e4f49ef5d6460111016f34b92dc3b"></a>
+<a class="anchor" id="a4e89b420de3dbf0c4f3ac52e230d883d"></a>
 <div class="memitem">
 <div class="memproto">
       <table class="memname">
         <tr>
-          <td class="memname"><a class="el" href="classservus_1_1_serializable.html#a3bb5476aec0bf76b9e1e86cc60516d81">ChangeFunc</a> servus::Serializable::setUpdatedFunction </td>
+          <td class="memname">void servus::Serializable::registerSerializeCallback </td>
           <td>(</td>
-          <td class="paramtype">const <a class="el" href="classservus_1_1_serializable.html#a3bb5476aec0bf76b9e1e86cc60516d81">ChangeFunc</a> &amp;&#160;</td>
-          <td class="paramname"><em>func</em></td><td>)</td>
+          <td class="paramtype">const SerializeCallback &amp;&#160;</td>
+          <td class="paramname"><em>callback</em></td><td>)</td>
           <td></td>
         </tr>
       </table>
 </div><div class="memdoc">
 
-<p>Set a new function called after the object has been updated. </p>
-<dl class="section return"><dt>Returns</dt><dd>the previously set function. </dd></dl>
+<p>Register a function to be called when the serializable object is about to be serialized. </p>
+<p>Only one callback is supported at the moment, to deregister the callback, call this function with a 'nullptr' (or 0) parameter.</p>
+<dl class="exception"><dt>Exceptions</dt><dd>
+  <table class="exception">
+    <tr><td class="paramname">if</td><td>a SerializedCallback is already registered and the specified callback is not 'nullptr' (or 0) </td></tr>
+  </table>
+  </dd>
+</dl>
 
 </div>
 </div>
 <a class="anchor" id="a90e9c69a8b2df8038b47e99a0c35f66a"></a>
 <div class="memitem">
 <div class="memproto">
-<table class="mlabels">
-  <tr>
-  <td class="mlabels-left">
       <table class="memname">
         <tr>
           <td class="memname"><a class="el" href="structservus_1_1_serializable_1_1_data.html">Data</a> servus::Serializable::toBinary </td>
@@ -373,27 +339,17 @@ void&#160;</td><td class="memItemRight" valign="bottom"><b>notifyRequested</b> (
           <td> const</td>
         </tr>
       </table>
-  </td>
-  <td class="mlabels-right">
-<span class="mlabels"><span class="mlabel">inline</span></span>  </td>
-  </tr>
-</table>
 </div><div class="memdoc">
 
 <p>Get a binary representation of this object. </p>
 <p>The returned data is not thread safe, that is, it should not be modified until the caller of this method has completed its execution.</p>
 <dl class="section return"><dt>Returns</dt><dd>the binary representation of this object. </dd></dl>
 
-<p>Definition at line <a class="el" href="serializable_8h_source.html#l00070">70</a> of file <a class="el" href="serializable_8h_source.html">serializable.h</a>.</p>
-
 </div>
 </div>
 <a class="anchor" id="af87ccb0b463f144a4788b1645e293396"></a>
 <div class="memitem">
 <div class="memproto">
-<table class="mlabels">
-  <tr>
-  <td class="mlabels-left">
       <table class="memname">
         <tr>
           <td class="memname">std::string servus::Serializable::toJSON </td>
@@ -402,15 +358,8 @@ void&#160;</td><td class="memItemRight" valign="bottom"><b>notifyRequested</b> (
           <td> const</td>
         </tr>
       </table>
-  </td>
-  <td class="mlabels-right">
-<span class="mlabels"><span class="mlabel">inline</span></span>  </td>
-  </tr>
-</table>
 </div><div class="memdoc">
-<dl class="section return"><dt>Returns</dt><dd>the JSON representation of this object. </dd></dl>
-
-<p>Definition at line <a class="el" href="serializable_8h_source.html#l00079">79</a> of file <a class="el" href="serializable_8h_source.html">serializable.h</a>.</p>
+<dl class="section return"><dt>Returns</dt><dd>the JSON representation of this serializable. </dd></dl>
 
 </div>
 </div>
@@ -423,7 +372,7 @@ void&#160;</td><td class="memItemRight" valign="bottom"><b>notifyRequested</b> (
 <div id="nav-path" class="navpath"><!-- id is needed for treeview function! -->
   <ul>
     <li class="navelem"><b>servus</b></li><li class="navelem"><a class="el" href="classservus_1_1_serializable.html">Serializable</a></li>
-    <li class="footer">Generated on Tue Mar 29 2016 17:07:12 for Servus by
+    <li class="footer">Generated on Wed Jun 1 2016 15:12:27 for Servus by
     <a href="http://www.doxygen.org/index.html">
     <img class="footer" src="doxygen.png" alt="doxygen"/></a> 1.8.9.1 </li>
   </ul>

@@ -23,7 +23,5 @@ var searchData=
   ['servusqt_5fversion_5fpatch',['SERVUSQT_VERSION_PATCH',['../qt_2version_8h.html#a0ba39e3d7a02153db0ab980a8984aa30',1,'version.h']]],
   ['servusqt_5fversion_5frevision',['SERVUSQT_VERSION_REVISION',['../qt_2version_8h.html#a7b1a192f21028ea800d08d3b16277754',1,'version.h']]],
   ['set',['set',['../classservus_1_1_servus.html#a1523bc81a4e29aeb05604893fb532c5f',1,'servus::Servus']]],
-  ['setrequestedfunction',['setRequestedFunction',['../classservus_1_1_serializable.html#af4468b8780f993ad091a99fb77c8c90f',1,'servus::Serializable']]],
-  ['setupdatedfunction',['setUpdatedFunction',['../classservus_1_1_serializable.html#a3a4e4f49ef5d6460111016f34b92dc3b',1,'servus::Serializable']]],
   ['size',['size',['../structservus_1_1_serializable_1_1_data.html#a6c225f50408736b544f45984555cf004',1,'servus::Serializable::Data']]]
 ];

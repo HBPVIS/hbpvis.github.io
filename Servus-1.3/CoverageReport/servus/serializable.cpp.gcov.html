@@ -31,18 +31,18 @@
             <td class="headerValue">Servus</td>
             <td></td>
             <td class="headerItem">Lines:</td>
-            <td class="headerCovTableEntry">0</td>
-            <td class="headerCovTableEntry">18</td>
-            <td class="headerCovTableEntryLo">0.0 %</td>
+            <td class="headerCovTableEntry">37</td>
+            <td class="headerCovTableEntry">45</td>
+            <td class="headerCovTableEntryHi">82.2 %</td>
           </tr>
           <tr>
             <td class="headerItem">Date:</td>
-            <td class="headerValue">2016-03-29 17:07:36</td>
+            <td class="headerValue">2016-06-01 15:13:25</td>
             <td></td>
             <td class="headerItem">Functions:</td>
-            <td class="headerCovTableEntry">0</td>
-            <td class="headerCovTableEntry">5</td>
-            <td class="headerCovTableEntryLo">0.0 %</td>
+            <td class="headerCovTableEntry">12</td>
+            <td class="headerCovTableEntry">15</td>
+            <td class="headerCovTableEntryHi">80.0 %</td>
           </tr>
           <tr><td><img src="../glass.png" width=3 height=3 alt=""></td></tr>
         </table>
@@ -83,42 +83,101 @@
 <span class="lineNum">      21 </span>            : 
 <span class="lineNum">      22 </span>            : #include &quot;uint128_t.h&quot;
 <span class="lineNum">      23 </span>            : 
-<a name="24"><span class="lineNum">      24 </span>            : namespace servus</a>
-<span class="lineNum">      25 </span>            : {
-<span class="lineNum">      26 </span><span class="lineNoCov">          0 : uint128_t Serializable::getTypeIdentifier() const</span>
-<span class="lineNum">      27 </span>            : {
-<span class="lineNum">      28 </span><span class="lineNoCov">          0 :     return make_uint128( getTypeName( ));</span>
-<a name="29"><span class="lineNum">      29 </span>            : }</a>
-<span class="lineNum">      30 </span>            : 
-<span class="lineNum">      31 </span><span class="lineNoCov">          0 : Serializable::ChangeFunc Serializable::setUpdatedFunction(</span>
-<span class="lineNum">      32 </span>            :     const ChangeFunc&amp; func )
-<span class="lineNum">      33 </span>            : {
-<span class="lineNum">      34 </span><span class="lineNoCov">          0 :     const ChangeFunc old = _updated;</span>
-<span class="lineNum">      35 </span><span class="lineNoCov">          0 :     _updated = func;</span>
-<span class="lineNum">      36 </span><span class="lineNoCov">          0 :     return old;</span>
-<a name="37"><span class="lineNum">      37 </span>            : }</a>
-<span class="lineNum">      38 </span>            : 
-<span class="lineNum">      39 </span><span class="lineNoCov">          0 : Serializable::ChangeFunc Serializable::setRequestedFunction(</span>
-<span class="lineNum">      40 </span>            :     const ChangeFunc&amp; func )
-<span class="lineNum">      41 </span>            : {
-<span class="lineNum">      42 </span><span class="lineNoCov">          0 :     const ChangeFunc old = _requested;</span>
-<span class="lineNum">      43 </span><span class="lineNoCov">          0 :     _requested = func;</span>
-<span class="lineNum">      44 </span><span class="lineNoCov">          0 :     return old;</span>
-<a name="45"><span class="lineNum">      45 </span>            : }</a>
-<span class="lineNum">      46 </span>            : 
-<span class="lineNum">      47 </span><span class="lineNoCov">          0 : void Serializable::notifyUpdated() const</span>
-<span class="lineNum">      48 </span>            : {
-<span class="lineNum">      49 </span><span class="lineNoCov">          0 :     if( _updated )</span>
-<span class="lineNum">      50 </span><span class="lineNoCov">          0 :         _updated();</span>
-<a name="51"><span class="lineNum">      51 </span><span class="lineNoCov">          0 : }</span></a>
-<span class="lineNum">      52 </span>            : 
-<span class="lineNum">      53 </span><span class="lineNoCov">          0 : void Serializable::notifyRequested() const</span>
-<span class="lineNum">      54 </span>            : {
-<span class="lineNum">      55 </span><span class="lineNoCov">          0 :     if( _requested )</span>
-<span class="lineNum">      56 </span><span class="lineNoCov">          0 :         _requested();</span>
-<span class="lineNum">      57 </span><span class="lineNoCov">          0 : }</span>
-<span class="lineNum">      58 </span>            : 
-<span class="lineNum">      59 </span>            : }
+<span class="lineNum">      24 </span>            : namespace servus
+<a name="25"><span class="lineNum">      25 </span>            : {</a>
+<span class="lineNum">      26 </span>            : 
+<span class="lineNum">      27 </span><span class="lineCov">         10 : class Serializable::Impl</span>
+<a name="28"><span class="lineNum">      28 </span>            : {</a>
+<span class="lineNum">      29 </span>            : public:
+<span class="lineNum">      30 </span><span class="lineCov">          2 :     void notifyDeserialized() const</span>
+<span class="lineNum">      31 </span>            :     {
+<span class="lineNum">      32 </span><span class="lineCov">          2 :         if( deserialized )</span>
+<span class="lineNum">      33 </span><span class="lineNoCov">          0 :             deserialized();</span>
+<a name="34"><span class="lineNum">      34 </span><span class="lineCov">          2 :     }</span></a>
+<span class="lineNum">      35 </span>            : 
+<span class="lineNum">      36 </span><span class="lineCov">          2 :     void notifySerialize() const</span>
+<span class="lineNum">      37 </span>            :     {
+<span class="lineNum">      38 </span><span class="lineCov">          2 :         if( serialize )</span>
+<span class="lineNum">      39 </span><span class="lineNoCov">          0 :             serialize();</span>
+<span class="lineNum">      40 </span><span class="lineCov">          2 :     }</span>
+<span class="lineNum">      41 </span>            : 
+<span class="lineNum">      42 </span>            :     Serializable::DeserializedCallback deserialized;
+<span class="lineNum">      43 </span>            :     Serializable::SerializeCallback serialize;
+<a name="44"><span class="lineNum">      44 </span>            : };</a>
+<span class="lineNum">      45 </span>            : 
+<span class="lineNum">      46 </span><span class="lineCov">          5 : Serializable::Serializable()</span>
+<span class="lineNum">      47 </span><span class="lineCov">          5 :     : _impl( new Serializable::Impl( ))</span>
+<a name="48"><span class="lineNum">      48 </span><span class="lineCov">          5 : {}</span></a>
+<span class="lineNum">      49 </span>            : 
+<span class="lineNum">      50 </span><span class="lineCov">          5 : Serializable::~Serializable()</span>
+<span class="lineNum">      51 </span>            : {
+<span class="lineNum">      52 </span><span class="lineCov">          5 :     delete _impl;</span>
+<a name="53"><span class="lineNum">      53 </span><span class="lineCov">          5 : }</span></a>
+<span class="lineNum">      54 </span>            : 
+<span class="lineNum">      55 </span><span class="lineNoCov">          0 : uint128_t Serializable::getTypeIdentifier() const</span>
+<span class="lineNum">      56 </span>            : {
+<span class="lineNum">      57 </span><span class="lineNoCov">          0 :     return make_uint128( getTypeName( ));</span>
+<a name="58"><span class="lineNum">      58 </span>            : }</a>
+<span class="lineNum">      59 </span>            : 
+<span class="lineNum">      60 </span><span class="lineNoCov">          0 : bool Serializable::fromBinary( const Data&amp; data )</span>
+<span class="lineNum">      61 </span>            : {
+<span class="lineNum">      62 </span><span class="lineNoCov">          0 :     return fromBinary( data.ptr.get(), data.size );</span>
+<a name="63"><span class="lineNum">      63 </span>            : }</a>
+<span class="lineNum">      64 </span>            : 
+<span class="lineNum">      65 </span><span class="lineCov">          1 : bool Serializable::fromBinary( const void* data, const size_t size )</span>
+<span class="lineNum">      66 </span>            : {
+<span class="lineNum">      67 </span><span class="lineCov">          1 :     if( _fromBinary( data, size ))</span>
+<span class="lineNum">      68 </span>            :     {
+<span class="lineNum">      69 </span><span class="lineCov">          1 :         _impl-&gt;notifyDeserialized();</span>
+<span class="lineNum">      70 </span><span class="lineCov">          1 :         return true;</span>
+<span class="lineNum">      71 </span>            :     }
+<span class="lineNum">      72 </span><span class="lineNoCov">          0 :     return false;</span>
+<a name="73"><span class="lineNum">      73 </span>            : }</a>
+<span class="lineNum">      74 </span>            : 
+<span class="lineNum">      75 </span><span class="lineCov">          1 : Serializable::Data Serializable::toBinary() const</span>
+<span class="lineNum">      76 </span>            : {
+<span class="lineNum">      77 </span><span class="lineCov">          1 :     _impl-&gt;notifySerialize();</span>
+<span class="lineNum">      78 </span><span class="lineCov">          1 :     return _toBinary();</span>
+<a name="79"><span class="lineNum">      79 </span>            : }</a>
+<span class="lineNum">      80 </span>            : 
+<span class="lineNum">      81 </span><span class="lineCov">          1 : bool Serializable::fromJSON( const std::string&amp; json )</span>
+<span class="lineNum">      82 </span>            : {
+<span class="lineNum">      83 </span><span class="lineCov">          1 :     if( _fromJSON( json ))</span>
+<span class="lineNum">      84 </span>            :     {
+<span class="lineNum">      85 </span><span class="lineCov">          1 :         _impl-&gt;notifyDeserialized();</span>
+<span class="lineNum">      86 </span><span class="lineCov">          1 :         return true;</span>
+<span class="lineNum">      87 </span>            :     }
+<span class="lineNum">      88 </span><span class="lineNoCov">          0 :     return false;</span>
+<a name="89"><span class="lineNum">      89 </span>            : }</a>
+<span class="lineNum">      90 </span>            : 
+<span class="lineNum">      91 </span><span class="lineCov">          1 : std::string Serializable::toJSON() const</span>
+<span class="lineNum">      92 </span>            : {
+<span class="lineNum">      93 </span><span class="lineCov">          1 :     _impl-&gt;notifySerialize();</span>
+<span class="lineNum">      94 </span><span class="lineCov">          1 :     return _toJSON();</span>
+<a name="95"><span class="lineNum">      95 </span>            : }</a>
+<span class="lineNum">      96 </span>            : 
+<span class="lineNum">      97 </span><span class="lineCov">          5 : void Serializable::registerDeserializedCallback(</span>
+<span class="lineNum">      98 </span>            :         const DeserializedCallback&amp; callback )
+<span class="lineNum">      99 </span>            : {
+<span class="lineNum">     100 </span><span class="lineCov">          5 :     if( _impl-&gt;deserialized &amp;&amp; callback )</span>
+<span class="lineNum">     101 </span>            :         throw( std::runtime_error(
+<span class="lineNum">     102 </span>            :                 &quot;A DeserializedCallback is already registered. &quot;
+<span class="lineNum">     103 </span><span class="lineCov">          2 :                 &quot;Only one is supported at the moment&quot; ));</span>
+<span class="lineNum">     104 </span>            : 
+<span class="lineNum">     105 </span><span class="lineCov">          3 :     _impl-&gt;deserialized = callback;</span>
+<a name="106"><span class="lineNum">     106 </span><span class="lineCov">          3 : }</span></a>
+<span class="lineNum">     107 </span>            : 
+<span class="lineNum">     108 </span><span class="lineCov">          5 : void Serializable::registerSerializeCallback(</span>
+<span class="lineNum">     109 </span>            :         const SerializeCallback&amp; callback )
+<span class="lineNum">     110 </span>            : {
+<span class="lineNum">     111 </span><span class="lineCov">          5 :     if( _impl-&gt;serialize &amp;&amp; callback )</span>
+<span class="lineNum">     112 </span>            :         throw( std::runtime_error( &quot;A SerializeCallback is already registered. &quot;
+<span class="lineNum">     113 </span><span class="lineCov">          2 :                                    &quot;Only one is supported at the moment&quot; ));</span>
+<span class="lineNum">     114 </span>            : 
+<span class="lineNum">     115 </span><span class="lineCov">          3 :     _impl-&gt;serialize = callback;</span>
+<span class="lineNum">     116 </span><span class="lineCov">          3 : }</span>
+<span class="lineNum">     117 </span>            : 
+<span class="lineNum">     118 </span>            : }
 </pre>
       </td>
     </tr>

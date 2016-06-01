@@ -37,7 +37,7 @@
           </tr>
           <tr>
             <td class="headerItem">Date:</td>
-            <td class="headerValue">2016-03-29 17:07:36</td>
+            <td class="headerValue">2016-06-01 15:13:25</td>
             <td></td>
             <td class="headerItem">Functions:</td>
             <td class="headerCovTableEntry">22</td>
@@ -90,7 +90,7 @@
 <span class="lineNum">      28 </span>            : 
 <span class="lineNum">      29 </span>            : #include &lt;cassert&gt;
 <span class="lineNum">      30 </span>            : 
-<span class="lineNum">      31 </span>            : #ifdef COMMON_USE_CXX03
+<span class="lineNum">      31 </span>            : #ifdef SERVUS_USE_CXX03
 <span class="lineNum">      32 </span>            : #  include &lt;boost/chrono.hpp&gt;
 <span class="lineNum">      33 </span>            : #  include &lt;boost/thread/mutex.hpp&gt;
 <span class="lineNum">      34 </span>            :     using boost::mutex;
@@ -111,12 +111,12 @@
 <span class="lineNum">      49 </span>            : {
 <a name="50"><span class="lineNum">      50 </span>            : static mutex _mutex;</a>
 <span class="lineNum">      51 </span>            : 
-<span class="lineNum">      52 </span><span class="lineCov">         93 : int64_t _elapsedMilliseconds(</span>
+<span class="lineNum">      52 </span><span class="lineCov">        208 : int64_t _elapsedMilliseconds(</span>
 <span class="lineNum">      53 </span>            :     const chrono::high_resolution_clock::time_point&amp; startTime )
 <span class="lineNum">      54 </span>            : {
 <span class="lineNum">      55 </span>            :     const chrono::high_resolution_clock::time_point&amp; endTime =
-<span class="lineNum">      56 </span><span class="lineCov">         93 :         chrono::high_resolution_clock::now();</span>
-<span class="lineNum">      57 </span><span class="lineCov">         93 :     return chrono::nanoseconds( endTime - startTime ).count() / 1000000;</span>
+<span class="lineNum">      56 </span><span class="lineCov">        208 :         chrono::high_resolution_clock::now();</span>
+<span class="lineNum">      57 </span><span class="lineCov">        208 :     return chrono::nanoseconds( endTime - startTime ).count() / 1000000;</span>
 <span class="lineNum">      58 </span>            : }
 <span class="lineNum">      59 </span>            : 
 <span class="lineNum">      60 </span>            : }
@@ -251,15 +251,15 @@
 <span class="lineNum">     189 </span>            :         const chrono::high_resolution_clock::time_point&amp; startTime =
 <span class="lineNum">     190 </span><span class="lineCov">         38 :             chrono::high_resolution_clock::now();</span>
 <span class="lineNum">     191 </span>            : 
-<span class="lineNum">     192 </span><span class="lineCov">         93 :         do</span>
+<span class="lineNum">     192 </span><span class="lineCov">        208 :         do</span>
 <span class="lineNum">     193 </span>            :         {
-<span class="lineNum">     194 </span><span class="lineCov">         93 :             if( avahi_simple_poll_iterate( _poll, timeout ) != 0 )</span>
+<span class="lineNum">     194 </span><span class="lineCov">        208 :             if( avahi_simple_poll_iterate( _poll, timeout ) != 0 )</span>
 <span class="lineNum">     195 </span>            :             {
 <span class="lineNum">     196 </span><span class="lineNoCov">          0 :                 _result = servus::Servus::Result::POLL_ERROR;</span>
 <span class="lineNum">     197 </span><span class="lineNoCov">          0 :                 break;</span>
 <span class="lineNum">     198 </span>            :             }
 <span class="lineNum">     199 </span>            :         }
-<span class="lineNum">     200 </span><span class="lineCov">         93 :         while( _elapsedMilliseconds( startTime ) &lt; timeout );</span>
+<span class="lineNum">     200 </span><span class="lineCov">        208 :         while( _elapsedMilliseconds( startTime ) &lt; timeout );</span>
 <span class="lineNum">     201 </span>            : 
 <span class="lineNum">     202 </span><span class="lineCov">         38 :         if( _result != servus::Servus::Result::POLL_ERROR )</span>
 <span class="lineNum">     203 </span><span class="lineCov">         38 :             _result = servus::Servus::Result::SUCCESS;</span>
