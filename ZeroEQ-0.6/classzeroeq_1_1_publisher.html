@@ -215,8 +215,6 @@ std::string&#160;</td><td class="memItemRight" valign="bottom"><b>getAddress</b>
 <div class="line">    BOOST_CHECK( publisher.publish( echo.getTypeIdentifier(),</div>
 <div class="line">                                    echo.toBinary().ptr.get(),</div>
 <div class="line">                                    echo.toBinary().size ));</div>
-<div class="line">    BOOST_CHECK( publisher.publish(</div>
-<div class="line">                     *::test::getFBEchoOutEvent( ::test::echoMessage )));</div>
 <div class="line">}</div>
 <div class="line"></div>
 <div class="line">BOOST_AUTO_TEST_CASE(publish_update_uri)</div>
@@ -226,8 +224,6 @@ std::string&#160;</td><td class="memItemRight" valign="bottom"><b>getAddress</b>
 <div class="line">    BOOST_CHECK_MESSAGE( uri.getPort() != 0, uri );</div>
 <div class="line">    BOOST_CHECK_MESSAGE( !uri.getHost().empty(), uri );</div>
 <div class="line">    BOOST_CHECK( publisher.publish( test::Echo( test::echoMessage )));</div>
-<div class="line">    BOOST_CHECK( publisher.publish(</div>
-<div class="line">                     *::test::getFBEchoOutEvent( ::test::echoMessage )));</div>
 <div class="line">}</div>
 <div class="line"></div>
 <div class="line">BOOST_AUTO_TEST_CASE(publish_empty_event)</div>
@@ -235,8 +231,6 @@ std::string&#160;</td><td class="memItemRight" valign="bottom"><b>getAddress</b>
 <div class="line">    <a class="code" href="classzeroeq_1_1_publisher.html">zeroeq::Publisher</a> publisher( zeroeq::NULL_SESSION );</div>
 <div class="line">    BOOST_CHECK( publisher.publish( test::Empty( )));</div>
 <div class="line">    BOOST_CHECK( publisher.publish( zeroeq::make_uint128( <span class="stringliteral">&quot;Empty&quot;</span> )));</div>
-<div class="line">    BOOST_CHECK( publisher.publish(</div>
-<div class="line">                      *::test::getFBEchoInEvent( ::zeroeq::FBEventFunc( ))));</div>
 <div class="line">}</div>
 <div class="line"></div>
 <div class="line">BOOST_AUTO_TEST_CASE(multiple_publisher_on_same_host)</div>
@@ -645,7 +639,7 @@ std::string&#160;</td><td class="memItemRight" valign="bottom"><b>getAddress</b>
 <div id="nav-path" class="navpath"><!-- id is needed for treeview function! -->
   <ul>
     <li class="navelem"><a class="el" href="namespacezeroeq.html">zeroeq</a></li><li class="navelem"><a class="el" href="classzeroeq_1_1_publisher.html">Publisher</a></li>
-    <li class="footer">Generated on Wed Jun 1 2016 16:07:22 for ZeroEQ by
+    <li class="footer">Generated on Tue Jun 7 2016 01:35:03 for ZeroEQ by
     <a href="http://www.doxygen.org/index.html">
     <img class="footer" src="doxygen.png" alt="doxygen"/></a> 1.8.9.1 </li>
   </ul>

@@ -229,12 +229,10 @@ void *&#160;</td><td class="memItemRight" valign="bottom"><b>getZMQContext</b> (
 <div class="line">    <span class="keywordtype">void</span> run()</div>
 <div class="line">    {</div>
 <div class="line">        <a class="code" href="classzeroeq_1_1_subscriber.html">zeroeq::Subscriber</a> subscriber( test::buildURI( <span class="stringliteral">&quot;127.0.0.1&quot;</span>, *_publisher ));</div>
-<div class="line">        ::test::SerializablePtr echoEvent = ::test::getFBEchoInEvent(</div>
-<div class="line">                    [<span class="keyword">this</span>]( <span class="keyword">const</span> zeroeq::FBEvent&amp; event )</div>
-<div class="line">                    { test::onEchoEvent( event );</div>
-<div class="line">                      received = <span class="keyword">true</span>; });</div>
 <div class="line"></div>
-<div class="line">        BOOST_CHECK( subscriber.<a class="code" href="classzeroeq_1_1_subscriber.html#aeb6a4dacf8cba7a4e9475f224cd5924c">subscribe</a>( *echoEvent ));</div>
+<div class="line">        BOOST_CHECK( subscriber.<a class="code" href="classzeroeq_1_1_subscriber.html#aeb6a4dacf8cba7a4e9475f224cd5924c">subscribe</a>( test::Echo::IDENTIFIER(),</div>
+<div class="line">             <a class="code" href="namespacezeroeq.html#a35175c71f3908d8dd4c7ff6c1eb39b54">zeroeq::EventPayloadFunc</a>([&amp;]( <span class="keyword">const</span> <span class="keywordtype">void</span>* data, <span class="keyword">const</span> <span class="keywordtype">size_t</span> size )</div>
+<div class="line">             { test::onEchoEvent( data, size ); received = true; }) ));</div>
 <div class="line"></div>
 <div class="line">        <span class="comment">// Using the connection broker in place of zeroconf</span></div>
 <div class="line">        BrokerPtr broker = createBroker( subscriber );</div>
@@ -307,15 +305,12 @@ void *&#160;</td><td class="memItemRight" valign="bottom"><b>getZMQContext</b> (
 <div class="line">    BOOST_CHECK( <a class="code" href="classzeroeq_1_1connection_1_1_service.html#a99d7934e79ef86b382d92a5d87799a1c">zeroeq::connection::Service::subscribe</a>( _broker, publisher ));</div>
 <div class="line">    <span class="keywordflow">for</span>( <span class="keywordtype">size_t</span> i = 0; i &lt; 100 &amp;&amp; !subscriber.received; ++i )</div>
 <div class="line">    {</div>
-<div class="line">        BOOST_CHECK( publisher.<a class="code" href="classzeroeq_1_1_publisher.html#a0b630f6cb6176fc697b516f531d9cf54">publish</a>(</div>
-<div class="line">                         *::test::getFBEchoOutEvent( ::test::echoMessage )));</div>
+<div class="line">        BOOST_CHECK( publisher.<a class="code" href="classzeroeq_1_1_publisher.html#a0b630f6cb6176fc697b516f531d9cf54">publish</a>( test::Echo( test::echoMessage )));</div>
 <div class="line">        std::this_thread::sleep_for( std::chrono::milliseconds( 100 ));</div>
 <div class="line">    }</div>
 <div class="line"></div>
 <div class="line">    thread.join();</div>
-<div class="line"><span class="preprocessor">#ifdef ZEROEQ_USE_FLATBUFFERS</span></div>
 <div class="line">    BOOST_CHECK( subscriber.received );</div>
-<div class="line"><span class="preprocessor">#endif</span></div>
 <div class="line">    _publisher = 0;</div>
 <div class="line">}</div>
 <div class="line"></div>
@@ -370,16 +365,13 @@ void *&#160;</td><td class="memItemRight" valign="bottom"><b>getZMQContext</b> (
 <div class="line"></div>
 <div class="line">    <span class="keywordflow">for</span>( <span class="keywordtype">size_t</span> i = 0; i &lt; 100 &amp;&amp; !subscriber1.received; ++i )</div>
 <div class="line">    {</div>
-<div class="line">        BOOST_CHECK( publisher.<a class="code" href="classzeroeq_1_1_publisher.html#a0b630f6cb6176fc697b516f531d9cf54">publish</a>(</div>
-<div class="line">                         *::test::getFBEchoOutEvent( ::test::echoMessage )));</div>
+<div class="line">        BOOST_CHECK( publisher.<a class="code" href="classzeroeq_1_1_publisher.html#a0b630f6cb6176fc697b516f531d9cf54">publish</a>( test::Echo( test::echoMessage )));</div>
 <div class="line">        std::this_thread::sleep_for( std::chrono::milliseconds( 100 ));</div>
 <div class="line">    }</div>
 <div class="line"></div>
 <div class="line">    thread2.join();</div>
 <div class="line">    thread1.join();</div>
-<div class="line"><span class="preprocessor">#ifdef ZEROEQ_USE_FLATBUFFERS</span></div>
 <div class="line">    BOOST_CHECK( subscriber1.received );</div>
-<div class="line"><span class="preprocessor">#endif</span></div>
 <div class="line">    _publisher = 0;</div>
 <div class="line">}</div>
 <div class="line"></div>
@@ -577,7 +569,7 @@ void *&#160;</td><td class="memItemRight" valign="bottom"><b>getZMQContext</b> (
 <div id="nav-path" class="navpath"><!-- id is needed for treeview function! -->
   <ul>
     <li class="navelem"><a class="el" href="namespacezeroeq.html">zeroeq</a></li><li class="navelem"><a class="el" href="namespacezeroeq_1_1connection.html">connection</a></li><li class="navelem"><a class="el" href="classzeroeq_1_1connection_1_1_broker.html">Broker</a></li>
-    <li class="footer">Generated on Wed Jun 1 2016 16:07:23 for ZeroEQ by
+    <li class="footer">Generated on Tue Jun 7 2016 01:35:03 for ZeroEQ by
     <a href="http://www.doxygen.org/index.html">
     <img class="footer" src="doxygen.png" alt="doxygen"/></a> 1.8.9.1 </li>
   </ul>

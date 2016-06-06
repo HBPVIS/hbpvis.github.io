@@ -224,10 +224,6 @@ void *&#160;</td><td class="memItemRight" valign="bottom"><b>getZMQContext</b> (
 <div class="line"></div>
 <div class="line"><span class="preprocessor">#include &lt;servus/servus.h&gt;</span></div>
 <div class="line"></div>
-<div class="line"><span class="preprocessor">#ifdef ZEROEQ_USE_FLATBUFFERS</span></div>
-<div class="line"><span class="keyword">using namespace </span>zeroeq::vocabulary;</div>
-<div class="line"><span class="preprocessor">#endif</span></div>
-<div class="line"></div>
 <div class="line">BOOST_AUTO_TEST_CASE(construction)</div>
 <div class="line">{</div>
 <div class="line">    BOOST_CHECK_NO_THROW( <a class="code" href="classzeroeq_1_1_subscriber.html">zeroeq::Subscriber</a>( ));</div>
@@ -279,13 +275,8 @@ void *&#160;</td><td class="memItemRight" valign="bottom"><b>getZMQContext</b> (
 <div class="line">BOOST_AUTO_TEST_CASE(<a class="code" href="classzeroeq_1_1_subscriber.html#aeb6a4dacf8cba7a4e9475f224cd5924c">subscribe</a>)</div>
 <div class="line">{</div>
 <div class="line">    <a class="code" href="classzeroeq_1_1_subscriber.html">zeroeq::Subscriber</a> subscriber;</div>
-<div class="line"><span class="preprocessor">#ifdef ZEROEQ_USE_FLATBUFFERS</span></div>
-<div class="line">    ::test::SerializablePtr echoEvent = ::test::getFBEchoInEvent(</div>
-<div class="line">                    std::bind( &amp;test::onEchoEvent, std::placeholders::_1 ));</div>
-<div class="line">    BOOST_CHECK( subscriber.<a class="code" href="classzeroeq_1_1_subscriber.html#aeb6a4dacf8cba7a4e9475f224cd5924c">subscribe</a>( *echoEvent ));</div>
-<div class="line"><span class="preprocessor">#endif</span></div>
-<div class="line"></div>
 <div class="line">    test::Echo echo;</div>
+<div class="line"></div>
 <div class="line">    BOOST_CHECK( subscriber.<a class="code" href="classzeroeq_1_1_subscriber.html#aeb6a4dacf8cba7a4e9475f224cd5924c">subscribe</a>( echo ));</div>
 <div class="line"></div>
 <div class="line">    BOOST_CHECK( subscriber.<a class="code" href="classzeroeq_1_1_subscriber.html#aeb6a4dacf8cba7a4e9475f224cd5924c">subscribe</a>( zeroeq::make_uint128( <span class="stringliteral">&quot;Empty&quot;</span> ),</div>
@@ -297,10 +288,6 @@ void *&#160;</td><td class="memItemRight" valign="bottom"><b>getZMQContext</b> (
 <div class="line">BOOST_AUTO_TEST_CASE(<a class="code" href="classzeroeq_1_1_subscriber.html#a896a51a1d6a83e8c945eed8c7007e1d9">unsubscribe</a>)</div>
 <div class="line">{</div>
 <div class="line">    <a class="code" href="classzeroeq_1_1_subscriber.html">zeroeq::Subscriber</a> subscriber;</div>
-<div class="line">    ::test::SerializablePtr echoEvent = ::test::getFBEchoInEvent(</div>
-<div class="line">                    std::bind( &amp;test::onEchoEvent, std::placeholders::_1 ));</div>
-<div class="line">    BOOST_CHECK( subscriber.<a class="code" href="classzeroeq_1_1_subscriber.html#aeb6a4dacf8cba7a4e9475f224cd5924c">subscribe</a>( *echoEvent ));</div>
-<div class="line">    BOOST_CHECK( subscriber.<a class="code" href="classzeroeq_1_1_subscriber.html#a896a51a1d6a83e8c945eed8c7007e1d9">unsubscribe</a>( *echoEvent ));</div>
 <div class="line"></div>
 <div class="line">    test::Echo echo;</div>
 <div class="line">    BOOST_CHECK( subscriber.<a class="code" href="classzeroeq_1_1_subscriber.html#aeb6a4dacf8cba7a4e9475f224cd5924c">subscribe</a>( echo ));</div>
@@ -318,13 +305,6 @@ void *&#160;</td><td class="memItemRight" valign="bottom"><b>getZMQContext</b> (
 <div class="line">BOOST_AUTO_TEST_CASE(invalid_subscribe)</div>
 <div class="line">{</div>
 <div class="line">    <a class="code" href="classzeroeq_1_1_subscriber.html">zeroeq::Subscriber</a> subscriber;</div>
-<div class="line"></div>
-<div class="line"><span class="preprocessor">#ifdef ZEROEQ_USE_FLATBUFFERS</span></div>
-<div class="line">    ::test::SerializablePtr echoEvent =</div>
-<div class="line">            ::test::getFBEchoInEvent( ::zeroeq::FBEventFunc( ));</div>
-<div class="line">    BOOST_CHECK( subscriber.<a class="code" href="classzeroeq_1_1_subscriber.html#aeb6a4dacf8cba7a4e9475f224cd5924c">subscribe</a>( *echoEvent ));</div>
-<div class="line">    BOOST_CHECK( !subscriber.<a class="code" href="classzeroeq_1_1_subscriber.html#aeb6a4dacf8cba7a4e9475f224cd5924c">subscribe</a>( *echoEvent ));</div>
-<div class="line"><span class="preprocessor">#endif</span></div>
 <div class="line"></div>
 <div class="line">    test::Echo echo;</div>
 <div class="line">    BOOST_CHECK( subscriber.<a class="code" href="classzeroeq_1_1_subscriber.html#aeb6a4dacf8cba7a4e9475f224cd5924c">subscribe</a>( echo ));</div>
@@ -346,20 +326,15 @@ void *&#160;</td><td class="memItemRight" valign="bottom"><b>getZMQContext</b> (
 <div class="line">    BOOST_CHECK( !subscriber.<a class="code" href="classzeroeq_1_1_subscriber.html#a896a51a1d6a83e8c945eed8c7007e1d9">unsubscribe</a>( echo ));</div>
 <div class="line">}</div>
 <div class="line"></div>
-<div class="line"></div>
 <div class="line">BOOST_AUTO_TEST_CASE(test_invalid_unsubscribe_different_event_objects)</div>
 <div class="line">{</div>
 <div class="line">    <a class="code" href="classzeroeq_1_1_subscriber.html">zeroeq::Subscriber</a> subscriber;</div>
-<div class="line">    ::test::SerializablePtr echoEvent =</div>
-<div class="line">            ::test::getFBEchoInEvent( ::zeroeq::FBEventFunc( ));</div>
 <div class="line"></div>
-<div class="line">    ::test::SerializablePtr emptyEvent =</div>
-<div class="line">            ::test::getFBEmptyInEvent( ::zeroeq::FBEventFunc( ));</div>
-<div class="line"></div>
-<div class="line">    BOOST_CHECK( subscriber.<a class="code" href="classzeroeq_1_1_subscriber.html#aeb6a4dacf8cba7a4e9475f224cd5924c">subscribe</a>( *echoEvent ));</div>
-<div class="line">    BOOST_CHECK( !subscriber.<a class="code" href="classzeroeq_1_1_subscriber.html#a896a51a1d6a83e8c945eed8c7007e1d9">unsubscribe</a>( *emptyEvent ));</div>
+<div class="line">    test::Echo echo;</div>
+<div class="line">    test::Empty empty;</div>
+<div class="line">    BOOST_CHECK( subscriber.<a class="code" href="classzeroeq_1_1_subscriber.html#aeb6a4dacf8cba7a4e9475f224cd5924c">subscribe</a>( echo ));</div>
+<div class="line">    BOOST_CHECK( !subscriber.<a class="code" href="classzeroeq_1_1_subscriber.html#a896a51a1d6a83e8c945eed8c7007e1d9">unsubscribe</a>( empty ));</div>
 <div class="line">}</div>
-<div class="line"></div>
 <div class="line"></div>
 <div class="line">BOOST_AUTO_TEST_CASE(not_implemented_servus)</div>
 <div class="line">{</div>
@@ -367,7 +342,8 @@ void *&#160;</td><td class="memItemRight" valign="bottom"><b>getZMQContext</b> (
 <div class="line">        <span class="keywordflow">return</span>;</div>
 <div class="line"></div>
 <div class="line">    <span class="keyword">const</span> <a class="code" href="classzeroeq_1_1_u_r_i.html">zeroeq::URI</a> uri( test::buildUniqueSession( ));</div>
-<div class="line">    BOOST_CHECK_THROW( <a class="code" href="classzeroeq_1_1_subscriber.html">zeroeq::Subscriber</a> subscriber( uri ), std::runtime_error );</div>
+<div class="line">    BOOST_CHECK_THROW( <a class="code" href="classzeroeq_1_1_subscriber.html">zeroeq::Subscriber</a> subscriber( uri ),</div>
+<div class="line">                       std::runtime_error );</div>
 <div class="line">}</div>
 </div><!-- fragment --> 
 <p>Definition at line <a class="el" href="subscriber_8h_source.html#l00033">33</a> of file <a class="el" href="subscriber_8h_source.html">subscriber.h</a>.</p>
@@ -837,7 +813,7 @@ void *&#160;</td><td class="memItemRight" valign="bottom"><b>getZMQContext</b> (
 <div id="nav-path" class="navpath"><!-- id is needed for treeview function! -->
   <ul>
     <li class="navelem"><a class="el" href="namespacezeroeq.html">zeroeq</a></li><li class="navelem"><a class="el" href="classzeroeq_1_1_subscriber.html">Subscriber</a></li>
-    <li class="footer">Generated on Wed Jun 1 2016 16:07:23 for ZeroEQ by
+    <li class="footer">Generated on Tue Jun 7 2016 01:35:03 for ZeroEQ by
     <a href="http://www.doxygen.org/index.html">
     <img class="footer" src="doxygen.png" alt="doxygen"/></a> 1.8.9.1 </li>
   </ul>
