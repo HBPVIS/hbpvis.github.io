@@ -18,6 +18,10 @@
         <Path>httpserver.html</Path>
        </Node>
        <Node>
+        <Name>Landing page for http::Server</Name>
+        <Path>md__jenkins_03_workspace_oss_8_zero_e_q_8documentation_build_type__debug_platform_cscsviz-vm_sources_doc_feature_index.html</Path>
+       </Node>
+       <Node>
         <Name>Sessions filtering and management port</Name>
         <Path>_sessions.html</Path>
        </Node>
