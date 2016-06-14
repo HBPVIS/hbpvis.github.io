@@ -257,16 +257,14 @@ Friends</h2></td></tr>
 <div class="line"><span class="preprocessor">#endif</span></div>
 <div class="line"></div>
 <div class="line"><span class="preprocessor">#ifdef _MSC_VER</span></div>
-<div class="line"><span class="preprocessor">#  define sleep Sleep</span></div>
+<div class="line"><span class="preprocessor">#  include &lt;windows.h&gt;</span></div>
+<div class="line"><span class="preprocessor">#  define _sleep Sleep</span></div>
+<div class="line"><span class="preprocessor">#else</span></div>
+<div class="line"><span class="preprocessor">#  define _sleep ::sleep</span></div>
 <div class="line"><span class="preprocessor">#endif</span></div>
 <div class="line"></div>
-<div class="line"><span class="keyword">static</span> <span class="keywordtype">int</span> _getPropagationTime()</div>
-<div class="line">{</div>
-<div class="line">    <span class="keywordflow">if</span>( getenv( <span class="stringliteral">&quot;TRAVIS&quot;</span> ))</div>
-<div class="line">        <span class="keywordflow">return</span> 4;</div>
-<div class="line">    <span class="keywordflow">return</span> 1;</div>
-<div class="line">}</div>
-<div class="line"><span class="keyword">static</span> <span class="keyword">const</span> <span class="keywordtype">int</span> _propagationTime = _getPropagationTime();</div>
+<div class="line"><span class="keyword">static</span> <span class="keyword">const</span> <span class="keywordtype">int</span> _propagationTime = 1000;</div>
+<div class="line"><span class="keyword">static</span> <span class="keyword">const</span> <span class="keywordtype">int</span> _propagationTries = 10;</div>
 <div class="line"></div>
 <div class="line">uint16_t getRandomPort()</div>
 <div class="line">{</div>
@@ -340,31 +338,49 @@ Friends</h2></td></tr>
 <div class="line">    BOOST_CHECK_EQUAL( service.get( <span class="stringliteral">&quot;bar&quot;</span> ), std::string( ));</div>
 <div class="line">    BOOST_CHECK( service.announce( port, toString( port )));</div>
 <div class="line"></div>
-<div class="line">    servus::Strings hosts = service.discover( <a class="code" href="classservus_1_1_servus.html#a5001a7c3e7b1c263554ba5a862fb4c70a3be4617e17be4b39066bf5170cf9858f">servus::Servus::IF_LOCAL</a>,</div>
-<div class="line">                                              _propagationTime * 1000 );</div>
-<div class="line">    <span class="keywordflow">if</span>( hosts.empty() &amp;&amp; getenv( <span class="stringliteral">&quot;TRAVIS&quot;</span> ))</div>
+<div class="line">    <span class="keywordtype">int</span> nLoops = _propagationTries;</div>
+<div class="line">    <span class="keywordflow">while</span>( --nLoops )</div>
 <div class="line">    {</div>
-<div class="line">        std::cerr &lt;&lt; <span class="stringliteral">&quot;Bailing, got no hosts on a Travis CI setup&quot;</span> &lt;&lt; std::endl;</div>
-<div class="line">        <span class="keywordflow">return</span>;</div>
-<div class="line">    }</div>
+<div class="line">        <span class="keyword">const</span> servus::Strings&amp; hosts =</div>
+<div class="line">            service.discover( <a class="code" href="classservus_1_1_servus.html#a5001a7c3e7b1c263554ba5a862fb4c70a3be4617e17be4b39066bf5170cf9858f">servus::Servus::IF_LOCAL</a>, _propagationTime );</div>
+<div class="line">        <span class="keywordflow">if</span>( hosts.empty() &amp;&amp; nLoops &gt; 1 )</div>
+<div class="line">        {</div>
+<div class="line">            <span class="keywordflow">if</span>( getenv( <span class="stringliteral">&quot;TRAVIS&quot;</span> ))</div>
+<div class="line">            {</div>
+<div class="line">                std::cerr &lt;&lt; <span class="stringliteral">&quot;Bailing, got no hosts on a Travis CI setup&quot;</span></div>
+<div class="line">                          &lt;&lt; std::endl;</div>
+<div class="line">                <span class="keywordflow">return</span>;</div>
+<div class="line">            }</div>
+<div class="line">            <span class="keywordflow">continue</span>;</div>
+<div class="line">        }</div>
 <div class="line"></div>
-<div class="line">    BOOST_REQUIRE_EQUAL( hosts.size(), 1 );</div>
-<div class="line">    BOOST_CHECK_EQUAL( hosts.front(), toString( port ));</div>
-<div class="line">    BOOST_CHECK( service.containsKey( hosts.front(), <span class="stringliteral">&quot;foo&quot;</span> ));</div>
-<div class="line">    BOOST_CHECK_EQUAL( service.get( hosts.front(), <span class="stringliteral">&quot;foo&quot;</span> ), <span class="stringliteral">&quot;bar&quot;</span> );</div>
-<div class="line">    BOOST_CHECK_EQUAL( service.get( <span class="stringliteral">&quot;bar&quot;</span>, <span class="stringliteral">&quot;foo&quot;</span> ), std::string( ));</div>
-<div class="line">    BOOST_CHECK_EQUAL( service.get( hosts.front(), <span class="stringliteral">&quot;foobar&quot;</span> ), std::string( ));</div>
-<div class="line">    ::sleep( _propagationTime );</div>
+<div class="line">        BOOST_REQUIRE_EQUAL( hosts.size(), 1 );</div>
+<div class="line">        BOOST_CHECK_EQUAL( hosts.front(), toString( port ));</div>
+<div class="line">        BOOST_CHECK( service.containsKey( hosts.front(), <span class="stringliteral">&quot;foo&quot;</span> ));</div>
+<div class="line">        BOOST_CHECK_EQUAL( service.get( hosts.front(), <span class="stringliteral">&quot;foo&quot;</span> ), <span class="stringliteral">&quot;bar&quot;</span> );</div>
+<div class="line">        BOOST_CHECK_EQUAL( service.get( <span class="stringliteral">&quot;bar&quot;</span>, <span class="stringliteral">&quot;foo&quot;</span> ), std::string( ));</div>
+<div class="line">        BOOST_CHECK_EQUAL( service.get( hosts.front(), <span class="stringliteral">&quot;foobar&quot;</span> ),</div>
+<div class="line">                           std::string( ));</div>
+<div class="line">        <span class="keywordflow">break</span>;</div>
+<div class="line">    }</div>
 <div class="line"></div>
 <div class="line">    service.set( <span class="stringliteral">&quot;foobar&quot;</span>, <span class="stringliteral">&quot;42&quot;</span> );</div>
 <div class="line"></div>
-<div class="line">    ::sleep( _propagationTime );</div>
+<div class="line">    nLoops = _propagationTries;</div>
+<div class="line">    <span class="keywordflow">while</span>( --nLoops )</div>
+<div class="line">    {</div>
+<div class="line">        <span class="keyword">const</span> servus::Strings&amp; hosts =</div>
+<div class="line">            service.discover( <a class="code" href="classservus_1_1_servus.html#a5001a7c3e7b1c263554ba5a862fb4c70a3be4617e17be4b39066bf5170cf9858f">servus::Servus::IF_LOCAL</a>, _propagationTime );</div>
+<div class="line">        <span class="keyword">const</span> <span class="keywordtype">bool</span> hasFoobar = !hosts.empty() &amp;&amp;</div>
+<div class="line">                               service.containsKey( hosts.front(), <span class="stringliteral">&quot;foobar&quot;</span> );</div>
+<div class="line">        <span class="keywordflow">if</span>(( hosts.empty() || !hasFoobar ) &amp;&amp; nLoops &gt; 1 )</div>
+<div class="line">            <span class="keywordflow">continue</span>;</div>
 <div class="line"></div>
-<div class="line">    hosts = service.discover( <a class="code" href="classservus_1_1_servus.html#a5001a7c3e7b1c263554ba5a862fb4c70a3be4617e17be4b39066bf5170cf9858f">servus::Servus::IF_LOCAL</a>,</div>
-<div class="line">                              _propagationTime * 1000 );</div>
-<div class="line">    BOOST_REQUIRE_EQUAL( hosts.size(), 1 );</div>
-<div class="line">    BOOST_CHECK_EQUAL( service.get( hosts.front(), <span class="stringliteral">&quot;foobar&quot;</span> ), <span class="stringliteral">&quot;42&quot;</span> );</div>
-<div class="line">    BOOST_CHECK_EQUAL( service.getKeys().size(), 2 );</div>
+<div class="line">        BOOST_REQUIRE_EQUAL( hosts.size(), 1 );</div>
+<div class="line">        BOOST_CHECK_EQUAL( service.get( hosts.front(), <span class="stringliteral">&quot;foobar&quot;</span> ), <span class="stringliteral">&quot;42&quot;</span> );</div>
+<div class="line">        BOOST_CHECK_EQUAL( service.getKeys().size(), 2 );</div>
+<div class="line">        <span class="keywordflow">break</span>;</div>
+<div class="line">    }</div>
 <div class="line"></div>
 <div class="line">    <span class="comment">// continuous browse API</span></div>
 <div class="line">    BOOST_CHECK( !service.isBrowsing( ));</div>
@@ -375,9 +391,9 @@ Friends</h2></td></tr>
 <div class="line">                 <a class="code" href="classservus_1_1_servus_1_1_result.html#a2ac8dcfb61362f665575fba24506ffa9">servus::Servus::Result::PENDING</a> );</div>
 <div class="line">    BOOST_CHECK( service.isBrowsing( ));</div>
 <div class="line"></div>
-<div class="line">    BOOST_CHECK_EQUAL( service.browse( _propagationTime * 1000 ),</div>
+<div class="line">    BOOST_CHECK_EQUAL( service.browse( _propagationTime ),</div>
 <div class="line">                       service.browse( 0 ));</div>
-<div class="line">    hosts = service.getInstances();</div>
+<div class="line">    servus::Strings hosts = service.getInstances();</div>
 <div class="line">    BOOST_REQUIRE_EQUAL( hosts.size(), 1 );</div>
 <div class="line">    BOOST_CHECK_EQUAL( service.get( hosts.front(), <span class="stringliteral">&quot;foo&quot;</span> ), <span class="stringliteral">&quot;bar&quot;</span> );</div>
 <div class="line">    BOOST_CHECK_EQUAL( service.getKeys().size(), 2 );</div>
@@ -385,15 +401,32 @@ Friends</h2></td></tr>
 <div class="line">    { <span class="comment">// test updates during browsing</span></div>
 <div class="line">        <a class="code" href="classservus_1_1_servus.html">servus::Servus</a> service2( serviceName );</div>
 <div class="line">        BOOST_CHECK( service2.announce( port+1, toString( port+1 )));</div>
-<div class="line">        BOOST_CHECK( service.browse( _propagationTime * 1000 ));</div>
-<div class="line">        hosts = service.getInstances();</div>
-<div class="line">        BOOST_CHECK_EQUAL( hosts.size(), 2 );</div>
-<div class="line">    }</div>
-<div class="line">    ::sleep( _propagationTime );</div>
 <div class="line"></div>
-<div class="line">    BOOST_CHECK( service.browse( _propagationTime * 1000 ));</div>
-<div class="line">    hosts = service.getInstances();</div>
-<div class="line">    BOOST_CHECK_EQUAL( hosts.size(), 1 );</div>
+<div class="line"></div>
+<div class="line">        nLoops = _propagationTries;</div>
+<div class="line">        <span class="keywordflow">while</span>( --nLoops )</div>
+<div class="line">        {</div>
+<div class="line">            BOOST_CHECK( service.browse( _propagationTime ));</div>
+<div class="line">            hosts = service.getInstances();</div>
+<div class="line">            <span class="keywordflow">if</span>( hosts.size() &lt; 2 &amp;&amp; nLoops &gt; 1 )</div>
+<div class="line">                <span class="keywordflow">continue</span>;</div>
+<div class="line"></div>
+<div class="line">            BOOST_CHECK_EQUAL( hosts.size(), 2 );</div>
+<div class="line">            <span class="keywordflow">break</span>;</div>
+<div class="line">        }</div>
+<div class="line">    }</div>
+<div class="line"></div>
+<div class="line">    nLoops = _propagationTries;</div>
+<div class="line">    <span class="keywordflow">while</span>( --nLoops )</div>
+<div class="line">    {</div>
+<div class="line">        BOOST_CHECK( service.browse( _propagationTime ));</div>
+<div class="line">        hosts = service.getInstances();</div>
+<div class="line">        <span class="keywordflow">if</span>( hosts.size() &gt; 1 &amp;&amp; nLoops &gt; 1 )</div>
+<div class="line">            <span class="keywordflow">continue</span>;</div>
+<div class="line"></div>
+<div class="line">        BOOST_CHECK_EQUAL( hosts.size(), 1 );</div>
+<div class="line">        <span class="keywordflow">break</span>;</div>
+<div class="line">    }</div>
 <div class="line"></div>
 <div class="line">    BOOST_CHECK( service.isBrowsing( ));</div>
 <div class="line">    service.endBrowsing();</div>
@@ -998,7 +1031,7 @@ Friends</h2></td></tr>
 <div id="nav-path" class="navpath"><!-- id is needed for treeview function! -->
   <ul>
     <li class="navelem"><b>servus</b></li><li class="navelem"><a class="el" href="classservus_1_1_servus.html">Servus</a></li>
-    <li class="footer">Generated on Wed Jun 1 2016 15:12:27 for Servus by
+    <li class="footer">Generated on Tue Jun 14 2016 03:06:05 for Servus by
     <a href="http://www.doxygen.org/index.html">
     <img class="footer" src="doxygen.png" alt="doxygen"/></a> 1.8.9.1 </li>
   </ul>

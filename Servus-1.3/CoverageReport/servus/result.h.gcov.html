@@ -31,18 +31,18 @@
             <td class="headerValue">Servus</td>
             <td></td>
             <td class="headerItem">Lines:</td>
-            <td class="headerCovTableEntry">6</td>
+            <td class="headerCovTableEntry">5</td>
             <td class="headerCovTableEntry">12</td>
-            <td class="headerCovTableEntryMed">50.0 %</td>
+            <td class="headerCovTableEntryMed">41.7 %</td>
           </tr>
           <tr>
             <td class="headerItem">Date:</td>
-            <td class="headerValue">2016-06-01 15:13:25</td>
+            <td class="headerValue">2016-06-14 03:06:15</td>
             <td></td>
             <td class="headerItem">Functions:</td>
-            <td class="headerCovTableEntry">6</td>
+            <td class="headerCovTableEntry">5</td>
             <td class="headerCovTableEntry">11</td>
-            <td class="headerCovTableEntryMed">54.5 %</td>
+            <td class="headerCovTableEntryMed">45.5 %</td>
           </tr>
           <tr><td><img src="../glass.png" width=3 height=3 alt=""></td></tr>
         </table>
@@ -99,22 +99,22 @@
 <span class="lineNum">      37 </span>            :     static const int32_t SUCCESS = 0;
 <a name="38"><span class="lineNum">      38 </span>            : </a>
 <span class="lineNum">      39 </span>            :     /** Construct a new result. */
-<span class="lineNum">      40 </span><span class="lineCov">         48 :     explicit Result( const int32_t code ) : code_( code ){}</span>
+<span class="lineNum">      40 </span><span class="lineCov">         39 :     explicit Result( const int32_t code ) : code_( code ){}</span>
 <a name="41"><span class="lineNum">      41 </span>            : </a>
 <span class="lineNum">      42 </span>            :     /** Destruct the result. */
-<span class="lineNum">      43 </span><span class="lineCov">         48 :     virtual ~Result(){}</span>
+<span class="lineNum">      43 </span><span class="lineCov">         39 :     virtual ~Result(){}</span>
 <a name="44"><span class="lineNum">      44 </span>            : </a>
 <span class="lineNum">      45 </span>            :     /** @return true if no error occured, false otherwise. */
-<span class="lineNum">      46 </span><span class="lineCov">          4 :     operator bool_t() const { return code_ == SUCCESS ? &amp;Result::bool_true : 0;}</span>
+<span class="lineNum">      46 </span><span class="lineCov">          2 :     operator bool_t() const { return code_ == SUCCESS ? &amp;Result::bool_true : 0;}</span>
 <a name="47"><span class="lineNum">      47 </span>            : </a>
 <span class="lineNum">      48 </span>            :     /** @return true if an error occured, false otherwise. */
-<span class="lineNum">      49 </span><span class="lineCov">          7 :     bool operator !() const { return code_ != SUCCESS; }</span>
+<span class="lineNum">      49 </span><span class="lineCov">          2 :     bool operator !() const { return code_ != SUCCESS; }</span>
 <a name="50"><span class="lineNum">      50 </span>            : </a>
 <span class="lineNum">      51 </span>            :     /** @return true if the result is equal to the given value. */
-<span class="lineNum">      52 </span><span class="lineCov">          1 :     bool operator == ( const int32_t code ) const { return code_ == code; }</span>
+<span class="lineNum">      52 </span><span class="lineNoCov">          0 :     bool operator == ( const int32_t code ) const { return code_ == code; }</span>
 <a name="53"><span class="lineNum">      53 </span>            : </a>
 <span class="lineNum">      54 </span>            :     /** @return true if the result is not equal to the rhs. */
-<span class="lineNum">      55 </span><span class="lineCov">          4 :     bool operator != ( const int32_t code ) const { return code != code_; }</span>
+<span class="lineNum">      55 </span><span class="lineCov">          3 :     bool operator != ( const int32_t code ) const { return code != code_; }</span>
 <a name="56"><span class="lineNum">      56 </span>            : </a>
 <span class="lineNum">      57 </span>            :     /** @return the result code. */
 <span class="lineNum">      58 </span><span class="lineNoCov">          0 :     int32_t getCode() const { return code_; }</span>
