@@ -1438,6 +1438,162 @@
                  </Node>
                 </Subnodes>
                </Node>
+               <Node>
+                <Name>ViewHistogram</Name>
+                <Path>classlexis_1_1render_1_1_view_histogram.html</Path>
+                <Subnodes>
+                 <Node>
+                  <Name>ViewHistogram</Name>
+                  <Path>classlexis_1_1render_1_1_view_histogram.html</Path>
+                  <Anchor>a6fad2823b88b7f70b890fcd955694cc7</Anchor>
+                 </Node>
+                 <Node>
+                  <Name>ViewHistogram</Name>
+                  <Path>classlexis_1_1render_1_1_view_histogram.html</Path>
+                  <Anchor>aa2a5a9dc181bc132908055faccca808b</Anchor>
+                 </Node>
+                 <Node>
+                  <Name>ViewHistogram</Name>
+                  <Path>classlexis_1_1render_1_1_view_histogram.html</Path>
+                  <Anchor>ac6d7a90eeb8a039ca9aaefe24fbc9aa6</Anchor>
+                 </Node>
+                 <Node>
+                  <Name>ViewHistogram</Name>
+                  <Path>classlexis_1_1render_1_1_view_histogram.html</Path>
+                  <Anchor>aae03e0a6e7f1ab28fe051e0d0fae1226</Anchor>
+                 </Node>
+                 <Node>
+                  <Name>ViewHistogram</Name>
+                  <Path>classlexis_1_1render_1_1_view_histogram.html</Path>
+                  <Anchor>aa325c3a16904e7b7f728baca95399759</Anchor>
+                 </Node>
+                 <Node>
+                  <Name>ViewHistogram</Name>
+                  <Path>classlexis_1_1render_1_1_view_histogram.html</Path>
+                  <Anchor>a841a5f555793d283a005641249634271</Anchor>
+                 </Node>
+                 <Node>
+                  <Name>~ViewHistogram</Name>
+                  <Path>classlexis_1_1render_1_1_view_histogram.html</Path>
+                  <Anchor>adde102cf2daff5102f033111ae659ffa</Anchor>
+                 </Node>
+                 <Node>
+                  <Name>_createJSON</Name>
+                  <Path>classlexis_1_1render_1_1_view_histogram.html</Path>
+                  <Anchor>a8338fe23bd8133e9f8a9a6b089f7dd0f</Anchor>
+                 </Node>
+                 <Node>
+                  <Name>_parseJSON</Name>
+                  <Path>classlexis_1_1render_1_1_view_histogram.html</Path>
+                  <Anchor>a20f3e736e9e603fcaf7f57205bbb60ca</Anchor>
+                 </Node>
+                 <Node>
+                  <Name>create</Name>
+                  <Path>classlexis_1_1render_1_1_view_histogram.html</Path>
+                  <Anchor>ab035d32cd57d611035fa15661a9b798b</Anchor>
+                 </Node>
+                 <Node>
+                  <Name>getArea</Name>
+                  <Path>classlexis_1_1render_1_1_view_histogram.html</Path>
+                  <Anchor>ae0591a8c060fecdd3428753d1e313ef6</Anchor>
+                 </Node>
+                 <Node>
+                  <Name>getBins</Name>
+                  <Path>classlexis_1_1render_1_1_view_histogram.html</Path>
+                  <Anchor>ad5b0ac722cb43a621b98fb17dcab54dc</Anchor>
+                 </Node>
+                 <Node>
+                  <Name>getBins</Name>
+                  <Path>classlexis_1_1render_1_1_view_histogram.html</Path>
+                  <Anchor>ac43f4f88381aad5dfe3d595cb388ba3e</Anchor>
+                 </Node>
+                 <Node>
+                  <Name>getBinsSize</Name>
+                  <Path>classlexis_1_1render_1_1_view_histogram.html</Path>
+                  <Anchor>a897fee2f0b9457fa739ea98f80fa2eb9</Anchor>
+                 </Node>
+                 <Node>
+                  <Name>getBinsVector</Name>
+                  <Path>classlexis_1_1render_1_1_view_histogram.html</Path>
+                  <Anchor>a32a4e715ecc238331ec54cc4eb410fed</Anchor>
+                 </Node>
+                 <Node>
+                  <Name>getId</Name>
+                  <Path>classlexis_1_1render_1_1_view_histogram.html</Path>
+                  <Anchor>a771a2279003a7332cfeacbefe5f8e0f0</Anchor>
+                 </Node>
+                 <Node>
+                  <Name>getTypeIdentifier</Name>
+                  <Path>classlexis_1_1render_1_1_view_histogram.html</Path>
+                  <Anchor>ac88c7de2f2e605325b91983e8df8986c</Anchor>
+                 </Node>
+                 <Node>
+                  <Name>getTypeName</Name>
+                  <Path>classlexis_1_1render_1_1_view_histogram.html</Path>
+                  <Anchor>a12fadb3eabed592e71fe64952d5086e1</Anchor>
+                 </Node>
+                 <Node>
+                  <Name>getZerobufNumDynamics</Name>
+                  <Path>classlexis_1_1render_1_1_view_histogram.html</Path>
+                  <Anchor>a818626716569eb0597407dfae42ba59a</Anchor>
+                 </Node>
+                 <Node>
+                  <Name>getZerobufStaticSize</Name>
+                  <Path>classlexis_1_1render_1_1_view_histogram.html</Path>
+                  <Anchor>a5f81aa48a84afbdc581d008e2b8f559f</Anchor>
+                 </Node>
+                 <Node>
+                  <Name>operator=</Name>
+                  <Path>classlexis_1_1render_1_1_view_histogram.html</Path>
+                  <Anchor>a2c9df0cbf9acc24230709df15e15ae80</Anchor>
+                 </Node>
+                 <Node>
+                  <Name>operator=</Name>
+                  <Path>classlexis_1_1render_1_1_view_histogram.html</Path>
+                  <Anchor>a2ac14eeb35d40dbcc75240fcfe4e072b</Anchor>
+                 </Node>
+                 <Node>
+                  <Name>setArea</Name>
+                  <Path>classlexis_1_1render_1_1_view_histogram.html</Path>
+                  <Anchor>aa02e881c47574cbf55df2b11421de86f</Anchor>
+                 </Node>
+                 <Node>
+                  <Name>setBins</Name>
+                  <Path>classlexis_1_1render_1_1_view_histogram.html</Path>
+                  <Anchor>a2bdb0905bba4fb3ea975ab5a893fb8f9</Anchor>
+                 </Node>
+                 <Node>
+                  <Name>setBins</Name>
+                  <Path>classlexis_1_1render_1_1_view_histogram.html</Path>
+                  <Anchor>a90f78d8281637b0f69c697495e1302fb</Anchor>
+                 </Node>
+                 <Node>
+                  <Name>setId</Name>
+                  <Path>classlexis_1_1render_1_1_view_histogram.html</Path>
+                  <Anchor>ac16f0213f4cbb849c5e29d03942440ef</Anchor>
+                 </Node>
+                 <Node>
+                  <Name>ZEROBUF_NUM_DYNAMICS</Name>
+                  <Path>classlexis_1_1render_1_1_view_histogram.html</Path>
+                  <Anchor>acbee80906a9dda673ceb5a18e9a8abdb</Anchor>
+                 </Node>
+                 <Node>
+                  <Name>ZEROBUF_STATIC_SIZE</Name>
+                  <Path>classlexis_1_1render_1_1_view_histogram.html</Path>
+                  <Anchor>a3776c5a95481941f87a89a48834c47cc</Anchor>
+                 </Node>
+                 <Node>
+                  <Name>ZEROBUF_TYPE_IDENTIFIER</Name>
+                  <Path>classlexis_1_1render_1_1_view_histogram.html</Path>
+                  <Anchor>ae02e22f2e00ebe389e502d3c115c84e7</Anchor>
+                 </Node>
+                 <Node>
+                  <Name>ZEROBUF_TYPE_NAME</Name>
+                  <Path>classlexis_1_1render_1_1_view_histogram.html</Path>
+                  <Anchor>a9fa4072071eb35c3966628d349cd8314</Anchor>
+                 </Node>
+                </Subnodes>
+               </Node>
               </Subnodes>
              </Node>
              <Node>
@@ -1669,6 +1825,10 @@
               <Path>classlexis_1_1render_1_1_lookup_table1_d.html</Path>
              </Node>
              <Node>
+              <Name>lexis::render::ViewHistogram</Name>
+              <Path>classlexis_1_1render_1_1_view_histogram.html</Path>
+             </Node>
+             <Node>
               <Name>lexis::Request</Name>
               <Path>classlexis_1_1_request.html</Path>
              </Node>
@@ -1878,6 +2038,10 @@
               <Anchor>aad4f9c46048668a14298a9819833c2c3</Anchor>
              </Node>
             </Subnodes>
+           </Node>
+           <Node>
+            <Name>viewHistogram.h</Name>
+            <Path>view_histogram_8h_source.html</Path>
            </Node>
           </Subnodes>
          </Node>

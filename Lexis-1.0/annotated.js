@@ -16,7 +16,8 @@ var annotated =
         [ "Frame", "classlexis_1_1render_1_1_frame.html", "classlexis_1_1render_1_1_frame" ],
         [ "ImageJPEG", "classlexis_1_1render_1_1_image_j_p_e_g.html", "classlexis_1_1render_1_1_image_j_p_e_g" ],
         [ "LookOut", "classlexis_1_1render_1_1_look_out.html", "classlexis_1_1render_1_1_look_out" ],
-        [ "LookupTable1D", "classlexis_1_1render_1_1_lookup_table1_d.html", "classlexis_1_1render_1_1_lookup_table1_d" ]
+        [ "LookupTable1D", "classlexis_1_1render_1_1_lookup_table1_d.html", "classlexis_1_1render_1_1_lookup_table1_d" ],
+        [ "ViewHistogram", "classlexis_1_1render_1_1_view_histogram.html", "classlexis_1_1render_1_1_view_histogram" ]
       ] ],
       [ "Request", "classlexis_1_1_request.html", "classlexis_1_1_request" ],
       [ "Version", "classlexis_1_1_version.html", "classlexis_1_1_version" ]

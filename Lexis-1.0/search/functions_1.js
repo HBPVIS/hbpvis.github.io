@@ -1,6 +1,7 @@
 var searchData=
 [
   ['getabi',['getABI',['../classlexis_1_1_version.html#a11576245df6b58fc7fb79d399ca536a3',1,'lexis::Version']]],
+  ['getbins',['getBins',['../classlexis_1_1render_1_1_view_histogram.html#ad5b0ac722cb43a621b98fb17dcab54dc',1,'lexis::render::ViewHistogram']]],
   ['getdata',['getData',['../classlexis_1_1render_1_1_image_j_p_e_g.html#a9c25058a387f0935e5dddf8377467605',1,'lexis::render::ImageJPEG']]],
   ['getfirst',['getFirst',['../classlexis_1_1data_1_1_cell_set_binary_op.html#afdb900856094024b9e57d4cc63b8a67b',1,'lexis::data::CellSetBinaryOp']]],
   ['getids',['getIds',['../classlexis_1_1data_1_1_selected_i_ds.html#a78d6f0aea607d7d32a40dd74f28015e0',1,'lexis::data::SelectedIDs::getIds()'],['../classlexis_1_1data_1_1_toggle_i_d_request.html#a977c6670c486bfde5d834f87ecf9450d',1,'lexis::data::ToggleIDRequest::getIds()']]],

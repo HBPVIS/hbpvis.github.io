@@ -14,6 +14,7 @@ var hierarchy =
       [ "lexis::render::ImageJPEG", "classlexis_1_1render_1_1_image_j_p_e_g.html", null ],
       [ "lexis::render::LookOut", "classlexis_1_1render_1_1_look_out.html", null ],
       [ "lexis::render::LookupTable1D", "classlexis_1_1render_1_1_lookup_table1_d.html", null ],
+      [ "lexis::render::ViewHistogram", "classlexis_1_1render_1_1_view_histogram.html", null ],
       [ "lexis::Request", "classlexis_1_1_request.html", null ]
     ] ]
 ];

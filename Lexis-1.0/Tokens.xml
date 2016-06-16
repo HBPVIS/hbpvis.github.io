@@ -760,4 +760,73 @@
     <Abstract>Set the value of the uint8_t fixed size array object from a uint8_t std::vector. </Abstract>
     <DeclaredIn>lookupTable1D.h</DeclaredIn>
   </Token>
+  <Token>
+    <TokenIdentifier>
+      <Name>lexis::render::ViewHistogram</Name>
+      <APILanguage>c</APILanguage>
+      <Type>cl</Type>
+      <Scope>lexis::render::ViewHistogram</Scope>
+    </TokenIdentifier>
+    <Path>classlexis_1_1render_1_1_view_histogram.html</Path>
+  </Token>
+  <Token>
+    <TokenIdentifier>
+      <Name>getBins</Name>
+      <APILanguage>cpp</APILanguage>
+      <Type>instm</Type>
+      <Scope>lexis::render::ViewHistogram</Scope>
+    </TokenIdentifier>
+    <Path>classlexis_1_1render_1_1_view_histogram.html</Path>
+    <Anchor>ad5b0ac722cb43a621b98fb17dcab54dc</Anchor>
+    <Abstract>Get a pointer to the uint64_t fixed size array object. </Abstract>
+    <DeclaredIn>viewHistogram.h</DeclaredIn>
+  </Token>
+  <Token>
+    <TokenIdentifier>
+      <Name>setBins</Name>
+      <APILanguage>cpp</APILanguage>
+      <Type>instm</Type>
+      <Scope>lexis::render::ViewHistogram</Scope>
+    </TokenIdentifier>
+    <Path>classlexis_1_1render_1_1_view_histogram.html</Path>
+    <Anchor>a2bdb0905bba4fb3ea975ab5a893fb8f9</Anchor>
+    <Abstract>Set the value of the uint64_t fixed size array object from a uint64_t*. </Abstract>
+    <DeclaredIn>viewHistogram.h</DeclaredIn>
+  </Token>
+  <Token>
+    <TokenIdentifier>
+      <Name>setBins</Name>
+      <APILanguage>cpp</APILanguage>
+      <Type>instm</Type>
+      <Scope>lexis::render::ViewHistogram</Scope>
+    </TokenIdentifier>
+    <Path>classlexis_1_1render_1_1_view_histogram.html</Path>
+    <Anchor>a90f78d8281637b0f69c697495e1302fb</Anchor>
+    <Abstract>Set the value of the uint64_t fixed size array object from a uint64_t std::vector. </Abstract>
+    <DeclaredIn>viewHistogram.h</DeclaredIn>
+  </Token>
+  <Token>
+    <TokenIdentifier>
+      <Name>setArea</Name>
+      <APILanguage>cpp</APILanguage>
+      <Type>instm</Type>
+      <Scope>lexis::render::ViewHistogram</Scope>
+    </TokenIdentifier>
+    <Path>classlexis_1_1render_1_1_view_histogram.html</Path>
+    <Anchor>aa02e881c47574cbf55df2b11421de86f</Anchor>
+    <Abstract>Set the value of the float fixed size member. </Abstract>
+    <DeclaredIn>viewHistogram.h</DeclaredIn>
+  </Token>
+  <Token>
+    <TokenIdentifier>
+      <Name>setId</Name>
+      <APILanguage>cpp</APILanguage>
+      <Type>instm</Type>
+      <Scope>lexis::render::ViewHistogram</Scope>
+    </TokenIdentifier>
+    <Path>classlexis_1_1render_1_1_view_histogram.html</Path>
+    <Anchor>ac16f0213f4cbb849c5e29d03942440ef</Anchor>
+    <Abstract>Set the value of the uint32_t fixed size member. </Abstract>
+    <DeclaredIn>viewHistogram.h</DeclaredIn>
+  </Token>
 </Tokens>
