@@ -37,7 +37,7 @@
           </tr>
           <tr>
             <td class="headerItem">Date:</td>
-            <td class="headerValue">2016-06-14 03:06:15</td>
+            <td class="headerValue">2016-06-28 03:06:36</td>
             <td></td>
             <td class="headerItem">Functions:</td>
             <td class="headerCovTableEntry">5</td>
@@ -152,10 +152,10 @@
 <span class="lineNum">      90 </span><span class="lineCov">          5 :     return value;</span>
 <a name="91"><span class="lineNum">      91 </span>            : }</a>
 <span class="lineNum">      92 </span>            : 
-<span class="lineNum">      93 </span><span class="lineCov">      99988 : uint128_t make_UUID()</span>
+<span class="lineNum">      93 </span><span class="lineCov">      99991 : uint128_t make_UUID()</span>
 <span class="lineNum">      94 </span>            : {
-<span class="lineNum">      95 </span><span class="lineCov">      99988 :     uint128_t value;</span>
-<span class="lineNum">      96 </span><span class="lineCov">     299983 :     while( value.high() == 0 )</span>
+<span class="lineNum">      95 </span><span class="lineCov">      99991 :     uint128_t value;</span>
+<span class="lineNum">      96 </span><span class="lineCov">     299986 :     while( value.high() == 0 )</span>
 <span class="lineNum">      97 </span>            :     {
 <span class="lineNum">      98 </span>            : #ifdef SERVUS_USE_CXX03
 <span class="lineNum">      99 </span>            :         static rnd::mt19937_64 engine;
@@ -177,7 +177,7 @@
 <span class="lineNum">     115 </span><span class="lineCov">     100006 :         value.high() = generator( engine );</span>
 <span class="lineNum">     116 </span><span class="lineCov">     100006 :         value.low() = generator( engine );</span>
 <span class="lineNum">     117 </span><span class="lineCov">     100006 :     }</span>
-<span class="lineNum">     118 </span><span class="lineCov">     100005 :     return value;</span>
+<span class="lineNum">     118 </span><span class="lineCov">     100006 :     return value;</span>
 <a name="119"><span class="lineNum">     119 </span>            : }</a>
 <span class="lineNum">     120 </span>            : 
 <span class="lineNum">     121 </span><span class="lineCov">         15 : }</span>
