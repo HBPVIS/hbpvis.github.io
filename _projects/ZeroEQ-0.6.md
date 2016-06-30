@@ -4,7 +4,7 @@ version: "0.6"
 major: 0
 minor: 6
 description: ZeroEQ - Zero Event Queue
-updated: 09/06/16
+updated: 01/07/16
 homepage: https://github.com/HBPVIS/ZeroEQ
 repository: https://github.com/HBPVIS/ZeroEQ.git
 issuesurl: https://github.com/HBPVIS/ZeroEQ/issues
@@ -12,7 +12,7 @@ packageurl:
 license: LGPL
 maturity: EP
 maintainers: Human Brain Project (HBPVis@googlegroups.com)
-contributors: Stefan Eilemann
+contributors: Raphael Dumusc
 readmetype: text/x-markdown
 ---
 [TOC]
@@ -67,4 +67,6 @@ Building from source is as simple as:
     cd ZeroEQ/build
     cmake ..
     make
+
+This work has been partially funded by the European Union Seventh Framework Program (FP7/2007­2013) under grant agreement no. 604102 (HBP).
 
