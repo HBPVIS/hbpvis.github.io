@@ -4,7 +4,7 @@ version: "0.3"
 major: 0
 minor: 3
 description: Zero-copy, zero-serialize, zero-hassle protocol buffers
-updated: 15/06/16
+updated: 01/07/16
 homepage: https://github.com/HBPVIS/ZeroBuf
 repository: https://github.com/HBPVIS/ZeroBuf.git
 issuesurl: https://github.com/HBPVIS/ZeroBuf/issues
@@ -12,7 +12,7 @@ packageurl:
 license: LGPL
 maturity: EP
 maintainers: Human Brain Project (HBPVis@googlegroups.com)
-contributors: Stefan Eilemann
+contributors: Raphael Dumusc
 readmetype: text/x-markdown
 ---
 ZeroBuf
@@ -45,4 +45,6 @@ shortcomings:
   e.g., ```matrix:[float:16]``` for a 16 value float array
 * byte and ubyte data is base64 encoded in JSON, int8_t and uint8_t are
   represented as value arrays
+
+This work has been partially funded by the European Union Seventh Framework Program (FP7/2007­2013) under grant agreement no. 604102 (HBP).
 
