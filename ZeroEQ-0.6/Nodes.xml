@@ -26,10 +26,6 @@
         <Path>_sessions.html</Path>
        </Node>
        <Node>
-        <Name>Deprecated List</Name>
-        <Path>deprecated.html</Path>
-       </Node>
-       <Node>
         <Name>Namespaces</Name>
         <Path></Path>
         <Subnodes>
@@ -68,14 +64,6 @@
            <Node>
             <Name>Typedefs</Name>
             <Path>namespacemembers_type.html</Path>
-           </Node>
-           <Node>
-            <Name>Enumerations</Name>
-            <Path>namespacemembers_enum.html</Path>
-           </Node>
-           <Node>
-            <Name>Enumerator</Name>
-            <Path>namespacemembers_eval.html</Path>
            </Node>
           </Subnodes>
          </Node>

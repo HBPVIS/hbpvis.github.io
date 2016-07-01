@@ -1,4 +1,4 @@
 var searchData=
 [
-  ['announcemode',['AnnounceMode',['../namespacezeroeq.html#ab4623a297b820eeb04dbe19b22e8fb48',1,'zeroeq']]]
+  ['portselection',['PortSelection',['../classzeroeq_1_1connection_1_1_broker.html#a48ecc233b7b95f6bd21e6e65bb2c6796',1,'zeroeq::connection::Broker']]]
 ];

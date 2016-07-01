@@ -136,13 +136,6 @@
   </Token>
   <Token>
     <TokenIdentifier>
-      <Name>deprecated</Name>
-      <APILanguage>unknown</APILanguage>
-    </TokenIdentifier>
-    <Path>deprecated.html</Path>
-  </Token>
-  <Token>
-    <TokenIdentifier>
       <Name>zeroeq</Name>
       <APILanguage>c</APILanguage>
       <Type>ns</Type>
@@ -221,54 +214,6 @@
     <Path>namespacezeroeq.html</Path>
     <Anchor>afc7f553a4ab6b16de0bdb5f399634ae4</Anchor>
     <Abstract>Constant defining &amp;#39;wait forever&amp;#39; in methods with wait parameters. </Abstract>
-    <DeclaredIn>types.h</DeclaredIn>
-  </Token>
-  <Token>
-    <TokenIdentifier>
-      <Name>ANNOUNCE_NONE</Name>
-      <APILanguage>cpp</APILanguage>
-      <Type>econst</Type>
-      <Scope>zeroeq</Scope>
-    </TokenIdentifier>
-    <Path>namespacezeroeq.html</Path>
-    <Anchor>ab4623a297b820eeb04dbe19b22e8fb48ada91ce568b0bb24a243081b52350ae9e</Anchor>
-    <Abstract>Do not announce presence on the network. </Abstract>
-    <DeclaredIn>types.h</DeclaredIn>
-  </Token>
-  <Token>
-    <TokenIdentifier>
-      <Name>ANNOUNCE_REQUIRED</Name>
-      <APILanguage>cpp</APILanguage>
-      <Type>econst</Type>
-      <Scope>zeroeq</Scope>
-    </TokenIdentifier>
-    <Path>namespacezeroeq.html</Path>
-    <Anchor>ab4623a297b820eeb04dbe19b22e8fb48a6c70b13ae79f1a89c95ef1b009eafd5c</Anchor>
-    <Abstract>Chosen protocols are mandatory. </Abstract>
-    <DeclaredIn>types.h</DeclaredIn>
-  </Token>
-  <Token>
-    <TokenIdentifier>
-      <Name>ANNOUNCE_ZEROCONF</Name>
-      <APILanguage>cpp</APILanguage>
-      <Type>econst</Type>
-      <Scope>zeroeq</Scope>
-    </TokenIdentifier>
-    <Path>namespacezeroeq.html</Path>
-    <Anchor>ab4623a297b820eeb04dbe19b22e8fb48ae5cb25823a2f6195c8fd3406459931d0</Anchor>
-    <Abstract>Force announcement using zeroconf. </Abstract>
-    <DeclaredIn>types.h</DeclaredIn>
-  </Token>
-  <Token>
-    <TokenIdentifier>
-      <Name>ANNOUNCE_ALL</Name>
-      <APILanguage>cpp</APILanguage>
-      <Type>econst</Type>
-      <Scope>zeroeq</Scope>
-    </TokenIdentifier>
-    <Path>namespacezeroeq.html</Path>
-    <Anchor>ab4623a297b820eeb04dbe19b22e8fb48a96621a9d19a2a10ef399d162a19af661</Anchor>
-    <Abstract>Force announcement using all protocols. </Abstract>
     <DeclaredIn>types.h</DeclaredIn>
   </Token>
   <Token>

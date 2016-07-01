@@ -1,7 +1,5 @@
 var searchData=
 [
-  ['announce_5fall',['ANNOUNCE_ALL',['../namespacezeroeq.html#ab4623a297b820eeb04dbe19b22e8fb48a96621a9d19a2a10ef399d162a19af661',1,'zeroeq']]],
-  ['announce_5fnone',['ANNOUNCE_NONE',['../namespacezeroeq.html#ab4623a297b820eeb04dbe19b22e8fb48ada91ce568b0bb24a243081b52350ae9e',1,'zeroeq']]],
-  ['announce_5frequired',['ANNOUNCE_REQUIRED',['../namespacezeroeq.html#ab4623a297b820eeb04dbe19b22e8fb48a6c70b13ae79f1a89c95ef1b009eafd5c',1,'zeroeq']]],
-  ['announce_5fzeroconf',['ANNOUNCE_ZEROCONF',['../namespacezeroeq.html#ab4623a297b820eeb04dbe19b22e8fb48ae5cb25823a2f6195c8fd3406459931d0',1,'zeroeq']]]
+  ['port_5ffixed',['PORT_FIXED',['../classzeroeq_1_1connection_1_1_broker.html#a48ecc233b7b95f6bd21e6e65bb2c6796a186c1e09d1a1f2819da1340431703911',1,'zeroeq::connection::Broker']]],
+  ['port_5ffixed_5for_5frandom',['PORT_FIXED_OR_RANDOM',['../classzeroeq_1_1connection_1_1_broker.html#a48ecc233b7b95f6bd21e6e65bb2c6796ae8cbba5e32a8cc6bc83ef5f04b517b66',1,'zeroeq::connection::Broker']]]
 ];
