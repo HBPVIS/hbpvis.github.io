@@ -814,6 +814,142 @@
               <Path></Path>
               <Subnodes>
                <Node>
+                <Name>ClipPlanes</Name>
+                <Path>classlexis_1_1render_1_1_clip_planes.html</Path>
+                <Subnodes>
+                 <Node>
+                  <Name>Planes</Name>
+                  <Path>classlexis_1_1render_1_1_clip_planes.html</Path>
+                  <Anchor>a0908f8c796e5f63877400124715b7327</Anchor>
+                 </Node>
+                 <Node>
+                  <Name>ClipPlanes</Name>
+                  <Path>classlexis_1_1render_1_1_clip_planes.html</Path>
+                  <Anchor>a712a8416c4abcbaeecf9ac6b9465ca28</Anchor>
+                 </Node>
+                 <Node>
+                  <Name>ClipPlanes</Name>
+                  <Path>classlexis_1_1render_1_1_clip_planes.html</Path>
+                  <Anchor>a4b237850737da0c7ecd7bb57c9149fe9</Anchor>
+                 </Node>
+                 <Node>
+                  <Name>ClipPlanes</Name>
+                  <Path>classlexis_1_1render_1_1_clip_planes.html</Path>
+                  <Anchor>af0d9a39a5ba2959da94461e7e59e61ca</Anchor>
+                 </Node>
+                 <Node>
+                  <Name>ClipPlanes</Name>
+                  <Path>classlexis_1_1render_1_1_clip_planes.html</Path>
+                  <Anchor>ab4d27e096ef3e0f06221a793bd89d1d1</Anchor>
+                 </Node>
+                 <Node>
+                  <Name>ClipPlanes</Name>
+                  <Path>classlexis_1_1render_1_1_clip_planes.html</Path>
+                  <Anchor>a063e15bfa9d33ae2ef41cb8978e92f8f</Anchor>
+                 </Node>
+                 <Node>
+                  <Name>ClipPlanes</Name>
+                  <Path>classlexis_1_1render_1_1_clip_planes.html</Path>
+                  <Anchor>ad3e96ddecb049a354d0337ee0398adfd</Anchor>
+                 </Node>
+                 <Node>
+                  <Name>~ClipPlanes</Name>
+                  <Path>classlexis_1_1render_1_1_clip_planes.html</Path>
+                  <Anchor>a15dc9ed32e2b1b7bb0657029de64b326</Anchor>
+                 </Node>
+                 <Node>
+                  <Name>_createJSON</Name>
+                  <Path>classlexis_1_1render_1_1_clip_planes.html</Path>
+                  <Anchor>a26471d285e59b947ee9544ce48bcf552</Anchor>
+                 </Node>
+                 <Node>
+                  <Name>_parseJSON</Name>
+                  <Path>classlexis_1_1render_1_1_clip_planes.html</Path>
+                  <Anchor>a14aed5d399bf8664dbc8499613824db2</Anchor>
+                 </Node>
+                 <Node>
+                  <Name>compact</Name>
+                  <Path>classlexis_1_1render_1_1_clip_planes.html</Path>
+                  <Anchor>a493745a3d5c6aa41984c1bdcb000d1e7</Anchor>
+                 </Node>
+                 <Node>
+                  <Name>create</Name>
+                  <Path>classlexis_1_1render_1_1_clip_planes.html</Path>
+                  <Anchor>a73468e3c62a94c63ee751e2f42f12464</Anchor>
+                 </Node>
+                 <Node>
+                  <Name>getPlanes</Name>
+                  <Path>classlexis_1_1render_1_1_clip_planes.html</Path>
+                  <Anchor>a3d654936cbc9a8726bbf3dbf0418ded8</Anchor>
+                 </Node>
+                 <Node>
+                  <Name>getPlanes</Name>
+                  <Path>classlexis_1_1render_1_1_clip_planes.html</Path>
+                  <Anchor>ad7902c16141aefc1134758a5c920205f</Anchor>
+                 </Node>
+                 <Node>
+                  <Name>getPlanesVector</Name>
+                  <Path>classlexis_1_1render_1_1_clip_planes.html</Path>
+                  <Anchor>ae46e48e6bf61a8d39df000a2a1a617b5</Anchor>
+                 </Node>
+                 <Node>
+                  <Name>getTypeIdentifier</Name>
+                  <Path>classlexis_1_1render_1_1_clip_planes.html</Path>
+                  <Anchor>afb78542889ecf02d3bbead0ba9a55e00</Anchor>
+                 </Node>
+                 <Node>
+                  <Name>getTypeName</Name>
+                  <Path>classlexis_1_1render_1_1_clip_planes.html</Path>
+                  <Anchor>ad016f0ae174f51753750482c98cacf56</Anchor>
+                 </Node>
+                 <Node>
+                  <Name>getZerobufNumDynamics</Name>
+                  <Path>classlexis_1_1render_1_1_clip_planes.html</Path>
+                  <Anchor>a6700528cc840ab33a939bc665c9b25f7</Anchor>
+                 </Node>
+                 <Node>
+                  <Name>getZerobufStaticSize</Name>
+                  <Path>classlexis_1_1render_1_1_clip_planes.html</Path>
+                  <Anchor>a4857a5e072fb2bbf3ccdb2acaf808be7</Anchor>
+                 </Node>
+                 <Node>
+                  <Name>operator=</Name>
+                  <Path>classlexis_1_1render_1_1_clip_planes.html</Path>
+                  <Anchor>a2781d5396237f5ae652418d743cf5b70</Anchor>
+                 </Node>
+                 <Node>
+                  <Name>operator=</Name>
+                  <Path>classlexis_1_1render_1_1_clip_planes.html</Path>
+                  <Anchor>a089987458e2f35d2ab8811b3eef299db</Anchor>
+                 </Node>
+                 <Node>
+                  <Name>setPlanes</Name>
+                  <Path>classlexis_1_1render_1_1_clip_planes.html</Path>
+                  <Anchor>affdbc71ab4b08fe1025be569ce6a1937</Anchor>
+                 </Node>
+                 <Node>
+                  <Name>ZEROBUF_NUM_DYNAMICS</Name>
+                  <Path>classlexis_1_1render_1_1_clip_planes.html</Path>
+                  <Anchor>a074913f5f083eca3deb21d36bccf5d40</Anchor>
+                 </Node>
+                 <Node>
+                  <Name>ZEROBUF_STATIC_SIZE</Name>
+                  <Path>classlexis_1_1render_1_1_clip_planes.html</Path>
+                  <Anchor>a500aed0d387e86062951f71bbc3ccb5c</Anchor>
+                 </Node>
+                 <Node>
+                  <Name>ZEROBUF_TYPE_IDENTIFIER</Name>
+                  <Path>classlexis_1_1render_1_1_clip_planes.html</Path>
+                  <Anchor>a51da7ea069beacb9d9c0e1c9fcda5011</Anchor>
+                 </Node>
+                 <Node>
+                  <Name>ZEROBUF_TYPE_NAME</Name>
+                  <Path>classlexis_1_1render_1_1_clip_planes.html</Path>
+                  <Anchor>a73ce5f6e2541bc983aa4ee8d3183365a</Anchor>
+                 </Node>
+                </Subnodes>
+               </Node>
+               <Node>
                 <Name>Exit</Name>
                 <Path>classlexis_1_1render_1_1_exit.html</Path>
                 <Subnodes>
@@ -1022,6 +1158,142 @@
                   <Name>ZEROBUF_TYPE_NAME</Name>
                   <Path>classlexis_1_1render_1_1_frame.html</Path>
                   <Anchor>a58cc6f74cd7129e524b10a4d650c401c</Anchor>
+                 </Node>
+                </Subnodes>
+               </Node>
+               <Node>
+                <Name>Histogram</Name>
+                <Path>classlexis_1_1render_1_1_histogram.html</Path>
+                <Subnodes>
+                 <Node>
+                  <Name>Histogram</Name>
+                  <Path>classlexis_1_1render_1_1_histogram.html</Path>
+                  <Anchor>a77b4f9b83088c8ff8ada95239845c677</Anchor>
+                 </Node>
+                 <Node>
+                  <Name>Histogram</Name>
+                  <Path>classlexis_1_1render_1_1_histogram.html</Path>
+                  <Anchor>a951add9944f474b14f34ca3beef51488</Anchor>
+                 </Node>
+                 <Node>
+                  <Name>Histogram</Name>
+                  <Path>classlexis_1_1render_1_1_histogram.html</Path>
+                  <Anchor>a2d673103a8c9b45ce26804d32e9667f6</Anchor>
+                 </Node>
+                 <Node>
+                  <Name>Histogram</Name>
+                  <Path>classlexis_1_1render_1_1_histogram.html</Path>
+                  <Anchor>aeb3a1aa7f5b9d296edd803aaea1fd35f</Anchor>
+                 </Node>
+                 <Node>
+                  <Name>Histogram</Name>
+                  <Path>classlexis_1_1render_1_1_histogram.html</Path>
+                  <Anchor>a06f8392cc125da2e7586e8dd6d9cbd21</Anchor>
+                 </Node>
+                 <Node>
+                  <Name>Histogram</Name>
+                  <Path>classlexis_1_1render_1_1_histogram.html</Path>
+                  <Anchor>a65ddccd18fb4c7c2123a96c9578c2167</Anchor>
+                 </Node>
+                 <Node>
+                  <Name>~Histogram</Name>
+                  <Path>classlexis_1_1render_1_1_histogram.html</Path>
+                  <Anchor>a448f58ba8a3d52c8956b3df543edf41f</Anchor>
+                 </Node>
+                 <Node>
+                  <Name>_createJSON</Name>
+                  <Path>classlexis_1_1render_1_1_histogram.html</Path>
+                  <Anchor>aea9125f96b038db9ff35e997f5aa89f9</Anchor>
+                 </Node>
+                 <Node>
+                  <Name>_parseJSON</Name>
+                  <Path>classlexis_1_1render_1_1_histogram.html</Path>
+                  <Anchor>a2e0bcccd494c5d72b3d691eaff84852a</Anchor>
+                 </Node>
+                 <Node>
+                  <Name>create</Name>
+                  <Path>classlexis_1_1render_1_1_histogram.html</Path>
+                  <Anchor>a336e99da428b5ab916db4de0625a2766</Anchor>
+                 </Node>
+                 <Node>
+                  <Name>getBins</Name>
+                  <Path>classlexis_1_1render_1_1_histogram.html</Path>
+                  <Anchor>a876c7dc4cc4d44b1aaff30969bd5887d</Anchor>
+                 </Node>
+                 <Node>
+                  <Name>getBins</Name>
+                  <Path>classlexis_1_1render_1_1_histogram.html</Path>
+                  <Anchor>af557d1923e667e36702e9b678a4d8adb</Anchor>
+                 </Node>
+                 <Node>
+                  <Name>getBinsSize</Name>
+                  <Path>classlexis_1_1render_1_1_histogram.html</Path>
+                  <Anchor>a3a48d7710969a2a328b4a6a413cc7305</Anchor>
+                 </Node>
+                 <Node>
+                  <Name>getBinsVector</Name>
+                  <Path>classlexis_1_1render_1_1_histogram.html</Path>
+                  <Anchor>aa97716579a82a08014d339cc95ef76d6</Anchor>
+                 </Node>
+                 <Node>
+                  <Name>getTypeIdentifier</Name>
+                  <Path>classlexis_1_1render_1_1_histogram.html</Path>
+                  <Anchor>a17e7ceee32eb1e0d4b9333b47141beff</Anchor>
+                 </Node>
+                 <Node>
+                  <Name>getTypeName</Name>
+                  <Path>classlexis_1_1render_1_1_histogram.html</Path>
+                  <Anchor>ad273c299a5a30a33d2a810a954d5ca57</Anchor>
+                 </Node>
+                 <Node>
+                  <Name>getZerobufNumDynamics</Name>
+                  <Path>classlexis_1_1render_1_1_histogram.html</Path>
+                  <Anchor>a1f70bc366bb882d4e087ce80f5de3665</Anchor>
+                 </Node>
+                 <Node>
+                  <Name>getZerobufStaticSize</Name>
+                  <Path>classlexis_1_1render_1_1_histogram.html</Path>
+                  <Anchor>a3228f88cc43ab24a48975aca3a3bc855</Anchor>
+                 </Node>
+                 <Node>
+                  <Name>operator=</Name>
+                  <Path>classlexis_1_1render_1_1_histogram.html</Path>
+                  <Anchor>a977d87da1d09d00c1be2c28491748caf</Anchor>
+                 </Node>
+                 <Node>
+                  <Name>operator=</Name>
+                  <Path>classlexis_1_1render_1_1_histogram.html</Path>
+                  <Anchor>aeaa8195aa31a612ab00f811ce2a83575</Anchor>
+                 </Node>
+                 <Node>
+                  <Name>setBins</Name>
+                  <Path>classlexis_1_1render_1_1_histogram.html</Path>
+                  <Anchor>af70fe7e4dcbd218b1ed704894759630b</Anchor>
+                 </Node>
+                 <Node>
+                  <Name>setBins</Name>
+                  <Path>classlexis_1_1render_1_1_histogram.html</Path>
+                  <Anchor>a18016424092789ad432de2b49f775964</Anchor>
+                 </Node>
+                 <Node>
+                  <Name>ZEROBUF_NUM_DYNAMICS</Name>
+                  <Path>classlexis_1_1render_1_1_histogram.html</Path>
+                  <Anchor>a52350cbbc078c9004908aa57dc95787c</Anchor>
+                 </Node>
+                 <Node>
+                  <Name>ZEROBUF_STATIC_SIZE</Name>
+                  <Path>classlexis_1_1render_1_1_histogram.html</Path>
+                  <Anchor>acdebd9dc56a3bb55cbd35f9fbe551ca5</Anchor>
+                 </Node>
+                 <Node>
+                  <Name>ZEROBUF_TYPE_IDENTIFIER</Name>
+                  <Path>classlexis_1_1render_1_1_histogram.html</Path>
+                  <Anchor>a3beb34bed1fa0e3927c831de01ddf4d1</Anchor>
+                 </Node>
+                 <Node>
+                  <Name>ZEROBUF_TYPE_NAME</Name>
+                  <Path>classlexis_1_1render_1_1_histogram.html</Path>
+                  <Anchor>a67981b9b233e22457fc01001c75e333c</Anchor>
                  </Node>
                 </Subnodes>
                </Node>
@@ -1439,158 +1711,148 @@
                 </Subnodes>
                </Node>
                <Node>
-                <Name>ViewHistogram</Name>
-                <Path>classlexis_1_1render_1_1_view_histogram.html</Path>
+                <Name>Plane</Name>
+                <Path>classlexis_1_1render_1_1_plane.html</Path>
                 <Subnodes>
                  <Node>
-                  <Name>ViewHistogram</Name>
-                  <Path>classlexis_1_1render_1_1_view_histogram.html</Path>
-                  <Anchor>a6fad2823b88b7f70b890fcd955694cc7</Anchor>
+                  <Name>Plane</Name>
+                  <Path>classlexis_1_1render_1_1_plane.html</Path>
+                  <Anchor>a5bdf96768fa2a75cff93df233b6337d3</Anchor>
                  </Node>
                  <Node>
-                  <Name>ViewHistogram</Name>
-                  <Path>classlexis_1_1render_1_1_view_histogram.html</Path>
-                  <Anchor>aa2a5a9dc181bc132908055faccca808b</Anchor>
+                  <Name>Plane</Name>
+                  <Path>classlexis_1_1render_1_1_plane.html</Path>
+                  <Anchor>a848fd6c1a0500d625ef1e91cba535600</Anchor>
                  </Node>
                  <Node>
-                  <Name>ViewHistogram</Name>
-                  <Path>classlexis_1_1render_1_1_view_histogram.html</Path>
-                  <Anchor>ac6d7a90eeb8a039ca9aaefe24fbc9aa6</Anchor>
+                  <Name>Plane</Name>
+                  <Path>classlexis_1_1render_1_1_plane.html</Path>
+                  <Anchor>ab7427476212eb2f0f84015aff6fe8c41</Anchor>
                  </Node>
                  <Node>
-                  <Name>ViewHistogram</Name>
-                  <Path>classlexis_1_1render_1_1_view_histogram.html</Path>
-                  <Anchor>aae03e0a6e7f1ab28fe051e0d0fae1226</Anchor>
+                  <Name>Plane</Name>
+                  <Path>classlexis_1_1render_1_1_plane.html</Path>
+                  <Anchor>ac5d2a6b449527774378c3b4e9662cf73</Anchor>
                  </Node>
                  <Node>
-                  <Name>ViewHistogram</Name>
-                  <Path>classlexis_1_1render_1_1_view_histogram.html</Path>
-                  <Anchor>aa325c3a16904e7b7f728baca95399759</Anchor>
+                  <Name>Plane</Name>
+                  <Path>classlexis_1_1render_1_1_plane.html</Path>
+                  <Anchor>a3ff4e5facab1e8b3b98234f06c28c854</Anchor>
                  </Node>
                  <Node>
-                  <Name>ViewHistogram</Name>
-                  <Path>classlexis_1_1render_1_1_view_histogram.html</Path>
-                  <Anchor>a841a5f555793d283a005641249634271</Anchor>
+                  <Name>Plane</Name>
+                  <Path>classlexis_1_1render_1_1_plane.html</Path>
+                  <Anchor>a5a82f734bb9a9b4f963223f4e25d66c4</Anchor>
                  </Node>
                  <Node>
-                  <Name>~ViewHistogram</Name>
-                  <Path>classlexis_1_1render_1_1_view_histogram.html</Path>
-                  <Anchor>adde102cf2daff5102f033111ae659ffa</Anchor>
+                  <Name>~Plane</Name>
+                  <Path>classlexis_1_1render_1_1_plane.html</Path>
+                  <Anchor>a70a3df0f0ba3f1503207df969303efbb</Anchor>
                  </Node>
                  <Node>
                   <Name>_createJSON</Name>
-                  <Path>classlexis_1_1render_1_1_view_histogram.html</Path>
-                  <Anchor>a8338fe23bd8133e9f8a9a6b089f7dd0f</Anchor>
+                  <Path>classlexis_1_1render_1_1_plane.html</Path>
+                  <Anchor>a5d399dccf7d90338cfaa1724e3669550</Anchor>
                  </Node>
                  <Node>
                   <Name>_parseJSON</Name>
-                  <Path>classlexis_1_1render_1_1_view_histogram.html</Path>
-                  <Anchor>a20f3e736e9e603fcaf7f57205bbb60ca</Anchor>
+                  <Path>classlexis_1_1render_1_1_plane.html</Path>
+                  <Anchor>a7d91ca553fe6844d61f8c75fd7978f4d</Anchor>
                  </Node>
                  <Node>
                   <Name>create</Name>
-                  <Path>classlexis_1_1render_1_1_view_histogram.html</Path>
-                  <Anchor>ab035d32cd57d611035fa15661a9b798b</Anchor>
+                  <Path>classlexis_1_1render_1_1_plane.html</Path>
+                  <Anchor>a2d314baebf6a20f77477a3207083a6af</Anchor>
                  </Node>
                  <Node>
-                  <Name>getArea</Name>
-                  <Path>classlexis_1_1render_1_1_view_histogram.html</Path>
-                  <Anchor>ae0591a8c060fecdd3428753d1e313ef6</Anchor>
+                  <Name>getD</Name>
+                  <Path>classlexis_1_1render_1_1_plane.html</Path>
+                  <Anchor>af4d3b46e3d4e8caa86ebed6becdb3163</Anchor>
                  </Node>
                  <Node>
-                  <Name>getBins</Name>
-                  <Path>classlexis_1_1render_1_1_view_histogram.html</Path>
-                  <Anchor>ad5b0ac722cb43a621b98fb17dcab54dc</Anchor>
+                  <Name>getNormal</Name>
+                  <Path>classlexis_1_1render_1_1_plane.html</Path>
+                  <Anchor>a1c7683cee9f94faaa7d209f223d266f1</Anchor>
                  </Node>
                  <Node>
-                  <Name>getBins</Name>
-                  <Path>classlexis_1_1render_1_1_view_histogram.html</Path>
-                  <Anchor>ac43f4f88381aad5dfe3d595cb388ba3e</Anchor>
+                  <Name>getNormal</Name>
+                  <Path>classlexis_1_1render_1_1_plane.html</Path>
+                  <Anchor>aeaad19dafa63ada3443705906fc176f8</Anchor>
                  </Node>
                  <Node>
-                  <Name>getBinsSize</Name>
-                  <Path>classlexis_1_1render_1_1_view_histogram.html</Path>
-                  <Anchor>a897fee2f0b9457fa739ea98f80fa2eb9</Anchor>
+                  <Name>getNormalSize</Name>
+                  <Path>classlexis_1_1render_1_1_plane.html</Path>
+                  <Anchor>a0e103ca5e2894b68a042303141d98580</Anchor>
                  </Node>
                  <Node>
-                  <Name>getBinsVector</Name>
-                  <Path>classlexis_1_1render_1_1_view_histogram.html</Path>
-                  <Anchor>a32a4e715ecc238331ec54cc4eb410fed</Anchor>
-                 </Node>
-                 <Node>
-                  <Name>getId</Name>
-                  <Path>classlexis_1_1render_1_1_view_histogram.html</Path>
-                  <Anchor>a771a2279003a7332cfeacbefe5f8e0f0</Anchor>
+                  <Name>getNormalVector</Name>
+                  <Path>classlexis_1_1render_1_1_plane.html</Path>
+                  <Anchor>a875c4c45b00ae6406e4ec1be2983eba3</Anchor>
                  </Node>
                  <Node>
                   <Name>getTypeIdentifier</Name>
-                  <Path>classlexis_1_1render_1_1_view_histogram.html</Path>
-                  <Anchor>ac88c7de2f2e605325b91983e8df8986c</Anchor>
+                  <Path>classlexis_1_1render_1_1_plane.html</Path>
+                  <Anchor>ad571bbcb5610601a796f6cd82674a60f</Anchor>
                  </Node>
                  <Node>
                   <Name>getTypeName</Name>
-                  <Path>classlexis_1_1render_1_1_view_histogram.html</Path>
-                  <Anchor>a12fadb3eabed592e71fe64952d5086e1</Anchor>
+                  <Path>classlexis_1_1render_1_1_plane.html</Path>
+                  <Anchor>a98d0281f0ede21862eaae42212ce273d</Anchor>
                  </Node>
                  <Node>
                   <Name>getZerobufNumDynamics</Name>
-                  <Path>classlexis_1_1render_1_1_view_histogram.html</Path>
-                  <Anchor>a818626716569eb0597407dfae42ba59a</Anchor>
+                  <Path>classlexis_1_1render_1_1_plane.html</Path>
+                  <Anchor>ac3583581c90d96ebda8718a756509e51</Anchor>
                  </Node>
                  <Node>
                   <Name>getZerobufStaticSize</Name>
-                  <Path>classlexis_1_1render_1_1_view_histogram.html</Path>
-                  <Anchor>a5f81aa48a84afbdc581d008e2b8f559f</Anchor>
+                  <Path>classlexis_1_1render_1_1_plane.html</Path>
+                  <Anchor>a1da3ca85aa01b98f188694152d1998d5</Anchor>
                  </Node>
                  <Node>
                   <Name>operator=</Name>
-                  <Path>classlexis_1_1render_1_1_view_histogram.html</Path>
-                  <Anchor>a2c9df0cbf9acc24230709df15e15ae80</Anchor>
+                  <Path>classlexis_1_1render_1_1_plane.html</Path>
+                  <Anchor>a2cdffcce2f80766d5e636b9e64ccef5d</Anchor>
                  </Node>
                  <Node>
                   <Name>operator=</Name>
-                  <Path>classlexis_1_1render_1_1_view_histogram.html</Path>
-                  <Anchor>a2ac14eeb35d40dbcc75240fcfe4e072b</Anchor>
+                  <Path>classlexis_1_1render_1_1_plane.html</Path>
+                  <Anchor>a9144a1919559b0c584fe3eddf337838c</Anchor>
                  </Node>
                  <Node>
-                  <Name>setArea</Name>
-                  <Path>classlexis_1_1render_1_1_view_histogram.html</Path>
-                  <Anchor>aa02e881c47574cbf55df2b11421de86f</Anchor>
+                  <Name>setD</Name>
+                  <Path>classlexis_1_1render_1_1_plane.html</Path>
+                  <Anchor>ae0499638012bef7eca950ac7fb53646f</Anchor>
                  </Node>
                  <Node>
-                  <Name>setBins</Name>
-                  <Path>classlexis_1_1render_1_1_view_histogram.html</Path>
-                  <Anchor>a2bdb0905bba4fb3ea975ab5a893fb8f9</Anchor>
+                  <Name>setNormal</Name>
+                  <Path>classlexis_1_1render_1_1_plane.html</Path>
+                  <Anchor>af59ac2b5cf65e0e89224452e938ff052</Anchor>
                  </Node>
                  <Node>
-                  <Name>setBins</Name>
-                  <Path>classlexis_1_1render_1_1_view_histogram.html</Path>
-                  <Anchor>a90f78d8281637b0f69c697495e1302fb</Anchor>
-                 </Node>
-                 <Node>
-                  <Name>setId</Name>
-                  <Path>classlexis_1_1render_1_1_view_histogram.html</Path>
-                  <Anchor>ac16f0213f4cbb849c5e29d03942440ef</Anchor>
+                  <Name>setNormal</Name>
+                  <Path>classlexis_1_1render_1_1_plane.html</Path>
+                  <Anchor>a44687698b7a54158a40d1319ea6c333b</Anchor>
                  </Node>
                  <Node>
                   <Name>ZEROBUF_NUM_DYNAMICS</Name>
-                  <Path>classlexis_1_1render_1_1_view_histogram.html</Path>
-                  <Anchor>acbee80906a9dda673ceb5a18e9a8abdb</Anchor>
+                  <Path>classlexis_1_1render_1_1_plane.html</Path>
+                  <Anchor>a6b831aba68d44ad5d639c12b76b3833f</Anchor>
                  </Node>
                  <Node>
                   <Name>ZEROBUF_STATIC_SIZE</Name>
-                  <Path>classlexis_1_1render_1_1_view_histogram.html</Path>
-                  <Anchor>a3776c5a95481941f87a89a48834c47cc</Anchor>
+                  <Path>classlexis_1_1render_1_1_plane.html</Path>
+                  <Anchor>a11bdebbe5976aab1b66d7779b347185d</Anchor>
                  </Node>
                  <Node>
                   <Name>ZEROBUF_TYPE_IDENTIFIER</Name>
-                  <Path>classlexis_1_1render_1_1_view_histogram.html</Path>
-                  <Anchor>ae02e22f2e00ebe389e502d3c115c84e7</Anchor>
+                  <Path>classlexis_1_1render_1_1_plane.html</Path>
+                  <Anchor>a03eb275fac965e7f355cfa00f8d09cfe</Anchor>
                  </Node>
                  <Node>
                   <Name>ZEROBUF_TYPE_NAME</Name>
-                  <Path>classlexis_1_1render_1_1_view_histogram.html</Path>
-                  <Anchor>a9fa4072071eb35c3966628d349cd8314</Anchor>
+                  <Path>classlexis_1_1render_1_1_plane.html</Path>
+                  <Anchor>ae23139ca597613564a145369efddb0d7</Anchor>
                  </Node>
                 </Subnodes>
                </Node>
@@ -1805,12 +2067,20 @@
               <Path>classlexis_1_1data_1_1_toggle_i_d_request.html</Path>
              </Node>
              <Node>
+              <Name>lexis::render::ClipPlanes</Name>
+              <Path>classlexis_1_1render_1_1_clip_planes.html</Path>
+             </Node>
+             <Node>
               <Name>lexis::render::Exit</Name>
               <Path>classlexis_1_1render_1_1_exit.html</Path>
              </Node>
              <Node>
               <Name>lexis::render::Frame</Name>
               <Path>classlexis_1_1render_1_1_frame.html</Path>
+             </Node>
+             <Node>
+              <Name>lexis::render::Histogram</Name>
+              <Path>classlexis_1_1render_1_1_histogram.html</Path>
              </Node>
              <Node>
               <Name>lexis::render::ImageJPEG</Name>
@@ -1825,8 +2095,8 @@
               <Path>classlexis_1_1render_1_1_lookup_table1_d.html</Path>
              </Node>
              <Node>
-              <Name>lexis::render::ViewHistogram</Name>
-              <Path>classlexis_1_1render_1_1_view_histogram.html</Path>
+              <Name>lexis::render::Plane</Name>
+              <Path>classlexis_1_1render_1_1_plane.html</Path>
              </Node>
              <Node>
               <Name>lexis::Request</Name>
@@ -1891,6 +2161,10 @@
             <Path>cell_set_binary_op_8h_source.html</Path>
            </Node>
            <Node>
+            <Name>clipPlanes.h</Name>
+            <Path>clip_planes_8h_source.html</Path>
+           </Node>
+           <Node>
             <Name>defines.h</Name>
             <Path>defines_8h.html</Path>
            </Node>
@@ -1909,6 +2183,10 @@
            <Node>
             <Name>frameRange.h</Name>
             <Path>frame_range_8h_source.html</Path>
+           </Node>
+           <Node>
+            <Name>histogram.h</Name>
+            <Path>histogram_8h_source.html</Path>
            </Node>
            <Node>
             <Name>imageJPEG.h</Name>
@@ -2038,10 +2316,6 @@
               <Anchor>aad4f9c46048668a14298a9819833c2c3</Anchor>
              </Node>
             </Subnodes>
-           </Node>
-           <Node>
-            <Name>viewHistogram.h</Name>
-            <Path>view_histogram_8h_source.html</Path>
            </Node>
           </Subnodes>
          </Node>

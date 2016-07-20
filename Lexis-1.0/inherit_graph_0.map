@@ -4,12 +4,14 @@
 <area shape="rect" id="node9" href="$classlexis_1_1data_1_1_frame_range.html" title="lexis::data::FrameRange" alt="" coords="144,128,331,157"/>
 <area shape="rect" id="node11" href="$classlexis_1_1data_1_1_selected_i_ds.html" title="lexis::data::SelectedIDs" alt="" coords="144,181,331,211"/>
 <area shape="rect" id="node13" href="$classlexis_1_1data_1_1_toggle_i_d_request.html" title="lexis::data::ToggleIDRequest" alt="" coords="129,235,345,264"/>
-<area shape="rect" id="node15" href="$classlexis_1_1render_1_1_exit.html" title="lexis::render::Exit" alt="" coords="167,288,308,317"/>
-<area shape="rect" id="node17" href="$classlexis_1_1render_1_1_frame.html" title="lexis::render::Frame" alt="" coords="159,341,316,371"/>
-<area shape="rect" id="node19" href="$classlexis_1_1render_1_1_image_j_p_e_g.html" title="lexis::render::ImageJPEG" alt="" coords="143,395,332,424"/>
-<area shape="rect" id="node21" href="$classlexis_1_1render_1_1_look_out.html" title="lexis::render::LookOut" alt="" coords="151,448,324,477"/>
-<area shape="rect" id="node23" href="$classlexis_1_1render_1_1_lookup_table1_d.html" title="lexis::render::LookupTable1D" alt="" coords="129,501,345,531"/>
-<area shape="rect" id="node25" href="$classlexis_1_1render_1_1_view_histogram.html" title="lexis::render::ViewHistogram" alt="" coords="129,555,345,584"/>
-<area shape="rect" id="node27" href="$classlexis_1_1_request.html" title="lexis::Request" alt="" coords="179,608,296,637"/>
+<area shape="rect" id="node15" href="$classlexis_1_1render_1_1_clip_planes.html" title="lexis::render::ClipPlanes" alt="" coords="145,288,329,317"/>
+<area shape="rect" id="node17" href="$classlexis_1_1render_1_1_exit.html" title="lexis::render::Exit" alt="" coords="167,341,308,371"/>
+<area shape="rect" id="node19" href="$classlexis_1_1render_1_1_frame.html" title="lexis::render::Frame" alt="" coords="159,395,316,424"/>
+<area shape="rect" id="node21" href="$classlexis_1_1render_1_1_histogram.html" title="lexis::render::Histogram" alt="" coords="145,448,329,477"/>
+<area shape="rect" id="node23" href="$classlexis_1_1render_1_1_image_j_p_e_g.html" title="lexis::render::ImageJPEG" alt="" coords="143,501,332,531"/>
+<area shape="rect" id="node25" href="$classlexis_1_1render_1_1_look_out.html" title="lexis::render::LookOut" alt="" coords="151,555,324,584"/>
+<area shape="rect" id="node27" href="$classlexis_1_1render_1_1_lookup_table1_d.html" title="lexis::render::LookupTable1D" alt="" coords="129,608,345,637"/>
+<area shape="rect" id="node29" href="$classlexis_1_1render_1_1_plane.html" title="lexis::render::Plane" alt="" coords="161,661,313,691"/>
+<area shape="rect" id="node31" href="$classlexis_1_1_request.html" title="lexis::Request" alt="" coords="179,715,296,744"/>
 <area shape="rect" id="node7" href="$classlexis_1_1data_1_1_progress.html" title="Drop&#45;in progress meter for boost::progress_display. " alt="" coords="396,67,556,96"/>
 </map>

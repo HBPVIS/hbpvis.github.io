@@ -1,5 +1,4 @@
 var searchData=
 [
-  ['version',['Version',['../classlexis_1_1_version.html',1,'lexis']]],
-  ['viewhistogram',['ViewHistogram',['../classlexis_1_1render_1_1_view_histogram.html',1,'lexis::render']]]
+  ['toggleidrequest',['ToggleIDRequest',['../classlexis_1_1data_1_1_toggle_i_d_request.html',1,'lexis::data']]]
 ];
