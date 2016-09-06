@@ -4,7 +4,7 @@ version: "1.4"
 major: 1
 minor: 4
 description: C++ network oriented utilities including a zeroconf implementation
-updated: 01/07/16
+updated: 06/09/16
 homepage: https://github.com/HBPVIS/Servus
 repository: https://github.com/HBPVIS/Servus.git
 issuesurl: https://github.com/HBPVIS/Servus/issues
