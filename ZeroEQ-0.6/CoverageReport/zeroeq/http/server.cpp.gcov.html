@@ -31,13 +31,13 @@
             <td class="headerValue">ZeroEQ</td>
             <td></td>
             <td class="headerItem">Lines:</td>
-            <td class="headerCovTableEntry">200</td>
+            <td class="headerCovTableEntry">192</td>
             <td class="headerCovTableEntry">224</td>
-            <td class="headerCovTableEntryHi">89.3 %</td>
+            <td class="headerCovTableEntryHi">85.7 %</td>
           </tr>
           <tr>
             <td class="headerItem">Date:</td>
-            <td class="headerValue">2016-09-13 01:34:38</td>
+            <td class="headerValue">2016-09-28 01:34:27</td>
             <td></td>
             <td class="headerItem">Functions:</td>
             <td class="headerCovTableEntry">48</td>
@@ -184,13 +184,13 @@
 <span class="lineNum">     122 </span><span class="lineCov">          5 :         return _registrations.erase( _toLower( event )) != 0;</span>
 <a name="123"><span class="lineNum">     123 </span>            :     }</a>
 <span class="lineNum">     124 </span>            : 
-<span class="lineNum">     125 </span><span class="lineCov">        122 :     void addSockets( std::vector&lt; detail::Socket &gt;&amp; entries )</span>
+<span class="lineNum">     125 </span><span class="lineCov">        133 :     void addSockets( std::vector&lt; detail::Socket &gt;&amp; entries )</span>
 <span class="lineNum">     126 </span>            :     {
 <span class="lineNum">     127 </span>            :         detail::Socket entry;
-<span class="lineNum">     128 </span><span class="lineCov">        122 :         entry.socket = socket;</span>
-<span class="lineNum">     129 </span><span class="lineCov">        122 :         entry.events = ZMQ_POLLIN;</span>
-<span class="lineNum">     130 </span><span class="lineCov">        122 :         entries.push_back( entry );</span>
-<a name="131"><span class="lineNum">     131 </span><span class="lineCov">        122 :     }</span></a>
+<span class="lineNum">     128 </span><span class="lineCov">        133 :         entry.socket = socket;</span>
+<span class="lineNum">     129 </span><span class="lineCov">        133 :         entry.events = ZMQ_POLLIN;</span>
+<span class="lineNum">     130 </span><span class="lineCov">        133 :         entries.push_back( entry );</span>
+<a name="131"><span class="lineNum">     131 </span><span class="lineCov">        133 :     }</span></a>
 <span class="lineNum">     132 </span>            : 
 <span class="lineNum">     133 </span><span class="lineCov">         21 :     void process( const uint32_t timeout )</span>
 <span class="lineNum">     134 </span>            :     {
@@ -259,8 +259,8 @@
 <span class="lineNum">     197 </span>            :         }
 <span class="lineNum">     198 </span>            : 
 <span class="lineNum">     199 </span>            :         // Respond to request
-<span class="lineNum">     200 </span><span class="lineCov">         39 :         httpxx::ResponseBuilder response;</span>
-<span class="lineNum">     201 </span><span class="lineCov">         39 :         std::string body;</span>
+<span class="lineNum">     200 </span><span class="lineCov">         40 :         httpxx::ResponseBuilder response;</span>
+<span class="lineNum">     201 </span><span class="lineCov">         40 :         std::string body;</span>
 <span class="lineNum">     202 </span><span class="lineCov">         20 :         if( request.method() == httpxx::Method::get( ))</span>
 <span class="lineNum">     203 </span><span class="lineCov">         10 :             body = _processGet( request, response );</span>
 <span class="lineNum">     204 </span><span class="lineCov">         10 :         else if( request.method() == httpxx::Method::put( ))</span>
@@ -294,54 +294,54 @@
 <span class="lineNum">     232 </span><span class="lineCov">         20 :             access_control_allow_headers;</span>
 <span class="lineNum">     233 </span><span class="lineCov">         40 :         response.headers()[ &quot;Access-Control-Allow-Methods&quot; ] =</span>
 <span class="lineNum">     234 </span><span class="lineCov">         20 :             access_control_allow_methods;</span>
-<span class="lineNum">     235 </span><span class="lineCov">         39 :         const std::string&amp; rep = response.to_string();</span>
+<span class="lineNum">     235 </span><span class="lineCov">         40 :         const std::string&amp; rep = response.to_string();</span>
 <span class="lineNum">     236 </span>            : 
 <span class="lineNum">     237 </span><span class="lineCov">         20 :         if( !sendResponse( id, idSize, ZMQ_SNDMORE, timeout ))</span>
-<span class="lineNum">     238 </span><span class="lineCov">          1 :             return;</span>
-<span class="lineNum">     239 </span><span class="lineCov">         38 :         if( !sendResponse( rep.c_str(), rep.length(),</span>
-<span class="lineNum">     240 </span><span class="lineCov">         38 :                       body.empty() ? 0 : ZMQ_SNDMORE, timeout ))</span>
+<span class="lineNum">     238 </span><span class="lineNoCov">          0 :             return;</span>
+<span class="lineNum">     239 </span><span class="lineCov">         40 :         if( !sendResponse( rep.c_str(), rep.length(),</span>
+<span class="lineNum">     240 </span><span class="lineCov">         40 :                       body.empty() ? 0 : ZMQ_SNDMORE, timeout ))</span>
 <span class="lineNum">     241 </span>            :         {
 <span class="lineNum">     242 </span><span class="lineNoCov">          0 :             return;</span>
 <span class="lineNum">     243 </span>            :         }
 <span class="lineNum">     244 </span>            : 
 <span class="lineNum">     245 </span>            :         // response body
-<span class="lineNum">     246 </span><span class="lineCov">         19 :         if( !body.empty( ))</span>
+<span class="lineNum">     246 </span><span class="lineCov">         20 :         if( !body.empty( ))</span>
 <span class="lineNum">     247 </span>            :         {
-<span class="lineNum">     248 </span><span class="lineCov">         16 :             if( !sendResponse( id, idSize, ZMQ_SNDMORE, timeout ))</span>
+<span class="lineNum">     248 </span><span class="lineCov">         17 :             if( !sendResponse( id, idSize, ZMQ_SNDMORE, timeout ))</span>
 <span class="lineNum">     249 </span><span class="lineNoCov">          0 :                 return;</span>
-<span class="lineNum">     250 </span><span class="lineCov">         16 :             if( !sendResponse( body.c_str(), body.length(), 0, timeout ))</span>
+<span class="lineNum">     250 </span><span class="lineCov">         17 :             if( !sendResponse( body.c_str(), body.length(), 0, timeout ))</span>
 <span class="lineNum">     251 </span><span class="lineNoCov">          0 :                 return;</span>
-<span class="lineNum">     252 </span><span class="lineCov">         19 :         }</span>
+<span class="lineNum">     252 </span><span class="lineCov">         20 :         }</span>
 <a name="253"><span class="lineNum">     253 </span>            :     }</a>
 <span class="lineNum">     254 </span>            : 
-<span class="lineNum">     255 </span><span class="lineCov">         71 :     bool sendResponse( const void* data, const size_t length, const int flags,</span>
+<span class="lineNum">     255 </span><span class="lineCov">         74 :     bool sendResponse( const void* data, const size_t length, const int flags,</span>
 <span class="lineNum">     256 </span>            :                        const uint32_t timeout )
 <span class="lineNum">     257 </span>            :     {
-<span class="lineNum">     258 </span><span class="lineCov">        142 :         while( ::zmq_send( socket, data, length,</span>
-<span class="lineNum">     259 </span><span class="lineCov">         71 :                            flags | ZMQ_NOBLOCK ) != int( length ))</span>
+<span class="lineNum">     258 </span><span class="lineCov">        148 :         while( ::zmq_send( socket, data, length,</span>
+<span class="lineNum">     259 </span><span class="lineCov">         74 :                            flags | ZMQ_NOBLOCK ) != int( length ))</span>
 <span class="lineNum">     260 </span>            :         {
 <span class="lineNum">     261 </span>            :             // could be disconnect, send buffer full, ...
-<span class="lineNum">     262 </span><span class="lineCov">          1 :             if( zmq_errno() == EAGAIN )</span>
+<span class="lineNum">     262 </span><span class="lineNoCov">          0 :             if( zmq_errno() == EAGAIN )</span>
 <span class="lineNum">     263 </span>            :             {
 <span class="lineNum">     264 </span>            :                 detail::Socket pollItem;
-<span class="lineNum">     265 </span><span class="lineCov">          1 :                 pollItem.socket = socket;</span>
-<span class="lineNum">     266 </span><span class="lineCov">          1 :                 pollItem.events = ZMQ_POLLERR;</span>
-<span class="lineNum">     267 </span><span class="lineCov">          1 :                 if( ::zmq_poll( &amp;pollItem, 1, timeout == TIMEOUT_INDEFINITE</span>
-<span class="lineNum">     268 </span><span class="lineCov">          1 :                                               ? -1 : timeout ) &gt; 0 )</span>
+<span class="lineNum">     265 </span><span class="lineNoCov">          0 :                 pollItem.socket = socket;</span>
+<span class="lineNum">     266 </span><span class="lineNoCov">          0 :                 pollItem.events = ZMQ_POLLERR;</span>
+<span class="lineNum">     267 </span><span class="lineNoCov">          0 :                 if( ::zmq_poll( &amp;pollItem, 1, timeout == TIMEOUT_INDEFINITE</span>
+<span class="lineNum">     268 </span><span class="lineNoCov">          0 :                                               ? -1 : timeout ) &gt; 0 )</span>
 <span class="lineNum">     269 </span>            :                 {
 <span class="lineNum">     270 </span>            :                     // client still alive, send again
 <span class="lineNum">     271 </span><span class="lineNoCov">          0 :                     continue;</span>
 <span class="lineNum">     272 </span>            :                 }
-<span class="lineNum">     273 </span><span class="lineCov">          1 :                 else if( zmq_errno() != EAGAIN )</span>
+<span class="lineNum">     273 </span><span class="lineNoCov">          0 :                 else if( zmq_errno() != EAGAIN )</span>
 <span class="lineNum">     274 </span><span class="lineNoCov">          0 :                     ZEROEQWARN &lt;&lt; &quot;HTTP server poll failed: &quot;</span>
 <span class="lineNum">     275 </span><span class="lineNoCov">          0 :                                &lt;&lt; zmq_strerror( zmq_errno( )) &lt;&lt; std::endl;</span>
 <span class="lineNum">     276 </span>            :             }
 <span class="lineNum">     277 </span>            :             else
 <span class="lineNum">     278 </span><span class="lineNoCov">          0 :                 ZEROEQWARN &lt;&lt; &quot;HTTP server send failed: &quot;</span>
 <span class="lineNum">     279 </span><span class="lineNoCov">          0 :                            &lt;&lt; zmq_strerror( zmq_errno( )) &lt;&lt; std::endl;</span>
-<span class="lineNum">     280 </span><span class="lineCov">          1 :             return false;</span>
+<span class="lineNum">     280 </span><span class="lineNoCov">          0 :             return false;</span>
 <span class="lineNum">     281 </span>            :         }
-<span class="lineNum">     282 </span><span class="lineCov">         70 :         return true;</span>
+<span class="lineNum">     282 </span><span class="lineCov">         74 :         return true;</span>
 <span class="lineNum">     283 </span>            :     }
 <span class="lineNum">     284 </span>            : 
 <span class="lineNum">     285 </span>            : protected:
@@ -524,10 +524,10 @@
 <span class="lineNum">     462 </span><span class="lineCov">          2 :     return _impl-&gt;unregister( event );</span>
 <a name="463"><span class="lineNum">     463 </span>            : }</a>
 <span class="lineNum">     464 </span>            : 
-<span class="lineNum">     465 </span><span class="lineCov">        122 : void Server::addSockets( std::vector&lt; detail::Socket &gt;&amp; entries )</span>
+<span class="lineNum">     465 </span><span class="lineCov">        133 : void Server::addSockets( std::vector&lt; detail::Socket &gt;&amp; entries )</span>
 <span class="lineNum">     466 </span>            : {
-<span class="lineNum">     467 </span><span class="lineCov">        122 :     _impl-&gt;addSockets( entries );</span>
-<a name="468"><span class="lineNum">     468 </span><span class="lineCov">        122 : }</span></a>
+<span class="lineNum">     467 </span><span class="lineCov">        133 :     _impl-&gt;addSockets( entries );</span>
+<a name="468"><span class="lineNum">     468 </span><span class="lineCov">        133 : }</span></a>
 <span class="lineNum">     469 </span>            : 
 <span class="lineNum">     470 </span><span class="lineCov">         21 : void Server::process( detail::Socket&amp;, const uint32_t timeout )</span>
 <span class="lineNum">     471 </span>            : {
