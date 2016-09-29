@@ -37,7 +37,7 @@
           </tr>
           <tr>
             <td class="headerItem">Date:</td>
-            <td class="headerValue">2016-09-06 03:05:58</td>
+            <td class="headerValue">2016-09-29 03:06:23</td>
             <td></td>
             <td class="headerItem">Functions:</td>
             <td class="headerCovTableEntry">2</td>
@@ -186,39 +186,40 @@
 <span class="lineNum">     124 </span>            :             const SerializeCallback&amp; callback );
 <span class="lineNum">     125 </span>            :     //@}
 <span class="lineNum">     126 </span>            : 
-<span class="lineNum">     127 </span>            : private:
-<span class="lineNum">     128 </span>            :     /**
-<span class="lineNum">     129 </span>            :      * @name API for serializable sub classes.
-<span class="lineNum">     130 </span>            :      *
-<span class="lineNum">     131 </span>            :      * Endian-safe and 64-bit safe binary encoding is the responsability of the
-<span class="lineNum">     132 </span>            :      * subclass implementation, if needed.
-<a name="133"><span class="lineNum">     133 </span>            :      */</a>
-<span class="lineNum">     134 </span>            :     //@{
-<a name="135"><span class="lineNum">     135 </span><span class="lineNoCov">          0 :     virtual bool _fromBinary( const void* /*data*/, const size_t /*size*/ )</span></a>
-<span class="lineNum">     136 </span><span class="lineNoCov">          0 :         { throw std::runtime_error( &quot;Binary deserialization not implemented&quot; );}</span>
-<span class="lineNum">     137 </span><span class="lineCov">          1 :     virtual Data _toBinary() const</span>
-<a name="138"><span class="lineNum">     138 </span><span class="lineCov">          1 :         { throw std::runtime_error( &quot;Binary serialization not implemented&quot; ); }</span></a>
-<span class="lineNum">     139 </span>            : 
-<a name="140"><span class="lineNum">     140 </span><span class="lineNoCov">          0 :     virtual bool _fromJSON( const std::string&amp; /*json*/ )</span></a>
-<span class="lineNum">     141 </span><span class="lineNoCov">          0 :         { throw std::runtime_error( &quot;JSON deserialization not implemented&quot; ); }</span>
-<span class="lineNum">     142 </span><span class="lineCov">          1 :     virtual std::string _toJSON() const</span>
-<span class="lineNum">     143 </span><span class="lineCov">          1 :         { throw std::runtime_error( &quot;JSON serialization not implemented&quot; ); }</span>
-<span class="lineNum">     144 </span>            :     //@}
-<span class="lineNum">     145 </span>            : 
-<span class="lineNum">     146 </span>            :     Serializable( const Serializable&amp; );
-<span class="lineNum">     147 </span>            :     Serializable&amp; operator=( const Serializable&amp; );
-<span class="lineNum">     148 </span>            : #ifdef SERVUS_USE_CXX11
-<span class="lineNum">     149 </span>            :     Serializable( Serializable&amp;&amp; ) = delete;
-<span class="lineNum">     150 </span>            :     Serializable&amp; operator=( Serializable&amp;&amp; ) = delete;
-<span class="lineNum">     151 </span>            : #endif
-<span class="lineNum">     152 </span>            : 
-<span class="lineNum">     153 </span>            :     class Impl;
-<span class="lineNum">     154 </span>            :     Impl* _impl;
-<span class="lineNum">     155 </span>            : };
-<span class="lineNum">     156 </span>            : 
-<span class="lineNum">     157 </span>            : }
-<span class="lineNum">     158 </span>            : 
-<span class="lineNum">     159 </span>            : #endif // SERVUS_SERIALIZABLE_H
+<span class="lineNum">     127 </span>            : protected:
+<span class="lineNum">     128 </span>            :     SERVUS_API Serializable( const Serializable&amp; );
+<span class="lineNum">     129 </span>            :     SERVUS_API Serializable&amp; operator=( const Serializable&amp; );
+<span class="lineNum">     130 </span>            : #ifdef SERVUS_USE_CXX11
+<span class="lineNum">     131 </span>            :     SERVUS_API Serializable( Serializable&amp;&amp; );
+<span class="lineNum">     132 </span>            :     SERVUS_API Serializable&amp; operator=( Serializable&amp;&amp; );
+<span class="lineNum">     133 </span>            : #endif
+<span class="lineNum">     134 </span>            : 
+<span class="lineNum">     135 </span>            : private:
+<span class="lineNum">     136 </span>            :     /**
+<span class="lineNum">     137 </span>            :      * @name API for serializable sub classes.
+<span class="lineNum">     138 </span>            :      *
+<span class="lineNum">     139 </span>            :      * Endian-safe and 64-bit safe binary encoding is the responsability of the
+<span class="lineNum">     140 </span>            :      * subclass implementation, if needed.
+<a name="141"><span class="lineNum">     141 </span>            :      */</a>
+<span class="lineNum">     142 </span>            :     //@{
+<a name="143"><span class="lineNum">     143 </span><span class="lineNoCov">          0 :     virtual bool _fromBinary( const void* /*data*/, const size_t /*size*/ )</span></a>
+<span class="lineNum">     144 </span><span class="lineNoCov">          0 :         { throw std::runtime_error( &quot;Binary deserialization not implemented&quot; );}</span>
+<span class="lineNum">     145 </span><span class="lineCov">          1 :     virtual Data _toBinary() const</span>
+<a name="146"><span class="lineNum">     146 </span><span class="lineCov">          1 :         { throw std::runtime_error( &quot;Binary serialization not implemented&quot; ); }</span></a>
+<span class="lineNum">     147 </span>            : 
+<a name="148"><span class="lineNum">     148 </span><span class="lineNoCov">          0 :     virtual bool _fromJSON( const std::string&amp; /*json*/ )</span></a>
+<span class="lineNum">     149 </span><span class="lineNoCov">          0 :         { throw std::runtime_error( &quot;JSON deserialization not implemented&quot; ); }</span>
+<span class="lineNum">     150 </span><span class="lineCov">          1 :     virtual std::string _toJSON() const</span>
+<span class="lineNum">     151 </span><span class="lineCov">          1 :         { throw std::runtime_error( &quot;JSON serialization not implemented&quot; ); }</span>
+<span class="lineNum">     152 </span>            :     //@}
+<span class="lineNum">     153 </span>            : 
+<span class="lineNum">     154 </span>            :     class Impl;
+<span class="lineNum">     155 </span>            :     Impl* _impl;
+<span class="lineNum">     156 </span>            : };
+<span class="lineNum">     157 </span>            : 
+<span class="lineNum">     158 </span>            : }
+<span class="lineNum">     159 </span>            : 
+<span class="lineNum">     160 </span>            : #endif // SERVUS_SERIALIZABLE_H
 </pre>
       </td>
     </tr>

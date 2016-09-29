@@ -37,7 +37,7 @@
           </tr>
           <tr>
             <td class="headerItem">Date:</td>
-            <td class="headerValue">2016-09-06 03:05:58</td>
+            <td class="headerValue">2016-09-29 03:06:23</td>
             <td></td>
             <td class="headerItem">Functions:</td>
             <td class="headerCovTableEntry">18</td>
@@ -111,8 +111,8 @@
 <span class="lineNum">      49 </span>            :     /**
 <a name="50"><span class="lineNum">      50 </span>            :      * Construct a new 128 bit integer with a default value.</a>
 <span class="lineNum">      51 </span>            :      */
-<span class="lineNum">      52 </span><span class="lineCov">     100010 :     explicit uint128_t( const unsigned long long low_ = 0 )</span>
-<span class="lineNum">      53 </span><span class="lineCov">     100010 :         : _high( 0 ), _low( low_ ) {}</span>
+<span class="lineNum">      52 </span><span class="lineCov">     100002 :     explicit uint128_t( const unsigned long long low_ = 0 )</span>
+<span class="lineNum">      53 </span><span class="lineCov">     100002 :         : _high( 0 ), _low( low_ ) {}</span>
 <span class="lineNum">      54 </span>            : 
 <span class="lineNum">      55 </span>            :     /**
 <span class="lineNum">      56 </span>            :      * Construct a new 128 bit integer with a default value.
@@ -275,14 +275,14 @@
 <span class="lineNum">     213 </span>            :         }
 <a name="214"><span class="lineNum">     214 </span>            : </a>
 <span class="lineNum">     215 </span>            :     /** @return the reference to the lower 64 bits of this 128 bit value. */
-<a name="216"><span class="lineNum">     216 </span><span class="lineCov">     199990 :     const uint64_t&amp; low() const { return _low; }</span></a>
+<a name="216"><span class="lineNum">     216 </span><span class="lineCov">     199992 :     const uint64_t&amp; low() const { return _low; }</span></a>
 <span class="lineNum">     217 </span>            :     /** @return the reference to the high 64 bits of this 128 bit value. */
-<span class="lineNum">     218 </span><span class="lineCov">     299759 :     const uint64_t&amp; high() const { return _high; }</span>
+<span class="lineNum">     218 </span><span class="lineCov">     299777 :     const uint64_t&amp; high() const { return _high; }</span>
 <a name="219"><span class="lineNum">     219 </span>            : </a>
 <span class="lineNum">     220 </span>            :     /** @return the reference to the lower 64 bits of this 128 bit value. */
 <a name="221"><span class="lineNum">     221 </span><span class="lineCov">     100032 :     uint64_t&amp; low() { return _low; }</span></a>
 <span class="lineNum">     222 </span>            :     /** @return the reference to the high 64 bits of this 128 bit value. */
-<span class="lineNum">     223 </span><span class="lineCov">     299964 :     uint64_t&amp; high() { return _high; }</span>
+<span class="lineNum">     223 </span><span class="lineCov">     299894 :     uint64_t&amp; high() { return _high; }</span>
 <span class="lineNum">     224 </span>            : 
 <span class="lineNum">     225 </span>            :     /** @return a short, but not necessarily unique, string of the value. */
 <span class="lineNum">     226 </span>            :     std::string getShortString() const

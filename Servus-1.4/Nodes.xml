@@ -213,6 +213,11 @@
                 <Anchor>a6ed920e10538583670f363fcaff92057</Anchor>
                </Node>
                <Node>
+                <Name>Serializable</Name>
+                <Path>classservus_1_1_serializable.html</Path>
+                <Anchor>a06f93ca5e7c5d07fa75c31182747efa9</Anchor>
+               </Node>
+               <Node>
                 <Name>fromBinary</Name>
                 <Path>classservus_1_1_serializable.html</Path>
                 <Anchor>ad22a242cda7fab6d67a93755e8bdb7f1</Anchor>
@@ -236,6 +241,11 @@
                 <Name>getTypeName</Name>
                 <Path>classservus_1_1_serializable.html</Path>
                 <Anchor>a77802e7202e227e19da2e7f8639bc865</Anchor>
+               </Node>
+               <Node>
+                <Name>operator=</Name>
+                <Path>classservus_1_1_serializable.html</Path>
+                <Anchor>a86014d587052361c024273e4afbcc0bd</Anchor>
                </Node>
                <Node>
                 <Name>registerDeserializedCallback</Name>

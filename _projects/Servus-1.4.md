@@ -4,7 +4,7 @@ version: "1.4"
 major: 1
 minor: 4
 description: C++ network oriented utilities including a zeroconf implementation
-updated: 06/09/16
+updated: 29/09/16
 homepage: https://github.com/HBPVIS/Servus
 repository: https://github.com/HBPVIS/Servus.git
 issuesurl: https://github.com/HBPVIS/Servus/issues
@@ -12,7 +12,7 @@ packageurl:
 license: 
 maturity: EP
 maintainers: Human Brain Project (HBPVis@googlegroups.com)
-contributors: Ahmet Bilgili
+contributors: Daniel Nachbaur
 readmetype: text/x-markdown
 ---
 [TOC]
