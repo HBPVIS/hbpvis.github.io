@@ -1,0 +1,294 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN">
+
+<html lang="en">
+
+<head>
+  <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+  <title>LCOV - ZeroEQ - zeroeq/http/server.h</title>
+  <link rel="stylesheet" type="text/css" href="../../gcov.css">
+</head>
+
+<body>
+
+  <table width="100%" border=0 cellspacing=0 cellpadding=0>
+    <tr><td class="title">LCOV - code coverage report</td></tr>
+    <tr><td class="ruler"><img src="../../glass.png" width=3 height=3 alt=""></td></tr>
+
+    <tr>
+      <td width="100%">
+        <table cellpadding=1 border=0 width="100%">
+          <tr>
+            <td width="10%" class="headerItem">Current view:</td>
+            <td width="35%" class="headerValue"><a href="../../index.html">top level</a> - <a href="index.html">zeroeq/http</a> - server.h<span style="font-size: 80%;"> (source / <a href="server.h.func-sort-c.html">functions</a>)</span></td>
+            <td width="5%"></td>
+            <td width="15%"></td>
+            <td width="10%" class="headerCovTableHead">Hit</td>
+            <td width="10%" class="headerCovTableHead">Total</td>
+            <td width="15%" class="headerCovTableHead">Coverage</td>
+          </tr>
+          <tr>
+            <td class="headerItem">Test:</td>
+            <td class="headerValue">ZeroEQ</td>
+            <td></td>
+            <td class="headerItem">Lines:</td>
+            <td class="headerCovTableEntry">4</td>
+            <td class="headerCovTableEntry">4</td>
+            <td class="headerCovTableEntryHi">100.0 %</td>
+          </tr>
+          <tr>
+            <td class="headerItem">Date:</td>
+            <td class="headerValue">2016-10-24 16:37:51</td>
+            <td></td>
+            <td class="headerItem">Functions:</td>
+            <td class="headerCovTableEntry">2</td>
+            <td class="headerCovTableEntry">3</td>
+            <td class="headerCovTableEntryMed">66.7 %</td>
+          </tr>
+          <tr><td><img src="../../glass.png" width=3 height=3 alt=""></td></tr>
+        </table>
+      </td>
+    </tr>
+
+    <tr><td class="ruler"><img src="../../glass.png" width=3 height=3 alt=""></td></tr>
+  </table>
+
+  <table cellpadding=0 cellspacing=0 border=0>
+    <tr>
+      <td><br></td>
+    </tr>
+    <tr>
+      <td>
+<pre class="sourceHeading">          Line data    Source code</pre>
+<pre class="source">
+<a name="1"><span class="lineNum">       1 </span>            : </a>
+<span class="lineNum">       2 </span>            : /* Copyright (c) 2016, Human Brain Project
+<span class="lineNum">       3 </span>            :  *                     Stefan.Eilemann@epfl.ch
+<span class="lineNum">       4 </span>            :  */
+<span class="lineNum">       5 </span>            : 
+<span class="lineNum">       6 </span>            : #ifndef ZEROEQ_HTTP_SERVER_H
+<span class="lineNum">       7 </span>            : #define ZEROEQ_HTTP_SERVER_H
+<span class="lineNum">       8 </span>            : 
+<span class="lineNum">       9 </span>            : #include &lt;zeroeq/receiver.h&gt; // base class
+<span class="lineNum">      10 </span>            : #include &lt;zeroeq/log.h&gt;
+<span class="lineNum">      11 </span>            : 
+<span class="lineNum">      12 </span>            : namespace zeroeq
+<span class="lineNum">      13 </span>            : {
+<span class="lineNum">      14 </span>            : /** HTTP protocol support. */
+<span class="lineNum">      15 </span>            : namespace http
+<span class="lineNum">      16 </span>            : {
+<span class="lineNum">      17 </span>            : /**
+<span class="lineNum">      18 </span>            :  * Serves HTTP GET and PUT requests for servus::Serializable objects.
+<span class="lineNum">      19 </span>            :  *
+<span class="lineNum">      20 </span>            :  * Behaves semantically like a Publisher (for GET) and Subscriber (for PUT),
+<span class="lineNum">      21 </span>            :  * except uses HTTP with JSON payload as the protocol. Requests are served
+<span class="lineNum">      22 </span>            :  * synchronously (as per HTTP spec). Objects are available under their
+<span class="lineNum">      23 </span>            :  * Serializable::getTypeName(), with '::' replaced by '/'. The REST API is case
+<span class="lineNum">      24 </span>            :  * insensitive. For example, zerobuf::render::Camera is served at
+<span class="lineNum">      25 </span>            :  * 'GET|PUT [uri]/zerobuf/render/camera'.
+<span class="lineNum">      26 </span>            :  *
+<span class="lineNum">      27 </span>            :  * Not thread safe.
+<span class="lineNum">      28 </span>            :  *
+<span class="lineNum">      29 </span>            :  * Example: @include tests/http/server.cpp
+<span class="lineNum">      30 </span>            :  */
+<span class="lineNum">      31 </span>            : class Server : public zeroeq::Receiver
+<span class="lineNum">      32 </span>            : {
+<span class="lineNum">      33 </span>            : public:
+<span class="lineNum">      34 </span>            :     /** @name Setup */
+<span class="lineNum">      35 </span>            :     //@{
+<span class="lineNum">      36 </span>            :     /**
+<span class="lineNum">      37 </span>            :      * Construct a new HTTP server.
+<span class="lineNum">      38 </span>            :      *
+<span class="lineNum">      39 </span>            :      * To process requests on the incoming port, call receive(). If no hostname
+<span class="lineNum">      40 </span>            :      * is given, the server listens on all interfaces (INADDR_ANY). If no port
+<span class="lineNum">      41 </span>            :      * is given, the server selects a random port. Use getURI() to retrieve the
+<span class="lineNum">      42 </span>            :      * chosen parameters.
+<span class="lineNum">      43 </span>            :      *
+<span class="lineNum">      44 </span>            :      * @param uri The server address in the form &quot;[tcp://][hostname][:port]&quot;
+<span class="lineNum">      45 </span>            :      * @param shared a shared receiver, see Receiver constructor.
+<span class="lineNum">      46 </span>            :      * @throw std::runtime_error on malformed URI or connection issues.
+<span class="lineNum">      47 </span>            :      */
+<span class="lineNum">      48 </span>            :     ZEROEQ_API Server( const URI&amp; uri, Receiver&amp; shared );
+<span class="lineNum">      49 </span>            :     ZEROEQ_API explicit Server( const URI&amp; uri );
+<a name="50"><span class="lineNum">      50 </span>            :     ZEROEQ_API explicit Server( Receiver&amp; shared );</a>
+<span class="lineNum">      51 </span>            :     ZEROEQ_API Server();
+<span class="lineNum">      52 </span><span class="lineCov">          1 :     explicit Server( Server&amp; shared )</span>
+<span class="lineNum">      53 </span><span class="lineCov">          1 :         : Server( static_cast&lt; Receiver&amp; &gt;( shared )) {}</span>
+<span class="lineNum">      54 </span>            :     ZEROEQ_API virtual ~Server();
+<span class="lineNum">      55 </span>            : 
+<span class="lineNum">      56 </span>            :     /**
+<span class="lineNum">      57 </span>            :      * Create a new Server when requested.
+<span class="lineNum">      58 </span>            :      *
+<span class="lineNum">      59 </span>            :      * The creation and parameters depend on the following command line
+<span class="lineNum">      60 </span>            :      * parameters:
+<span class="lineNum">      61 </span>            :      * * --zeroeq-http-server [host][:port]: Enable the server. The optional
+<span class="lineNum">      62 </span>            :      *   parameters configure the web server, running by default on INADDR_ANY
+<span class="lineNum">      63 </span>            :      *   and a randomly chosen port
+<span class="lineNum">      64 </span>            :      */
+<span class="lineNum">      65 </span>            :     ZEROEQ_API static std::unique_ptr&lt; Server &gt; parse( int argc,
+<span class="lineNum">      66 </span>            :                                                        const char* const* argv);
+<span class="lineNum">      67 </span>            :     ZEROEQ_API static std::unique_ptr&lt; Server &gt; parse( int argc,
+<span class="lineNum">      68 </span>            :                                                        const char* const* argv,
+<span class="lineNum">      69 </span>            :                                                        Receiver&amp; shared );
+<span class="lineNum">      70 </span>            :     /**
+<span class="lineNum">      71 </span>            :      * Get the publisher URI.
+<span class="lineNum">      72 </span>            :      *
+<span class="lineNum">      73 </span>            :      * Contains the used hostname and port, if none where given in the
+<span class="lineNum">      74 </span>            :      * constructor uri.
+<span class="lineNum">      75 </span>            :      *
+<span class="lineNum">      76 </span>            :      * @return the publisher URI.
+<span class="lineNum">      77 </span>            :      */
+<span class="lineNum">      78 </span>            :     ZEROEQ_API const URI&amp; getURI() const;
+<span class="lineNum">      79 </span>            : 
+<span class="lineNum">      80 </span>            :     /**
+<span class="lineNum">      81 </span>            :      * Get the underlying socket descriptor.
+<span class="lineNum">      82 </span>            :      *
+<span class="lineNum">      83 </span>            :      * Can be used by client code to be notified when new data is available and
+<span class="lineNum">      84 </span>            :      * subsequently call receive.
+<span class="lineNum">      85 </span>            :      *
+<span class="lineNum">      86 </span>            :      * @return the socket descriptor.
+<span class="lineNum">      87 </span>            :      * @throw std::runtime_error if the descriptor could not be obtained.
+<span class="lineNum">      88 </span>            :      */
+<span class="lineNum">      89 </span>            :     ZEROEQ_API SocketDescriptor getSocketDescriptor() const;
+<span class="lineNum">      90 </span>            :     //@}
+<span class="lineNum">      91 </span>            : 
+<span class="lineNum">      92 </span>            :     /** @name Object registration for PUT and GET requests */
+<a name="93"><span class="lineNum">      93 </span>            :     //@{</a>
+<span class="lineNum">      94 </span>            :     /** Handle PUT and GET for the given object. */
+<span class="lineNum">      95 </span><span class="lineCov">          4 :     bool handle( servus::Serializable&amp; object )</span>
+<span class="lineNum">      96 </span><span class="lineCov">          4 :         { return handlePUT( object ) &amp;&amp; handleGET( object );}</span>
+<span class="lineNum">      97 </span>            : 
+<span class="lineNum">      98 </span>            :     /** Remove PUT and GET handling for given object. */
+<span class="lineNum">      99 </span>            :     ZEROEQ_API bool remove( const servus::Serializable&amp; object );
+<span class="lineNum">     100 </span>            : 
+<span class="lineNum">     101 </span>            :     /** Remove PUT and GET handling for given event. */
+<span class="lineNum">     102 </span>            :     ZEROEQ_API bool remove( const std::string&amp; event );
+<span class="lineNum">     103 </span>            : 
+<span class="lineNum">     104 </span>            :     /**
+<span class="lineNum">     105 </span>            :      * Subscribe a serializable object to receive updates from HTTP PUT
+<span class="lineNum">     106 </span>            :      * requests.
+<span class="lineNum">     107 </span>            :      *
+<span class="lineNum">     108 </span>            :      * Every update will be directly applied on the object during receive()
+<span class="lineNum">     109 </span>            :      * using fromJSON(). To track updates on the object, the serializable's
+<span class="lineNum">     110 </span>            :      * updated function is called accordingly.
+<span class="lineNum">     111 </span>            :      *
+<span class="lineNum">     112 </span>            :      * The subscribed object instance has to be valid until removePUT().
+<span class="lineNum">     113 </span>            :      *
+<span class="lineNum">     114 </span>            :      * @param object the object to update on receive()
+<span class="lineNum">     115 </span>            :      * @return true if subscription was successful, false otherwise
+<span class="lineNum">     116 </span>            :      */
+<span class="lineNum">     117 </span>            :     ZEROEQ_API bool handlePUT( servus::Serializable&amp; object );
+<span class="lineNum">     118 </span>            : 
+<span class="lineNum">     119 </span>            :     /**
+<span class="lineNum">     120 </span>            :      *
+<span class="lineNum">     121 </span>            :      * Subscribe an event to receive HTTP PUT requests.
+<span class="lineNum">     122 </span>            :      *
+<span class="lineNum">     123 </span>            :      * Every receival of the event will call the registered callback function.
+<span class="lineNum">     124 </span>            :      *
+<span class="lineNum">     125 </span>            :      * @param event the event name to receive PUT requests for during receive()
+<span class="lineNum">     126 </span>            :      * @param func the callback function for serving the PUT request
+<span class="lineNum">     127 </span>            :      * @return true if subscription was successful, false otherwise
+<span class="lineNum">     128 </span>            :      */
+<span class="lineNum">     129 </span>            :     ZEROEQ_API bool handlePUT( const std::string&amp; event, const PUTFunc&amp; func );
+<span class="lineNum">     130 </span>            : 
+<span class="lineNum">     131 </span>            :     /**
+<span class="lineNum">     132 </span>            :      * @overload
+<span class="lineNum">     133 </span>            :      * @param event the event name to receive PUT requests for during receive()
+<span class="lineNum">     134 </span>            :      * @param schema describes data layout of event
+<span class="lineNum">     135 </span>            :      * @param func the callback function for serving the PUT request
+<span class="lineNum">     136 </span>            :      */
+<span class="lineNum">     137 </span>            :     ZEROEQ_API bool handlePUT( const std::string&amp; event,
+<span class="lineNum">     138 </span>            :                                const std::string&amp; schema, const PUTFunc&amp; func );
+<span class="lineNum">     139 </span>            : 
+<span class="lineNum">     140 </span>            :     /**
+<span class="lineNum">     141 </span>            :      * Subscribe an event to receive HTTP PUT requests with payload.
+<span class="lineNum">     142 </span>            :      *
+<span class="lineNum">     143 </span>            :      * Every receival of the event will call the registered callback function.
+<span class="lineNum">     144 </span>            :      *
+<span class="lineNum">     145 </span>            :      * @param event the event name to receive PUT requests for during receive()
+<span class="lineNum">     146 </span>            :      * @param func the callback function for serving the PUT request
+<span class="lineNum">     147 </span>            :      * @return true if subscription was successful, false otherwise
+<span class="lineNum">     148 </span>            :      */
+<span class="lineNum">     149 </span>            :     ZEROEQ_API bool handlePUT( const std::string&amp; event,
+<span class="lineNum">     150 </span>            :                                const PUTPayloadFunc&amp; func );
+<span class="lineNum">     151 </span>            : 
+<span class="lineNum">     152 </span>            :     /**
+<span class="lineNum">     153 </span>            :      * @overload
+<span class="lineNum">     154 </span>            :      * @param event the event name to receive PUT requests for during receive()
+<span class="lineNum">     155 </span>            :      * @param schema describes data layout of event
+<span class="lineNum">     156 </span>            :      * @param func the callback function for serving the PUT request
+<span class="lineNum">     157 </span>            :      */
+<span class="lineNum">     158 </span>            :     ZEROEQ_API bool handlePUT( const std::string&amp; event,
+<span class="lineNum">     159 </span>            :                                const std::string&amp; schema,
+<span class="lineNum">     160 </span>            :                                const PUTPayloadFunc&amp; func );
+<span class="lineNum">     161 </span>            :     /**
+<span class="lineNum">     162 </span>            :      * Subscribe a serializable object to serve HTTP GET requests.
+<span class="lineNum">     163 </span>            :      *
+<span class="lineNum">     164 </span>            :      * Every request will be directly handled during receive() by using
+<span class="lineNum">     165 </span>            :      * toJSON(). To track updates on the object, the serializable's received
+<span class="lineNum">     166 </span>            :      * function is called accordingly.
+<span class="lineNum">     167 </span>            :      *
+<span class="lineNum">     168 </span>            :      * The subscribed object instance has to be valid until removeGET().
+<span class="lineNum">     169 </span>            :      *
+<span class="lineNum">     170 </span>            :      * @param object the object to serve during receive()
+<span class="lineNum">     171 </span>            :      * @return true if subscription was successful, false otherwise
+<span class="lineNum">     172 </span>            :      */
+<span class="lineNum">     173 </span>            :     ZEROEQ_API bool handleGET( servus::Serializable&amp; object );
+<span class="lineNum">     174 </span>            : 
+<span class="lineNum">     175 </span>            :     /**
+<span class="lineNum">     176 </span>            :      * Subscribe an event to serve HTTP GET requests.
+<span class="lineNum">     177 </span>            :      *
+<span class="lineNum">     178 </span>            :      * Every request will be directly handled during receive() by calling the
+<span class="lineNum">     179 </span>            :      * registered GET function.
+<span class="lineNum">     180 </span>            :      *
+<span class="lineNum">     181 </span>            :      * @param event the event name to serve during receive()
+<span class="lineNum">     182 </span>            :      * @param func the callback function for serving the GET request
+<span class="lineNum">     183 </span>            :      * @return true if subscription was successful, false otherwise
+<span class="lineNum">     184 </span>            :      */
+<span class="lineNum">     185 </span>            :     ZEROEQ_API bool handleGET( const std::string&amp; event, const GETFunc&amp; func );
+<span class="lineNum">     186 </span>            : 
+<span class="lineNum">     187 </span>            :     /**
+<span class="lineNum">     188 </span>            :      * @overload
+<span class="lineNum">     189 </span>            :      * @param event the event name to serve during receive()
+<span class="lineNum">     190 </span>            :      * @param schema describes data layout of event
+<span class="lineNum">     191 </span>            :      * @param func the callback function for serving the GET request
+<span class="lineNum">     192 </span>            :      */
+<span class="lineNum">     193 </span>            :     ZEROEQ_API bool handleGET( const std::string&amp; event,
+<span class="lineNum">     194 </span>            :                                const std::string&amp; schema, const GETFunc&amp; func );
+<span class="lineNum">     195 </span>            : 
+<span class="lineNum">     196 </span>            :     /**
+<span class="lineNum">     197 </span>            :      * @return the registered schema for the given object, or empty if not
+<span class="lineNum">     198 </span>            :      *         registered.
+<span class="lineNum">     199 </span>            :      */
+<span class="lineNum">     200 </span>            :     ZEROEQ_API std::string getSchema( const servus::Serializable&amp; object) const;
+<span class="lineNum">     201 </span>            : 
+<span class="lineNum">     202 </span>            :     /** @overload */
+<span class="lineNum">     203 </span>            :     ZEROEQ_API std::string getSchema( const std::string&amp; event ) const;
+<span class="lineNum">     204 </span>            :     //@}
+<span class="lineNum">     205 </span>            : 
+<span class="lineNum">     206 </span>            : private:
+<span class="lineNum">     207 </span>            :     class Impl;
+<span class="lineNum">     208 </span>            :     std::unique_ptr&lt; Impl &gt; _impl;
+<span class="lineNum">     209 </span>            : 
+<span class="lineNum">     210 </span>            :     // Receiver API
+<a name="211"><span class="lineNum">     211 </span>            :     void addSockets( std::vector&lt; detail::Socket &gt;&amp; entries ) final;</a>
+<span class="lineNum">     212 </span>            :     void process( detail::Socket&amp; socket, uint32_t timeout ) final;
+<span class="lineNum">     213 </span>            :     void addConnection( const std::string&amp; ) final { ZEROEQDONTCALL; } // LCOV_EXCL_LINE
+<span class="lineNum">     214 </span>            : };
+<span class="lineNum">     215 </span>            : }
+<span class="lineNum">     216 </span>            : }
+<span class="lineNum">     217 </span>            : 
+<span class="lineNum">     218 </span>            : #endif
+</pre>
+      </td>
+    </tr>
+  </table>
+  <br>
+
+  <table width="100%" border=0 cellspacing=0 cellpadding=0>
+    <tr><td class="ruler"><img src="../../glass.png" width=3 height=3 alt=""></td></tr>
+    <tr><td class="versionInfo">Generated by: <a href="http://ltp.sourceforge.net/coverage/lcov.php" target="_parent">LCOV version 1.11</a></td></tr>
+  </table>
+  <br>
+
+</body>
+</html>

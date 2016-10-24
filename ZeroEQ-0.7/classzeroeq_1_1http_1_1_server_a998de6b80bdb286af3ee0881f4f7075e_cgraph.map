@@ -1,0 +1,5 @@
+<map id="zeroeq::http::Server::handle" name="zeroeq::http::Server::handle">
+<area shape="rect" id="node3" href="$classzeroeq_1_1http_1_1_server.html#ae4b9114da05c1ab01c49cbd1dc2b62ae" title="zeroeq::http::Server\l::getSchema" alt="" coords="216,5,379,51"/>
+<area shape="rect" id="node5" href="$classzeroeq_1_1http_1_1_server.html#a2eaa79b309238c5c79dccd1d78983980" title="Subscribe a serializable object to serve HTTP GET requests. " alt="" coords="216,74,379,121"/>
+<area shape="rect" id="node7" href="$classzeroeq_1_1http_1_1_server.html#a9154bacedd29ee88f3c166e987e00fc4" title="Subscribe a serializable object to receive updates from HTTP PUT requests. " alt="" coords="216,143,379,190"/>
+</map>
