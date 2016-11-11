@@ -1,9 +1,11 @@
 var searchData=
 [
   ['getabi',['getABI',['../classlexis_1_1_version.html#a11576245df6b58fc7fb79d399ca536a3',1,'lexis::Version']]],
-  ['getbins',['getBins',['../classlexis_1_1render_1_1_histogram.html#a876c7dc4cc4d44b1aaff30969bd5887d',1,'lexis::render::Histogram']]],
+  ['getbins',['getBins',['../classlexis_1_1render_1_1_histogram.html#a6ce73498e86e31f87fcd267335cf6603',1,'lexis::render::Histogram']]],
   ['getdata',['getData',['../classlexis_1_1render_1_1_image_j_p_e_g.html#a9c25058a387f0935e5dddf8377467605',1,'lexis::render::ImageJPEG']]],
   ['getfirst',['getFirst',['../classlexis_1_1data_1_1_cell_set_binary_op.html#afdb900856094024b9e57d4cc63b8a67b',1,'lexis::data::CellSetBinaryOp']]],
+  ['gethost',['getHost',['../classlexis_1_1render_1_1_stream.html#a6d52090b6dcfe49983dcc39c9a41df06',1,'lexis::render::Stream']]],
+  ['getid',['getId',['../classlexis_1_1render_1_1_stream.html#ae8a8124f1acf0849143bcb618a510094',1,'lexis::render::Stream']]],
   ['getids',['getIds',['../classlexis_1_1data_1_1_selected_i_ds.html#a78d6f0aea607d7d32a40dd74f28015e0',1,'lexis::data::SelectedIDs::getIds()'],['../classlexis_1_1data_1_1_toggle_i_d_request.html#a977c6670c486bfde5d834f87ecf9450d',1,'lexis::data::ToggleIDRequest::getIds()']]],
   ['getlut',['getLut',['../classlexis_1_1render_1_1_lookup_table1_d.html#aa045047524cbbfa149cda12c221f20e6',1,'lexis::render::LookupTable1D']]],
   ['getmajor',['getMajor',['../classlexis_1_1_version.html#a0ab08f92265f8abbc57784eed4827553',1,'lexis::Version']]],

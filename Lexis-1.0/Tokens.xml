@@ -62,7 +62,7 @@
       <Type>macro</Type>
     </TokenIdentifier>
     <Path>version_8h.html</Path>
-    <Anchor>ad7f6ee17a8aec267fd8b159f2278bd26</Anchor>
+    <Anchor>a9dd7ef590bad8992fe6d13405fc8d949</Anchor>
     <Abstract>True if the current version is newer than the given one. </Abstract>
     <DeclaredIn>version.h</DeclaredIn>
   </Token>
@@ -73,7 +73,7 @@
       <Type>macro</Type>
     </TokenIdentifier>
     <Path>version_8h.html</Path>
-    <Anchor>a5640b8ca3e3d38fdb9be0d183dab1213</Anchor>
+    <Anchor>a7844ca9007ef7c67765522bb6bb8301b</Anchor>
     <Abstract>True if the current version is equal or newer to the given. </Abstract>
     <DeclaredIn>version.h</DeclaredIn>
   </Token>
@@ -84,7 +84,7 @@
       <Type>macro</Type>
     </TokenIdentifier>
     <Path>version_8h.html</Path>
-    <Anchor>a4bdc7b7fd66e73cae110d8e5956bd03a</Anchor>
+    <Anchor>a68a2a64ba7b4f9d98692e484e6ed9359</Anchor>
     <Abstract>True if the current version is older than the given one. </Abstract>
     <DeclaredIn>version.h</DeclaredIn>
   </Token>
@@ -95,7 +95,7 @@
       <Type>macro</Type>
     </TokenIdentifier>
     <Path>version_8h.html</Path>
-    <Anchor>a826a286df7d25759940c7b7f304449ff</Anchor>
+    <Anchor>ac0b2b0b9866cf62c65a5739359fe0934</Anchor>
     <Abstract>True if the current version is older or equal to the given. </Abstract>
     <DeclaredIn>version.h</DeclaredIn>
   </Token>
@@ -104,7 +104,7 @@
       <Name>Changelog</Name>
       <APILanguage>markdown</APILanguage>
     </TokenIdentifier>
-    <Path>_changelog.html</Path>
+    <Path>Changelog.html</Path>
   </Token>
   <Token>
     <TokenIdentifier>
@@ -675,8 +675,8 @@
       <Scope>lexis::render::Histogram</Scope>
     </TokenIdentifier>
     <Path>classlexis_1_1render_1_1_histogram.html</Path>
-    <Anchor>a876c7dc4cc4d44b1aaff30969bd5887d</Anchor>
-    <Abstract>Get a pointer to the uint64_t fixed size array object. </Abstract>
+    <Anchor>a6ce73498e86e31f87fcd267335cf6603</Anchor>
+    <Abstract>Get a reference to the uint64_t dynamic member. </Abstract>
     <DeclaredIn>histogram.h</DeclaredIn>
   </Token>
   <Token>
@@ -687,8 +687,8 @@
       <Scope>lexis::render::Histogram</Scope>
     </TokenIdentifier>
     <Path>classlexis_1_1render_1_1_histogram.html</Path>
-    <Anchor>af70fe7e4dcbd218b1ed704894759630b</Anchor>
-    <Abstract>Set the value of the uint64_t fixed size array object from a uint64_t*. </Abstract>
+    <Anchor>ad353f5d31f6c8cfc541173557707397d</Anchor>
+    <Abstract>Set the value of the uint64_t dynamic object from a uint64_t* and size. </Abstract>
     <DeclaredIn>histogram.h</DeclaredIn>
   </Token>
   <Token>
@@ -700,7 +700,31 @@
     </TokenIdentifier>
     <Path>classlexis_1_1render_1_1_histogram.html</Path>
     <Anchor>a18016424092789ad432de2b49f775964</Anchor>
-    <Abstract>Set the value of the uint64_t fixed size array object from a uint64_t std::vector. </Abstract>
+    <Abstract>Set the value of the uint64_t dynamic object from a uint64_t std::vector. </Abstract>
+    <DeclaredIn>histogram.h</DeclaredIn>
+  </Token>
+  <Token>
+    <TokenIdentifier>
+      <Name>setMin</Name>
+      <APILanguage>cpp</APILanguage>
+      <Type>instm</Type>
+      <Scope>lexis::render::Histogram</Scope>
+    </TokenIdentifier>
+    <Path>classlexis_1_1render_1_1_histogram.html</Path>
+    <Anchor>aa55ee06898a82b91be67f8e9188d9c6c</Anchor>
+    <Abstract>Set the value of the float fixed size member. </Abstract>
+    <DeclaredIn>histogram.h</DeclaredIn>
+  </Token>
+  <Token>
+    <TokenIdentifier>
+      <Name>setMax</Name>
+      <APILanguage>cpp</APILanguage>
+      <Type>instm</Type>
+      <Scope>lexis::render::Histogram</Scope>
+    </TokenIdentifier>
+    <Path>classlexis_1_1render_1_1_histogram.html</Path>
+    <Anchor>ac7eb9e11be8522779fa63e1ea2a56de3</Anchor>
+    <Abstract>Set the value of the float fixed size member. </Abstract>
     <DeclaredIn>histogram.h</DeclaredIn>
   </Token>
   <Token>
@@ -894,5 +918,134 @@
     <Anchor>ae0499638012bef7eca950ac7fb53646f</Anchor>
     <Abstract>Set the value of the float fixed size member. </Abstract>
     <DeclaredIn>clipPlanes.h</DeclaredIn>
+  </Token>
+  <Token>
+    <TokenIdentifier>
+      <Name>lexis::render::Stream</Name>
+      <APILanguage>c</APILanguage>
+      <Type>cl</Type>
+      <Scope>lexis::render::Stream</Scope>
+    </TokenIdentifier>
+    <Path>classlexis_1_1render_1_1_stream.html</Path>
+  </Token>
+  <Token>
+    <TokenIdentifier>
+      <Name>getId</Name>
+      <APILanguage>cpp</APILanguage>
+      <Type>instm</Type>
+      <Scope>lexis::render::Stream</Scope>
+    </TokenIdentifier>
+    <Path>classlexis_1_1render_1_1_stream.html</Path>
+    <Anchor>ae8a8124f1acf0849143bcb618a510094</Anchor>
+    <Abstract>Get a reference to the char dynamic member. </Abstract>
+    <DeclaredIn>stream.h</DeclaredIn>
+  </Token>
+  <Token>
+    <TokenIdentifier>
+      <Name>setId</Name>
+      <APILanguage>cpp</APILanguage>
+      <Type>instm</Type>
+      <Scope>lexis::render::Stream</Scope>
+    </TokenIdentifier>
+    <Path>classlexis_1_1render_1_1_stream.html</Path>
+    <Anchor>a3858ceb095a92ee5e5ec09de5d565b48</Anchor>
+    <Abstract>Set the value of the char dynamic object from a char* and size. </Abstract>
+    <DeclaredIn>stream.h</DeclaredIn>
+  </Token>
+  <Token>
+    <TokenIdentifier>
+      <Name>setId</Name>
+      <APILanguage>cpp</APILanguage>
+      <Type>instm</Type>
+      <Scope>lexis::render::Stream</Scope>
+    </TokenIdentifier>
+    <Path>classlexis_1_1render_1_1_stream.html</Path>
+    <Anchor>ab2f91a2c48ba78f85b0b34dda2dd3307</Anchor>
+    <Abstract>Set the value of the char dynamic object from a std::string. </Abstract>
+    <DeclaredIn>stream.h</DeclaredIn>
+  </Token>
+  <Token>
+    <TokenIdentifier>
+      <Name>getHost</Name>
+      <APILanguage>cpp</APILanguage>
+      <Type>instm</Type>
+      <Scope>lexis::render::Stream</Scope>
+    </TokenIdentifier>
+    <Path>classlexis_1_1render_1_1_stream.html</Path>
+    <Anchor>a6d52090b6dcfe49983dcc39c9a41df06</Anchor>
+    <Abstract>Get a reference to the char dynamic member. </Abstract>
+    <DeclaredIn>stream.h</DeclaredIn>
+  </Token>
+  <Token>
+    <TokenIdentifier>
+      <Name>setHost</Name>
+      <APILanguage>cpp</APILanguage>
+      <Type>instm</Type>
+      <Scope>lexis::render::Stream</Scope>
+    </TokenIdentifier>
+    <Path>classlexis_1_1render_1_1_stream.html</Path>
+    <Anchor>ab9aef74e41ed3669568191512cb3f3b2</Anchor>
+    <Abstract>Set the value of the char dynamic object from a char* and size. </Abstract>
+    <DeclaredIn>stream.h</DeclaredIn>
+  </Token>
+  <Token>
+    <TokenIdentifier>
+      <Name>setHost</Name>
+      <APILanguage>cpp</APILanguage>
+      <Type>instm</Type>
+      <Scope>lexis::render::Stream</Scope>
+    </TokenIdentifier>
+    <Path>classlexis_1_1render_1_1_stream.html</Path>
+    <Anchor>a85b1f631806087e054047e02d8ac3971</Anchor>
+    <Abstract>Set the value of the char dynamic object from a std::string. </Abstract>
+    <DeclaredIn>stream.h</DeclaredIn>
+  </Token>
+  <Token>
+    <TokenIdentifier>
+      <Name>setPort</Name>
+      <APILanguage>cpp</APILanguage>
+      <Type>instm</Type>
+      <Scope>lexis::render::Stream</Scope>
+    </TokenIdentifier>
+    <Path>classlexis_1_1render_1_1_stream.html</Path>
+    <Anchor>aa97c3c65d88d9547230cc2797a78ff15</Anchor>
+    <Abstract>Set the value of the uint16_t fixed size member. </Abstract>
+    <DeclaredIn>stream.h</DeclaredIn>
+  </Token>
+  <Token>
+    <TokenIdentifier>
+      <Name>setEnabled</Name>
+      <APILanguage>cpp</APILanguage>
+      <Type>instm</Type>
+      <Scope>lexis::render::Stream</Scope>
+    </TokenIdentifier>
+    <Path>classlexis_1_1render_1_1_stream.html</Path>
+    <Anchor>a351503e668c961fbf43952e62aeb7d45</Anchor>
+    <Abstract>Set the value of the bool fixed size member. </Abstract>
+    <DeclaredIn>stream.h</DeclaredIn>
+  </Token>
+  <Token>
+    <TokenIdentifier>
+      <Name>setCompression</Name>
+      <APILanguage>cpp</APILanguage>
+      <Type>instm</Type>
+      <Scope>lexis::render::Stream</Scope>
+    </TokenIdentifier>
+    <Path>classlexis_1_1render_1_1_stream.html</Path>
+    <Anchor>a1a09d57682fc7cfcb180d51aeafe9dd8</Anchor>
+    <Abstract>Set the value of the bool fixed size member. </Abstract>
+    <DeclaredIn>stream.h</DeclaredIn>
+  </Token>
+  <Token>
+    <TokenIdentifier>
+      <Name>setQuality</Name>
+      <APILanguage>cpp</APILanguage>
+      <Type>instm</Type>
+      <Scope>lexis::render::Stream</Scope>
+    </TokenIdentifier>
+    <Path>classlexis_1_1render_1_1_stream.html</Path>
+    <Anchor>add9922c6206b53a5ad9e1d7db5e049fb</Anchor>
+    <Abstract>Set the value of the uint16_t fixed size member. </Abstract>
+    <DeclaredIn>stream.h</DeclaredIn>
   </Token>
 </Tokens>

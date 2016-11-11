@@ -17,6 +17,7 @@ var hierarchy =
       [ "lexis::render::LookOut", "classlexis_1_1render_1_1_look_out.html", null ],
       [ "lexis::render::LookupTable1D", "classlexis_1_1render_1_1_lookup_table1_d.html", null ],
       [ "lexis::render::Plane", "classlexis_1_1render_1_1_plane.html", null ],
+      [ "lexis::render::Stream", "classlexis_1_1render_1_1_stream.html", null ],
       [ "lexis::Request", "classlexis_1_1_request.html", null ]
     ] ]
 ];

@@ -1,4 +1,4 @@
-var annotated =
+var annotated_dup =
 [
     [ "lexis", null, [
       [ "data", null, [
@@ -19,7 +19,8 @@ var annotated =
         [ "ImageJPEG", "classlexis_1_1render_1_1_image_j_p_e_g.html", "classlexis_1_1render_1_1_image_j_p_e_g" ],
         [ "LookOut", "classlexis_1_1render_1_1_look_out.html", "classlexis_1_1render_1_1_look_out" ],
         [ "LookupTable1D", "classlexis_1_1render_1_1_lookup_table1_d.html", "classlexis_1_1render_1_1_lookup_table1_d" ],
-        [ "Plane", "classlexis_1_1render_1_1_plane.html", "classlexis_1_1render_1_1_plane" ]
+        [ "Plane", "classlexis_1_1render_1_1_plane.html", "classlexis_1_1render_1_1_plane" ],
+        [ "Stream", "classlexis_1_1render_1_1_stream.html", "classlexis_1_1render_1_1_stream" ]
       ] ],
       [ "Request", "classlexis_1_1_request.html", "classlexis_1_1_request" ],
       [ "Version", "classlexis_1_1_version.html", "classlexis_1_1_version" ]

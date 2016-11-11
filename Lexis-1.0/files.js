@@ -17,5 +17,6 @@ var files =
     [ "progress.h", "progress_8h_source.html", null ],
     [ "request.h", "request_8h_source.html", null ],
     [ "selections.h", "selections_8h_source.html", null ],
+    [ "stream.h", "stream_8h_source.html", null ],
     [ "version.h", "version_8h.html", "version_8h" ]
 ];
