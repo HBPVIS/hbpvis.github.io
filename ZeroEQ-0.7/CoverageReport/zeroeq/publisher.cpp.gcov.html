@@ -31,13 +31,13 @@
             <td class="headerValue">ZeroEQ</td>
             <td></td>
             <td class="headerItem">Lines:</td>
-            <td class="headerCovTableEntry">76</td>
-            <td class="headerCovTableEntry">90</td>
-            <td class="headerCovTableEntryHi">84.4 %</td>
+            <td class="headerCovTableEntry">77</td>
+            <td class="headerCovTableEntry">89</td>
+            <td class="headerCovTableEntryHi">86.5 %</td>
           </tr>
           <tr>
             <td class="headerItem">Date:</td>
-            <td class="headerValue">2016-10-24 16:37:51</td>
+            <td class="headerValue">2016-11-11 01:34:51</td>
             <td></td>
             <td class="headerItem">Functions:</td>
             <td class="headerCovTableEntry">19</td>
@@ -110,7 +110,7 @@
 <span class="lineNum">      48 </span><span class="lineNoCov">          0 :         ZEROEQWARN &lt;&lt; &quot;Could not find absolute executable path&quot; &lt;&lt; std::endl;</span>
 <span class="lineNum">      49 </span><span class="lineNoCov">          0 :         return std::string();</span>
 <span class="lineNum">      50 </span>            :     }
-<span class="lineNum">      51 </span><span class="lineCov">          2 :     const std::string execPath( result, count &gt; 0 ? count : 0 );</span>
+<span class="lineNum">      51 </span><span class="lineCov">          4 :     const std::string execPath( result, count &gt; 0 ? count : 0 );</span>
 <span class="lineNum">      52 </span>            : #endif
 <span class="lineNum">      53 </span>            : 
 <span class="lineNum">      54 </span>            : #ifdef _MSC_VER
@@ -129,7 +129,7 @@
 <a name="67"><span class="lineNum">      67 </span>            : {</a>
 <span class="lineNum">      68 </span>            : public:
 <span class="lineNum">      69 </span><span class="lineCov">         16 :     Impl( const URI&amp; uri_, const std::string&amp; session )</span>
-<span class="lineNum">      70 </span>            :         : detail::Sender( uri_, 0, ZMQ_PUB )
+<span class="lineNum">      70 </span><span class="lineCov">         16 :         : detail::Sender( uri_, 0, ZMQ_PUB )</span>
 <span class="lineNum">      71 </span>            :         , _service( PUBLISHER_SERVICE )
 <span class="lineNum">      72 </span><span class="lineCov">         18 :         , _session( session == DEFAULT_SESSION ? getDefaultSession() : session )</span>
 <span class="lineNum">      73 </span>            :     {
@@ -137,7 +137,7 @@
 <span class="lineNum">      75 </span><span class="lineCov">          1 :             ZEROEQTHROW( std::runtime_error(</span>
 <span class="lineNum">      76 </span>            :                          &quot;Empty session is not allowed for publisher&quot; ));
 <span class="lineNum">      77 </span>            : 
-<span class="lineNum">      78 </span><span class="lineCov">         15 :         const std::string&amp; zmqURI = buildZmqURI( uri );</span>
+<span class="lineNum">      78 </span><span class="lineCov">         30 :         const std::string&amp; zmqURI = buildZmqURI( uri );</span>
 <span class="lineNum">      79 </span><span class="lineCov">         15 :         if( zmq_bind( socket, zmqURI.c_str( )) == -1 )</span>
 <span class="lineNum">      80 </span>            :         {
 <span class="lineNum">      81 </span><span class="lineCov">          1 :             zmq_close( socket );</span>
@@ -150,16 +150,16 @@
 <span class="lineNum">      88 </span><span class="lineCov">         14 :         initURI();</span>
 <span class="lineNum">      89 </span>            : 
 <span class="lineNum">      90 </span><span class="lineCov">         14 :         if( session != NULL_SESSION )</span>
-<span class="lineNum">      91 </span><span class="lineCov">          3 :             _initService();</span>
+<span class="lineNum">      91 </span><span class="lineCov">          2 :             _initService();</span>
 <a name="92"><span class="lineNum">      92 </span><span class="lineCov">         14 :     }</span></a>
 <span class="lineNum">      93 </span>            : 
 <a name="94"><span class="lineNum">      94 </span><span class="lineCov">         14 :     ~Impl() {}</span></a>
 <span class="lineNum">      95 </span>            : 
 <span class="lineNum">      96 </span><span class="lineCov">      40016 :     bool publish( const servus::Serializable&amp; serializable )</span>
 <span class="lineNum">      97 </span>            :     {
-<span class="lineNum">      98 </span><span class="lineCov">      40016 :         const servus::Serializable::Data&amp; data = serializable.toBinary();</span>
+<span class="lineNum">      98 </span><span class="lineCov">      80032 :         const servus::Serializable::Data&amp; data = serializable.toBinary();</span>
 <span class="lineNum">      99 </span><span class="lineCov">      40016 :         return publish( serializable.getTypeIdentifier(), data.ptr.get(),</span>
-<span class="lineNum">     100 </span><span class="lineCov">      80032 :                         data.size );</span>
+<span class="lineNum">     100 </span><span class="lineCov">     120048 :                         data.size );</span>
 <a name="101"><span class="lineNum">     101 </span>            :     }</a>
 <span class="lineNum">     102 </span>            : 
 <span class="lineNum">     103 </span><span class="lineCov">      40022 :     bool publish( uint128_t event, const void* data, const size_t size )</span>
@@ -172,12 +172,12 @@
 <span class="lineNum">     110 </span>            :         zmq_msg_t msgHeader;
 <span class="lineNum">     111 </span><span class="lineCov">      40022 :         zmq_msg_init_size( &amp;msgHeader, sizeof( event ));</span>
 <span class="lineNum">     112 </span><span class="lineCov">      40022 :         memcpy( zmq_msg_data( &amp;msgHeader ), &amp;event, sizeof( event ));</span>
-<span class="lineNum">     113 </span>            :         int ret = zmq_msg_send( &amp;msgHeader, socket,
+<span class="lineNum">     113 </span><span class="lineCov">      40022 :         int ret = zmq_msg_send( &amp;msgHeader, socket,</span>
 <span class="lineNum">     114 </span><span class="lineCov">      40022 :                                 hasPayload ? ZMQ_SNDMORE : 0 );</span>
 <span class="lineNum">     115 </span><span class="lineCov">      40022 :         zmq_msg_close( &amp;msgHeader );</span>
 <span class="lineNum">     116 </span><span class="lineCov">      40022 :         if( ret == -1 )</span>
 <span class="lineNum">     117 </span>            :         {
-<span class="lineNum">     118 </span><span class="lineNoCov">          0 :             ZEROEQWARN &lt;&lt; &quot;Cannot publish message header, got &quot;</span>
+<span class="lineNum">     118 </span>            :             ZEROEQWARN &lt;&lt; &quot;Cannot publish message header, got &quot;
 <span class="lineNum">     119 </span><span class="lineNoCov">          0 :                        &lt;&lt; zmq_strerror( zmq_errno( )) &lt;&lt; std::endl;</span>
 <span class="lineNum">     120 </span><span class="lineNoCov">          0 :             return false;</span>
 <span class="lineNum">     121 </span>            :         }
@@ -192,7 +192,7 @@
 <span class="lineNum">     130 </span><span class="lineCov">      20018 :         zmq_msg_close( &amp;msg );</span>
 <span class="lineNum">     131 </span><span class="lineCov">      20018 :         if( ret  == -1 )</span>
 <span class="lineNum">     132 </span>            :         {
-<span class="lineNum">     133 </span><span class="lineNoCov">          0 :             ZEROEQWARN &lt;&lt; &quot;Cannot publish message data, got &quot;</span>
+<span class="lineNum">     133 </span>            :             ZEROEQWARN &lt;&lt; &quot;Cannot publish message data, got &quot;
 <span class="lineNum">     134 </span><span class="lineNoCov">          0 :                        &lt;&lt; zmq_strerror( zmq_errno( )) &lt;&lt; std::endl;</span>
 <span class="lineNum">     135 </span><span class="lineNoCov">          0 :             return false;</span>
 <span class="lineNum">     136 </span>            :         }
@@ -218,13 +218,13 @@
 <span class="lineNum">     156 </span><span class="lineCov">          2 :             _service.set( KEY_SESSION, _session );</span>
 <span class="lineNum">     157 </span>            : 
 <span class="lineNum">     158 </span>            :         const servus::Servus::Result&amp; result =
-<span class="lineNum">     159 </span><span class="lineCov">          2 :             _service.announce( uri.getPort(), getAddress( ));</span>
+<span class="lineNum">     159 </span><span class="lineCov">          4 :             _service.announce( uri.getPort(), getAddress( ));</span>
 <span class="lineNum">     160 </span>            : 
 <span class="lineNum">     161 </span><span class="lineCov">          2 :         if( !result )</span>
 <span class="lineNum">     162 </span>            :         {
 <span class="lineNum">     163 </span><span class="lineNoCov">          0 :             ZEROEQTHROW( std::runtime_error( &quot;Zeroconf announce failed: &quot; +</span>
 <span class="lineNum">     164 </span>            :                                              result.getString( )));
-<span class="lineNum">     165 </span><span class="lineCov">          2 :         }</span>
+<span class="lineNum">     165 </span>            :         }
 <span class="lineNum">     166 </span><span class="lineCov">          2 :     }</span>
 <span class="lineNum">     167 </span>            : 
 <span class="lineNum">     168 </span>            :     servus::Servus _service;

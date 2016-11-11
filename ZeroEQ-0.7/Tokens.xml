@@ -1190,7 +1190,7 @@
       <Scope>zeroeq::http::Server</Scope>
     </TokenIdentifier>
     <Path>classzeroeq_1_1http_1_1_server.html</Path>
-    <Anchor>aa0161832121d27b55ff81b993f12f1a7</Anchor>
+    <Anchor>a2016a682e927c0226ae0d5320b1d4e23</Anchor>
     <Abstract>Remove PUT and GET handling for given object. </Abstract>
     <DeclaredIn>server.h</DeclaredIn>
   </Token>
@@ -1202,7 +1202,7 @@
       <Scope>zeroeq::http::Server</Scope>
     </TokenIdentifier>
     <Path>classzeroeq_1_1http_1_1_server.html</Path>
-    <Anchor>a4bef1618c48d01652466cb91e67b0537</Anchor>
+    <Anchor>a927155aace46738d038d773b06b421ee</Anchor>
     <Abstract>Remove PUT and GET handling for given event. </Abstract>
     <DeclaredIn>server.h</DeclaredIn>
   </Token>
@@ -1214,7 +1214,7 @@
       <Scope>zeroeq::http::Server</Scope>
     </TokenIdentifier>
     <Path>classzeroeq_1_1http_1_1_server.html</Path>
-    <Anchor>a9154bacedd29ee88f3c166e987e00fc4</Anchor>
+    <Anchor>a0aeb9801f53704adb9b8e22f5a19ffec</Anchor>
     <Abstract>Subscribe a serializable object to receive updates from HTTP PUT requests. </Abstract>
     <DeclaredIn>server.h</DeclaredIn>
   </Token>
@@ -1226,7 +1226,7 @@
       <Scope>zeroeq::http::Server</Scope>
     </TokenIdentifier>
     <Path>classzeroeq_1_1http_1_1_server.html</Path>
-    <Anchor>addd9da2283f80bb50a66317078fb39c1</Anchor>
+    <Anchor>afadfaca85ce98fa19b4d6b64ce462ed4</Anchor>
     <Abstract>Subscribe an event to receive HTTP PUT requests. </Abstract>
     <DeclaredIn>server.h</DeclaredIn>
   </Token>
@@ -1238,7 +1238,7 @@
       <Scope>zeroeq::http::Server</Scope>
     </TokenIdentifier>
     <Path>classzeroeq_1_1http_1_1_server.html</Path>
-    <Anchor>ab6e8409e6caa7495b53d02377668d260</Anchor>
+    <Anchor>a1e4da2fdfc4a0978ead0d4ecddfab9a6</Anchor>
     <Abstract>This is an overloaded member function, provided for convenience. It differs from the above function o...</Abstract>
     <DeclaredIn>server.h</DeclaredIn>
   </Token>
@@ -1250,7 +1250,7 @@
       <Scope>zeroeq::http::Server</Scope>
     </TokenIdentifier>
     <Path>classzeroeq_1_1http_1_1_server.html</Path>
-    <Anchor>a5c11756db6161b835facd083db3d14c8</Anchor>
+    <Anchor>a0e7664969de35b9d58ba86b6ded6dcaa</Anchor>
     <Abstract>Subscribe an event to receive HTTP PUT requests with payload. </Abstract>
     <DeclaredIn>server.h</DeclaredIn>
   </Token>
@@ -1262,7 +1262,7 @@
       <Scope>zeroeq::http::Server</Scope>
     </TokenIdentifier>
     <Path>classzeroeq_1_1http_1_1_server.html</Path>
-    <Anchor>a4e2801557917b7566d8a22dd12ad9257</Anchor>
+    <Anchor>ac1018f8d0acae7900c25ab52d5af2729</Anchor>
     <Abstract>This is an overloaded member function, provided for convenience. It differs from the above function o...</Abstract>
     <DeclaredIn>server.h</DeclaredIn>
   </Token>
@@ -1274,7 +1274,7 @@
       <Scope>zeroeq::http::Server</Scope>
     </TokenIdentifier>
     <Path>classzeroeq_1_1http_1_1_server.html</Path>
-    <Anchor>a2eaa79b309238c5c79dccd1d78983980</Anchor>
+    <Anchor>a4d05aa8242bfc6f34e421692775d2e2c</Anchor>
     <Abstract>Subscribe a serializable object to serve HTTP GET requests. </Abstract>
     <DeclaredIn>server.h</DeclaredIn>
   </Token>
@@ -1286,7 +1286,7 @@
       <Scope>zeroeq::http::Server</Scope>
     </TokenIdentifier>
     <Path>classzeroeq_1_1http_1_1_server.html</Path>
-    <Anchor>aa0296c7fb622b787330ba2624be2bc70</Anchor>
+    <Anchor>ac5f0032df958d586d882205f7b78c829</Anchor>
     <Abstract>Subscribe an event to serve HTTP GET requests. </Abstract>
     <DeclaredIn>server.h</DeclaredIn>
   </Token>
@@ -1298,7 +1298,7 @@
       <Scope>zeroeq::http::Server</Scope>
     </TokenIdentifier>
     <Path>classzeroeq_1_1http_1_1_server.html</Path>
-    <Anchor>a9e6ee620835901fbeb6a49bd3c841416</Anchor>
+    <Anchor>a9d0fb2e4f2ad111fd91c27095f944c25</Anchor>
     <Abstract>This is an overloaded member function, provided for convenience. It differs from the above function o...</Abstract>
     <DeclaredIn>server.h</DeclaredIn>
   </Token>
@@ -1310,7 +1310,7 @@
       <Scope>zeroeq::http::Server</Scope>
     </TokenIdentifier>
     <Path>classzeroeq_1_1http_1_1_server.html</Path>
-    <Anchor>ae4b9114da05c1ab01c49cbd1dc2b62ae</Anchor>
+    <Anchor>a546fd235c0a099fa87274bff7fdece52</Anchor>
     <DeclaredIn>server.h</DeclaredIn>
   </Token>
   <Token>
@@ -1321,7 +1321,7 @@
       <Scope>zeroeq::http::Server</Scope>
     </TokenIdentifier>
     <Path>classzeroeq_1_1http_1_1_server.html</Path>
-    <Anchor>a0bd875c3a22ae1a7c32a112abdbf5662</Anchor>
+    <Anchor>ab635404f2f7f253b2bd8a00bf6bcbd29</Anchor>
     <DeclaredIn>server.h</DeclaredIn>
   </Token>
   <Token>
@@ -1380,7 +1380,7 @@
       <Scope>zeroeq::http::Server</Scope>
     </TokenIdentifier>
     <Path>classzeroeq_1_1http_1_1_server.html</Path>
-    <Anchor>ae0fe931a69e5885db6293d92c2e8dbe7</Anchor>
+    <Anchor>a827286f7fd1f8baeb3ae32c83d10fb6e</Anchor>
     <Abstract>Construct a new HTTP server. </Abstract>
     <DeclaredIn>server.h</DeclaredIn>
   </Token>
@@ -1392,7 +1392,7 @@
       <Scope>zeroeq::http::Server</Scope>
     </TokenIdentifier>
     <Path>classzeroeq_1_1http_1_1_server.html</Path>
-    <Anchor>a4ffc6547c5e9b49ff838e5b4c568f97d</Anchor>
+    <Anchor>a409acf9588c95462d1ba0f3186c84e33</Anchor>
     <Abstract>Get the publisher URI. </Abstract>
     <DeclaredIn>server.h</DeclaredIn>
   </Token>
@@ -1404,7 +1404,7 @@
       <Scope>zeroeq::http::Server</Scope>
     </TokenIdentifier>
     <Path>classzeroeq_1_1http_1_1_server.html</Path>
-    <Anchor>a32fb7d64212caf212acec4554f15a08b</Anchor>
+    <Anchor>a15be7e2843c62325d2d27b4d9f86735a</Anchor>
     <Abstract>Get the underlying socket descriptor. </Abstract>
     <DeclaredIn>server.h</DeclaredIn>
   </Token>
@@ -1416,7 +1416,7 @@
       <Scope>zeroeq::http::Server</Scope>
     </TokenIdentifier>
     <Path>classzeroeq_1_1http_1_1_server.html</Path>
-    <Anchor>a5527ac2596c36c45af9dedc8fe1d238d</Anchor>
+    <Anchor>a90935407417630e6bd5c1f17cd86e979</Anchor>
     <Abstract>Create a new Server when requested. </Abstract>
     <DeclaredIn>server.h</DeclaredIn>
   </Token>

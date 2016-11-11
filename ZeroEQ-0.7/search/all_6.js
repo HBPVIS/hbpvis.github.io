@@ -1,4 +1,9 @@
 var searchData=
 [
-  ['landing_20page_20for_20http_3a_3aserver',['Landing page for http::Server',['../landingpage.html',1,'rfcs']]]
+  ['api_2eh',['api.h',['../http_2api_8h.html',1,'']]],
+  ['handle',['handle',['../classzeroeq_1_1http_1_1_server.html#a998de6b80bdb286af3ee0881f4f7075e',1,'zeroeq::http::Server']]],
+  ['handleget',['handleGET',['../classzeroeq_1_1http_1_1_server.html#a4d05aa8242bfc6f34e421692775d2e2c',1,'zeroeq::http::Server::handleGET(servus::Serializable &amp;object)'],['../classzeroeq_1_1http_1_1_server.html#ac5f0032df958d586d882205f7b78c829',1,'zeroeq::http::Server::handleGET(const std::string &amp;event, const GETFunc &amp;func)'],['../classzeroeq_1_1http_1_1_server.html#a9d0fb2e4f2ad111fd91c27095f944c25',1,'zeroeq::http::Server::handleGET(const std::string &amp;event, const std::string &amp;schema, const GETFunc &amp;func)']]],
+  ['handleput',['handlePUT',['../classzeroeq_1_1http_1_1_server.html#a0aeb9801f53704adb9b8e22f5a19ffec',1,'zeroeq::http::Server::handlePUT(servus::Serializable &amp;object)'],['../classzeroeq_1_1http_1_1_server.html#afadfaca85ce98fa19b4d6b64ce462ed4',1,'zeroeq::http::Server::handlePUT(const std::string &amp;event, const PUTFunc &amp;func)'],['../classzeroeq_1_1http_1_1_server.html#a1e4da2fdfc4a0978ead0d4ecddfab9a6',1,'zeroeq::http::Server::handlePUT(const std::string &amp;event, const std::string &amp;schema, const PUTFunc &amp;func)'],['../classzeroeq_1_1http_1_1_server.html#a0e7664969de35b9d58ba86b6ded6dcaa',1,'zeroeq::http::Server::handlePUT(const std::string &amp;event, const PUTPayloadFunc &amp;func)'],['../classzeroeq_1_1http_1_1_server.html#ac1018f8d0acae7900c25ab52d5af2729',1,'zeroeq::http::Server::handlePUT(const std::string &amp;event, const std::string &amp;schema, const PUTPayloadFunc &amp;func)']]],
+  ['http_20server_20for_20zeroeq_20events',['HTTP Server for ZeroEq Events',['../httpserver.html',1,'rfcs']]],
+  ['version_2eh',['version.h',['../http_2version_8h.html',1,'']]]
 ];

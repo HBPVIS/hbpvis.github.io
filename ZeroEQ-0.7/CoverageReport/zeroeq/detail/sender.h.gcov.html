@@ -31,13 +31,13 @@
             <td class="headerValue">ZeroEQ</td>
             <td></td>
             <td class="headerItem">Lines:</td>
+            <td class="headerCovTableEntry">49</td>
             <td class="headerCovTableEntry">50</td>
-            <td class="headerCovTableEntry">51</td>
             <td class="headerCovTableEntryHi">98.0 %</td>
           </tr>
           <tr>
             <td class="headerItem">Date:</td>
-            <td class="headerValue">2016-10-24 16:37:51</td>
+            <td class="headerValue">2016-11-11 01:34:51</td>
             <td></td>
             <td class="headerItem">Functions:</td>
             <td class="headerCovTableEntry">6</td>
@@ -97,7 +97,7 @@
 <a name="35"><span class="lineNum">      35 </span>            :     {}</a>
 <span class="lineNum">      36 </span>            : 
 <span class="lineNum">      37 </span><span class="lineCov">         96 :     Sender( const URI&amp; uri_, void* context, const int type )</span>
-<span class="lineNum">      38 </span>            :         : _context( nullptr )
+<span class="lineNum">      38 </span><span class="lineCov">         96 :         : _context( nullptr )</span>
 <span class="lineNum">      39 </span>            :         , uri( uri_ )
 <span class="lineNum">      40 </span><span class="lineCov">         96 :         , socket( zmq_socket( _createContext( context ), type ))</span>
 <span class="lineNum">      41 </span>            :     {
@@ -120,7 +120,7 @@
 <span class="lineNum">      58 </span>            : 
 <span class="lineNum">      59 </span><span class="lineCov">         88 :     void initURI()</span>
 <span class="lineNum">      60 </span>            :     {
-<span class="lineNum">      61 </span><span class="lineCov">         88 :         std::string host = uri.getHost();</span>
+<span class="lineNum">      61 </span><span class="lineCov">        176 :         std::string host = uri.getHost();</span>
 <span class="lineNum">      62 </span><span class="lineCov">         88 :         if( host == &quot;*&quot; )</span>
 <span class="lineNum">      63 </span><span class="lineCov">          6 :             host.clear();</span>
 <span class="lineNum">      64 </span>            : 
@@ -140,8 +140,8 @@
 <span class="lineNum">      78 </span><span class="lineCov">         88 :             if( host.empty( ))</span>
 <span class="lineNum">      79 </span><span class="lineCov">         82 :                 uri.setHost( hostStr );</span>
 <span class="lineNum">      80 </span>            : 
-<span class="lineNum">      81 </span><span class="lineCov">        176 :             ZEROEQINFO &lt;&lt; &quot;Bound to &quot; &lt;&lt; uri &lt;&lt; std::endl;</span>
-<span class="lineNum">      82 </span><span class="lineCov">         88 :         }</span>
+<span class="lineNum">      81 </span><span class="lineCov">         88 :             ZEROEQINFO &lt;&lt; &quot;Bound to &quot; &lt;&lt; uri &lt;&lt; std::endl;</span>
+<span class="lineNum">      82 </span>            :         }
 <span class="lineNum">      83 </span><span class="lineCov">         88 :     }</span>
 <span class="lineNum">      84 </span>            : 
 <span class="lineNum">      85 </span>            :     ZEROEQ_API static uint128_t&amp; getUUID();
@@ -159,7 +159,7 @@
 <span class="lineNum">      97 </span><span class="lineNoCov">          0 :             ZEROEQTHROW( std::runtime_error(</span>
 <span class="lineNum">      98 </span>            :                              &quot;Cannot determine port of publisher&quot; ));
 <span class="lineNum">      99 </span>            :         }
-<span class="lineNum">     100 </span><span class="lineCov">         88 :         const std::string endPoint( buffer );</span>
+<span class="lineNum">     100 </span><span class="lineCov">        176 :         const std::string endPoint( buffer );</span>
 <span class="lineNum">     101 </span>            : 
 <span class="lineNum">     102 </span><span class="lineCov">         88 :         port = endPoint.substr( endPoint.find_last_of( &quot;:&quot; ) + 1 );</span>
 <span class="lineNum">     103 </span><span class="lineCov">         88 :         const size_t start = endPoint.find_last_of( &quot;/&quot; ) + 1;</span>
@@ -171,7 +171,7 @@
 <span class="lineNum">     109 </span><span class="lineCov">         82 :             gethostname( hostname, NI_MAXHOST );</span>
 <span class="lineNum">     110 </span><span class="lineCov">         82 :             hostname[NI_MAXHOST] = '\0';</span>
 <span class="lineNum">     111 </span><span class="lineCov">         82 :             host = hostname;</span>
-<span class="lineNum">     112 </span><span class="lineCov">         88 :         }</span>
+<span class="lineNum">     112 </span>            :         }
 <a name="113"><span class="lineNum">     113 </span><span class="lineCov">         88 :     }</span></a>
 <span class="lineNum">     114 </span>            : 
 <span class="lineNum">     115 </span><span class="lineCov">         96 :     void* _createContext( void* context )</span>

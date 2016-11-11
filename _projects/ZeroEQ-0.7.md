@@ -4,7 +4,7 @@ version: "0.7"
 major: 0
 minor: 7
 description: ZeroEQ - Zero Event Queue
-updated: 24/10/16
+updated: 11/11/16
 homepage: https://github.com/HBPVIS/ZeroEQ
 repository: https://github.com/HBPVIS/ZeroEQ.git
 issuesurl: https://github.com/HBPVIS/ZeroEQ/issues
