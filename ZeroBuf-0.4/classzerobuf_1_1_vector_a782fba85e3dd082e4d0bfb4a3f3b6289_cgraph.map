@@ -1,0 +1,5 @@
+<map id="zerobuf::Vector::toJSON" name="zerobuf::Vector::toJSON">
+<area shape="rect" id="node3" href="$classzerobuf_1_1_vector.html#ae74a41e9bba6c3756e7f7047fe3d058a" title="zerobuf::Vector::size" alt="" coords="240,13,405,43"/>
+<area shape="rect" id="node5" href="$classzerobuf_1_1_vector.html#ab38f84c7f23e4eb6e3f00a9e925f70cc" title="Empty the vector. " alt="" coords="453,13,624,43"/>
+<area shape="rect" id="node7" href="$classzerobuf_1_1_allocator.html#a59b22f7bccb9384c0cb3069c076b3a51" title="Update allocation of the dynamic elem at index to have newSize bytes. " alt="" coords="673,5,817,51"/>
+</map>

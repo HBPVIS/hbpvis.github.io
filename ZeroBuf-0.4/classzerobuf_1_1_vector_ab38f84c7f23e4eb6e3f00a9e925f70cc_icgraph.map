@@ -1,0 +1,8 @@
+<map id="zerobuf::Vector::clear" name="zerobuf::Vector::clear">
+<area shape="rect" id="node3" href="$classzerobuf_1_1_vector.html#ae74a41e9bba6c3756e7f7047fe3d058a" title="zerobuf::Vector::size" alt="" coords="224,32,389,61"/>
+<area shape="rect" id="node5" href="$classzerobuf_1_1_vector.html#a194d1c7324990991dc183ff83120b684" title="Remove unused memory from vector and all members. " alt="" coords="699,5,896,35"/>
+<area shape="rect" id="node7" href="$classzerobuf_1_1_vector.html#a37f78dd14a1e4124214f0c18e4cb6043" title="zerobuf::Vector::operator[]" alt="" coords="439,85,644,115"/>
+<area shape="rect" id="node13" href="$classzerobuf_1_1_vector.html#a53a2ea111103312aaa2c0605162d2325" title="zerobuf::Vector::toJSON" alt="" coords="448,32,635,61"/>
+<area shape="rect" id="node9" href="$classzerobuf_1_1_vector.html#a65879bdf813915615e08d3344882cf8c" title="zerobuf::Vector::data" alt="" coords="713,72,881,101"/>
+<area shape="rect" id="node11" href="$classzerobuf_1_1_vector.html#a6f04f85b36243fcca988be5da6300e67" title="zerobuf::Vector::operator[]" alt="" coords="695,125,900,155"/>
+</map>
