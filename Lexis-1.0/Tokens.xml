@@ -930,42 +930,6 @@
   </Token>
   <Token>
     <TokenIdentifier>
-      <Name>getId</Name>
-      <APILanguage>cpp</APILanguage>
-      <Type>instm</Type>
-      <Scope>lexis::render::Stream</Scope>
-    </TokenIdentifier>
-    <Path>classlexis_1_1render_1_1_stream.html</Path>
-    <Anchor>ae8a8124f1acf0849143bcb618a510094</Anchor>
-    <Abstract>Get a reference to the char dynamic member. </Abstract>
-    <DeclaredIn>stream.h</DeclaredIn>
-  </Token>
-  <Token>
-    <TokenIdentifier>
-      <Name>setId</Name>
-      <APILanguage>cpp</APILanguage>
-      <Type>instm</Type>
-      <Scope>lexis::render::Stream</Scope>
-    </TokenIdentifier>
-    <Path>classlexis_1_1render_1_1_stream.html</Path>
-    <Anchor>a3858ceb095a92ee5e5ec09de5d565b48</Anchor>
-    <Abstract>Set the value of the char dynamic object from a char* and size. </Abstract>
-    <DeclaredIn>stream.h</DeclaredIn>
-  </Token>
-  <Token>
-    <TokenIdentifier>
-      <Name>setId</Name>
-      <APILanguage>cpp</APILanguage>
-      <Type>instm</Type>
-      <Scope>lexis::render::Stream</Scope>
-    </TokenIdentifier>
-    <Path>classlexis_1_1render_1_1_stream.html</Path>
-    <Anchor>ab2f91a2c48ba78f85b0b34dda2dd3307</Anchor>
-    <Abstract>Set the value of the char dynamic object from a std::string. </Abstract>
-    <DeclaredIn>stream.h</DeclaredIn>
-  </Token>
-  <Token>
-    <TokenIdentifier>
       <Name>getHost</Name>
       <APILanguage>cpp</APILanguage>
       <Type>instm</Type>
@@ -1002,14 +966,38 @@
   </Token>
   <Token>
     <TokenIdentifier>
-      <Name>setPort</Name>
+      <Name>getId</Name>
       <APILanguage>cpp</APILanguage>
       <Type>instm</Type>
       <Scope>lexis::render::Stream</Scope>
     </TokenIdentifier>
     <Path>classlexis_1_1render_1_1_stream.html</Path>
-    <Anchor>aa97c3c65d88d9547230cc2797a78ff15</Anchor>
-    <Abstract>Set the value of the uint16_t fixed size member. </Abstract>
+    <Anchor>ae8a8124f1acf0849143bcb618a510094</Anchor>
+    <Abstract>Get a reference to the char dynamic member. </Abstract>
+    <DeclaredIn>stream.h</DeclaredIn>
+  </Token>
+  <Token>
+    <TokenIdentifier>
+      <Name>setId</Name>
+      <APILanguage>cpp</APILanguage>
+      <Type>instm</Type>
+      <Scope>lexis::render::Stream</Scope>
+    </TokenIdentifier>
+    <Path>classlexis_1_1render_1_1_stream.html</Path>
+    <Anchor>a3858ceb095a92ee5e5ec09de5d565b48</Anchor>
+    <Abstract>Set the value of the char dynamic object from a char* and size. </Abstract>
+    <DeclaredIn>stream.h</DeclaredIn>
+  </Token>
+  <Token>
+    <TokenIdentifier>
+      <Name>setId</Name>
+      <APILanguage>cpp</APILanguage>
+      <Type>instm</Type>
+      <Scope>lexis::render::Stream</Scope>
+    </TokenIdentifier>
+    <Path>classlexis_1_1render_1_1_stream.html</Path>
+    <Anchor>ab2f91a2c48ba78f85b0b34dda2dd3307</Anchor>
+    <Abstract>Set the value of the char dynamic object from a std::string. </Abstract>
     <DeclaredIn>stream.h</DeclaredIn>
   </Token>
   <Token>
@@ -1022,6 +1010,18 @@
     <Path>classlexis_1_1render_1_1_stream.html</Path>
     <Anchor>a351503e668c961fbf43952e62aeb7d45</Anchor>
     <Abstract>Set the value of the bool fixed size member. </Abstract>
+    <DeclaredIn>stream.h</DeclaredIn>
+  </Token>
+  <Token>
+    <TokenIdentifier>
+      <Name>setPort</Name>
+      <APILanguage>cpp</APILanguage>
+      <Type>instm</Type>
+      <Scope>lexis::render::Stream</Scope>
+    </TokenIdentifier>
+    <Path>classlexis_1_1render_1_1_stream.html</Path>
+    <Anchor>aa97c3c65d88d9547230cc2797a78ff15</Anchor>
+    <Abstract>Set the value of the uint16_t fixed size member. </Abstract>
     <DeclaredIn>stream.h</DeclaredIn>
   </Token>
   <Token>
