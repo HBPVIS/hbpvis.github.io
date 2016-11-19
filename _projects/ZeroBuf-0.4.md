@@ -4,7 +4,7 @@ version: "0.4"
 major: 0
 minor: 4
 description: Zero-copy, zero-serialize, zero-hassle protocol buffers
-updated: 16/11/16
+updated: 19/11/16
 homepage: https://github.com/HBPVIS/ZeroBuf
 repository: https://github.com/HBPVIS/ZeroBuf.git
 issuesurl: https://github.com/HBPVIS/ZeroBuf/issues
