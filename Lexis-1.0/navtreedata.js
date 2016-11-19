@@ -2,6 +2,8 @@ var NAVTREE =
 [
   [ "Lexis", "index.html", [
     [ "Changelog", "Changelog.html", null ],
+    [ "Feature specifications", "Features.html", null ],
+    [ "Color maps", "colorMaps.html", null ],
     [ "Classes", "annotated.html", [
       [ "Class List", "annotated.html", "annotated_dup" ],
       [ "Class Index", "classes.html", null ],
@@ -24,8 +26,8 @@ var NAVTREE =
 var NAVTREEINDEX =
 [
 ".html",
-"classlexis_1_1render_1_1_exit.html#a7a6e6d89877b5bfb432c4f7692b8b54c",
-"index.html"
+"classlexis_1_1render_1_1_exit.html#a6ea0f257a350dd900b389be400bc4dd1",
+"histogram_8h_source.html"
 ];
 
 var SYNCONMSG = 'click to disable panel synchronisation';

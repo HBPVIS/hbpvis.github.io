@@ -4,7 +4,7 @@ version: "1.0"
 major: 1
 minor: 0
 description: Vocabulary of events and shared objects for BBP and HBP software
-updated: 16/11/16
+updated: 19/11/16
 homepage: https://github.com/HBPVIS/Lexis
 repository: https://github.com/HBPVIS/Lexis.git
 issuesurl: https://github.com/HBPVIS/Lexis/issues
@@ -12,7 +12,7 @@ packageurl:
 license: LGPL
 maturity: EP
 maintainers: Human Brain Project (HBPVis@googlegroups.com)
-contributors: Daniel Nachbaur
+contributors: Juan Hernando Vieites
 readmetype: text/x-markdown
 ---
 Lexis

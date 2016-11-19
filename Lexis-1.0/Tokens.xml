@@ -108,6 +108,20 @@
   </Token>
   <Token>
     <TokenIdentifier>
+      <Name>Features</Name>
+      <APILanguage>markdown</APILanguage>
+    </TokenIdentifier>
+    <Path>Features.html</Path>
+  </Token>
+  <Token>
+    <TokenIdentifier>
+      <Name>colorMaps</Name>
+      <APILanguage>markdown</APILanguage>
+    </TokenIdentifier>
+    <Path>colorMaps.html</Path>
+  </Token>
+  <Token>
+    <TokenIdentifier>
       <Name>lexis::Request</Name>
       <APILanguage>c</APILanguage>
       <Type>cl</Type>

@@ -10,6 +10,14 @@
         <Path>Changelog.html</Path>
        </Node>
        <Node>
+        <Name>Feature specifications</Name>
+        <Path>Features.html</Path>
+       </Node>
+       <Node>
+        <Name>Color maps</Name>
+        <Path>colorMaps.html</Path>
+       </Node>
+       <Node>
         <Name>Classes</Name>
         <Path>annotated.html</Path>
         <Subnodes>
