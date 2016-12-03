@@ -1,0 +1,6 @@
+<map id="servus::Serializable::getSchema" name="servus::Serializable::getSchema">
+<area shape="rect" id="node3" href="$classservus_1_1_serializable.html#ad22a242cda7fab6d67a93755e8bdb7f1" title="Update this serializable from its binary representation. " alt="" coords="207,5,356,51"/>
+<area shape="rect" id="node5" href="$classservus_1_1_serializable.html#aa2dc11be817dd99bdff1a4dc3cd1d6c0" title="Update this serializable from its JSON representation. " alt="" coords="207,74,356,121"/>
+<area shape="rect" id="node7" href="$classservus_1_1_serializable.html#a90e9c69a8b2df8038b47e99a0c35f66a" title="Get a binary representation of this object. " alt="" coords="207,143,356,190"/>
+<area shape="rect" id="node9" href="$classservus_1_1_serializable.html#af87ccb0b463f144a4788b1645e293396" title="servus::Serializable\l::toJSON" alt="" coords="207,213,356,259"/>
+</map>
