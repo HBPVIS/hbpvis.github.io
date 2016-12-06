@@ -578,9 +578,19 @@
                 <Anchor>a755addec551de5943786a7a29947ede9</Anchor>
                </Node>
                <Node>
+                <Name>getSchema</Name>
+                <Path>classzerobuf_1_1_version.html</Path>
+                <Anchor>a0e19fa9aa74105735ed80d45c14bb8fb</Anchor>
+               </Node>
+               <Node>
                 <Name>getString</Name>
                 <Path>classzerobuf_1_1_version.html</Path>
                 <Anchor>a91a7f1eea9b09ad081304a6a75cf1bcc</Anchor>
+               </Node>
+               <Node>
+                <Name>toJSON</Name>
+                <Path>classzerobuf_1_1_version.html</Path>
+                <Anchor>a019f5099c4c49059c20b4d55de9d8a64</Anchor>
                </Node>
               </Subnodes>
              </Node>
@@ -901,9 +911,19 @@
                 <Anchor>a755addec551de5943786a7a29947ede9</Anchor>
                </Node>
                <Node>
+                <Name>getSchema</Name>
+                <Path>classzerobuf_1_1_version.html</Path>
+                <Anchor>a0e19fa9aa74105735ed80d45c14bb8fb</Anchor>
+               </Node>
+               <Node>
                 <Name>getString</Name>
                 <Path>classzerobuf_1_1_version.html</Path>
                 <Anchor>a91a7f1eea9b09ad081304a6a75cf1bcc</Anchor>
+               </Node>
+               <Node>
+                <Name>toJSON</Name>
+                <Path>classzerobuf_1_1_version.html</Path>
+                <Anchor>a019f5099c4c49059c20b4d55de9d8a64</Anchor>
                </Node>
               </Subnodes>
              </Node>

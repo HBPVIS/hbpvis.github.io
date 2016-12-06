@@ -37,7 +37,7 @@
           </tr>
           <tr>
             <td class="headerItem">Date:</td>
-            <td class="headerValue">2016-11-19 01:08:50</td>
+            <td class="headerValue">2016-12-06 01:08:59</td>
             <td></td>
             <td class="headerItem">Functions:</td>
             <td class="headerCovTableEntry">5</td>
@@ -75,39 +75,39 @@
 <span class="lineNum">      13 </span>            : namespace zerobuf
 <a name="14"><span class="lineNum">      14 </span>            : {</a>
 <span class="lineNum">      15 </span>            : 
-<span class="lineNum">      16 </span><span class="lineCov">        383 : NonMovingBaseAllocator::NonMovingBaseAllocator( const size_t staticSize,</span>
-<span class="lineNum">      17 </span><span class="lineCov">        383 :                                                 const size_t numDynamic )</span>
+<span class="lineNum">      16 </span><span class="lineCov">        388 : NonMovingBaseAllocator::NonMovingBaseAllocator( const size_t staticSize,</span>
+<span class="lineNum">      17 </span><span class="lineCov">        388 :                                                 const size_t numDynamic )</span>
 <span class="lineNum">      18 </span>            :     : _staticSize( staticSize )
-<span class="lineNum">      19 </span><span class="lineCov">        383 :     , _numDynamic( numDynamic )</span>
-<a name="20"><span class="lineNum">      20 </span><span class="lineCov">        383 : {}</span></a>
+<span class="lineNum">      19 </span><span class="lineCov">        388 :     , _numDynamic( numDynamic )</span>
+<a name="20"><span class="lineNum">      20 </span><span class="lineCov">        388 : {}</span></a>
 <span class="lineNum">      21 </span>            : 
-<span class="lineNum">      22 </span><span class="lineCov">        383 : NonMovingBaseAllocator::~NonMovingBaseAllocator()</span>
-<a name="23"><span class="lineNum">      23 </span><span class="lineCov">        383 : {}</span></a>
+<span class="lineNum">      22 </span><span class="lineCov">        388 : NonMovingBaseAllocator::~NonMovingBaseAllocator()</span>
+<a name="23"><span class="lineNum">      23 </span><span class="lineCov">        388 : {}</span></a>
 <span class="lineNum">      24 </span>            : 
-<span class="lineNum">      25 </span><span class="lineCov">        493 : uint8_t* NonMovingBaseAllocator::_moveAllocation(</span>
+<span class="lineNum">      25 </span><span class="lineCov">        495 : uint8_t* NonMovingBaseAllocator::_moveAllocation(</span>
 <span class="lineNum">      26 </span>            :     const size_t index, const bool copy, const size_t newOffset,
 <span class="lineNum">      27 </span>            :     const size_t newSize )
 <span class="lineNum">      28 </span>            : {
-<span class="lineNum">      29 </span><span class="lineCov">        493 :     uint64_t&amp; offset = _getOffset( index );</span>
-<span class="lineNum">      30 </span><span class="lineCov">        493 :     uint64_t&amp; size = _getSize( index );</span>
-<span class="lineNum">      31 </span><span class="lineCov">        493 :     uint8_t* base = getData();</span>
+<span class="lineNum">      29 </span><span class="lineCov">        495 :     uint64_t&amp; offset = _getOffset( index );</span>
+<span class="lineNum">      30 </span><span class="lineCov">        495 :     uint64_t&amp; size = _getSize( index );</span>
+<span class="lineNum">      31 </span><span class="lineCov">        495 :     uint8_t* base = getData();</span>
 <span class="lineNum">      32 </span>            : 
-<span class="lineNum">      33 </span><span class="lineCov">        493 :     if( copy &amp;&amp; offset &gt; 0 )</span>
+<span class="lineNum">      33 </span><span class="lineCov">        495 :     if( copy &amp;&amp; offset &gt; 0 )</span>
 <span class="lineNum">      34 </span><span class="lineCov">         73 :         ::memcpy( base + newOffset, base + offset,</span>
 <span class="lineNum">      35 </span><span class="lineCov">        146 :                   std::min( size, uint64_t ( newSize )));</span>
 <span class="lineNum">      36 </span>            : 
-<span class="lineNum">      37 </span><span class="lineCov">        493 :     offset = newOffset;</span>
-<span class="lineNum">      38 </span><span class="lineCov">        493 :     size = newSize;</span>
-<span class="lineNum">      39 </span><span class="lineCov">        493 :     return base + newOffset;</span>
+<span class="lineNum">      37 </span><span class="lineCov">        495 :     offset = newOffset;</span>
+<span class="lineNum">      38 </span><span class="lineCov">        495 :     size = newSize;</span>
+<span class="lineNum">      39 </span><span class="lineCov">        495 :     return base + newOffset;</span>
 <a name="40"><span class="lineNum">      40 </span>            : }</a>
 <span class="lineNum">      41 </span>            : 
-<span class="lineNum">      42 </span><span class="lineCov">       2357 : uint8_t* NonMovingBaseAllocator::updateAllocation(</span>
+<span class="lineNum">      42 </span><span class="lineCov">       2359 : uint8_t* NonMovingBaseAllocator::updateAllocation(</span>
 <span class="lineNum">      43 </span>            :     const size_t index, const bool copy, const size_t newSize )
 <span class="lineNum">      44 </span>            : {
-<span class="lineNum">      45 </span><span class="lineCov">       2357 :     uint64_t&amp; oldOffset = _getOffset( index );</span>
-<span class="lineNum">      46 </span><span class="lineCov">       2357 :     uint64_t&amp; oldSize = _getSize( index );</span>
+<span class="lineNum">      45 </span><span class="lineCov">       2359 :     uint64_t&amp; oldOffset = _getOffset( index );</span>
+<span class="lineNum">      46 </span><span class="lineCov">       2359 :     uint64_t&amp; oldSize = _getSize( index );</span>
 <span class="lineNum">      47 </span>            : 
-<span class="lineNum">      48 </span><span class="lineCov">       2357 :     if( oldSize &gt;= newSize ) // enough space, update and return</span>
+<span class="lineNum">      48 </span><span class="lineCov">       2359 :     if( oldSize &gt;= newSize ) // enough space, update and return</span>
 <span class="lineNum">      49 </span>            :     {
 <span class="lineNum">      50 </span><span class="lineCov">       1118 :         oldSize = newSize;</span>
 <span class="lineNum">      51 </span><span class="lineCov">       1118 :         if( newSize &gt; 0 )</span>
@@ -117,7 +117,7 @@
 <span class="lineNum">      55 </span><span class="lineCov">        179 :         return nullptr;</span>
 <span class="lineNum">      56 </span>            :     }
 <span class="lineNum">      57 </span>            : 
-<span class="lineNum">      58 </span><span class="lineCov">       1239 :     if( oldOffset != 0 ) // Check for space in current place</span>
+<span class="lineNum">      58 </span><span class="lineCov">       1241 :     if( oldOffset != 0 ) // Check for space in current place</span>
 <span class="lineNum">      59 </span>            :     {
 <span class="lineNum">      60 </span><span class="lineCov">        938 :         uint64_t nextOffset = getSize();</span>
 <span class="lineNum">      61 </span>            : 
@@ -138,38 +138,38 @@
 <span class="lineNum">      76 </span>            :     // Check for a big enough hole
 <span class="lineNum">      77 </span>            :     //-- record allocations
 <span class="lineNum">      78 </span>            :     typedef std::map&lt; size_t, size_t &gt; ArrayMap; // offset -&gt; size
-<span class="lineNum">      79 </span><span class="lineCov">        986 :     ArrayMap arrays; // sort arrays by position</span>
-<span class="lineNum">      80 </span><span class="lineCov">       5701 :     for( size_t i = 0; i &lt; _numDynamic; ++i )</span>
+<span class="lineNum">      79 </span><span class="lineCov">        990 :     ArrayMap arrays; // sort arrays by position</span>
+<span class="lineNum">      80 </span><span class="lineCov">       5707 :     for( size_t i = 0; i &lt; _numDynamic; ++i )</span>
 <span class="lineNum">      81 </span>            :     {
-<span class="lineNum">      82 </span><span class="lineCov">       5208 :         const uint64_t offset = _getOffset( i );</span>
-<span class="lineNum">      83 </span><span class="lineCov">       5208 :         if( i != index &amp;&amp; offset &gt;= _staticSize )</span>
-<span class="lineNum">      84 </span><span class="lineCov">       2967 :             arrays[ offset ] = _getSize( i );</span>
+<span class="lineNum">      82 </span><span class="lineCov">       5212 :         const uint64_t offset = _getOffset( i );</span>
+<span class="lineNum">      83 </span><span class="lineCov">       5212 :         if( i != index &amp;&amp; offset &gt;= _staticSize )</span>
+<span class="lineNum">      84 </span><span class="lineCov">       2968 :             arrays[ offset ] = _getSize( i );</span>
 <span class="lineNum">      85 </span>            :     }
 <span class="lineNum">      86 </span>            : 
 <span class="lineNum">      87 </span>            :     //-- find hole
-<span class="lineNum">      88 </span><span class="lineCov">        493 :     uint64_t start = _staticSize;</span>
-<span class="lineNum">      89 </span><span class="lineCov">       3355 :     for( auto i = arrays.cbegin(); i != arrays.cend(); ++i )</span>
+<span class="lineNum">      88 </span><span class="lineCov">        495 :     uint64_t start = _staticSize;</span>
+<span class="lineNum">      89 </span><span class="lineCov">       3358 :     for( auto i = arrays.cbegin(); i != arrays.cend(); ++i )</span>
 <span class="lineNum">      90 </span>            :     {
-<span class="lineNum">      91 </span><span class="lineCov">       2966 :         assert( i-&gt;first &gt;= start );</span>
-<span class="lineNum">      92 </span><span class="lineCov">       2966 :         if( i-&gt;first - start &gt;= newSize )</span>
+<span class="lineNum">      91 </span><span class="lineCov">       2967 :         assert( i-&gt;first &gt;= start );</span>
+<span class="lineNum">      92 </span><span class="lineCov">       2967 :         if( i-&gt;first - start &gt;= newSize )</span>
 <span class="lineNum">      93 </span><span class="lineCov">        104 :             return _moveAllocation( index, copy, start, newSize );</span>
 <span class="lineNum">      94 </span>            : 
-<span class="lineNum">      95 </span><span class="lineCov">       2862 :         start = i-&gt;first + i-&gt;second;</span>
+<span class="lineNum">      95 </span><span class="lineCov">       2863 :         start = i-&gt;first + i-&gt;second;</span>
 <span class="lineNum">      96 </span>            :     }
 <span class="lineNum">      97 </span>            : 
 <span class="lineNum">      98 </span>            :     //-- check for space after last allocation
-<span class="lineNum">      99 </span><span class="lineCov">        389 :     if( getSize() - start &gt;= newSize )</span>
+<span class="lineNum">      99 </span><span class="lineCov">        391 :     if( getSize() - start &gt;= newSize )</span>
 <span class="lineNum">     100 </span><span class="lineCov">        113 :         return _moveAllocation( index, copy, start, newSize );</span>
 <span class="lineNum">     101 </span>            : 
 <span class="lineNum">     102 </span>            :     // realloc space at the end
-<span class="lineNum">     103 </span><span class="lineCov">        276 :     if( start + newSize &lt;= getSize( ))</span>
+<span class="lineNum">     103 </span><span class="lineCov">        278 :     if( start + newSize &lt;= getSize( ))</span>
 <span class="lineNum">     104 </span>            :         throw std::runtime_error(
 <span class="lineNum">     105 </span><span class="lineNoCov">          0 :             &quot;Internal allocator error: allocation shrinks from &quot; +</span>
 <span class="lineNum">     106 </span><span class="lineNoCov">          0 :             std::to_string( getSize( )) + &quot; to &quot; + std::to_string( start ) +</span>
 <span class="lineNum">     107 </span><span class="lineNoCov">          0 :             &quot; + &quot; + std::to_string( newSize ));</span>
 <span class="lineNum">     108 </span>            : 
-<span class="lineNum">     109 </span><span class="lineCov">        276 :     _resize( start + newSize );</span>
-<span class="lineNum">     110 </span><span class="lineCov">        276 :     return _moveAllocation( index, copy, start, newSize );</span>
+<span class="lineNum">     109 </span><span class="lineCov">        278 :     _resize( start + newSize );</span>
+<span class="lineNum">     110 </span><span class="lineCov">        278 :     return _moveAllocation( index, copy, start, newSize );</span>
 <a name="111"><span class="lineNum">     111 </span>            : }</a>
 <span class="lineNum">     112 </span>            : 
 <span class="lineNum">     113 </span><span class="lineCov">         20 : void NonMovingBaseAllocator::compact( const float threshold )</span>

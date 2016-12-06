@@ -4,7 +4,7 @@ version: "0.4"
 major: 0
 minor: 4
 description: Zero-copy, zero-serialize, zero-hassle protocol buffers
-updated: 19/11/16
+updated: 06/12/16
 homepage: https://github.com/HBPVIS/ZeroBuf
 repository: https://github.com/HBPVIS/ZeroBuf.git
 issuesurl: https://github.com/HBPVIS/ZeroBuf/issues
@@ -45,6 +45,24 @@ shortcomings:
   e.g., ```matrix:[float:16]``` for a 16 value float array
 * byte and ubyte data is base64 encoded in JSON, int8_t and uint8_t are
   represented as value arrays
+
+# Building from Source
+
+ZeroBuf is a cross-platform library, designed to run on any modern operating
+system, including all Unix variants. It requires a C++11 compiler and uses CMake
+to create a platform-specific build environment. The following platforms and
+build environments are tested:
+
+* Linux: Ubuntu 16.04, RHEL 6.8 (Makefile, Ninja)
+* Mac OS X: 10.9 (Makefile, Ninja)
+
+Building from source is as simple as:
+
+    git clone https://github.com/HBPVIS/ZeroBuf.git
+    mkdir ZeroBuf/build
+    cd ZeroBuf/build
+    cmake -GNinja ..
+    ninja
 
 This work has been partially funded by the European Union Seventh Framework Program (FP7/2007­2013) under grant agreement no. 604102 (HBP).
 

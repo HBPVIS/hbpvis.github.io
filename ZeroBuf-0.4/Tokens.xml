@@ -624,6 +624,28 @@
   </Token>
   <Token>
     <TokenIdentifier>
+      <Name>getSchema</Name>
+      <APILanguage>cpp</APILanguage>
+      <Type>clm</Type>
+      <Scope>zerobuf::Version</Scope>
+    </TokenIdentifier>
+    <Path>classzerobuf_1_1_version.html</Path>
+    <Anchor>a0e19fa9aa74105735ed80d45c14bb8fb</Anchor>
+    <DeclaredIn>version.h</DeclaredIn>
+  </Token>
+  <Token>
+    <TokenIdentifier>
+      <Name>toJSON</Name>
+      <APILanguage>cpp</APILanguage>
+      <Type>clm</Type>
+      <Scope>zerobuf::Version</Scope>
+    </TokenIdentifier>
+    <Path>classzerobuf_1_1_version.html</Path>
+    <Anchor>a019f5099c4c49059c20b4d55de9d8a64</Anchor>
+    <DeclaredIn>version.h</DeclaredIn>
+  </Token>
+  <Token>
+    <TokenIdentifier>
       <Name>zerobuf::Zerobuf</Name>
       <APILanguage>c</APILanguage>
       <Type>cl</Type>
