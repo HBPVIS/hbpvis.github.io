@@ -953,6 +953,28 @@
   </Token>
   <Token>
     <TokenIdentifier>
+      <Name>getSchema</Name>
+      <APILanguage>cpp</APILanguage>
+      <Type>clm</Type>
+      <Scope>zeroeq::Version</Scope>
+    </TokenIdentifier>
+    <Path>classzeroeq_1_1_version.html</Path>
+    <Anchor>ad726187da238bfa38b950e8968bce36d</Anchor>
+    <DeclaredIn>version.h</DeclaredIn>
+  </Token>
+  <Token>
+    <TokenIdentifier>
+      <Name>toJSON</Name>
+      <APILanguage>cpp</APILanguage>
+      <Type>clm</Type>
+      <Scope>zeroeq::Version</Scope>
+    </TokenIdentifier>
+    <Path>classzeroeq_1_1_version.html</Path>
+    <Anchor>af4572bcc73879b9494fe5ad2a4db2889</Anchor>
+    <DeclaredIn>version.h</DeclaredIn>
+  </Token>
+  <Token>
+    <TokenIdentifier>
       <Name>zeroeq::connection</Name>
       <APILanguage>c</APILanguage>
       <Type>ns</Type>
@@ -1530,6 +1552,28 @@
     <Path>classzeroeqhttp_1_1_version.html</Path>
     <Anchor>a205e75ac8720113d52a5f3d4a9664ef7</Anchor>
     <Abstract>Runtime check for ABI compatibility. </Abstract>
+    <DeclaredIn>http/version.h</DeclaredIn>
+  </Token>
+  <Token>
+    <TokenIdentifier>
+      <Name>getSchema</Name>
+      <APILanguage>cpp</APILanguage>
+      <Type>clm</Type>
+      <Scope>zeroeqhttp::Version</Scope>
+    </TokenIdentifier>
+    <Path>classzeroeqhttp_1_1_version.html</Path>
+    <Anchor>a9cbc4dfec82bf90ca5cc811268a3e3e8</Anchor>
+    <DeclaredIn>http/version.h</DeclaredIn>
+  </Token>
+  <Token>
+    <TokenIdentifier>
+      <Name>toJSON</Name>
+      <APILanguage>cpp</APILanguage>
+      <Type>clm</Type>
+      <Scope>zeroeqhttp::Version</Scope>
+    </TokenIdentifier>
+    <Path>classzeroeqhttp_1_1_version.html</Path>
+    <Anchor>ae58df25d0ea997b0661d395b2efea2a0</Anchor>
     <DeclaredIn>http/version.h</DeclaredIn>
   </Token>
 </Tokens>

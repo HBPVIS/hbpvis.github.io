@@ -597,9 +597,19 @@
                 <Anchor>a767af1de0d4f77d505364bcb5b299714</Anchor>
                </Node>
                <Node>
+                <Name>getSchema</Name>
+                <Path>classzeroeq_1_1_version.html</Path>
+                <Anchor>ad726187da238bfa38b950e8968bce36d</Anchor>
+               </Node>
+               <Node>
                 <Name>getString</Name>
                 <Path>classzeroeq_1_1_version.html</Path>
                 <Anchor>a08be1ee112c6892da56d26dceb208d32</Anchor>
+               </Node>
+               <Node>
+                <Name>toJSON</Name>
+                <Path>classzeroeq_1_1_version.html</Path>
+                <Anchor>af4572bcc73879b9494fe5ad2a4db2889</Anchor>
                </Node>
               </Subnodes>
              </Node>
@@ -649,9 +659,19 @@
                 <Anchor>a39b807dbfe6c9758f4ac838101b4b1e3</Anchor>
                </Node>
                <Node>
+                <Name>getSchema</Name>
+                <Path>classzeroeqhttp_1_1_version.html</Path>
+                <Anchor>a9cbc4dfec82bf90ca5cc811268a3e3e8</Anchor>
+               </Node>
+               <Node>
                 <Name>getString</Name>
                 <Path>classzeroeqhttp_1_1_version.html</Path>
                 <Anchor>a9dfad24e79895bbfb697938c61de977b</Anchor>
+               </Node>
+               <Node>
+                <Name>toJSON</Name>
+                <Path>classzeroeqhttp_1_1_version.html</Path>
+                <Anchor>ae58df25d0ea997b0661d395b2efea2a0</Anchor>
                </Node>
               </Subnodes>
              </Node>
@@ -885,9 +905,19 @@
                 <Anchor>a39b807dbfe6c9758f4ac838101b4b1e3</Anchor>
                </Node>
                <Node>
+                <Name>getSchema</Name>
+                <Path>classzeroeqhttp_1_1_version.html</Path>
+                <Anchor>a9cbc4dfec82bf90ca5cc811268a3e3e8</Anchor>
+               </Node>
+               <Node>
                 <Name>getString</Name>
                 <Path>classzeroeqhttp_1_1_version.html</Path>
                 <Anchor>a9dfad24e79895bbfb697938c61de977b</Anchor>
+               </Node>
+               <Node>
+                <Name>toJSON</Name>
+                <Path>classzeroeqhttp_1_1_version.html</Path>
+                <Anchor>ae58df25d0ea997b0661d395b2efea2a0</Anchor>
                </Node>
               </Subnodes>
              </Node>
@@ -982,9 +1012,19 @@
                 <Anchor>a767af1de0d4f77d505364bcb5b299714</Anchor>
                </Node>
                <Node>
+                <Name>getSchema</Name>
+                <Path>classzeroeq_1_1_version.html</Path>
+                <Anchor>ad726187da238bfa38b950e8968bce36d</Anchor>
+               </Node>
+               <Node>
                 <Name>getString</Name>
                 <Path>classzeroeq_1_1_version.html</Path>
                 <Anchor>a08be1ee112c6892da56d26dceb208d32</Anchor>
+               </Node>
+               <Node>
+                <Name>toJSON</Name>
+                <Path>classzeroeq_1_1_version.html</Path>
+                <Anchor>af4572bcc73879b9494fe5ad2a4db2889</Anchor>
                </Node>
               </Subnodes>
              </Node>

@@ -117,12 +117,11 @@ $(document).ready(function(){initNavTree('index.html','');});
 <li>Serialization of events using <a href="https://github.com/HBPVIS/ZeroBuf">ZeroBuf</a></li>
 <li><a class="el" href="rfcs.html">List of RFCs</a></li>
 </ul>
-<h1>Building</h1>
-<p>ZeroEQ is a cross-platform toolkit, designed to run on any modern operating system, including all Unix variants. ZeroEQ uses CMake to create a platform-specific build environment. The following platforms and build environments are tested:</p>
+<h1>Building from Source</h1>
+<p>ZeroEQ is a cross-platform library, designed to run on any modern operating system, including all Unix variants. It requires a C++11 compiler and uses CMake to create a platform-specific build environment. The following platforms and build environments are tested:</p>
 <ul>
-<li>Linux: Ubuntu 14.04, RHEL 6 using gcc 4.8</li>
-<li>Windows: 8 using Visual Studio 12</li>
-<li>Mac OS X: 10.9 and 10.10 using clang 6</li>
+<li>Linux: Ubuntu 16.04, RHEL 6.8 (Makefile, Ninja)</li>
+<li>Mac OS X: 10.9 (Makefile, Ninja)</li>
 </ul>
 <p>ZeroEQ requires the following external, pre-installed dependencies:</p>
 <ul>
@@ -132,15 +131,15 @@ $(document).ready(function(){initNavTree('index.html','');});
 <p>Building from source is as simple as: </p><pre class="fragment">git clone https://github.com/HBPVIS/ZeroEQ.git
 mkdir ZeroEQ/build
 cd ZeroEQ/build
-cmake ..
-make
-</pre><p>This work has been partially funded by the European Union Seventh Framework Program (FP7/2007­2013) under grant agreement no. 604102 (HBP). </p>
+cmake -GNinja ..
+ninja
+</pre><p> This work has been partially funded by the European Union Seventh Framework Program (FP7/2007­2013) under grant agreement no. 604102 (HBP). </p>
 </div></div><!-- contents -->
 </div><!-- doc-content -->
 <!-- start footer part -->
 <div id="nav-path" class="navpath"><!-- id is needed for treeview function! -->
   <ul>
-    <li class="footer">Generated on Wed Nov 16 2016 01:36:49 for ZeroEQ by
+    <li class="footer">Generated on Tue Dec 6 2016 01:37:06 for ZeroEQ by
     <a href="http://www.doxygen.org/index.html">
     <img class="footer" src="doxygen.png" alt="doxygen"/></a> 1.8.11 </li>
   </ul>

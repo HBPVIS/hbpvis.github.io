@@ -105,10 +105,25 @@ $(document).ready(function(){initNavTree('Changelog.html','');});
 </div><!--header-->
 <div class="contents">
 <div class="textblock"><h1>git master</h1>
+<h1>Release 0.7 (09-12-2016)</h1>
 <ul>
 <li><a href="https://github.com/HBPVIS/ZeroEQ/pull/185">185</a>: <a class="el" href="classzeroeq_1_1http_1_1_server.html#a15be7e2843c62325d2d27b4d9f86735a" title="Get the underlying socket descriptor. ">zeroeq::http::Server::getSocketDescriptor()</a> notifies on write after <a href="https://github.com/HBPVIS/ZeroEQ/pull/184">#184</a>, not anymore on read</li>
 <li><a href="https://github.com/HBPVIS/ZeroEQ/pull/184">184</a>: Use cppnetlib to implement HTTP server to support multiple clients</li>
-<li><a href="https://github.com/HBPVIS/ZeroEQ/pull/181">181</a>: Specification for registry and schema API using REST</li>
+<li><a href="https://github.com/HBPVIS/ZeroEQ/pull/182">182</a>:<ul>
+<li>Clearer HTTP server registration methods:<ul>
+<li>handle( serializable ) instead of add()</li>
+<li>handlePUT( serializable/event ) instead of subscribe()</li>
+<li>handleGET( serializable/event ) instead of register_()</li>
+<li>remove( serializable/event ) instead of unsubscribe() and unregister()</li>
+</ul>
+</li>
+<li>HTTP server REST API<ul>
+<li>/registry endpoint returns handled events/objects</li>
+<li>&lt;registry-item&gt;/schema endpoints return schema describing the events/objects. For servus::Serializable objects the schema is provided via getSchema(), for events the schema can be optionally provided via handlePUT() and handleGET()</li>
+</ul>
+</li>
+</ul>
+</li>
 <li><a href="https://github.com/HBPVIS/ZeroEQ/pull/179">179</a>: Fix http server blocking issues with libzmq 4.1.4</li>
 </ul>
 <h1>Release 0.6 (30-06-2016)</h1>
@@ -180,7 +195,7 @@ $(document).ready(function(){initNavTree('Changelog.html','');});
 <!-- start footer part -->
 <div id="nav-path" class="navpath"><!-- id is needed for treeview function! -->
   <ul>
-    <li class="footer">Generated on Wed Nov 16 2016 01:36:48 for ZeroEQ by
+    <li class="footer">Generated on Tue Dec 6 2016 01:37:05 for ZeroEQ by
     <a href="http://www.doxygen.org/index.html">
     <img class="footer" src="doxygen.png" alt="doxygen"/></a> 1.8.11 </li>
   </ul>

@@ -7,5 +7,7 @@ var classzeroeq_1_1_version =
     [ "getPatch", "classzeroeq_1_1_version.html#a0b6fe9dd2d568fd46dda4d1a6b6e3756", null ],
     [ "getRevision", "classzeroeq_1_1_version.html#a84fedf5ae233349cc115bd6560359046", null ],
     [ "getRevString", "classzeroeq_1_1_version.html#a767af1de0d4f77d505364bcb5b299714", null ],
-    [ "getString", "classzeroeq_1_1_version.html#a08be1ee112c6892da56d26dceb208d32", null ]
+    [ "getSchema", "classzeroeq_1_1_version.html#ad726187da238bfa38b950e8968bce36d", null ],
+    [ "getString", "classzeroeq_1_1_version.html#a08be1ee112c6892da56d26dceb208d32", null ],
+    [ "toJSON", "classzeroeq_1_1_version.html#af4572bcc73879b9494fe5ad2a4db2889", null ]
 ];
