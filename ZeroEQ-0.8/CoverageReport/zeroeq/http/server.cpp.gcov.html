@@ -1,0 +1,603 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN">
+
+<html lang="en">
+
+<head>
+  <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+  <title>LCOV - ZeroEQ - zeroeq/http/server.cpp</title>
+  <link rel="stylesheet" type="text/css" href="../../gcov.css">
+</head>
+
+<body>
+
+  <table width="100%" border=0 cellspacing=0 cellpadding=0>
+    <tr><td class="title">LCOV - code coverage report</td></tr>
+    <tr><td class="ruler"><img src="../../glass.png" width=3 height=3 alt=""></td></tr>
+
+    <tr>
+      <td width="100%">
+        <table cellpadding=1 border=0 width="100%">
+          <tr>
+            <td width="10%" class="headerItem">Current view:</td>
+            <td width="35%" class="headerValue"><a href="../../index.html">top level</a> - <a href="index.html">zeroeq/http</a> - server.cpp<span style="font-size: 80%;"> (source / <a href="server.cpp.func-sort-c.html">functions</a>)</span></td>
+            <td width="5%"></td>
+            <td width="15%"></td>
+            <td width="10%" class="headerCovTableHead">Hit</td>
+            <td width="10%" class="headerCovTableHead">Total</td>
+            <td width="15%" class="headerCovTableHead">Coverage</td>
+          </tr>
+          <tr>
+            <td class="headerItem">Test:</td>
+            <td class="headerValue">ZeroEQ</td>
+            <td></td>
+            <td class="headerItem">Lines:</td>
+            <td class="headerCovTableEntry">225</td>
+            <td class="headerCovTableEntry">235</td>
+            <td class="headerCovTableEntryHi">95.7 %</td>
+          </tr>
+          <tr>
+            <td class="headerItem">Date:</td>
+            <td class="headerValue">2016-12-16 01:37:00</td>
+            <td></td>
+            <td class="headerItem">Functions:</td>
+            <td class="headerCovTableEntry">59</td>
+            <td class="headerCovTableEntry">62</td>
+            <td class="headerCovTableEntryHi">95.2 %</td>
+          </tr>
+          <tr><td><img src="../../glass.png" width=3 height=3 alt=""></td></tr>
+        </table>
+      </td>
+    </tr>
+
+    <tr><td class="ruler"><img src="../../glass.png" width=3 height=3 alt=""></td></tr>
+  </table>
+
+  <table cellpadding=0 cellspacing=0 border=0>
+    <tr>
+      <td><br></td>
+    </tr>
+    <tr>
+      <td>
+<pre class="sourceHeading">          Line data    Source code</pre>
+<pre class="source">
+<a name="1"><span class="lineNum">       1 </span>            : </a>
+<span class="lineNum">       2 </span>            : /* Copyright (c) 2016, Human Brain Project
+<span class="lineNum">       3 </span>            :  *                     Stefan.Eilemann@epfl.ch
+<span class="lineNum">       4 </span>            :  *                     Daniel.Nachbaur@epfl.ch
+<span class="lineNum">       5 </span>            :  */
+<span class="lineNum">       6 </span>            : 
+<span class="lineNum">       7 </span>            : #include &quot;server.h&quot;
+<span class="lineNum">       8 </span>            : 
+<span class="lineNum">       9 </span>            : #include &quot;requestHandler.h&quot;
+<span class="lineNum">      10 </span>            : 
+<span class="lineNum">      11 </span>            : #include &quot;../log.h&quot;
+<span class="lineNum">      12 </span>            : #include &quot;../detail/broker.h&quot;
+<span class="lineNum">      13 </span>            : #include &quot;../detail/sender.h&quot;
+<span class="lineNum">      14 </span>            : #include &quot;../detail/socket.h&quot;
+<span class="lineNum">      15 </span>            : 
+<span class="lineNum">      16 </span>            : #include &quot;jsoncpp/json/json.h&quot;
+<span class="lineNum">      17 </span>            : 
+<span class="lineNum">      18 </span>            : #include &lt;servus/serializable.h&gt;
+<span class="lineNum">      19 </span>            : 
+<span class="lineNum">      20 </span>            : #include &lt;algorithm&gt;
+<span class="lineNum">      21 </span>            : #include &lt;thread&gt;
+<span class="lineNum">      22 </span>            : 
+<span class="lineNum">      23 </span>            : namespace
+<span class="lineNum">      24 </span>            : {
+<span class="lineNum">      25 </span>            : // Transform camelCase to hyphenated-notation, e.g.
+<a name="26"><span class="lineNum">      26 </span>            : // lexis/render/LookOut -&gt; lexis/render/look-out</a>
+<span class="lineNum">      27 </span>            : // Inspiration: https://gist.github.com/rodamber/2558e25d4d8f6b9f2ffdf7bd49471340
+<span class="lineNum">      28 </span><span class="lineCov">        198 : std::string _camelCaseToHyphenated( std::string camelCase )</span>
+<span class="lineNum">      29 </span>            : {
+<span class="lineNum">      30 </span><span class="lineCov">        198 :     std::string str( 1, tolower(camelCase[0]) );</span>
+<span class="lineNum">      31 </span><span class="lineCov">       1446 :     for( auto it = camelCase.begin() + 1; it != camelCase.end(); ++it )</span>
+<span class="lineNum">      32 </span>            :     {
+<span class="lineNum">      33 </span><span class="lineCov">       1248 :         if( isupper(*it) &amp;&amp; *(it-1) != '-' &amp;&amp; islower(*(it-1)))</span>
+<span class="lineNum">      34 </span><span class="lineCov">          2 :             str += &quot;-&quot;;</span>
+<span class="lineNum">      35 </span><span class="lineCov">       1248 :         str += *it;</span>
+<span class="lineNum">      36 </span>            :     }
+<span class="lineNum">      37 </span>            : 
+<span class="lineNum">      38 </span><span class="lineCov">        198 :     std::transform( str.begin(), str.end(), str.begin(), ::tolower );</span>
+<span class="lineNum">      39 </span><span class="lineCov">        198 :     return str;</span>
+<span class="lineNum">      40 </span>            : }
+<a name="41"><span class="lineNum">      41 </span>            : </a>
+<span class="lineNum">      42 </span>            : // http://stackoverflow.com/questions/5343190
+<span class="lineNum">      43 </span><span class="lineCov">        136 : std::string _replaceAll( std::string subject, const std::string&amp; search,</span>
+<span class="lineNum">      44 </span>            :                          const std::string&amp; replace )
+<span class="lineNum">      45 </span>            : {
+<span class="lineNum">      46 </span><span class="lineCov">        136 :     size_t pos = 0;</span>
+<span class="lineNum">      47 </span><span class="lineCov">        256 :     while( (pos = subject.find( search, pos )) != std::string::npos )</span>
+<span class="lineNum">      48 </span>            :     {
+<span class="lineNum">      49 </span><span class="lineCov">         60 :          subject.replace( pos, search.length(), replace );</span>
+<span class="lineNum">      50 </span><span class="lineCov">         60 :          pos += replace.length();</span>
+<span class="lineNum">      51 </span>            :     }
+<span class="lineNum">      52 </span><span class="lineCov">        136 :     return subject;</span>
+<span class="lineNum">      53 </span>            : }
+<a name="54"><span class="lineNum">      54 </span>            : </a>
+<span class="lineNum">      55 </span>            : // convert name to lowercase with '/' separators instead of '::'
+<span class="lineNum">      56 </span><span class="lineCov">        136 : void _convertEndpointName( std::string&amp; endpoint )</span>
+<span class="lineNum">      57 </span>            : {
+<span class="lineNum">      58 </span><span class="lineCov">        136 :     endpoint = _camelCaseToHyphenated( _replaceAll( endpoint, &quot;::&quot;, &quot;/&quot; ));</span>
+<a name="59"><span class="lineNum">      59 </span><span class="lineCov">        136 : }</span></a>
+<span class="lineNum">      60 </span>            : 
+<span class="lineNum">      61 </span><span class="lineCov">         14 : const std::string REQUEST_REGISTRY = &quot;registry&quot;;</span>
+<a name="62"><span class="lineNum">      62 </span><span class="lineCov">         14 : const std::string REQUEST_SCHEMA = &quot;schema&quot;;</span></a>
+<span class="lineNum">      63 </span>            : 
+<span class="lineNum">      64 </span><span class="lineCov">         22 : bool _endsWithSchema( const std::string&amp; uri )</span>
+<span class="lineNum">      65 </span>            : {
+<span class="lineNum">      66 </span><span class="lineCov">         22 :     if( uri.length() &lt; REQUEST_SCHEMA.length( ))</span>
+<span class="lineNum">      67 </span><span class="lineNoCov">          0 :         return false;</span>
+<span class="lineNum">      68 </span><span class="lineCov">         22 :     return uri.compare( uri.length() - REQUEST_SCHEMA.length(),</span>
+<span class="lineNum">      69 </span><span class="lineCov">         22 :                         std::string::npos, REQUEST_SCHEMA ) == 0;</span>
+<span class="lineNum">      70 </span>            : }
+<span class="lineNum">      71 </span>            : 
+<span class="lineNum">      72 </span>            : } // unnamed namespace
+<span class="lineNum">      73 </span>            : 
+<span class="lineNum">      74 </span>            : 
+<span class="lineNum">      75 </span>            : namespace zeroeq
+<span class="lineNum">      76 </span>            : {
+<span class="lineNum">      77 </span>            : namespace http
+<span class="lineNum">      78 </span>            : {
+<span class="lineNum">      79 </span>            : 
+<span class="lineNum">      80 </span>            : class Server::Impl : public detail::Sender
+<a name="81"><span class="lineNum">      81 </span>            : {</a>
+<span class="lineNum">      82 </span>            : public:
+<a name="83"><span class="lineNum">      83 </span><span class="lineCov">         42 :     Impl() : Impl( URI( )) {}</span></a>
+<span class="lineNum">      84 </span>            : 
+<span class="lineNum">      85 </span><span class="lineCov">         56 :     Impl( const URI&amp; uri_ )</span>
+<span class="lineNum">      86 </span><span class="lineCov">        112 :         : detail::Sender( URI( _getInprocURI( )), 0, ZMQ_PAIR )</span>
+<span class="lineNum">      87 </span><span class="lineCov">        112 :         , _requestHandler( _getInprocURI(), getContext( ))</span>
+<span class="lineNum">      88 </span>            :         , _httpOptions( _requestHandler )
+<span class="lineNum">      89 </span>            :         , _httpServer( _httpOptions.
+<span class="lineNum">      90 </span>            :                        // INADDR_ANY translation: zmq -&gt; boost.asio
+<span class="lineNum">      91 </span><span class="lineCov">        168 :                        address( uri_.getHost() == &quot;*&quot; ? &quot;0.0.0.0&quot;</span>
+<span class="lineNum">      92 </span><span class="lineCov">        112 :                                                       : uri_.getHost( )).</span>
+<span class="lineNum">      93 </span><span class="lineCov">        168 :                        port( std::to_string( int(uri_.getPort( )))).</span>
+<span class="lineNum">      94 </span><span class="lineCov">        338 :                        reuse_address( true ) )</span>
+<span class="lineNum">      95 </span>            :     {
+<span class="lineNum">      96 </span><span class="lineCov">         56 :         if( ::zmq_bind( socket, _getInprocURI().c_str( )) == -1 )</span>
+<span class="lineNum">      97 </span>            :         {
+<span class="lineNum">      98 </span><span class="lineNoCov">          0 :             ZEROEQTHROW( std::runtime_error(</span>
+<span class="lineNum">      99 </span>            :                              &quot;Cannot bind HTTPServer to inproc socket&quot; ));
+<span class="lineNum">     100 </span>            :         }
+<span class="lineNum">     101 </span>            : 
+<span class="lineNum">     102 </span>            :         try
+<span class="lineNum">     103 </span>            :         {
+<span class="lineNum">     104 </span><span class="lineCov">         56 :             _httpServer.listen();</span>
+<span class="lineNum">     105 </span><span class="lineCov">        108 :             _httpThread.reset( new std::thread(</span>
+<span class="lineNum">     106 </span><span class="lineCov">        162 :                                std::bind( &amp;HTTPServer::run, &amp;_httpServer )));</span>
+<span class="lineNum">     107 </span>            :         }
+<span class="lineNum">     108 </span><span class="lineCov">          4 :         catch( const std::exception&amp; e )</span>
+<span class="lineNum">     109 </span>            :         {
+<span class="lineNum">     110 </span><span class="lineCov">          2 :             ZEROEQTHROW( std::runtime_error(</span>
+<span class="lineNum">     111 </span>            :                              std::string( &quot;Error while starting HTTP server: &quot; )
+<span class="lineNum">     112 </span>            :                              + e.what( )));
+<span class="lineNum">     113 </span>            :         }
+<span class="lineNum">     114 </span>            : 
+<span class="lineNum">     115 </span><span class="lineCov">         54 :         uri = URI();</span>
+<span class="lineNum">     116 </span><span class="lineCov">         54 :         uri.setHost( _httpServer.address( ));</span>
+<span class="lineNum">     117 </span><span class="lineCov">         54 :         uri.setPort( std::stoi( _httpServer.port( )));</span>
+<a name="118"><span class="lineNum">     118 </span><span class="lineCov">         54 :     }</span></a>
+<span class="lineNum">     119 </span>            : 
+<span class="lineNum">     120 </span><span class="lineCov">         54 :     ~Impl()</span>
+<span class="lineNum">     121 </span><span class="lineCov">         54 :     {</span>
+<span class="lineNum">     122 </span><span class="lineCov">         54 :         if( _httpThread )</span>
+<span class="lineNum">     123 </span>            :         {
+<span class="lineNum">     124 </span><span class="lineCov">         54 :             _httpServer.stop();</span>
+<span class="lineNum">     125 </span><span class="lineCov">         54 :             _httpThread-&gt;join();</span>
+<span class="lineNum">     126 </span>            :         }
+<a name="127"><span class="lineNum">     127 </span><span class="lineCov">         54 :     }</span></a>
+<span class="lineNum">     128 </span>            : 
+<span class="lineNum">     129 </span><span class="lineCov">         14 :     bool remove( const servus::Serializable&amp; serializable )</span>
+<span class="lineNum">     130 </span>            :     {
+<span class="lineNum">     131 </span><span class="lineCov">         14 :         return remove( serializable.getTypeName( ));</span>
+<a name="132"><span class="lineNum">     132 </span>            :     }</a>
+<span class="lineNum">     133 </span>            : 
+<span class="lineNum">     134 </span><span class="lineCov">         30 :     bool remove( std::string endpoint )</span>
+<span class="lineNum">     135 </span>            :     {
+<span class="lineNum">     136 </span><span class="lineCov">         30 :         _convertEndpointName( endpoint );</span>
+<span class="lineNum">     137 </span><span class="lineCov">         30 :         _schemas.erase( endpoint );</span>
+<span class="lineNum">     138 </span><span class="lineCov">         30 :         const bool foundPUT = _put.erase( endpoint ) != 0;</span>
+<span class="lineNum">     139 </span><span class="lineCov">         30 :         const bool foundGET = _get.erase( endpoint ) != 0;</span>
+<span class="lineNum">     140 </span><span class="lineCov">         30 :         return foundPUT || foundGET;</span>
+<a name="141"><span class="lineNum">     141 </span>            :     }</a>
+<span class="lineNum">     142 </span>            : 
+<span class="lineNum">     143 </span><span class="lineCov">         16 :     bool handlePUT( const std::string&amp; endpoint,</span>
+<a name="144"><span class="lineNum">     144 </span>            :                     servus::Serializable&amp; serializable )</a>
+<span class="lineNum">     145 </span>            :     {
+<span class="lineNum">     146 </span><span class="lineCov">          6 :         const auto func = [&amp;serializable]( const std::string&amp; json )</span>
+<span class="lineNum">     147 </span><span class="lineCov">         22 :             { return serializable.fromJSON( json ); };</span>
+<span class="lineNum">     148 </span><span class="lineCov">         16 :         return handlePUT( endpoint, serializable.getSchema(), func );</span>
+<a name="149"><span class="lineNum">     149 </span>            :     }</a>
+<span class="lineNum">     150 </span>            : 
+<span class="lineNum">     151 </span><span class="lineCov">         42 :     bool handlePUT( std::string endpoint, const std::string&amp; schema,</span>
+<span class="lineNum">     152 </span>            :                     const PUTPayloadFunc&amp; func )
+<span class="lineNum">     153 </span>            :     {
+<span class="lineNum">     154 </span><span class="lineCov">         42 :         _convertEndpointName( endpoint );</span>
+<span class="lineNum">     155 </span><span class="lineCov">         42 :         if( endpoint == REQUEST_REGISTRY )</span>
+<span class="lineNum">     156 </span><span class="lineCov">          2 :             ZEROEQTHROW( std::runtime_error(</span>
+<span class="lineNum">     157 </span>            :                              &quot;'registry' not allowed as endpoint name&quot; ));;
+<span class="lineNum">     158 </span>            : 
+<span class="lineNum">     159 </span><span class="lineCov">         40 :         if( _put.count( endpoint ) != 0 )</span>
+<span class="lineNum">     160 </span><span class="lineCov">          8 :             return false;</span>
+<span class="lineNum">     161 </span>            : 
+<span class="lineNum">     162 </span><span class="lineCov">         32 :         _put[ endpoint ] = func;</span>
+<span class="lineNum">     163 </span>            :         {
+<span class="lineNum">     164 </span><span class="lineCov">         64 :             const std::string&amp; exist = _returnSchema( endpoint );</span>
+<span class="lineNum">     165 </span><span class="lineCov">         32 :             if( exist.empty( ))</span>
+<span class="lineNum">     166 </span><span class="lineCov">         28 :                 _schemas[ endpoint ] = schema;</span>
+<span class="lineNum">     167 </span><span class="lineCov">          4 :             else if( schema != exist )</span>
+<span class="lineNum">     168 </span><span class="lineCov">          2 :                 ZEROEQTHROW( std::runtime_error(</span>
+<span class="lineNum">     169 </span>            :                        &quot;Schema registered for endpoint differs: &quot; + endpoint ));
+<span class="lineNum">     170 </span>            :         }
+<span class="lineNum">     171 </span><span class="lineCov">         30 :         return true;</span>
+<a name="172"><span class="lineNum">     172 </span>            :     }</a>
+<span class="lineNum">     173 </span>            : 
+<span class="lineNum">     174 </span><span class="lineCov">         26 :     bool handleGET( const std::string&amp; endpoint,</span>
+<a name="175"><span class="lineNum">     175 </span>            :                     const servus::Serializable&amp; serializable )</a>
+<span class="lineNum">     176 </span>            :     {
+<span class="lineNum">     177 </span><span class="lineCov">         40 :         const auto func = [&amp;serializable] { return serializable.toJSON(); };</span>
+<span class="lineNum">     178 </span><span class="lineCov">         26 :         return handleGET( endpoint, serializable.getSchema(), func );</span>
+<a name="179"><span class="lineNum">     179 </span>            :     }</a>
+<span class="lineNum">     180 </span>            : 
+<span class="lineNum">     181 </span><span class="lineCov">         54 :     bool handleGET( std::string endpoint, const std::string&amp; schema,</span>
+<span class="lineNum">     182 </span>            :                     const GETFunc&amp; func )
+<span class="lineNum">     183 </span>            :     {
+<span class="lineNum">     184 </span>            : 
+<span class="lineNum">     185 </span><span class="lineCov">         54 :         _convertEndpointName( endpoint );</span>
+<span class="lineNum">     186 </span><span class="lineCov">         54 :         if( endpoint == REQUEST_REGISTRY )</span>
+<span class="lineNum">     187 </span><span class="lineCov">          2 :             ZEROEQTHROW( std::runtime_error(</span>
+<span class="lineNum">     188 </span>            :                              &quot;'registry' not allowed as endpoint name&quot; ));
+<span class="lineNum">     189 </span>            : 
+<span class="lineNum">     190 </span><span class="lineCov">         52 :         if( _get.count( endpoint ) != 0 )</span>
+<span class="lineNum">     191 </span><span class="lineCov">          8 :             return false;</span>
+<span class="lineNum">     192 </span>            : 
+<span class="lineNum">     193 </span><span class="lineCov">         44 :         _get[ endpoint ] = func;</span>
+<span class="lineNum">     194 </span><span class="lineCov">         44 :         if( !schema.empty( ))</span>
+<span class="lineNum">     195 </span>            :         {
+<span class="lineNum">     196 </span><span class="lineCov">         72 :             const std::string&amp; exist = _returnSchema( endpoint );</span>
+<span class="lineNum">     197 </span><span class="lineCov">         36 :             if( exist.empty( ))</span>
+<span class="lineNum">     198 </span><span class="lineCov">         26 :                 _schemas[ endpoint ] = schema;</span>
+<span class="lineNum">     199 </span><span class="lineCov">         10 :             else if( schema != exist )</span>
+<span class="lineNum">     200 </span><span class="lineCov">          2 :                 ZEROEQTHROW( std::runtime_error(</span>
+<span class="lineNum">     201 </span>            :                        &quot;Schema registered for endpoint differs: &quot; + endpoint ));
+<span class="lineNum">     202 </span>            : 
+<span class="lineNum">     203 </span>            :         }
+<span class="lineNum">     204 </span><span class="lineCov">         42 :         return true;</span>
+<a name="205"><span class="lineNum">     205 </span>            :     }</a>
+<span class="lineNum">     206 </span>            : 
+<span class="lineNum">     207 </span><span class="lineCov">         10 :     std::string getSchema( std::string endpoint ) const</span>
+<span class="lineNum">     208 </span>            :     {
+<span class="lineNum">     209 </span><span class="lineCov">         10 :         _convertEndpointName( endpoint );</span>
+<span class="lineNum">     210 </span><span class="lineCov">         10 :         return _returnSchema( endpoint );</span>
+<a name="211"><span class="lineNum">     211 </span>            :     }</a>
+<span class="lineNum">     212 </span>            : 
+<span class="lineNum">     213 </span><span class="lineCov">       1040 :     void addSockets( std::vector&lt; detail::Socket &gt;&amp; entries )</span>
+<span class="lineNum">     214 </span>            :     {
+<span class="lineNum">     215 </span>            :         detail::Socket entry;
+<span class="lineNum">     216 </span><span class="lineCov">       1040 :         entry.socket = socket;</span>
+<span class="lineNum">     217 </span><span class="lineCov">       1040 :         entry.events = ZMQ_POLLIN;</span>
+<span class="lineNum">     218 </span><span class="lineCov">       1040 :         entries.push_back( entry );</span>
+<a name="219"><span class="lineNum">     219 </span><span class="lineCov">       1040 :     }</span></a>
+<span class="lineNum">     220 </span>            : 
+<span class="lineNum">     221 </span><span class="lineCov">         62 :     void process()</span>
+<span class="lineNum">     222 </span>            :     {
+<span class="lineNum">     223 </span><span class="lineCov">         62 :         HTTPRequest* request = nullptr;</span>
+<span class="lineNum">     224 </span><span class="lineCov">         62 :         ::zmq_recv( socket, &amp;request, sizeof( request ), 0 );</span>
+<span class="lineNum">     225 </span><span class="lineCov">         62 :         if( !request )</span>
+<span class="lineNum">     226 </span><span class="lineNoCov">          0 :             ZEROEQTHROW( std::runtime_error(</span>
+<span class="lineNum">     227 </span>            :                            &quot;Could not receive HTTP request from HTTP server&quot; ));
+<span class="lineNum">     228 </span>            : 
+<span class="lineNum">     229 </span><span class="lineCov">         62 :         switch( request-&gt;method )</span>
+<span class="lineNum">     230 </span>            :         {
+<span class="lineNum">     231 </span>            :         case HTTPRequest::Method::GET:
+<span class="lineNum">     232 </span><span class="lineCov">         46 :             _processGET( *request );</span>
+<span class="lineNum">     233 </span><span class="lineCov">         46 :             break;</span>
+<span class="lineNum">     234 </span>            :         case HTTPRequest::Method::PUT:
+<span class="lineNum">     235 </span><span class="lineCov">         16 :             _processPUT( *request );</span>
+<span class="lineNum">     236 </span><span class="lineCov">         16 :             break;</span>
+<span class="lineNum">     237 </span>            :         default:
+<span class="lineNum">     238 </span><span class="lineNoCov">          0 :             ZEROEQTHROW( std::runtime_error(</span>
+<span class="lineNum">     239 </span>            :                             &quot;Encountered invalid HTTP method to process: &quot; +
+<span class="lineNum">     240 </span>            :                              std::to_string( int( request-&gt;method ))));
+<span class="lineNum">     241 </span>            :         }
+<span class="lineNum">     242 </span>            : 
+<span class="lineNum">     243 </span><span class="lineCov">         62 :         bool done = true;</span>
+<span class="lineNum">     244 </span><span class="lineCov">         62 :         ::zmq_send( socket, &amp;done, sizeof( done ), 0 );</span>
+<span class="lineNum">     245 </span><span class="lineCov">         62 :     }</span>
+<span class="lineNum">     246 </span>            : 
+<span class="lineNum">     247 </span>            : protected:
+<span class="lineNum">     248 </span>            :     // key stores endpoints lower-case, hyphenated with '/' separators
+<span class="lineNum">     249 </span>            :     typedef std::map&lt; std::string, PUTPayloadFunc &gt; PUTFuncMap;
+<span class="lineNum">     250 </span>            :     typedef std::map&lt; std::string, GETFunc &gt; GETFuncMap;
+<span class="lineNum">     251 </span>            :     typedef std::map&lt; std::string, std::string &gt; SchemaMap;
+<span class="lineNum">     252 </span>            :     PUTFuncMap _put;
+<span class="lineNum">     253 </span>            :     GETFuncMap _get;
+<span class="lineNum">     254 </span>            :     SchemaMap _schemas;
+<span class="lineNum">     255 </span>            : 
+<span class="lineNum">     256 </span>            :     RequestHandler _requestHandler;
+<span class="lineNum">     257 </span>            :     HTTPServer::options _httpOptions;
+<span class="lineNum">     258 </span>            :     HTTPServer _httpServer;
+<a name="259"><span class="lineNum">     259 </span>            :     std::unique_ptr&lt; std::thread &gt; _httpThread;</a>
+<span class="lineNum">     260 </span>            : 
+<span class="lineNum">     261 </span><span class="lineCov">        168 :     std::string _getInprocURI() const</span>
+<span class="lineNum">     262 </span>            :     {
+<span class="lineNum">     263 </span><span class="lineCov">        336 :         std::ostringstream inprocURI;</span>
+<span class="lineNum">     264 </span>            :         // No socket notifier possible on inproc ZMQ sockets,
+<span class="lineNum">     265 </span>            :         // (https://github.com/zeromq/libzmq/issues/1434).
+<span class="lineNum">     266 </span>            :         // Use inproc on Windows as ipc is not supported there, which means
+<span class="lineNum">     267 </span>            :         // we do not support notifications on Windows...
+<span class="lineNum">     268 </span>            : #ifdef _MSC_VER
+<span class="lineNum">     269 </span>            :         inprocURI &lt;&lt; &quot;inproc://#&quot; &lt;&lt; static_cast&lt; const void* &gt;( this );
+<span class="lineNum">     270 </span>            : #else
+<span class="lineNum">     271 </span><span class="lineCov">        168 :         inprocURI &lt;&lt; &quot;ipc:///tmp/&quot; &lt;&lt; static_cast&lt; const void* &gt;( this );</span>
+<span class="lineNum">     272 </span>            : #endif
+<span class="lineNum">     273 </span><span class="lineCov">        336 :         return inprocURI.str();</span>
+<a name="274"><span class="lineNum">     274 </span>            :     }</a>
+<span class="lineNum">     275 </span>            : 
+<span class="lineNum">     276 </span><span class="lineCov">         62 :     std::string _getEndpoint( const std::string&amp; url )</span>
+<span class="lineNum">     277 </span>            :     {
+<span class="lineNum">     278 </span><span class="lineCov">         62 :         if( url.empty( ))</span>
+<span class="lineNum">     279 </span><span class="lineNoCov">          0 :             return url;</span>
+<span class="lineNum">     280 </span>            : 
+<span class="lineNum">     281 </span><span class="lineCov">         62 :         return _camelCaseToHyphenated( url.substr( 1 ));</span>
+<a name="282"><span class="lineNum">     282 </span>            :     }</a>
+<span class="lineNum">     283 </span>            : 
+<span class="lineNum">     284 </span><span class="lineCov">          4 :     std::string _returnRegistry() const</span>
+<span class="lineNum">     285 </span>            :     {
+<span class="lineNum">     286 </span><span class="lineCov">          8 :         Json::Value body( Json::objectValue );</span>
+<span class="lineNum">     287 </span><span class="lineCov">          6 :         for( const auto&amp; i : _get )</span>
+<span class="lineNum">     288 </span><span class="lineCov">          2 :             body[i.first].append( &quot;GET&quot; );</span>
+<span class="lineNum">     289 </span><span class="lineCov">          8 :         for( const auto&amp; i : _put )</span>
+<span class="lineNum">     290 </span><span class="lineCov">          4 :             body[i.first].append( &quot;PUT&quot; );</span>
+<span class="lineNum">     291 </span>            : 
+<span class="lineNum">     292 </span><span class="lineCov">          8 :         return body.toStyledString();</span>
+<a name="293"><span class="lineNum">     293 </span>            :     }</a>
+<span class="lineNum">     294 </span>            : 
+<span class="lineNum">     295 </span><span class="lineCov">         90 :     std::string _returnSchema( const std::string&amp; endpoint ) const</span>
+<span class="lineNum">     296 </span>            :     {
+<span class="lineNum">     297 </span><span class="lineCov">         90 :         const auto&amp; i = _schemas.find( endpoint );</span>
+<span class="lineNum">     298 </span><span class="lineCov">         90 :         return i != _schemas.end() ? i-&gt;second : std::string();</span>
+<a name="299"><span class="lineNum">     299 </span>            :     }</a>
+<span class="lineNum">     300 </span>            : 
+<span class="lineNum">     301 </span><span class="lineCov">         46 :     void _processGET( HTTPRequest&amp; request )</span>
+<span class="lineNum">     302 </span>            :     {
+<span class="lineNum">     303 </span><span class="lineCov">         46 :         request.status = HTTPServer::response::ok; // be optimistic</span>
+<span class="lineNum">     304 </span>            : 
+<span class="lineNum">     305 </span><span class="lineCov">         60 :         const std::string&amp; endpoint = _getEndpoint( request.url );</span>
+<span class="lineNum">     306 </span><span class="lineCov">         46 :         const auto&amp; i = _get.find( endpoint );</span>
+<span class="lineNum">     307 </span><span class="lineCov">         46 :         if( i != _get.end( ))</span>
+<span class="lineNum">     308 </span>            :         {
+<span class="lineNum">     309 </span><span class="lineCov">         20 :             request.reply = i-&gt;second();</span>
+<span class="lineNum">     310 </span><span class="lineCov">         20 :             return;</span>
+<span class="lineNum">     311 </span>            :         }
+<span class="lineNum">     312 </span>            : 
+<span class="lineNum">     313 </span><span class="lineCov">         26 :         if( endpoint == REQUEST_REGISTRY )</span>
+<span class="lineNum">     314 </span>            :         {
+<span class="lineNum">     315 </span><span class="lineCov">          4 :             request.reply = _returnRegistry();</span>
+<span class="lineNum">     316 </span><span class="lineCov">          4 :             return;</span>
+<span class="lineNum">     317 </span>            :         }
+<span class="lineNum">     318 </span>            : 
+<span class="lineNum">     319 </span><span class="lineCov">         22 :         if( _endsWithSchema( endpoint ))</span>
+<span class="lineNum">     320 </span>            :         {
+<span class="lineNum">     321 </span><span class="lineCov">         24 :             const auto&amp; schema = _returnSchema( endpoint.substr( 0,</span>
+<span class="lineNum">     322 </span><span class="lineCov">         16 :                                                  endpoint.find_last_of( '/' )));</span>
+<span class="lineNum">     323 </span><span class="lineCov">         12 :             if( !schema.empty( ))</span>
+<span class="lineNum">     324 </span>            :             {
+<span class="lineNum">     325 </span><span class="lineCov">          8 :                 request.reply = schema;</span>
+<span class="lineNum">     326 </span><span class="lineCov">          8 :                 return;</span>
+<span class="lineNum">     327 </span>            :             }
+<span class="lineNum">     328 </span>            :         }
+<span class="lineNum">     329 </span>            : 
+<span class="lineNum">     330 </span><span class="lineCov">         14 :         request.status = HTTPServer::response::not_found;</span>
+<a name="331"><span class="lineNum">     331 </span>            :     }</a>
+<span class="lineNum">     332 </span>            : 
+<span class="lineNum">     333 </span><span class="lineCov">         16 :     void _processPUT( HTTPRequest&amp; request )</span>
+<span class="lineNum">     334 </span>            :     {
+<span class="lineNum">     335 </span><span class="lineCov">         32 :         const std::string&amp; endpoint = _getEndpoint( request.url );</span>
+<span class="lineNum">     336 </span><span class="lineCov">         16 :         const auto&amp; i = _put.find( endpoint );</span>
+<span class="lineNum">     337 </span>            : 
+<span class="lineNum">     338 </span><span class="lineCov">         16 :         if( i == _put.end( ))</span>
+<span class="lineNum">     339 </span><span class="lineCov">          4 :             request.status = HTTPServer::response::not_found;</span>
+<span class="lineNum">     340 </span>            :         else
+<span class="lineNum">     341 </span>            :         {
+<span class="lineNum">     342 </span><span class="lineCov">         12 :             if( i-&gt;second( request.request ))</span>
+<span class="lineNum">     343 </span><span class="lineCov">          8 :                 request.status = HTTPServer::response::ok;</span>
+<span class="lineNum">     344 </span>            :             else
+<span class="lineNum">     345 </span><span class="lineCov">          4 :                 request.status = HTTPServer::response::bad_request;</span>
+<span class="lineNum">     346 </span>            :         }
+<span class="lineNum">     347 </span><span class="lineCov">         16 :     }</span>
+<span class="lineNum">     348 </span>            : };
+<span class="lineNum">     349 </span>            : 
+<a name="350"><span class="lineNum">     350 </span>            : namespace</a>
+<span class="lineNum">     351 </span>            : {
+<span class="lineNum">     352 </span><span class="lineCov">         12 : std::string _getServerParameter( const int argc, const char* const* argv )</span>
+<span class="lineNum">     353 </span>            : {
+<span class="lineNum">     354 </span><span class="lineCov">         24 :     for( int i = 0; i &lt; argc; ++i  )</span>
+<span class="lineNum">     355 </span>            :     {
+<span class="lineNum">     356 </span><span class="lineCov">         20 :         if( std::string( argv[i] ) == &quot;--zeroeq-http-server&quot; )</span>
+<span class="lineNum">     357 </span>            :         {
+<span class="lineNum">     358 </span><span class="lineCov">          8 :             if( i == argc - 1 || argv[ i + 1 ][0] == '-' )</span>
+<span class="lineNum">     359 </span><span class="lineCov">          4 :                 return &quot;tcp://&quot;;</span>
+<span class="lineNum">     360 </span><span class="lineCov">          4 :             return argv[i+1];</span>
+<span class="lineNum">     361 </span>            :         }
+<span class="lineNum">     362 </span>            :     }
+<span class="lineNum">     363 </span><span class="lineCov">          4 :     return std::string();</span>
+<span class="lineNum">     364 </span>            : }
+<a name="365"><span class="lineNum">     365 </span>            : }</a>
+<span class="lineNum">     366 </span>            : 
+<span class="lineNum">     367 </span><span class="lineCov">          4 : Server::Server( const URI&amp; uri, Receiver&amp; shared )</span>
+<span class="lineNum">     368 </span>            :     : Receiver( shared )
+<span class="lineNum">     369 </span><span class="lineCov">          4 :     , _impl( new Impl( uri ))</span>
+<a name="370"><span class="lineNum">     370 </span><span class="lineCov">          4 : {}</span></a>
+<span class="lineNum">     371 </span>            : 
+<span class="lineNum">     372 </span><span class="lineCov">         10 : Server::Server( const URI&amp; uri )</span>
+<span class="lineNum">     373 </span>            :     : Receiver()
+<span class="lineNum">     374 </span><span class="lineCov">         12 :     , _impl( new Impl( uri ))</span>
+<a name="375"><span class="lineNum">     375 </span><span class="lineCov">          8 : {}</span></a>
+<span class="lineNum">     376 </span>            : 
+<span class="lineNum">     377 </span><span class="lineCov">          4 : Server::Server( Receiver&amp; shared )</span>
+<span class="lineNum">     378 </span>            :     : Receiver( shared )
+<span class="lineNum">     379 </span><span class="lineCov">          4 :     , _impl( new Impl )</span>
+<a name="380"><span class="lineNum">     380 </span><span class="lineCov">          4 : {}</span></a>
+<span class="lineNum">     381 </span>            : 
+<span class="lineNum">     382 </span><span class="lineCov">         38 : Server::Server()</span>
+<span class="lineNum">     383 </span>            :     : Receiver()
+<span class="lineNum">     384 </span><span class="lineCov">         38 :     , _impl( new Impl )</span>
+<a name="385"><span class="lineNum">     385 </span><span class="lineCov">         38 : {}</span></a>
+<span class="lineNum">     386 </span>            : 
+<span class="lineNum">     387 </span><span class="lineCov">         62 : Server::~Server()</span>
+<a name="388"><span class="lineNum">     388 </span><span class="lineCov">         62 : {}</span></a>
+<span class="lineNum">     389 </span>            : 
+<span class="lineNum">     390 </span><span class="lineCov">          6 : std::unique_ptr&lt; Server &gt; Server::parse( const int argc,</span>
+<span class="lineNum">     391 </span>            :                                          const char* const* argv )
+<span class="lineNum">     392 </span>            : {
+<span class="lineNum">     393 </span><span class="lineCov">         12 :     const std::string&amp; param = _getServerParameter( argc, argv );</span>
+<span class="lineNum">     394 </span><span class="lineCov">          6 :     if( param.empty( ))</span>
+<span class="lineNum">     395 </span><span class="lineCov">          2 :         return nullptr;</span>
+<span class="lineNum">     396 </span>            : 
+<span class="lineNum">     397 </span><span class="lineCov">          4 :     return std::unique_ptr&lt; Server &gt;( new Server( URI( param )));</span>
+<a name="398"><span class="lineNum">     398 </span>            : }</a>
+<span class="lineNum">     399 </span>            : 
+<span class="lineNum">     400 </span><span class="lineCov">          6 : std::unique_ptr&lt; Server &gt; Server::parse( const int argc,</span>
+<span class="lineNum">     401 </span>            :                                          const char* const* argv,
+<span class="lineNum">     402 </span>            :                                          Receiver&amp; shared )
+<span class="lineNum">     403 </span>            : {
+<span class="lineNum">     404 </span><span class="lineCov">         12 :     const std::string&amp; param = _getServerParameter( argc, argv );</span>
+<span class="lineNum">     405 </span><span class="lineCov">          6 :     if( param.empty( ))</span>
+<span class="lineNum">     406 </span><span class="lineCov">          2 :         return nullptr;</span>
+<span class="lineNum">     407 </span>            : 
+<span class="lineNum">     408 </span><span class="lineCov">          4 :     return std::unique_ptr&lt; Server &gt;( new Server( URI( param ), shared ));</span>
+<a name="409"><span class="lineNum">     409 </span>            : }</a>
+<span class="lineNum">     410 </span>            : 
+<span class="lineNum">     411 </span><span class="lineCov">         66 : const URI&amp; Server::getURI() const</span>
+<span class="lineNum">     412 </span>            : {
+<span class="lineNum">     413 </span><span class="lineCov">         66 :     return _impl-&gt;uri;</span>
+<a name="414"><span class="lineNum">     414 </span>            : }</a>
+<span class="lineNum">     415 </span>            : 
+<span class="lineNum">     416 </span><span class="lineCov">          8 : SocketDescriptor Server::getSocketDescriptor() const</span>
+<span class="lineNum">     417 </span>            : {
+<span class="lineNum">     418 </span>            : #ifdef _MSC_VER
+<span class="lineNum">     419 </span>            :     ZEROEQTHROW( std::runtime_error(
+<span class="lineNum">     420 </span>            :                  std::string( &quot;HTTP server socket descriptor not available&quot; )));
+<span class="lineNum">     421 </span>            : #else
+<span class="lineNum">     422 </span><span class="lineCov">          8 :     SocketDescriptor fd = 0;</span>
+<span class="lineNum">     423 </span><span class="lineCov">          8 :     size_t fdLength = sizeof(fd);</span>
+<span class="lineNum">     424 </span><span class="lineCov">          8 :     if( ::zmq_getsockopt( _impl-&gt;socket, ZMQ_FD, &amp;fd, &amp;fdLength ) == -1 )</span>
+<span class="lineNum">     425 </span>            :     {
+<span class="lineNum">     426 </span><span class="lineNoCov">          0 :         ZEROEQTHROW( std::runtime_error(</span>
+<span class="lineNum">     427 </span>            :                          std::string( &quot;Could not get socket descriptor&quot; )));
+<span class="lineNum">     428 </span>            :     }
+<span class="lineNum">     429 </span><span class="lineCov">          8 :     return fd;</span>
+<span class="lineNum">     430 </span>            : #endif
+<a name="431"><span class="lineNum">     431 </span>            : }</a>
+<span class="lineNum">     432 </span>            : 
+<span class="lineNum">     433 </span><span class="lineNoCov">          0 : bool Server::handle( const std::string&amp; endpoint, servus::Serializable&amp; object )</span>
+<span class="lineNum">     434 </span>            : {
+<span class="lineNum">     435 </span><span class="lineNoCov">          0 :     return handlePUT( endpoint, object ) &amp;&amp; handleGET( endpoint, object );</span>
+<a name="436"><span class="lineNum">     436 </span>            : }</a>
+<span class="lineNum">     437 </span>            : 
+<span class="lineNum">     438 </span><span class="lineCov">         14 : bool Server::remove( const servus::Serializable&amp; object )</span>
+<span class="lineNum">     439 </span>            : {
+<span class="lineNum">     440 </span><span class="lineCov">         14 :     return _impl-&gt;remove( object );</span>
+<a name="441"><span class="lineNum">     441 </span>            : }</a>
+<span class="lineNum">     442 </span>            : 
+<span class="lineNum">     443 </span><span class="lineCov">         16 : bool Server::remove( const std::string&amp; endpoint )</span>
+<span class="lineNum">     444 </span>            : {
+<span class="lineNum">     445 </span><span class="lineCov">         16 :     return _impl-&gt;remove( endpoint );</span>
+<a name="446"><span class="lineNum">     446 </span>            : }</a>
+<span class="lineNum">     447 </span>            : 
+<span class="lineNum">     448 </span><span class="lineCov">         14 : bool Server::handlePUT( servus::Serializable&amp; object )</span>
+<span class="lineNum">     449 </span>            : {
+<span class="lineNum">     450 </span><span class="lineCov">         14 :     return _impl-&gt;handlePUT( object.getTypeName(), object );</span>
+<a name="451"><span class="lineNum">     451 </span>            : }</a>
+<span class="lineNum">     452 </span>            : 
+<span class="lineNum">     453 </span><span class="lineCov">          2 : bool Server::handlePUT( const std::string&amp; endpoint,</span>
+<span class="lineNum">     454 </span>            :                         servus::Serializable&amp; object )
+<span class="lineNum">     455 </span>            : {
+<span class="lineNum">     456 </span><span class="lineCov">          2 :     return _impl-&gt;handlePUT( endpoint, object );</span>
+<a name="457"><span class="lineNum">     457 </span>            : }</a>
+<span class="lineNum">     458 </span>            : 
+<span class="lineNum">     459 </span><span class="lineCov">          8 : bool Server::handlePUT( const std::string&amp; endpoint, const PUTFunc&amp; func )</span>
+<a name="460"><span class="lineNum">     460 </span>            : {</a>
+<span class="lineNum">     461 </span><span class="lineCov">         16 :     return _impl-&gt;handlePUT( endpoint, &quot;&quot;,</span>
+<span class="lineNum">     462 </span><span class="lineCov">         52 :                              [func]( const std::string&amp; ) { return func(); } );</span>
+<a name="463"><span class="lineNum">     463 </span>            : }</a>
+<span class="lineNum">     464 </span>            : 
+<span class="lineNum">     465 </span><span class="lineCov">          8 : bool Server::handlePUT( const std::string&amp; endpoint, const std::string&amp; schema,</span>
+<span class="lineNum">     466 </span>            :                         const PUTFunc&amp; func )
+<a name="467"><span class="lineNum">     467 </span>            : {</a>
+<span class="lineNum">     468 </span><span class="lineCov">         16 :     return _impl-&gt;handlePUT( endpoint, schema,</span>
+<span class="lineNum">     469 </span><span class="lineCov">         54 :                              [func]( const std::string&amp; ) { return func(); } );</span>
+<a name="470"><span class="lineNum">     470 </span>            : }</a>
+<span class="lineNum">     471 </span>            : 
+<span class="lineNum">     472 </span><span class="lineCov">          6 : bool Server::handlePUT( const std::string&amp; endpoint,</span>
+<span class="lineNum">     473 </span>            :                         const PUTPayloadFunc&amp; func )
+<span class="lineNum">     474 </span>            : {
+<span class="lineNum">     475 </span><span class="lineCov">          6 :     return _impl-&gt;handlePUT( endpoint, &quot;&quot;, func );</span>
+<a name="476"><span class="lineNum">     476 </span>            : }</a>
+<span class="lineNum">     477 </span>            : 
+<span class="lineNum">     478 </span><span class="lineCov">          4 : bool Server::handlePUT( const std::string&amp; endpoint,const std::string&amp; schema,</span>
+<span class="lineNum">     479 </span>            :                         const PUTPayloadFunc&amp; func )
+<span class="lineNum">     480 </span>            : {
+<span class="lineNum">     481 </span><span class="lineCov">          4 :     return _impl-&gt;handlePUT( endpoint, schema, func );</span>
+<a name="482"><span class="lineNum">     482 </span>            : }</a>
+<span class="lineNum">     483 </span>            : 
+<span class="lineNum">     484 </span><span class="lineCov">         26 : bool Server::handleGET( const servus::Serializable&amp; object )</span>
+<span class="lineNum">     485 </span>            : {
+<span class="lineNum">     486 </span><span class="lineCov">         26 :     return _impl-&gt;handleGET( object.getTypeName(), object );</span>
+<a name="487"><span class="lineNum">     487 </span>            : }</a>
+<span class="lineNum">     488 </span>            : 
+<span class="lineNum">     489 </span><span class="lineNoCov">          0 : bool Server::handleGET( const std::string&amp; endpoint,</span>
+<span class="lineNum">     490 </span>            :                         const servus::Serializable&amp; object )
+<span class="lineNum">     491 </span>            : {
+<span class="lineNum">     492 </span><span class="lineNoCov">          0 :     return _impl-&gt;handleGET( endpoint, object );</span>
+<a name="493"><span class="lineNum">     493 </span>            : }</a>
+<span class="lineNum">     494 </span>            : 
+<span class="lineNum">     495 </span><span class="lineCov">         12 : bool Server::handleGET( const std::string&amp; endpoint, const GETFunc&amp; func )</span>
+<span class="lineNum">     496 </span>            : {
+<span class="lineNum">     497 </span><span class="lineCov">         12 :     return _impl-&gt;handleGET( endpoint, &quot;&quot;, func );</span>
+<a name="498"><span class="lineNum">     498 </span>            : }</a>
+<span class="lineNum">     499 </span>            : 
+<span class="lineNum">     500 </span><span class="lineCov">         16 : bool Server::handleGET( const std::string&amp; endpoint, const std::string&amp; schema,</span>
+<span class="lineNum">     501 </span>            :                         const GETFunc&amp; func )
+<span class="lineNum">     502 </span>            : {
+<span class="lineNum">     503 </span><span class="lineCov">         16 :     return _impl-&gt;handleGET( endpoint, schema, func );</span>
+<a name="504"><span class="lineNum">     504 </span>            : }</a>
+<span class="lineNum">     505 </span>            : 
+<span class="lineNum">     506 </span><span class="lineCov">          4 : std::string Server::getSchema( const servus::Serializable&amp; object ) const</span>
+<span class="lineNum">     507 </span>            : {
+<span class="lineNum">     508 </span><span class="lineCov">          4 :     return _impl-&gt;getSchema( object.getTypeName( ));</span>
+<a name="509"><span class="lineNum">     509 </span>            : }</a>
+<span class="lineNum">     510 </span>            : 
+<span class="lineNum">     511 </span><span class="lineCov">          6 : std::string Server::getSchema( const std::string&amp; endpoint ) const</span>
+<span class="lineNum">     512 </span>            : {
+<span class="lineNum">     513 </span><span class="lineCov">          6 :     return _impl-&gt;getSchema( endpoint );</span>
+<a name="514"><span class="lineNum">     514 </span>            : }</a>
+<span class="lineNum">     515 </span>            : 
+<span class="lineNum">     516 </span><span class="lineCov">       1040 : void Server::addSockets( std::vector&lt; detail::Socket &gt;&amp; entries )</span>
+<span class="lineNum">     517 </span>            : {
+<span class="lineNum">     518 </span><span class="lineCov">       1040 :     _impl-&gt;addSockets( entries );</span>
+<a name="519"><span class="lineNum">     519 </span><span class="lineCov">       1040 : }</span></a>
+<span class="lineNum">     520 </span>            : 
+<span class="lineNum">     521 </span><span class="lineCov">         62 : void Server::process( detail::Socket&amp;, const uint32_t )</span>
+<span class="lineNum">     522 </span>            : {
+<span class="lineNum">     523 </span><span class="lineCov">         62 :     _impl-&gt;process();</span>
+<span class="lineNum">     524 </span><span class="lineCov">         62 : }</span>
+<a name="525"><span class="lineNum">     525 </span>            : </a>
+<span class="lineNum">     526 </span>            : }
+<span class="lineNum">     527 </span><span class="lineCov">         42 : }</span>
+</pre>
+      </td>
+    </tr>
+  </table>
+  <br>
+
+  <table width="100%" border=0 cellspacing=0 cellpadding=0>
+    <tr><td class="ruler"><img src="../../glass.png" width=3 height=3 alt=""></td></tr>
+    <tr><td class="versionInfo">Generated by: <a href="http://ltp.sourceforge.net/coverage/lcov.php" target="_parent">LCOV version 1.11</a></td></tr>
+  </table>
+  <br>
+
+</body>
+</html>
