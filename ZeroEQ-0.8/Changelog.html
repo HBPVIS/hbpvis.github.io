@@ -106,6 +106,7 @@ $(document).ready(function(){initNavTree('Changelog.html','');});
 <div class="contents">
 <div class="textblock"><h1>git master</h1>
 <ul>
+<li><a href="https://github.com/HBPVIS/ZeroEQ/pull/190">190</a>: Fix HTTP server segfault when accessing the root element (GET '/').</li>
 <li><a href="https://github.com/HBPVIS/ZeroEQ/pull/189">189</a>: Fix missing/wrong HTTP server socket notifications from <a class="el" href="classzeroeq_1_1http_1_1_server.html#a15be7e2843c62325d2d27b4d9f86735a" title="Get the underlying socket descriptor. ">zeroeq::http::Server::getSocketDescriptor()</a>; clients are now guaranteed to be properly notified on read/incoming messages. This feature is not supported on Windows.</li>
 <li><a href="https://github.com/HBPVIS/ZeroEQ/pull/188">188</a>:<ul>
 <li>Support custom HTTP URL endpoint for handled Serializables</li>
@@ -203,7 +204,7 @@ $(document).ready(function(){initNavTree('Changelog.html','');});
 <!-- start footer part -->
 <div id="nav-path" class="navpath"><!-- id is needed for treeview function! -->
   <ul>
-    <li class="footer">Generated on Fri Dec 16 2016 01:37:00 for ZeroEQ by
+    <li class="footer">Generated on Wed Dec 21 2016 01:37:21 for ZeroEQ by
     <a href="http://www.doxygen.org/index.html">
     <img class="footer" src="doxygen.png" alt="doxygen"/></a> 1.8.11 </li>
   </ul>
