@@ -37,7 +37,7 @@
           </tr>
           <tr>
             <td class="headerItem">Date:</td>
-            <td class="headerValue">2016-12-21 01:37:20</td>
+            <td class="headerValue">2016-12-22 01:36:50</td>
             <td></td>
             <td class="headerItem">Functions:</td>
             <td class="headerCovTableEntry">7</td>
@@ -83,7 +83,7 @@
 <span class="lineNum">      21 </span>            : class RequestHandler;
 <a name="22"><span class="lineNum">      22 </span>            : typedef boost::network::http::server&lt; RequestHandler &gt; HTTPServer;</a>
 <span class="lineNum">      23 </span>            : 
-<span class="lineNum">      24 </span><span class="lineCov">        128 : struct HTTPRequest</span>
+<span class="lineNum">      24 </span><span class="lineCov">        132 : struct HTTPRequest</span>
 <span class="lineNum">      25 </span>            : {
 <span class="lineNum">      26 </span>            :     enum class Method
 <span class="lineNum">      27 </span>            :     {
@@ -116,16 +116,16 @@
 <span class="lineNum">      54 </span><span class="lineCov">         56 :         zmq_close( _socket );</span>
 <a name="55"><span class="lineNum">      55 </span><span class="lineCov">         56 :     }</span></a>
 <span class="lineNum">      56 </span>            : 
-<span class="lineNum">      57 </span><span class="lineCov">         64 :     void operator() ( const HTTPServer::request&amp; request,</span>
+<span class="lineNum">      57 </span><span class="lineCov">         66 :     void operator() ( const HTTPServer::request&amp; request,</span>
 <span class="lineNum">      58 </span>            :                       HTTPServer::response&amp; response )
 <span class="lineNum">      59 </span>            :     {
-<span class="lineNum">      60 </span><span class="lineCov">         64 :         const std::string&amp; method = request.method;</span>
+<span class="lineNum">      60 </span><span class="lineCov">         66 :         const std::string&amp; method = request.method;</span>
 <span class="lineNum">      61 </span>            : 
-<span class="lineNum">      62 </span><span class="lineCov">         96 :         HTTPRequest httpRequest;</span>
-<span class="lineNum">      63 </span><span class="lineCov">         64 :         if( method == &quot;PUT&quot; )</span>
+<span class="lineNum">      62 </span><span class="lineCov">         98 :         HTTPRequest httpRequest;</span>
+<span class="lineNum">      63 </span><span class="lineCov">         66 :         if( method == &quot;PUT&quot; )</span>
 <span class="lineNum">      64 </span><span class="lineCov">         16 :             httpRequest.method = HTTPRequest::Method::PUT;</span>
-<span class="lineNum">      65 </span><span class="lineCov">         48 :         else if( method == &quot;GET&quot; )</span>
-<span class="lineNum">      66 </span><span class="lineCov">         46 :             httpRequest.method = HTTPRequest::Method::GET;</span>
+<span class="lineNum">      65 </span><span class="lineCov">         50 :         else if( method == &quot;GET&quot; )</span>
+<span class="lineNum">      66 </span><span class="lineCov">         48 :             httpRequest.method = HTTPRequest::Method::GET;</span>
 <span class="lineNum">      67 </span>            :         else
 <span class="lineNum">      68 </span>            :         {
 <span class="lineNum">      69 </span><span class="lineCov">          4 :             response = HTTPServer::response::stock_reply(</span>
@@ -134,24 +134,24 @@
 <span class="lineNum">      72 </span><span class="lineCov">          2 :             return;</span>
 <span class="lineNum">      73 </span>            :         }
 <span class="lineNum">      74 </span>            : 
-<span class="lineNum">      75 </span><span class="lineCov">         62 :         httpRequest.url = URI( request.destination ).getPath();</span>
-<span class="lineNum">      76 </span><span class="lineCov">         62 :         httpRequest.request = request.body;</span>
-<span class="lineNum">      77 </span><span class="lineCov">         62 :         void* httpRequestPtr = &amp;httpRequest;</span>
-<span class="lineNum">      78 </span><span class="lineCov">         62 :         zmq_send( _socket, &amp;httpRequestPtr, sizeof(void*), 0 );</span>
+<span class="lineNum">      75 </span><span class="lineCov">         64 :         httpRequest.url = URI( request.destination ).getPath();</span>
+<span class="lineNum">      76 </span><span class="lineCov">         64 :         httpRequest.request = request.body;</span>
+<span class="lineNum">      77 </span><span class="lineCov">         64 :         void* httpRequestPtr = &amp;httpRequest;</span>
+<span class="lineNum">      78 </span><span class="lineCov">         64 :         zmq_send( _socket, &amp;httpRequestPtr, sizeof(void*), 0 );</span>
 <span class="lineNum">      79 </span>            :         bool done;
-<span class="lineNum">      80 </span><span class="lineCov">         62 :         zmq_recv( _socket, &amp;done, sizeof( done ), 0 );</span>
+<span class="lineNum">      80 </span><span class="lineCov">         64 :         zmq_recv( _socket, &amp;done, sizeof( done ), 0 );</span>
 <span class="lineNum">      81 </span>            : 
-<span class="lineNum">      82 </span><span class="lineCov">         62 :         const bool haveReply = !httpRequest.reply.empty();</span>
-<span class="lineNum">      83 </span><span class="lineCov">         62 :         if( !haveReply )</span>
+<span class="lineNum">      82 </span><span class="lineCov">         64 :         const bool haveReply = !httpRequest.reply.empty();</span>
+<span class="lineNum">      83 </span><span class="lineCov">         64 :         if( !haveReply )</span>
 <span class="lineNum">      84 </span>            :         {
-<span class="lineNum">      85 </span><span class="lineCov">         30 :             if( httpRequest.status == HTTPServer::response::ok )</span>
+<span class="lineNum">      85 </span><span class="lineCov">         32 :             if( httpRequest.status == HTTPServer::response::ok )</span>
 <span class="lineNum">      86 </span><span class="lineCov">          8 :                 response.status = HTTPServer::response::ok;</span>
 <span class="lineNum">      87 </span>            :             else
 <span class="lineNum">      88 </span>            :                 response =
-<span class="lineNum">      89 </span><span class="lineCov">         22 :                         HTTPServer::response::stock_reply( httpRequest.status );</span>
+<span class="lineNum">      89 </span><span class="lineCov">         24 :                         HTTPServer::response::stock_reply( httpRequest.status );</span>
 <span class="lineNum">      90 </span>            : 
-<span class="lineNum">      91 </span><span class="lineCov">         30 :             _addCorsHeaders( response );</span>
-<span class="lineNum">      92 </span><span class="lineCov">         30 :             return;</span>
+<span class="lineNum">      91 </span><span class="lineCov">         32 :             _addCorsHeaders( response );</span>
+<span class="lineNum">      92 </span><span class="lineCov">         32 :             return;</span>
 <span class="lineNum">      93 </span>            :         }
 <span class="lineNum">      94 </span>            : 
 <span class="lineNum">      95 </span><span class="lineCov">         32 :         response.status = httpRequest.status;</span>
@@ -175,7 +175,7 @@
 <span class="lineNum">     113 </span><span class="lineCov">         24 :     }</span>
 <a name="114"><span class="lineNum">     114 </span>            : </a>
 <span class="lineNum">     115 </span>            : private:
-<span class="lineNum">     116 </span><span class="lineCov">         64 :     void _addCorsHeaders( HTTPServer::response&amp; response )</span>
+<span class="lineNum">     116 </span><span class="lineCov">         66 :     void _addCorsHeaders( HTTPServer::response&amp; response )</span>
 <span class="lineNum">     117 </span>            :     {
 <span class="lineNum">     118 </span>            :         // In a typical situation, user agents can discover via a preflight
 <span class="lineNum">     119 </span>            :         // request whether a cross-origin resource is prepared to accept
@@ -185,22 +185,22 @@
 <span class="lineNum">     123 </span>            :         // meaning that all sources are accepted for all requests. More
 <span class="lineNum">     124 </span>            :         // information can be found here: https://www.w3.org/TR/cors
 <span class="lineNum">     125 </span>            : 
-<span class="lineNum">     126 </span><span class="lineCov">        128 :         HTTPServer::response_header allowHeaders;</span>
-<span class="lineNum">     127 </span><span class="lineCov">         64 :         allowHeaders.name = &quot;Access-Control-Allow-Headers&quot;;</span>
-<span class="lineNum">     128 </span><span class="lineCov">         64 :         allowHeaders.value = &quot;Content-Type&quot;;</span>
+<span class="lineNum">     126 </span><span class="lineCov">        132 :         HTTPServer::response_header allowHeaders;</span>
+<span class="lineNum">     127 </span><span class="lineCov">         66 :         allowHeaders.name = &quot;Access-Control-Allow-Headers&quot;;</span>
+<span class="lineNum">     128 </span><span class="lineCov">         66 :         allowHeaders.value = &quot;Content-Type&quot;;</span>
 <span class="lineNum">     129 </span>            : 
-<span class="lineNum">     130 </span><span class="lineCov">        128 :         HTTPServer::response_header allowMethods;</span>
-<span class="lineNum">     131 </span><span class="lineCov">         64 :         allowMethods.name = &quot;Access-Control-Allow-Methods&quot;;</span>
-<span class="lineNum">     132 </span><span class="lineCov">         64 :         allowMethods.value = &quot;GET,PUT,OPTIONS&quot;;</span>
+<span class="lineNum">     130 </span><span class="lineCov">        132 :         HTTPServer::response_header allowMethods;</span>
+<span class="lineNum">     131 </span><span class="lineCov">         66 :         allowMethods.name = &quot;Access-Control-Allow-Methods&quot;;</span>
+<span class="lineNum">     132 </span><span class="lineCov">         66 :         allowMethods.value = &quot;GET,PUT,OPTIONS&quot;;</span>
 <span class="lineNum">     133 </span>            : 
-<span class="lineNum">     134 </span><span class="lineCov">        128 :         HTTPServer::response_header allowOrigin;</span>
-<span class="lineNum">     135 </span><span class="lineCov">         64 :         allowOrigin.name = &quot;Access-Control-Allow-Origin&quot;;</span>
-<span class="lineNum">     136 </span><span class="lineCov">         64 :         allowOrigin.value = &quot;*&quot;;</span>
+<span class="lineNum">     134 </span><span class="lineCov">        132 :         HTTPServer::response_header allowOrigin;</span>
+<span class="lineNum">     135 </span><span class="lineCov">         66 :         allowOrigin.name = &quot;Access-Control-Allow-Origin&quot;;</span>
+<span class="lineNum">     136 </span><span class="lineCov">         66 :         allowOrigin.value = &quot;*&quot;;</span>
 <span class="lineNum">     137 </span>            : 
-<span class="lineNum">     138 </span><span class="lineCov">         64 :         response.headers.push_back( allowHeaders );</span>
-<span class="lineNum">     139 </span><span class="lineCov">         64 :         response.headers.push_back( allowMethods );</span>
-<span class="lineNum">     140 </span><span class="lineCov">         64 :         response.headers.push_back( allowOrigin );</span>
-<span class="lineNum">     141 </span><span class="lineCov">         64 :     }</span>
+<span class="lineNum">     138 </span><span class="lineCov">         66 :         response.headers.push_back( allowHeaders );</span>
+<span class="lineNum">     139 </span><span class="lineCov">         66 :         response.headers.push_back( allowMethods );</span>
+<span class="lineNum">     140 </span><span class="lineCov">         66 :         response.headers.push_back( allowOrigin );</span>
+<span class="lineNum">     141 </span><span class="lineCov">         66 :     }</span>
 <span class="lineNum">     142 </span>            : 
 <span class="lineNum">     143 </span>            :     void* _socket;
 <span class="lineNum">     144 </span>            : };

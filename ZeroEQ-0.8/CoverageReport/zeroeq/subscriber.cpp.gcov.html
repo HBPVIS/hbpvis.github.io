@@ -37,7 +37,7 @@
           </tr>
           <tr>
             <td class="headerItem">Date:</td>
-            <td class="headerValue">2016-12-21 01:37:20</td>
+            <td class="headerValue">2016-12-22 01:36:50</td>
             <td></td>
             <td class="headerItem">Functions:</td>
             <td class="headerCovTableEntry">40</td>
@@ -195,47 +195,47 @@
 <span class="lineNum">     133 </span><span class="lineCov">          5 :         return true;</span>
 <a name="134"><span class="lineNum">     134 </span>            :     }</a>
 <span class="lineNum">     135 </span>            : 
-<span class="lineNum">     136 </span><span class="lineCov">      80136 :     void addSockets( std::vector&lt; detail::Socket &gt;&amp; entries )</span>
+<span class="lineNum">     136 </span><span class="lineCov">      80171 :     void addSockets( std::vector&lt; detail::Socket &gt;&amp; entries )</span>
 <span class="lineNum">     137 </span>            :     {
-<span class="lineNum">     138 </span><span class="lineCov">      80136 :         entries.insert( entries.end(), _entries.begin(), _entries.end( ));</span>
-<a name="139"><span class="lineNum">     139 </span><span class="lineCov">      80136 :     }</span></a>
+<span class="lineNum">     138 </span><span class="lineCov">      80171 :         entries.insert( entries.end(), _entries.begin(), _entries.end( ));</span>
+<a name="139"><span class="lineNum">     139 </span><span class="lineCov">      80171 :     }</span></a>
 <span class="lineNum">     140 </span>            : 
-<span class="lineNum">     141 </span><span class="lineCov">      19990 :     void process( detail::Socket&amp; socket )</span>
+<span class="lineNum">     141 </span><span class="lineCov">      20010 :     void process( detail::Socket&amp; socket )</span>
 <span class="lineNum">     142 </span>            :     {
 <span class="lineNum">     143 </span>            :         zmq_msg_t msg;
-<span class="lineNum">     144 </span><span class="lineCov">      19990 :         zmq_msg_init( &amp;msg );</span>
-<span class="lineNum">     145 </span><span class="lineCov">      19990 :         zmq_msg_recv( &amp;msg, socket.socket, 0 );</span>
+<span class="lineNum">     144 </span><span class="lineCov">      20010 :         zmq_msg_init( &amp;msg );</span>
+<span class="lineNum">     145 </span><span class="lineCov">      20010 :         zmq_msg_recv( &amp;msg, socket.socket, 0 );</span>
 <span class="lineNum">     146 </span>            : 
-<span class="lineNum">     147 </span><span class="lineCov">      19990 :         uint128_t type;</span>
-<span class="lineNum">     148 </span><span class="lineCov">      19990 :         memcpy( &amp;type, zmq_msg_data( &amp;msg ), sizeof(type) );</span>
+<span class="lineNum">     147 </span><span class="lineCov">      20010 :         uint128_t type;</span>
+<span class="lineNum">     148 </span><span class="lineCov">      20010 :         memcpy( &amp;type, zmq_msg_data( &amp;msg ), sizeof(type) );</span>
 <span class="lineNum">     149 </span>            :     #ifndef ZEROEQ_LITTLEENDIAN
 <span class="lineNum">     150 </span>            :         detail::byteswap( type ); // convert from little endian wire
 <span class="lineNum">     151 </span>            :     #endif
-<span class="lineNum">     152 </span><span class="lineCov">      19990 :         const bool payload = zmq_msg_more( &amp;msg );</span>
-<span class="lineNum">     153 </span><span class="lineCov">      19990 :         zmq_msg_close( &amp;msg );</span>
+<span class="lineNum">     152 </span><span class="lineCov">      20010 :         const bool payload = zmq_msg_more( &amp;msg );</span>
+<span class="lineNum">     153 </span><span class="lineCov">      20010 :         zmq_msg_close( &amp;msg );</span>
 <span class="lineNum">     154 </span>            : 
-<span class="lineNum">     155 </span><span class="lineCov">      19990 :         EventFuncMap::const_iterator i = _eventFuncs.find( type );</span>
-<span class="lineNum">     156 </span><span class="lineCov">      19990 :         if( i == _eventFuncs.cend( ))</span>
+<span class="lineNum">     155 </span><span class="lineCov">      20010 :         EventFuncMap::const_iterator i = _eventFuncs.find( type );</span>
+<span class="lineNum">     156 </span><span class="lineCov">      20010 :         if( i == _eventFuncs.cend( ))</span>
 <span class="lineNum">     157 </span><span class="lineNoCov">          0 :             ZEROEQTHROW( std::runtime_error( &quot;Got unsubscribed event &quot; +</span>
 <span class="lineNum">     158 </span>            :                                              type.getString( )));
 <span class="lineNum">     159 </span>            : 
-<span class="lineNum">     160 </span><span class="lineCov">      19990 :         if( payload )</span>
+<span class="lineNum">     160 </span><span class="lineCov">      20010 :         if( payload )</span>
 <span class="lineNum">     161 </span>            :         {
-<span class="lineNum">     162 </span><span class="lineCov">      19989 :             zmq_msg_init( &amp;msg );</span>
-<span class="lineNum">     163 </span><span class="lineCov">      19989 :             zmq_msg_recv( &amp;msg, socket.socket, 0 );</span>
-<span class="lineNum">     164 </span><span class="lineCov">      19989 :             i-&gt;second( zmq_msg_data( &amp;msg ), zmq_msg_size( &amp;msg ));</span>
-<span class="lineNum">     165 </span><span class="lineCov">      19989 :             zmq_msg_close( &amp;msg );</span>
+<span class="lineNum">     162 </span><span class="lineCov">      20009 :             zmq_msg_init( &amp;msg );</span>
+<span class="lineNum">     163 </span><span class="lineCov">      20009 :             zmq_msg_recv( &amp;msg, socket.socket, 0 );</span>
+<span class="lineNum">     164 </span><span class="lineCov">      20009 :             i-&gt;second( zmq_msg_data( &amp;msg ), zmq_msg_size( &amp;msg ));</span>
+<span class="lineNum">     165 </span><span class="lineCov">      20009 :             zmq_msg_close( &amp;msg );</span>
 <span class="lineNum">     166 </span>            :         }
 <span class="lineNum">     167 </span>            :         else
 <span class="lineNum">     168 </span><span class="lineCov">          1 :             i-&gt;second( nullptr, 0 );</span>
-<a name="169"><span class="lineNum">     169 </span><span class="lineCov">      19990 :     }</span></a>
+<a name="169"><span class="lineNum">     169 </span><span class="lineCov">      20010 :     }</span></a>
 <span class="lineNum">     170 </span>            : 
-<span class="lineNum">     171 </span><span class="lineCov">      60158 :     void update( void* context )</span>
+<span class="lineNum">     171 </span><span class="lineCov">      60173 :     void update( void* context )</span>
 <span class="lineNum">     172 </span>            :     {
-<span class="lineNum">     173 </span><span class="lineCov">      60158 :         if( _browser.isBrowsing( ))</span>
-<span class="lineNum">     174 </span><span class="lineCov">         48 :             _browser.browse( 0 );</span>
-<span class="lineNum">     175 </span><span class="lineCov">     120316 :         const servus::Strings&amp; instances = _browser.getInstances();</span>
-<span class="lineNum">     176 </span><span class="lineCov">      60158 :         for( const std::string&amp; instance : instances )</span>
+<span class="lineNum">     173 </span><span class="lineCov">      60173 :         if( _browser.isBrowsing( ))</span>
+<span class="lineNum">     174 </span><span class="lineCov">         41 :             _browser.browse( 0 );</span>
+<span class="lineNum">     175 </span><span class="lineCov">     120346 :         const servus::Strings&amp; instances = _browser.getInstances();</span>
+<span class="lineNum">     176 </span><span class="lineCov">      60173 :         for( const std::string&amp; instance : instances )</span>
 <span class="lineNum">     177 </span>            :         {
 <span class="lineNum">     178 </span><span class="lineNoCov">          0 :             const std::string&amp; zmqURI = _getZmqURI( instance );</span>
 <span class="lineNum">     179 </span>            : 
@@ -260,7 +260,7 @@
 <span class="lineNum">     198 </span>            :                 }
 <span class="lineNum">     199 </span>            :             }
 <span class="lineNum">     200 </span>            :         }
-<a name="201"><span class="lineNum">     201 </span><span class="lineCov">      60158 :     }</span></a>
+<a name="201"><span class="lineNum">     201 </span><span class="lineCov">      60173 :     }</span></a>
 <span class="lineNum">     202 </span>            : 
 <span class="lineNum">     203 </span><span class="lineCov">         18 :     bool addConnection( void* context, const std::string&amp; zmqURI,</span>
 <span class="lineNum">     204 </span>            :                         const uint128_t&amp; instance )
@@ -439,20 +439,20 @@
 <span class="lineNum">     377 </span><span class="lineNoCov">          0 :     return _impl-&gt;getSession();</span>
 <a name="378"><span class="lineNum">     378 </span>            : }</a>
 <span class="lineNum">     379 </span>            : 
-<span class="lineNum">     380 </span><span class="lineCov">      80136 : void Subscriber::addSockets( std::vector&lt; detail::Socket &gt;&amp; entries )</span>
+<span class="lineNum">     380 </span><span class="lineCov">      80171 : void Subscriber::addSockets( std::vector&lt; detail::Socket &gt;&amp; entries )</span>
 <span class="lineNum">     381 </span>            : {
-<span class="lineNum">     382 </span><span class="lineCov">      80136 :     _impl-&gt;addSockets( entries );</span>
-<a name="383"><span class="lineNum">     383 </span><span class="lineCov">      80136 : }</span></a>
+<span class="lineNum">     382 </span><span class="lineCov">      80171 :     _impl-&gt;addSockets( entries );</span>
+<a name="383"><span class="lineNum">     383 </span><span class="lineCov">      80171 : }</span></a>
 <span class="lineNum">     384 </span>            : 
-<span class="lineNum">     385 </span><span class="lineCov">      19990 : void Subscriber::process( detail::Socket&amp; socket, const uint32_t )</span>
+<span class="lineNum">     385 </span><span class="lineCov">      20010 : void Subscriber::process( detail::Socket&amp; socket, const uint32_t )</span>
 <span class="lineNum">     386 </span>            : {
-<span class="lineNum">     387 </span><span class="lineCov">      19990 :     _impl-&gt;process( socket );</span>
-<a name="388"><span class="lineNum">     388 </span><span class="lineCov">      19990 : }</span></a>
+<span class="lineNum">     387 </span><span class="lineCov">      20010 :     _impl-&gt;process( socket );</span>
+<a name="388"><span class="lineNum">     388 </span><span class="lineCov">      20010 : }</span></a>
 <span class="lineNum">     389 </span>            : 
-<span class="lineNum">     390 </span><span class="lineCov">      60141 : void Subscriber::update()</span>
+<span class="lineNum">     390 </span><span class="lineCov">      60156 : void Subscriber::update()</span>
 <span class="lineNum">     391 </span>            : {
-<span class="lineNum">     392 </span><span class="lineCov">      60141 :     _impl-&gt;update( getZMQContext( ));</span>
-<a name="393"><span class="lineNum">     393 </span><span class="lineCov">      60141 : }</span></a>
+<span class="lineNum">     392 </span><span class="lineCov">      60156 :     _impl-&gt;update( getZMQContext( ));</span>
+<a name="393"><span class="lineNum">     393 </span><span class="lineCov">      60156 : }</span></a>
 <span class="lineNum">     394 </span>            : 
 <span class="lineNum">     395 </span><span class="lineCov">          2 : void Subscriber::addConnection( const std::string&amp; uri )</span>
 <span class="lineNum">     396 </span>            : {
