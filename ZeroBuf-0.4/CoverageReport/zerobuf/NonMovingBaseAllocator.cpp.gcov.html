@@ -37,7 +37,7 @@
           </tr>
           <tr>
             <td class="headerItem">Date:</td>
-            <td class="headerValue">2016-12-06 01:08:59</td>
+            <td class="headerValue">2017-01-07 01:08:17</td>
             <td></td>
             <td class="headerItem">Functions:</td>
             <td class="headerCovTableEntry">5</td>
@@ -84,30 +84,30 @@
 <span class="lineNum">      22 </span><span class="lineCov">        388 : NonMovingBaseAllocator::~NonMovingBaseAllocator()</span>
 <a name="23"><span class="lineNum">      23 </span><span class="lineCov">        388 : {}</span></a>
 <span class="lineNum">      24 </span>            : 
-<span class="lineNum">      25 </span><span class="lineCov">        495 : uint8_t* NonMovingBaseAllocator::_moveAllocation(</span>
+<span class="lineNum">      25 </span><span class="lineCov">        509 : uint8_t* NonMovingBaseAllocator::_moveAllocation(</span>
 <span class="lineNum">      26 </span>            :     const size_t index, const bool copy, const size_t newOffset,
 <span class="lineNum">      27 </span>            :     const size_t newSize )
 <span class="lineNum">      28 </span>            : {
-<span class="lineNum">      29 </span><span class="lineCov">        495 :     uint64_t&amp; offset = _getOffset( index );</span>
-<span class="lineNum">      30 </span><span class="lineCov">        495 :     uint64_t&amp; size = _getSize( index );</span>
-<span class="lineNum">      31 </span><span class="lineCov">        495 :     uint8_t* base = getData();</span>
+<span class="lineNum">      29 </span><span class="lineCov">        509 :     uint64_t&amp; offset = _getOffset( index );</span>
+<span class="lineNum">      30 </span><span class="lineCov">        509 :     uint64_t&amp; size = _getSize( index );</span>
+<span class="lineNum">      31 </span><span class="lineCov">        509 :     uint8_t* base = getData();</span>
 <span class="lineNum">      32 </span>            : 
-<span class="lineNum">      33 </span><span class="lineCov">        495 :     if( copy &amp;&amp; offset &gt; 0 )</span>
-<span class="lineNum">      34 </span><span class="lineCov">         73 :         ::memcpy( base + newOffset, base + offset,</span>
-<span class="lineNum">      35 </span><span class="lineCov">        146 :                   std::min( size, uint64_t ( newSize )));</span>
+<span class="lineNum">      33 </span><span class="lineCov">        509 :     if( copy &amp;&amp; offset &gt; 0 )</span>
+<span class="lineNum">      34 </span><span class="lineCov">         79 :         ::memcpy( base + newOffset, base + offset,</span>
+<span class="lineNum">      35 </span><span class="lineCov">        158 :                   std::min( size, uint64_t ( newSize )));</span>
 <span class="lineNum">      36 </span>            : 
-<span class="lineNum">      37 </span><span class="lineCov">        495 :     offset = newOffset;</span>
-<span class="lineNum">      38 </span><span class="lineCov">        495 :     size = newSize;</span>
-<span class="lineNum">      39 </span><span class="lineCov">        495 :     return base + newOffset;</span>
+<span class="lineNum">      37 </span><span class="lineCov">        509 :     offset = newOffset;</span>
+<span class="lineNum">      38 </span><span class="lineCov">        509 :     size = newSize;</span>
+<span class="lineNum">      39 </span><span class="lineCov">        509 :     return base + newOffset;</span>
 <a name="40"><span class="lineNum">      40 </span>            : }</a>
 <span class="lineNum">      41 </span>            : 
-<span class="lineNum">      42 </span><span class="lineCov">       2359 : uint8_t* NonMovingBaseAllocator::updateAllocation(</span>
+<span class="lineNum">      42 </span><span class="lineCov">       2373 : uint8_t* NonMovingBaseAllocator::updateAllocation(</span>
 <span class="lineNum">      43 </span>            :     const size_t index, const bool copy, const size_t newSize )
 <span class="lineNum">      44 </span>            : {
-<span class="lineNum">      45 </span><span class="lineCov">       2359 :     uint64_t&amp; oldOffset = _getOffset( index );</span>
-<span class="lineNum">      46 </span><span class="lineCov">       2359 :     uint64_t&amp; oldSize = _getSize( index );</span>
+<span class="lineNum">      45 </span><span class="lineCov">       2373 :     uint64_t&amp; oldOffset = _getOffset( index );</span>
+<span class="lineNum">      46 </span><span class="lineCov">       2373 :     uint64_t&amp; oldSize = _getSize( index );</span>
 <span class="lineNum">      47 </span>            : 
-<span class="lineNum">      48 </span><span class="lineCov">       2359 :     if( oldSize &gt;= newSize ) // enough space, update and return</span>
+<span class="lineNum">      48 </span><span class="lineCov">       2373 :     if( oldSize &gt;= newSize ) // enough space, update and return</span>
 <span class="lineNum">      49 </span>            :     {
 <span class="lineNum">      50 </span><span class="lineCov">       1118 :         oldSize = newSize;</span>
 <span class="lineNum">      51 </span><span class="lineCov">       1118 :         if( newSize &gt; 0 )</span>
@@ -117,18 +117,18 @@
 <span class="lineNum">      55 </span><span class="lineCov">        179 :         return nullptr;</span>
 <span class="lineNum">      56 </span>            :     }
 <span class="lineNum">      57 </span>            : 
-<span class="lineNum">      58 </span><span class="lineCov">       1241 :     if( oldOffset != 0 ) // Check for space in current place</span>
+<span class="lineNum">      58 </span><span class="lineCov">       1255 :     if( oldOffset != 0 ) // Check for space in current place</span>
 <span class="lineNum">      59 </span>            :     {
-<span class="lineNum">      60 </span><span class="lineCov">        938 :         uint64_t nextOffset = getSize();</span>
+<span class="lineNum">      60 </span><span class="lineCov">        944 :         uint64_t nextOffset = getSize();</span>
 <span class="lineNum">      61 </span>            : 
-<span class="lineNum">      62 </span><span class="lineCov">       4065 :         for( size_t i = 0; i &lt; _numDynamic; ++i )</span>
+<span class="lineNum">      62 </span><span class="lineCov">       4269 :         for( size_t i = 0; i &lt; _numDynamic; ++i )</span>
 <span class="lineNum">      63 </span>            :         {
-<span class="lineNum">      64 </span><span class="lineCov">       3127 :             const uint64_t offset = _getOffset( i );</span>
-<span class="lineNum">      65 </span><span class="lineCov">       3127 :             if( offset != 0 &amp;&amp; offset &gt; oldOffset )</span>
-<span class="lineNum">      66 </span><span class="lineCov">        574 :                 nextOffset = std::min( nextOffset, offset );</span>
+<span class="lineNum">      64 </span><span class="lineCov">       3325 :             const uint64_t offset = _getOffset( i );</span>
+<span class="lineNum">      65 </span><span class="lineCov">       3325 :             if( offset != 0 &amp;&amp; offset &gt; oldOffset )</span>
+<span class="lineNum">      66 </span><span class="lineCov">        581 :                 nextOffset = std::min( nextOffset, offset );</span>
 <span class="lineNum">      67 </span>            :         }
 <span class="lineNum">      68 </span>            : 
-<span class="lineNum">      69 </span><span class="lineCov">        938 :         if( oldOffset + newSize &lt; nextOffset ) // enough space, update, return</span>
+<span class="lineNum">      69 </span><span class="lineCov">        944 :         if( oldOffset + newSize &lt; nextOffset ) // enough space, update, return</span>
 <span class="lineNum">      70 </span>            :         {
 <span class="lineNum">      71 </span><span class="lineCov">        746 :             oldSize = newSize;</span>
 <span class="lineNum">      72 </span><span class="lineCov">        746 :             return getData() + oldOffset;</span>
@@ -138,46 +138,46 @@
 <span class="lineNum">      76 </span>            :     // Check for a big enough hole
 <span class="lineNum">      77 </span>            :     //-- record allocations
 <span class="lineNum">      78 </span>            :     typedef std::map&lt; size_t, size_t &gt; ArrayMap; // offset -&gt; size
-<span class="lineNum">      79 </span><span class="lineCov">        990 :     ArrayMap arrays; // sort arrays by position</span>
-<span class="lineNum">      80 </span><span class="lineCov">       5707 :     for( size_t i = 0; i &lt; _numDynamic; ++i )</span>
+<span class="lineNum">      79 </span><span class="lineCov">       1018 :     ArrayMap arrays; // sort arrays by position</span>
+<span class="lineNum">      80 </span><span class="lineCov">       6252 :     for( size_t i = 0; i &lt; _numDynamic; ++i )</span>
 <span class="lineNum">      81 </span>            :     {
-<span class="lineNum">      82 </span><span class="lineCov">       5212 :         const uint64_t offset = _getOffset( i );</span>
-<span class="lineNum">      83 </span><span class="lineCov">       5212 :         if( i != index &amp;&amp; offset &gt;= _staticSize )</span>
-<span class="lineNum">      84 </span><span class="lineCov">       2968 :             arrays[ offset ] = _getSize( i );</span>
+<span class="lineNum">      82 </span><span class="lineCov">       5743 :         const uint64_t offset = _getOffset( i );</span>
+<span class="lineNum">      83 </span><span class="lineCov">       5743 :         if( i != index &amp;&amp; offset &gt;= _staticSize )</span>
+<span class="lineNum">      84 </span><span class="lineCov">       3301 :             arrays[ offset ] = _getSize( i );</span>
 <span class="lineNum">      85 </span>            :     }
 <span class="lineNum">      86 </span>            : 
 <span class="lineNum">      87 </span>            :     //-- find hole
-<span class="lineNum">      88 </span><span class="lineCov">        495 :     uint64_t start = _staticSize;</span>
-<span class="lineNum">      89 </span><span class="lineCov">       3358 :     for( auto i = arrays.cbegin(); i != arrays.cend(); ++i )</span>
+<span class="lineNum">      88 </span><span class="lineCov">        509 :     uint64_t start = _staticSize;</span>
+<span class="lineNum">      89 </span><span class="lineCov">       3704 :     for( auto i = arrays.cbegin(); i != arrays.cend(); ++i )</span>
 <span class="lineNum">      90 </span>            :     {
-<span class="lineNum">      91 </span><span class="lineCov">       2967 :         assert( i-&gt;first &gt;= start );</span>
-<span class="lineNum">      92 </span><span class="lineCov">       2967 :         if( i-&gt;first - start &gt;= newSize )</span>
+<span class="lineNum">      91 </span><span class="lineCov">       3299 :         assert( i-&gt;first &gt;= start );</span>
+<span class="lineNum">      92 </span><span class="lineCov">       3299 :         if( i-&gt;first - start &gt;= newSize )</span>
 <span class="lineNum">      93 </span><span class="lineCov">        104 :             return _moveAllocation( index, copy, start, newSize );</span>
 <span class="lineNum">      94 </span>            : 
-<span class="lineNum">      95 </span><span class="lineCov">       2863 :         start = i-&gt;first + i-&gt;second;</span>
+<span class="lineNum">      95 </span><span class="lineCov">       3195 :         start = i-&gt;first + i-&gt;second;</span>
 <span class="lineNum">      96 </span>            :     }
 <span class="lineNum">      97 </span>            : 
 <span class="lineNum">      98 </span>            :     //-- check for space after last allocation
-<span class="lineNum">      99 </span><span class="lineCov">        391 :     if( getSize() - start &gt;= newSize )</span>
+<span class="lineNum">      99 </span><span class="lineCov">        405 :     if( getSize() - start &gt;= newSize )</span>
 <span class="lineNum">     100 </span><span class="lineCov">        113 :         return _moveAllocation( index, copy, start, newSize );</span>
 <span class="lineNum">     101 </span>            : 
 <span class="lineNum">     102 </span>            :     // realloc space at the end
-<span class="lineNum">     103 </span><span class="lineCov">        278 :     if( start + newSize &lt;= getSize( ))</span>
+<span class="lineNum">     103 </span><span class="lineCov">        292 :     if( start + newSize &lt;= getSize( ))</span>
 <span class="lineNum">     104 </span>            :         throw std::runtime_error(
 <span class="lineNum">     105 </span><span class="lineNoCov">          0 :             &quot;Internal allocator error: allocation shrinks from &quot; +</span>
 <span class="lineNum">     106 </span><span class="lineNoCov">          0 :             std::to_string( getSize( )) + &quot; to &quot; + std::to_string( start ) +</span>
 <span class="lineNum">     107 </span><span class="lineNoCov">          0 :             &quot; + &quot; + std::to_string( newSize ));</span>
 <span class="lineNum">     108 </span>            : 
-<span class="lineNum">     109 </span><span class="lineCov">        278 :     _resize( start + newSize );</span>
-<span class="lineNum">     110 </span><span class="lineCov">        278 :     return _moveAllocation( index, copy, start, newSize );</span>
+<span class="lineNum">     109 </span><span class="lineCov">        292 :     _resize( start + newSize );</span>
+<span class="lineNum">     110 </span><span class="lineCov">        292 :     return _moveAllocation( index, copy, start, newSize );</span>
 <a name="111"><span class="lineNum">     111 </span>            : }</a>
 <span class="lineNum">     112 </span>            : 
 <span class="lineNum">     113 </span><span class="lineCov">         20 : void NonMovingBaseAllocator::compact( const float threshold )</span>
 <span class="lineNum">     114 </span>            : {
 <span class="lineNum">     115 </span><span class="lineCov">         20 :     uint64_t dynamicSize = 0;</span>
-<span class="lineNum">     116 </span><span class="lineCov">        164 :     for( size_t i = 0; i &lt; _numDynamic; ++i )</span>
-<span class="lineNum">     117 </span><span class="lineCov">        144 :         if( _getOffset( i ) &gt; 0 )</span>
-<span class="lineNum">     118 </span><span class="lineCov">        101 :             dynamicSize += _getSize( i );</span>
+<span class="lineNum">     116 </span><span class="lineCov">        170 :     for( size_t i = 0; i &lt; _numDynamic; ++i )</span>
+<span class="lineNum">     117 </span><span class="lineCov">        150 :         if( _getOffset( i ) &gt; 0 )</span>
+<span class="lineNum">     118 </span><span class="lineCov">        107 :             dynamicSize += _getSize( i );</span>
 <span class="lineNum">     119 </span>            : 
 <span class="lineNum">     120 </span><span class="lineCov">         20 :     const uint64_t minSize = _staticSize + dynamicSize;</span>
 <span class="lineNum">     121 </span><span class="lineCov">         20 :     if( float(getSize() - minSize) / float( minSize ) &lt; threshold )</span>
@@ -187,17 +187,17 @@
 <span class="lineNum">     125 </span>            :     //      two copies:
 <span class="lineNum">     126 </span><span class="lineCov">         16 :     std::unique_ptr&lt; uint8_t[] &gt; buffer( new uint8_t[ dynamicSize ]);</span>
 <span class="lineNum">     127 </span><span class="lineCov">          8 :     uint8_t* iter = buffer.get();</span>
-<span class="lineNum">     128 </span><span class="lineCov">         58 :     for( size_t i = 0; i &lt; _numDynamic; ++i )</span>
+<span class="lineNum">     128 </span><span class="lineCov">         60 :     for( size_t i = 0; i &lt; _numDynamic; ++i )</span>
 <span class="lineNum">     129 </span>            :     {
-<span class="lineNum">     130 </span><span class="lineCov">         50 :         uint64_t&amp; offset = _getOffset( i );</span>
-<span class="lineNum">     131 </span><span class="lineCov">         50 :         if( offset == 0 )</span>
+<span class="lineNum">     130 </span><span class="lineCov">         52 :         uint64_t&amp; offset = _getOffset( i );</span>
+<span class="lineNum">     131 </span><span class="lineCov">         52 :         if( offset == 0 )</span>
 <span class="lineNum">     132 </span><span class="lineCov">         22 :             continue;</span>
 <span class="lineNum">     133 </span>            : 
-<span class="lineNum">     134 </span><span class="lineCov">         28 :         const uint64_t size = _getSize( i );</span>
-<span class="lineNum">     135 </span><span class="lineCov">         28 :         const uint64_t newOffset = iter - buffer.get() + _staticSize;</span>
-<span class="lineNum">     136 </span><span class="lineCov">         28 :         ::memcpy( iter, getData() + offset, size );</span>
-<span class="lineNum">     137 </span><span class="lineCov">         28 :         iter += size;</span>
-<span class="lineNum">     138 </span><span class="lineCov">         28 :         offset = newOffset;</span>
+<span class="lineNum">     134 </span><span class="lineCov">         30 :         const uint64_t size = _getSize( i );</span>
+<span class="lineNum">     135 </span><span class="lineCov">         30 :         const uint64_t newOffset = iter - buffer.get() + _staticSize;</span>
+<span class="lineNum">     136 </span><span class="lineCov">         30 :         ::memcpy( iter, getData() + offset, size );</span>
+<span class="lineNum">     137 </span><span class="lineCov">         30 :         iter += size;</span>
+<span class="lineNum">     138 </span><span class="lineCov">         30 :         offset = newOffset;</span>
 <span class="lineNum">     139 </span>            :     }
 <span class="lineNum">     140 </span>            : 
 <span class="lineNum">     141 </span><span class="lineCov">          8 :     _resize( minSize );</span>

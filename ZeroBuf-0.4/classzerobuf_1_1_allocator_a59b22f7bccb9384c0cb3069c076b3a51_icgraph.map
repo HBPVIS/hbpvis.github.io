@@ -2,7 +2,7 @@
 <area shape="rect" id="node3" href="$classzerobuf_1_1_vector.html#ab38f84c7f23e4eb6e3f00a9e925f70cc" title="Empty the vector. " alt="" coords="219,176,389,205"/>
 <area shape="rect" id="node7" href="$classzerobuf_1_1_vector.html#a194d1c7324990991dc183ff83120b684" title="Remove unused memory from vector and all members. " alt="" coords="995,109,1192,139"/>
 <area shape="rect" id="node13" href="$classzerobuf_1_1_vector.html#a6f04f85b36243fcca988be5da6300e67" title="zerobuf::Vector::operator[]" alt="" coords="991,317,1196,347"/>
-<area shape="rect" id="node19" href="$classzerobuf_1_1_vector.html#a4fa39e5f86efd5cb3724f366d8ec7864" title="Update this vector from its JSON representation. " alt="" coords="469,5,672,35"/>
+<area shape="rect" id="node19" href="$classzerobuf_1_1_vector.html#a4fa39e5f86efd5cb3724f366d8ec7864" title="Update this vector of ZeroBufs from its JSON representation. " alt="" coords="469,5,672,35"/>
 <area shape="rect" id="node23" href="$classzerobuf_1_1_vector.html#ad80419326920b94b1845b9448e410f48" title="Insert a Zerobuf&#45;derived element at the end of the vector. " alt="" coords="201,369,407,399"/>
 <area shape="rect" id="node25" href="$classzerobuf_1_1_vector.html#a381bf0680d0eac1eb992a8b0af6c4251" title="zerobuf::Vector::toJSONBinary" alt="" coords="457,59,684,88"/>
 <area shape="rect" id="node5" href="$classzerobuf_1_1_vector.html#ae74a41e9bba6c3756e7f7047fe3d058a" title="zerobuf::Vector::size" alt="" coords="488,200,653,229"/>

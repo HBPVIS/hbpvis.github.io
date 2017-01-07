@@ -1,6 +1,6 @@
 <map id="zerobuf::Vector::compact" name="zerobuf::Vector::compact">
 <area shape="rect" id="node3" href="$classzerobuf_1_1_vector.html#a1b1c10b4e256f289f88e801741cf5355" title="zerobuf::Vector::data" alt="" coords="548,142,716,171"/>
-<area shape="rect" id="node5" href="$classzerobuf_1_1_vector.html#a4fa39e5f86efd5cb3724f366d8ec7864" title="Update this vector from its JSON representation. " alt="" coords="765,12,968,42"/>
+<area shape="rect" id="node5" href="$classzerobuf_1_1_vector.html#a4fa39e5f86efd5cb3724f366d8ec7864" title="Update this vector of ZeroBufs from its JSON representation. " alt="" coords="765,12,968,42"/>
 <area shape="rect" id="node7" href="$classzerobuf_1_1_allocator.html#a59b22f7bccb9384c0cb3069c076b3a51" title="Update allocation of the dynamic elem at index to have newSize bytes. " alt="" coords="1017,128,1161,174"/>
 <area shape="rect" id="node9" href="$classzerobuf_1_1_vector.html#ac323185159135eb262b576f139afa76f" title="Update this vector from its JSON, base64&#45;encoded representation. " alt="" coords="255,167,497,196"/>
 <area shape="rect" id="node11" href="$classzerobuf_1_1_vector.html#ae74a41e9bba6c3756e7f7047fe3d058a" title="zerobuf::Vector::size" alt="" coords="549,272,715,302"/>

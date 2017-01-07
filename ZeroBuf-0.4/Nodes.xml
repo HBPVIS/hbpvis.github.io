@@ -454,12 +454,17 @@
                <Node>
                 <Name>fromJSON</Name>
                 <Path>classzerobuf_1_1_vector.html</Path>
-                <Anchor>a57d8f5a62a2204bb955c0a5782b5129b</Anchor>
+                <Anchor>ad0a23f05d1bd02b40d54f6f44eb01f3c</Anchor>
                </Node>
                <Node>
                 <Name>fromJSON</Name>
                 <Path>classzerobuf_1_1_vector.html</Path>
-                <Anchor>a2ee04bb0fc6b00c6a0c7323f06b093ff</Anchor>
+                <Anchor>a1641c8ebee59b57af4d438b206101c97</Anchor>
+               </Node>
+               <Node>
+                <Name>fromJSON</Name>
+                <Path>classzerobuf_1_1_vector.html</Path>
+                <Anchor>a605931b54bcd9a149d6a85fbdb3b1d85</Anchor>
                </Node>
                <Node>
                 <Name>fromJSONBinary</Name>
@@ -529,7 +534,17 @@
                <Node>
                 <Name>toJSON</Name>
                 <Path>classzerobuf_1_1_vector.html</Path>
-                <Anchor>a782fba85e3dd082e4d0bfb4a3f3b6289</Anchor>
+                <Anchor>a909db7096696e4ef21d3aa4d06ee6e49</Anchor>
+               </Node>
+               <Node>
+                <Name>toJSON</Name>
+                <Path>classzerobuf_1_1_vector.html</Path>
+                <Anchor>a277e2f7aad8de8adc6feda2636cfec04</Anchor>
+               </Node>
+               <Node>
+                <Name>toJSON</Name>
+                <Path>classzerobuf_1_1_vector.html</Path>
+                <Anchor>afebbad4fed3aabffa5c328def0315d23</Anchor>
                </Node>
                <Node>
                 <Name>toJSONBinary</Name>

@@ -37,7 +37,7 @@
           </tr>
           <tr>
             <td class="headerItem">Date:</td>
-            <td class="headerValue">2016-12-06 01:08:59</td>
+            <td class="headerValue">2017-01-07 01:08:17</td>
             <td></td>
             <td class="headerItem">Functions:</td>
             <td class="headerCovTableEntry">19</td>
@@ -250,12 +250,12 @@
 <span class="lineNum">     188 </span><span class="lineCov">         12 :     _allocator.swap( allocator );</span>
 <a name="189"><span class="lineNum">     189 </span><span class="lineCov">         12 : }</span></a>
 <span class="lineNum">     190 </span>            : 
-<span class="lineNum">     191 </span><span class="lineCov">       1284 : Allocator&amp; Zerobuf::getAllocator()</span>
+<span class="lineNum">     191 </span><span class="lineCov">       1299 : Allocator&amp; Zerobuf::getAllocator()</span>
 <span class="lineNum">     192 </span>            : {
-<span class="lineNum">     193 </span><span class="lineCov">       1284 :     if( !_allocator )</span>
+<span class="lineNum">     193 </span><span class="lineCov">       1299 :     if( !_allocator )</span>
 <span class="lineNum">     194 </span><span class="lineNoCov">          0 :         throw std::runtime_error( &quot;Empty Zerobuf has no allocator&quot; );</span>
 <span class="lineNum">     195 </span>            : 
-<span class="lineNum">     196 </span><span class="lineCov">       1284 :     return *_allocator;</span>
+<span class="lineNum">     196 </span><span class="lineCov">       1299 :     return *_allocator;</span>
 <a name="197"><span class="lineNum">     197 </span>            : }</a>
 <span class="lineNum">     198 </span>            : 
 <span class="lineNum">     199 </span><span class="lineCov">       1068 : const Allocator&amp; Zerobuf::getAllocator() const</span>

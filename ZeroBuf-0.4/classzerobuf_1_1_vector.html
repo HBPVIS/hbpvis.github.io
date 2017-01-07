@@ -176,18 +176,32 @@ void&#160;</td><td class="memItemRight" valign="bottom"><b>reset</b> (<a class="
 <tr class="separator:a194d1c7324990991dc183ff83120b684"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a4fa39e5f86efd5cb3724f366d8ec7864"><td class="memTemplParams" colspan="2">template&lt;class Q  = T&gt; </td></tr>
 <tr class="memitem:a4fa39e5f86efd5cb3724f366d8ec7864"><td class="memTemplItemLeft" align="right" valign="top">void&#160;</td><td class="memTemplItemRight" valign="bottom"><a class="el" href="classzerobuf_1_1_vector.html#a4fa39e5f86efd5cb3724f366d8ec7864">fromJSON</a> (const Json::Value &amp;json, const typename std::enable_if&lt; std::is_base_of&lt; <a class="el" href="classzerobuf_1_1_zerobuf.html">Zerobuf</a>, Q &gt;::value, Q &gt;::type *=nullptr)</td></tr>
-<tr class="memdesc:a4fa39e5f86efd5cb3724f366d8ec7864"><td class="mdescLeft">&#160;</td><td class="mdescRight">Update this vector from its JSON representation.  <a href="#a4fa39e5f86efd5cb3724f366d8ec7864">More...</a><br /></td></tr>
+<tr class="memdesc:a4fa39e5f86efd5cb3724f366d8ec7864"><td class="mdescLeft">&#160;</td><td class="mdescRight">Update this vector of ZeroBufs from its JSON representation.  <a href="#a4fa39e5f86efd5cb3724f366d8ec7864">More...</a><br /></td></tr>
 <tr class="separator:a4fa39e5f86efd5cb3724f366d8ec7864"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a57d8f5a62a2204bb955c0a5782b5129b"><td class="memTemplParams" colspan="2">template&lt;class Q  = T&gt; </td></tr>
-<tr class="memitem:a57d8f5a62a2204bb955c0a5782b5129b"><td class="memTemplItemLeft" align="right" valign="top">void&#160;</td><td class="memTemplItemRight" valign="bottom"><a class="el" href="classzerobuf_1_1_vector.html#a57d8f5a62a2204bb955c0a5782b5129b">fromJSON</a> (const Json::Value &amp;json, const typename std::enable_if&lt; !std::is_base_of&lt; <a class="el" href="classzerobuf_1_1_zerobuf.html">Zerobuf</a>, Q &gt;::value, Q &gt;::type *=nullptr)</td></tr>
-<tr class="memdesc:a57d8f5a62a2204bb955c0a5782b5129b"><td class="mdescLeft">&#160;</td><td class="mdescRight">Update this vector from its JSON representation.  <a href="#a57d8f5a62a2204bb955c0a5782b5129b">More...</a><br /></td></tr>
-<tr class="separator:a57d8f5a62a2204bb955c0a5782b5129b"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:ad0a23f05d1bd02b40d54f6f44eb01f3c"><td class="memTemplParams" colspan="2">template&lt;class Q  = T&gt; </td></tr>
+<tr class="memitem:ad0a23f05d1bd02b40d54f6f44eb01f3c"><td class="memTemplItemLeft" align="right" valign="top">void&#160;</td><td class="memTemplItemRight" valign="bottom"><a class="el" href="classzerobuf_1_1_vector.html#ad0a23f05d1bd02b40d54f6f44eb01f3c">fromJSON</a> (const Json::Value &amp;json, const typename std::enable_if&lt; std::is_enum&lt; Q &gt;::value, Q &gt;::type *=nullptr)</td></tr>
+<tr class="memdesc:ad0a23f05d1bd02b40d54f6f44eb01f3c"><td class="mdescLeft">&#160;</td><td class="mdescRight">Update this vector of enums from its JSON representation.  <a href="#ad0a23f05d1bd02b40d54f6f44eb01f3c">More...</a><br /></td></tr>
+<tr class="separator:ad0a23f05d1bd02b40d54f6f44eb01f3c"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a1641c8ebee59b57af4d438b206101c97"><td class="memTemplParams" colspan="2">template&lt;class Q  = T&gt; </td></tr>
+<tr class="memitem:a1641c8ebee59b57af4d438b206101c97"><td class="memTemplItemLeft" align="right" valign="top">void&#160;</td><td class="memTemplItemRight" valign="bottom"><a class="el" href="classzerobuf_1_1_vector.html#a1641c8ebee59b57af4d438b206101c97">fromJSON</a> (const Json::Value &amp;json, const typename std::enable_if&lt; std::is_arithmetic&lt; Q &gt;::value, Q &gt;::type *=nullptr)</td></tr>
+<tr class="memdesc:a1641c8ebee59b57af4d438b206101c97"><td class="mdescLeft">&#160;</td><td class="mdescRight">Update this vector of arithmetics from its JSON representation.  <a href="#a1641c8ebee59b57af4d438b206101c97">More...</a><br /></td></tr>
+<tr class="separator:a1641c8ebee59b57af4d438b206101c97"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a605931b54bcd9a149d6a85fbdb3b1d85"><td class="memTemplParams" colspan="2">template&lt;class Q  = T&gt; </td></tr>
+<tr class="memitem:a605931b54bcd9a149d6a85fbdb3b1d85"><td class="memTemplItemLeft" align="right" valign="top">void&#160;</td><td class="memTemplItemRight" valign="bottom"><a class="el" href="classzerobuf_1_1_vector.html#a605931b54bcd9a149d6a85fbdb3b1d85">fromJSON</a> (const Json::Value &amp;json, const typename std::enable_if&lt; std::is_same&lt; Q, servus::uint128_t &gt;::value, Q &gt;::type *=nullptr)</td></tr>
+<tr class="memdesc:a605931b54bcd9a149d6a85fbdb3b1d85"><td class="mdescLeft">&#160;</td><td class="mdescRight">Update this vector of uint128_t from its JSON representation.  <a href="#a605931b54bcd9a149d6a85fbdb3b1d85">More...</a><br /></td></tr>
+<tr class="separator:a605931b54bcd9a149d6a85fbdb3b1d85"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a53a2ea111103312aaa2c0605162d2325"><td class="memTemplParams" colspan="2">template&lt;class Q  = T&gt; </td></tr>
 <tr class="memitem:a53a2ea111103312aaa2c0605162d2325"><td class="memTemplItemLeft" align="right" valign="top">void&#160;</td><td class="memTemplItemRight" valign="bottom"><a class="el" href="classzerobuf_1_1_vector.html#a53a2ea111103312aaa2c0605162d2325">toJSON</a> (Json::Value &amp;json, const typename std::enable_if&lt; std::is_base_of&lt; <a class="el" href="classzerobuf_1_1_zerobuf.html">Zerobuf</a>, Q &gt;::value, Q &gt;::type *=nullptr) const </td></tr>
 <tr class="separator:a53a2ea111103312aaa2c0605162d2325"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a782fba85e3dd082e4d0bfb4a3f3b6289"><td class="memTemplParams" colspan="2">template&lt;class Q  = T&gt; </td></tr>
-<tr class="memitem:a782fba85e3dd082e4d0bfb4a3f3b6289"><td class="memTemplItemLeft" align="right" valign="top">void&#160;</td><td class="memTemplItemRight" valign="bottom"><a class="el" href="classzerobuf_1_1_vector.html#a782fba85e3dd082e4d0bfb4a3f3b6289">toJSON</a> (Json::Value &amp;json, const typename std::enable_if&lt; !std::is_base_of&lt; <a class="el" href="classzerobuf_1_1_zerobuf.html">Zerobuf</a>, Q &gt;::value, Q &gt;::type *=nullptr) const </td></tr>
-<tr class="separator:a782fba85e3dd082e4d0bfb4a3f3b6289"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a909db7096696e4ef21d3aa4d06ee6e49"><td class="memTemplParams" colspan="2">template&lt;class Q  = T&gt; </td></tr>
+<tr class="memitem:a909db7096696e4ef21d3aa4d06ee6e49"><td class="memTemplItemLeft" align="right" valign="top">void&#160;</td><td class="memTemplItemRight" valign="bottom"><a class="el" href="classzerobuf_1_1_vector.html#a909db7096696e4ef21d3aa4d06ee6e49">toJSON</a> (Json::Value &amp;json, const typename std::enable_if&lt; std::is_enum&lt; Q &gt;::value, Q &gt;::type *=nullptr) const </td></tr>
+<tr class="separator:a909db7096696e4ef21d3aa4d06ee6e49"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a277e2f7aad8de8adc6feda2636cfec04"><td class="memTemplParams" colspan="2">template&lt;class Q  = T&gt; </td></tr>
+<tr class="memitem:a277e2f7aad8de8adc6feda2636cfec04"><td class="memTemplItemLeft" align="right" valign="top">void&#160;</td><td class="memTemplItemRight" valign="bottom"><a class="el" href="classzerobuf_1_1_vector.html#a277e2f7aad8de8adc6feda2636cfec04">toJSON</a> (Json::Value &amp;json, const typename std::enable_if&lt; std::is_arithmetic&lt; Q &gt;::value, Q &gt;::type *=nullptr) const </td></tr>
+<tr class="separator:a277e2f7aad8de8adc6feda2636cfec04"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:afebbad4fed3aabffa5c328def0315d23"><td class="memTemplParams" colspan="2">template&lt;class Q  = T&gt; </td></tr>
+<tr class="memitem:afebbad4fed3aabffa5c328def0315d23"><td class="memTemplItemLeft" align="right" valign="top">void&#160;</td><td class="memTemplItemRight" valign="bottom"><a class="el" href="classzerobuf_1_1_vector.html#afebbad4fed3aabffa5c328def0315d23">toJSON</a> (Json::Value &amp;json, const typename std::enable_if&lt; std::is_same&lt; Q, servus::uint128_t &gt;::value, Q &gt;::type *=nullptr) const </td></tr>
+<tr class="separator:afebbad4fed3aabffa5c328def0315d23"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:ac323185159135eb262b576f139afa76f"><td class="memTemplParams" colspan="2">template&lt;class Q  = T&gt; </td></tr>
 <tr class="memitem:ac323185159135eb262b576f139afa76f"><td class="memTemplItemLeft" align="right" valign="top">void&#160;</td><td class="memTemplItemRight" valign="bottom"><a class="el" href="classzerobuf_1_1_vector.html#ac323185159135eb262b576f139afa76f">fromJSONBinary</a> (const Json::Value &amp;json, const typename std::enable_if&lt; std::is_pod&lt; Q &gt;::value, Q &gt;::type *=nullptr)</td></tr>
 <tr class="memdesc:ac323185159135eb262b576f139afa76f"><td class="mdescLeft">&#160;</td><td class="mdescRight">Update this vector from its JSON, base64-encoded representation.  <a href="#ac323185159135eb262b576f139afa76f">More...</a><br /></td></tr>
@@ -199,10 +213,6 @@ void&#160;</td><td class="memItemRight" valign="bottom"><b>reset</b> (<a class="
 template&lt;class Q &gt; </td></tr>
 <tr class="memitem:a54402c2ccc7b6b90fabcf2b6813fe3fa"><td class="memTemplItemLeft" align="right" valign="top">void&#160;</td><td class="memTemplItemRight" valign="bottom"><b>push_back</b> (const typename std::enable_if&lt;!std::is_base_of&lt; <a class="el" href="classzerobuf_1_1_zerobuf.html">Zerobuf</a>, Q &gt;::value, Q &gt;::type &amp;value)</td></tr>
 <tr class="separator:a54402c2ccc7b6b90fabcf2b6813fe3fa"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a2ee04bb0fc6b00c6a0c7323f06b093ff"><td class="memTemplParams" colspan="2"><a class="anchor" id="a2ee04bb0fc6b00c6a0c7323f06b093ff"></a>
-template&lt;class Q &gt; </td></tr>
-<tr class="memitem:a2ee04bb0fc6b00c6a0c7323f06b093ff"><td class="memTemplItemLeft" align="right" valign="top">void&#160;</td><td class="memTemplItemRight" valign="bottom"><b>fromJSON</b> (const Json::Value &amp;json, const typename std::enable_if&lt;!std::is_base_of&lt; <a class="el" href="classzerobuf_1_1_zerobuf.html">Zerobuf</a>, Q &gt;::value, Q &gt;::type *)</td></tr>
-<tr class="separator:a2ee04bb0fc6b00c6a0c7323f06b093ff"><td class="memSeparator" colspan="2">&#160;</td></tr>
 </table>
 <a name="details" id="details"></a><h2 class="groupheader">Detailed Description</h2>
 <div class="textblock"><h3>template&lt;class T&gt;<br />
@@ -243,7 +253,7 @@ template&lt;class T &gt; </div>
 
 <p>Empty the vector. </p>
 
-<p>Definition at line <a class="el" href="_vector_8h_source.html#l00158">158</a> of file <a class="el" href="_vector_8h_source.html">Vector.h</a>.</p>
+<p>Definition at line <a class="el" href="_vector_8h_source.html#l00179">179</a> of file <a class="el" href="_vector_8h_source.html">Vector.h</a>.</p>
 
 <p>References <a class="el" href="classzerobuf_1_1_allocator.html#a59b22f7bccb9384c0cb3069c076b3a51">zerobuf::Allocator::updateAllocation()</a>.</p>
 
@@ -306,7 +316,7 @@ template&lt;class T &gt; </div>
 
 <p>Remove unused memory from vector and all members. </p>
 
-<p>Definition at line <a class="el" href="_vector_8h_source.html#l00090">90</a> of file <a class="el" href="_vector_8h_source.html">Vector.h</a>.</p>
+<p>Definition at line <a class="el" href="_vector_8h_source.html#l00091">91</a> of file <a class="el" href="_vector_8h_source.html">Vector.h</a>.</p>
 
 <p>References <a class="el" href="classzerobuf_1_1_vector.html#a1b1c10b4e256f289f88e801741cf5355">zerobuf::Vector&lt; T &gt;::data()</a>, <a class="el" href="classzerobuf_1_1_vector.html#a4fa39e5f86efd5cb3724f366d8ec7864">zerobuf::Vector&lt; T &gt;::fromJSON()</a>, <a class="el" href="classzerobuf_1_1_vector.html#ac323185159135eb262b576f139afa76f">zerobuf::Vector&lt; T &gt;::fromJSONBinary()</a>, <a class="el" href="classzerobuf_1_1_vector.html#ae74a41e9bba6c3756e7f7047fe3d058a">zerobuf::Vector&lt; T &gt;::size()</a>, <a class="el" href="classzerobuf_1_1_vector.html#a53a2ea111103312aaa2c0605162d2325">zerobuf::Vector&lt; T &gt;::toJSON()</a>, <a class="el" href="classzerobuf_1_1_vector.html#a381bf0680d0eac1eb992a8b0af6c4251">zerobuf::Vector&lt; T &gt;::toJSONBinary()</a>, and <a class="el" href="classzerobuf_1_1_allocator.html#a59b22f7bccb9384c0cb3069c076b3a51">zerobuf::Allocator::updateAllocation()</a>.</p>
 
@@ -318,7 +328,7 @@ template&lt;class T &gt; </div>
 <div class="center"><img src="classzerobuf_1_1_vector_a194d1c7324990991dc183ff83120b684_cgraph.png" border="0" usemap="#classzerobuf_1_1_vector_a194d1c7324990991dc183ff83120b684_cgraph" alt=""/></div>
 <map name="classzerobuf_1_1_vector_a194d1c7324990991dc183ff83120b684_cgraph" id="classzerobuf_1_1_vector_a194d1c7324990991dc183ff83120b684_cgraph">
 <area shape="rect" id="node3" href="classzerobuf_1_1_vector.html#a1b1c10b4e256f289f88e801741cf5355" title="zerobuf::Vector::data" alt="" coords="548,142,716,171"/>
-<area shape="rect" id="node5" href="classzerobuf_1_1_vector.html#a4fa39e5f86efd5cb3724f366d8ec7864" title="Update this vector from its JSON representation. " alt="" coords="765,12,968,42"/>
+<area shape="rect" id="node5" href="classzerobuf_1_1_vector.html#a4fa39e5f86efd5cb3724f366d8ec7864" title="Update this vector of ZeroBufs from its JSON representation. " alt="" coords="765,12,968,42"/>
 <area shape="rect" id="node7" href="classzerobuf_1_1_allocator.html#a59b22f7bccb9384c0cb3069c076b3a51" title="Update allocation of the dynamic elem at index to have newSize bytes. " alt="" coords="1017,128,1161,174"/>
 <area shape="rect" id="node9" href="classzerobuf_1_1_vector.html#ac323185159135eb262b576f139afa76f" title="Update this vector from its JSON, base64&#45;encoded representation. " alt="" coords="255,167,497,196"/>
 <area shape="rect" id="node11" href="classzerobuf_1_1_vector.html#ae74a41e9bba6c3756e7f7047fe3d058a" title="zerobuf::Vector::size" alt="" coords="549,272,715,302"/>
@@ -492,9 +502,9 @@ template&lt;class Q &gt; </div>
 </table>
 </div><div class="memdoc">
 
-<p>Update this vector from its JSON representation. </p>
+<p>Update this vector of ZeroBufs from its JSON representation. </p>
 
-<p>Definition at line <a class="el" href="_vector_8h_source.html#l00259">259</a> of file <a class="el" href="_vector_8h_source.html">Vector.h</a>.</p>
+<p>Definition at line <a class="el" href="_vector_8h_source.html#l00280">280</a> of file <a class="el" href="_vector_8h_source.html">Vector.h</a>.</p>
 
 <p>References <a class="el" href="classzerobuf_1_1_allocator.html#a59b22f7bccb9384c0cb3069c076b3a51">zerobuf::Allocator::updateAllocation()</a>.</p>
 
@@ -526,13 +536,16 @@ template&lt;class Q &gt; </div>
 
 </div>
 </div>
-<a class="anchor" id="a57d8f5a62a2204bb955c0a5782b5129b"></a>
+<a class="anchor" id="ad0a23f05d1bd02b40d54f6f44eb01f3c"></a>
 <div class="memitem">
 <div class="memproto">
 <div class="memtemplate">
 template&lt;class T &gt; </div>
 <div class="memtemplate">
-template&lt;class Q  = T&gt; </div>
+template&lt;class Q &gt; </div>
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
       <table class="memname">
         <tr>
           <td class="memname">void <a class="el" href="classzerobuf_1_1_vector.html">zerobuf::Vector</a>&lt; T &gt;::fromJSON </td>
@@ -543,7 +556,7 @@ template&lt;class Q  = T&gt; </div>
         <tr>
           <td class="paramkey"></td>
           <td></td>
-          <td class="paramtype">const typename std::enable_if&lt; !std::is_base_of&lt; <a class="el" href="classzerobuf_1_1_zerobuf.html">Zerobuf</a>, Q &gt;::value, Q &gt;::type *&#160;</td>
+          <td class="paramtype">const typename std::enable_if&lt; std::is_enum&lt; Q &gt;::value, Q &gt;::type *&#160;</td>
           <td class="paramname"> = <code>nullptr</code>&#160;</td>
         </tr>
         <tr>
@@ -552,9 +565,142 @@ template&lt;class Q  = T&gt; </div>
           <td></td><td></td>
         </tr>
       </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">inline</span></span>  </td>
+  </tr>
+</table>
 </div><div class="memdoc">
 
-<p>Update this vector from its JSON representation. </p>
+<p>Update this vector of enums from its JSON representation. </p>
+
+<p>Definition at line <a class="el" href="_vector_8h_source.html#l00290">290</a> of file <a class="el" href="_vector_8h_source.html">Vector.h</a>.</p>
+
+<p>References <a class="el" href="classzerobuf_1_1_allocator.html#a59b22f7bccb9384c0cb3069c076b3a51">zerobuf::Allocator::updateAllocation()</a>.</p>
+
+<p><div id="dynsection-8" onclick="return toggleVisibility(this)" class="dynheader closed" style="cursor:pointer;">
+  <img id="dynsection-8-trigger" src="closed.png" alt="+"/> Here is the call graph for this function:</div>
+<div id="dynsection-8-summary" class="dynsummary" style="display:block;">
+</div>
+<div id="dynsection-8-content" class="dyncontent" style="display:none;">
+<div class="center"><img src="classzerobuf_1_1_vector_ad0a23f05d1bd02b40d54f6f44eb01f3c_cgraph.png" border="0" usemap="#classzerobuf_1_1_vector_ad0a23f05d1bd02b40d54f6f44eb01f3c_cgraph" alt=""/></div>
+<map name="classzerobuf_1_1_vector_ad0a23f05d1bd02b40d54f6f44eb01f3c_cgraph" id="classzerobuf_1_1_vector_ad0a23f05d1bd02b40d54f6f44eb01f3c_cgraph">
+<area shape="rect" id="node3" href="classzerobuf_1_1_allocator.html#a59b22f7bccb9384c0cb3069c076b3a51" title="Update allocation of the dynamic elem at index to have newSize bytes. " alt="" coords="257,5,401,51"/>
+</map>
+</div>
+</p>
+
+</div>
+</div>
+<a class="anchor" id="a1641c8ebee59b57af4d438b206101c97"></a>
+<div class="memitem">
+<div class="memproto">
+<div class="memtemplate">
+template&lt;class T &gt; </div>
+<div class="memtemplate">
+template&lt;class Q &gt; </div>
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">void <a class="el" href="classzerobuf_1_1_vector.html">zerobuf::Vector</a>&lt; T &gt;::fromJSON </td>
+          <td>(</td>
+          <td class="paramtype">const Json::Value &amp;&#160;</td>
+          <td class="paramname"><em>json</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">const typename std::enable_if&lt; std::is_arithmetic&lt; Q &gt;::value, Q &gt;::type *&#160;</td>
+          <td class="paramname"> = <code>nullptr</code>&#160;</td>
+        </tr>
+        <tr>
+          <td></td>
+          <td>)</td>
+          <td></td><td></td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">inline</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+<p>Update this vector of arithmetics from its JSON representation. </p>
+
+<p>Definition at line <a class="el" href="_vector_8h_source.html#l00303">303</a> of file <a class="el" href="_vector_8h_source.html">Vector.h</a>.</p>
+
+<p>References <a class="el" href="classzerobuf_1_1_allocator.html#a59b22f7bccb9384c0cb3069c076b3a51">zerobuf::Allocator::updateAllocation()</a>.</p>
+
+<p><div id="dynsection-9" onclick="return toggleVisibility(this)" class="dynheader closed" style="cursor:pointer;">
+  <img id="dynsection-9-trigger" src="closed.png" alt="+"/> Here is the call graph for this function:</div>
+<div id="dynsection-9-summary" class="dynsummary" style="display:block;">
+</div>
+<div id="dynsection-9-content" class="dyncontent" style="display:none;">
+<div class="center"><img src="classzerobuf_1_1_vector_a1641c8ebee59b57af4d438b206101c97_cgraph.png" border="0" usemap="#classzerobuf_1_1_vector_a1641c8ebee59b57af4d438b206101c97_cgraph" alt=""/></div>
+<map name="classzerobuf_1_1_vector_a1641c8ebee59b57af4d438b206101c97_cgraph" id="classzerobuf_1_1_vector_a1641c8ebee59b57af4d438b206101c97_cgraph">
+<area shape="rect" id="node3" href="classzerobuf_1_1_allocator.html#a59b22f7bccb9384c0cb3069c076b3a51" title="Update allocation of the dynamic elem at index to have newSize bytes. " alt="" coords="257,5,401,51"/>
+</map>
+</div>
+</p>
+
+</div>
+</div>
+<a class="anchor" id="a605931b54bcd9a149d6a85fbdb3b1d85"></a>
+<div class="memitem">
+<div class="memproto">
+<div class="memtemplate">
+template&lt;class T &gt; </div>
+<div class="memtemplate">
+template&lt;class Q &gt; </div>
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">void <a class="el" href="classzerobuf_1_1_vector.html">zerobuf::Vector</a>&lt; T &gt;::fromJSON </td>
+          <td>(</td>
+          <td class="paramtype">const Json::Value &amp;&#160;</td>
+          <td class="paramname"><em>json</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">const typename std::enable_if&lt; std::is_same&lt; Q, servus::uint128_t &gt;::value, Q &gt;::type *&#160;</td>
+          <td class="paramname"> = <code>nullptr</code>&#160;</td>
+        </tr>
+        <tr>
+          <td></td>
+          <td>)</td>
+          <td></td><td></td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">inline</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+<p>Update this vector of uint128_t from its JSON representation. </p>
+
+<p>Definition at line <a class="el" href="_vector_8h_source.html#l00315">315</a> of file <a class="el" href="_vector_8h_source.html">Vector.h</a>.</p>
+
+<p>References <a class="el" href="classzerobuf_1_1_allocator.html#a59b22f7bccb9384c0cb3069c076b3a51">zerobuf::Allocator::updateAllocation()</a>.</p>
+
+<p><div id="dynsection-10" onclick="return toggleVisibility(this)" class="dynheader closed" style="cursor:pointer;">
+  <img id="dynsection-10-trigger" src="closed.png" alt="+"/> Here is the call graph for this function:</div>
+<div id="dynsection-10-summary" class="dynsummary" style="display:block;">
+</div>
+<div id="dynsection-10-content" class="dyncontent" style="display:none;">
+<div class="center"><img src="classzerobuf_1_1_vector_a605931b54bcd9a149d6a85fbdb3b1d85_cgraph.png" border="0" usemap="#classzerobuf_1_1_vector_a605931b54bcd9a149d6a85fbdb3b1d85_cgraph" alt=""/></div>
+<map name="classzerobuf_1_1_vector_a605931b54bcd9a149d6a85fbdb3b1d85_cgraph" id="classzerobuf_1_1_vector_a605931b54bcd9a149d6a85fbdb3b1d85_cgraph">
+<area shape="rect" id="node3" href="classzerobuf_1_1_allocator.html#a59b22f7bccb9384c0cb3069c076b3a51" title="Update allocation of the dynamic elem at index to have newSize bytes. " alt="" coords="257,5,401,51"/>
+</map>
+</div>
+</p>
 
 </div>
 </div>
@@ -596,15 +742,15 @@ template&lt;class Q &gt; </div>
 
 <p>Update this vector from its JSON, base64-encoded representation. </p>
 
-<p>Definition at line <a class="el" href="_vector_8h_source.html#l00302">302</a> of file <a class="el" href="_vector_8h_source.html">Vector.h</a>.</p>
+<p>Definition at line <a class="el" href="_vector_8h_source.html#l00370">370</a> of file <a class="el" href="_vector_8h_source.html">Vector.h</a>.</p>
 
 <p>Referenced by <a class="el" href="classzerobuf_1_1_vector.html#a194d1c7324990991dc183ff83120b684">zerobuf::Vector&lt; T &gt;::compact()</a>.</p>
 
-<p><div id="dynsection-8" onclick="return toggleVisibility(this)" class="dynheader closed" style="cursor:pointer;">
-  <img id="dynsection-8-trigger" src="closed.png" alt="+"/> Here is the caller graph for this function:</div>
-<div id="dynsection-8-summary" class="dynsummary" style="display:block;">
+<p><div id="dynsection-11" onclick="return toggleVisibility(this)" class="dynheader closed" style="cursor:pointer;">
+  <img id="dynsection-11-trigger" src="closed.png" alt="+"/> Here is the caller graph for this function:</div>
+<div id="dynsection-11-summary" class="dynsummary" style="display:block;">
 </div>
-<div id="dynsection-8-content" class="dyncontent" style="display:none;">
+<div id="dynsection-11-content" class="dyncontent" style="display:none;">
 <div class="center"><img src="classzerobuf_1_1_vector_ac323185159135eb262b576f139afa76f_icgraph.png" border="0" usemap="#classzerobuf_1_1_vector_ac323185159135eb262b576f139afa76f_icgraph" alt=""/></div>
 <map name="classzerobuf_1_1_vector_ac323185159135eb262b576f139afa76f_icgraph" id="classzerobuf_1_1_vector_ac323185159135eb262b576f139afa76f_icgraph">
 <area shape="rect" id="node3" href="classzerobuf_1_1_vector.html#a194d1c7324990991dc183ff83120b684" title="Remove unused memory from vector and all members. " alt="" coords="300,5,497,35"/>
@@ -639,17 +785,17 @@ template&lt;class T &gt; </div>
 </div><div class="memdoc">
 <dl class="section return"><dt>Returns</dt><dd>false if the two vectors are identical. </dd></dl>
 
-<p>Definition at line <a class="el" href="_vector_8h_source.html#l00182">182</a> of file <a class="el" href="_vector_8h_source.html">Vector.h</a>.</p>
+<p>Definition at line <a class="el" href="_vector_8h_source.html#l00203">203</a> of file <a class="el" href="_vector_8h_source.html">Vector.h</a>.</p>
 
 <p>References <a class="el" href="classzerobuf_1_1_vector.html#a7da69e756bf564112ea525a548e84edf">zerobuf::Vector&lt; T &gt;::operator==()</a>.</p>
 
 <p>Referenced by <a class="el" href="classzerobuf_1_1_vector.html#a65879bdf813915615e08d3344882cf8c">zerobuf::Vector&lt; T &gt;::data()</a>.</p>
 
-<p><div id="dynsection-9" onclick="return toggleVisibility(this)" class="dynheader closed" style="cursor:pointer;">
-  <img id="dynsection-9-trigger" src="closed.png" alt="+"/> Here is the call graph for this function:</div>
-<div id="dynsection-9-summary" class="dynsummary" style="display:block;">
+<p><div id="dynsection-12" onclick="return toggleVisibility(this)" class="dynheader closed" style="cursor:pointer;">
+  <img id="dynsection-12-trigger" src="closed.png" alt="+"/> Here is the call graph for this function:</div>
+<div id="dynsection-12-summary" class="dynsummary" style="display:block;">
 </div>
-<div id="dynsection-9-content" class="dyncontent" style="display:none;">
+<div id="dynsection-12-content" class="dyncontent" style="display:none;">
 <div class="center"><img src="classzerobuf_1_1_vector_a2a2458e25d3ef96e824337a9372ba6fd_cgraph.png" border="0" usemap="#classzerobuf_1_1_vector_a2a2458e25d3ef96e824337a9372ba6fd_cgraph" alt=""/></div>
 <map name="classzerobuf_1_1_vector_a2a2458e25d3ef96e824337a9372ba6fd_cgraph" id="classzerobuf_1_1_vector_a2a2458e25d3ef96e824337a9372ba6fd_cgraph">
 <area shape="rect" id="node3" href="classzerobuf_1_1_vector.html#a7da69e756bf564112ea525a548e84edf" title="zerobuf::Vector::operator==" alt="" coords="264,5,480,35"/>
@@ -658,11 +804,11 @@ template&lt;class T &gt; </div>
 </div>
 </p>
 
-<p><div id="dynsection-10" onclick="return toggleVisibility(this)" class="dynheader closed" style="cursor:pointer;">
-  <img id="dynsection-10-trigger" src="closed.png" alt="+"/> Here is the caller graph for this function:</div>
-<div id="dynsection-10-summary" class="dynsummary" style="display:block;">
+<p><div id="dynsection-13" onclick="return toggleVisibility(this)" class="dynheader closed" style="cursor:pointer;">
+  <img id="dynsection-13-trigger" src="closed.png" alt="+"/> Here is the caller graph for this function:</div>
+<div id="dynsection-13-summary" class="dynsummary" style="display:block;">
 </div>
-<div id="dynsection-10-content" class="dyncontent" style="display:none;">
+<div id="dynsection-13-content" class="dyncontent" style="display:none;">
 <div class="center"><img src="classzerobuf_1_1_vector_a2a2458e25d3ef96e824337a9372ba6fd_icgraph.png" border="0" usemap="#classzerobuf_1_1_vector_a2a2458e25d3ef96e824337a9372ba6fd_icgraph" alt=""/></div>
 <map name="classzerobuf_1_1_vector_a2a2458e25d3ef96e824337a9372ba6fd_icgraph" id="classzerobuf_1_1_vector_a2a2458e25d3ef96e824337a9372ba6fd_icgraph">
 <area shape="rect" id="node3" href="classzerobuf_1_1_vector.html#a65879bdf813915615e08d3344882cf8c" title="zerobuf::Vector::data" alt="" coords="265,5,433,35"/>
@@ -697,17 +843,17 @@ template&lt;class T &gt; </div>
 </div><div class="memdoc">
 <dl class="section return"><dt>Returns</dt><dd>true if the two vectors of builtins are identical. </dd></dl>
 
-<p>Definition at line <a class="el" href="_vector_8h_source.html#l00165">165</a> of file <a class="el" href="_vector_8h_source.html">Vector.h</a>.</p>
+<p>Definition at line <a class="el" href="_vector_8h_source.html#l00186">186</a> of file <a class="el" href="_vector_8h_source.html">Vector.h</a>.</p>
 
 <p>References <a class="el" href="classzerobuf_1_1_vector.html#a1b1c10b4e256f289f88e801741cf5355">zerobuf::Vector&lt; T &gt;::data()</a>.</p>
 
 <p>Referenced by <a class="el" href="classzerobuf_1_1_vector.html#a65879bdf813915615e08d3344882cf8c">zerobuf::Vector&lt; T &gt;::data()</a>, and <a class="el" href="classzerobuf_1_1_vector.html#a2a2458e25d3ef96e824337a9372ba6fd">zerobuf::Vector&lt; T &gt;::operator!=()</a>.</p>
 
-<p><div id="dynsection-11" onclick="return toggleVisibility(this)" class="dynheader closed" style="cursor:pointer;">
-  <img id="dynsection-11-trigger" src="closed.png" alt="+"/> Here is the call graph for this function:</div>
-<div id="dynsection-11-summary" class="dynsummary" style="display:block;">
+<p><div id="dynsection-14" onclick="return toggleVisibility(this)" class="dynheader closed" style="cursor:pointer;">
+  <img id="dynsection-14-trigger" src="closed.png" alt="+"/> Here is the call graph for this function:</div>
+<div id="dynsection-14-summary" class="dynsummary" style="display:block;">
 </div>
-<div id="dynsection-11-content" class="dyncontent" style="display:none;">
+<div id="dynsection-14-content" class="dyncontent" style="display:none;">
 <div class="center"><img src="classzerobuf_1_1_vector_a7da69e756bf564112ea525a548e84edf_cgraph.png" border="0" usemap="#classzerobuf_1_1_vector_a7da69e756bf564112ea525a548e84edf_cgraph" alt=""/></div>
 <map name="classzerobuf_1_1_vector_a7da69e756bf564112ea525a548e84edf_cgraph" id="classzerobuf_1_1_vector_a7da69e756bf564112ea525a548e84edf_cgraph">
 <area shape="rect" id="node3" href="classzerobuf_1_1_vector.html#a1b1c10b4e256f289f88e801741cf5355" title="zerobuf::Vector::data" alt="" coords="271,5,439,35"/>
@@ -715,11 +861,11 @@ template&lt;class T &gt; </div>
 </div>
 </p>
 
-<p><div id="dynsection-12" onclick="return toggleVisibility(this)" class="dynheader closed" style="cursor:pointer;">
-  <img id="dynsection-12-trigger" src="closed.png" alt="+"/> Here is the caller graph for this function:</div>
-<div id="dynsection-12-summary" class="dynsummary" style="display:block;">
+<p><div id="dynsection-15" onclick="return toggleVisibility(this)" class="dynheader closed" style="cursor:pointer;">
+  <img id="dynsection-15-trigger" src="closed.png" alt="+"/> Here is the caller graph for this function:</div>
+<div id="dynsection-15-summary" class="dynsummary" style="display:block;">
 </div>
-<div id="dynsection-12-content" class="dyncontent" style="display:none;">
+<div id="dynsection-15-content" class="dyncontent" style="display:none;">
 <div class="center"><img src="classzerobuf_1_1_vector_a7da69e756bf564112ea525a548e84edf_icgraph.png" border="0" usemap="#classzerobuf_1_1_vector_a7da69e756bf564112ea525a548e84edf_icgraph" alt=""/></div>
 <map name="classzerobuf_1_1_vector_a7da69e756bf564112ea525a548e84edf_icgraph" id="classzerobuf_1_1_vector_a7da69e756bf564112ea525a548e84edf_icgraph">
 <area shape="rect" id="node3" href="classzerobuf_1_1_vector.html#a65879bdf813915615e08d3344882cf8c" title="zerobuf::Vector::data" alt="" coords="529,5,697,35"/>
@@ -757,17 +903,17 @@ template&lt;class Q &gt; </div>
 </div><div class="memdoc">
 <dl class="section return"><dt>Returns</dt><dd>a builtin const element </dd></dl>
 
-<p>Definition at line <a class="el" href="_vector_8h_source.html#l00189">189</a> of file <a class="el" href="_vector_8h_source.html">Vector.h</a>.</p>
+<p>Definition at line <a class="el" href="_vector_8h_source.html#l00210">210</a> of file <a class="el" href="_vector_8h_source.html">Vector.h</a>.</p>
 
 <p>References <a class="el" href="classzerobuf_1_1_vector.html#a1b1c10b4e256f289f88e801741cf5355">zerobuf::Vector&lt; T &gt;::data()</a>, and <a class="el" href="classzerobuf_1_1_vector.html#ae74a41e9bba6c3756e7f7047fe3d058a">zerobuf::Vector&lt; T &gt;::size()</a>.</p>
 
 <p>Referenced by <a class="el" href="classzerobuf_1_1_vector.html#a65879bdf813915615e08d3344882cf8c">zerobuf::Vector&lt; T &gt;::data()</a>, and <a class="el" href="classzerobuf_1_1_vector.html#a6f04f85b36243fcca988be5da6300e67">zerobuf::Vector&lt; T &gt;::operator[]()</a>.</p>
 
-<p><div id="dynsection-13" onclick="return toggleVisibility(this)" class="dynheader closed" style="cursor:pointer;">
-  <img id="dynsection-13-trigger" src="closed.png" alt="+"/> Here is the call graph for this function:</div>
-<div id="dynsection-13-summary" class="dynsummary" style="display:block;">
+<p><div id="dynsection-16" onclick="return toggleVisibility(this)" class="dynheader closed" style="cursor:pointer;">
+  <img id="dynsection-16-trigger" src="closed.png" alt="+"/> Here is the call graph for this function:</div>
+<div id="dynsection-16-summary" class="dynsummary" style="display:block;">
 </div>
-<div id="dynsection-13-content" class="dyncontent" style="display:none;">
+<div id="dynsection-16-content" class="dyncontent" style="display:none;">
 <div class="center"><img src="classzerobuf_1_1_vector_a37f78dd14a1e4124214f0c18e4cb6043_cgraph.png" border="0" usemap="#classzerobuf_1_1_vector_a37f78dd14a1e4124214f0c18e4cb6043_cgraph" alt=""/></div>
 <map name="classzerobuf_1_1_vector_a37f78dd14a1e4124214f0c18e4cb6043_cgraph" id="classzerobuf_1_1_vector_a37f78dd14a1e4124214f0c18e4cb6043_cgraph">
 <area shape="rect" id="node3" href="classzerobuf_1_1_vector.html#a1b1c10b4e256f289f88e801741cf5355" title="zerobuf::Vector::data" alt="" coords="263,5,431,35"/>
@@ -778,11 +924,11 @@ template&lt;class Q &gt; </div>
 </div>
 </p>
 
-<p><div id="dynsection-14" onclick="return toggleVisibility(this)" class="dynheader closed" style="cursor:pointer;">
-  <img id="dynsection-14-trigger" src="closed.png" alt="+"/> Here is the caller graph for this function:</div>
-<div id="dynsection-14-summary" class="dynsummary" style="display:block;">
+<p><div id="dynsection-17" onclick="return toggleVisibility(this)" class="dynheader closed" style="cursor:pointer;">
+  <img id="dynsection-17-trigger" src="closed.png" alt="+"/> Here is the caller graph for this function:</div>
+<div id="dynsection-17-summary" class="dynsummary" style="display:block;">
 </div>
-<div id="dynsection-14-content" class="dyncontent" style="display:none;">
+<div id="dynsection-17-content" class="dyncontent" style="display:none;">
 <div class="center"><img src="classzerobuf_1_1_vector_a37f78dd14a1e4124214f0c18e4cb6043_icgraph.png" border="0" usemap="#classzerobuf_1_1_vector_a37f78dd14a1e4124214f0c18e4cb6043_icgraph" alt=""/></div>
 <map name="classzerobuf_1_1_vector_a37f78dd14a1e4124214f0c18e4cb6043_icgraph" id="classzerobuf_1_1_vector_a37f78dd14a1e4124214f0c18e4cb6043_icgraph">
 <area shape="rect" id="node3" href="classzerobuf_1_1_vector.html#a65879bdf813915615e08d3344882cf8c" title="zerobuf::Vector::data" alt="" coords="281,5,449,35"/>
@@ -820,15 +966,15 @@ template&lt;class Q &gt; </div>
 </div><div class="memdoc">
 <dl class="section return"><dt>Returns</dt><dd>a builtin element </dd></dl>
 
-<p>Definition at line <a class="el" href="_vector_8h_source.html#l00199">199</a> of file <a class="el" href="_vector_8h_source.html">Vector.h</a>.</p>
+<p>Definition at line <a class="el" href="_vector_8h_source.html#l00220">220</a> of file <a class="el" href="_vector_8h_source.html">Vector.h</a>.</p>
 
 <p>References <a class="el" href="classzerobuf_1_1_vector.html#a1b1c10b4e256f289f88e801741cf5355">zerobuf::Vector&lt; T &gt;::data()</a>, <a class="el" href="classzerobuf_1_1_vector.html#a37f78dd14a1e4124214f0c18e4cb6043">zerobuf::Vector&lt; T &gt;::operator[]()</a>, <a class="el" href="classzerobuf_1_1_vector.html#a3e0d021448316dba456cc0118a562292">zerobuf::Vector&lt; T &gt;::push_back()</a>, <a class="el" href="classzerobuf_1_1_vector.html#ae74a41e9bba6c3756e7f7047fe3d058a">zerobuf::Vector&lt; T &gt;::size()</a>, and <a class="el" href="classzerobuf_1_1_allocator.html#a59b22f7bccb9384c0cb3069c076b3a51">zerobuf::Allocator::updateAllocation()</a>.</p>
 
-<p><div id="dynsection-15" onclick="return toggleVisibility(this)" class="dynheader closed" style="cursor:pointer;">
-  <img id="dynsection-15-trigger" src="closed.png" alt="+"/> Here is the call graph for this function:</div>
-<div id="dynsection-15-summary" class="dynsummary" style="display:block;">
+<p><div id="dynsection-18" onclick="return toggleVisibility(this)" class="dynheader closed" style="cursor:pointer;">
+  <img id="dynsection-18-trigger" src="closed.png" alt="+"/> Here is the call graph for this function:</div>
+<div id="dynsection-18-summary" class="dynsummary" style="display:block;">
 </div>
-<div id="dynsection-15-content" class="dyncontent" style="display:none;">
+<div id="dynsection-18-content" class="dyncontent" style="display:none;">
 <div class="center"><img src="classzerobuf_1_1_vector_a6f04f85b36243fcca988be5da6300e67_cgraph.png" border="0" usemap="#classzerobuf_1_1_vector_a6f04f85b36243fcca988be5da6300e67_cgraph" alt=""/></div>
 <map name="classzerobuf_1_1_vector_a6f04f85b36243fcca988be5da6300e67_cgraph" id="classzerobuf_1_1_vector_a6f04f85b36243fcca988be5da6300e67_cgraph">
 <area shape="rect" id="node3" href="classzerobuf_1_1_vector.html#a1b1c10b4e256f289f88e801741cf5355" title="zerobuf::Vector::data" alt="" coords="519,7,687,37"/>
@@ -907,11 +1053,11 @@ template&lt;class Q  = T&gt; </div>
 
 <p>Referenced by <a class="el" href="classzerobuf_1_1_vector.html#a65879bdf813915615e08d3344882cf8c">zerobuf::Vector&lt; T &gt;::data()</a>, and <a class="el" href="classzerobuf_1_1_vector.html#a6f04f85b36243fcca988be5da6300e67">zerobuf::Vector&lt; T &gt;::operator[]()</a>.</p>
 
-<p><div id="dynsection-16" onclick="return toggleVisibility(this)" class="dynheader closed" style="cursor:pointer;">
-  <img id="dynsection-16-trigger" src="closed.png" alt="+"/> Here is the caller graph for this function:</div>
-<div id="dynsection-16-summary" class="dynsummary" style="display:block;">
+<p><div id="dynsection-19" onclick="return toggleVisibility(this)" class="dynheader closed" style="cursor:pointer;">
+  <img id="dynsection-19-trigger" src="closed.png" alt="+"/> Here is the caller graph for this function:</div>
+<div id="dynsection-19-summary" class="dynsummary" style="display:block;">
 </div>
-<div id="dynsection-16-content" class="dyncontent" style="display:none;">
+<div id="dynsection-19-content" class="dyncontent" style="display:none;">
 <div class="center"><img src="classzerobuf_1_1_vector_a3e0d021448316dba456cc0118a562292_icgraph.png" border="0" usemap="#classzerobuf_1_1_vector_a3e0d021448316dba456cc0118a562292_icgraph" alt=""/></div>
 <map name="classzerobuf_1_1_vector_a3e0d021448316dba456cc0118a562292_icgraph" id="classzerobuf_1_1_vector_a3e0d021448316dba456cc0118a562292_icgraph">
 <area shape="rect" id="node3" href="classzerobuf_1_1_vector.html#a65879bdf813915615e08d3344882cf8c" title="zerobuf::Vector::data" alt="" coords="281,5,449,35"/>
@@ -950,15 +1096,15 @@ template&lt;class Q &gt; </div>
 
 <p>Insert a Zerobuf-derived element at the end of the vector. </p>
 
-<p>Definition at line <a class="el" href="_vector_8h_source.html#l00247">247</a> of file <a class="el" href="_vector_8h_source.html">Vector.h</a>.</p>
+<p>Definition at line <a class="el" href="_vector_8h_source.html#l00268">268</a> of file <a class="el" href="_vector_8h_source.html">Vector.h</a>.</p>
 
 <p>References <a class="el" href="classzerobuf_1_1_allocator.html#a59b22f7bccb9384c0cb3069c076b3a51">zerobuf::Allocator::updateAllocation()</a>.</p>
 
-<p><div id="dynsection-17" onclick="return toggleVisibility(this)" class="dynheader closed" style="cursor:pointer;">
-  <img id="dynsection-17-trigger" src="closed.png" alt="+"/> Here is the call graph for this function:</div>
-<div id="dynsection-17-summary" class="dynsummary" style="display:block;">
+<p><div id="dynsection-20" onclick="return toggleVisibility(this)" class="dynheader closed" style="cursor:pointer;">
+  <img id="dynsection-20-trigger" src="closed.png" alt="+"/> Here is the call graph for this function:</div>
+<div id="dynsection-20-summary" class="dynsummary" style="display:block;">
 </div>
-<div id="dynsection-17-content" class="dyncontent" style="display:none;">
+<div id="dynsection-20-content" class="dyncontent" style="display:none;">
 <div class="center"><img src="classzerobuf_1_1_vector_ad80419326920b94b1845b9448e410f48_cgraph.png" border="0" usemap="#classzerobuf_1_1_vector_ad80419326920b94b1845b9448e410f48_cgraph" alt=""/></div>
 <map name="classzerobuf_1_1_vector_ad80419326920b94b1845b9448e410f48_cgraph" id="classzerobuf_1_1_vector_ad80419326920b94b1845b9448e410f48_cgraph">
 <area shape="rect" id="node3" href="classzerobuf_1_1_allocator.html#a59b22f7bccb9384c0cb3069c076b3a51" title="Update allocation of the dynamic elem at index to have newSize bytes. " alt="" coords="263,5,407,51"/>
@@ -998,11 +1144,11 @@ template&lt;class T &gt; </div>
 
 <p>Referenced by <a class="el" href="classzerobuf_1_1_vector.html#a194d1c7324990991dc183ff83120b684">zerobuf::Vector&lt; T &gt;::compact()</a>, <a class="el" href="classzerobuf_1_1_vector.html#a37f78dd14a1e4124214f0c18e4cb6043">zerobuf::Vector&lt; T &gt;::operator[]()</a>, and <a class="el" href="classzerobuf_1_1_vector.html#a53a2ea111103312aaa2c0605162d2325">zerobuf::Vector&lt; T &gt;::toJSON()</a>.</p>
 
-<p><div id="dynsection-18" onclick="return toggleVisibility(this)" class="dynheader closed" style="cursor:pointer;">
-  <img id="dynsection-18-trigger" src="closed.png" alt="+"/> Here is the call graph for this function:</div>
-<div id="dynsection-18-summary" class="dynsummary" style="display:block;">
+<p><div id="dynsection-21" onclick="return toggleVisibility(this)" class="dynheader closed" style="cursor:pointer;">
+  <img id="dynsection-21-trigger" src="closed.png" alt="+"/> Here is the call graph for this function:</div>
+<div id="dynsection-21-summary" class="dynsummary" style="display:block;">
 </div>
-<div id="dynsection-18-content" class="dyncontent" style="display:none;">
+<div id="dynsection-21-content" class="dyncontent" style="display:none;">
 <div class="center"><img src="classzerobuf_1_1_vector_ae74a41e9bba6c3756e7f7047fe3d058a_cgraph.png" border="0" usemap="#classzerobuf_1_1_vector_ae74a41e9bba6c3756e7f7047fe3d058a_cgraph" alt=""/></div>
 <map name="classzerobuf_1_1_vector_ae74a41e9bba6c3756e7f7047fe3d058a_cgraph" id="classzerobuf_1_1_vector_ae74a41e9bba6c3756e7f7047fe3d058a_cgraph">
 <area shape="rect" id="node3" href="classzerobuf_1_1_vector.html#ab38f84c7f23e4eb6e3f00a9e925f70cc" title="Empty the vector. " alt="" coords="219,13,389,43"/>
@@ -1011,11 +1157,11 @@ template&lt;class T &gt; </div>
 </div>
 </p>
 
-<p><div id="dynsection-19" onclick="return toggleVisibility(this)" class="dynheader closed" style="cursor:pointer;">
-  <img id="dynsection-19-trigger" src="closed.png" alt="+"/> Here is the caller graph for this function:</div>
-<div id="dynsection-19-summary" class="dynsummary" style="display:block;">
+<p><div id="dynsection-22" onclick="return toggleVisibility(this)" class="dynheader closed" style="cursor:pointer;">
+  <img id="dynsection-22-trigger" src="closed.png" alt="+"/> Here is the caller graph for this function:</div>
+<div id="dynsection-22-summary" class="dynsummary" style="display:block;">
 </div>
-<div id="dynsection-19-content" class="dyncontent" style="display:none;">
+<div id="dynsection-22-content" class="dyncontent" style="display:none;">
 <div class="center"><img src="classzerobuf_1_1_vector_ae74a41e9bba6c3756e7f7047fe3d058a_icgraph.png" border="0" usemap="#classzerobuf_1_1_vector_ae74a41e9bba6c3756e7f7047fe3d058a_icgraph" alt=""/></div>
 <map name="classzerobuf_1_1_vector_ae74a41e9bba6c3756e7f7047fe3d058a_icgraph" id="classzerobuf_1_1_vector_ae74a41e9bba6c3756e7f7047fe3d058a_icgraph">
 <area shape="rect" id="node3" href="classzerobuf_1_1_vector.html#a194d1c7324990991dc183ff83120b684" title="Remove unused memory from vector and all members. " alt="" coords="480,5,677,35"/>
@@ -1064,19 +1210,19 @@ template&lt;class Q &gt; </div>
   </tr>
 </table>
 </div><div class="memdoc">
-<dl class="section return"><dt>Returns</dt><dd>the JSON representation of this vector. </dd></dl>
+<dl class="section return"><dt>Returns</dt><dd>the JSON representation of this vector of ZeroBufs. </dd></dl>
 
-<p>Definition at line <a class="el" href="_vector_8h_source.html#l00281">281</a> of file <a class="el" href="_vector_8h_source.html">Vector.h</a>.</p>
+<p>Definition at line <a class="el" href="_vector_8h_source.html#l00328">328</a> of file <a class="el" href="_vector_8h_source.html">Vector.h</a>.</p>
 
 <p>References <a class="el" href="classzerobuf_1_1_vector.html#ae74a41e9bba6c3756e7f7047fe3d058a">zerobuf::Vector&lt; T &gt;::size()</a>.</p>
 
 <p>Referenced by <a class="el" href="classzerobuf_1_1_vector.html#a194d1c7324990991dc183ff83120b684">zerobuf::Vector&lt; T &gt;::compact()</a>.</p>
 
-<p><div id="dynsection-20" onclick="return toggleVisibility(this)" class="dynheader closed" style="cursor:pointer;">
-  <img id="dynsection-20-trigger" src="closed.png" alt="+"/> Here is the call graph for this function:</div>
-<div id="dynsection-20-summary" class="dynsummary" style="display:block;">
+<p><div id="dynsection-23" onclick="return toggleVisibility(this)" class="dynheader closed" style="cursor:pointer;">
+  <img id="dynsection-23-trigger" src="closed.png" alt="+"/> Here is the call graph for this function:</div>
+<div id="dynsection-23-summary" class="dynsummary" style="display:block;">
 </div>
-<div id="dynsection-20-content" class="dyncontent" style="display:none;">
+<div id="dynsection-23-content" class="dyncontent" style="display:none;">
 <div class="center"><img src="classzerobuf_1_1_vector_a53a2ea111103312aaa2c0605162d2325_cgraph.png" border="0" usemap="#classzerobuf_1_1_vector_a53a2ea111103312aaa2c0605162d2325_cgraph" alt=""/></div>
 <map name="classzerobuf_1_1_vector_a53a2ea111103312aaa2c0605162d2325_cgraph" id="classzerobuf_1_1_vector_a53a2ea111103312aaa2c0605162d2325_cgraph">
 <area shape="rect" id="node3" href="classzerobuf_1_1_vector.html#ae74a41e9bba6c3756e7f7047fe3d058a" title="zerobuf::Vector::size" alt="" coords="240,13,405,43"/>
@@ -1086,11 +1232,11 @@ template&lt;class Q &gt; </div>
 </div>
 </p>
 
-<p><div id="dynsection-21" onclick="return toggleVisibility(this)" class="dynheader closed" style="cursor:pointer;">
-  <img id="dynsection-21-trigger" src="closed.png" alt="+"/> Here is the caller graph for this function:</div>
-<div id="dynsection-21-summary" class="dynsummary" style="display:block;">
+<p><div id="dynsection-24" onclick="return toggleVisibility(this)" class="dynheader closed" style="cursor:pointer;">
+  <img id="dynsection-24-trigger" src="closed.png" alt="+"/> Here is the caller graph for this function:</div>
+<div id="dynsection-24-summary" class="dynsummary" style="display:block;">
 </div>
-<div id="dynsection-21-content" class="dyncontent" style="display:none;">
+<div id="dynsection-24-content" class="dyncontent" style="display:none;">
 <div class="center"><img src="classzerobuf_1_1_vector_a53a2ea111103312aaa2c0605162d2325_icgraph.png" border="0" usemap="#classzerobuf_1_1_vector_a53a2ea111103312aaa2c0605162d2325_icgraph" alt=""/></div>
 <map name="classzerobuf_1_1_vector_a53a2ea111103312aaa2c0605162d2325_icgraph" id="classzerobuf_1_1_vector_a53a2ea111103312aaa2c0605162d2325_icgraph">
 <area shape="rect" id="node3" href="classzerobuf_1_1_vector.html#a194d1c7324990991dc183ff83120b684" title="Remove unused memory from vector and all members. " alt="" coords="241,5,439,35"/>
@@ -1100,7 +1246,7 @@ template&lt;class Q &gt; </div>
 
 </div>
 </div>
-<a class="anchor" id="a782fba85e3dd082e4d0bfb4a3f3b6289"></a>
+<a class="anchor" id="a909db7096696e4ef21d3aa4d06ee6e49"></a>
 <div class="memitem">
 <div class="memproto">
 <div class="memtemplate">
@@ -1120,7 +1266,7 @@ template&lt;class Q &gt; </div>
         <tr>
           <td class="paramkey"></td>
           <td></td>
-          <td class="paramtype">const typename std::enable_if&lt; !std::is_base_of&lt; <a class="el" href="classzerobuf_1_1_zerobuf.html">Zerobuf</a>, Q &gt;::value, Q &gt;::type *&#160;</td>
+          <td class="paramtype">const typename std::enable_if&lt; std::is_enum&lt; Q &gt;::value, Q &gt;::type *&#160;</td>
           <td class="paramname"> = <code>nullptr</code>&#160;</td>
         </tr>
         <tr>
@@ -1135,19 +1281,133 @@ template&lt;class Q &gt; </div>
   </tr>
 </table>
 </div><div class="memdoc">
-<dl class="section return"><dt>Returns</dt><dd>the JSON representation of this vector. </dd></dl>
+<dl class="section return"><dt>Returns</dt><dd>the JSON representation of this vector of enums. </dd></dl>
 
-<p>Definition at line <a class="el" href="_vector_8h_source.html#l00292">292</a> of file <a class="el" href="_vector_8h_source.html">Vector.h</a>.</p>
+<p>Definition at line <a class="el" href="_vector_8h_source.html#l00339">339</a> of file <a class="el" href="_vector_8h_source.html">Vector.h</a>.</p>
 
 <p>References <a class="el" href="classzerobuf_1_1_vector.html#ae74a41e9bba6c3756e7f7047fe3d058a">zerobuf::Vector&lt; T &gt;::size()</a>.</p>
 
-<p><div id="dynsection-22" onclick="return toggleVisibility(this)" class="dynheader closed" style="cursor:pointer;">
-  <img id="dynsection-22-trigger" src="closed.png" alt="+"/> Here is the call graph for this function:</div>
-<div id="dynsection-22-summary" class="dynsummary" style="display:block;">
+<p><div id="dynsection-25" onclick="return toggleVisibility(this)" class="dynheader closed" style="cursor:pointer;">
+  <img id="dynsection-25-trigger" src="closed.png" alt="+"/> Here is the call graph for this function:</div>
+<div id="dynsection-25-summary" class="dynsummary" style="display:block;">
 </div>
-<div id="dynsection-22-content" class="dyncontent" style="display:none;">
-<div class="center"><img src="classzerobuf_1_1_vector_a782fba85e3dd082e4d0bfb4a3f3b6289_cgraph.png" border="0" usemap="#classzerobuf_1_1_vector_a782fba85e3dd082e4d0bfb4a3f3b6289_cgraph" alt=""/></div>
-<map name="classzerobuf_1_1_vector_a782fba85e3dd082e4d0bfb4a3f3b6289_cgraph" id="classzerobuf_1_1_vector_a782fba85e3dd082e4d0bfb4a3f3b6289_cgraph">
+<div id="dynsection-25-content" class="dyncontent" style="display:none;">
+<div class="center"><img src="classzerobuf_1_1_vector_a909db7096696e4ef21d3aa4d06ee6e49_cgraph.png" border="0" usemap="#classzerobuf_1_1_vector_a909db7096696e4ef21d3aa4d06ee6e49_cgraph" alt=""/></div>
+<map name="classzerobuf_1_1_vector_a909db7096696e4ef21d3aa4d06ee6e49_cgraph" id="classzerobuf_1_1_vector_a909db7096696e4ef21d3aa4d06ee6e49_cgraph">
+<area shape="rect" id="node3" href="classzerobuf_1_1_vector.html#ae74a41e9bba6c3756e7f7047fe3d058a" title="zerobuf::Vector::size" alt="" coords="240,13,405,43"/>
+<area shape="rect" id="node5" href="classzerobuf_1_1_vector.html#ab38f84c7f23e4eb6e3f00a9e925f70cc" title="Empty the vector. " alt="" coords="453,13,624,43"/>
+<area shape="rect" id="node7" href="classzerobuf_1_1_allocator.html#a59b22f7bccb9384c0cb3069c076b3a51" title="Update allocation of the dynamic elem at index to have newSize bytes. " alt="" coords="673,5,817,51"/>
+</map>
+</div>
+</p>
+
+</div>
+</div>
+<a class="anchor" id="a277e2f7aad8de8adc6feda2636cfec04"></a>
+<div class="memitem">
+<div class="memproto">
+<div class="memtemplate">
+template&lt;class T &gt; </div>
+<div class="memtemplate">
+template&lt;class Q &gt; </div>
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">void <a class="el" href="classzerobuf_1_1_vector.html">zerobuf::Vector</a>&lt; T &gt;::toJSON </td>
+          <td>(</td>
+          <td class="paramtype">Json::Value &amp;&#160;</td>
+          <td class="paramname"><em>json</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">const typename std::enable_if&lt; std::is_arithmetic&lt; Q &gt;::value, Q &gt;::type *&#160;</td>
+          <td class="paramname"> = <code>nullptr</code>&#160;</td>
+        </tr>
+        <tr>
+          <td></td>
+          <td>)</td>
+          <td></td><td> const</td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">inline</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+<dl class="section return"><dt>Returns</dt><dd>the JSON representation of this vector of arithmetics. </dd></dl>
+
+<p>Definition at line <a class="el" href="_vector_8h_source.html#l00350">350</a> of file <a class="el" href="_vector_8h_source.html">Vector.h</a>.</p>
+
+<p>References <a class="el" href="classzerobuf_1_1_vector.html#ae74a41e9bba6c3756e7f7047fe3d058a">zerobuf::Vector&lt; T &gt;::size()</a>.</p>
+
+<p><div id="dynsection-26" onclick="return toggleVisibility(this)" class="dynheader closed" style="cursor:pointer;">
+  <img id="dynsection-26-trigger" src="closed.png" alt="+"/> Here is the call graph for this function:</div>
+<div id="dynsection-26-summary" class="dynsummary" style="display:block;">
+</div>
+<div id="dynsection-26-content" class="dyncontent" style="display:none;">
+<div class="center"><img src="classzerobuf_1_1_vector_a277e2f7aad8de8adc6feda2636cfec04_cgraph.png" border="0" usemap="#classzerobuf_1_1_vector_a277e2f7aad8de8adc6feda2636cfec04_cgraph" alt=""/></div>
+<map name="classzerobuf_1_1_vector_a277e2f7aad8de8adc6feda2636cfec04_cgraph" id="classzerobuf_1_1_vector_a277e2f7aad8de8adc6feda2636cfec04_cgraph">
+<area shape="rect" id="node3" href="classzerobuf_1_1_vector.html#ae74a41e9bba6c3756e7f7047fe3d058a" title="zerobuf::Vector::size" alt="" coords="240,13,405,43"/>
+<area shape="rect" id="node5" href="classzerobuf_1_1_vector.html#ab38f84c7f23e4eb6e3f00a9e925f70cc" title="Empty the vector. " alt="" coords="453,13,624,43"/>
+<area shape="rect" id="node7" href="classzerobuf_1_1_allocator.html#a59b22f7bccb9384c0cb3069c076b3a51" title="Update allocation of the dynamic elem at index to have newSize bytes. " alt="" coords="673,5,817,51"/>
+</map>
+</div>
+</p>
+
+</div>
+</div>
+<a class="anchor" id="afebbad4fed3aabffa5c328def0315d23"></a>
+<div class="memitem">
+<div class="memproto">
+<div class="memtemplate">
+template&lt;class T &gt; </div>
+<div class="memtemplate">
+template&lt;class Q &gt; </div>
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">void <a class="el" href="classzerobuf_1_1_vector.html">zerobuf::Vector</a>&lt; T &gt;::toJSON </td>
+          <td>(</td>
+          <td class="paramtype">Json::Value &amp;&#160;</td>
+          <td class="paramname"><em>json</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">const typename std::enable_if&lt; std::is_same&lt; Q, servus::uint128_t &gt;::value, Q &gt;::type *&#160;</td>
+          <td class="paramname"> = <code>nullptr</code>&#160;</td>
+        </tr>
+        <tr>
+          <td></td>
+          <td>)</td>
+          <td></td><td> const</td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">inline</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+<dl class="section return"><dt>Returns</dt><dd>the JSON representation of this vector of uint128_t. </dd></dl>
+
+<p>Definition at line <a class="el" href="_vector_8h_source.html#l00360">360</a> of file <a class="el" href="_vector_8h_source.html">Vector.h</a>.</p>
+
+<p>References <a class="el" href="classzerobuf_1_1_vector.html#ae74a41e9bba6c3756e7f7047fe3d058a">zerobuf::Vector&lt; T &gt;::size()</a>.</p>
+
+<p><div id="dynsection-27" onclick="return toggleVisibility(this)" class="dynheader closed" style="cursor:pointer;">
+  <img id="dynsection-27-trigger" src="closed.png" alt="+"/> Here is the call graph for this function:</div>
+<div id="dynsection-27-summary" class="dynsummary" style="display:block;">
+</div>
+<div id="dynsection-27-content" class="dyncontent" style="display:none;">
+<div class="center"><img src="classzerobuf_1_1_vector_afebbad4fed3aabffa5c328def0315d23_cgraph.png" border="0" usemap="#classzerobuf_1_1_vector_afebbad4fed3aabffa5c328def0315d23_cgraph" alt=""/></div>
+<map name="classzerobuf_1_1_vector_afebbad4fed3aabffa5c328def0315d23_cgraph" id="classzerobuf_1_1_vector_afebbad4fed3aabffa5c328def0315d23_cgraph">
 <area shape="rect" id="node3" href="classzerobuf_1_1_vector.html#ae74a41e9bba6c3756e7f7047fe3d058a" title="zerobuf::Vector::size" alt="" coords="240,13,405,43"/>
 <area shape="rect" id="node5" href="classzerobuf_1_1_vector.html#ab38f84c7f23e4eb6e3f00a9e925f70cc" title="Empty the vector. " alt="" coords="453,13,624,43"/>
 <area shape="rect" id="node7" href="classzerobuf_1_1_allocator.html#a59b22f7bccb9384c0cb3069c076b3a51" title="Update allocation of the dynamic elem at index to have newSize bytes. " alt="" coords="673,5,817,51"/>
@@ -1194,17 +1454,17 @@ template&lt;class Q &gt; </div>
 </div><div class="memdoc">
 <dl class="section return"><dt>Returns</dt><dd>the JSON representation of this vector, with base64 encoding. </dd></dl>
 
-<p>Definition at line <a class="el" href="_vector_8h_source.html#l00310">310</a> of file <a class="el" href="_vector_8h_source.html">Vector.h</a>.</p>
+<p>Definition at line <a class="el" href="_vector_8h_source.html#l00378">378</a> of file <a class="el" href="_vector_8h_source.html">Vector.h</a>.</p>
 
 <p>References <a class="el" href="classzerobuf_1_1_vector.html#a1b1c10b4e256f289f88e801741cf5355">zerobuf::Vector&lt; T &gt;::data()</a>, and <a class="el" href="classzerobuf_1_1_allocator.html#a59b22f7bccb9384c0cb3069c076b3a51">zerobuf::Allocator::updateAllocation()</a>.</p>
 
 <p>Referenced by <a class="el" href="classzerobuf_1_1_vector.html#a194d1c7324990991dc183ff83120b684">zerobuf::Vector&lt; T &gt;::compact()</a>.</p>
 
-<p><div id="dynsection-23" onclick="return toggleVisibility(this)" class="dynheader closed" style="cursor:pointer;">
-  <img id="dynsection-23-trigger" src="closed.png" alt="+"/> Here is the call graph for this function:</div>
-<div id="dynsection-23-summary" class="dynsummary" style="display:block;">
+<p><div id="dynsection-28" onclick="return toggleVisibility(this)" class="dynheader closed" style="cursor:pointer;">
+  <img id="dynsection-28-trigger" src="closed.png" alt="+"/> Here is the call graph for this function:</div>
+<div id="dynsection-28-summary" class="dynsummary" style="display:block;">
 </div>
-<div id="dynsection-23-content" class="dyncontent" style="display:none;">
+<div id="dynsection-28-content" class="dyncontent" style="display:none;">
 <div class="center"><img src="classzerobuf_1_1_vector_a381bf0680d0eac1eb992a8b0af6c4251_cgraph.png" border="0" usemap="#classzerobuf_1_1_vector_a381bf0680d0eac1eb992a8b0af6c4251_cgraph" alt=""/></div>
 <map name="classzerobuf_1_1_vector_a381bf0680d0eac1eb992a8b0af6c4251_cgraph" id="classzerobuf_1_1_vector_a381bf0680d0eac1eb992a8b0af6c4251_cgraph">
 <area shape="rect" id="node3" href="classzerobuf_1_1_vector.html#a1b1c10b4e256f289f88e801741cf5355" title="zerobuf::Vector::data" alt="" coords="284,5,452,35"/>
@@ -1213,11 +1473,11 @@ template&lt;class Q &gt; </div>
 </div>
 </p>
 
-<p><div id="dynsection-24" onclick="return toggleVisibility(this)" class="dynheader closed" style="cursor:pointer;">
-  <img id="dynsection-24-trigger" src="closed.png" alt="+"/> Here is the caller graph for this function:</div>
-<div id="dynsection-24-summary" class="dynsummary" style="display:block;">
+<p><div id="dynsection-29" onclick="return toggleVisibility(this)" class="dynheader closed" style="cursor:pointer;">
+  <img id="dynsection-29-trigger" src="closed.png" alt="+"/> Here is the caller graph for this function:</div>
+<div id="dynsection-29-summary" class="dynsummary" style="display:block;">
 </div>
-<div id="dynsection-24-content" class="dyncontent" style="display:none;">
+<div id="dynsection-29-content" class="dyncontent" style="display:none;">
 <div class="center"><img src="classzerobuf_1_1_vector_a381bf0680d0eac1eb992a8b0af6c4251_icgraph.png" border="0" usemap="#classzerobuf_1_1_vector_a381bf0680d0eac1eb992a8b0af6c4251_icgraph" alt=""/></div>
 <map name="classzerobuf_1_1_vector_a381bf0680d0eac1eb992a8b0af6c4251_icgraph" id="classzerobuf_1_1_vector_a381bf0680d0eac1eb992a8b0af6c4251_icgraph">
 <area shape="rect" id="node3" href="classzerobuf_1_1_vector.html#a194d1c7324990991dc183ff83120b684" title="Remove unused memory from vector and all members. " alt="" coords="284,5,481,35"/>
@@ -1237,7 +1497,7 @@ template&lt;class Q &gt; </div>
 <div id="nav-path" class="navpath"><!-- id is needed for treeview function! -->
   <ul>
     <li class="navelem"><a class="el" href="namespacezerobuf.html">zerobuf</a></li><li class="navelem"><a class="el" href="classzerobuf_1_1_vector.html">Vector</a></li>
-    <li class="footer">Generated on Tue Dec 6 2016 01:09:00 for ZeroBuf by
+    <li class="footer">Generated on Sat Jan 7 2017 01:08:18 for ZeroBuf by
     <a href="http://www.doxygen.org/index.html">
     <img class="footer" src="doxygen.png" alt="doxygen"/></a> 1.8.11 </li>
   </ul>
