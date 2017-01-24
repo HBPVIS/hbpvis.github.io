@@ -37,7 +37,7 @@
           </tr>
           <tr>
             <td class="headerItem">Date:</td>
-            <td class="headerValue">2017-01-07 01:37:07</td>
+            <td class="headerValue">2017-01-24 01:35:47</td>
             <td></td>
             <td class="headerItem">Functions:</td>
             <td class="headerCovTableEntry">59</td>
@@ -280,13 +280,13 @@
 <span class="lineNum">     218 </span><span class="lineCov">         10 :         return _returnSchema( endpoint );</span>
 <a name="219"><span class="lineNum">     219 </span>            :     }</a>
 <span class="lineNum">     220 </span>            : 
-<span class="lineNum">     221 </span><span class="lineCov">       1024 :     void addSockets( std::vector&lt; detail::Socket &gt;&amp; entries )</span>
+<span class="lineNum">     221 </span><span class="lineCov">       1046 :     void addSockets( std::vector&lt; detail::Socket &gt;&amp; entries )</span>
 <span class="lineNum">     222 </span>            :     {
 <span class="lineNum">     223 </span>            :         detail::Socket entry;
-<span class="lineNum">     224 </span><span class="lineCov">       1024 :         entry.socket = socket;</span>
-<span class="lineNum">     225 </span><span class="lineCov">       1024 :         entry.events = ZMQ_POLLIN;</span>
-<span class="lineNum">     226 </span><span class="lineCov">       1024 :         entries.push_back( entry );</span>
-<a name="227"><span class="lineNum">     227 </span><span class="lineCov">       1024 :     }</span></a>
+<span class="lineNum">     224 </span><span class="lineCov">       1046 :         entry.socket = socket;</span>
+<span class="lineNum">     225 </span><span class="lineCov">       1046 :         entry.events = ZMQ_POLLIN;</span>
+<span class="lineNum">     226 </span><span class="lineCov">       1046 :         entries.push_back( entry );</span>
+<a name="227"><span class="lineNum">     227 </span><span class="lineCov">       1046 :     }</span></a>
 <span class="lineNum">     228 </span>            : 
 <span class="lineNum">     229 </span><span class="lineCov">         64 :     void process()</span>
 <span class="lineNum">     230 </span>            :     {
@@ -583,10 +583,10 @@
 <span class="lineNum">     521 </span><span class="lineCov">          6 :     return _impl-&gt;getSchema( endpoint );</span>
 <a name="522"><span class="lineNum">     522 </span>            : }</a>
 <span class="lineNum">     523 </span>            : 
-<span class="lineNum">     524 </span><span class="lineCov">       1024 : void Server::addSockets( std::vector&lt; detail::Socket &gt;&amp; entries )</span>
+<span class="lineNum">     524 </span><span class="lineCov">       1046 : void Server::addSockets( std::vector&lt; detail::Socket &gt;&amp; entries )</span>
 <span class="lineNum">     525 </span>            : {
-<span class="lineNum">     526 </span><span class="lineCov">       1024 :     _impl-&gt;addSockets( entries );</span>
-<a name="527"><span class="lineNum">     527 </span><span class="lineCov">       1024 : }</span></a>
+<span class="lineNum">     526 </span><span class="lineCov">       1046 :     _impl-&gt;addSockets( entries );</span>
+<a name="527"><span class="lineNum">     527 </span><span class="lineCov">       1046 : }</span></a>
 <span class="lineNum">     528 </span>            : 
 <span class="lineNum">     529 </span><span class="lineCov">         64 : void Server::process( detail::Socket&amp;, const uint32_t )</span>
 <span class="lineNum">     530 </span>            : {
