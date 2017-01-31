@@ -1,0 +1,378 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN">
+
+<html lang="en">
+
+<head>
+  <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+  <title>LCOV - ZeroEQ - cppnetlib/boost/network/protocol/http/client/connection/sync_base.hpp</title>
+  <link rel="stylesheet" type="text/css" href="../../../../../../../gcov.css">
+</head>
+
+<body>
+
+  <table width="100%" border=0 cellspacing=0 cellpadding=0>
+    <tr><td class="title">LCOV - code coverage report</td></tr>
+    <tr><td class="ruler"><img src="../../../../../../../glass.png" width=3 height=3 alt=""></td></tr>
+
+    <tr>
+      <td width="100%">
+        <table cellpadding=1 border=0 width="100%">
+          <tr>
+            <td width="10%" class="headerItem">Current view:</td>
+            <td width="35%" class="headerValue"><a href="../../../../../../../index.html">top level</a> - <a href="index.html">cppnetlib/boost/network/protocol/http/client/connection</a> - sync_base.hpp<span style="font-size: 80%;"> (source / <a href="sync_base.hpp.func-sort-c.html">functions</a>)</span></td>
+            <td width="5%"></td>
+            <td width="15%"></td>
+            <td width="10%" class="headerCovTableHead">Hit</td>
+            <td width="10%" class="headerCovTableHead">Total</td>
+            <td width="15%" class="headerCovTableHead">Coverage</td>
+          </tr>
+          <tr>
+            <td class="headerItem">Test:</td>
+            <td class="headerValue">ZeroEQ</td>
+            <td></td>
+            <td class="headerItem">Lines:</td>
+            <td class="headerCovTableEntry">68</td>
+            <td class="headerCovTableEntry">120</td>
+            <td class="headerCovTableEntryMed">56.7 %</td>
+          </tr>
+          <tr>
+            <td class="headerItem">Date:</td>
+            <td class="headerValue">2017-01-31 01:48:09</td>
+            <td></td>
+            <td class="headerItem">Functions:</td>
+            <td class="headerCovTableEntry">10</td>
+            <td class="headerCovTableEntry">11</td>
+            <td class="headerCovTableEntryHi">90.9 %</td>
+          </tr>
+          <tr><td><img src="../../../../../../../glass.png" width=3 height=3 alt=""></td></tr>
+        </table>
+      </td>
+    </tr>
+
+    <tr><td class="ruler"><img src="../../../../../../../glass.png" width=3 height=3 alt=""></td></tr>
+  </table>
+
+  <table cellpadding=0 cellspacing=0 border=0>
+    <tr>
+      <td><br></td>
+    </tr>
+    <tr>
+      <td>
+<pre class="sourceHeading">          Line data    Source code</pre>
+<pre class="source">
+<a name="1"><span class="lineNum">       1 </span>            : #ifndef BOOST_NETWORK_PROTOCOL_HTTP_IMPL_SYNC_CONNECTION_BASE_20091217</a>
+<span class="lineNum">       2 </span>            : #define BOOST_NETWORK_PROTOCOL_HTTP_IMPL_SYNC_CONNECTION_BASE_20091217
+<span class="lineNum">       3 </span>            : 
+<span class="lineNum">       4 </span>            : // Copyright 2013 Google, Inc.
+<span class="lineNum">       5 </span>            : // Copyright 2009 Dean Michael Berris &lt;dberris@google.com&gt;
+<span class="lineNum">       6 </span>            : // Distributed under the Boost Software License, Version 1.0.
+<span class="lineNum">       7 </span>            : // (See accompanying file LICENSE_1_0.txt or copy at
+<span class="lineNum">       8 </span>            : // http://www.boost.org/LICENSE_1_0.txt)
+<span class="lineNum">       9 </span>            : 
+<span class="lineNum">      10 </span>            : #include &lt;boost/network/protocol/http/traits/resolver_policy.hpp&gt;
+<span class="lineNum">      11 </span>            : #include &lt;boost/network/traits/ostringstream.hpp&gt;
+<span class="lineNum">      12 </span>            : #include &lt;boost/network/traits/istringstream.hpp&gt;
+<span class="lineNum">      13 </span>            : #include &lt;boost/asio/streambuf.hpp&gt;
+<span class="lineNum">      14 </span>            : #include &lt;boost/asio/read.hpp&gt;
+<span class="lineNum">      15 </span>            : #include &lt;boost/asio/write.hpp&gt;
+<span class="lineNum">      16 </span>            : #include &lt;boost/asio/read_until.hpp&gt;
+<span class="lineNum">      17 </span>            : #include &lt;boost/tuple/tuple.hpp&gt;
+<span class="lineNum">      18 </span>            : #include &lt;boost/network/protocol/http/response.hpp&gt;
+<span class="lineNum">      19 </span>            : 
+<span class="lineNum">      20 </span>            : #include &lt;boost/network/protocol/http/client/connection/sync_normal.hpp&gt;
+<span class="lineNum">      21 </span>            : #ifdef BOOST_NETWORK_ENABLE_HTTPS
+<span class="lineNum">      22 </span>            : #include &lt;boost/network/protocol/http/client/connection/sync_ssl.hpp&gt;
+<span class="lineNum">      23 </span>            : #endif
+<span class="lineNum">      24 </span>            : 
+<span class="lineNum">      25 </span>            : namespace boost {
+<span class="lineNum">      26 </span>            : namespace network {
+<span class="lineNum">      27 </span>            : namespace http {
+<span class="lineNum">      28 </span>            : namespace impl {
+<span class="lineNum">      29 </span>            : 
+<span class="lineNum">      30 </span>            : template &lt;class Tag, unsigned version_major, unsigned version_minor&gt;
+<span class="lineNum">      31 </span>            : struct sync_connection_base_impl {
+<span class="lineNum">      32 </span>            :  protected:
+<span class="lineNum">      33 </span>            :   typedef typename resolver_policy&lt;Tag&gt;::type resolver_base;
+<span class="lineNum">      34 </span>            :   typedef typename resolver_base::resolver_type resolver_type;
+<span class="lineNum">      35 </span>            :   typedef typename string&lt;Tag&gt;::type string_type;
+<span class="lineNum">      36 </span>            :   typedef function&lt;typename resolver_base::resolver_iterator_pair(
+<span class="lineNum">      37 </span>            :       resolver_type&amp;, string_type const&amp;, string_type const&amp;)&gt;
+<span class="lineNum">      38 </span>            :       resolver_function_type;
+<a name="39"><span class="lineNum">      39 </span>            : </a>
+<span class="lineNum">      40 </span>            :   template &lt;class Socket&gt;
+<span class="lineNum">      41 </span><span class="lineCov">         36 :   void init_socket(Socket&amp; socket_, resolver_type&amp; resolver_,</span>
+<span class="lineNum">      42 </span>            :                    string_type const&amp; hostname, string_type const&amp; port,
+<span class="lineNum">      43 </span>            :                    resolver_function_type resolve_) {
+<span class="lineNum">      44 </span>            :     using boost::asio::ip::tcp;
+<span class="lineNum">      45 </span><span class="lineCov">         36 :     boost::system::error_code error = boost::asio::error::host_not_found;</span>
+<span class="lineNum">      46 </span><span class="lineCov">         72 :     typename resolver_type::iterator endpoint_iterator, end;</span>
+<span class="lineNum">      47 </span><span class="lineCov">         36 :     boost::tie(endpoint_iterator, end) = resolve_(resolver_, hostname, port);</span>
+<span class="lineNum">      48 </span><span class="lineCov">        108 :     while (error &amp;&amp; endpoint_iterator != end) {</span>
+<span class="lineNum">      49 </span><span class="lineCov">         36 :       socket_.close();</span>
+<span class="lineNum">      50 </span><span class="lineCov">         36 :       socket_.connect(tcp::endpoint(endpoint_iterator-&gt;endpoint().address(),</span>
+<span class="lineNum">      51 </span>            :                                     endpoint_iterator-&gt;endpoint().port()),
+<span class="lineNum">      52 </span>            :                       error);
+<span class="lineNum">      53 </span><span class="lineCov">         36 :       ++endpoint_iterator;</span>
+<span class="lineNum">      54 </span>            :     }
+<span class="lineNum">      55 </span>            : 
+<span class="lineNum">      56 </span><span class="lineCov">         36 :     if (error) throw boost::system::system_error(error);</span>
+<span class="lineNum">      57 </span><span class="lineCov">         36 :   }</span>
+<a name="58"><span class="lineNum">      58 </span>            : </a>
+<span class="lineNum">      59 </span>            :   template &lt;class Socket&gt;
+<span class="lineNum">      60 </span><span class="lineCov">         36 :   void read_status(Socket&amp; socket_, basic_response&lt;Tag&gt;&amp; response_,</span>
+<span class="lineNum">      61 </span>            :                    boost::asio::streambuf&amp; response_buffer) {
+<span class="lineNum">      62 </span><span class="lineCov">         36 :     boost::asio::read_until(socket_, response_buffer, &quot;\r\n&quot;);</span>
+<span class="lineNum">      63 </span><span class="lineCov">         72 :     std::istream response_stream(&amp;response_buffer);</span>
+<span class="lineNum">      64 </span><span class="lineCov">         72 :     string_type http_version;</span>
+<span class="lineNum">      65 </span>            :     unsigned int status_code;
+<span class="lineNum">      66 </span><span class="lineCov">         72 :     string_type status_message;</span>
+<span class="lineNum">      67 </span><span class="lineCov">         36 :     response_stream &gt;&gt; http_version &gt;&gt; status_code;</span>
+<span class="lineNum">      68 </span><span class="lineCov">         36 :     std::getline(response_stream, status_message);</span>
+<span class="lineNum">      69 </span><span class="lineCov">         36 :     trim_left(status_message);</span>
+<span class="lineNum">      70 </span><span class="lineCov">         36 :     trim_right_if(status_message, boost::is_space() || boost::is_any_of(&quot;\r&quot;));</span>
+<span class="lineNum">      71 </span>            : 
+<span class="lineNum">      72 </span><span class="lineCov">         36 :     if (!response_stream || http_version.substr(0, 5) != &quot;HTTP/&quot;)</span>
+<span class="lineNum">      73 </span><span class="lineNoCov">          0 :       throw std::runtime_error(&quot;Invalid response&quot;);</span>
+<span class="lineNum">      74 </span>            : 
+<span class="lineNum">      75 </span><span class="lineCov">         36 :     response_ &lt;&lt; http::version(http_version) &lt;&lt; http::status(status_code)</span>
+<span class="lineNum">      76 </span><span class="lineCov">         72 :               &lt;&lt; http::status_message(status_message);</span>
+<span class="lineNum">      77 </span><span class="lineCov">         36 :   }</span>
+<a name="78"><span class="lineNum">      78 </span>            : </a>
+<span class="lineNum">      79 </span>            :   template &lt;class Socket&gt;
+<span class="lineNum">      80 </span><span class="lineCov">         36 :   void read_headers(Socket&amp; socket_, basic_response&lt;Tag&gt;&amp; response_,</span>
+<span class="lineNum">      81 </span>            :                     boost::asio::streambuf&amp; response_buffer) {
+<span class="lineNum">      82 </span><span class="lineCov">         36 :     boost::asio::read_until(socket_, response_buffer, &quot;\r\n\r\n&quot;);</span>
+<span class="lineNum">      83 </span><span class="lineCov">         72 :     std::istream response_stream(&amp;response_buffer);</span>
+<span class="lineNum">      84 </span><span class="lineCov">         72 :     string_type header_line, name;</span>
+<span class="lineNum">      85 </span><span class="lineCov">        330 :     while (std::getline(response_stream, header_line) &amp;&amp; header_line != &quot;\r&quot;) {</span>
+<span class="lineNum">      86 </span><span class="lineCov">        147 :       trim_right_if(header_line, boost::is_space() || boost::is_any_of(&quot;\r&quot;));</span>
+<span class="lineNum">      87 </span>            :       typename string_type::size_type colon_offset;
+<span class="lineNum">      88 </span><span class="lineCov">        147 :       if (header_line.size() &amp;&amp; header_line[0] == ' ') {</span>
+<span class="lineNum">      89 </span><span class="lineNoCov">          0 :         assert(!name.empty());</span>
+<span class="lineNum">      90 </span><span class="lineNoCov">          0 :         if (name.empty())</span>
+<span class="lineNum">      91 </span><span class="lineNoCov">          0 :           throw std::runtime_error(std::string(&quot;Malformed header: &quot;) +</span>
+<span class="lineNum">      92 </span><span class="lineNoCov">          0 :                                    header_line);</span>
+<span class="lineNum">      93 </span><span class="lineNoCov">          0 :         response_ &lt;&lt; header(name, trim_left_copy(header_line));</span>
+<span class="lineNum">      94 </span><span class="lineCov">        147 :       } else if ((colon_offset = header_line.find_first_of(':')) !=</span>
+<span class="lineNum">      95 </span>            :                  string_type::npos) {
+<span class="lineNum">      96 </span><span class="lineCov">        147 :         name = header_line.substr(0, colon_offset);</span>
+<span class="lineNum">      97 </span><span class="lineCov">        147 :         response_ &lt;&lt; header(name, header_line.substr(colon_offset + 2));</span>
+<span class="lineNum">      98 </span>            :       }
+<span class="lineNum">      99 </span>            :     }
+<span class="lineNum">     100 </span><span class="lineCov">         36 :   }</span>
+<a name="101"><span class="lineNum">     101 </span>            : </a>
+<span class="lineNum">     102 </span>            :   template &lt;class Socket&gt;
+<span class="lineNum">     103 </span><span class="lineCov">         36 :   void send_request_impl(Socket&amp; socket_, string_type const&amp; method,</span>
+<span class="lineNum">     104 </span>            :                          boost::asio::streambuf&amp; request_buffer) {
+<span class="lineNum">     105 </span>            :     // TODO(dberris): review parameter necessity.
+<span class="lineNum">     106 </span>            :     (void)method;
+<span class="lineNum">     107 </span>            : 
+<span class="lineNum">     108 </span><span class="lineCov">         36 :     write(socket_, request_buffer);</span>
+<span class="lineNum">     109 </span><span class="lineCov">         36 :   }</span>
+<a name="110"><span class="lineNum">     110 </span>            : </a>
+<span class="lineNum">     111 </span>            :   template &lt;class Socket&gt;
+<span class="lineNum">     112 </span><span class="lineCov">          4 :   void read_body_normal(Socket&amp; socket_, basic_response&lt;Tag&gt;&amp; response_,</span>
+<span class="lineNum">     113 </span>            :                         boost::asio::streambuf&amp; response_buffer,
+<span class="lineNum">     114 </span>            :                         typename ostringstream&lt;Tag&gt;::type&amp; body_stream) {
+<span class="lineNum">     115 </span>            :     // TODO(dberris): review parameter necessity.
+<span class="lineNum">     116 </span>            :     (void)response_;
+<span class="lineNum">     117 </span>            : 
+<span class="lineNum">     118 </span><span class="lineCov">          4 :     boost::system::error_code error;</span>
+<span class="lineNum">     119 </span><span class="lineCov">          4 :     if (response_buffer.size() &gt; 0) body_stream &lt;&lt; &amp;response_buffer;</span>
+<span class="lineNum">     120 </span>            : 
+<span class="lineNum">     121 </span><span class="lineCov">          4 :     while (boost::asio::read(socket_, response_buffer,</span>
+<span class="lineNum">     122 </span>            :                              boost::asio::transfer_at_least(1), error)) {
+<span class="lineNum">     123 </span><span class="lineNoCov">          0 :       body_stream &lt;&lt; &amp;response_buffer;</span>
+<span class="lineNum">     124 </span>            :     }
+<span class="lineNum">     125 </span><span class="lineCov">          4 :   }</span>
+<a name="126"><span class="lineNum">     126 </span>            : </a>
+<span class="lineNum">     127 </span>            :   template &lt;class Socket&gt;
+<span class="lineNum">     128 </span><span class="lineCov">         36 :   void read_body_transfer_chunk_encoding(</span>
+<span class="lineNum">     129 </span>            :       Socket&amp; socket_, basic_response&lt;Tag&gt;&amp; response_,
+<span class="lineNum">     130 </span>            :       boost::asio::streambuf&amp; response_buffer,
+<span class="lineNum">     131 </span>            :       typename ostringstream&lt;Tag&gt;::type&amp; body_stream) {
+<span class="lineNum">     132 </span><span class="lineCov">         36 :     boost::system::error_code error;</span>
+<span class="lineNum">     133 </span>            :     // look for the content-length header
+<span class="lineNum">     134 </span>            :     typename headers_range&lt;basic_response&lt;Tag&gt; &gt;::type content_length_range =
+<span class="lineNum">     135 </span><span class="lineCov">         36 :         headers(response_)[&quot;Content-Length&quot;];</span>
+<span class="lineNum">     136 </span><span class="lineCov">         36 :     if (boost::empty(content_length_range)) {</span>
+<span class="lineNum">     137 </span>            :       typename headers_range&lt;basic_response&lt;Tag&gt; &gt;::type
+<span class="lineNum">     138 </span><span class="lineCov">          4 :           transfer_encoding_range = headers(response_)[&quot;Transfer-Encoding&quot;];</span>
+<span class="lineNum">     139 </span><span class="lineCov">          4 :       if (boost::empty(transfer_encoding_range)) {</span>
+<span class="lineNum">     140 </span><span class="lineCov">          4 :         read_body_normal(socket_, response_, response_buffer, body_stream);</span>
+<span class="lineNum">     141 </span><span class="lineCov">          4 :         return;</span>
+<span class="lineNum">     142 </span>            :       }
+<span class="lineNum">     143 </span><span class="lineNoCov">          0 :       if (boost::iequals(boost::begin(transfer_encoding_range)-&gt;second,</span>
+<span class="lineNum">     144 </span>            :                          &quot;chunked&quot;)) {
+<span class="lineNum">     145 </span><span class="lineNoCov">          0 :         bool stopping = false;</span>
+<span class="lineNum">     146 </span><span class="lineNoCov">          0 :         do {</span>
+<span class="lineNum">     147 </span>            :           std::size_t chunk_size_line =
+<span class="lineNum">     148 </span><span class="lineNoCov">          0 :               read_until(socket_, response_buffer, &quot;\r\n&quot;, error);</span>
+<span class="lineNum">     149 </span><span class="lineNoCov">          0 :           if ((chunk_size_line == 0) &amp;&amp; (error != boost::asio::error::eof))</span>
+<span class="lineNum">     150 </span><span class="lineNoCov">          0 :             throw boost::system::system_error(error);</span>
+<span class="lineNum">     151 </span><span class="lineNoCov">          0 :           std::size_t chunk_size = 0;</span>
+<span class="lineNum">     152 </span><span class="lineNoCov">          0 :           string_type data;</span>
+<span class="lineNum">     153 </span>            :           {
+<span class="lineNum">     154 </span><span class="lineNoCov">          0 :             std::istream chunk_stream(&amp;response_buffer);</span>
+<span class="lineNum">     155 </span><span class="lineNoCov">          0 :             std::getline(chunk_stream, data);</span>
+<span class="lineNum">     156 </span><span class="lineNoCov">          0 :             typename istringstream&lt;Tag&gt;::type chunk_size_stream(data);</span>
+<span class="lineNum">     157 </span><span class="lineNoCov">          0 :             chunk_size_stream &gt;&gt; std::hex &gt;&gt; chunk_size;</span>
+<span class="lineNum">     158 </span>            :           }
+<span class="lineNum">     159 </span><span class="lineNoCov">          0 :           if (chunk_size == 0) {</span>
+<span class="lineNum">     160 </span><span class="lineNoCov">          0 :             stopping = true;</span>
+<span class="lineNum">     161 </span><span class="lineNoCov">          0 :             if (!read_until(socket_, response_buffer, &quot;\r\n&quot;, error) &amp;&amp;</span>
+<span class="lineNum">     162 </span><span class="lineNoCov">          0 :                 (error != boost::asio::error::eof))</span>
+<span class="lineNum">     163 </span><span class="lineNoCov">          0 :               throw boost::system::system_error(error);</span>
+<span class="lineNum">     164 </span>            :           } else {
+<span class="lineNum">     165 </span><span class="lineNoCov">          0 :             bool stopping_inner = false;</span>
+<span class="lineNum">     166 </span><span class="lineNoCov">          0 :             do {</span>
+<span class="lineNum">     167 </span><span class="lineNoCov">          0 :               if (response_buffer.size() &lt; (chunk_size + 2)) {</span>
+<span class="lineNum">     168 </span>            :                 std::size_t bytes_to_read =
+<span class="lineNum">     169 </span><span class="lineNoCov">          0 :                     (chunk_size + 2) - response_buffer.size();</span>
+<span class="lineNum">     170 </span>            :                 std::size_t chunk_bytes_read =
+<span class="lineNum">     171 </span><span class="lineNoCov">          0 :                     read(socket_, response_buffer,</span>
+<span class="lineNum">     172 </span><span class="lineNoCov">          0 :                          boost::asio::transfer_at_least(bytes_to_read), error);</span>
+<span class="lineNum">     173 </span><span class="lineNoCov">          0 :                 if (chunk_bytes_read == 0) {</span>
+<span class="lineNum">     174 </span><span class="lineNoCov">          0 :                   if (error != boost::asio::error::eof)</span>
+<span class="lineNum">     175 </span><span class="lineNoCov">          0 :                     throw boost::system::system_error(error);</span>
+<span class="lineNum">     176 </span><span class="lineNoCov">          0 :                   stopping_inner = true;</span>
+<span class="lineNum">     177 </span>            :                 }
+<span class="lineNum">     178 </span>            :               }
+<span class="lineNum">     179 </span>            : 
+<span class="lineNum">     180 </span><span class="lineNoCov">          0 :               std::istreambuf_iterator&lt;char&gt; eos;</span>
+<span class="lineNum">     181 </span><span class="lineNoCov">          0 :               std::istreambuf_iterator&lt;char&gt; stream_iterator(&amp;response_buffer);</span>
+<span class="lineNum">     182 </span><span class="lineNoCov">          0 :               for (; chunk_size &gt; 0 &amp;&amp; stream_iterator != eos; --chunk_size)</span>
+<span class="lineNum">     183 </span><span class="lineNoCov">          0 :                 body_stream &lt;&lt; *stream_iterator++;</span>
+<span class="lineNum">     184 </span><span class="lineNoCov">          0 :               response_buffer.consume(2);</span>
+<span class="lineNum">     185 </span><span class="lineNoCov">          0 :             } while (!stopping_inner &amp;&amp; chunk_size != 0);</span>
+<span class="lineNum">     186 </span>            : 
+<span class="lineNum">     187 </span><span class="lineNoCov">          0 :             if (chunk_size != 0)</span>
+<span class="lineNum">     188 </span><span class="lineNoCov">          0 :               throw std::runtime_error(</span>
+<span class="lineNum">     189 </span>            :                   &quot;Size mismatch between tranfer encoding chunk data &quot;
+<span class="lineNum">     190 </span><span class="lineNoCov">          0 :                   &quot;size and declared chunk size.&quot;);</span>
+<span class="lineNum">     191 </span>            :           }
+<span class="lineNum">     192 </span><span class="lineNoCov">          0 :         } while (!stopping);</span>
+<span class="lineNum">     193 </span>            :       } else
+<span class="lineNum">     194 </span><span class="lineNoCov">          0 :         throw std::runtime_error(&quot;Unsupported Transfer-Encoding.&quot;);</span>
+<span class="lineNum">     195 </span>            :     } else {
+<span class="lineNum">     196 </span><span class="lineCov">         32 :       size_t already_read = response_buffer.size();</span>
+<span class="lineNum">     197 </span><span class="lineCov">         32 :       if (already_read) body_stream &lt;&lt; &amp;response_buffer;</span>
+<span class="lineNum">     198 </span>            :       size_t length =
+<span class="lineNum">     199 </span><span class="lineCov">         64 :           lexical_cast&lt;size_t&gt;(boost::begin(content_length_range)-&gt;second) -</span>
+<span class="lineNum">     200 </span><span class="lineCov">         32 :           already_read;</span>
+<span class="lineNum">     201 </span><span class="lineCov">         32 :       if (length == 0) return;</span>
+<span class="lineNum">     202 </span><span class="lineNoCov">          0 :       size_t bytes_read = 0;</span>
+<span class="lineNum">     203 </span><span class="lineNoCov">          0 :       while ((bytes_read = boost::asio::read(socket_, response_buffer,</span>
+<span class="lineNum">     204 </span>            :                                              boost::asio::transfer_at_least(1),
+<span class="lineNum">     205 </span>            :                                              error))) {
+<span class="lineNum">     206 </span><span class="lineNoCov">          0 :         body_stream &lt;&lt; &amp;response_buffer;</span>
+<span class="lineNum">     207 </span><span class="lineNoCov">          0 :         length -= bytes_read;</span>
+<span class="lineNum">     208 </span><span class="lineNoCov">          0 :         if ((length &lt;= 0) || error) break;</span>
+<span class="lineNum">     209 </span>            :       }
+<span class="lineNum">     210 </span>            :     }
+<span class="lineNum">     211 </span>            :   }
+<a name="212"><span class="lineNum">     212 </span>            : </a>
+<span class="lineNum">     213 </span>            :   template &lt;class Socket&gt;
+<span class="lineNum">     214 </span><span class="lineCov">         36 :   void read_body(Socket&amp; socket_, basic_response&lt;Tag&gt;&amp; response_,</span>
+<span class="lineNum">     215 </span>            :                  boost::asio::streambuf&amp; response_buffer) {
+<span class="lineNum">     216 </span><span class="lineCov">         72 :     typename ostringstream&lt;Tag&gt;::type body_stream;</span>
+<span class="lineNum">     217 </span>            :     // TODO tag dispatch based on whether it's HTTP 1.0 or HTTP 1.1
+<span class="lineNum">     218 </span>            :     if (version_major == 1 &amp;&amp; version_minor == 0) {
+<span class="lineNum">     219 </span>            :       read_body_normal(socket_, response_, response_buffer, body_stream);
+<span class="lineNum">     220 </span>            :     } else if (version_major == 1 &amp;&amp; version_minor == 1) {
+<span class="lineNum">     221 </span><span class="lineCov">         36 :       if (response_.version() == &quot;HTTP/1.0&quot;)</span>
+<span class="lineNum">     222 </span><span class="lineNoCov">          0 :         read_body_normal(socket_, response_, response_buffer, body_stream);</span>
+<span class="lineNum">     223 </span>            :       else
+<span class="lineNum">     224 </span><span class="lineCov">         36 :         read_body_transfer_chunk_encoding(socket_, response_, response_buffer,</span>
+<span class="lineNum">     225 </span>            :                                           body_stream);
+<span class="lineNum">     226 </span>            :     } else {
+<span class="lineNum">     227 </span>            :       throw std::runtime_error(&quot;Unsupported HTTP version number.&quot;);
+<span class="lineNum">     228 </span>            :     }
+<span class="lineNum">     229 </span>            : 
+<span class="lineNum">     230 </span><span class="lineCov">         36 :     response_ &lt;&lt; network::body(body_stream.str());</span>
+<span class="lineNum">     231 </span><span class="lineCov">         36 :   }</span>
+<span class="lineNum">     232 </span>            : };
+<span class="lineNum">     233 </span>            : 
+<span class="lineNum">     234 </span>            : template &lt;class Tag, unsigned version_major, unsigned version_minor&gt;
+<span class="lineNum">     235 </span>            : struct sync_connection_base {
+<span class="lineNum">     236 </span>            :   typedef typename resolver_policy&lt;Tag&gt;::type resolver_base;
+<span class="lineNum">     237 </span>            :   typedef typename resolver_base::resolver_type resolver_type;
+<span class="lineNum">     238 </span>            :   typedef typename string&lt;Tag&gt;::type string_type;
+<span class="lineNum">     239 </span>            :   typedef function&lt;typename resolver_base::resolver_iterator_pair(
+<span class="lineNum">     240 </span>            :       resolver_type&amp;, string_type const&amp;, string_type const&amp;)&gt;
+<span class="lineNum">     241 </span>            :       resolver_function_type;
+<span class="lineNum">     242 </span>            :   typedef function&lt;bool(string_type&amp;)&gt; body_generator_function_type;
+<span class="lineNum">     243 </span>            : 
+<span class="lineNum">     244 </span>            :   // FIXME make the certificate filename and verify path parameters be
+<span class="lineNum">     245 </span>            :   // optional
+<a name="246"><span class="lineNum">     246 </span>            :   // ranges</a>
+<span class="lineNum">     247 </span>            :   static sync_connection_base&lt;Tag, version_major, version_minor&gt;*
+<span class="lineNum">     248 </span><span class="lineCov">         36 :       new_connection(</span>
+<span class="lineNum">     249 </span>            :           resolver_type&amp; resolver, resolver_function_type resolve, bool https,
+<span class="lineNum">     250 </span>            :           bool always_verify_peer, int timeout,
+<span class="lineNum">     251 </span>            :           optional&lt;string_type&gt; const&amp; certificate_filename =
+<span class="lineNum">     252 </span>            :               optional&lt;string_type&gt;(),
+<span class="lineNum">     253 </span>            :           optional&lt;string_type&gt; const&amp; verify_path = optional&lt;string_type&gt;(),
+<span class="lineNum">     254 </span>            :           optional&lt;string_type&gt; const&amp; certificate_file =
+<span class="lineNum">     255 </span>            :               optional&lt;string_type&gt;(),
+<span class="lineNum">     256 </span>            :           optional&lt;string_type&gt; const&amp; private_key_file =
+<span class="lineNum">     257 </span>            :               optional&lt;string_type&gt;(),
+<span class="lineNum">     258 </span>            :           optional&lt;string_type&gt; const&amp; ciphers = optional&lt;string_type&gt;(),
+<span class="lineNum">     259 </span>            :           long ssl_options = 0) {
+<span class="lineNum">     260 </span><span class="lineCov">         36 :     if (https) {</span>
+<span class="lineNum">     261 </span>            : #ifdef BOOST_NETWORK_ENABLE_HTTPS
+<span class="lineNum">     262 </span>            :       return dynamic_cast&lt;
+<span class="lineNum">     263 </span>            :           sync_connection_base&lt;Tag, version_major, version_minor&gt;*&gt;(
+<span class="lineNum">     264 </span>            :           new https_sync_connection&lt;Tag, version_major, version_minor&gt;(
+<span class="lineNum">     265 </span>            :               resolver, resolve, always_verify_peer, timeout,
+<span class="lineNum">     266 </span>            :               certificate_filename, verify_path, certificate_file,
+<span class="lineNum">     267 </span>            :               private_key_file, ciphers, ssl_options));
+<span class="lineNum">     268 </span>            : #else
+<span class="lineNum">     269 </span><span class="lineNoCov">          0 :       throw std::runtime_error(&quot;HTTPS not supported.&quot;);</span>
+<span class="lineNum">     270 </span>            : #endif
+<span class="lineNum">     271 </span>            :     }
+<span class="lineNum">     272 </span><span class="lineCov">        108 :     return dynamic_cast&lt;</span>
+<span class="lineNum">     273 </span>            :         sync_connection_base&lt;Tag, version_major, version_minor&gt;*&gt;(
+<span class="lineNum">     274 </span><span class="lineCov">         36 :         new http_sync_connection&lt;Tag, version_major, version_minor&gt;(</span>
+<span class="lineNum">     275 </span><span class="lineCov">         72 :             resolver, resolve, timeout));</span>
+<span class="lineNum">     276 </span>            :   }
+<span class="lineNum">     277 </span>            : 
+<span class="lineNum">     278 </span>            :   virtual void init_socket(string_type const&amp; hostname,
+<span class="lineNum">     279 </span>            :                            string_type const&amp; port) = 0;
+<span class="lineNum">     280 </span>            :   virtual void send_request_impl(string_type const&amp; method,
+<span class="lineNum">     281 </span>            :                                  basic_request&lt;Tag&gt; const&amp; request_,
+<span class="lineNum">     282 </span>            :                                  body_generator_function_type generator) = 0;
+<span class="lineNum">     283 </span>            :   virtual void read_status(basic_response&lt;Tag&gt;&amp; response_,
+<span class="lineNum">     284 </span>            :                            boost::asio::streambuf&amp; response_buffer) = 0;
+<span class="lineNum">     285 </span>            :   virtual void read_headers(basic_response&lt;Tag&gt;&amp; response_,
+<span class="lineNum">     286 </span>            :                             boost::asio::streambuf&amp; response_buffer) = 0;
+<span class="lineNum">     287 </span>            :   virtual void read_body(basic_response&lt;Tag&gt;&amp; response_,
+<span class="lineNum">     288 </span>            :                          boost::asio::streambuf&amp; response_buffer) = 0;
+<a name="289"><span class="lineNum">     289 </span>            :   virtual bool is_open() = 0;</a>
+<span class="lineNum">     290 </span>            :   virtual void close_socket() = 0;
+<span class="lineNum">     291 </span><span class="lineCov">         36 :   virtual ~sync_connection_base() {}</span>
+<a name="292"><span class="lineNum">     292 </span>            : </a>
+<span class="lineNum">     293 </span>            :  protected:
+<span class="lineNum">     294 </span><span class="lineCov">         36 :   sync_connection_base() {}</span>
+<span class="lineNum">     295 </span>            : };
+<span class="lineNum">     296 </span>            : 
+<span class="lineNum">     297 </span>            : }  // namespace impl
+<span class="lineNum">     298 </span>            : }  // namespace http
+<span class="lineNum">     299 </span>            : }  // namespace network
+<span class="lineNum">     300 </span>            : }  // namespace boost
+<span class="lineNum">     301 </span>            : 
+<span class="lineNum">     302 </span>            : #endif  // BOOST_NETWORK_PROTOCOL_HTTP_IMPL_SYNC_CONNECTION_BASE_20091217
+</pre>
+      </td>
+    </tr>
+  </table>
+  <br>
+
+  <table width="100%" border=0 cellspacing=0 cellpadding=0>
+    <tr><td class="ruler"><img src="../../../../../../../glass.png" width=3 height=3 alt=""></td></tr>
+    <tr><td class="versionInfo">Generated by: <a href="http://ltp.sourceforge.net/coverage/lcov.php" target="_parent">LCOV version 1.11</a></td></tr>
+  </table>
+  <br>
+
+</body>
+</html>

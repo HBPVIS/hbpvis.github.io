@@ -1,0 +1,211 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN">
+
+<html lang="en">
+
+<head>
+  <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+  <title>LCOV - ZeroEQ - cppnetlib/boost/network/message.hpp</title>
+  <link rel="stylesheet" type="text/css" href="../../../gcov.css">
+</head>
+
+<body>
+
+  <table width="100%" border=0 cellspacing=0 cellpadding=0>
+    <tr><td class="title">LCOV - code coverage report</td></tr>
+    <tr><td class="ruler"><img src="../../../glass.png" width=3 height=3 alt=""></td></tr>
+
+    <tr>
+      <td width="100%">
+        <table cellpadding=1 border=0 width="100%">
+          <tr>
+            <td width="10%" class="headerItem">Current view:</td>
+            <td width="35%" class="headerValue"><a href="../../../index.html">top level</a> - <a href="index.html">cppnetlib/boost/network</a> - message.hpp<span style="font-size: 80%;"> (source / <a href="message.hpp.func-sort-c.html">functions</a>)</span></td>
+            <td width="5%"></td>
+            <td width="15%"></td>
+            <td width="10%" class="headerCovTableHead">Hit</td>
+            <td width="10%" class="headerCovTableHead">Total</td>
+            <td width="15%" class="headerCovTableHead">Coverage</td>
+          </tr>
+          <tr>
+            <td class="headerItem">Test:</td>
+            <td class="headerValue">ZeroEQ</td>
+            <td></td>
+            <td class="headerItem">Lines:</td>
+            <td class="headerCovTableEntry">22</td>
+            <td class="headerCovTableEntry">22</td>
+            <td class="headerCovTableEntryHi">100.0 %</td>
+          </tr>
+          <tr>
+            <td class="headerItem">Date:</td>
+            <td class="headerValue">2017-01-31 01:48:09</td>
+            <td></td>
+            <td class="headerItem">Functions:</td>
+            <td class="headerCovTableEntry">12</td>
+            <td class="headerCovTableEntry">12</td>
+            <td class="headerCovTableEntryHi">100.0 %</td>
+          </tr>
+          <tr><td><img src="../../../glass.png" width=3 height=3 alt=""></td></tr>
+        </table>
+      </td>
+    </tr>
+
+    <tr><td class="ruler"><img src="../../../glass.png" width=3 height=3 alt=""></td></tr>
+  </table>
+
+  <table cellpadding=0 cellspacing=0 border=0>
+    <tr>
+      <td><br></td>
+    </tr>
+    <tr>
+      <td>
+<pre class="sourceHeading">          Line data    Source code</pre>
+<pre class="source">
+<a name="1"><span class="lineNum">       1 </span>            : //          Copyright Dean Michael Berris 2007.</a>
+<span class="lineNum">       2 </span>            : // Distributed under the Boost Software License, Version 1.0.
+<span class="lineNum">       3 </span>            : //    (See accompanying file LICENSE_1_0.txt or copy at
+<span class="lineNum">       4 </span>            : //          http://www.boost.org/LICENSE_1_0.txt)
+<span class="lineNum">       5 </span>            : 
+<span class="lineNum">       6 </span>            : #ifndef __NETWORK_MESSAGE_HPP__
+<span class="lineNum">       7 </span>            : #define __NETWORK_MESSAGE_HPP__
+<span class="lineNum">       8 </span>            : 
+<span class="lineNum">       9 </span>            : #include &lt;boost/network/message_fwd.hpp&gt;
+<span class="lineNum">      10 </span>            : #include &lt;boost/network/traits/string.hpp&gt;
+<span class="lineNum">      11 </span>            : #include &lt;boost/network/traits/ostringstream.hpp&gt;
+<span class="lineNum">      12 </span>            : #include &lt;boost/network/traits/headers_container.hpp&gt;
+<span class="lineNum">      13 </span>            : #include &lt;boost/network/detail/directive_base.hpp&gt;
+<span class="lineNum">      14 </span>            : #include &lt;boost/network/detail/wrapper_base.hpp&gt;
+<span class="lineNum">      15 </span>            : #include &lt;boost/network/message/directives.hpp&gt;
+<span class="lineNum">      16 </span>            : #include &lt;boost/network/message/wrappers.hpp&gt;
+<span class="lineNum">      17 </span>            : #include &lt;boost/network/message/transformers.hpp&gt;
+<span class="lineNum">      18 </span>            : 
+<span class="lineNum">      19 </span>            : #include &lt;boost/network/message/modifiers/add_header.hpp&gt;
+<span class="lineNum">      20 </span>            : #include &lt;boost/network/message/modifiers/remove_header.hpp&gt;
+<span class="lineNum">      21 </span>            : #include &lt;boost/network/message/modifiers/clear_headers.hpp&gt;
+<span class="lineNum">      22 </span>            : #include &lt;boost/network/message/modifiers/source.hpp&gt;
+<span class="lineNum">      23 </span>            : #include &lt;boost/network/message/modifiers/destination.hpp&gt;
+<span class="lineNum">      24 </span>            : #include &lt;boost/network/message/modifiers/body.hpp&gt;
+<span class="lineNum">      25 </span>            : 
+<span class="lineNum">      26 </span>            : #include &lt;boost/network/message/message_concept.hpp&gt;
+<span class="lineNum">      27 </span>            : 
+<span class="lineNum">      28 </span>            : /** message.hpp
+<span class="lineNum">      29 </span>            :  *
+<span class="lineNum">      30 </span>            :  * This header file implements the common message type which
+<span class="lineNum">      31 </span>            :  * all networking implementations under the boost::network
+<span class="lineNum">      32 </span>            :  * namespace. The common message type allows for easy message
+<span class="lineNum">      33 </span>            :  * construction and manipulation suited for networked
+<span class="lineNum">      34 </span>            :  * application development.
+<span class="lineNum">      35 </span>            :  */
+<span class="lineNum">      36 </span>            : namespace boost {
+<span class="lineNum">      37 </span>            : namespace network {
+<span class="lineNum">      38 </span>            : 
+<span class="lineNum">      39 </span>            : /** The common message type.
+<a name="40"><span class="lineNum">      40 </span>            :  */</a>
+<span class="lineNum">      41 </span>            : template &lt;class Tag&gt;
+<span class="lineNum">      42 </span><span class="lineCov">        851 : struct basic_message {</span>
+<span class="lineNum">      43 </span>            :  public:
+<span class="lineNum">      44 </span>            :   typedef Tag tag;
+<span class="lineNum">      45 </span>            : 
+<span class="lineNum">      46 </span>            :   typedef typename headers_container&lt;Tag&gt;::type headers_container_type;
+<span class="lineNum">      47 </span>            :   typedef typename headers_container_type::value_type header_type;
+<a name="48"><span class="lineNum">      48 </span>            :   typedef typename string&lt;Tag&gt;::type string_type;</a>
+<span class="lineNum">      49 </span>            : 
+<a name="50"><span class="lineNum">      50 </span><span class="lineCov">        164 :   basic_message() : _headers(), _body(), _source(), _destination() {}</span></a>
+<span class="lineNum">      51 </span>            : 
+<span class="lineNum">      52 </span><span class="lineCov">        687 :   basic_message(const basic_message&amp; other)</span>
+<span class="lineNum">      53 </span>            :       : _headers(other._headers),
+<span class="lineNum">      54 </span>            :         _body(other._body),
+<span class="lineNum">      55 </span>            :         _source(other._source),
+<a name="56"><span class="lineNum">      56 </span><span class="lineCov">        687 :         _destination(other._destination) {}</span></a>
+<span class="lineNum">      57 </span>            : 
+<span class="lineNum">      58 </span><span class="lineCov">        284 :   basic_message&amp; operator=(basic_message&lt;Tag&gt; rhs) {</span>
+<span class="lineNum">      59 </span><span class="lineCov">        284 :     rhs.swap(*this);</span>
+<span class="lineNum">      60 </span><span class="lineCov">        284 :     return *this;</span>
+<a name="61"><span class="lineNum">      61 </span>            :   }</a>
+<span class="lineNum">      62 </span>            : 
+<span class="lineNum">      63 </span><span class="lineCov">        284 :   void swap(basic_message&lt;Tag&gt;&amp; other) {</span>
+<span class="lineNum">      64 </span><span class="lineCov">        284 :     std::swap(other._headers, _headers);</span>
+<span class="lineNum">      65 </span><span class="lineCov">        284 :     std::swap(other._body, _body);</span>
+<span class="lineNum">      66 </span><span class="lineCov">        284 :     std::swap(other._source, _source);</span>
+<span class="lineNum">      67 </span><span class="lineCov">        284 :     std::swap(other._destination, _destination);</span>
+<a name="68"><span class="lineNum">      68 </span><span class="lineCov">        284 :   }</span></a>
+<span class="lineNum">      69 </span>            : 
+<span class="lineNum">      70 </span><span class="lineCov">        257 :   headers_container_type&amp; headers() { return _headers; }</span>
+<span class="lineNum">      71 </span>            : 
+<span class="lineNum">      72 </span>            :   void headers(headers_container_type const&amp; headers_) const {
+<span class="lineNum">      73 </span>            :     _headers = headers_;
+<a name="74"><span class="lineNum">      74 </span>            :   }</a>
+<span class="lineNum">      75 </span>            : 
+<span class="lineNum">      76 </span><span class="lineCov">        253 :   void add_header(typename headers_container_type::value_type const&amp; pair_)</span>
+<span class="lineNum">      77 </span>            :       const {
+<span class="lineNum">      78 </span><span class="lineCov">        253 :     _headers.insert(pair_);</span>
+<span class="lineNum">      79 </span><span class="lineCov">        253 :   }</span>
+<span class="lineNum">      80 </span>            : 
+<span class="lineNum">      81 </span>            :   void remove_header(typename headers_container_type::key_type const&amp; key)
+<span class="lineNum">      82 </span>            :       const {
+<span class="lineNum">      83 </span>            :     _headers.erase(key);
+<a name="84"><span class="lineNum">      84 </span>            :   }</a>
+<span class="lineNum">      85 </span>            : 
+<a name="86"><span class="lineNum">      86 </span><span class="lineCov">        230 :   headers_container_type const&amp; headers() const { return _headers; }</span></a>
+<span class="lineNum">      87 </span>            : 
+<a name="88"><span class="lineNum">      88 </span><span class="lineCov">         70 :   string_type&amp; body() { return _body; }</span></a>
+<span class="lineNum">      89 </span>            : 
+<a name="90"><span class="lineNum">      90 </span><span class="lineCov">         66 :   void body(string_type const&amp; body_) const { _body = body_; }</span></a>
+<span class="lineNum">      91 </span>            : 
+<span class="lineNum">      92 </span><span class="lineCov">        106 :   string_type const&amp; body() const { return _body; }</span>
+<span class="lineNum">      93 </span>            : 
+<a name="94"><span class="lineNum">      94 </span>            :   string_type&amp; source() { return _source; }</a>
+<span class="lineNum">      95 </span>            : 
+<span class="lineNum">      96 </span><span class="lineCov">         36 :   void source(string_type const&amp; source_) const { _source = source_; }</span>
+<span class="lineNum">      97 </span>            : 
+<span class="lineNum">      98 </span>            :   string_type const&amp; source() const { return _source; }
+<span class="lineNum">      99 </span>            : 
+<span class="lineNum">     100 </span>            :   string_type&amp; destination() { return _destination; }
+<span class="lineNum">     101 </span>            : 
+<span class="lineNum">     102 </span>            :   void destination(string_type const&amp; destination_) const {
+<span class="lineNum">     103 </span>            :     _destination = destination_;
+<span class="lineNum">     104 </span>            :   }
+<span class="lineNum">     105 </span>            : 
+<span class="lineNum">     106 </span>            :   string_type const&amp; destination() const { return _destination; }
+<span class="lineNum">     107 </span>            : 
+<span class="lineNum">     108 </span>            :  private:
+<span class="lineNum">     109 </span>            :   friend struct detail::directive_base&lt;Tag&gt;;
+<span class="lineNum">     110 </span>            :   friend struct detail::wrapper_base&lt;Tag, basic_message&lt;Tag&gt; &gt;;
+<span class="lineNum">     111 </span>            : 
+<span class="lineNum">     112 </span>            :   mutable headers_container_type _headers;
+<span class="lineNum">     113 </span>            :   mutable string_type _body;
+<span class="lineNum">     114 </span>            :   mutable string_type _source;
+<span class="lineNum">     115 </span>            :   mutable string_type _destination;
+<span class="lineNum">     116 </span>            : };
+<span class="lineNum">     117 </span>            : 
+<span class="lineNum">     118 </span>            : template &lt;class Tag&gt;
+<span class="lineNum">     119 </span>            : inline void swap(basic_message&lt;Tag&gt;&amp; left, basic_message&lt;Tag&gt;&amp; right) {
+<span class="lineNum">     120 </span>            :   // swap for ADL
+<span class="lineNum">     121 </span>            :   left.swap(right);
+<span class="lineNum">     122 </span>            : }
+<span class="lineNum">     123 </span>            : 
+<span class="lineNum">     124 </span>            : // Commenting this out as we don't need to do this anymore.
+<span class="lineNum">     125 </span>            : // BOOST_CONCEPT_ASSERT((Message&lt;basic_message&lt;boost::network::tags::default_string&gt;
+<span class="lineNum">     126 </span>            : // &gt;));
+<span class="lineNum">     127 </span>            : // BOOST_CONCEPT_ASSERT((Message&lt;basic_message&lt;boost::network::tags::default_wstring&gt;
+<span class="lineNum">     128 </span>            : // &gt;));
+<span class="lineNum">     129 </span>            : typedef basic_message&lt;tags::default_string&gt; message;
+<span class="lineNum">     130 </span>            : typedef basic_message&lt;tags::default_wstring&gt; wmessage;
+<span class="lineNum">     131 </span>            : 
+<span class="lineNum">     132 </span>            : }  // namespace network
+<span class="lineNum">     133 </span>            : }  // namespace boost
+<span class="lineNum">     134 </span>            : 
+<span class="lineNum">     135 </span>            : #endif  // __NETWORK_MESSAGE_HPP__
+</pre>
+      </td>
+    </tr>
+  </table>
+  <br>
+
+  <table width="100%" border=0 cellspacing=0 cellpadding=0>
+    <tr><td class="ruler"><img src="../../../glass.png" width=3 height=3 alt=""></td></tr>
+    <tr><td class="versionInfo">Generated by: <a href="http://ltp.sourceforge.net/coverage/lcov.php" target="_parent">LCOV version 1.11</a></td></tr>
+  </table>
+  <br>
+
+</body>
+</html>
