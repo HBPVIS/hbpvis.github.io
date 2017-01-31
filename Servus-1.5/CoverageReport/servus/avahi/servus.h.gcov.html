@@ -37,7 +37,7 @@
           </tr>
           <tr>
             <td class="headerItem">Date:</td>
-            <td class="headerValue">2017-01-05 03:07:10</td>
+            <td class="headerValue">2017-01-31 03:06:26</td>
             <td></td>
             <td class="headerItem">Functions:</td>
             <td class="headerCovTableEntry">21</td>
@@ -102,12 +102,12 @@
 <span class="lineNum">      40 </span>            : {
 <a name="41"><span class="lineNum">      41 </span>            : static std::mutex _mutex;</a>
 <span class="lineNum">      42 </span>            : 
-<span class="lineNum">      43 </span><span class="lineCov">         41 : int64_t _elapsedMilliseconds(</span>
+<span class="lineNum">      43 </span><span class="lineCov">         39 : int64_t _elapsedMilliseconds(</span>
 <span class="lineNum">      44 </span>            :     const chrono::high_resolution_clock::time_point&amp; startTime )
 <span class="lineNum">      45 </span>            : {
 <span class="lineNum">      46 </span>            :     const chrono::high_resolution_clock::time_point&amp; endTime =
-<span class="lineNum">      47 </span><span class="lineCov">         41 :         chrono::high_resolution_clock::now();</span>
-<span class="lineNum">      48 </span><span class="lineCov">         41 :     return chrono::nanoseconds( endTime - startTime ).count() / 1000000;</span>
+<span class="lineNum">      47 </span><span class="lineCov">         39 :         chrono::high_resolution_clock::now();</span>
+<span class="lineNum">      48 </span><span class="lineCov">         39 :     return chrono::nanoseconds( endTime - startTime ).count() / 1000000;</span>
 <span class="lineNum">      49 </span>            : }
 <span class="lineNum">      50 </span>            : 
 <span class="lineNum">      51 </span>            : }
@@ -235,17 +235,17 @@
 <span class="lineNum">     173 </span><span class="lineNoCov">          0 :         return servus::Servus::Result( _result );</span>
 <a name="174"><span class="lineNum">     174 </span>            :     }</a>
 <span class="lineNum">     175 </span>            : 
-<span class="lineNum">     176 </span><span class="lineCov">         35 :     servus::Servus::Result browse( const int32_t timeout ) final</span>
+<span class="lineNum">     176 </span><span class="lineCov">         33 :     servus::Servus::Result browse( const int32_t timeout ) final</span>
 <span class="lineNum">     177 </span>            :     {
-<span class="lineNum">     178 </span><span class="lineCov">         70 :         ScopedLock lock( _mutex );</span>
-<span class="lineNum">     179 </span><span class="lineCov">         35 :         _result = servus::Servus::Result::PENDING;</span>
+<span class="lineNum">     178 </span><span class="lineCov">         66 :         ScopedLock lock( _mutex );</span>
+<span class="lineNum">     179 </span><span class="lineCov">         33 :         _result = servus::Servus::Result::PENDING;</span>
 <span class="lineNum">     180 </span>            :         const chrono::high_resolution_clock::time_point&amp; startTime =
-<span class="lineNum">     181 </span><span class="lineCov">         35 :             chrono::high_resolution_clock::now();</span>
+<span class="lineNum">     181 </span><span class="lineCov">         33 :             chrono::high_resolution_clock::now();</span>
 <span class="lineNum">     182 </span>            : 
-<span class="lineNum">     183 </span><span class="lineCov">         35 :         size_t nErrors = 0;</span>
-<span class="lineNum">     184 </span><span class="lineCov">         41 :         do</span>
+<span class="lineNum">     183 </span><span class="lineCov">         33 :         size_t nErrors = 0;</span>
+<span class="lineNum">     184 </span><span class="lineCov">         39 :         do</span>
 <span class="lineNum">     185 </span>            :         {
-<span class="lineNum">     186 </span><span class="lineCov">         41 :             if( avahi_simple_poll_iterate( _poll, timeout ) != 0 )</span>
+<span class="lineNum">     186 </span><span class="lineCov">         39 :             if( avahi_simple_poll_iterate( _poll, timeout ) != 0 )</span>
 <span class="lineNum">     187 </span>            :             {
 <span class="lineNum">     188 </span><span class="lineNoCov">          0 :                 if( ++nErrors &lt; 10 )</span>
 <span class="lineNum">     189 </span><span class="lineNoCov">          0 :                     continue;</span>
@@ -254,12 +254,12 @@
 <span class="lineNum">     192 </span><span class="lineNoCov">          0 :                 break;</span>
 <span class="lineNum">     193 </span>            :             }
 <span class="lineNum">     194 </span>            :         }
-<span class="lineNum">     195 </span><span class="lineCov">         41 :         while( _elapsedMilliseconds( startTime ) &lt; timeout );</span>
+<span class="lineNum">     195 </span><span class="lineCov">         39 :         while( _elapsedMilliseconds( startTime ) &lt; timeout );</span>
 <span class="lineNum">     196 </span>            : 
-<span class="lineNum">     197 </span><span class="lineCov">         35 :         if( _result != servus::Servus::Result::POLL_ERROR )</span>
-<span class="lineNum">     198 </span><span class="lineCov">         35 :             _result = servus::Servus::Result::SUCCESS;</span>
+<span class="lineNum">     197 </span><span class="lineCov">         33 :         if( _result != servus::Servus::Result::POLL_ERROR )</span>
+<span class="lineNum">     198 </span><span class="lineCov">         33 :             _result = servus::Servus::Result::SUCCESS;</span>
 <span class="lineNum">     199 </span>            : 
-<span class="lineNum">     200 </span><span class="lineCov">         70 :         return servus::Servus::Result( _result );</span>
+<span class="lineNum">     200 </span><span class="lineCov">         66 :         return servus::Servus::Result( _result );</span>
 <a name="201"><span class="lineNum">     201 </span>            :     }</a>
 <span class="lineNum">     202 </span>            : 
 <span class="lineNum">     203 </span><span class="lineCov">          8 :     void endBrowsing() final</span>

@@ -37,7 +37,7 @@
           </tr>
           <tr>
             <td class="headerItem">Date:</td>
-            <td class="headerValue">2017-01-05 03:07:10</td>
+            <td class="headerValue">2017-01-31 03:06:26</td>
             <td></td>
             <td class="headerItem">Functions:</td>
             <td class="headerCovTableEntry">17</td>
@@ -92,340 +92,341 @@
 <span class="lineNum">      30 </span>            : // using uint128_t
 <span class="lineNum">      31 </span>            : #  include &lt;basetsd.h&gt;
 <span class="lineNum">      32 </span>            : typedef UINT64     uint64_t;
-<span class="lineNum">      33 </span>            : #else
-<span class="lineNum">      34 </span>            : #  include &lt;stdint.h&gt;
-<span class="lineNum">      35 </span>            : #endif
-<span class="lineNum">      36 </span>            : 
-<span class="lineNum">      37 </span>            : namespace servus
-<span class="lineNum">      38 </span>            : {
-<span class="lineNum">      39 </span>            : class uint128_t;
-<span class="lineNum">      40 </span>            : std::ostream&amp; operator &lt;&lt; ( std::ostream&amp; os, const uint128_t&amp; id );
-<span class="lineNum">      41 </span>            : 
-<span class="lineNum">      42 </span>            : /**
-<span class="lineNum">      43 </span>            :  * A base type for 128 bit unsigned integer values.
-<span class="lineNum">      44 </span>            :  *
-<span class="lineNum">      45 </span>            :  * Example: @include tests/uint128_t.cpp
-<span class="lineNum">      46 </span>            :  */
-<span class="lineNum">      47 </span>            : class uint128_t
-<span class="lineNum">      48 </span>            : {
-<span class="lineNum">      49 </span>            : public:
-<span class="lineNum">      50 </span>            :     /**
-<a name="51"><span class="lineNum">      51 </span>            :      * Construct a new 128 bit integer with a default value.</a>
-<span class="lineNum">      52 </span>            :      */
-<span class="lineNum">      53 </span><span class="lineCov">      99991 :     explicit uint128_t( const unsigned long long low_ = 0 )</span>
-<span class="lineNum">      54 </span><span class="lineCov">      99991 :         : _high( 0 ), _low( low_ ) {}</span>
-<span class="lineNum">      55 </span>            : 
-<span class="lineNum">      56 </span>            :     /**
-<span class="lineNum">      57 </span>            :      * Construct a new 128 bit integer with a default value.
-<span class="lineNum">      58 </span>            :      */
-<span class="lineNum">      59 </span>            :     explicit uint128_t( const unsigned long low_ ) : _high( 0 ), _low( low_ ) {}
-<span class="lineNum">      60 </span>            : 
-<span class="lineNum">      61 </span>            :     /**
-<a name="62"><span class="lineNum">      62 </span>            :      * Construct a new 128 bit integer with a default value.</a>
-<span class="lineNum">      63 </span>            :      */
-<span class="lineNum">      64 </span><span class="lineCov">          1 :     explicit uint128_t( const int low_ ) : _high( 0 ), _low( low_ ) {}</span>
-<span class="lineNum">      65 </span>            : 
-<span class="lineNum">      66 </span>            :     /**
-<a name="67"><span class="lineNum">      67 </span>            :      * Construct a new 128 bit integer with default values.</a>
-<span class="lineNum">      68 </span>            :      **/
-<span class="lineNum">      69 </span><span class="lineCov">          6 :     uint128_t( const uint64_t high_, const uint64_t low_ )</span>
-<span class="lineNum">      70 </span><span class="lineCov">          6 :         : _high( high_ ), _low( low_ ) {}</span>
-<span class="lineNum">      71 </span>            : 
-<span class="lineNum">      72 </span>            :     /**
-<span class="lineNum">      73 </span>            :      * Construct a new 128 bit integer from a string representation.
-<span class="lineNum">      74 </span>            :      **/
-<span class="lineNum">      75 </span>            :     explicit uint128_t( const std::string&amp; string )
-<span class="lineNum">      76 </span>            :         : _high( 0 ), _low( 0 ) { *this = string; }
-<span class="lineNum">      77 </span>            : 
-<span class="lineNum">      78 </span>            :     /**
-<span class="lineNum">      79 </span>            :      * @return true if the uint128_t is a generated universally unique
-<a name="80"><span class="lineNum">      80 </span>            :      *         identifier.</a>
-<span class="lineNum">      81 </span>            :      */
-<span class="lineNum">      82 </span><span class="lineCov">     100003 :     bool isUUID() const { return high() != 0; }</span>
-<a name="83"><span class="lineNum">      83 </span>            : </a>
-<span class="lineNum">      84 </span>            :     /** Assign another 128 bit value. */
-<span class="lineNum">      85 </span><span class="lineCov">         11 :     uint128_t&amp; operator = ( const servus::uint128_t&amp; rhs )</span>
-<span class="lineNum">      86 </span>            :         {
-<span class="lineNum">      87 </span><span class="lineCov">         11 :             _high = rhs._high;</span>
-<span class="lineNum">      88 </span><span class="lineCov">         11 :             _low = rhs._low;</span>
-<span class="lineNum">      89 </span><span class="lineCov">         11 :             return *this;</span>
-<span class="lineNum">      90 </span>            :         }
-<span class="lineNum">      91 </span>            : 
-<span class="lineNum">      92 </span>            :     /** Assign another 64 bit value. */
-<span class="lineNum">      93 </span>            :     uint128_t&amp; operator = ( const uint64_t rhs )
-<span class="lineNum">      94 </span>            :         {
-<span class="lineNum">      95 </span>            :             _high = 0;
-<span class="lineNum">      96 </span>            :             _low = rhs;
-<span class="lineNum">      97 </span>            :             return *this;
-<span class="lineNum">      98 </span>            :         }
-<span class="lineNum">      99 </span>            : 
-<span class="lineNum">     100 </span>            :     /** Assign an integer value. */
-<span class="lineNum">     101 </span>            :     uint128_t&amp; operator = ( const int rhs )
-<span class="lineNum">     102 </span>            :         {
-<span class="lineNum">     103 </span>            :             _high = 0;
-<span class="lineNum">     104 </span>            :             _low = rhs;
-<span class="lineNum">     105 </span>            :             return *this;
-<span class="lineNum">     106 </span>            :         }
-<span class="lineNum">     107 </span>            : 
-<span class="lineNum">     108 </span>            :     /** Assign an 128 bit value from a std::string. */
-<span class="lineNum">     109 </span>            :     SERVUS_API uint128_t&amp; operator = ( const std::string&amp; from );
-<span class="lineNum">     110 </span>            : 
-<span class="lineNum">     111 </span>            :     /**
-<a name="112"><span class="lineNum">     112 </span>            :      * @return true if the values are equal, false if not.</a>
-<span class="lineNum">     113 </span>            :      **/
-<span class="lineNum">     114 </span><span class="lineCov">         10 :     bool operator == ( const servus::uint128_t&amp; rhs ) const</span>
-<span class="lineNum">     115 </span><span class="lineCov">         10 :         { return _high == rhs._high &amp;&amp; _low == rhs._low; }</span>
-<span class="lineNum">     116 </span>            : 
-<span class="lineNum">     117 </span>            :     /**
-<a name="118"><span class="lineNum">     118 </span>            :      * @return true if the values are different, false otherwise.</a>
-<span class="lineNum">     119 </span>            :      **/
-<span class="lineNum">     120 </span><span class="lineCov">          5 :     bool operator != ( const servus::uint128_t&amp; rhs ) const</span>
-<span class="lineNum">     121 </span><span class="lineCov">          5 :         { return _high != rhs._high || _low != rhs._low; }</span>
-<span class="lineNum">     122 </span>            : 
-<span class="lineNum">     123 </span>            :     /**
-<span class="lineNum">     124 </span>            :      * @return true if the values are equal, false otherwise.
-<span class="lineNum">     125 </span>            :      **/
-<span class="lineNum">     126 </span>            :     bool operator == ( const unsigned long long&amp; low_ ) const
-<span class="lineNum">     127 </span>            :         { return *this == uint128_t( low_ ); }
-<span class="lineNum">     128 </span>            : 
-<span class="lineNum">     129 </span>            :     /**
-<span class="lineNum">     130 </span>            :      * @return true if the values are different, false otherwise.
-<span class="lineNum">     131 </span>            :      **/
-<span class="lineNum">     132 </span>            :     bool operator != ( const unsigned long long&amp; low_ ) const
-<span class="lineNum">     133 </span>            :         { return *this != uint128_t( low_ ); }
-<span class="lineNum">     134 </span>            : 
-<span class="lineNum">     135 </span>            :     /**
-<span class="lineNum">     136 </span>            :      * @return true if this value is smaller than the RHS value.
-<span class="lineNum">     137 </span>            :      **/
-<span class="lineNum">     138 </span>            :     bool operator &lt; ( const servus::uint128_t&amp; rhs ) const
-<span class="lineNum">     139 </span>            :         {
-<span class="lineNum">     140 </span>            :             if( _high &lt; rhs._high )
-<span class="lineNum">     141 </span>            :                 return true;
-<span class="lineNum">     142 </span>            :             if( _high &gt; rhs._high )
-<span class="lineNum">     143 </span>            :                 return false;
-<span class="lineNum">     144 </span>            :             return _low &lt; rhs._low;
-<span class="lineNum">     145 </span>            :         }
-<span class="lineNum">     146 </span>            : 
-<span class="lineNum">     147 </span>            :     /**
-<span class="lineNum">     148 </span>            :      * @return true if this value is bigger than the rhs value.
-<span class="lineNum">     149 </span>            :      */
-<span class="lineNum">     150 </span>            :     bool operator &gt; ( const servus::uint128_t&amp; rhs ) const
-<span class="lineNum">     151 </span>            :         {
-<span class="lineNum">     152 </span>            :             if( _high &gt; rhs._high )
-<span class="lineNum">     153 </span>            :                 return true;
-<span class="lineNum">     154 </span>            :             if( _high &lt; rhs._high )
-<span class="lineNum">     155 </span>            :                 return false;
-<span class="lineNum">     156 </span>            :             return _low &gt; rhs._low;
-<span class="lineNum">     157 </span>            :         }
-<span class="lineNum">     158 </span>            : 
-<span class="lineNum">     159 </span>            :     /**
-<span class="lineNum">     160 </span>            :      * @return true if this value is smaller or equal than the
-<span class="lineNum">     161 </span>            :      *         RHS value.
-<span class="lineNum">     162 </span>            :      */
-<span class="lineNum">     163 </span>            :     bool operator &lt;= ( const servus::uint128_t&amp; rhs ) const
-<span class="lineNum">     164 </span>            :         {
-<span class="lineNum">     165 </span>            :             if( _high &lt; rhs._high )
-<span class="lineNum">     166 </span>            :                 return true;
-<span class="lineNum">     167 </span>            :             if( _high &gt; rhs._high )
-<span class="lineNum">     168 </span>            :                 return false;
-<span class="lineNum">     169 </span>            :             return _low &lt;= rhs._low;
-<span class="lineNum">     170 </span>            :         }
-<span class="lineNum">     171 </span>            : 
-<span class="lineNum">     172 </span>            :     /**
-<span class="lineNum">     173 </span>            :      * @return true if this value is smaller or equal than the
-<span class="lineNum">     174 </span>            :      *         RHS value.
-<span class="lineNum">     175 </span>            :      */
-<span class="lineNum">     176 </span>            :     bool operator &gt;= ( const servus::uint128_t&amp; rhs ) const
-<span class="lineNum">     177 </span>            :         {
-<span class="lineNum">     178 </span>            :             if( _high &gt; rhs._high )
-<span class="lineNum">     179 </span>            :                 return true;
-<span class="lineNum">     180 </span>            :             if( _high &lt; rhs._high )
-<span class="lineNum">     181 </span>            :                 return false;
-<span class="lineNum">     182 </span>            :             return _low &gt;= rhs._low;
-<span class="lineNum">     183 </span>            :         }
-<a name="184"><span class="lineNum">     184 </span>            : </a>
-<span class="lineNum">     185 </span>            :     /** Increment the value. */
-<span class="lineNum">     186 </span><span class="lineCov">          2 :     uint128_t&amp; operator ++()</span>
-<span class="lineNum">     187 </span>            :         {
-<span class="lineNum">     188 </span><span class="lineCov">          2 :             ++_low;</span>
-<span class="lineNum">     189 </span><span class="lineCov">          2 :             if( !_low )</span>
-<span class="lineNum">     190 </span><span class="lineCov">          1 :                 ++_high;</span>
-<span class="lineNum">     191 </span>            : 
-<span class="lineNum">     192 </span><span class="lineCov">          2 :             return *this;</span>
-<span class="lineNum">     193 </span>            :         }
-<a name="194"><span class="lineNum">     194 </span>            : </a>
-<span class="lineNum">     195 </span>            :     /** Decrement the value. */
-<span class="lineNum">     196 </span><span class="lineCov">          2 :     uint128_t&amp; operator --()</span>
-<span class="lineNum">     197 </span>            :         {
-<span class="lineNum">     198 </span><span class="lineCov">          2 :             if( !_low )</span>
-<span class="lineNum">     199 </span><span class="lineCov">          1 :                 --_high;</span>
-<span class="lineNum">     200 </span><span class="lineCov">          2 :             --_low;</span>
-<span class="lineNum">     201 </span><span class="lineCov">          2 :             return *this;</span>
-<span class="lineNum">     202 </span>            :         }
-<span class="lineNum">     203 </span>            : 
-<span class="lineNum">     204 </span>            :     /** Add value and return the new value. */
-<span class="lineNum">     205 </span>            :     uint128_t&amp; operator +=( const servus::uint128_t&amp; rhs )
-<span class="lineNum">     206 </span>            :         {
-<span class="lineNum">     207 </span>            :             const uint64_t oldLow = _low;
-<span class="lineNum">     208 </span>            :             _low += rhs._low;
-<span class="lineNum">     209 </span>            :             if( _low &lt; oldLow ) // overflow
-<span class="lineNum">     210 </span>            :                 _high += rhs._high + 1;
-<span class="lineNum">     211 </span>            :             else
-<span class="lineNum">     212 </span>            :                 _high += rhs._high;
-<span class="lineNum">     213 </span>            :             return *this;
-<span class="lineNum">     214 </span>            :         }
-<a name="215"><span class="lineNum">     215 </span>            : </a>
-<span class="lineNum">     216 </span>            :     /** @return the reference to the lower 64 bits of this 128 bit value. */
-<a name="217"><span class="lineNum">     217 </span><span class="lineCov">     199984 :     const uint64_t&amp; low() const { return _low; }</span></a>
-<span class="lineNum">     218 </span>            :     /** @return the reference to the high 64 bits of this 128 bit value. */
-<span class="lineNum">     219 </span><span class="lineCov">     299532 :     const uint64_t&amp; high() const { return _high; }</span>
-<a name="220"><span class="lineNum">     220 </span>            : </a>
-<span class="lineNum">     221 </span>            :     /** @return the reference to the lower 64 bits of this 128 bit value. */
-<a name="222"><span class="lineNum">     222 </span><span class="lineCov">     100032 :     uint64_t&amp; low() { return _low; }</span></a>
-<span class="lineNum">     223 </span>            :     /** @return the reference to the high 64 bits of this 128 bit value. */
-<span class="lineNum">     224 </span><span class="lineCov">     299803 :     uint64_t&amp; high() { return _high; }</span>
-<span class="lineNum">     225 </span>            : 
-<span class="lineNum">     226 </span>            :     /** @return a short, but not necessarily unique, string of the value. */
-<span class="lineNum">     227 </span>            :     std::string getShortString() const
-<span class="lineNum">     228 </span>            :     {
-<span class="lineNum">     229 </span>            :         std::stringstream stream;
-<span class="lineNum">     230 </span>            :         stream &lt;&lt; std::hex &lt;&lt; _high &lt;&lt; _low;
-<span class="lineNum">     231 </span>            :         const std::string str = stream.str();
-<span class="lineNum">     232 </span>            :         return str.substr( 0, 3 ) + &quot;..&quot; +
-<span class="lineNum">     233 </span>            :                str.substr( str.length() - 3, std::string::npos );
-<span class="lineNum">     234 </span>            :     }
-<a name="235"><span class="lineNum">     235 </span>            : </a>
-<span class="lineNum">     236 </span>            :     /** @return the full string representation of the value. */
-<span class="lineNum">     237 </span><span class="lineCov">          2 :     std::string getString() const</span>
-<span class="lineNum">     238 </span>            :     {
-<span class="lineNum">     239 </span>            :         // OPT: snprintf is faster than using std::stringstream
-<span class="lineNum">     240 </span>            :         char buffer[ 34 ] /* 2 x 16 bytes + : + \0 */;
-<span class="lineNum">     241 </span><span class="lineCov">          2 :         snprintf( buffer, 34, &quot;%llx:%llx&quot;, ull_t( high( )), ull_t( low( )));</span>
-<span class="lineNum">     242 </span><span class="lineCov">          2 :         return std::string( buffer );</span>
-<span class="lineNum">     243 </span>            :     }
-<span class="lineNum">     244 </span>            : 
-<span class="lineNum">     245 </span>            :     /** Serialize this object to a boost archive. */
-<span class="lineNum">     246 </span>            :     template&lt; class Archive &gt;
-<span class="lineNum">     247 </span>            :     void serialize( Archive&amp; ar, const unsigned int /*version*/ )
-<span class="lineNum">     248 </span>            :     {
-<span class="lineNum">     249 </span>            :         ar &amp; low();
-<span class="lineNum">     250 </span>            :         ar &amp; high();
-<span class="lineNum">     251 </span>            :     }
-<span class="lineNum">     252 </span>            : 
-<span class="lineNum">     253 </span>            : private:
-<span class="lineNum">     254 </span>            :     uint64_t _high;
-<span class="lineNum">     255 </span>            :     uint64_t _low;
-<span class="lineNum">     256 </span>            : };
-<a name="257"><span class="lineNum">     257 </span>            : </a>
-<span class="lineNum">     258 </span>            : /** ostream operator for 128 bit unsigned integers. */
-<span class="lineNum">     259 </span><span class="lineNoCov">          0 : inline std::ostream&amp; operator &lt;&lt; ( std::ostream&amp; os, const uint128_t&amp; id )</span>
-<span class="lineNum">     260 </span>            : {
-<span class="lineNum">     261 </span><span class="lineNoCov">          0 :     if( id.high() == 0 )</span>
-<span class="lineNum">     262 </span><span class="lineNoCov">          0 :         os &lt;&lt; std::hex &lt;&lt; id.low() &lt;&lt; std::dec;</span>
-<span class="lineNum">     263 </span>            :     else
-<span class="lineNum">     264 </span><span class="lineNoCov">          0 :         os &lt;&lt; std::hex &lt;&lt; id.high() &lt;&lt; ':' &lt;&lt; id.low() &lt;&lt; std::dec;</span>
-<span class="lineNum">     265 </span><span class="lineNoCov">          0 :     return os;</span>
-<span class="lineNum">     266 </span>            : }
-<span class="lineNum">     267 </span>            : 
-<span class="lineNum">     268 </span>            : /** istream operator for 128 bit unsigned integers. */
-<span class="lineNum">     269 </span>            : inline std::istream&amp; operator &gt;&gt; ( std::istream&amp; is, uint128_t&amp; id )
-<span class="lineNum">     270 </span>            : {
-<span class="lineNum">     271 </span>            :     std::string str;
-<span class="lineNum">     272 </span>            :     is &gt;&gt; str;
-<span class="lineNum">     273 </span>            :     id = str;
-<span class="lineNum">     274 </span>            :     return is;
-<span class="lineNum">     275 </span>            : }
-<a name="276"><span class="lineNum">     276 </span>            : </a>
-<span class="lineNum">     277 </span>            : /** Add a 64 bit value to a 128 bit value. */
-<span class="lineNum">     278 </span><span class="lineCov">          2 : inline uint128_t operator+ ( const servus::uint128_t&amp; a, const uint64_t&amp; b )</span>
-<span class="lineNum">     279 </span>            : {
-<span class="lineNum">     280 </span><span class="lineCov">          2 :     uint128_t result = a;</span>
-<span class="lineNum">     281 </span><span class="lineCov">          2 :     result.low() += b;</span>
-<span class="lineNum">     282 </span><span class="lineCov">          2 :     if( result.low() &lt; a.low( ))</span>
-<span class="lineNum">     283 </span><span class="lineCov">          1 :         ++result.high();</span>
-<span class="lineNum">     284 </span><span class="lineCov">          2 :     return result;</span>
-<span class="lineNum">     285 </span>            : }
-<span class="lineNum">     286 </span>            : 
-<span class="lineNum">     287 </span>            : /** Add two 128 bit values. */
-<span class="lineNum">     288 </span>            : inline uint128_t operator+ ( const servus::uint128_t&amp; a,
-<span class="lineNum">     289 </span>            :                              const servus::uint128_t&amp; b )
-<span class="lineNum">     290 </span>            : {
-<span class="lineNum">     291 </span>            :     uint128_t result = a;
-<span class="lineNum">     292 </span>            :     result += b;
-<span class="lineNum">     293 </span>            :     return result;
-<span class="lineNum">     294 </span>            : }
-<a name="295"><span class="lineNum">     295 </span>            : </a>
-<span class="lineNum">     296 </span>            : /** Subtract a 64 bit value from a 128 bit value. */
-<span class="lineNum">     297 </span><span class="lineCov">          2 : inline uint128_t operator- ( const servus::uint128_t&amp; a, const uint64_t&amp; b )</span>
-<span class="lineNum">     298 </span>            : {
-<span class="lineNum">     299 </span><span class="lineCov">          2 :     uint128_t result = a;</span>
-<span class="lineNum">     300 </span><span class="lineCov">          2 :     result.low() -= b;</span>
-<span class="lineNum">     301 </span><span class="lineCov">          2 :     if( result.low() &gt; a.low( ))</span>
-<span class="lineNum">     302 </span><span class="lineCov">          1 :         --result.high();</span>
-<span class="lineNum">     303 </span><span class="lineCov">          2 :     return result;</span>
-<span class="lineNum">     304 </span>            : }
-<span class="lineNum">     305 </span>            : 
-<span class="lineNum">     306 </span>            : /** Bitwise and operation on two 128 bit values. */
-<span class="lineNum">     307 </span>            : inline uint128_t operator &amp; ( const servus::uint128_t&amp; a,
-<span class="lineNum">     308 </span>            :                               const servus::uint128_t&amp; b )
-<span class="lineNum">     309 </span>            : {
-<span class="lineNum">     310 </span>            :     uint128_t result = a;
-<span class="lineNum">     311 </span>            :     result.high() &amp;= b.high();
-<span class="lineNum">     312 </span>            :     result.low() &amp;= b.low();
-<span class="lineNum">     313 </span>            :     return result;
-<span class="lineNum">     314 </span>            : }
-<span class="lineNum">     315 </span>            : 
-<span class="lineNum">     316 </span>            : /** Bitwise or operation on two 128 bit values. */
-<span class="lineNum">     317 </span>            : inline uint128_t operator | ( const servus::uint128_t&amp; a,
-<span class="lineNum">     318 </span>            :                               const servus::uint128_t&amp; b )
-<span class="lineNum">     319 </span>            : {
-<span class="lineNum">     320 </span>            :     uint128_t result = a;
-<span class="lineNum">     321 </span>            :     result.high() |= b.high();
-<span class="lineNum">     322 </span>            :     result.low() |= b.low();
-<span class="lineNum">     323 </span>            :     return result;
-<span class="lineNum">     324 </span>            : }
-<span class="lineNum">     325 </span>            : 
-<span class="lineNum">     326 </span>            : /**
-<span class="lineNum">     327 </span>            :  * Create a 128 bit integer based on a string.
-<span class="lineNum">     328 </span>            :  *
-<span class="lineNum">     329 </span>            :  * The MD5 hash of the given text is used to form the uint128_t.
-<span class="lineNum">     330 </span>            :  *
-<span class="lineNum">     331 </span>            :  * @param string the string to form the uint128_t from.
-<span class="lineNum">     332 </span>            :  */
-<span class="lineNum">     333 </span>            : SERVUS_API uint128_t make_uint128( const char* string );
-<a name="334"><span class="lineNum">     334 </span>            : </a>
-<span class="lineNum">     335 </span>            : /** Create a 128 bit integer based on a string. */
-<span class="lineNum">     336 </span><span class="lineCov">          3 : inline uint128_t make_uint128( const std::string&amp; string )</span>
-<span class="lineNum">     337 </span><span class="lineCov">          3 :     { return make_uint128( string.c_str( )); }</span>
-<span class="lineNum">     338 </span>            : 
-<span class="lineNum">     339 </span>            : /**
-<span class="lineNum">     340 </span>            :  * Construct a new 128 bit integer with a generated universally unique
-<span class="lineNum">     341 </span>            :  * identifier.
-<span class="lineNum">     342 </span>            :  */
-<span class="lineNum">     343 </span>            : SERVUS_API uint128_t make_UUID();
-<span class="lineNum">     344 </span>            : 
-<span class="lineNum">     345 </span>            : }
-<span class="lineNum">     346 </span>            : 
-<span class="lineNum">     347 </span>            : namespace std
-<span class="lineNum">     348 </span>            : {
-<span class="lineNum">     349 </span>            : template&lt;&gt; struct hash&lt; servus::uint128_t &gt;
-<span class="lineNum">     350 </span>            : {
-<span class="lineNum">     351 </span>            :     typedef size_t result_type;
-<span class="lineNum">     352 </span>            : 
-<span class="lineNum">     353 </span>            :     result_type operator()( const servus::uint128_t&amp; in ) const
-<span class="lineNum">     354 </span>            :     {
-<span class="lineNum">     355 </span>            :         hash&lt; uint64_t &gt; forward;
-<span class="lineNum">     356 </span>            :         return forward( in.high( )) ^ forward( in.low( ));
-<span class="lineNum">     357 </span>            :     }
-<span class="lineNum">     358 </span>            : };
-<span class="lineNum">     359 </span>            : 
-<span class="lineNum">     360 </span>            : inline string to_string( const servus::uint128_t&amp; value )
-<span class="lineNum">     361 </span>            : {
-<span class="lineNum">     362 </span>            :     return value.getString();
-<span class="lineNum">     363 </span>            : }
+<span class="lineNum">      33 </span>            : #  define snprintf _snprintf
+<span class="lineNum">      34 </span>            : #else
+<span class="lineNum">      35 </span>            : #  include &lt;stdint.h&gt;
+<span class="lineNum">      36 </span>            : #endif
+<span class="lineNum">      37 </span>            : 
+<span class="lineNum">      38 </span>            : namespace servus
+<span class="lineNum">      39 </span>            : {
+<span class="lineNum">      40 </span>            : class uint128_t;
+<span class="lineNum">      41 </span>            : std::ostream&amp; operator &lt;&lt; ( std::ostream&amp; os, const uint128_t&amp; id );
+<span class="lineNum">      42 </span>            : 
+<span class="lineNum">      43 </span>            : /**
+<span class="lineNum">      44 </span>            :  * A base type for 128 bit unsigned integer values.
+<span class="lineNum">      45 </span>            :  *
+<span class="lineNum">      46 </span>            :  * Example: @include tests/uint128_t.cpp
+<span class="lineNum">      47 </span>            :  */
+<span class="lineNum">      48 </span>            : class uint128_t
+<span class="lineNum">      49 </span>            : {
+<span class="lineNum">      50 </span>            : public:
+<span class="lineNum">      51 </span>            :     /**
+<a name="52"><span class="lineNum">      52 </span>            :      * Construct a new 128 bit integer with a default value.</a>
+<span class="lineNum">      53 </span>            :      */
+<span class="lineNum">      54 </span><span class="lineCov">      99999 :     explicit uint128_t( const unsigned long long low_ = 0 )</span>
+<span class="lineNum">      55 </span><span class="lineCov">      99999 :         : _high( 0 ), _low( low_ ) {}</span>
+<span class="lineNum">      56 </span>            : 
+<span class="lineNum">      57 </span>            :     /**
+<span class="lineNum">      58 </span>            :      * Construct a new 128 bit integer with a default value.
+<span class="lineNum">      59 </span>            :      */
+<span class="lineNum">      60 </span>            :     explicit uint128_t( const unsigned long low_ ) : _high( 0 ), _low( low_ ) {}
+<span class="lineNum">      61 </span>            : 
+<span class="lineNum">      62 </span>            :     /**
+<a name="63"><span class="lineNum">      63 </span>            :      * Construct a new 128 bit integer with a default value.</a>
+<span class="lineNum">      64 </span>            :      */
+<span class="lineNum">      65 </span><span class="lineCov">          1 :     explicit uint128_t( const int low_ ) : _high( 0 ), _low( low_ ) {}</span>
+<span class="lineNum">      66 </span>            : 
+<span class="lineNum">      67 </span>            :     /**
+<a name="68"><span class="lineNum">      68 </span>            :      * Construct a new 128 bit integer with default values.</a>
+<span class="lineNum">      69 </span>            :      **/
+<span class="lineNum">      70 </span><span class="lineCov">          6 :     uint128_t( const uint64_t high_, const uint64_t low_ )</span>
+<span class="lineNum">      71 </span><span class="lineCov">          6 :         : _high( high_ ), _low( low_ ) {}</span>
+<span class="lineNum">      72 </span>            : 
+<span class="lineNum">      73 </span>            :     /**
+<span class="lineNum">      74 </span>            :      * Construct a new 128 bit integer from a string representation.
+<span class="lineNum">      75 </span>            :      **/
+<span class="lineNum">      76 </span>            :     explicit uint128_t( const std::string&amp; string )
+<span class="lineNum">      77 </span>            :         : _high( 0 ), _low( 0 ) { *this = string; }
+<span class="lineNum">      78 </span>            : 
+<span class="lineNum">      79 </span>            :     /**
+<span class="lineNum">      80 </span>            :      * @return true if the uint128_t is a generated universally unique
+<a name="81"><span class="lineNum">      81 </span>            :      *         identifier.</a>
+<span class="lineNum">      82 </span>            :      */
+<span class="lineNum">      83 </span><span class="lineCov">     100003 :     bool isUUID() const { return high() != 0; }</span>
+<a name="84"><span class="lineNum">      84 </span>            : </a>
+<span class="lineNum">      85 </span>            :     /** Assign another 128 bit value. */
+<span class="lineNum">      86 </span><span class="lineCov">         11 :     uint128_t&amp; operator = ( const servus::uint128_t&amp; rhs )</span>
+<span class="lineNum">      87 </span>            :         {
+<span class="lineNum">      88 </span><span class="lineCov">         11 :             _high = rhs._high;</span>
+<span class="lineNum">      89 </span><span class="lineCov">         11 :             _low = rhs._low;</span>
+<span class="lineNum">      90 </span><span class="lineCov">         11 :             return *this;</span>
+<span class="lineNum">      91 </span>            :         }
+<span class="lineNum">      92 </span>            : 
+<span class="lineNum">      93 </span>            :     /** Assign another 64 bit value. */
+<span class="lineNum">      94 </span>            :     uint128_t&amp; operator = ( const uint64_t rhs )
+<span class="lineNum">      95 </span>            :         {
+<span class="lineNum">      96 </span>            :             _high = 0;
+<span class="lineNum">      97 </span>            :             _low = rhs;
+<span class="lineNum">      98 </span>            :             return *this;
+<span class="lineNum">      99 </span>            :         }
+<span class="lineNum">     100 </span>            : 
+<span class="lineNum">     101 </span>            :     /** Assign an integer value. */
+<span class="lineNum">     102 </span>            :     uint128_t&amp; operator = ( const int rhs )
+<span class="lineNum">     103 </span>            :         {
+<span class="lineNum">     104 </span>            :             _high = 0;
+<span class="lineNum">     105 </span>            :             _low = rhs;
+<span class="lineNum">     106 </span>            :             return *this;
+<span class="lineNum">     107 </span>            :         }
+<span class="lineNum">     108 </span>            : 
+<span class="lineNum">     109 </span>            :     /** Assign an 128 bit value from a std::string. */
+<span class="lineNum">     110 </span>            :     SERVUS_API uint128_t&amp; operator = ( const std::string&amp; from );
+<span class="lineNum">     111 </span>            : 
+<span class="lineNum">     112 </span>            :     /**
+<a name="113"><span class="lineNum">     113 </span>            :      * @return true if the values are equal, false if not.</a>
+<span class="lineNum">     114 </span>            :      **/
+<span class="lineNum">     115 </span><span class="lineCov">         10 :     bool operator == ( const servus::uint128_t&amp; rhs ) const</span>
+<span class="lineNum">     116 </span><span class="lineCov">         10 :         { return _high == rhs._high &amp;&amp; _low == rhs._low; }</span>
+<span class="lineNum">     117 </span>            : 
+<span class="lineNum">     118 </span>            :     /**
+<a name="119"><span class="lineNum">     119 </span>            :      * @return true if the values are different, false otherwise.</a>
+<span class="lineNum">     120 </span>            :      **/
+<span class="lineNum">     121 </span><span class="lineCov">          5 :     bool operator != ( const servus::uint128_t&amp; rhs ) const</span>
+<span class="lineNum">     122 </span><span class="lineCov">          5 :         { return _high != rhs._high || _low != rhs._low; }</span>
+<span class="lineNum">     123 </span>            : 
+<span class="lineNum">     124 </span>            :     /**
+<span class="lineNum">     125 </span>            :      * @return true if the values are equal, false otherwise.
+<span class="lineNum">     126 </span>            :      **/
+<span class="lineNum">     127 </span>            :     bool operator == ( const unsigned long long&amp; low_ ) const
+<span class="lineNum">     128 </span>            :         { return *this == uint128_t( low_ ); }
+<span class="lineNum">     129 </span>            : 
+<span class="lineNum">     130 </span>            :     /**
+<span class="lineNum">     131 </span>            :      * @return true if the values are different, false otherwise.
+<span class="lineNum">     132 </span>            :      **/
+<span class="lineNum">     133 </span>            :     bool operator != ( const unsigned long long&amp; low_ ) const
+<span class="lineNum">     134 </span>            :         { return *this != uint128_t( low_ ); }
+<span class="lineNum">     135 </span>            : 
+<span class="lineNum">     136 </span>            :     /**
+<span class="lineNum">     137 </span>            :      * @return true if this value is smaller than the RHS value.
+<span class="lineNum">     138 </span>            :      **/
+<span class="lineNum">     139 </span>            :     bool operator &lt; ( const servus::uint128_t&amp; rhs ) const
+<span class="lineNum">     140 </span>            :         {
+<span class="lineNum">     141 </span>            :             if( _high &lt; rhs._high )
+<span class="lineNum">     142 </span>            :                 return true;
+<span class="lineNum">     143 </span>            :             if( _high &gt; rhs._high )
+<span class="lineNum">     144 </span>            :                 return false;
+<span class="lineNum">     145 </span>            :             return _low &lt; rhs._low;
+<span class="lineNum">     146 </span>            :         }
+<span class="lineNum">     147 </span>            : 
+<span class="lineNum">     148 </span>            :     /**
+<span class="lineNum">     149 </span>            :      * @return true if this value is bigger than the rhs value.
+<span class="lineNum">     150 </span>            :      */
+<span class="lineNum">     151 </span>            :     bool operator &gt; ( const servus::uint128_t&amp; rhs ) const
+<span class="lineNum">     152 </span>            :         {
+<span class="lineNum">     153 </span>            :             if( _high &gt; rhs._high )
+<span class="lineNum">     154 </span>            :                 return true;
+<span class="lineNum">     155 </span>            :             if( _high &lt; rhs._high )
+<span class="lineNum">     156 </span>            :                 return false;
+<span class="lineNum">     157 </span>            :             return _low &gt; rhs._low;
+<span class="lineNum">     158 </span>            :         }
+<span class="lineNum">     159 </span>            : 
+<span class="lineNum">     160 </span>            :     /**
+<span class="lineNum">     161 </span>            :      * @return true if this value is smaller or equal than the
+<span class="lineNum">     162 </span>            :      *         RHS value.
+<span class="lineNum">     163 </span>            :      */
+<span class="lineNum">     164 </span>            :     bool operator &lt;= ( const servus::uint128_t&amp; rhs ) const
+<span class="lineNum">     165 </span>            :         {
+<span class="lineNum">     166 </span>            :             if( _high &lt; rhs._high )
+<span class="lineNum">     167 </span>            :                 return true;
+<span class="lineNum">     168 </span>            :             if( _high &gt; rhs._high )
+<span class="lineNum">     169 </span>            :                 return false;
+<span class="lineNum">     170 </span>            :             return _low &lt;= rhs._low;
+<span class="lineNum">     171 </span>            :         }
+<span class="lineNum">     172 </span>            : 
+<span class="lineNum">     173 </span>            :     /**
+<span class="lineNum">     174 </span>            :      * @return true if this value is smaller or equal than the
+<span class="lineNum">     175 </span>            :      *         RHS value.
+<span class="lineNum">     176 </span>            :      */
+<span class="lineNum">     177 </span>            :     bool operator &gt;= ( const servus::uint128_t&amp; rhs ) const
+<span class="lineNum">     178 </span>            :         {
+<span class="lineNum">     179 </span>            :             if( _high &gt; rhs._high )
+<span class="lineNum">     180 </span>            :                 return true;
+<span class="lineNum">     181 </span>            :             if( _high &lt; rhs._high )
+<span class="lineNum">     182 </span>            :                 return false;
+<span class="lineNum">     183 </span>            :             return _low &gt;= rhs._low;
+<span class="lineNum">     184 </span>            :         }
+<a name="185"><span class="lineNum">     185 </span>            : </a>
+<span class="lineNum">     186 </span>            :     /** Increment the value. */
+<span class="lineNum">     187 </span><span class="lineCov">          2 :     uint128_t&amp; operator ++()</span>
+<span class="lineNum">     188 </span>            :         {
+<span class="lineNum">     189 </span><span class="lineCov">          2 :             ++_low;</span>
+<span class="lineNum">     190 </span><span class="lineCov">          2 :             if( !_low )</span>
+<span class="lineNum">     191 </span><span class="lineCov">          1 :                 ++_high;</span>
+<span class="lineNum">     192 </span>            : 
+<span class="lineNum">     193 </span><span class="lineCov">          2 :             return *this;</span>
+<span class="lineNum">     194 </span>            :         }
+<a name="195"><span class="lineNum">     195 </span>            : </a>
+<span class="lineNum">     196 </span>            :     /** Decrement the value. */
+<span class="lineNum">     197 </span><span class="lineCov">          2 :     uint128_t&amp; operator --()</span>
+<span class="lineNum">     198 </span>            :         {
+<span class="lineNum">     199 </span><span class="lineCov">          2 :             if( !_low )</span>
+<span class="lineNum">     200 </span><span class="lineCov">          1 :                 --_high;</span>
+<span class="lineNum">     201 </span><span class="lineCov">          2 :             --_low;</span>
+<span class="lineNum">     202 </span><span class="lineCov">          2 :             return *this;</span>
+<span class="lineNum">     203 </span>            :         }
+<span class="lineNum">     204 </span>            : 
+<span class="lineNum">     205 </span>            :     /** Add value and return the new value. */
+<span class="lineNum">     206 </span>            :     uint128_t&amp; operator +=( const servus::uint128_t&amp; rhs )
+<span class="lineNum">     207 </span>            :         {
+<span class="lineNum">     208 </span>            :             const uint64_t oldLow = _low;
+<span class="lineNum">     209 </span>            :             _low += rhs._low;
+<span class="lineNum">     210 </span>            :             if( _low &lt; oldLow ) // overflow
+<span class="lineNum">     211 </span>            :                 _high += rhs._high + 1;
+<span class="lineNum">     212 </span>            :             else
+<span class="lineNum">     213 </span>            :                 _high += rhs._high;
+<span class="lineNum">     214 </span>            :             return *this;
+<span class="lineNum">     215 </span>            :         }
+<a name="216"><span class="lineNum">     216 </span>            : </a>
+<span class="lineNum">     217 </span>            :     /** @return the reference to the lower 64 bits of this 128 bit value. */
+<a name="218"><span class="lineNum">     218 </span><span class="lineCov">     199988 :     const uint64_t&amp; low() const { return _low; }</span></a>
+<span class="lineNum">     219 </span>            :     /** @return the reference to the high 64 bits of this 128 bit value. */
+<span class="lineNum">     220 </span><span class="lineCov">     299672 :     const uint64_t&amp; high() const { return _high; }</span>
+<a name="221"><span class="lineNum">     221 </span>            : </a>
+<span class="lineNum">     222 </span>            :     /** @return the reference to the lower 64 bits of this 128 bit value. */
+<a name="223"><span class="lineNum">     223 </span><span class="lineCov">     100032 :     uint64_t&amp; low() { return _low; }</span></a>
+<span class="lineNum">     224 </span>            :     /** @return the reference to the high 64 bits of this 128 bit value. */
+<span class="lineNum">     225 </span><span class="lineCov">     299895 :     uint64_t&amp; high() { return _high; }</span>
+<span class="lineNum">     226 </span>            : 
+<span class="lineNum">     227 </span>            :     /** @return a short, but not necessarily unique, string of the value. */
+<span class="lineNum">     228 </span>            :     std::string getShortString() const
+<span class="lineNum">     229 </span>            :     {
+<span class="lineNum">     230 </span>            :         std::stringstream stream;
+<span class="lineNum">     231 </span>            :         stream &lt;&lt; std::hex &lt;&lt; _high &lt;&lt; _low;
+<span class="lineNum">     232 </span>            :         const std::string str = stream.str();
+<span class="lineNum">     233 </span>            :         return str.substr( 0, 3 ) + &quot;..&quot; +
+<span class="lineNum">     234 </span>            :                str.substr( str.length() - 3, std::string::npos );
+<span class="lineNum">     235 </span>            :     }
+<a name="236"><span class="lineNum">     236 </span>            : </a>
+<span class="lineNum">     237 </span>            :     /** @return the full string representation of the value. */
+<span class="lineNum">     238 </span><span class="lineCov">          2 :     std::string getString() const</span>
+<span class="lineNum">     239 </span>            :     {
+<span class="lineNum">     240 </span>            :         // OPT: snprintf is faster than using std::stringstream
+<span class="lineNum">     241 </span>            :         char buffer[ 34 ] /* 2 x 16 bytes + : + \0 */;
+<span class="lineNum">     242 </span><span class="lineCov">          2 :         snprintf( buffer, 34, &quot;%llx:%llx&quot;, ull_t( high( )), ull_t( low( )));</span>
+<span class="lineNum">     243 </span><span class="lineCov">          2 :         return std::string( buffer );</span>
+<span class="lineNum">     244 </span>            :     }
+<span class="lineNum">     245 </span>            : 
+<span class="lineNum">     246 </span>            :     /** Serialize this object to a boost archive. */
+<span class="lineNum">     247 </span>            :     template&lt; class Archive &gt;
+<span class="lineNum">     248 </span>            :     void serialize( Archive&amp; ar, const unsigned int /*version*/ )
+<span class="lineNum">     249 </span>            :     {
+<span class="lineNum">     250 </span>            :         ar &amp; low();
+<span class="lineNum">     251 </span>            :         ar &amp; high();
+<span class="lineNum">     252 </span>            :     }
+<span class="lineNum">     253 </span>            : 
+<span class="lineNum">     254 </span>            : private:
+<span class="lineNum">     255 </span>            :     uint64_t _high;
+<span class="lineNum">     256 </span>            :     uint64_t _low;
+<span class="lineNum">     257 </span>            : };
+<a name="258"><span class="lineNum">     258 </span>            : </a>
+<span class="lineNum">     259 </span>            : /** ostream operator for 128 bit unsigned integers. */
+<span class="lineNum">     260 </span><span class="lineNoCov">          0 : inline std::ostream&amp; operator &lt;&lt; ( std::ostream&amp; os, const uint128_t&amp; id )</span>
+<span class="lineNum">     261 </span>            : {
+<span class="lineNum">     262 </span><span class="lineNoCov">          0 :     if( id.high() == 0 )</span>
+<span class="lineNum">     263 </span><span class="lineNoCov">          0 :         os &lt;&lt; std::hex &lt;&lt; id.low() &lt;&lt; std::dec;</span>
+<span class="lineNum">     264 </span>            :     else
+<span class="lineNum">     265 </span><span class="lineNoCov">          0 :         os &lt;&lt; std::hex &lt;&lt; id.high() &lt;&lt; ':' &lt;&lt; id.low() &lt;&lt; std::dec;</span>
+<span class="lineNum">     266 </span><span class="lineNoCov">          0 :     return os;</span>
+<span class="lineNum">     267 </span>            : }
+<span class="lineNum">     268 </span>            : 
+<span class="lineNum">     269 </span>            : /** istream operator for 128 bit unsigned integers. */
+<span class="lineNum">     270 </span>            : inline std::istream&amp; operator &gt;&gt; ( std::istream&amp; is, uint128_t&amp; id )
+<span class="lineNum">     271 </span>            : {
+<span class="lineNum">     272 </span>            :     std::string str;
+<span class="lineNum">     273 </span>            :     is &gt;&gt; str;
+<span class="lineNum">     274 </span>            :     id = str;
+<span class="lineNum">     275 </span>            :     return is;
+<span class="lineNum">     276 </span>            : }
+<a name="277"><span class="lineNum">     277 </span>            : </a>
+<span class="lineNum">     278 </span>            : /** Add a 64 bit value to a 128 bit value. */
+<span class="lineNum">     279 </span><span class="lineCov">          2 : inline uint128_t operator+ ( const servus::uint128_t&amp; a, const uint64_t&amp; b )</span>
+<span class="lineNum">     280 </span>            : {
+<span class="lineNum">     281 </span><span class="lineCov">          2 :     uint128_t result = a;</span>
+<span class="lineNum">     282 </span><span class="lineCov">          2 :     result.low() += b;</span>
+<span class="lineNum">     283 </span><span class="lineCov">          2 :     if( result.low() &lt; a.low( ))</span>
+<span class="lineNum">     284 </span><span class="lineCov">          1 :         ++result.high();</span>
+<span class="lineNum">     285 </span><span class="lineCov">          2 :     return result;</span>
+<span class="lineNum">     286 </span>            : }
+<span class="lineNum">     287 </span>            : 
+<span class="lineNum">     288 </span>            : /** Add two 128 bit values. */
+<span class="lineNum">     289 </span>            : inline uint128_t operator+ ( const servus::uint128_t&amp; a,
+<span class="lineNum">     290 </span>            :                              const servus::uint128_t&amp; b )
+<span class="lineNum">     291 </span>            : {
+<span class="lineNum">     292 </span>            :     uint128_t result = a;
+<span class="lineNum">     293 </span>            :     result += b;
+<span class="lineNum">     294 </span>            :     return result;
+<span class="lineNum">     295 </span>            : }
+<a name="296"><span class="lineNum">     296 </span>            : </a>
+<span class="lineNum">     297 </span>            : /** Subtract a 64 bit value from a 128 bit value. */
+<span class="lineNum">     298 </span><span class="lineCov">          2 : inline uint128_t operator- ( const servus::uint128_t&amp; a, const uint64_t&amp; b )</span>
+<span class="lineNum">     299 </span>            : {
+<span class="lineNum">     300 </span><span class="lineCov">          2 :     uint128_t result = a;</span>
+<span class="lineNum">     301 </span><span class="lineCov">          2 :     result.low() -= b;</span>
+<span class="lineNum">     302 </span><span class="lineCov">          2 :     if( result.low() &gt; a.low( ))</span>
+<span class="lineNum">     303 </span><span class="lineCov">          1 :         --result.high();</span>
+<span class="lineNum">     304 </span><span class="lineCov">          2 :     return result;</span>
+<span class="lineNum">     305 </span>            : }
+<span class="lineNum">     306 </span>            : 
+<span class="lineNum">     307 </span>            : /** Bitwise and operation on two 128 bit values. */
+<span class="lineNum">     308 </span>            : inline uint128_t operator &amp; ( const servus::uint128_t&amp; a,
+<span class="lineNum">     309 </span>            :                               const servus::uint128_t&amp; b )
+<span class="lineNum">     310 </span>            : {
+<span class="lineNum">     311 </span>            :     uint128_t result = a;
+<span class="lineNum">     312 </span>            :     result.high() &amp;= b.high();
+<span class="lineNum">     313 </span>            :     result.low() &amp;= b.low();
+<span class="lineNum">     314 </span>            :     return result;
+<span class="lineNum">     315 </span>            : }
+<span class="lineNum">     316 </span>            : 
+<span class="lineNum">     317 </span>            : /** Bitwise or operation on two 128 bit values. */
+<span class="lineNum">     318 </span>            : inline uint128_t operator | ( const servus::uint128_t&amp; a,
+<span class="lineNum">     319 </span>            :                               const servus::uint128_t&amp; b )
+<span class="lineNum">     320 </span>            : {
+<span class="lineNum">     321 </span>            :     uint128_t result = a;
+<span class="lineNum">     322 </span>            :     result.high() |= b.high();
+<span class="lineNum">     323 </span>            :     result.low() |= b.low();
+<span class="lineNum">     324 </span>            :     return result;
+<span class="lineNum">     325 </span>            : }
+<span class="lineNum">     326 </span>            : 
+<span class="lineNum">     327 </span>            : /**
+<span class="lineNum">     328 </span>            :  * Create a 128 bit integer based on a string.
+<span class="lineNum">     329 </span>            :  *
+<span class="lineNum">     330 </span>            :  * The MD5 hash of the given text is used to form the uint128_t.
+<span class="lineNum">     331 </span>            :  *
+<span class="lineNum">     332 </span>            :  * @param string the string to form the uint128_t from.
+<span class="lineNum">     333 </span>            :  */
+<span class="lineNum">     334 </span>            : SERVUS_API uint128_t make_uint128( const char* string );
+<a name="335"><span class="lineNum">     335 </span>            : </a>
+<span class="lineNum">     336 </span>            : /** Create a 128 bit integer based on a string. */
+<span class="lineNum">     337 </span><span class="lineCov">          3 : inline uint128_t make_uint128( const std::string&amp; string )</span>
+<span class="lineNum">     338 </span><span class="lineCov">          3 :     { return make_uint128( string.c_str( )); }</span>
+<span class="lineNum">     339 </span>            : 
+<span class="lineNum">     340 </span>            : /**
+<span class="lineNum">     341 </span>            :  * Construct a new 128 bit integer with a generated universally unique
+<span class="lineNum">     342 </span>            :  * identifier.
+<span class="lineNum">     343 </span>            :  */
+<span class="lineNum">     344 </span>            : SERVUS_API uint128_t make_UUID();
+<span class="lineNum">     345 </span>            : 
+<span class="lineNum">     346 </span>            : }
+<span class="lineNum">     347 </span>            : 
+<span class="lineNum">     348 </span>            : namespace std
+<span class="lineNum">     349 </span>            : {
+<span class="lineNum">     350 </span>            : template&lt;&gt; struct hash&lt; servus::uint128_t &gt;
+<span class="lineNum">     351 </span>            : {
+<span class="lineNum">     352 </span>            :     typedef size_t result_type;
+<span class="lineNum">     353 </span>            : 
+<span class="lineNum">     354 </span>            :     result_type operator()( const servus::uint128_t&amp; in ) const
+<span class="lineNum">     355 </span>            :     {
+<span class="lineNum">     356 </span>            :         hash&lt; uint64_t &gt; forward;
+<span class="lineNum">     357 </span>            :         return forward( in.high( )) ^ forward( in.low( ));
+<span class="lineNum">     358 </span>            :     }
+<span class="lineNum">     359 </span>            : };
+<span class="lineNum">     360 </span>            : 
+<span class="lineNum">     361 </span>            : inline string to_string( const servus::uint128_t&amp; value )
+<span class="lineNum">     362 </span>            : {
+<span class="lineNum">     363 </span>            :     return value.getString();
 <span class="lineNum">     364 </span>            : }
-<span class="lineNum">     365 </span>            : 
-<span class="lineNum">     366 </span>            : #endif // SERVUS_UINT128_H
+<span class="lineNum">     365 </span>            : }
+<span class="lineNum">     366 </span>            : 
+<span class="lineNum">     367 </span>            : #endif // SERVUS_UINT128_H
 </pre>
       </td>
     </tr>
