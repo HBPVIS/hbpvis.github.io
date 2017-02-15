@@ -1,0 +1,561 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN">
+
+<html lang="en">
+
+<head>
+  <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+  <title>LCOV - ZeroBuf - zerobuf/Vector.h</title>
+  <link rel="stylesheet" type="text/css" href="../gcov.css">
+</head>
+
+<body>
+
+  <table width="100%" border=0 cellspacing=0 cellpadding=0>
+    <tr><td class="title">LCOV - code coverage report</td></tr>
+    <tr><td class="ruler"><img src="../glass.png" width=3 height=3 alt=""></td></tr>
+
+    <tr>
+      <td width="100%">
+        <table cellpadding=1 border=0 width="100%">
+          <tr>
+            <td width="10%" class="headerItem">Current view:</td>
+            <td width="35%" class="headerValue"><a href="../index.html">top level</a> - <a href="index.html">zerobuf</a> - Vector.h<span style="font-size: 80%;"> (source / <a href="Vector.h.func-sort-c.html">functions</a>)</span></td>
+            <td width="5%"></td>
+            <td width="15%"></td>
+            <td width="10%" class="headerCovTableHead">Hit</td>
+            <td width="10%" class="headerCovTableHead">Total</td>
+            <td width="15%" class="headerCovTableHead">Coverage</td>
+          </tr>
+          <tr>
+            <td class="headerItem">Test:</td>
+            <td class="headerValue">ZeroBuf</td>
+            <td></td>
+            <td class="headerItem">Lines:</td>
+            <td class="headerCovTableEntry">149</td>
+            <td class="headerCovTableEntry">153</td>
+            <td class="headerCovTableEntryHi">97.4 %</td>
+          </tr>
+          <tr>
+            <td class="headerItem">Date:</td>
+            <td class="headerValue">2017-02-15 01:08:14</td>
+            <td></td>
+            <td class="headerItem">Functions:</td>
+            <td class="headerCovTableEntry">178</td>
+            <td class="headerCovTableEntry">194</td>
+            <td class="headerCovTableEntryHi">91.8 %</td>
+          </tr>
+          <tr><td><img src="../glass.png" width=3 height=3 alt=""></td></tr>
+        </table>
+      </td>
+    </tr>
+
+    <tr><td class="ruler"><img src="../glass.png" width=3 height=3 alt=""></td></tr>
+  </table>
+
+  <table cellpadding=0 cellspacing=0 border=0>
+    <tr>
+      <td><br></td>
+    </tr>
+    <tr>
+      <td>
+<pre class="sourceHeading">          Line data    Source code</pre>
+<pre class="source">
+<a name="1"><span class="lineNum">       1 </span>            : </a>
+<span class="lineNum">       2 </span>            : /* Copyright (c) 2015-2016, Human Brain Project
+<span class="lineNum">       3 </span>            :  *                          Stefan.Eilemann@epfl.ch
+<span class="lineNum">       4 </span>            :  */
+<span class="lineNum">       5 </span>            : 
+<span class="lineNum">       6 </span>            : #ifndef ZEROBUF_VECTOR_H
+<span class="lineNum">       7 </span>            : #define ZEROBUF_VECTOR_H
+<span class="lineNum">       8 </span>            : 
+<span class="lineNum">       9 </span>            : #include &lt;zerobuf/DynamicSubAllocator.h&gt; // used inline
+<span class="lineNum">      10 </span>            : #include &lt;zerobuf/Zerobuf.h&gt; // sfinae type
+<span class="lineNum">      11 </span>            : #include &lt;zerobuf/json.h&gt; // used inline
+<span class="lineNum">      12 </span>            : 
+<span class="lineNum">      13 </span>            : #include &lt;cstring&gt; // memcmp
+<span class="lineNum">      14 </span>            : #include &lt;stdexcept&gt; // std::runtime_error
+<span class="lineNum">      15 </span>            : #include &lt;typeinfo&gt; // typeid
+<span class="lineNum">      16 </span>            : 
+<span class="lineNum">      17 </span>            : namespace zerobuf
+<span class="lineNum">      18 </span>            : {
+<span class="lineNum">      19 </span>            : /**
+<span class="lineNum">      20 </span>            :  * STL-like vector abstraction for dynamic arrays in a zerobuf.
+<span class="lineNum">      21 </span>            :  *
+<span class="lineNum">      22 </span>            :  * @param T element type
+<span class="lineNum">      23 </span>            :  */
+<span class="lineNum">      24 </span>            : template&lt; class T &gt;
+<span class="lineNum">      25 </span>            : class Vector
+<span class="lineNum">      26 </span>            : {
+<span class="lineNum">      27 </span>            : public:
+<span class="lineNum">      28 </span>            :     /** Forward iterator for Vector&lt; T &gt; */
+<span class="lineNum">      29 </span>            :     template&lt; class U &gt;
+<span class="lineNum">      30 </span>            :     class Iterator : public std::iterator&lt; std::forward_iterator_tag, U &gt;
+<a name="31"><span class="lineNum">      31 </span>            :     {</a>
+<span class="lineNum">      32 </span>            :     public:
+<span class="lineNum">      33 </span><span class="lineCov">          4 :         Iterator( U&amp; vector, const size_t index )</span>
+<span class="lineNum">      34 </span>            :             : _vector( vector )
+<span class="lineNum">      35 </span><span class="lineCov">          4 :             , _index( index )</span>
+<span class="lineNum">      36 </span><span class="lineCov">          4 :         {}</span>
+<span class="lineNum">      37 </span>            : 
+<a name="38"><span class="lineNum">      38 </span>            :         bool operator ==( const Iterator&amp; rhs ) const</a>
+<span class="lineNum">      39 </span>            :             { return _index == rhs._index; }
+<span class="lineNum">      40 </span><span class="lineCov">          7 :         bool operator !=( const Iterator&amp; rhs ) const</span>
+<a name="41"><span class="lineNum">      41 </span><span class="lineCov">          7 :             { return _index != rhs._index; }</span></a>
+<span class="lineNum">      42 </span>            : 
+<span class="lineNum">      43 </span><span class="lineCov">          5 :         Iterator&amp; operator++()</span>
+<span class="lineNum">      44 </span>            :         {
+<span class="lineNum">      45 </span><span class="lineCov">          5 :             ++_index;</span>
+<span class="lineNum">      46 </span><span class="lineCov">          5 :             return *this;</span>
+<a name="47"><span class="lineNum">      47 </span>            :         }</a>
+<span class="lineNum">      48 </span>            : 
+<span class="lineNum">      49 </span><span class="lineCov">          2 :         const typename U::element_type&amp; operator*() const</span>
+<span class="lineNum">      50 </span><span class="lineCov">          2 :             { return _vector[_index]; }</span>
+<span class="lineNum">      51 </span>            : 
+<span class="lineNum">      52 </span>            :         template&lt; class Q = U,
+<a name="53"><span class="lineNum">      53 </span>            :                   typename =</a>
+<span class="lineNum">      54 </span>            :                      typename std::enable_if&lt;!std::is_const&lt; Q &gt;::value&gt;::type &gt;
+<span class="lineNum">      55 </span><span class="lineCov">          3 :         typename U::element_type&amp; operator*()</span>
+<span class="lineNum">      56 </span><span class="lineCov">          3 :             { return _vector[_index]; }</span>
+<span class="lineNum">      57 </span>            : 
+<span class="lineNum">      58 </span>            :     private:
+<span class="lineNum">      59 </span>            :         U&amp; _vector;
+<span class="lineNum">      60 </span>            :         size_t _index;
+<span class="lineNum">      61 </span>            :     };
+<span class="lineNum">      62 </span>            : 
+<span class="lineNum">      63 </span>            :     using element_type = T;
+<span class="lineNum">      64 </span>            :     using iterator = Iterator&lt; Vector&lt; T &gt;&gt;;
+<span class="lineNum">      65 </span>            :     using const_iterator = Iterator&lt; const Vector&lt; T &gt;&gt;;
+<span class="lineNum">      66 </span>            : 
+<span class="lineNum">      67 </span>            :     /** @internal
+<span class="lineNum">      68 </span>            :      * @param alloc The parent allocator that contains the data.
+<span class="lineNum">      69 </span>            :      * @param index Index of the vector in the parent allocator dynamic storage
+<a name="70"><span class="lineNum">      70 </span>            :      */</a>
+<span class="lineNum">      71 </span>            :     Vector( Allocator&amp; alloc, size_t index );
+<span class="lineNum">      72 </span><span class="lineCov">        437 :     ~Vector() {}</span>
+<a name="73"><span class="lineNum">      73 </span>            : </a>
+<span class="lineNum">      74 </span>            :     /** @return true if the vector contains no elements. */
+<span class="lineNum">      75 </span><span class="lineCov">         11 :     bool empty() const { return _getSize() == 0; }</span>
+<a name="76"><span class="lineNum">      76 </span>            : </a>
+<span class="lineNum">      77 </span>            :     /** @return the number of elements in the vector. */
+<span class="lineNum">      78 </span><span class="lineCov">        535 :     uint64_t size() const { return _getSize() / _getElementSize&lt; T &gt;(); }</span>
+<span class="lineNum">      79 </span>            : 
+<span class="lineNum">      80 </span>            :     /** Empty the vector. */
+<span class="lineNum">      81 </span>            :     void clear();
+<a name="82"><span class="lineNum">      82 </span>            : </a>
+<span class="lineNum">      83 </span>            :     /** @return The pointer to the current allocation of the vector */
+<span class="lineNum">      84 </span><span class="lineCov">          6 :     T* data() { return _alloc-&gt;template getDynamic&lt; T &gt;( _index ); }</span>
+<a name="85"><span class="lineNum">      85 </span>            : </a>
+<span class="lineNum">      86 </span>            :     /** @return The pointer to the current allocation of the vector */
+<span class="lineNum">      87 </span><span class="lineCov">        344 :     const T* data() const</span>
+<span class="lineNum">      88 </span>            :         { return const_cast&lt; const Allocator* &gt;
+<span class="lineNum">      89 </span><span class="lineCov">        344 :                 ( _alloc )-&gt;template getDynamic&lt; T &gt;( _index ); }</span>
+<span class="lineNum">      90 </span>            : 
+<span class="lineNum">      91 </span>            :     /** Resize the vector to new size; keeps elements untouched. */
+<span class="lineNum">      92 </span>            :     void resize( size_t size );
+<span class="lineNum">      93 </span>            : 
+<span class="lineNum">      94 </span>            :     /** @return true if the two vectors of builtins are identical. */
+<span class="lineNum">      95 </span>            :     bool operator == ( const Vector&amp; rhs ) const;
+<span class="lineNum">      96 </span>            :     /** @return false if the two vectors are identical. */
+<span class="lineNum">      97 </span>            :     bool operator != ( const Vector&amp; rhs ) const;
+<span class="lineNum">      98 </span>            : 
+<span class="lineNum">      99 </span>            :     /** @return an immutable iterator to the first element. */
+<span class="lineNum">     100 </span>            :     const_iterator begin() const;
+<span class="lineNum">     101 </span>            : 
+<span class="lineNum">     102 </span>            :     /** @return an immutable iterator to the past-the-end element. */
+<span class="lineNum">     103 </span>            :     const_iterator end() const;
+<span class="lineNum">     104 </span>            : 
+<span class="lineNum">     105 </span>            :     /** @return a mutable iterator to the first element. */
+<span class="lineNum">     106 </span>            :     iterator begin();
+<span class="lineNum">     107 </span>            : 
+<span class="lineNum">     108 </span>            :     /** @return a mutable iterator to the past-the-end element. */
+<span class="lineNum">     109 </span>            :     iterator end();
+<span class="lineNum">     110 </span>            : 
+<span class="lineNum">     111 </span>            :     /** @return a builtin const element */
+<span class="lineNum">     112 </span>            :     template&lt; class Q = T &gt;
+<span class="lineNum">     113 </span>            :     const typename std::enable_if&lt;!std::is_base_of&lt;Zerobuf,Q&gt;::value, Q&gt;::type&amp;
+<span class="lineNum">     114 </span>            :     operator[] ( const size_t index ) const;
+<span class="lineNum">     115 </span>            : 
+<span class="lineNum">     116 </span>            :     /** @return a builtin element */
+<span class="lineNum">     117 </span>            :     template&lt; class Q = T &gt;
+<span class="lineNum">     118 </span>            :     typename std::enable_if&lt; !std::is_base_of&lt; Zerobuf, Q &gt;::value, Q &gt;::type&amp;
+<span class="lineNum">     119 </span>            :     operator[] ( const size_t index );
+<span class="lineNum">     120 </span>            : 
+<span class="lineNum">     121 </span>            :     /** @return a Zerobuf-derived const element */
+<span class="lineNum">     122 </span>            :     template&lt; class Q = T &gt;
+<span class="lineNum">     123 </span>            :     const typename std::enable_if&lt; std::is_base_of&lt;Zerobuf,Q&gt;::value, Q &gt;::type&amp;
+<span class="lineNum">     124 </span>            :     operator[] ( const size_t index ) const;
+<span class="lineNum">     125 </span>            : 
+<span class="lineNum">     126 </span>            :     /** @return a Zerobuf-derived element */
+<span class="lineNum">     127 </span>            :     template&lt; class Q = T &gt;
+<span class="lineNum">     128 </span>            :     typename std::enable_if&lt; std::is_base_of&lt; Zerobuf, Q &gt;::value, Q &gt;::type&amp;
+<span class="lineNum">     129 </span>            :     operator[] ( const size_t index );
+<span class="lineNum">     130 </span>            : 
+<span class="lineNum">     131 </span>            :     /** Insert a builtin element at the end of the vector. */
+<span class="lineNum">     132 </span>            :     template&lt; class Q = T &gt; void
+<span class="lineNum">     133 </span>            :     push_back( const typename std::enable_if&lt;
+<span class="lineNum">     134 </span>            :                                 !std::is_base_of&lt;Zerobuf,Q&gt;::value, Q&gt;::type&amp; );
+<span class="lineNum">     135 </span>            : 
+<span class="lineNum">     136 </span>            :     /** Insert a Zerobuf-derived element at the end of the vector. */
+<span class="lineNum">     137 </span>            :     template&lt; class Q = T &gt; void
+<span class="lineNum">     138 </span>            :     push_back( const typename std::enable_if&lt;
+<span class="lineNum">     139 </span>            :                                  std::is_base_of&lt;Zerobuf,Q&gt;::value, Q&gt;::type&amp; );
+<a name="140"><span class="lineNum">     140 </span>            : </a>
+<span class="lineNum">     141 </span>            :     /** @internal */
+<span class="lineNum">     142 </span><span class="lineCov">          6 :     void reset( Allocator&amp; alloc ) { _alloc = &amp;alloc; _zerobufs.clear(); }</span>
+<a name="143"><span class="lineNum">     143 </span>            : </a>
+<span class="lineNum">     144 </span>            :     /** Remove unused memory from vector and all members. */
+<span class="lineNum">     145 </span><span class="lineCov">        140 :     void compact( float ) { /* NOP: elements are static and clear frees */ }</span>
+<span class="lineNum">     146 </span>            : 
+<span class="lineNum">     147 </span>            :     /** Update this vector of ZeroBufs from its JSON representation. */
+<span class="lineNum">     148 </span>            :     template&lt; class Q = T &gt; void
+<span class="lineNum">     149 </span>            :     fromJSON( const Json::Value&amp; json, const typename std::enable_if&lt;
+<span class="lineNum">     150 </span>            :                   std::is_base_of&lt; Zerobuf, Q &gt;::value, Q &gt;::type* = nullptr );
+<span class="lineNum">     151 </span>            : 
+<span class="lineNum">     152 </span>            :     /** Update this vector of enums from its JSON representation. */
+<span class="lineNum">     153 </span>            :     template&lt; class Q = T &gt; void
+<span class="lineNum">     154 </span>            :     fromJSON( const Json::Value&amp; json, const typename std::enable_if&lt;
+<span class="lineNum">     155 </span>            :                   std::is_enum&lt; Q &gt;::value, Q &gt;::type* = nullptr );
+<span class="lineNum">     156 </span>            : 
+<span class="lineNum">     157 </span>            :     /** Update this vector of arithmetics from its JSON representation. */
+<span class="lineNum">     158 </span>            :     template&lt; class Q = T &gt; void
+<span class="lineNum">     159 </span>            :     fromJSON( const Json::Value&amp; json, const typename std::enable_if&lt;
+<span class="lineNum">     160 </span>            :                   std::is_arithmetic&lt; Q &gt;::value, Q &gt;::type* = nullptr );
+<span class="lineNum">     161 </span>            : 
+<span class="lineNum">     162 </span>            :     /** Update this vector of uint128_t from its JSON representation. */
+<span class="lineNum">     163 </span>            :     template&lt; class Q = T &gt; void
+<span class="lineNum">     164 </span>            :     fromJSON( const Json::Value&amp; json, const typename std::enable_if&lt;
+<span class="lineNum">     165 </span>            :             std::is_same&lt; Q, servus::uint128_t &gt;::value, Q &gt;::type* = nullptr );
+<span class="lineNum">     166 </span>            : 
+<span class="lineNum">     167 </span>            :     /** @return the JSON representation of this vector of ZeroBufs. */
+<span class="lineNum">     168 </span>            :     template&lt; class Q = T &gt; void
+<span class="lineNum">     169 </span>            :     toJSON( Json::Value&amp; json, const typename std::enable_if&lt;
+<span class="lineNum">     170 </span>            :              std::is_base_of&lt; Zerobuf, Q &gt;::value, Q &gt;::type* = nullptr ) const;
+<span class="lineNum">     171 </span>            : 
+<span class="lineNum">     172 </span>            :     /** @return the JSON representation of this vector of enums. */
+<span class="lineNum">     173 </span>            :     template&lt; class Q = T &gt; void
+<span class="lineNum">     174 </span>            :     toJSON( Json::Value&amp; json, const typename std::enable_if&lt;
+<span class="lineNum">     175 </span>            :                 std::is_enum&lt; Q &gt;::value, Q &gt;::type* = nullptr ) const;
+<span class="lineNum">     176 </span>            : 
+<span class="lineNum">     177 </span>            :     /** @return the JSON representation of this vector of arithmetics. */
+<span class="lineNum">     178 </span>            :     template&lt; class Q = T &gt; void
+<span class="lineNum">     179 </span>            :     toJSON( Json::Value&amp; json, const typename std::enable_if&lt;
+<span class="lineNum">     180 </span>            :                 std::is_arithmetic&lt; Q &gt;::value, Q &gt;::type* = nullptr ) const;
+<span class="lineNum">     181 </span>            : 
+<span class="lineNum">     182 </span>            :     /** @return the JSON representation of this vector of uint128_t. */
+<span class="lineNum">     183 </span>            :     template&lt; class Q = T &gt; void
+<span class="lineNum">     184 </span>            :     toJSON( Json::Value&amp; json, const typename std::enable_if&lt;
+<span class="lineNum">     185 </span>            :       std::is_same&lt; Q, servus::uint128_t &gt;::value, Q &gt;::type* = nullptr ) const;
+<span class="lineNum">     186 </span>            : 
+<span class="lineNum">     187 </span>            :     /** Update this vector from its JSON, base64-encoded representation. */
+<span class="lineNum">     188 </span>            :     template&lt; class Q = T &gt; void
+<span class="lineNum">     189 </span>            :     fromJSONBinary( const Json::Value&amp; json, const typename std::enable_if&lt;
+<span class="lineNum">     190 </span>            :                     std::is_pod&lt; Q &gt;::value, Q &gt;::type* = nullptr );
+<span class="lineNum">     191 </span>            : 
+<span class="lineNum">     192 </span>            :     /** @return the JSON representation of this vector, with base64 encoding. */
+<span class="lineNum">     193 </span>            :     template&lt; class Q = T &gt; void
+<span class="lineNum">     194 </span>            :     toJSONBinary( Json::Value&amp; json, const typename std::enable_if&lt;
+<span class="lineNum">     195 </span>            :                   std::is_pod&lt; Q &gt;::value, Q &gt;::type* = nullptr ) const;
+<span class="lineNum">     196 </span>            : 
+<span class="lineNum">     197 </span>            : private:
+<span class="lineNum">     198 </span>            :     Allocator* _alloc;
+<span class="lineNum">     199 </span>            :     const size_t _index;
+<span class="lineNum">     200 </span>            :     mutable std::vector&lt; T &gt; _zerobufs;
+<span class="lineNum">     201 </span>            : 
+<span class="lineNum">     202 </span>            :     Vector() = delete;
+<span class="lineNum">     203 </span>            :     Vector( const Vector&amp; rhs ) = delete;
+<a name="204"><span class="lineNum">     204 </span>            :     Vector( const Vector&amp;&amp; rhs ) = delete;</a>
+<span class="lineNum">     205 </span>            : 
+<span class="lineNum">     206 </span><span class="lineCov">        652 :     size_t _getSize() const { return _alloc-&gt;getDynamicSize( _index ); }</span>
+<a name="207"><span class="lineNum">     207 </span>            :     void copyBuffer( uint8_t* data, size_t size );</a>
+<span class="lineNum">     208 </span>            : 
+<span class="lineNum">     209 </span><span class="lineCov">        348 :     template&lt; class Q = T &gt; size_t _getElementSize(</span>
+<span class="lineNum">     210 </span>            :         typename std::enable_if&lt; std::is_base_of&lt; Zerobuf, Q &gt;::value,
+<span class="lineNum">     211 </span>            :                                                   Q &gt;::type* = 0 ) const
+<span class="lineNum">     212 </span>            :     {
+<span class="lineNum">     213 </span><span class="lineCov">        348 :         return Q::ZEROBUF_STATIC_SIZE();</span>
+<a name="214"><span class="lineNum">     214 </span>            :     }</a>
+<span class="lineNum">     215 </span>            : 
+<span class="lineNum">     216 </span><span class="lineCov">        298 :     template&lt; class Q = T &gt; size_t _getElementSize(</span>
+<span class="lineNum">     217 </span>            :         typename std::enable_if&lt; !std::is_base_of&lt; Zerobuf, Q &gt;::value,
+<span class="lineNum">     218 </span>            :                                                    Q &gt;::type* = 0 ) const
+<span class="lineNum">     219 </span>            :     {
+<span class="lineNum">     220 </span><span class="lineCov">        298 :         return sizeof( Q );</span>
+<span class="lineNum">     221 </span>            :     }
+<span class="lineNum">     222 </span>            : };
+<span class="lineNum">     223 </span>            : 
+<a name="224"><span class="lineNum">     224 </span>            : // Implementation</a>
+<span class="lineNum">     225 </span>            : template&lt; class T &gt; inline
+<span class="lineNum">     226 </span><span class="lineCov">        437 : Vector&lt; T &gt;::Vector( Allocator&amp; alloc, const size_t index )</span>
+<span class="lineNum">     227 </span>            :     : _alloc( &amp;alloc )
+<span class="lineNum">     228 </span><span class="lineCov">        437 :     , _index( index )</span>
+<a name="229"><span class="lineNum">     229 </span><span class="lineCov">        437 : {}</span></a>
+<span class="lineNum">     230 </span>            : 
+<span class="lineNum">     231 </span><span class="lineCov">         49 : template&lt; class T &gt; inline void Vector&lt; T &gt;::clear()</span>
+<span class="lineNum">     232 </span>            : {
+<span class="lineNum">     233 </span><span class="lineCov">         49 :     _alloc-&gt;updateAllocation( _index, false, 0 );</span>
+<span class="lineNum">     234 </span><span class="lineCov">         49 :     _zerobufs.clear();</span>
+<a name="235"><span class="lineNum">     235 </span><span class="lineCov">         49 : }</span></a>
+<span class="lineNum">     236 </span>            : 
+<span class="lineNum">     237 </span><span class="lineCov">          2 : template&lt; class T &gt; inline void Vector&lt; T &gt;::resize( const size_t size_ )</span>
+<span class="lineNum">     238 </span>            : {
+<span class="lineNum">     239 </span><span class="lineCov">          4 :     _alloc-&gt;updateAllocation( _index, true /*copy*/,</span>
+<span class="lineNum">     240 </span><span class="lineCov">          2 :                               size_ * _getElementSize&lt; T &gt;( ));</span>
+<span class="lineNum">     241 </span><span class="lineCov">          2 : }</span>
+<a name="242"><span class="lineNum">     242 </span>            : </a>
+<span class="lineNum">     243 </span>            : template&lt; class T &gt; inline
+<span class="lineNum">     244 </span><span class="lineCov">          1 : typename Vector&lt; T &gt;::const_iterator Vector&lt; T &gt;::begin() const</span>
+<span class="lineNum">     245 </span>            : {
+<span class="lineNum">     246 </span><span class="lineCov">          1 :     return const_iterator( *this, 0 );</span>
+<span class="lineNum">     247 </span>            : }
+<a name="248"><span class="lineNum">     248 </span>            : </a>
+<span class="lineNum">     249 </span>            : template&lt; class T &gt; inline
+<span class="lineNum">     250 </span><span class="lineCov">          1 : typename Vector&lt; T &gt;::const_iterator Vector&lt; T &gt;::end() const</span>
+<span class="lineNum">     251 </span>            : {
+<span class="lineNum">     252 </span><span class="lineCov">          1 :     return const_iterator( *this, size( ));</span>
+<a name="253"><span class="lineNum">     253 </span>            : }</a>
+<span class="lineNum">     254 </span>            : 
+<span class="lineNum">     255 </span><span class="lineCov">          1 : template&lt; class T &gt; inline typename Vector&lt; T &gt;::iterator Vector&lt; T &gt;::begin()</span>
+<span class="lineNum">     256 </span>            : {
+<span class="lineNum">     257 </span><span class="lineCov">          1 :     return iterator( *this, 0 );</span>
+<a name="258"><span class="lineNum">     258 </span>            : }</a>
+<span class="lineNum">     259 </span>            : 
+<span class="lineNum">     260 </span><span class="lineCov">          1 : template&lt; class T &gt; inline typename Vector&lt; T &gt;::iterator Vector&lt; T &gt;::end()</span>
+<span class="lineNum">     261 </span>            : {
+<span class="lineNum">     262 </span><span class="lineCov">          1 :     return iterator( *this, size( ));</span>
+<span class="lineNum">     263 </span>            : }
+<a name="264"><span class="lineNum">     264 </span>            : </a>
+<span class="lineNum">     265 </span>            : template&lt; class T &gt; inline
+<span class="lineNum">     266 </span><span class="lineCov">          4 : bool Vector&lt; T &gt;::operator == ( const Vector&amp; rhs ) const</span>
+<span class="lineNum">     267 </span>            : {
+<span class="lineNum">     268 </span><span class="lineCov">          4 :     if( this == &amp;rhs )</span>
+<span class="lineNum">     269 </span><span class="lineCov">          1 :         return true;</span>
+<span class="lineNum">     270 </span><span class="lineCov">          3 :     const size_t size_ = _getSize();</span>
+<span class="lineNum">     271 </span><span class="lineCov">          3 :     if( size_ != rhs._getSize( ))</span>
+<span class="lineNum">     272 </span><span class="lineCov">          1 :         return false;</span>
+<span class="lineNum">     273 </span><span class="lineCov">          2 :     if( size_ == 0 )</span>
+<span class="lineNum">     274 </span><span class="lineCov">          1 :         return true;</span>
+<span class="lineNum">     275 </span>            : 
+<span class="lineNum">     276 </span>            :     // memory compare is valid for Zerobufs as well since they are right now
+<span class="lineNum">     277 </span>            :     // static and therefore will have the same layout
+<span class="lineNum">     278 </span><span class="lineCov">          1 :     return ::memcmp( static_cast&lt; const void* &gt;( data( )),</span>
+<span class="lineNum">     279 </span><span class="lineCov">          2 :                      static_cast&lt; const void* &gt;( rhs.data( )), size_ ) == 0;</span>
+<span class="lineNum">     280 </span>            : }
+<span class="lineNum">     281 </span>            : 
+<span class="lineNum">     282 </span>            : template&lt; class T &gt; inline
+<span class="lineNum">     283 </span>            : bool Vector&lt; T &gt;::operator != ( const Vector&amp; rhs ) const
+<span class="lineNum">     284 </span>            : {
+<span class="lineNum">     285 </span>            :     return !(operator == ( rhs ));
+<span class="lineNum">     286 </span>            : }
+<span class="lineNum">     287 </span>            : 
+<a name="288"><span class="lineNum">     288 </span>            : template&lt; class T &gt; template&lt; class Q &gt; inline const typename</a>
+<span class="lineNum">     289 </span>            : std::enable_if&lt;!std::is_base_of&lt;Zerobuf,Q&gt;::value, Q&gt;::type&amp;
+<span class="lineNum">     290 </span><span class="lineCov">         69 : Vector&lt; T &gt;::operator[] ( const size_t index ) const</span>
+<span class="lineNum">     291 </span>            : {
+<span class="lineNum">     292 </span><span class="lineCov">         69 :     if( index &gt;= size( ))</span>
+<span class="lineNum">     293 </span><span class="lineCov">          1 :         throw std::runtime_error( &quot;Vector out of bounds read&quot; );</span>
+<span class="lineNum">     294 </span>            : 
+<span class="lineNum">     295 </span><span class="lineCov">         68 :     return data()[ index ];</span>
+<span class="lineNum">     296 </span>            : }
+<span class="lineNum">     297 </span>            : 
+<a name="298"><span class="lineNum">     298 </span>            : template&lt; class T &gt; template&lt; class Q &gt; inline typename</a>
+<span class="lineNum">     299 </span>            : std::enable_if&lt; !std::is_base_of&lt; Zerobuf, Q &gt;::value, Q &gt;::type&amp;
+<span class="lineNum">     300 </span><span class="lineCov">          6 : Vector&lt; T &gt;::operator[] ( const size_t index )</span>
+<span class="lineNum">     301 </span>            : {
+<span class="lineNum">     302 </span><span class="lineCov">          6 :     if( index &gt;= size( ))</span>
+<span class="lineNum">     303 </span><span class="lineCov">          1 :         throw std::runtime_error( &quot;Vector out of bounds read&quot; );</span>
+<span class="lineNum">     304 </span>            : 
+<span class="lineNum">     305 </span><span class="lineCov">          5 :     return data()[ index ];</span>
+<span class="lineNum">     306 </span>            : }
+<span class="lineNum">     307 </span>            : 
+<a name="308"><span class="lineNum">     308 </span>            : template&lt; class T &gt; template&lt; class Q &gt; inline const typename</a>
+<span class="lineNum">     309 </span>            : std::enable_if&lt; std::is_base_of&lt;Zerobuf,Q&gt;::value, Q &gt;::type&amp;
+<span class="lineNum">     310 </span><span class="lineCov">        100 : Vector&lt; T &gt;::operator[] ( const size_t index ) const</span>
+<span class="lineNum">     311 </span>            : {
+<span class="lineNum">     312 </span><span class="lineCov">        100 :     if( index &gt;= size( ))</span>
+<span class="lineNum">     313 </span><span class="lineCov">          2 :         throw std::runtime_error( &quot;Vector out of bounds read&quot; );</span>
+<span class="lineNum">     314 </span>            : 
+<span class="lineNum">     315 </span><span class="lineCov">        234 :     while( _zerobufs.size() &lt; index + 1 )</span>
+<span class="lineNum">     316 </span><span class="lineCov">         68 :         _zerobufs.emplace_back( AllocatorPtr(</span>
+<span class="lineNum">     317 </span><span class="lineCov">        136 :             new DynamicSubAllocator( *_alloc, _index, _zerobufs.size(),</span>
+<span class="lineNum">     318 </span><span class="lineCov">         68 :                                           _getElementSize&lt; T &gt;( ))));</span>
+<span class="lineNum">     319 </span><span class="lineCov">         98 :     return _zerobufs[ index ];</span>
+<span class="lineNum">     320 </span>            : }
+<span class="lineNum">     321 </span>            : 
+<a name="322"><span class="lineNum">     322 </span>            : template&lt; class T &gt; template&lt; class Q &gt; inline typename</a>
+<span class="lineNum">     323 </span>            : std::enable_if&lt; std::is_base_of&lt; Zerobuf, Q &gt;::value, Q &gt;::type&amp;
+<span class="lineNum">     324 </span><span class="lineCov">         43 : Vector&lt; T &gt;::operator[] ( const size_t index )</span>
+<span class="lineNum">     325 </span>            : {
+<span class="lineNum">     326 </span><span class="lineCov">         43 :     if( index &gt;= size( ))</span>
+<span class="lineNum">     327 </span><span class="lineCov">          2 :         throw std::runtime_error( &quot;Vector out of bounds read&quot; );</span>
+<span class="lineNum">     328 </span>            : 
+<span class="lineNum">     329 </span><span class="lineCov">         89 :     while( _zerobufs.size() &lt; index + 1 )</span>
+<span class="lineNum">     330 </span><span class="lineCov">         24 :         _zerobufs.emplace_back( AllocatorPtr(</span>
+<span class="lineNum">     331 </span><span class="lineCov">         48 :             new DynamicSubAllocator( *_alloc, _index, _zerobufs.size(),</span>
+<span class="lineNum">     332 </span><span class="lineCov">         24 :                                      _getElementSize&lt; T &gt;( ))));</span>
+<span class="lineNum">     333 </span><span class="lineCov">         41 :     return _zerobufs[ index ];</span>
+<span class="lineNum">     334 </span>            : }
+<a name="335"><span class="lineNum">     335 </span>            : </a>
+<span class="lineNum">     336 </span>            : template&lt; class T &gt; template&lt; class Q &gt; inline void
+<span class="lineNum">     337 </span><span class="lineCov">         13 : Vector&lt; T &gt;::push_back(</span>
+<span class="lineNum">     338 </span>            :     const typename std::enable_if&lt;!std::is_base_of&lt;Zerobuf,Q&gt;::value, Q&gt;::type&amp;
+<span class="lineNum">     339 </span>            :         value )
+<span class="lineNum">     340 </span>            : {
+<span class="lineNum">     341 </span><span class="lineCov">         13 :     const size_t size_ = _getSize();</span>
+<span class="lineNum">     342 </span>            :     T* newPtr = reinterpret_cast&lt; T* &gt;(
+<span class="lineNum">     343 </span><span class="lineCov">         13 :         _alloc-&gt;updateAllocation( _index, true /*copy*/, size_ + sizeof( T )));</span>
+<span class="lineNum">     344 </span><span class="lineCov">         13 :     newPtr[ size_ / _getElementSize&lt; T &gt;() ] = value;</span>
+<span class="lineNum">     345 </span><span class="lineCov">         13 : }</span>
+<a name="346"><span class="lineNum">     346 </span>            : </a>
+<span class="lineNum">     347 </span>            : template&lt; class T &gt; template&lt; class Q &gt; inline void
+<span class="lineNum">     348 </span><span class="lineCov">         79 : Vector&lt;T&gt;::push_back(</span>
+<span class="lineNum">     349 </span>            :     const typename std::enable_if&lt;std::is_base_of&lt;Zerobuf,Q&gt;::value, Q&gt;::type&amp;
+<span class="lineNum">     350 </span>            :         value )
+<span class="lineNum">     351 </span>            : {
+<span class="lineNum">     352 </span><span class="lineCov">         79 :     const size_t size_ = _getSize();</span>
+<span class="lineNum">     353 </span><span class="lineCov">        158 :     const zerobuf::Data&amp; zerobuf = value.toBinary();</span>
+<span class="lineNum">     354 </span><span class="lineCov">        158 :     uint8_t* newPtr = _alloc-&gt;updateAllocation( _index, true /*copy*/,</span>
+<span class="lineNum">     355 </span><span class="lineCov">        158 :                                                size_ + zerobuf.size );</span>
+<span class="lineNum">     356 </span><span class="lineCov">         79 :     ::memcpy( newPtr + size_, zerobuf.ptr.get(), zerobuf.size );</span>
+<span class="lineNum">     357 </span><span class="lineCov">         79 : }</span>
+<a name="358"><span class="lineNum">     358 </span>            : </a>
+<span class="lineNum">     359 </span>            : template&lt; class T &gt; template&lt; class Q &gt; inline
+<span class="lineNum">     360 </span><span class="lineCov">          4 : void Vector&lt; T &gt;::fromJSON( const Json::Value&amp; json,</span>
+<span class="lineNum">     361 </span>            :     const typename std::enable_if&lt;std::is_base_of&lt;Zerobuf,Q&gt;::value, Q&gt;::type* )
+<span class="lineNum">     362 </span>            : {
+<span class="lineNum">     363 </span><span class="lineCov">          4 :     const size_t size_ = getJSONSize( json );</span>
+<span class="lineNum">     364 </span><span class="lineCov">          4 :     _alloc-&gt;updateAllocation( _index, false, size_ * _getElementSize&lt; T &gt;( ));</span>
+<span class="lineNum">     365 </span><span class="lineCov">         17 :     for( size_t i = 0; i &lt; size_; ++i )</span>
+<span class="lineNum">     366 </span><span class="lineCov">         13 :         zerobuf::fromJSON( getJSONField( json, i ), (*this)[i] );</span>
+<span class="lineNum">     367 </span><span class="lineCov">          4 : }</span>
+<a name="368"><span class="lineNum">     368 </span>            : </a>
+<span class="lineNum">     369 </span>            : template&lt; class T &gt; template&lt; class Q &gt; inline
+<span class="lineNum">     370 </span><span class="lineCov">          2 : void Vector&lt; T &gt;::fromJSON( const Json::Value&amp; json,</span>
+<span class="lineNum">     371 </span>            :     const typename std::enable_if&lt;std::is_enum&lt; Q&gt;::value, Q&gt;::type*)
+<span class="lineNum">     372 </span>            : {
+<span class="lineNum">     373 </span><span class="lineCov">          2 :     const size_t size_ = getJSONSize( json );</span>
+<span class="lineNum">     374 </span>            :     T* array = reinterpret_cast&lt; T* &gt;(
+<span class="lineNum">     375 </span><span class="lineCov">          2 :         _alloc-&gt;updateAllocation( _index, false /*no copy*/, size_*sizeof( T)));</span>
+<span class="lineNum">     376 </span>            : 
+<span class="lineNum">     377 </span><span class="lineCov">          6 :     for( size_t i = 0; i &lt; size_; ++i )</span>
+<span class="lineNum">     378 </span><span class="lineCov">          4 :         array[i] = string_to_enum&lt; T &gt;( zerobuf::fromJSON&lt; std::string &gt;</span>
+<span class="lineNum">     379 </span>            :                                         ( getJSONField( json, i )));
+<span class="lineNum">     380 </span><span class="lineCov">          2 : }</span>
+<a name="381"><span class="lineNum">     381 </span>            : </a>
+<span class="lineNum">     382 </span>            : template&lt; class T &gt; template&lt; class Q &gt; inline
+<span class="lineNum">     383 </span><span class="lineCov">         30 : void Vector&lt; T &gt;::fromJSON( const Json::Value&amp; json,</span>
+<span class="lineNum">     384 </span>            :     const typename std::enable_if&lt;std::is_arithmetic&lt; Q&gt;::value, Q&gt;::type*)
+<span class="lineNum">     385 </span>            : {
+<span class="lineNum">     386 </span><span class="lineCov">         30 :     const size_t size_ = getJSONSize( json );</span>
+<span class="lineNum">     387 </span>            :     T* array = reinterpret_cast&lt; T* &gt;(
+<span class="lineNum">     388 </span><span class="lineCov">         30 :         _alloc-&gt;updateAllocation( _index, false /*no copy*/, size_*sizeof( T)));</span>
+<span class="lineNum">     389 </span>            : 
+<span class="lineNum">     390 </span><span class="lineCov">         90 :     for( size_t i = 0; i &lt; size_; ++i )</span>
+<span class="lineNum">     391 </span><span class="lineCov">         60 :         array[i] = zerobuf::fromJSON&lt; T &gt;( getJSONField( json, i ));</span>
+<span class="lineNum">     392 </span><span class="lineCov">         30 : }</span>
+<a name="393"><span class="lineNum">     393 </span>            : </a>
+<span class="lineNum">     394 </span>            : template&lt; class T &gt; template&lt; class Q &gt; inline
+<span class="lineNum">     395 </span><span class="lineCov">          2 : void Vector&lt; T &gt;::fromJSON( const Json::Value&amp; json,</span>
+<span class="lineNum">     396 </span>            :     const typename std::enable_if&lt; std::is_same&lt; Q,
+<span class="lineNum">     397 </span>            :                             servus::uint128_t &gt;::value, Q&gt;::type*)
+<span class="lineNum">     398 </span>            : {
+<span class="lineNum">     399 </span><span class="lineCov">          2 :     const size_t size_ = getJSONSize( json );</span>
+<span class="lineNum">     400 </span>            :     T* array = reinterpret_cast&lt; T* &gt;(
+<span class="lineNum">     401 </span><span class="lineCov">          2 :         _alloc-&gt;updateAllocation( _index, false /*no copy*/, size_*sizeof( T)));</span>
+<span class="lineNum">     402 </span>            : 
+<span class="lineNum">     403 </span><span class="lineCov">          6 :     for( size_t i = 0; i &lt; size_; ++i )</span>
+<span class="lineNum">     404 </span><span class="lineCov">          4 :         array[i] = zerobuf::fromJSON&lt; T &gt;( getJSONField( json, i ));</span>
+<span class="lineNum">     405 </span><span class="lineCov">          2 : }</span>
+<a name="406"><span class="lineNum">     406 </span>            : </a>
+<span class="lineNum">     407 </span>            : template&lt; class T &gt; template&lt; class Q &gt; inline void
+<span class="lineNum">     408 </span><span class="lineCov">         16 : Vector&lt; T &gt;::toJSON( Json::Value&amp; json, const typename std::enable_if&lt;</span>
+<span class="lineNum">     409 </span>            :                         std::is_base_of&lt; Zerobuf, Q &gt;::value, Q &gt;::type* ) const
+<span class="lineNum">     410 </span>            : {
+<span class="lineNum">     411 </span><span class="lineCov">         16 :     const size_t size_ = size();</span>
+<span class="lineNum">     412 </span><span class="lineCov">         16 :     zerobuf::emptyJSONArray( json ); // return [] instead of null if array is empty</span>
+<span class="lineNum">     413 </span><span class="lineCov">         38 :     for( size_t i = 0; i &lt; size_; ++i )</span>
+<span class="lineNum">     414 </span><span class="lineCov">         22 :         zerobuf::toJSON( static_cast&lt; const Zerobuf&amp; &gt;(( *this )[ i ]),</span>
+<span class="lineNum">     415 </span>            :                          getJSONField( json, i ));
+<span class="lineNum">     416 </span><span class="lineCov">         16 : }</span>
+<a name="417"><span class="lineNum">     417 </span>            : </a>
+<span class="lineNum">     418 </span>            : template&lt; class T &gt; template&lt; class Q &gt; inline void
+<span class="lineNum">     419 </span><span class="lineCov">          4 : Vector&lt; T &gt;::toJSON( Json::Value&amp; json, const typename std::enable_if&lt;</span>
+<span class="lineNum">     420 </span>            :                        std::is_enum&lt; Q &gt;::value, Q &gt;::type* ) const
+<span class="lineNum">     421 </span>            : {
+<span class="lineNum">     422 </span><span class="lineCov">          4 :     const size_t size_ = size();</span>
+<span class="lineNum">     423 </span><span class="lineCov">          4 :     zerobuf::emptyJSONArray( json ); // return [] instead of null if array is empty</span>
+<span class="lineNum">     424 </span><span class="lineCov">          8 :     for( size_t i = 0; i &lt; size_; ++i )</span>
+<span class="lineNum">     425 </span><span class="lineCov">          4 :         zerobuf::toJSON( enum_to_string&lt; T &gt;( (*this)[i] ),</span>
+<span class="lineNum">     426 </span>            :                          getJSONField( json, i ));
+<span class="lineNum">     427 </span><span class="lineCov">          4 : }</span>
+<a name="428"><span class="lineNum">     428 </span>            : </a>
+<span class="lineNum">     429 </span>            : template&lt; class T &gt; template&lt; class Q &gt; inline void
+<span class="lineNum">     430 </span><span class="lineCov">         60 : Vector&lt; T &gt;::toJSON( Json::Value&amp; json, const typename std::enable_if&lt;</span>
+<span class="lineNum">     431 </span>            :                        std::is_arithmetic&lt; Q &gt;::value, Q &gt;::type* ) const
+<span class="lineNum">     432 </span>            : {
+<span class="lineNum">     433 </span><span class="lineCov">         60 :     const size_t size_ = size();</span>
+<span class="lineNum">     434 </span><span class="lineCov">         60 :     zerobuf::emptyJSONArray( json ); // return [] instead of null if array is empty</span>
+<span class="lineNum">     435 </span><span class="lineCov">        120 :     for( size_t i = 0; i &lt; size_; ++i )</span>
+<span class="lineNum">     436 </span><span class="lineCov">         60 :         zerobuf::toJSON( (*this)[i], getJSONField( json, i ));</span>
+<span class="lineNum">     437 </span><span class="lineCov">         60 : }</span>
+<a name="438"><span class="lineNum">     438 </span>            : </a>
+<span class="lineNum">     439 </span>            : template&lt; class T &gt; template&lt; class Q &gt; inline void
+<span class="lineNum">     440 </span><span class="lineCov">          4 : Vector&lt; T &gt;::toJSON( Json::Value&amp; json, const typename std::enable_if&lt;</span>
+<span class="lineNum">     441 </span>            :                  std::is_same&lt; Q, servus::uint128_t &gt;::value, Q &gt;::type* ) const
+<span class="lineNum">     442 </span>            : {
+<span class="lineNum">     443 </span><span class="lineCov">          4 :     const size_t size_ = size();</span>
+<span class="lineNum">     444 </span><span class="lineCov">          4 :     zerobuf::emptyJSONArray( json ); // return [] instead of null if array is empty</span>
+<span class="lineNum">     445 </span><span class="lineCov">          8 :     for( size_t i = 0; i &lt; size_; ++i )</span>
+<span class="lineNum">     446 </span><span class="lineCov">          4 :         zerobuf::toJSON( (*this)[i], getJSONField( json, i ));</span>
+<span class="lineNum">     447 </span><span class="lineCov">          4 : }</span>
+<a name="448"><span class="lineNum">     448 </span>            : </a>
+<span class="lineNum">     449 </span>            : template&lt; class T &gt; template&lt; class Q &gt; inline void
+<span class="lineNum">     450 </span><span class="lineCov">          4 : Vector&lt; T &gt;::fromJSONBinary( const Json::Value&amp; json,</span>
+<span class="lineNum">     451 </span>            :     const typename std::enable_if&lt; std::is_pod&lt; Q &gt;::value, Q &gt;::type* )
+<span class="lineNum">     452 </span>            : {
+<span class="lineNum">     453 </span><span class="lineCov">          8 :     const std::string&amp; decoded = zerobuf::fromJSONBinary( json );</span>
+<span class="lineNum">     454 </span><span class="lineCov">          4 :     copyBuffer( (uint8_t*)decoded.data(), decoded.length( ));</span>
+<span class="lineNum">     455 </span><span class="lineCov">          4 : }</span>
+<a name="456"><span class="lineNum">     456 </span>            : </a>
+<span class="lineNum">     457 </span>            : template&lt; class T &gt; template&lt; class Q &gt; inline void
+<span class="lineNum">     458 </span><span class="lineCov">          8 : Vector&lt; T &gt;::toJSONBinary( Json::Value&amp; json,</span>
+<span class="lineNum">     459 </span>            :     const typename std::enable_if&lt; std::is_pod&lt; Q &gt;::value, Q &gt;::type* ) const
+<span class="lineNum">     460 </span>            : {
+<span class="lineNum">     461 </span><span class="lineCov">          8 :     zerobuf::toJSONBinary( data(), _getSize(), json );</span>
+<span class="lineNum">     462 </span><span class="lineCov">          8 : }</span>
+<a name="463"><span class="lineNum">     463 </span>            : </a>
+<span class="lineNum">     464 </span>            : template&lt; class T &gt; inline
+<span class="lineNum">     465 </span><span class="lineCov">          4 : void Vector&lt; T &gt;::copyBuffer( uint8_t* data_, size_t size_ )</span>
+<span class="lineNum">     466 </span>            : {
+<span class="lineNum">     467 </span><span class="lineCov">          4 :     void* to = _alloc-&gt;updateAllocation( _index, false /*no copy*/, size_ );</span>
+<span class="lineNum">     468 </span><span class="lineCov">          4 :     ::memcpy( to, data_, size_ );</span>
+<span class="lineNum">     469 </span><span class="lineCov">          4 : }</span>
+<a name="470"><span class="lineNum">     470 </span>            : </a>
+<span class="lineNum">     471 </span>            : template&lt; class T &gt; inline
+<span class="lineNum">     472 </span><span class="lineNoCov">          0 : std::ostream&amp; operator &lt;&lt; ( std::ostream&amp; os, const Vector&lt; T &gt;&amp; vector )</span>
+<span class="lineNum">     473 </span>            : {
+<span class="lineNum">     474 </span><span class="lineNoCov">          0 :     return os &lt;&lt; typeid( vector ).name() &lt;&lt; &quot; of size &quot; &lt;&lt; vector.size();</span>
+<span class="lineNum">     475 </span>            : }
+<a name="476"><span class="lineNum">     476 </span>            : </a>
+<span class="lineNum">     477 </span>            : template&lt;&gt; inline
+<span class="lineNum">     478 </span><span class="lineNoCov">          0 : std::ostream&amp; operator &lt;&lt; ( std::ostream&amp; os, const Vector&lt; char &gt;&amp; string )</span>
+<span class="lineNum">     479 </span>            : {
+<span class="lineNum">     480 </span><span class="lineNoCov">          0 :     return os &lt;&lt; string.data();</span>
+<span class="lineNum">     481 </span>            : }
+<span class="lineNum">     482 </span>            : 
+<span class="lineNum">     483 </span>            : }
+<span class="lineNum">     484 </span>            : 
+<span class="lineNum">     485 </span>            : #endif
+</pre>
+      </td>
+    </tr>
+  </table>
+  <br>
+
+  <table width="100%" border=0 cellspacing=0 cellpadding=0>
+    <tr><td class="ruler"><img src="../glass.png" width=3 height=3 alt=""></td></tr>
+    <tr><td class="versionInfo">Generated by: <a href="http://ltp.sourceforge.net/coverage/lcov.php" target="_parent">LCOV version 1.11</a></td></tr>
+  </table>
+  <br>
+
+</body>
+</html>

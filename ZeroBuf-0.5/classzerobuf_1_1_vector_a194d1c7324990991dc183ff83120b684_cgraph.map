@@ -1,0 +1,9 @@
+<map id="zerobuf::Vector::compact" name="zerobuf::Vector::compact">
+<area shape="rect" id="node3" href="$classzerobuf_1_1_vector.html#a1b1c10b4e256f289f88e801741cf5355" title="zerobuf::Vector::data" alt="" coords="548,64,716,93"/>
+<area shape="rect" id="node5" href="$classzerobuf_1_1_vector.html#a4fa39e5f86efd5cb3724f366d8ec7864" title="Update this vector of ZeroBufs from its JSON representation. " alt="" coords="275,36,477,65"/>
+<area shape="rect" id="node7" href="$classzerobuf_1_1_vector.html#ac323185159135eb262b576f139afa76f" title="Update this vector from its JSON, base64&#45;encoded representation. " alt="" coords="255,89,497,118"/>
+<area shape="rect" id="node9" href="$classzerobuf_1_1_vector.html#a53a2ea111103312aaa2c0605162d2325" title="zerobuf::Vector::toJSON" alt="" coords="283,196,469,225"/>
+<area shape="rect" id="node15" href="$classzerobuf_1_1_vector.html#a381bf0680d0eac1eb992a8b0af6c4251" title="zerobuf::Vector::toJSONBinary" alt="" coords="263,142,489,172"/>
+<area shape="rect" id="node11" href="$classzerobuf_1_1_vector.html#ae74a41e9bba6c3756e7f7047fe3d058a" title="zerobuf::Vector::size" alt="" coords="549,196,715,225"/>
+<area shape="rect" id="node13" href="$classzerobuf_1_1_vector.html#ab38f84c7f23e4eb6e3f00a9e925f70cc" title="Empty the vector. " alt="" coords="765,196,936,225"/>
+</map>

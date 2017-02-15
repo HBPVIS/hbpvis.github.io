@@ -1,0 +1,4 @@
+<map id="zerobuf::NonMovingAllocator" name="zerobuf::NonMovingAllocator">
+<area shape="rect" id="node2" href="$classzerobuf_1_1_non_moving_base_allocator.html" title="Allocator base class which does not move existing fields. " alt="" coords="5,400,253,555"/>
+<area shape="rect" id="node4" href="$classzerobuf_1_1_allocator.html" title="Allocator base class and interface. " alt="" coords="51,6,208,351"/>
+</map>

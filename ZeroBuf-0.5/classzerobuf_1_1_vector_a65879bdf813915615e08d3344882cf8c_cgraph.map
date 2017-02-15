@@ -1,0 +1,10 @@
+<map id="zerobuf::Vector::data" name="zerobuf::Vector::data">
+<area shape="rect" id="node3" href="$classzerobuf_1_1_vector.html#a2eaa6ea94b3e2587617e6a41a98dde47" title="zerobuf::Vector::begin" alt="" coords="241,5,415,35"/>
+<area shape="rect" id="node5" href="$classzerobuf_1_1_vector.html#a958481b95a552d07829f36e84582a258" title="zerobuf::Vector::end" alt="" coords="247,59,409,88"/>
+<area shape="rect" id="node7" href="$classzerobuf_1_1_vector.html#ae74a41e9bba6c3756e7f7047fe3d058a" title="zerobuf::Vector::size" alt="" coords="483,111,648,140"/>
+<area shape="rect" id="node11" href="$classzerobuf_1_1_vector.html#a37f78dd14a1e4124214f0c18e4cb6043" title="zerobuf::Vector::operator[]" alt="" coords="225,163,431,192"/>
+<area shape="rect" id="node16" href="$classzerobuf_1_1_vector.html#a3e0d021448316dba456cc0118a562292" title="Insert a builtin element at the end of the vector. " alt="" coords="225,216,431,245"/>
+<area shape="rect" id="node18" href="$classzerobuf_1_1_vector.html#afa87f1e956e816694d8cd2378cfdc502" title="Resize the vector to new size; keeps elements untouched. " alt="" coords="239,269,417,299"/>
+<area shape="rect" id="node9" href="$classzerobuf_1_1_vector.html#ab38f84c7f23e4eb6e3f00a9e925f70cc" title="Empty the vector. " alt="" coords="699,111,869,140"/>
+<area shape="rect" id="node14" href="$classzerobuf_1_1_vector.html#a1b1c10b4e256f289f88e801741cf5355" title="zerobuf::Vector::data" alt="" coords="481,164,649,193"/>
+</map>
