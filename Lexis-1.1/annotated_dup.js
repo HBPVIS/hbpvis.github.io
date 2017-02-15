@@ -20,6 +20,7 @@ var annotated_dup =
         [ "ImageJPEG", "classlexis_1_1render_1_1_image_j_p_e_g.html", "classlexis_1_1render_1_1_image_j_p_e_g" ],
         [ "LookOut", "classlexis_1_1render_1_1_look_out.html", "classlexis_1_1render_1_1_look_out" ],
         [ "LookupTable1D", "classlexis_1_1render_1_1_lookup_table1_d.html", "classlexis_1_1render_1_1_lookup_table1_d" ],
+        [ "MaterialLUT", "classlexis_1_1render_1_1_material_l_u_t.html", "classlexis_1_1render_1_1_material_l_u_t" ],
         [ "Plane", "classlexis_1_1render_1_1_plane.html", "classlexis_1_1render_1_1_plane" ],
         [ "Stream", "classlexis_1_1render_1_1_stream.html", "classlexis_1_1render_1_1_stream" ],
         [ "Viewport", "classlexis_1_1render_1_1_viewport.html", "classlexis_1_1render_1_1_viewport" ]

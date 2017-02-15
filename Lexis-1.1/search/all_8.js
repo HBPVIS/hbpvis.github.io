@@ -1,6 +1,8 @@
 var searchData=
 [
   ['lexis',['Lexis',['../index.html',1,'']]],
+  ['lexis_2dprogressmonitor',['lexis-progressmonitor',['../lexis-progressmonitor.html',1,'apps']]],
+  ['lexis_2dsendevent',['lexis-sendevent',['../lexis-sendevent.html',1,'apps']]],
   ['lexis_5fversion_5fabi',['LEXIS_VERSION_ABI',['../version_8h.html#a557df0ae152e11430a0071f0e56c2dad',1,'version.h']]],
   ['lexis_5fversion_5fge',['LEXIS_VERSION_GE',['../version_8h.html#a7844ca9007ef7c67765522bb6bb8301b',1,'version.h']]],
   ['lexis_5fversion_5fgt',['LEXIS_VERSION_GT',['../version_8h.html#a9dd7ef590bad8992fe6d13405fc8d949',1,'version.h']]],

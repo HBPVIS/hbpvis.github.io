@@ -1,4 +1,4 @@
 var searchData=
 [
-  ['lexis',['Lexis',['../index.html',1,'']]]
+  ['feature_20specifications',['Feature specifications',['../Features.html',1,'']]]
 ];

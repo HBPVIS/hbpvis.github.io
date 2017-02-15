@@ -140,19 +140,19 @@ typedef ::zerobuf::Vector&lt; uint8_t &gt;&#160;</td><td class="memItemRight" va
 <tr class="heading"><td colspan="2"><h2 class="groupheader"><a name="pub-methods"></a>
 Public Member Functions</h2></td></tr>
 <tr class="memitem:a9c25058a387f0935e5dddf8377467605"><td class="memItemLeft" align="right" valign="top">ImageJPEG::Data &amp;&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classlexis_1_1render_1_1_image_j_p_e_g.html#a9c25058a387f0935e5dddf8377467605">getData</a> ()</td></tr>
-<tr class="memdesc:a9c25058a387f0935e5dddf8377467605"><td class="mdescLeft">&#160;</td><td class="mdescRight">Get a reference to the uint8_t dynamic member.  <a href="#a9c25058a387f0935e5dddf8377467605">More...</a><br /></td></tr>
+<tr class="memdesc:a9c25058a387f0935e5dddf8377467605"><td class="mdescLeft">&#160;</td><td class="mdescRight">Get a reference to the Data dynamic member.  <a href="#a9c25058a387f0935e5dddf8377467605">More...</a><br /></td></tr>
 <tr class="separator:a9c25058a387f0935e5dddf8377467605"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a3e2e9b7bf42330f73eb416e5e53008e5"><td class="memItemLeft" align="right" valign="top"><a class="anchor" id="a3e2e9b7bf42330f73eb416e5e53008e5"></a>
 const ImageJPEG::Data &amp;&#160;</td><td class="memItemRight" valign="bottom"><b>getData</b> () const </td></tr>
 <tr class="separator:a3e2e9b7bf42330f73eb416e5e53008e5"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a8edffdb3c2a14821474a34ff799d6b57"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classlexis_1_1render_1_1_image_j_p_e_g.html#a8edffdb3c2a14821474a34ff799d6b57">setData</a> (uint8_t const *value, size_t size)</td></tr>
-<tr class="memdesc:a8edffdb3c2a14821474a34ff799d6b57"><td class="mdescLeft">&#160;</td><td class="mdescRight">Set the value of the uint8_t dynamic object from a uint8_t* and size.  <a href="#a8edffdb3c2a14821474a34ff799d6b57">More...</a><br /></td></tr>
+<tr class="memdesc:a8edffdb3c2a14821474a34ff799d6b57"><td class="mdescLeft">&#160;</td><td class="mdescRight">Set the value of the Data dynamic object from a uint8_t* and size.  <a href="#a8edffdb3c2a14821474a34ff799d6b57">More...</a><br /></td></tr>
 <tr class="separator:a8edffdb3c2a14821474a34ff799d6b57"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a43f13ab619cf4dc985b291c0b2a4ce74"><td class="memItemLeft" align="right" valign="top"><a class="anchor" id="a43f13ab619cf4dc985b291c0b2a4ce74"></a>
 std::vector&lt; uint8_t &gt;&#160;</td><td class="memItemRight" valign="bottom"><b>getDataVector</b> () const </td></tr>
 <tr class="separator:a43f13ab619cf4dc985b291c0b2a4ce74"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:ae7d31cc7922a172059a635f2748b848e"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classlexis_1_1render_1_1_image_j_p_e_g.html#ae7d31cc7922a172059a635f2748b848e">setData</a> (const std::vector&lt; uint8_t &gt; &amp;value)</td></tr>
-<tr class="memdesc:ae7d31cc7922a172059a635f2748b848e"><td class="mdescLeft">&#160;</td><td class="mdescRight">Set the value of the uint8_t dynamic object from a uint8_t std::vector.  <a href="#ae7d31cc7922a172059a635f2748b848e">More...</a><br /></td></tr>
+<tr class="memdesc:ae7d31cc7922a172059a635f2748b848e"><td class="mdescLeft">&#160;</td><td class="mdescRight">Set the value of the Data dynamic object from a std::vector&lt; uint8_t &gt;.  <a href="#ae7d31cc7922a172059a635f2748b848e">More...</a><br /></td></tr>
 <tr class="separator:ae7d31cc7922a172059a635f2748b848e"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a7fd938249cde2cc0c28759d50218eee1"><td class="memItemLeft" align="right" valign="top"><a class="anchor" id="a7fd938249cde2cc0c28759d50218eee1"></a>
 void&#160;</td><td class="memItemRight" valign="bottom"><b>compact</b> (float threshold=0.1f) final</td></tr>
@@ -238,9 +238,9 @@ static ConstImageJPEGPtr&#160;</td><td class="memItemRight" valign="bottom"><b>c
       </table>
 </div><div class="memdoc">
 
-<p>Get a reference to the uint8_t dynamic member. </p>
-<p>WARNING: If the reference is used to modify the object, notifyChanged() needs to be explicitly called afterwards.</p>
-<dl class="section return"><dt>Returns</dt><dd>a reference to the uint8_t dynamic member. </dd></dl>
+<p>Get a reference to the Data dynamic member. </p>
+<dl class="section warning"><dt>Warning</dt><dd>: If the reference is used to modify the object, notifyChanged() needs to be explicitly called afterwards.</dd></dl>
+<dl class="section return"><dt>Returns</dt><dd>a reference to the Data dynamic member. </dd></dl>
 
 </div>
 </div>
@@ -268,11 +268,11 @@ static ConstImageJPEGPtr&#160;</td><td class="memItemRight" valign="bottom"><b>c
       </table>
 </div><div class="memdoc">
 
-<p>Set the value of the uint8_t dynamic object from a uint8_t* and size. </p>
-<p>notifyChanged() is internally called after the change has been done.</p>
+<p>Set the value of the Data dynamic object from a uint8_t* and size. </p>
+<p>notifyChanged() is internally called after the data has been copied.</p>
 <dl class="params"><dt>Parameters</dt><dd>
   <table class="params">
-    <tr><td class="paramname">value</td><td>a pointer to the data to be set in the current object </td></tr>
+    <tr><td class="paramname">value</td><td>a uint8_t* to the data to be set in the current object </td></tr>
     <tr><td class="paramname">size</td><td>the size of the data to be set </td></tr>
   </table>
   </dd>
@@ -294,11 +294,11 @@ static ConstImageJPEGPtr&#160;</td><td class="memItemRight" valign="bottom"><b>c
       </table>
 </div><div class="memdoc">
 
-<p>Set the value of the uint8_t dynamic object from a uint8_t std::vector. </p>
-<p>notifyChanged() is internally called after the change has been done.</p>
+<p>Set the value of the Data dynamic object from a std::vector&lt; uint8_t &gt;. </p>
+<p>notifyChanged() is internally called after the data has been copied.</p>
 <dl class="params"><dt>Parameters</dt><dd>
   <table class="params">
-    <tr><td class="paramname">value</td><td>a std::vector&lt; uint8_t &gt; object with the data to be set in the current object </td></tr>
+    <tr><td class="paramname">value</td><td>a std::vector&lt; uint8_t &gt; object with the data to be set </td></tr>
   </table>
   </dd>
 </dl>
@@ -314,7 +314,7 @@ static ConstImageJPEGPtr&#160;</td><td class="memItemRight" valign="bottom"><b>c
 <div id="nav-path" class="navpath"><!-- id is needed for treeview function! -->
   <ul>
     <li class="navelem"><b>lexis</b></li><li class="navelem"><b>render</b></li><li class="navelem"><a class="el" href="classlexis_1_1render_1_1_image_j_p_e_g.html">ImageJPEG</a></li>
-    <li class="footer">Generated on Sat Feb 4 2017 03:14:55 for Lexis by
+    <li class="footer">Generated on Wed Feb 15 2017 03:15:40 for Lexis by
     <a href="http://www.doxygen.org/index.html">
     <img class="footer" src="doxygen.png" alt="doxygen"/></a> 1.8.11 </li>
   </ul>

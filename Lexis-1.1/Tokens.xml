@@ -122,6 +122,27 @@
   </Token>
   <Token>
     <TokenIdentifier>
+      <Name>apps</Name>
+      <APILanguage>markdown</APILanguage>
+    </TokenIdentifier>
+    <Path>apps.html</Path>
+  </Token>
+  <Token>
+    <TokenIdentifier>
+      <Name>lexis-progressmonitor</Name>
+      <APILanguage>markdown</APILanguage>
+    </TokenIdentifier>
+    <Path>lexis-progressmonitor.html</Path>
+  </Token>
+  <Token>
+    <TokenIdentifier>
+      <Name>lexis-sendevent</Name>
+      <APILanguage>markdown</APILanguage>
+    </TokenIdentifier>
+    <Path>lexis-sendevent.html</Path>
+  </Token>
+  <Token>
+    <TokenIdentifier>
       <Name>lexis::Request</Name>
       <APILanguage>c</APILanguage>
       <Type>cl</Type>
@@ -138,7 +159,7 @@
     </TokenIdentifier>
     <Path>classlexis_1_1_request.html</Path>
     <Anchor>aa3d64e72f6be2b7157d3a272574a305b</Anchor>
-    <Abstract>Set the value of the ::zerobuf::uint128_t fixed size member. </Abstract>
+    <Abstract>Set the Event value. </Abstract>
     <DeclaredIn>request.h</DeclaredIn>
   </Token>
   <Token>
@@ -204,7 +225,7 @@
       <Scope>lexis::Version</Scope>
     </TokenIdentifier>
     <Path>classlexis_1_1_version.html</Path>
-    <Anchor>af434e85a24507da6ccf8dc934785c5e5</Anchor>
+    <Anchor>a2ce2a401a0e7e32f1b3c087899152a12</Anchor>
     <DeclaredIn>version.h</DeclaredIn>
   </Token>
   <Token>
@@ -281,7 +302,7 @@
     </TokenIdentifier>
     <Path>classlexis_1_1data_1_1_cell_set_binary_op.html</Path>
     <Anchor>afdb900856094024b9e57d4cc63b8a67b</Anchor>
-    <Abstract>Get a reference to the uint32_t dynamic member. </Abstract>
+    <Abstract>Get a reference to the First dynamic member. </Abstract>
     <DeclaredIn>cellSetBinaryOp.h</DeclaredIn>
   </Token>
   <Token>
@@ -293,7 +314,7 @@
     </TokenIdentifier>
     <Path>classlexis_1_1data_1_1_cell_set_binary_op.html</Path>
     <Anchor>a5e944c55779cc859960f07e5708ab1d3</Anchor>
-    <Abstract>Set the value of the uint32_t dynamic object from a uint32_t* and size. </Abstract>
+    <Abstract>Set the value of the First dynamic object from a uint32_t* and size. </Abstract>
     <DeclaredIn>cellSetBinaryOp.h</DeclaredIn>
   </Token>
   <Token>
@@ -305,7 +326,7 @@
     </TokenIdentifier>
     <Path>classlexis_1_1data_1_1_cell_set_binary_op.html</Path>
     <Anchor>a398f58d7a137be630eafaa71556f5368</Anchor>
-    <Abstract>Set the value of the uint32_t dynamic object from a uint32_t std::vector. </Abstract>
+    <Abstract>Set the value of the First dynamic object from a std::vector&lt; uint32_t &gt;. </Abstract>
     <DeclaredIn>cellSetBinaryOp.h</DeclaredIn>
   </Token>
   <Token>
@@ -317,7 +338,7 @@
     </TokenIdentifier>
     <Path>classlexis_1_1data_1_1_cell_set_binary_op.html</Path>
     <Anchor>a5f85842da12eaeb2c32c7c0c035af0d3</Anchor>
-    <Abstract>Get a reference to the uint32_t dynamic member. </Abstract>
+    <Abstract>Get a reference to the Second dynamic member. </Abstract>
     <DeclaredIn>cellSetBinaryOp.h</DeclaredIn>
   </Token>
   <Token>
@@ -329,7 +350,7 @@
     </TokenIdentifier>
     <Path>classlexis_1_1data_1_1_cell_set_binary_op.html</Path>
     <Anchor>a4b828a7aeeda3278cae26a11d10ae773</Anchor>
-    <Abstract>Set the value of the uint32_t dynamic object from a uint32_t* and size. </Abstract>
+    <Abstract>Set the value of the Second dynamic object from a uint32_t* and size. </Abstract>
     <DeclaredIn>cellSetBinaryOp.h</DeclaredIn>
   </Token>
   <Token>
@@ -341,7 +362,7 @@
     </TokenIdentifier>
     <Path>classlexis_1_1data_1_1_cell_set_binary_op.html</Path>
     <Anchor>a350e8fb6d6be62f0c1ac8cd0358c7a5a</Anchor>
-    <Abstract>Set the value of the uint32_t dynamic object from a uint32_t std::vector. </Abstract>
+    <Abstract>Set the value of the Second dynamic object from a std::vector&lt; uint32_t &gt;. </Abstract>
     <DeclaredIn>cellSetBinaryOp.h</DeclaredIn>
   </Token>
   <Token>
@@ -353,7 +374,7 @@
     </TokenIdentifier>
     <Path>classlexis_1_1data_1_1_cell_set_binary_op.html</Path>
     <Anchor>a61ae3f38439173ea471f79a61fd60915</Anchor>
-    <Abstract>Set the value of the CellSetBinaryOpType fixed size member. </Abstract>
+    <Abstract>Set the Operation value. </Abstract>
     <DeclaredIn>cellSetBinaryOp.h</DeclaredIn>
   </Token>
   <Token>
@@ -374,7 +395,7 @@
     </TokenIdentifier>
     <Path>classlexis_1_1data_1_1_frame_range.html</Path>
     <Anchor>ae3a5b57ccdaf66552550dba5b56a5eb3</Anchor>
-    <Abstract>Set the value of the uint32_t fixed size member. </Abstract>
+    <Abstract>Set the Start value. </Abstract>
     <DeclaredIn>frameRange.h</DeclaredIn>
   </Token>
   <Token>
@@ -386,7 +407,7 @@
     </TokenIdentifier>
     <Path>classlexis_1_1data_1_1_frame_range.html</Path>
     <Anchor>a4f90b0ff0c93c3c2e3ebcac299a00770</Anchor>
-    <Abstract>Set the value of the uint32_t fixed size member. </Abstract>
+    <Abstract>Set the End value. </Abstract>
     <DeclaredIn>frameRange.h</DeclaredIn>
   </Token>
   <Token>
@@ -409,7 +430,7 @@
     </TokenIdentifier>
     <Path>classlexis_1_1data_1_1detail_1_1_progress.html</Path>
     <Anchor>ac8e7eeefb58e4ff093fe280379f38aee</Anchor>
-    <Abstract>Get a reference to the char dynamic member. </Abstract>
+    <Abstract>Get a reference to the Operation dynamic member. </Abstract>
     <DeclaredIn>progress.h</DeclaredIn>
   </Token>
   <Token>
@@ -421,7 +442,7 @@
     </TokenIdentifier>
     <Path>classlexis_1_1data_1_1detail_1_1_progress.html</Path>
     <Anchor>aafb98546a02713cde02f6757aa0e2ffa</Anchor>
-    <Abstract>Set the value of the char dynamic object from a char* and size. </Abstract>
+    <Abstract>Set the value of the Operation dynamic object from a char* and size. </Abstract>
     <DeclaredIn>progress.h</DeclaredIn>
   </Token>
   <Token>
@@ -433,7 +454,7 @@
     </TokenIdentifier>
     <Path>classlexis_1_1data_1_1detail_1_1_progress.html</Path>
     <Anchor>ae3a4e55c4c13317dca6f1c30fd6dfcfe</Anchor>
-    <Abstract>Set the value of the char dynamic object from a std::string. </Abstract>
+    <Abstract>Set the value of the Operation dynamic object from a std::string. </Abstract>
     <DeclaredIn>progress.h</DeclaredIn>
   </Token>
   <Token>
@@ -445,7 +466,7 @@
     </TokenIdentifier>
     <Path>classlexis_1_1data_1_1detail_1_1_progress.html</Path>
     <Anchor>a58a50b8b29a04301348a9fe70a9f2d62</Anchor>
-    <Abstract>Set the value of the float fixed size member. </Abstract>
+    <Abstract>Set the Amount value. </Abstract>
     <DeclaredIn>progress.h</DeclaredIn>
   </Token>
   <Token>
@@ -466,7 +487,7 @@
     </TokenIdentifier>
     <Path>classlexis_1_1data_1_1_selected_i_ds.html</Path>
     <Anchor>a78d6f0aea607d7d32a40dd74f28015e0</Anchor>
-    <Abstract>Get a reference to the uint32_t dynamic member. </Abstract>
+    <Abstract>Get a reference to the Ids dynamic member. </Abstract>
     <DeclaredIn>selections.h</DeclaredIn>
   </Token>
   <Token>
@@ -478,7 +499,7 @@
     </TokenIdentifier>
     <Path>classlexis_1_1data_1_1_selected_i_ds.html</Path>
     <Anchor>ac1eb687e0e401373b01d74478af9afa0</Anchor>
-    <Abstract>Set the value of the uint32_t dynamic object from a uint32_t* and size. </Abstract>
+    <Abstract>Set the value of the Ids dynamic object from a uint32_t* and size. </Abstract>
     <DeclaredIn>selections.h</DeclaredIn>
   </Token>
   <Token>
@@ -490,7 +511,7 @@
     </TokenIdentifier>
     <Path>classlexis_1_1data_1_1_selected_i_ds.html</Path>
     <Anchor>a050700a7454f09aa64db66643ca46833</Anchor>
-    <Abstract>Set the value of the uint32_t dynamic object from a uint32_t std::vector. </Abstract>
+    <Abstract>Set the value of the Ids dynamic object from a std::vector&lt; uint32_t &gt;. </Abstract>
     <DeclaredIn>selections.h</DeclaredIn>
   </Token>
   <Token>
@@ -511,7 +532,7 @@
     </TokenIdentifier>
     <Path>classlexis_1_1data_1_1_toggle_i_d_request.html</Path>
     <Anchor>a977c6670c486bfde5d834f87ecf9450d</Anchor>
-    <Abstract>Get a reference to the uint32_t dynamic member. </Abstract>
+    <Abstract>Get a reference to the Ids dynamic member. </Abstract>
     <DeclaredIn>selections.h</DeclaredIn>
   </Token>
   <Token>
@@ -523,7 +544,7 @@
     </TokenIdentifier>
     <Path>classlexis_1_1data_1_1_toggle_i_d_request.html</Path>
     <Anchor>a1b771a826560b120261ab5314b6e1a3c</Anchor>
-    <Abstract>Set the value of the uint32_t dynamic object from a uint32_t* and size. </Abstract>
+    <Abstract>Set the value of the Ids dynamic object from a uint32_t* and size. </Abstract>
     <DeclaredIn>selections.h</DeclaredIn>
   </Token>
   <Token>
@@ -535,7 +556,7 @@
     </TokenIdentifier>
     <Path>classlexis_1_1data_1_1_toggle_i_d_request.html</Path>
     <Anchor>a8a72a59dcbb54e5565be444f665030c0</Anchor>
-    <Abstract>Set the value of the uint32_t dynamic object from a uint32_t std::vector. </Abstract>
+    <Abstract>Set the value of the Ids dynamic object from a std::vector&lt; uint32_t &gt;. </Abstract>
     <DeclaredIn>selections.h</DeclaredIn>
   </Token>
   <Token>
@@ -556,7 +577,7 @@
     </TokenIdentifier>
     <Path>classlexis_1_1data_1_1detail_1_1_progress.html</Path>
     <Anchor>ac8e7eeefb58e4ff093fe280379f38aee</Anchor>
-    <Abstract>Get a reference to the char dynamic member. </Abstract>
+    <Abstract>Get a reference to the Operation dynamic member. </Abstract>
     <DeclaredIn>progress.h</DeclaredIn>
   </Token>
   <Token>
@@ -568,7 +589,7 @@
     </TokenIdentifier>
     <Path>classlexis_1_1data_1_1detail_1_1_progress.html</Path>
     <Anchor>aafb98546a02713cde02f6757aa0e2ffa</Anchor>
-    <Abstract>Set the value of the char dynamic object from a char* and size. </Abstract>
+    <Abstract>Set the value of the Operation dynamic object from a char* and size. </Abstract>
     <DeclaredIn>progress.h</DeclaredIn>
   </Token>
   <Token>
@@ -580,7 +601,7 @@
     </TokenIdentifier>
     <Path>classlexis_1_1data_1_1detail_1_1_progress.html</Path>
     <Anchor>ae3a4e55c4c13317dca6f1c30fd6dfcfe</Anchor>
-    <Abstract>Set the value of the char dynamic object from a std::string. </Abstract>
+    <Abstract>Set the value of the Operation dynamic object from a std::string. </Abstract>
     <DeclaredIn>progress.h</DeclaredIn>
   </Token>
   <Token>
@@ -592,7 +613,7 @@
     </TokenIdentifier>
     <Path>classlexis_1_1data_1_1detail_1_1_progress.html</Path>
     <Anchor>a58a50b8b29a04301348a9fe70a9f2d62</Anchor>
-    <Abstract>Set the value of the float fixed size member. </Abstract>
+    <Abstract>Set the Amount value. </Abstract>
     <DeclaredIn>progress.h</DeclaredIn>
   </Token>
   <Token>
@@ -613,7 +634,7 @@
     </TokenIdentifier>
     <Path>classlexis_1_1render_1_1_clip_planes.html</Path>
     <Anchor>a3d654936cbc9a8726bbf3dbf0418ded8</Anchor>
-    <Abstract>Get a reference to the Plane dynamic member. </Abstract>
+    <Abstract>Get a reference to the Planes dynamic member. </Abstract>
     <DeclaredIn>clipPlanes.h</DeclaredIn>
   </Token>
   <Token>
@@ -625,7 +646,7 @@
     </TokenIdentifier>
     <Path>classlexis_1_1render_1_1_clip_planes.html</Path>
     <Anchor>affdbc71ab4b08fe1025be569ce6a1937</Anchor>
-    <Abstract>Set the value of the Plane dynamic object from a Plane std::vector. </Abstract>
+    <Abstract>Set the value of Planes dynamic array from a std::vector&lt; Plane &gt;. </Abstract>
     <DeclaredIn>clipPlanes.h</DeclaredIn>
   </Token>
   <Token>
@@ -646,8 +667,8 @@
     </TokenIdentifier>
     <Path>classlexis_1_1render_1_1_color.html</Path>
     <Anchor>a74aeb8d1bcb3c8ec6a75afbd37cad37f</Anchor>
-    <Abstract>Set the value of the float fixed size member. </Abstract>
-    <DeclaredIn>colorMaps.h</DeclaredIn>
+    <Abstract>Set the Red value. </Abstract>
+    <DeclaredIn>materialLUT.h</DeclaredIn>
   </Token>
   <Token>
     <TokenIdentifier>
@@ -658,8 +679,8 @@
     </TokenIdentifier>
     <Path>classlexis_1_1render_1_1_color.html</Path>
     <Anchor>a7ab6e80f2e9bdec326c6044478791357</Anchor>
-    <Abstract>Set the value of the float fixed size member. </Abstract>
-    <DeclaredIn>colorMaps.h</DeclaredIn>
+    <Abstract>Set the Green value. </Abstract>
+    <DeclaredIn>materialLUT.h</DeclaredIn>
   </Token>
   <Token>
     <TokenIdentifier>
@@ -670,8 +691,8 @@
     </TokenIdentifier>
     <Path>classlexis_1_1render_1_1_color.html</Path>
     <Anchor>ace6af820cf19a631fa8aa14e95b7bb87</Anchor>
-    <Abstract>Set the value of the float fixed size member. </Abstract>
-    <DeclaredIn>colorMaps.h</DeclaredIn>
+    <Abstract>Set the Blue value. </Abstract>
+    <DeclaredIn>materialLUT.h</DeclaredIn>
   </Token>
   <Token>
     <TokenIdentifier>
@@ -700,7 +721,7 @@
     </TokenIdentifier>
     <Path>classlexis_1_1render_1_1_frame.html</Path>
     <Anchor>a6eb741679780785a001d719253000ef9</Anchor>
-    <Abstract>Set the value of the uint32_t fixed size member. </Abstract>
+    <Abstract>Set the Start value. </Abstract>
     <DeclaredIn>frame.h</DeclaredIn>
   </Token>
   <Token>
@@ -712,7 +733,7 @@
     </TokenIdentifier>
     <Path>classlexis_1_1render_1_1_frame.html</Path>
     <Anchor>a0f41362db89ae24647906728d12b52b4</Anchor>
-    <Abstract>Set the value of the uint32_t fixed size member. </Abstract>
+    <Abstract>Set the Current value. </Abstract>
     <DeclaredIn>frame.h</DeclaredIn>
   </Token>
   <Token>
@@ -724,7 +745,7 @@
     </TokenIdentifier>
     <Path>classlexis_1_1render_1_1_frame.html</Path>
     <Anchor>a16b3ad628ae4d337f377341403716f4c</Anchor>
-    <Abstract>Set the value of the uint32_t fixed size member. </Abstract>
+    <Abstract>Set the End value. </Abstract>
     <DeclaredIn>frame.h</DeclaredIn>
   </Token>
   <Token>
@@ -736,7 +757,7 @@
     </TokenIdentifier>
     <Path>classlexis_1_1render_1_1_frame.html</Path>
     <Anchor>aa6c98c768f38d8e129f9be0f7a7b5618</Anchor>
-    <Abstract>Set the value of the int32_t fixed size member. </Abstract>
+    <Abstract>Set the Delta value. </Abstract>
     <DeclaredIn>frame.h</DeclaredIn>
   </Token>
   <Token>
@@ -757,7 +778,7 @@
     </TokenIdentifier>
     <Path>classlexis_1_1render_1_1_histogram.html</Path>
     <Anchor>a6ce73498e86e31f87fcd267335cf6603</Anchor>
-    <Abstract>Get a reference to the uint64_t dynamic member. </Abstract>
+    <Abstract>Get a reference to the Bins dynamic member. </Abstract>
     <DeclaredIn>histogram.h</DeclaredIn>
   </Token>
   <Token>
@@ -769,7 +790,7 @@
     </TokenIdentifier>
     <Path>classlexis_1_1render_1_1_histogram.html</Path>
     <Anchor>ad353f5d31f6c8cfc541173557707397d</Anchor>
-    <Abstract>Set the value of the uint64_t dynamic object from a uint64_t* and size. </Abstract>
+    <Abstract>Set the value of the Bins dynamic object from a uint64_t* and size. </Abstract>
     <DeclaredIn>histogram.h</DeclaredIn>
   </Token>
   <Token>
@@ -781,7 +802,7 @@
     </TokenIdentifier>
     <Path>classlexis_1_1render_1_1_histogram.html</Path>
     <Anchor>a18016424092789ad432de2b49f775964</Anchor>
-    <Abstract>Set the value of the uint64_t dynamic object from a uint64_t std::vector. </Abstract>
+    <Abstract>Set the value of the Bins dynamic object from a std::vector&lt; uint64_t &gt;. </Abstract>
     <DeclaredIn>histogram.h</DeclaredIn>
   </Token>
   <Token>
@@ -793,7 +814,7 @@
     </TokenIdentifier>
     <Path>classlexis_1_1render_1_1_histogram.html</Path>
     <Anchor>aa55ee06898a82b91be67f8e9188d9c6c</Anchor>
-    <Abstract>Set the value of the float fixed size member. </Abstract>
+    <Abstract>Set the Min value. </Abstract>
     <DeclaredIn>histogram.h</DeclaredIn>
   </Token>
   <Token>
@@ -805,7 +826,7 @@
     </TokenIdentifier>
     <Path>classlexis_1_1render_1_1_histogram.html</Path>
     <Anchor>ac7eb9e11be8522779fa63e1ea2a56de3</Anchor>
-    <Abstract>Set the value of the float fixed size member. </Abstract>
+    <Abstract>Set the Max value. </Abstract>
     <DeclaredIn>histogram.h</DeclaredIn>
   </Token>
   <Token>
@@ -826,7 +847,7 @@
     </TokenIdentifier>
     <Path>classlexis_1_1render_1_1_image_j_p_e_g.html</Path>
     <Anchor>a9c25058a387f0935e5dddf8377467605</Anchor>
-    <Abstract>Get a reference to the uint8_t dynamic member. </Abstract>
+    <Abstract>Get a reference to the Data dynamic member. </Abstract>
     <DeclaredIn>imageJPEG.h</DeclaredIn>
   </Token>
   <Token>
@@ -838,7 +859,7 @@
     </TokenIdentifier>
     <Path>classlexis_1_1render_1_1_image_j_p_e_g.html</Path>
     <Anchor>a8edffdb3c2a14821474a34ff799d6b57</Anchor>
-    <Abstract>Set the value of the uint8_t dynamic object from a uint8_t* and size. </Abstract>
+    <Abstract>Set the value of the Data dynamic object from a uint8_t* and size. </Abstract>
     <DeclaredIn>imageJPEG.h</DeclaredIn>
   </Token>
   <Token>
@@ -850,7 +871,7 @@
     </TokenIdentifier>
     <Path>classlexis_1_1render_1_1_image_j_p_e_g.html</Path>
     <Anchor>ae7d31cc7922a172059a635f2748b848e</Anchor>
-    <Abstract>Set the value of the uint8_t dynamic object from a uint8_t std::vector. </Abstract>
+    <Abstract>Set the value of the Data dynamic object from a std::vector&lt; uint8_t &gt;. </Abstract>
     <DeclaredIn>imageJPEG.h</DeclaredIn>
   </Token>
   <Token>
@@ -871,7 +892,7 @@
     </TokenIdentifier>
     <Path>classlexis_1_1render_1_1_look_out.html</Path>
     <Anchor>a50da24acf12b2b6e7a402511e6672dbd</Anchor>
-    <Abstract>Get a pointer to the double fixed size array object. </Abstract>
+    <Abstract>Get a pointer to the Matrix fixed size array. </Abstract>
     <DeclaredIn>lookOut.h</DeclaredIn>
   </Token>
   <Token>
@@ -883,7 +904,7 @@
     </TokenIdentifier>
     <Path>classlexis_1_1render_1_1_look_out.html</Path>
     <Anchor>afd4486c6baa990cbd0e265f9ef3ee7d2</Anchor>
-    <Abstract>Set the value of the double fixed size array object from a double*. </Abstract>
+    <Abstract>Set the value of the Matrix fixed size array from a double*. </Abstract>
     <DeclaredIn>lookOut.h</DeclaredIn>
   </Token>
   <Token>
@@ -895,7 +916,7 @@
     </TokenIdentifier>
     <Path>classlexis_1_1render_1_1_look_out.html</Path>
     <Anchor>a6bb784e91485d9d4dc99327132f3a871</Anchor>
-    <Abstract>Set the value of the double fixed size array object from a double std::vector. </Abstract>
+    <Abstract>Set the value of the Matrix fixed size array object from a std::vector&lt; double &gt;. ...</Abstract>
     <DeclaredIn>lookOut.h</DeclaredIn>
   </Token>
   <Token>
@@ -916,7 +937,7 @@
     </TokenIdentifier>
     <Path>classlexis_1_1render_1_1_lookup_table1_d.html</Path>
     <Anchor>aa045047524cbbfa149cda12c221f20e6</Anchor>
-    <Abstract>Get a pointer to the uint8_t fixed size array object. </Abstract>
+    <Abstract>Get a pointer to the Lut fixed size array. </Abstract>
     <DeclaredIn>lookupTable1D.h</DeclaredIn>
   </Token>
   <Token>
@@ -928,7 +949,7 @@
     </TokenIdentifier>
     <Path>classlexis_1_1render_1_1_lookup_table1_d.html</Path>
     <Anchor>acd5117af296da131895cbea3e8dbe4fd</Anchor>
-    <Abstract>Set the value of the uint8_t fixed size array object from a uint8_t*. </Abstract>
+    <Abstract>Set the value of the Lut fixed size array from a uint8_t*. </Abstract>
     <DeclaredIn>lookupTable1D.h</DeclaredIn>
   </Token>
   <Token>
@@ -940,8 +961,173 @@
     </TokenIdentifier>
     <Path>classlexis_1_1render_1_1_lookup_table1_d.html</Path>
     <Anchor>a3d07f22bb5c955755db44b88357be496</Anchor>
-    <Abstract>Set the value of the uint8_t fixed size array object from a uint8_t std::vector. </Abstract>
+    <Abstract>Set the value of the Lut fixed size array object from a std::vector&lt; uint8_t &gt;. </Abstract>
     <DeclaredIn>lookupTable1D.h</DeclaredIn>
+  </Token>
+  <Token>
+    <TokenIdentifier>
+      <Name>lexis::render::MaterialLUT</Name>
+      <APILanguage>c</APILanguage>
+      <Type>cl</Type>
+      <Scope>lexis::render::MaterialLUT</Scope>
+    </TokenIdentifier>
+    <Path>classlexis_1_1render_1_1_material_l_u_t.html</Path>
+  </Token>
+  <Token>
+    <TokenIdentifier>
+      <Name>getDiffuse</Name>
+      <APILanguage>cpp</APILanguage>
+      <Type>instm</Type>
+      <Scope>lexis::render::MaterialLUT</Scope>
+    </TokenIdentifier>
+    <Path>classlexis_1_1render_1_1_material_l_u_t.html</Path>
+    <Anchor>a958a54fc548ab93b1c1183024143fe4d</Anchor>
+    <Abstract>Get a reference to the Diffuse dynamic member. </Abstract>
+    <DeclaredIn>materialLUT.h</DeclaredIn>
+  </Token>
+  <Token>
+    <TokenIdentifier>
+      <Name>setDiffuse</Name>
+      <APILanguage>cpp</APILanguage>
+      <Type>instm</Type>
+      <Scope>lexis::render::MaterialLUT</Scope>
+    </TokenIdentifier>
+    <Path>classlexis_1_1render_1_1_material_l_u_t.html</Path>
+    <Anchor>ab9e5526b73aba5726d7597a57a08b8ef</Anchor>
+    <Abstract>Set the value of Diffuse dynamic array from a std::vector&lt; Color &gt;. </Abstract>
+    <DeclaredIn>materialLUT.h</DeclaredIn>
+  </Token>
+  <Token>
+    <TokenIdentifier>
+      <Name>getEmission</Name>
+      <APILanguage>cpp</APILanguage>
+      <Type>instm</Type>
+      <Scope>lexis::render::MaterialLUT</Scope>
+    </TokenIdentifier>
+    <Path>classlexis_1_1render_1_1_material_l_u_t.html</Path>
+    <Anchor>a57af926eec0057f447ce18abe4bd1042</Anchor>
+    <Abstract>Get a reference to the Emission dynamic member. </Abstract>
+    <DeclaredIn>materialLUT.h</DeclaredIn>
+  </Token>
+  <Token>
+    <TokenIdentifier>
+      <Name>setEmission</Name>
+      <APILanguage>cpp</APILanguage>
+      <Type>instm</Type>
+      <Scope>lexis::render::MaterialLUT</Scope>
+    </TokenIdentifier>
+    <Path>classlexis_1_1render_1_1_material_l_u_t.html</Path>
+    <Anchor>a94188d5c16ae4a812aa0333fa6bfbfe7</Anchor>
+    <Abstract>Set the value of Emission dynamic array from a std::vector&lt; Color &gt;. </Abstract>
+    <DeclaredIn>materialLUT.h</DeclaredIn>
+  </Token>
+  <Token>
+    <TokenIdentifier>
+      <Name>getAlpha</Name>
+      <APILanguage>cpp</APILanguage>
+      <Type>instm</Type>
+      <Scope>lexis::render::MaterialLUT</Scope>
+    </TokenIdentifier>
+    <Path>classlexis_1_1render_1_1_material_l_u_t.html</Path>
+    <Anchor>a6f8b216df90482a49ea514bbf37971a9</Anchor>
+    <Abstract>Get a reference to the Alpha dynamic member. </Abstract>
+    <DeclaredIn>materialLUT.h</DeclaredIn>
+  </Token>
+  <Token>
+    <TokenIdentifier>
+      <Name>setAlpha</Name>
+      <APILanguage>cpp</APILanguage>
+      <Type>instm</Type>
+      <Scope>lexis::render::MaterialLUT</Scope>
+    </TokenIdentifier>
+    <Path>classlexis_1_1render_1_1_material_l_u_t.html</Path>
+    <Anchor>ac6c8e96286496eb36da6750bc06bc2c2</Anchor>
+    <Abstract>Set the value of the Alpha dynamic object from a float* and size. </Abstract>
+    <DeclaredIn>materialLUT.h</DeclaredIn>
+  </Token>
+  <Token>
+    <TokenIdentifier>
+      <Name>setAlpha</Name>
+      <APILanguage>cpp</APILanguage>
+      <Type>instm</Type>
+      <Scope>lexis::render::MaterialLUT</Scope>
+    </TokenIdentifier>
+    <Path>classlexis_1_1render_1_1_material_l_u_t.html</Path>
+    <Anchor>a7f3d88919ab4465f4b65bf1c9c350cc2</Anchor>
+    <Abstract>Set the value of the Alpha dynamic object from a std::vector&lt; float &gt;. </Abstract>
+    <DeclaredIn>materialLUT.h</DeclaredIn>
+  </Token>
+  <Token>
+    <TokenIdentifier>
+      <Name>getContribution</Name>
+      <APILanguage>cpp</APILanguage>
+      <Type>instm</Type>
+      <Scope>lexis::render::MaterialLUT</Scope>
+    </TokenIdentifier>
+    <Path>classlexis_1_1render_1_1_material_l_u_t.html</Path>
+    <Anchor>a59249caf64906741a3791df73bf44627</Anchor>
+    <Abstract>Get a reference to the Contribution dynamic member. </Abstract>
+    <DeclaredIn>materialLUT.h</DeclaredIn>
+  </Token>
+  <Token>
+    <TokenIdentifier>
+      <Name>setContribution</Name>
+      <APILanguage>cpp</APILanguage>
+      <Type>instm</Type>
+      <Scope>lexis::render::MaterialLUT</Scope>
+    </TokenIdentifier>
+    <Path>classlexis_1_1render_1_1_material_l_u_t.html</Path>
+    <Anchor>a256a81675395fb8fbdbdc1bc5d295256</Anchor>
+    <Abstract>Set the value of the Contribution dynamic object from a float* and size. </Abstract>
+    <DeclaredIn>materialLUT.h</DeclaredIn>
+  </Token>
+  <Token>
+    <TokenIdentifier>
+      <Name>setContribution</Name>
+      <APILanguage>cpp</APILanguage>
+      <Type>instm</Type>
+      <Scope>lexis::render::MaterialLUT</Scope>
+    </TokenIdentifier>
+    <Path>classlexis_1_1render_1_1_material_l_u_t.html</Path>
+    <Anchor>ad4819ce7c02009ad7df75a5735a5f0bf</Anchor>
+    <Abstract>Set the value of the Contribution dynamic object from a std::vector&lt; float &gt;. </Abstract>
+    <DeclaredIn>materialLUT.h</DeclaredIn>
+  </Token>
+  <Token>
+    <TokenIdentifier>
+      <Name>getRange</Name>
+      <APILanguage>cpp</APILanguage>
+      <Type>instm</Type>
+      <Scope>lexis::render::MaterialLUT</Scope>
+    </TokenIdentifier>
+    <Path>classlexis_1_1render_1_1_material_l_u_t.html</Path>
+    <Anchor>afd002b912d1ffa89470cb8431c6b0121</Anchor>
+    <Abstract>Get a pointer to the Range fixed size array. </Abstract>
+    <DeclaredIn>materialLUT.h</DeclaredIn>
+  </Token>
+  <Token>
+    <TokenIdentifier>
+      <Name>setRange</Name>
+      <APILanguage>cpp</APILanguage>
+      <Type>instm</Type>
+      <Scope>lexis::render::MaterialLUT</Scope>
+    </TokenIdentifier>
+    <Path>classlexis_1_1render_1_1_material_l_u_t.html</Path>
+    <Anchor>ab73c09d1e2f704a14e945be2240edc32</Anchor>
+    <Abstract>Set the value of the Range fixed size array from a double*. </Abstract>
+    <DeclaredIn>materialLUT.h</DeclaredIn>
+  </Token>
+  <Token>
+    <TokenIdentifier>
+      <Name>setRange</Name>
+      <APILanguage>cpp</APILanguage>
+      <Type>instm</Type>
+      <Scope>lexis::render::MaterialLUT</Scope>
+    </TokenIdentifier>
+    <Path>classlexis_1_1render_1_1_material_l_u_t.html</Path>
+    <Anchor>a45dc18c7bbb45eb4d7f08e887783e1ab</Anchor>
+    <Abstract>Set the value of the Range fixed size array object from a std::vector&lt; double &gt;. </Abstract>
+    <DeclaredIn>materialLUT.h</DeclaredIn>
   </Token>
   <Token>
     <TokenIdentifier>
@@ -961,7 +1147,7 @@
     </TokenIdentifier>
     <Path>classlexis_1_1render_1_1_plane.html</Path>
     <Anchor>a1c7683cee9f94faaa7d209f223d266f1</Anchor>
-    <Abstract>Get a pointer to the float fixed size array object. </Abstract>
+    <Abstract>Get a pointer to the Normal fixed size array. </Abstract>
     <DeclaredIn>clipPlanes.h</DeclaredIn>
   </Token>
   <Token>
@@ -973,7 +1159,7 @@
     </TokenIdentifier>
     <Path>classlexis_1_1render_1_1_plane.html</Path>
     <Anchor>af59ac2b5cf65e0e89224452e938ff052</Anchor>
-    <Abstract>Set the value of the float fixed size array object from a float*. </Abstract>
+    <Abstract>Set the value of the Normal fixed size array from a float*. </Abstract>
     <DeclaredIn>clipPlanes.h</DeclaredIn>
   </Token>
   <Token>
@@ -985,7 +1171,7 @@
     </TokenIdentifier>
     <Path>classlexis_1_1render_1_1_plane.html</Path>
     <Anchor>a44687698b7a54158a40d1319ea6c333b</Anchor>
-    <Abstract>Set the value of the float fixed size array object from a float std::vector. </Abstract>
+    <Abstract>Set the value of the Normal fixed size array object from a std::vector&lt; float &gt;. </Abstract>
     <DeclaredIn>clipPlanes.h</DeclaredIn>
   </Token>
   <Token>
@@ -997,7 +1183,7 @@
     </TokenIdentifier>
     <Path>classlexis_1_1render_1_1_plane.html</Path>
     <Anchor>ae0499638012bef7eca950ac7fb53646f</Anchor>
-    <Abstract>Set the value of the float fixed size member. </Abstract>
+    <Abstract>Set the D value. </Abstract>
     <DeclaredIn>clipPlanes.h</DeclaredIn>
   </Token>
   <Token>
@@ -1018,7 +1204,7 @@
     </TokenIdentifier>
     <Path>classlexis_1_1render_1_1_stream.html</Path>
     <Anchor>a6d52090b6dcfe49983dcc39c9a41df06</Anchor>
-    <Abstract>Get a reference to the char dynamic member. </Abstract>
+    <Abstract>Get a reference to the Host dynamic member. </Abstract>
     <DeclaredIn>stream.h</DeclaredIn>
   </Token>
   <Token>
@@ -1030,7 +1216,7 @@
     </TokenIdentifier>
     <Path>classlexis_1_1render_1_1_stream.html</Path>
     <Anchor>ab9aef74e41ed3669568191512cb3f3b2</Anchor>
-    <Abstract>Set the value of the char dynamic object from a char* and size. </Abstract>
+    <Abstract>Set the value of the Host dynamic object from a char* and size. </Abstract>
     <DeclaredIn>stream.h</DeclaredIn>
   </Token>
   <Token>
@@ -1042,7 +1228,7 @@
     </TokenIdentifier>
     <Path>classlexis_1_1render_1_1_stream.html</Path>
     <Anchor>a85b1f631806087e054047e02d8ac3971</Anchor>
-    <Abstract>Set the value of the char dynamic object from a std::string. </Abstract>
+    <Abstract>Set the value of the Host dynamic object from a std::string. </Abstract>
     <DeclaredIn>stream.h</DeclaredIn>
   </Token>
   <Token>
@@ -1054,7 +1240,7 @@
     </TokenIdentifier>
     <Path>classlexis_1_1render_1_1_stream.html</Path>
     <Anchor>ae8a8124f1acf0849143bcb618a510094</Anchor>
-    <Abstract>Get a reference to the char dynamic member. </Abstract>
+    <Abstract>Get a reference to the Id dynamic member. </Abstract>
     <DeclaredIn>stream.h</DeclaredIn>
   </Token>
   <Token>
@@ -1066,7 +1252,7 @@
     </TokenIdentifier>
     <Path>classlexis_1_1render_1_1_stream.html</Path>
     <Anchor>a3858ceb095a92ee5e5ec09de5d565b48</Anchor>
-    <Abstract>Set the value of the char dynamic object from a char* and size. </Abstract>
+    <Abstract>Set the value of the Id dynamic object from a char* and size. </Abstract>
     <DeclaredIn>stream.h</DeclaredIn>
   </Token>
   <Token>
@@ -1078,7 +1264,7 @@
     </TokenIdentifier>
     <Path>classlexis_1_1render_1_1_stream.html</Path>
     <Anchor>ab2f91a2c48ba78f85b0b34dda2dd3307</Anchor>
-    <Abstract>Set the value of the char dynamic object from a std::string. </Abstract>
+    <Abstract>Set the value of the Id dynamic object from a std::string. </Abstract>
     <DeclaredIn>stream.h</DeclaredIn>
   </Token>
   <Token>
@@ -1090,7 +1276,7 @@
     </TokenIdentifier>
     <Path>classlexis_1_1render_1_1_stream.html</Path>
     <Anchor>a351503e668c961fbf43952e62aeb7d45</Anchor>
-    <Abstract>Set the value of the bool fixed size member. </Abstract>
+    <Abstract>Set the Enabled value. </Abstract>
     <DeclaredIn>stream.h</DeclaredIn>
   </Token>
   <Token>
@@ -1102,7 +1288,7 @@
     </TokenIdentifier>
     <Path>classlexis_1_1render_1_1_stream.html</Path>
     <Anchor>aa97c3c65d88d9547230cc2797a78ff15</Anchor>
-    <Abstract>Set the value of the uint16_t fixed size member. </Abstract>
+    <Abstract>Set the Port value. </Abstract>
     <DeclaredIn>stream.h</DeclaredIn>
   </Token>
   <Token>
@@ -1114,7 +1300,7 @@
     </TokenIdentifier>
     <Path>classlexis_1_1render_1_1_stream.html</Path>
     <Anchor>a1a09d57682fc7cfcb180d51aeafe9dd8</Anchor>
-    <Abstract>Set the value of the bool fixed size member. </Abstract>
+    <Abstract>Set the Compression value. </Abstract>
     <DeclaredIn>stream.h</DeclaredIn>
   </Token>
   <Token>
@@ -1126,7 +1312,7 @@
     </TokenIdentifier>
     <Path>classlexis_1_1render_1_1_stream.html</Path>
     <Anchor>add9922c6206b53a5ad9e1d7db5e049fb</Anchor>
-    <Abstract>Set the value of the uint16_t fixed size member. </Abstract>
+    <Abstract>Set the Quality value. </Abstract>
     <DeclaredIn>stream.h</DeclaredIn>
   </Token>
   <Token>
@@ -1147,7 +1333,7 @@
     </TokenIdentifier>
     <Path>classlexis_1_1render_1_1_viewport.html</Path>
     <Anchor>a80cbaec6373df7ef8d67cf9644ed8b20</Anchor>
-    <Abstract>Get a pointer to the uint32_t fixed size array object. </Abstract>
+    <Abstract>Get a pointer to the Size fixed size array. </Abstract>
     <DeclaredIn>viewport.h</DeclaredIn>
   </Token>
   <Token>
@@ -1159,7 +1345,7 @@
     </TokenIdentifier>
     <Path>classlexis_1_1render_1_1_viewport.html</Path>
     <Anchor>a53ff093ac1e26d36fb3100cf83f5838c</Anchor>
-    <Abstract>Set the value of the uint32_t fixed size array object from a uint32_t*. </Abstract>
+    <Abstract>Set the value of the Size fixed size array from a uint32_t*. </Abstract>
     <DeclaredIn>viewport.h</DeclaredIn>
   </Token>
   <Token>
@@ -1171,7 +1357,7 @@
     </TokenIdentifier>
     <Path>classlexis_1_1render_1_1_viewport.html</Path>
     <Anchor>af9d5caf615b2a536eaaf3a0883a7f210</Anchor>
-    <Abstract>Set the value of the uint32_t fixed size array object from a uint32_t std::vector. </Abstract>
+    <Abstract>Set the value of the Size fixed size array object from a std::vector&lt; uint32_t &gt;. ...</Abstract>
     <DeclaredIn>viewport.h</DeclaredIn>
   </Token>
 </Tokens>

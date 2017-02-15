@@ -1,4 +1,5 @@
 var searchData=
 [
-  ['feature_20specifications',['Feature specifications',['../Features.html',1,'']]]
+  ['changelog',['Changelog',['../Changelog.html',1,'']]],
+  ['color_20maps',['Color maps',['../colorMaps.html',1,'Features']]]
 ];

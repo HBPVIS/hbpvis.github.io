@@ -133,7 +133,7 @@ $(document).ready(function(){initNavTree('classlexis_1_1render_1_1_lookup_table1
 <tr class="heading"><td colspan="2"><h2 class="groupheader"><a name="pub-methods"></a>
 Public Member Functions</h2></td></tr>
 <tr class="memitem:aa045047524cbbfa149cda12c221f20e6"><td class="memItemLeft" align="right" valign="top">uint8_t *&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classlexis_1_1render_1_1_lookup_table1_d.html#aa045047524cbbfa149cda12c221f20e6">getLut</a> ()</td></tr>
-<tr class="memdesc:aa045047524cbbfa149cda12c221f20e6"><td class="mdescLeft">&#160;</td><td class="mdescRight">Get a pointer to the uint8_t fixed size array object.  <a href="#aa045047524cbbfa149cda12c221f20e6">More...</a><br /></td></tr>
+<tr class="memdesc:aa045047524cbbfa149cda12c221f20e6"><td class="mdescLeft">&#160;</td><td class="mdescRight">Get a pointer to the Lut fixed size array.  <a href="#aa045047524cbbfa149cda12c221f20e6">More...</a><br /></td></tr>
 <tr class="separator:aa045047524cbbfa149cda12c221f20e6"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:ac4c22e14d9bd7b9ca0fa23344e0f483a"><td class="memItemLeft" align="right" valign="top"><a class="anchor" id="ac4c22e14d9bd7b9ca0fa23344e0f483a"></a>
 const uint8_t *&#160;</td><td class="memItemRight" valign="bottom"><b>getLut</b> () const </td></tr>
@@ -142,10 +142,10 @@ const uint8_t *&#160;</td><td class="memItemRight" valign="bottom"><b>getLut</b>
 std::vector&lt; uint8_t &gt;&#160;</td><td class="memItemRight" valign="bottom"><b>getLutVector</b> () const </td></tr>
 <tr class="separator:a6b99177e90cf24d35b1f8166d74af503"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:acd5117af296da131895cbea3e8dbe4fd"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classlexis_1_1render_1_1_lookup_table1_d.html#acd5117af296da131895cbea3e8dbe4fd">setLut</a> (uint8_t value[1024])</td></tr>
-<tr class="memdesc:acd5117af296da131895cbea3e8dbe4fd"><td class="mdescLeft">&#160;</td><td class="mdescRight">Set the value of the uint8_t fixed size array object from a uint8_t*.  <a href="#acd5117af296da131895cbea3e8dbe4fd">More...</a><br /></td></tr>
+<tr class="memdesc:acd5117af296da131895cbea3e8dbe4fd"><td class="mdescLeft">&#160;</td><td class="mdescRight">Set the value of the Lut fixed size array from a uint8_t*.  <a href="#acd5117af296da131895cbea3e8dbe4fd">More...</a><br /></td></tr>
 <tr class="separator:acd5117af296da131895cbea3e8dbe4fd"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a3d07f22bb5c955755db44b88357be496"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classlexis_1_1render_1_1_lookup_table1_d.html#a3d07f22bb5c955755db44b88357be496">setLut</a> (const std::vector&lt; uint8_t &gt; &amp;value)</td></tr>
-<tr class="memdesc:a3d07f22bb5c955755db44b88357be496"><td class="mdescLeft">&#160;</td><td class="mdescRight">Set the value of the uint8_t fixed size array object from a uint8_t std::vector.  <a href="#a3d07f22bb5c955755db44b88357be496">More...</a><br /></td></tr>
+<tr class="memdesc:a3d07f22bb5c955755db44b88357be496"><td class="mdescLeft">&#160;</td><td class="mdescRight">Set the value of the Lut fixed size array object from a std::vector&lt; uint8_t &gt;.  <a href="#a3d07f22bb5c955755db44b88357be496">More...</a><br /></td></tr>
 <tr class="separator:a3d07f22bb5c955755db44b88357be496"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a2a3f697c56eec3c0cf09a86354dc1ca2"><td class="memItemLeft" align="right" valign="top"><a class="anchor" id="a2a3f697c56eec3c0cf09a86354dc1ca2"></a>
 size_t&#160;</td><td class="memItemRight" valign="bottom"><b>getLutSize</b> () const </td></tr>
@@ -231,9 +231,9 @@ static ConstLookupTable1DPtr&#160;</td><td class="memItemRight" valign="bottom">
       </table>
 </div><div class="memdoc">
 
-<p>Get a pointer to the uint8_t fixed size array object. </p>
-<p>WARNING: If the pointer is used to modify the object, notifyChanged() needs to be explicitly called afterwards.</p>
-<dl class="section return"><dt>Returns</dt><dd>a pointer to the uint8_t fixed size array object(uint8_t*). </dd></dl>
+<p>Get a pointer to the Lut fixed size array. </p>
+<dl class="section warning"><dt>Warning</dt><dd>: If the pointer is used to modify the object, notifyChanged() needs to be explicitly called afterwards.</dd></dl>
+<dl class="section return"><dt>Returns</dt><dd>a pointer to the Lut fixed size array object (uint8_t*). </dd></dl>
 
 </div>
 </div>
@@ -251,11 +251,11 @@ static ConstLookupTable1DPtr&#160;</td><td class="memItemRight" valign="bottom">
       </table>
 </div><div class="memdoc">
 
-<p>Set the value of the uint8_t fixed size array object from a uint8_t*. </p>
-<p>notifyChanged() is internally called after the change has been done.</p>
+<p>Set the value of the Lut fixed size array from a uint8_t*. </p>
+<p>notifyChanged() is internally called after the data has been copied.</p>
 <dl class="params"><dt>Parameters</dt><dd>
   <table class="params">
-    <tr><td class="paramname">value</td><td>a 1024-length uint8_t array with the data to be set in the current object </td></tr>
+    <tr><td class="paramname">value</td><td>a 1024-length uint8_t array with the data to be set </td></tr>
   </table>
   </dd>
 </dl>
@@ -276,11 +276,11 @@ static ConstLookupTable1DPtr&#160;</td><td class="memItemRight" valign="bottom">
       </table>
 </div><div class="memdoc">
 
-<p>Set the value of the uint8_t fixed size array object from a uint8_t std::vector. </p>
+<p>Set the value of the Lut fixed size array object from a std::vector&lt; uint8_t &gt;. </p>
 <p>notifyChanged() is internally called after the change has been done.</p>
 <dl class="params"><dt>Parameters</dt><dd>
   <table class="params">
-    <tr><td class="paramname">value</td><td>a std::vector&lt; uint8_t &gt; with the data to be set in the current object </td></tr>
+    <tr><td class="paramname">value</td><td>a std::vector&lt; uint8_t &gt; with the data to be set </td></tr>
   </table>
   </dd>
 </dl>
@@ -296,7 +296,7 @@ static ConstLookupTable1DPtr&#160;</td><td class="memItemRight" valign="bottom">
 <div id="nav-path" class="navpath"><!-- id is needed for treeview function! -->
   <ul>
     <li class="navelem"><b>lexis</b></li><li class="navelem"><b>render</b></li><li class="navelem"><a class="el" href="classlexis_1_1render_1_1_lookup_table1_d.html">LookupTable1D</a></li>
-    <li class="footer">Generated on Sat Feb 4 2017 03:14:55 for Lexis by
+    <li class="footer">Generated on Wed Feb 15 2017 03:15:40 for Lexis by
     <a href="http://www.doxygen.org/index.html">
     <img class="footer" src="doxygen.png" alt="doxygen"/></a> 1.8.11 </li>
   </ul>

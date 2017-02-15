@@ -20,6 +20,20 @@
         </Subnodes>
        </Node>
        <Node>
+        <Name>Application Help</Name>
+        <Path>apps.html</Path>
+        <Subnodes>
+         <Node>
+          <Name>lexis-progressmonitor</Name>
+          <Path>lexis-progressmonitor.html</Path>
+         </Node>
+         <Node>
+          <Name>lexis-sendevent</Name>
+          <Path>lexis-sendevent.html</Path>
+         </Node>
+        </Subnodes>
+       </Node>
+       <Node>
         <Name>Classes</Name>
         <Path>annotated.html</Path>
         <Subnodes>
@@ -2012,6 +2026,267 @@
                 </Subnodes>
                </Node>
                <Node>
+                <Name>MaterialLUT</Name>
+                <Path>classlexis_1_1render_1_1_material_l_u_t.html</Path>
+                <Subnodes>
+                 <Node>
+                  <Name>Alpha</Name>
+                  <Path>classlexis_1_1render_1_1_material_l_u_t.html</Path>
+                  <Anchor>a95cda1e82a02b55162958c1e017161a7</Anchor>
+                 </Node>
+                 <Node>
+                  <Name>Contribution</Name>
+                  <Path>classlexis_1_1render_1_1_material_l_u_t.html</Path>
+                  <Anchor>aa6d42ca75027953d7da3bc53c9695691</Anchor>
+                 </Node>
+                 <Node>
+                  <Name>Diffuse</Name>
+                  <Path>classlexis_1_1render_1_1_material_l_u_t.html</Path>
+                  <Anchor>a47e5269ccb5315599858760be65806d0</Anchor>
+                 </Node>
+                 <Node>
+                  <Name>Emission</Name>
+                  <Path>classlexis_1_1render_1_1_material_l_u_t.html</Path>
+                  <Anchor>af08bbd3a1666cde38b98bd24515ebab4</Anchor>
+                 </Node>
+                 <Node>
+                  <Name>MaterialLUT</Name>
+                  <Path>classlexis_1_1render_1_1_material_l_u_t.html</Path>
+                  <Anchor>aa60a130f3d5427888ed4b142ad92d18c</Anchor>
+                 </Node>
+                 <Node>
+                  <Name>MaterialLUT</Name>
+                  <Path>classlexis_1_1render_1_1_material_l_u_t.html</Path>
+                  <Anchor>a5ef9d7ed7471d4841fe924c5f3ce0969</Anchor>
+                 </Node>
+                 <Node>
+                  <Name>MaterialLUT</Name>
+                  <Path>classlexis_1_1render_1_1_material_l_u_t.html</Path>
+                  <Anchor>add18336dc194a6fd485a79e28429c3ad</Anchor>
+                 </Node>
+                 <Node>
+                  <Name>MaterialLUT</Name>
+                  <Path>classlexis_1_1render_1_1_material_l_u_t.html</Path>
+                  <Anchor>a32c26e15b4235ba594af9d697f0c196c</Anchor>
+                 </Node>
+                 <Node>
+                  <Name>MaterialLUT</Name>
+                  <Path>classlexis_1_1render_1_1_material_l_u_t.html</Path>
+                  <Anchor>a0bc84b9b79d0fb9f1fad75cb4a4ea76c</Anchor>
+                 </Node>
+                 <Node>
+                  <Name>MaterialLUT</Name>
+                  <Path>classlexis_1_1render_1_1_material_l_u_t.html</Path>
+                  <Anchor>af10a95980c98fb1d294feb1b7e87b100</Anchor>
+                 </Node>
+                 <Node>
+                  <Name>~MaterialLUT</Name>
+                  <Path>classlexis_1_1render_1_1_material_l_u_t.html</Path>
+                  <Anchor>a8b9bf314387f0508556838dc4c8b19f7</Anchor>
+                 </Node>
+                 <Node>
+                  <Name>_createJSON</Name>
+                  <Path>classlexis_1_1render_1_1_material_l_u_t.html</Path>
+                  <Anchor>a43bd8205d91f01be07aa85092cefde46</Anchor>
+                 </Node>
+                 <Node>
+                  <Name>_parseJSON</Name>
+                  <Path>classlexis_1_1render_1_1_material_l_u_t.html</Path>
+                  <Anchor>a7c84e34832e1df8c88eadf6f69c2cdd6</Anchor>
+                 </Node>
+                 <Node>
+                  <Name>compact</Name>
+                  <Path>classlexis_1_1render_1_1_material_l_u_t.html</Path>
+                  <Anchor>af84325a394b22210194aad61dfe834e9</Anchor>
+                 </Node>
+                 <Node>
+                  <Name>create</Name>
+                  <Path>classlexis_1_1render_1_1_material_l_u_t.html</Path>
+                  <Anchor>af570fc1874ed084414131c2d07979284</Anchor>
+                 </Node>
+                 <Node>
+                  <Name>getAlpha</Name>
+                  <Path>classlexis_1_1render_1_1_material_l_u_t.html</Path>
+                  <Anchor>a6f8b216df90482a49ea514bbf37971a9</Anchor>
+                 </Node>
+                 <Node>
+                  <Name>getAlpha</Name>
+                  <Path>classlexis_1_1render_1_1_material_l_u_t.html</Path>
+                  <Anchor>a74c32b55320c2867c54d999bae495d1f</Anchor>
+                 </Node>
+                 <Node>
+                  <Name>getAlphaVector</Name>
+                  <Path>classlexis_1_1render_1_1_material_l_u_t.html</Path>
+                  <Anchor>a66941aeb999aa71b8d41656a683a03bb</Anchor>
+                 </Node>
+                 <Node>
+                  <Name>getContribution</Name>
+                  <Path>classlexis_1_1render_1_1_material_l_u_t.html</Path>
+                  <Anchor>a59249caf64906741a3791df73bf44627</Anchor>
+                 </Node>
+                 <Node>
+                  <Name>getContribution</Name>
+                  <Path>classlexis_1_1render_1_1_material_l_u_t.html</Path>
+                  <Anchor>ace802e8d0a19684a3a3a3cabea3f8ed8</Anchor>
+                 </Node>
+                 <Node>
+                  <Name>getContributionVector</Name>
+                  <Path>classlexis_1_1render_1_1_material_l_u_t.html</Path>
+                  <Anchor>a0cd92ef53e2352cf4df60bed9552940c</Anchor>
+                 </Node>
+                 <Node>
+                  <Name>getDiffuse</Name>
+                  <Path>classlexis_1_1render_1_1_material_l_u_t.html</Path>
+                  <Anchor>a958a54fc548ab93b1c1183024143fe4d</Anchor>
+                 </Node>
+                 <Node>
+                  <Name>getDiffuse</Name>
+                  <Path>classlexis_1_1render_1_1_material_l_u_t.html</Path>
+                  <Anchor>a071eb25153ea444d7dcccb871f94a818</Anchor>
+                 </Node>
+                 <Node>
+                  <Name>getDiffuseVector</Name>
+                  <Path>classlexis_1_1render_1_1_material_l_u_t.html</Path>
+                  <Anchor>acb9d36a3d33e1ab5e5e71443c483a51b</Anchor>
+                 </Node>
+                 <Node>
+                  <Name>getEmission</Name>
+                  <Path>classlexis_1_1render_1_1_material_l_u_t.html</Path>
+                  <Anchor>a57af926eec0057f447ce18abe4bd1042</Anchor>
+                 </Node>
+                 <Node>
+                  <Name>getEmission</Name>
+                  <Path>classlexis_1_1render_1_1_material_l_u_t.html</Path>
+                  <Anchor>a9ba1d97a0e340dd3dfe619d9488d40b9</Anchor>
+                 </Node>
+                 <Node>
+                  <Name>getEmissionVector</Name>
+                  <Path>classlexis_1_1render_1_1_material_l_u_t.html</Path>
+                  <Anchor>a65649da22500ba305bfa963bfec054df</Anchor>
+                 </Node>
+                 <Node>
+                  <Name>getRange</Name>
+                  <Path>classlexis_1_1render_1_1_material_l_u_t.html</Path>
+                  <Anchor>afd002b912d1ffa89470cb8431c6b0121</Anchor>
+                 </Node>
+                 <Node>
+                  <Name>getRange</Name>
+                  <Path>classlexis_1_1render_1_1_material_l_u_t.html</Path>
+                  <Anchor>a5ce232200e86001131b6f637ab151cf5</Anchor>
+                 </Node>
+                 <Node>
+                  <Name>getRangeSize</Name>
+                  <Path>classlexis_1_1render_1_1_material_l_u_t.html</Path>
+                  <Anchor>a632bc39b6810271d4b3030fdceba34ab</Anchor>
+                 </Node>
+                 <Node>
+                  <Name>getRangeVector</Name>
+                  <Path>classlexis_1_1render_1_1_material_l_u_t.html</Path>
+                  <Anchor>a7bc9028a79a9990e2fc0e34113be1573</Anchor>
+                 </Node>
+                 <Node>
+                  <Name>getSchema</Name>
+                  <Path>classlexis_1_1render_1_1_material_l_u_t.html</Path>
+                  <Anchor>af7110b168374e0161a0311c3bbd2988f</Anchor>
+                 </Node>
+                 <Node>
+                  <Name>getTypeIdentifier</Name>
+                  <Path>classlexis_1_1render_1_1_material_l_u_t.html</Path>
+                  <Anchor>a0222ee26f504a0b0b82183529bbdbce9</Anchor>
+                 </Node>
+                 <Node>
+                  <Name>getTypeName</Name>
+                  <Path>classlexis_1_1render_1_1_material_l_u_t.html</Path>
+                  <Anchor>a3d3463fc6298e41b6a885130f34b566a</Anchor>
+                 </Node>
+                 <Node>
+                  <Name>getZerobufNumDynamics</Name>
+                  <Path>classlexis_1_1render_1_1_material_l_u_t.html</Path>
+                  <Anchor>afd81d7a398a5c3314d2e7bdd5e28a74e</Anchor>
+                 </Node>
+                 <Node>
+                  <Name>getZerobufStaticSize</Name>
+                  <Path>classlexis_1_1render_1_1_material_l_u_t.html</Path>
+                  <Anchor>ad7b735a14e268d506a7e6f8ec5446f88</Anchor>
+                 </Node>
+                 <Node>
+                  <Name>operator=</Name>
+                  <Path>classlexis_1_1render_1_1_material_l_u_t.html</Path>
+                  <Anchor>a47abe53edaaf52bef512fb8d3b6c05a0</Anchor>
+                 </Node>
+                 <Node>
+                  <Name>operator=</Name>
+                  <Path>classlexis_1_1render_1_1_material_l_u_t.html</Path>
+                  <Anchor>afef282b61c13685d565c7216101ddcc5</Anchor>
+                 </Node>
+                 <Node>
+                  <Name>setAlpha</Name>
+                  <Path>classlexis_1_1render_1_1_material_l_u_t.html</Path>
+                  <Anchor>ac6c8e96286496eb36da6750bc06bc2c2</Anchor>
+                 </Node>
+                 <Node>
+                  <Name>setAlpha</Name>
+                  <Path>classlexis_1_1render_1_1_material_l_u_t.html</Path>
+                  <Anchor>a7f3d88919ab4465f4b65bf1c9c350cc2</Anchor>
+                 </Node>
+                 <Node>
+                  <Name>setContribution</Name>
+                  <Path>classlexis_1_1render_1_1_material_l_u_t.html</Path>
+                  <Anchor>a256a81675395fb8fbdbdc1bc5d295256</Anchor>
+                 </Node>
+                 <Node>
+                  <Name>setContribution</Name>
+                  <Path>classlexis_1_1render_1_1_material_l_u_t.html</Path>
+                  <Anchor>ad4819ce7c02009ad7df75a5735a5f0bf</Anchor>
+                 </Node>
+                 <Node>
+                  <Name>setDiffuse</Name>
+                  <Path>classlexis_1_1render_1_1_material_l_u_t.html</Path>
+                  <Anchor>ab9e5526b73aba5726d7597a57a08b8ef</Anchor>
+                 </Node>
+                 <Node>
+                  <Name>setEmission</Name>
+                  <Path>classlexis_1_1render_1_1_material_l_u_t.html</Path>
+                  <Anchor>a94188d5c16ae4a812aa0333fa6bfbfe7</Anchor>
+                 </Node>
+                 <Node>
+                  <Name>setRange</Name>
+                  <Path>classlexis_1_1render_1_1_material_l_u_t.html</Path>
+                  <Anchor>ab73c09d1e2f704a14e945be2240edc32</Anchor>
+                 </Node>
+                 <Node>
+                  <Name>setRange</Name>
+                  <Path>classlexis_1_1render_1_1_material_l_u_t.html</Path>
+                  <Anchor>a45dc18c7bbb45eb4d7f08e887783e1ab</Anchor>
+                 </Node>
+                 <Node>
+                  <Name>ZEROBUF_NUM_DYNAMICS</Name>
+                  <Path>classlexis_1_1render_1_1_material_l_u_t.html</Path>
+                  <Anchor>ae14da2435d168d33b0f284bd43a4ef84</Anchor>
+                 </Node>
+                 <Node>
+                  <Name>ZEROBUF_SCHEMA</Name>
+                  <Path>classlexis_1_1render_1_1_material_l_u_t.html</Path>
+                  <Anchor>a58edbd8984b79f40cd7c273ac06c927b</Anchor>
+                 </Node>
+                 <Node>
+                  <Name>ZEROBUF_STATIC_SIZE</Name>
+                  <Path>classlexis_1_1render_1_1_material_l_u_t.html</Path>
+                  <Anchor>a67aa8d2b67d6c45c70a98e7bc1715244</Anchor>
+                 </Node>
+                 <Node>
+                  <Name>ZEROBUF_TYPE_IDENTIFIER</Name>
+                  <Path>classlexis_1_1render_1_1_material_l_u_t.html</Path>
+                  <Anchor>a8b42560a3c97bc1a968a30d52f086092</Anchor>
+                 </Node>
+                 <Node>
+                  <Name>ZEROBUF_TYPE_NAME</Name>
+                  <Path>classlexis_1_1render_1_1_material_l_u_t.html</Path>
+                  <Anchor>aa0cf9ecfb8a282e98589745e8b4f82a2</Anchor>
+                 </Node>
+                </Subnodes>
+               </Node>
+               <Node>
                 <Name>Plane</Name>
                 <Path>classlexis_1_1render_1_1_plane.html</Path>
                 <Subnodes>
@@ -2694,7 +2969,7 @@
                <Node>
                 <Name>getRevision</Name>
                 <Path>classlexis_1_1_version.html</Path>
-                <Anchor>af434e85a24507da6ccf8dc934785c5e5</Anchor>
+                <Anchor>a2ce2a401a0e7e32f1b3c087899152a12</Anchor>
                </Node>
                <Node>
                 <Name>getRevString</Name>
@@ -2797,6 +3072,10 @@
               <Path>classlexis_1_1render_1_1_lookup_table1_d.html</Path>
              </Node>
              <Node>
+              <Name>lexis::render::MaterialLUT</Name>
+              <Path>classlexis_1_1render_1_1_material_l_u_t.html</Path>
+             </Node>
+             <Node>
               <Name>lexis::render::Plane</Name>
               <Path>classlexis_1_1render_1_1_plane.html</Path>
              </Node>
@@ -2875,10 +3154,6 @@
             <Path>clip_planes_8h_source.html</Path>
            </Node>
            <Node>
-            <Name>colorMaps.h</Name>
-            <Path>color_maps_8h_source.html</Path>
-           </Node>
-           <Node>
             <Name>defines.h</Name>
             <Path>defines_8h.html</Path>
            </Node>
@@ -2917,6 +3192,10 @@
            <Node>
             <Name>lookupTable1D.h</Name>
             <Path>lookup_table1_d_8h_source.html</Path>
+           </Node>
+           <Node>
+            <Name>materialLUT.h</Name>
+            <Path>material_l_u_t_8h_source.html</Path>
            </Node>
            <Node>
             <Name>Progress.h</Name>
@@ -2974,7 +3253,7 @@
                <Node>
                 <Name>getRevision</Name>
                 <Path>classlexis_1_1_version.html</Path>
-                <Anchor>af434e85a24507da6ccf8dc934785c5e5</Anchor>
+                <Anchor>a2ce2a401a0e7e32f1b3c087899152a12</Anchor>
                </Node>
                <Node>
                 <Name>getRevString</Name>
