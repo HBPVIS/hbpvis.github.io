@@ -1,0 +1,115 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN">
+
+<html lang="en">
+
+<head>
+  <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+  <title>LCOV - Lexis - render/ClipPlanes.h</title>
+  <link rel="stylesheet" type="text/css" href="../gcov.css">
+</head>
+
+<body>
+
+  <table width="100%" border=0 cellspacing=0 cellpadding=0>
+    <tr><td class="title">LCOV - code coverage report</td></tr>
+    <tr><td class="ruler"><img src="../glass.png" width=3 height=3 alt=""></td></tr>
+
+    <tr>
+      <td width="100%">
+        <table cellpadding=1 border=0 width="100%">
+          <tr>
+            <td width="10%" class="headerItem">Current view:</td>
+            <td width="35%" class="headerValue"><a href="../index.html">top level</a> - <a href="index.html">render</a> - ClipPlanes.h<span style="font-size: 80%;"> (source / <a href="ClipPlanes.h.func-sort-c.html">functions</a>)</span></td>
+            <td width="5%"></td>
+            <td width="15%"></td>
+            <td width="10%" class="headerCovTableHead">Hit</td>
+            <td width="10%" class="headerCovTableHead">Total</td>
+            <td width="15%" class="headerCovTableHead">Coverage</td>
+          </tr>
+          <tr>
+            <td class="headerItem">Test:</td>
+            <td class="headerValue">Lexis</td>
+            <td></td>
+            <td class="headerItem">Lines:</td>
+            <td class="headerCovTableEntry">1</td>
+            <td class="headerCovTableEntry">1</td>
+            <td class="headerCovTableEntryHi">100.0 %</td>
+          </tr>
+          <tr>
+            <td class="headerItem">Date:</td>
+            <td class="headerValue">2017-02-16 03:15:18</td>
+            <td></td>
+            <td class="headerItem">Functions:</td>
+            <td class="headerCovTableEntry">1</td>
+            <td class="headerCovTableEntry">2</td>
+            <td class="headerCovTableEntryMed">50.0 %</td>
+          </tr>
+          <tr><td><img src="../glass.png" width=3 height=3 alt=""></td></tr>
+        </table>
+      </td>
+    </tr>
+
+    <tr><td class="ruler"><img src="../glass.png" width=3 height=3 alt=""></td></tr>
+  </table>
+
+  <table cellpadding=0 cellspacing=0 border=0>
+    <tr>
+      <td><br></td>
+    </tr>
+    <tr>
+      <td>
+<pre class="sourceHeading">          Line data    Source code</pre>
+<pre class="source">
+<a name="1"><span class="lineNum">       1 </span>            : /* Copyright (c) 2016-2017, Human Brain Project</a>
+<span class="lineNum">       2 </span>            :  *                          Ahmet.Bilgili@epfl.ch
+<span class="lineNum">       3 </span>            :  */
+<span class="lineNum">       4 </span>            : 
+<span class="lineNum">       5 </span>            : #pragma once
+<span class="lineNum">       6 </span>            : 
+<span class="lineNum">       7 </span>            : #include &lt;lexis/api.h&gt;
+<span class="lineNum">       8 </span>            : #include &lt;lexis/render/detail/clipPlanes.h&gt;
+<span class="lineNum">       9 </span>            : #include &lt;vmmlib/types.hpp&gt;
+<span class="lineNum">      10 </span>            : 
+<span class="lineNum">      11 </span>            : namespace lexis
+<span class="lineNum">      12 </span>            : {
+<span class="lineNum">      13 </span>            : namespace render
+<a name="14"><span class="lineNum">      14 </span>            : {</a>
+<span class="lineNum">      15 </span>            : 
+<span class="lineNum">      16 </span><span class="lineCov">          1 : class ClipPlanes : public detail::ClipPlanes</span>
+<span class="lineNum">      17 </span>            : {
+<span class="lineNum">      18 </span>            : public:
+<span class="lineNum">      19 </span>            :     /**
+<span class="lineNum">      20 </span>            :      * Adds 6 othogonal planes in normalized space (+x,-x,+y,-y,+z,-z). Convex
+<span class="lineNum">      21 </span>            :      * region is defined as an AABB (-0.5,-0.5,-0.5) to (0.5, 0.5, 0.5).
+<span class="lineNum">      22 </span>            :      */
+<span class="lineNum">      23 </span>            :     LEXIS_API ClipPlanes();
+<span class="lineNum">      24 </span>            : 
+<span class="lineNum">      25 </span>            :     /** @return true if there are no clipping planes. */
+<span class="lineNum">      26 </span>            :     LEXIS_API bool isEmpty() const;
+<span class="lineNum">      27 </span>            : 
+<span class="lineNum">      28 </span>            :     /** Clears all planes, results in isEmpty() == true. */
+<span class="lineNum">      29 </span>            :     LEXIS_API void clear();
+<span class="lineNum">      30 </span>            : 
+<span class="lineNum">      31 </span>            :     /** Reset to planes setup by constructor. */
+<span class="lineNum">      32 </span>            :     LEXIS_API void reset();
+<span class="lineNum">      33 </span>            : 
+<span class="lineNum">      34 </span>            :     /** @return true if the box is outside the clip planes, aka shall be clipped.*/
+<span class="lineNum">      35 </span>            :     LEXIS_API bool isOutside( const vmml::AABBf&amp; box ) const;
+<span class="lineNum">      36 </span>            : };
+<span class="lineNum">      37 </span>            : 
+<span class="lineNum">      38 </span>            : }
+<span class="lineNum">      39 </span>            : }
+</pre>
+      </td>
+    </tr>
+  </table>
+  <br>
+
+  <table width="100%" border=0 cellspacing=0 cellpadding=0>
+    <tr><td class="ruler"><img src="../glass.png" width=3 height=3 alt=""></td></tr>
+    <tr><td class="versionInfo">Generated by: <a href="http://ltp.sourceforge.net/coverage/lcov.php" target="_parent">LCOV version 1.11</a></td></tr>
+  </table>
+  <br>
+
+</body>
+</html>
