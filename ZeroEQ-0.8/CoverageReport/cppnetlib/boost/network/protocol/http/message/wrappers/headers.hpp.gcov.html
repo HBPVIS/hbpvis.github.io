@@ -37,11 +37,11 @@
           </tr>
           <tr>
             <td class="headerItem">Date:</td>
-            <td class="headerValue">2017-01-31 01:48:09</td>
+            <td class="headerValue">2017-02-18 01:36:25</td>
             <td></td>
             <td class="headerItem">Functions:</td>
-            <td class="headerCovTableEntry">8</td>
-            <td class="headerCovTableEntry">8</td>
+            <td class="headerCovTableEntry">9</td>
+            <td class="headerCovTableEntry">9</td>
             <td class="headerCovTableEntryHi">100.0 %</td>
           </tr>
           <tr><td><img src="../../../../../../../glass.png" width=3 height=3 alt=""></td></tr>
@@ -103,11 +103,11 @@
 <span class="lineNum">      41 </span><span class="lineCov">         48 :   explicit request_headers_wrapper(basic_request&lt;Tag&gt; const&amp; message)</span>
 <a name="42"><span class="lineNum">      42 </span><span class="lineCov">         48 :       : message_(message) {}</span></a>
 <span class="lineNum">      43 </span>            : 
-<span class="lineNum">      44 </span><span class="lineCov">         12 :   range_type operator[](string_type const&amp; key) const {</span>
+<span class="lineNum">      44 </span><span class="lineCov">         12 :   range_type operator[](string_type  /*unused*/const&amp; key) const {</span>
 <span class="lineNum">      45 </span><span class="lineCov">         12 :     return message_.headers().equal_range(key);</span>
 <span class="lineNum">      46 </span>            :   }
 <span class="lineNum">      47 </span>            : 
-<span class="lineNum">      48 </span>            :   typename headers_container_type::size_type count(string_type const&amp; key)
+<span class="lineNum">      48 </span>            :   typename headers_container_type::size_type count(string_type  /*unused*/const&amp; key)
 <span class="lineNum">      49 </span>            :       const {
 <span class="lineNum">      50 </span>            :     return message_.headers().count(key);
 <a name="51"><span class="lineNum">      51 </span>            :   }</a>
@@ -135,21 +135,21 @@
 <span class="lineNum">      73 </span>            :   typedef typename headers_container_type::const_iterator const_iterator;
 <a name="74"><span class="lineNum">      74 </span>            :   typedef typename headers_container_type::iterator iterator;</a>
 <span class="lineNum">      75 </span>            : 
-<span class="lineNum">      76 </span><span class="lineCov">         76 :   explicit response_headers_wrapper(basic_response&lt;Tag&gt; const&amp; message)</span>
-<a name="77"><span class="lineNum">      77 </span><span class="lineCov">         76 :       : message_(message) {}</span></a>
+<span class="lineNum">      76 </span><span class="lineCov">         35 :   explicit response_headers_wrapper(basic_response&lt;Tag&gt; const&amp; message)</span>
+<span class="lineNum">      77 </span><span class="lineCov">         35 :       : message_(message) {}</span>
 <span class="lineNum">      78 </span>            : 
-<span class="lineNum">      79 </span><span class="lineCov">         76 :   range_type operator[](string_type const&amp; key) const {</span>
-<span class="lineNum">      80 </span><span class="lineCov">         76 :     return message_.headers().equal_range(key);</span>
+<span class="lineNum">      79 </span>            :   range_type operator[](string_type  /*unused*/const&amp; key) const {
+<span class="lineNum">      80 </span>            :     return message_.headers().equal_range(key);
 <span class="lineNum">      81 </span>            :   }
 <span class="lineNum">      82 </span>            : 
-<span class="lineNum">      83 </span>            :   typename headers_container_type::size_type count(string_type const&amp; key)
+<span class="lineNum">      83 </span>            :   typename headers_container_type::size_type count(string_type  /*unused*/const&amp; key)
 <span class="lineNum">      84 </span>            :       const {
 <span class="lineNum">      85 </span>            :     return message_.headers().count(key);
-<span class="lineNum">      86 </span>            :   }
+<a name="86"><span class="lineNum">      86 </span>            :   }</a>
 <span class="lineNum">      87 </span>            : 
-<span class="lineNum">      88 </span>            :   const_iterator begin() const { return message_.headers().begin(); }
+<a name="88"><span class="lineNum">      88 </span><span class="lineCov">         70 :   const_iterator begin() const { return message_.headers().begin(); }</span></a>
 <span class="lineNum">      89 </span>            : 
-<span class="lineNum">      90 </span>            :   const_iterator end() const { return message_.headers().end(); }
+<span class="lineNum">      90 </span><span class="lineCov">        190 :   const_iterator end() const { return message_.headers().end(); }</span>
 <span class="lineNum">      91 </span>            : 
 <span class="lineNum">      92 </span>            :   operator range_type() {
 <span class="lineNum">      93 </span>            :     return make_iterator_range(message_.headers().begin(),
@@ -171,12 +171,12 @@
 <span class="lineNum">     109 </span>            : }
 <a name="110"><span class="lineNum">     110 </span>            : </a>
 <span class="lineNum">     111 </span>            : template &lt;class Tag&gt;
-<span class="lineNum">     112 </span><span class="lineCov">         76 : inline impl::response_headers_wrapper&lt;Tag&gt; headers(</span>
+<span class="lineNum">     112 </span><span class="lineCov">         35 : inline impl::response_headers_wrapper&lt;Tag&gt; headers(</span>
 <span class="lineNum">     113 </span>            :     basic_response&lt;Tag&gt; const&amp; response_) {
-<span class="lineNum">     114 </span><span class="lineCov">         76 :   return impl::response_headers_wrapper&lt;Tag&gt;(response_);</span>
+<span class="lineNum">     114 </span><span class="lineCov">         35 :   return impl::response_headers_wrapper&lt;Tag&gt;(response_);</span>
 <span class="lineNum">     115 </span>            : }
 <span class="lineNum">     116 </span>            : 
-<span class="lineNum">     117 </span>            : }  // namepace http
+<span class="lineNum">     117 </span>            : }  // namespace http
 <span class="lineNum">     118 </span>            : 
 <span class="lineNum">     119 </span>            : }  // namespace network
 <span class="lineNum">     120 </span>            : 

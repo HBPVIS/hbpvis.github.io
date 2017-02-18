@@ -4,7 +4,7 @@ version: "0.8"
 major: 0
 minor: 8
 description: ZeroEQ - Zero Event Queue
-updated: 31/01/17
+updated: 18/02/17
 homepage: https://github.com/HBPVIS/ZeroEQ
 repository: https://github.com/HBPVIS/ZeroEQ.git
 issuesurl: https://github.com/HBPVIS/ZeroEQ/issues
@@ -12,7 +12,7 @@ packageurl:
 license: LGPL
 maturity: EP
 maintainers: Human Brain Project (HBPVis@googlegroups.com)
-contributors: Daniel Nachbaur
+contributors: Raphael Dumusc
 readmetype: text/x-markdown
 ---
 [TOC]

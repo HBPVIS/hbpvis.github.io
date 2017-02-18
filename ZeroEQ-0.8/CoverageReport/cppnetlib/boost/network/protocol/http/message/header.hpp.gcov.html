@@ -37,11 +37,11 @@
           </tr>
           <tr>
             <td class="headerItem">Date:</td>
-            <td class="headerValue">2017-01-31 01:48:09</td>
+            <td class="headerValue">2017-02-18 01:36:25</td>
             <td></td>
             <td class="headerItem">Functions:</td>
-            <td class="headerCovTableEntry">7</td>
-            <td class="headerCovTableEntry">7</td>
+            <td class="headerCovTableEntry">5</td>
+            <td class="headerCovTableEntry">5</td>
             <td class="headerCovTableEntryHi">100.0 %</td>
           </tr>
           <tr><td><img src="../../../../../../glass.png" width=3 height=3 alt=""></td></tr>
@@ -75,8 +75,8 @@
 <span class="lineNum">      13 </span>            : #ifndef BOOST_NETWORK_PROTOCOL_HTTP_MESSAGE_HEADER_HPP_20101122
 <span class="lineNum">      14 </span>            : #define BOOST_NETWORK_PROTOCOL_HTTP_MESSAGE_HEADER_HPP_20101122
 <span class="lineNum">      15 </span>            : 
-<span class="lineNum">      16 </span>            : #include &lt;boost/network/traits/string.hpp&gt;
-<span class="lineNum">      17 </span>            : #include &lt;boost/fusion/include/adapt_struct.hpp&gt;
+<span class="lineNum">      16 </span>            : #include &lt;boost/fusion/include/adapt_struct.hpp&gt;
+<span class="lineNum">      17 </span>            : #include &lt;boost/network/traits/string.hpp&gt;
 <span class="lineNum">      18 </span>            : #include &lt;boost/assign/list_of.hpp&gt;
 <span class="lineNum">      19 </span>            : #include &lt;boost/network/support/is_default_wstring.hpp&gt;
 <span class="lineNum">      20 </span>            : #include &lt;boost/network/support/is_default_wstring.hpp&gt;
@@ -88,7 +88,7 @@
 <span class="lineNum">      26 </span>            : template &lt;class Tag&gt;
 <a name="27"><span class="lineNum">      27 </span>            : struct unsupported_tag;</a>
 <span class="lineNum">      28 </span>            : 
-<span class="lineNum">      29 </span><span class="lineCov">       1944 : struct request_header_narrow {</span>
+<span class="lineNum">      29 </span><span class="lineCov">       1044 : struct request_header_narrow {</span>
 <span class="lineNum">      30 </span>            :   typedef std::string string_type;
 <span class="lineNum">      31 </span>            :   std::string name, value;
 <span class="lineNum">      32 </span>            : };
@@ -114,7 +114,7 @@
 <span class="lineNum">      52 </span>            :   swap(l.value, r.value);
 <a name="53"><span class="lineNum">      53 </span>            : }</a>
 <span class="lineNum">      54 </span>            : 
-<span class="lineNum">      55 </span><span class="lineCov">        935 : struct response_header_narrow {</span>
+<span class="lineNum">      55 </span><span class="lineCov">       1920 : struct response_header_narrow {</span>
 <span class="lineNum">      56 </span>            :   typedef std::string string_type;
 <span class="lineNum">      57 </span>            :   std::string name, value;
 <span class="lineNum">      58 </span>            : };

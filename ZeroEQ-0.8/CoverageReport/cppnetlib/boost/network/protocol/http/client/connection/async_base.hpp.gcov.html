@@ -1,0 +1,157 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN">
+
+<html lang="en">
+
+<head>
+  <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+  <title>LCOV - ZeroEQ - cppnetlib/boost/network/protocol/http/client/connection/async_base.hpp</title>
+  <link rel="stylesheet" type="text/css" href="../../../../../../../gcov.css">
+</head>
+
+<body>
+
+  <table width="100%" border=0 cellspacing=0 cellpadding=0>
+    <tr><td class="title">LCOV - code coverage report</td></tr>
+    <tr><td class="ruler"><img src="../../../../../../../glass.png" width=3 height=3 alt=""></td></tr>
+
+    <tr>
+      <td width="100%">
+        <table cellpadding=1 border=0 width="100%">
+          <tr>
+            <td width="10%" class="headerItem">Current view:</td>
+            <td width="35%" class="headerValue"><a href="../../../../../../../index.html">top level</a> - <a href="index.html">cppnetlib/boost/network/protocol/http/client/connection</a> - async_base.hpp<span style="font-size: 80%;"> (source / <a href="async_base.hpp.func-sort-c.html">functions</a>)</span></td>
+            <td width="5%"></td>
+            <td width="15%"></td>
+            <td width="10%" class="headerCovTableHead">Hit</td>
+            <td width="10%" class="headerCovTableHead">Total</td>
+            <td width="15%" class="headerCovTableHead">Coverage</td>
+          </tr>
+          <tr>
+            <td class="headerItem">Test:</td>
+            <td class="headerValue">ZeroEQ</td>
+            <td></td>
+            <td class="headerItem">Lines:</td>
+            <td class="headerCovTableEntry">7</td>
+            <td class="headerCovTableEntry">7</td>
+            <td class="headerCovTableEntryHi">100.0 %</td>
+          </tr>
+          <tr>
+            <td class="headerItem">Date:</td>
+            <td class="headerValue">2017-02-18 01:36:25</td>
+            <td></td>
+            <td class="headerItem">Functions:</td>
+            <td class="headerCovTableEntry">3</td>
+            <td class="headerCovTableEntry">4</td>
+            <td class="headerCovTableEntryMed">75.0 %</td>
+          </tr>
+          <tr><td><img src="../../../../../../../glass.png" width=3 height=3 alt=""></td></tr>
+        </table>
+      </td>
+    </tr>
+
+    <tr><td class="ruler"><img src="../../../../../../../glass.png" width=3 height=3 alt=""></td></tr>
+  </table>
+
+  <table cellpadding=0 cellspacing=0 border=0>
+    <tr>
+      <td><br></td>
+    </tr>
+    <tr>
+      <td>
+<pre class="sourceHeading">          Line data    Source code</pre>
+<pre class="source">
+<a name="1"><span class="lineNum">       1 </span>            : #ifndef BOOST_NETWORK_PROTOCOL_HTTP_IMPL_ASYNC_CONNECTION_BASE_20100529</a>
+<span class="lineNum">       2 </span>            : #define BOOST_NETWORK_PROTOCOL_HTTP_IMPL_ASYNC_CONNECTION_BASE_20100529
+<span class="lineNum">       3 </span>            : 
+<span class="lineNum">       4 </span>            : // Copryight 2013 Google, Inc.
+<span class="lineNum">       5 </span>            : // Copyright 2010 Dean Michael Berris &lt;dberris@google.com&gt;
+<span class="lineNum">       6 </span>            : // Copyright 2010 (C) Sinefunc, Inc.
+<span class="lineNum">       7 </span>            : // Distributed under the Boost Software License, Version 1.0.
+<span class="lineNum">       8 </span>            : // (See accompanying file LICENSE_1_0.txt or copy at
+<span class="lineNum">       9 </span>            : // http://www.boost.org/LICENSE_1_0.txt)
+<span class="lineNum">      10 </span>            : 
+<span class="lineNum">      11 </span>            : #include &lt;functional&gt;
+<span class="lineNum">      12 </span>            : #include &lt;array&gt;
+<span class="lineNum">      13 </span>            : #include &lt;boost/network/protocol/http/client/connection/connection_delegate_factory.hpp&gt;
+<span class="lineNum">      14 </span>            : #include &lt;boost/network/protocol/http/response.hpp&gt;
+<span class="lineNum">      15 </span>            : #include &lt;boost/network/protocol/http/traits/delegate_factory.hpp&gt;
+<span class="lineNum">      16 </span>            : #include &lt;boost/network/protocol/http/client/connection/async_normal.hpp&gt;
+<span class="lineNum">      17 </span>            : #include &lt;boost/network/protocol/http/traits/resolver_policy.hpp&gt;
+<span class="lineNum">      18 </span>            : #include &lt;boost/network/traits/string.hpp&gt;
+<span class="lineNum">      19 </span>            : 
+<span class="lineNum">      20 </span>            : namespace boost {
+<span class="lineNum">      21 </span>            : namespace network {
+<span class="lineNum">      22 </span>            : namespace http {
+<span class="lineNum">      23 </span>            : namespace impl {
+<a name="24"><span class="lineNum">      24 </span>            : </a>
+<span class="lineNum">      25 </span>            : template &lt;class Tag, unsigned version_major, unsigned version_minor&gt;
+<span class="lineNum">      26 </span><span class="lineCov">         36 : struct async_connection_base {</span>
+<span class="lineNum">      27 </span>            :   typedef async_connection_base&lt;Tag, version_major, version_minor&gt; this_type;
+<span class="lineNum">      28 </span>            :   typedef typename resolver_policy&lt;Tag&gt;::type resolver_base;
+<span class="lineNum">      29 </span>            :   typedef typename resolver_base::resolver_type resolver_type;
+<span class="lineNum">      30 </span>            :   typedef typename resolver_base::resolve_function resolve_function;
+<span class="lineNum">      31 </span>            :   typedef typename string&lt;Tag&gt;::type string_type;
+<span class="lineNum">      32 </span>            :   typedef basic_request&lt;Tag&gt; request;
+<span class="lineNum">      33 </span>            :   typedef basic_response&lt;Tag&gt; response;
+<span class="lineNum">      34 </span>            :   typedef typename std::array&lt;typename char_&lt;Tag&gt;::type, 1024&gt;::const_iterator const_iterator;
+<span class="lineNum">      35 </span>            :   typedef iterator_range&lt;const_iterator&gt; char_const_range;
+<span class="lineNum">      36 </span>            :   typedef std::function&lt;void(char_const_range const &amp;, boost::system::error_code const &amp;)&gt;
+<span class="lineNum">      37 </span>            :       body_callback_function_type;
+<span class="lineNum">      38 </span>            :   typedef std::function&lt;bool(string_type &amp;)&gt; body_generator_function_type;
+<span class="lineNum">      39 </span>            :   typedef std::shared_ptr&lt;this_type&gt; connection_ptr;
+<span class="lineNum">      40 </span>            : 
+<span class="lineNum">      41 </span>            :   // This is the factory function which constructs the appropriate async
+<a name="42"><span class="lineNum">      42 </span>            :   // connection implementation with the correct delegate chosen based on the</a>
+<span class="lineNum">      43 </span>            :   // tag.
+<span class="lineNum">      44 </span><span class="lineCov">         36 :   static connection_ptr new_connection(</span>
+<span class="lineNum">      45 </span>            :       resolve_function resolve, resolver_type &amp;resolver, bool follow_redirect,
+<span class="lineNum">      46 </span>            :       bool always_verify_peer, bool https, int timeout,
+<span class="lineNum">      47 </span>            :       optional&lt;string_type&gt; certificate_filename = optional&lt;string_type&gt;(),
+<span class="lineNum">      48 </span>            :       optional&lt;string_type&gt; const &amp;verify_path = optional&lt;string_type&gt;(),
+<span class="lineNum">      49 </span>            :       optional&lt;string_type&gt; certificate_file = optional&lt;string_type&gt;(),
+<span class="lineNum">      50 </span>            :       optional&lt;string_type&gt; private_key_file = optional&lt;string_type&gt;(),
+<span class="lineNum">      51 </span>            :       optional&lt;string_type&gt; ciphers = optional&lt;string_type&gt;(),
+<span class="lineNum">      52 </span>            :       optional&lt;string_type&gt; sni_hostname = optional&lt;string_type&gt;(),
+<span class="lineNum">      53 </span>            :       long ssl_options = 0) {
+<span class="lineNum">      54 </span>            :     typedef http_async_connection&lt;Tag, version_major, version_minor&gt;
+<span class="lineNum">      55 </span>            :         async_connection;
+<span class="lineNum">      56 </span>            :     typedef typename delegate_factory&lt;Tag&gt;::type delegate_factory_type;
+<span class="lineNum">      57 </span>            :     auto delegate = delegate_factory_type::new_connection_delegate(
+<span class="lineNum">      58 </span>            :         resolver.get_io_service(), https, always_verify_peer,
+<span class="lineNum">      59 </span>            :         certificate_filename, verify_path, certificate_file, private_key_file,
+<span class="lineNum">      60 </span><span class="lineCov">         72 :         ciphers, sni_hostname, ssl_options);</span>
+<span class="lineNum">      61 </span>            :     auto temp = std::make_shared&lt;async_connection&gt;(
+<span class="lineNum">      62 </span><span class="lineCov">         72 :         resolver, resolve, follow_redirect, timeout, std::move(delegate));</span>
+<span class="lineNum">      63 </span><span class="lineCov">         36 :     BOOST_ASSERT(temp != nullptr);</span>
+<span class="lineNum">      64 </span><span class="lineCov">         72 :     return temp;</span>
+<span class="lineNum">      65 </span>            :   }
+<span class="lineNum">      66 </span>            : 
+<span class="lineNum">      67 </span>            :   // This is the pure virtual entry-point for all asynchronous
+<span class="lineNum">      68 </span>            :   // connections.
+<span class="lineNum">      69 </span>            :   virtual response start(request const &amp;request, string_type const &amp;method,
+<span class="lineNum">      70 </span>            :                          bool get_body, body_callback_function_type callback,
+<a name="71"><span class="lineNum">      71 </span>            :                          body_generator_function_type generator) = 0;</a>
+<span class="lineNum">      72 </span>            : 
+<span class="lineNum">      73 </span><span class="lineCov">         36 :   virtual ~async_connection_base() = default;</span>
+<span class="lineNum">      74 </span>            : };
+<span class="lineNum">      75 </span>            : 
+<span class="lineNum">      76 </span>            : }  // namespace impl
+<span class="lineNum">      77 </span>            : }  // namespace http
+<span class="lineNum">      78 </span>            : }  // namespace network
+<span class="lineNum">      79 </span>            : }  // namespace boost
+<span class="lineNum">      80 </span>            : 
+<span class="lineNum">      81 </span>            : #endif  // BOOST_NETWORK_PROTOCOL_HTTP_IMPL_ASYNC_CONNECTION_BASE_20100529
+</pre>
+      </td>
+    </tr>
+  </table>
+  <br>
+
+  <table width="100%" border=0 cellspacing=0 cellpadding=0>
+    <tr><td class="ruler"><img src="../../../../../../../glass.png" width=3 height=3 alt=""></td></tr>
+    <tr><td class="versionInfo">Generated by: <a href="http://ltp.sourceforge.net/coverage/lcov.php" target="_parent">LCOV version 1.11</a></td></tr>
+  </table>
+  <br>
+
+</body>
+</html>

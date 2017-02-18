@@ -31,18 +31,18 @@
             <td class="headerValue">ZeroEQ</td>
             <td></td>
             <td class="headerItem">Lines:</td>
-            <td class="headerCovTableEntry">23</td>
-            <td class="headerCovTableEntry">26</td>
-            <td class="headerCovTableEntryHi">88.5 %</td>
+            <td class="headerCovTableEntry">29</td>
+            <td class="headerCovTableEntry">32</td>
+            <td class="headerCovTableEntryHi">90.6 %</td>
           </tr>
           <tr>
             <td class="headerItem">Date:</td>
-            <td class="headerValue">2017-01-31 01:48:09</td>
+            <td class="headerValue">2017-02-18 01:36:25</td>
             <td></td>
             <td class="headerItem">Functions:</td>
-            <td class="headerCovTableEntry">14</td>
-            <td class="headerCovTableEntry">16</td>
-            <td class="headerCovTableEntryHi">87.5 %</td>
+            <td class="headerCovTableEntry">19</td>
+            <td class="headerCovTableEntry">21</td>
+            <td class="headerCovTableEntryHi">90.5 %</td>
           </tr>
           <tr><td><img src="../../../glass.png" width=3 height=3 alt=""></td></tr>
         </table>
@@ -68,9 +68,9 @@
 <span class="lineNum">       6 </span>            : // (See accompanying file LICENSE_1_0.txt or copy at
 <span class="lineNum">       7 </span>            : // http://www.boost.org/LICENSE_1_0.txt)
 <span class="lineNum">       8 </span>            : 
-<span class="lineNum">       9 </span>            : #include &lt;boost/network/support/is_default_string.hpp&gt;
-<span class="lineNum">      10 </span>            : #include &lt;boost/network/support/is_default_wstring.hpp&gt;
-<span class="lineNum">      11 </span>            : #include &lt;boost/mpl/if.hpp&gt;
+<span class="lineNum">       9 </span>            : #include &lt;boost/mpl/if.hpp&gt;
+<span class="lineNum">      10 </span>            : #include &lt;boost/network/support/is_default_string.hpp&gt;
+<span class="lineNum">      11 </span>            : #include &lt;boost/network/support/is_default_wstring.hpp&gt;
 <span class="lineNum">      12 </span>            : 
 <span class="lineNum">      13 </span>            : namespace boost {
 <span class="lineNum">      14 </span>            : namespace network {
@@ -79,26 +79,26 @@
 <span class="lineNum">      17 </span>            : template &lt;class Tag&gt;
 <a name="18"><span class="lineNum">      18 </span>            : struct constants_narrow {</a>
 <span class="lineNum">      19 </span>            : 
-<span class="lineNum">      20 </span><span class="lineCov">          1 :   static char const* crlf() {</span>
+<span class="lineNum">      20 </span><span class="lineCov">        393 :   static char const* crlf() {</span>
 <span class="lineNum">      21 </span>            :     static char crlf_[] = {'\r', '\n', 0};
-<span class="lineNum">      22 </span><span class="lineCov">          1 :     return crlf_;</span>
-<span class="lineNum">      23 </span>            :   }
+<span class="lineNum">      22 </span><span class="lineCov">        393 :     return crlf_;</span>
+<a name="23"><span class="lineNum">      23 </span>            :   }</a>
 <span class="lineNum">      24 </span>            : 
-<span class="lineNum">      25 </span>            :   static char const* dot() {
+<span class="lineNum">      25 </span><span class="lineCov">         72 :   static char const* dot() {</span>
 <span class="lineNum">      26 </span>            :     static char dot_[] = {'.', 0};
-<span class="lineNum">      27 </span>            :     return dot_;
+<span class="lineNum">      27 </span><span class="lineCov">         72 :     return dot_;</span>
 <a name="28"><span class="lineNum">      28 </span>            :   }</a>
 <span class="lineNum">      29 </span>            : 
 <a name="30"><span class="lineNum">      30 </span><span class="lineCov">         36 :   static char dot_char() { return '.'; }</span></a>
 <span class="lineNum">      31 </span>            : 
-<span class="lineNum">      32 </span><span class="lineCov">          1 :   static char const* http_slash() {</span>
+<span class="lineNum">      32 </span><span class="lineCov">         73 :   static char const* http_slash() {</span>
 <span class="lineNum">      33 </span>            :     static char http_slash_[] = {'H', 'T', 'T', 'P', '/', 0};
-<span class="lineNum">      34 </span><span class="lineCov">          1 :     return http_slash_;</span>
-<span class="lineNum">      35 </span>            :   }
+<span class="lineNum">      34 </span><span class="lineCov">         73 :     return http_slash_;</span>
+<a name="35"><span class="lineNum">      35 </span>            :   }</a>
 <span class="lineNum">      36 </span>            : 
-<span class="lineNum">      37 </span>            :   static char const* space() {
+<span class="lineNum">      37 </span><span class="lineCov">        392 :   static char const* space() {</span>
 <span class="lineNum">      38 </span>            :     static char space_[] = {' ', 0};
-<span class="lineNum">      39 </span>            :     return space_;
+<span class="lineNum">      39 </span><span class="lineCov">        392 :     return space_;</span>
 <a name="40"><span class="lineNum">      40 </span>            :   }</a>
 <span class="lineNum">      41 </span>            : 
 <span class="lineNum">      42 </span><span class="lineCov">        237 :   static char space_char() { return ' '; }</span>
@@ -113,11 +113,11 @@
 <span class="lineNum">      51 </span><span class="lineCov">          4 :   static char const* host() {</span>
 <span class="lineNum">      52 </span>            :     static char host_[] = {'H', 'o', 's', 't', 0};
 <span class="lineNum">      53 </span><span class="lineCov">          4 :     return host_;</span>
-<span class="lineNum">      54 </span>            :   }
+<a name="54"><span class="lineNum">      54 </span>            :   }</a>
 <span class="lineNum">      55 </span>            : 
-<span class="lineNum">      56 </span>            :   static char const* colon() {
+<span class="lineNum">      56 </span><span class="lineCov">        248 :   static char const* colon() {</span>
 <span class="lineNum">      57 </span>            :     static char colon_[] = {':', 0};
-<span class="lineNum">      58 </span>            :     return colon_;
+<span class="lineNum">      58 </span><span class="lineCov">        248 :     return colon_;</span>
 <a name="59"><span class="lineNum">      59 </span>            :   }</a>
 <span class="lineNum">      60 </span>            : 
 <a name="61"><span class="lineNum">      61 </span><span class="lineCov">        201 :   static char colon_char() { return ':'; }</span></a>
@@ -186,20 +186,23 @@
 <span class="lineNum">     124 </span>            :     return https_;
 <span class="lineNum">     125 </span>            :   }
 <span class="lineNum">     126 </span>            : };
-<span class="lineNum">     127 </span>            : }
+<span class="lineNum">     127 </span>            : } // namespace impl
 <span class="lineNum">     128 </span>            : 
 <span class="lineNum">     129 </span>            : template &lt;class Tag&gt;
-<span class="lineNum">     130 </span>            : struct constants
-<span class="lineNum">     131 </span>            :     : mpl::if_&lt;
-<span class="lineNum">     132 </span>            :           is_default_string&lt;Tag&gt;, impl::constants_narrow&lt;Tag&gt;,
-<span class="lineNum">     133 </span>            :           typename mpl::if_&lt;is_default_wstring&lt;Tag&gt;, impl::constants_wide&lt;Tag&gt;,
-<span class="lineNum">     134 </span>            :                             unsupported_tag&lt;Tag&gt; &gt;::type&gt;::type {};
-<span class="lineNum">     135 </span>            : 
-<span class="lineNum">     136 </span>            : }  // namespace network
-<span class="lineNum">     137 </span>            : 
-<span class="lineNum">     138 </span>            : }  // namespace boost
-<span class="lineNum">     139 </span>            : 
-<span class="lineNum">     140 </span>            : #endif  // BOOST_NETWORK_CONSTANTS_HPP_20100808
+<span class="lineNum">     130 </span>            : struct unsupported_tag;
+<span class="lineNum">     131 </span>            : 
+<span class="lineNum">     132 </span>            : template &lt;class Tag&gt;
+<span class="lineNum">     133 </span>            : struct constants
+<span class="lineNum">     134 </span>            :     : mpl::if_&lt;
+<span class="lineNum">     135 </span>            :           is_default_string&lt;Tag&gt;, impl::constants_narrow&lt;Tag&gt;,
+<span class="lineNum">     136 </span>            :           typename mpl::if_&lt;is_default_wstring&lt;Tag&gt;, impl::constants_wide&lt;Tag&gt;,
+<span class="lineNum">     137 </span>            :                             unsupported_tag&lt;Tag&gt; &gt;::type&gt;::type {};
+<span class="lineNum">     138 </span>            : 
+<span class="lineNum">     139 </span>            : }  // namespace network
+<span class="lineNum">     140 </span>            : 
+<span class="lineNum">     141 </span>            : }  // namespace boost
+<span class="lineNum">     142 </span>            : 
+<span class="lineNum">     143 </span>            : #endif  // BOOST_NETWORK_CONSTANTS_HPP_20100808
 </pre>
       </td>
     </tr>

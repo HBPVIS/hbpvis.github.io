@@ -221,6 +221,13 @@
   </Token>
   <Token>
     <TokenIdentifier>
+      <Name>httpserverrest</Name>
+      <APILanguage>markdown</APILanguage>
+    </TokenIdentifier>
+    <Path>httpserverrest.html</Path>
+  </Token>
+  <Token>
+    <TokenIdentifier>
       <Name>landingpage</Name>
       <APILanguage>markdown</APILanguage>
     </TokenIdentifier>

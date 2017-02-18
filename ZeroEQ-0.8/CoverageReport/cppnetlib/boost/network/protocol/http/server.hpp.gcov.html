@@ -37,7 +37,7 @@
           </tr>
           <tr>
             <td class="headerItem">Date:</td>
-            <td class="headerValue">2017-01-31 01:48:09</td>
+            <td class="headerValue">2017-02-18 01:36:25</td>
             <td></td>
             <td class="headerItem">Functions:</td>
             <td class="headerCovTableEntry">2</td>
@@ -63,65 +63,53 @@
 <a name="1"><span class="lineNum">       1 </span>            : // Copyright 2009 (c) Tarro, Inc.</a>
 <span class="lineNum">       2 </span>            : // Copyright 2009 (c) Dean Michael Berris &lt;mikhailberis@gmail.com&gt;
 <span class="lineNum">       3 </span>            : // Copyright 2010 (c) Glyn Matthews
-<span class="lineNum">       4 </span>            : // Copyright 2003-2008 (c) Chris Kholhoff
-<span class="lineNum">       5 </span>            : // Distributed under the Boost Software License, Version 1.0.
-<span class="lineNum">       6 </span>            : // (See accompanying file LICENSE_1_0.txt or copy at
-<span class="lineNum">       7 </span>            : // http://www.boost.org/LICENSE_1_0.txt)
-<span class="lineNum">       8 </span>            : 
-<span class="lineNum">       9 </span>            : #ifndef BOOST_NETWORK_HTTP_SERVER_HPP_
-<span class="lineNum">      10 </span>            : #define BOOST_NETWORK_HTTP_SERVER_HPP_
-<span class="lineNum">      11 </span>            : 
-<span class="lineNum">      12 </span>            : #include &lt;boost/network/protocol/http/response.hpp&gt;
-<span class="lineNum">      13 </span>            : #include &lt;boost/network/protocol/http/request.hpp&gt;
-<span class="lineNum">      14 </span>            : #include &lt;boost/network/protocol/http/server/sync_server.hpp&gt;
+<span class="lineNum">       4 </span>            : // Copyright Google, Inc. 2015
+<span class="lineNum">       5 </span>            : // Copyright 2003-2008 (c) Chris Kholhoff
+<span class="lineNum">       6 </span>            : // Distributed under the Boost Software License, Version 1.0.
+<span class="lineNum">       7 </span>            : // (See accompanying file LICENSE_1_0.txt or copy at
+<span class="lineNum">       8 </span>            : // http://www.boost.org/LICENSE_1_0.txt)
+<span class="lineNum">       9 </span>            : 
+<span class="lineNum">      10 </span>            : #ifndef BOOST_NETWORK_HTTP_SERVER_HPP_
+<span class="lineNum">      11 </span>            : #define BOOST_NETWORK_HTTP_SERVER_HPP_
+<span class="lineNum">      12 </span>            : 
+<span class="lineNum">      13 </span>            : #include &lt;boost/network/protocol/http/response.hpp&gt;
+<span class="lineNum">      14 </span>            : #include &lt;boost/network/protocol/http/request.hpp&gt;
 <span class="lineNum">      15 </span>            : #include &lt;boost/network/protocol/http/server/async_server.hpp&gt;
 <span class="lineNum">      16 </span>            : 
 <span class="lineNum">      17 </span>            : namespace boost {
 <span class="lineNum">      18 </span>            : namespace network {
 <span class="lineNum">      19 </span>            : namespace http {
 <span class="lineNum">      20 </span>            : 
-<span class="lineNum">      21 </span>            : template &lt;class Tag, class Handler, class Enable = void&gt;
-<span class="lineNum">      22 </span>            : struct server_base {
-<span class="lineNum">      23 </span>            :   typedef unsupported_tag&lt;Tag&gt; type;
-<span class="lineNum">      24 </span>            : };
-<span class="lineNum">      25 </span>            : 
-<span class="lineNum">      26 </span>            : template &lt;class Tag, class Handler&gt;
-<span class="lineNum">      27 </span>            : struct server_base&lt;Tag, Handler, typename enable_if&lt;is_async&lt;Tag&gt; &gt;::type&gt; {
-<span class="lineNum">      28 </span>            :   typedef async_server_base&lt;Tag, Handler&gt; type;
-<span class="lineNum">      29 </span>            : };
-<span class="lineNum">      30 </span>            : 
-<span class="lineNum">      31 </span>            : template &lt;class Tag, class Handler&gt;
-<span class="lineNum">      32 </span>            : struct server_base&lt;Tag, Handler, typename enable_if&lt;is_sync&lt;Tag&gt; &gt;::type&gt; {
-<span class="lineNum">      33 </span>            :   typedef sync_server_base&lt;Tag, Handler&gt; type;
-<span class="lineNum">      34 </span>            : };
-<span class="lineNum">      35 </span>            : 
-<span class="lineNum">      36 </span>            : template &lt;class Tag, class Handler&gt;
-<span class="lineNum">      37 </span>            : struct basic_server : server_base&lt;Tag, Handler&gt;::type {};
-<a name="38"><span class="lineNum">      38 </span>            : </a>
-<span class="lineNum">      39 </span>            : template &lt;class Handler&gt;
-<span class="lineNum">      40 </span><span class="lineCov">         56 : struct server : server_base&lt;tags::http_server, Handler&gt;::type {</span>
-<span class="lineNum">      41 </span>            :   typedef typename server_base&lt;tags::http_server, Handler&gt;::type server_base;
-<a name="42"><span class="lineNum">      42 </span>            :   typedef server_options&lt;tags::http_server, Handler&gt; options;</a>
-<span class="lineNum">      43 </span>            : 
-<span class="lineNum">      44 </span><span class="lineCov">         56 :   explicit server(options const &amp;options) : server_base(options) {}</span>
-<span class="lineNum">      45 </span>            : };
-<span class="lineNum">      46 </span>            : 
-<span class="lineNum">      47 </span>            : template &lt;class Handler&gt;
-<span class="lineNum">      48 </span>            : struct async_server : server_base&lt;tags::http_async_server, Handler&gt;::type {
-<span class="lineNum">      49 </span>            :   typedef typename server_base&lt;tags::http_async_server, Handler&gt;::type
-<span class="lineNum">      50 </span>            :       server_base;
-<span class="lineNum">      51 </span>            :   typedef server_options&lt;tags::http_async_server, Handler&gt; options;
-<span class="lineNum">      52 </span>            : 
-<span class="lineNum">      53 </span>            :   explicit async_server(options const &amp;options) : server_base(options) {}
-<span class="lineNum">      54 </span>            : };
-<span class="lineNum">      55 </span>            : 
-<span class="lineNum">      56 </span>            : }  // namespace http
-<span class="lineNum">      57 </span>            : 
-<span class="lineNum">      58 </span>            : }  // namespace network
-<span class="lineNum">      59 </span>            : 
-<span class="lineNum">      60 </span>            : }  // namespace boost
-<span class="lineNum">      61 </span>            : 
-<span class="lineNum">      62 </span>            : #endif  // BOOST_NETWORK_HTTP_SERVER_HPP_
+<span class="lineNum">      21 </span>            : /**
+<span class="lineNum">      22 </span>            :  * The main HTTP Server template implementing an asynchronous HTTP service.
+<span class="lineNum">      23 </span>            :  *
+<span class="lineNum">      24 </span>            :  * Usage Example:
+<span class="lineNum">      25 </span>            :  * \code{.cpp}
+<span class="lineNum">      26 </span>            :  *     handler_type handler;
+<span class="lineNum">      27 </span>            :  *     http_server::options options(handler);
+<span class="lineNum">      28 </span>            :  *     options.thread_pool(
+<span class="lineNum">      29 </span>            :  *         std::make_shared&lt;boost::network::utils::thread_pool&gt;());
+<span class="lineNum">      30 </span>            :  *     http_server server(options.address(&quot;localhost&quot;).port(&quot;8000&quot;));
+<span class="lineNum">      31 </span>            :  * \endcode
+<span class="lineNum">      32 </span>            :  *
+<a name="33"><span class="lineNum">      33 </span>            :  */</a>
+<span class="lineNum">      34 </span>            : template &lt;class Handler&gt;
+<span class="lineNum">      35 </span><span class="lineCov">         56 : struct server : async_server_base&lt;tags::http_server, Handler&gt; {</span>
+<span class="lineNum">      36 </span>            :   /// A convenience typedef for the base of this type, implementing most of
+<span class="lineNum">      37 </span>            :   /// the internal details.
+<span class="lineNum">      38 </span>            :   typedef async_server_base&lt;tags::http_server, Handler&gt; server_base;
+<span class="lineNum">      39 </span>            : 
+<span class="lineNum">      40 </span>            :   /// The options supported by the server.
+<a name="41"><span class="lineNum">      41 </span>            :   typedef server_options&lt;tags::http_server, Handler&gt; options;</a>
+<span class="lineNum">      42 </span>            : 
+<span class="lineNum">      43 </span><span class="lineCov">         56 :   using server_base::server_base;</span>
+<span class="lineNum">      44 </span>            : };
+<span class="lineNum">      45 </span>            : 
+<span class="lineNum">      46 </span>            : }  // namespace http
+<span class="lineNum">      47 </span>            : }  // namespace network
+<span class="lineNum">      48 </span>            : }  // namespace boost
+<span class="lineNum">      49 </span>            : 
+<span class="lineNum">      50 </span>            : #endif  // BOOST_NETWORK_HTTP_SERVER_HPP_
 </pre>
       </td>
     </tr>

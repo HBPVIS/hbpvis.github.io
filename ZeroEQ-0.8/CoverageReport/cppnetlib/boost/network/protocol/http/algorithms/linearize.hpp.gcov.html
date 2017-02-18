@@ -31,17 +31,17 @@
             <td class="headerValue">ZeroEQ</td>
             <td></td>
             <td class="headerItem">Lines:</td>
-            <td class="headerCovTableEntry">77</td>
-            <td class="headerCovTableEntry">81</td>
-            <td class="headerCovTableEntryHi">95.1 %</td>
+            <td class="headerCovTableEntry">82</td>
+            <td class="headerCovTableEntry">86</td>
+            <td class="headerCovTableEntryHi">95.3 %</td>
           </tr>
           <tr>
             <td class="headerItem">Date:</td>
-            <td class="headerValue">2017-01-31 01:48:09</td>
+            <td class="headerValue">2017-02-18 01:36:25</td>
             <td></td>
             <td class="headerItem">Functions:</td>
-            <td class="headerCovTableEntry">1</td>
-            <td class="headerCovTableEntry">1</td>
+            <td class="headerCovTableEntry">2</td>
+            <td class="headerCovTableEntry">2</td>
             <td class="headerCovTableEntryHi">100.0 %</td>
           </tr>
           <tr><td><img src="../../../../../../glass.png" width=3 height=3 alt=""></td></tr>
@@ -65,193 +65,187 @@
 <span class="lineNum">       3 </span>            : 
 <span class="lineNum">       4 </span>            : // Copyright 2010 Dean Michael Berris.
 <span class="lineNum">       5 </span>            : // Copyright 2014 Jussi Lyytinen
-<span class="lineNum">       6 </span>            : // Distributed under the Boost Software License, Version 1.0.
-<span class="lineNum">       7 </span>            : // (See accompanying file LICENSE_1_0.txt or copy at
-<span class="lineNum">       8 </span>            : // http://www.boost.org/LICENSE_1_0.txt)
-<span class="lineNum">       9 </span>            : 
-<span class="lineNum">      10 </span>            : #include &lt;algorithm&gt;
-<span class="lineNum">      11 </span>            : #include &lt;bitset&gt;
-<span class="lineNum">      12 </span>            : #include &lt;boost/network/traits/string.hpp&gt;
-<span class="lineNum">      13 </span>            : #include &lt;boost/network/protocol/http/message/header/name.hpp&gt;
-<span class="lineNum">      14 </span>            : #include &lt;boost/network/protocol/http/message/header/value.hpp&gt;
-<span class="lineNum">      15 </span>            : #include &lt;boost/network/protocol/http/message/header_concept.hpp&gt;
-<span class="lineNum">      16 </span>            : #include &lt;boost/network/protocol/http/request_concept.hpp&gt;
-<span class="lineNum">      17 </span>            : #include &lt;boost/network/constants.hpp&gt;
-<span class="lineNum">      18 </span>            : #include &lt;boost/concept/requires.hpp&gt;
-<span class="lineNum">      19 </span>            : #include &lt;boost/optional.hpp&gt;
-<span class="lineNum">      20 </span>            : #include &lt;boost/range/algorithm/copy.hpp&gt;
-<span class="lineNum">      21 </span>            : #include &lt;boost/algorithm/string/compare.hpp&gt;
-<span class="lineNum">      22 </span>            : #include &lt;boost/version.hpp&gt;
-<span class="lineNum">      23 </span>            : 
-<span class="lineNum">      24 </span>            : namespace boost {
-<span class="lineNum">      25 </span>            : namespace network {
-<span class="lineNum">      26 </span>            : namespace http {
-<span class="lineNum">      27 </span>            : 
-<span class="lineNum">      28 </span>            : template &lt;class Tag&gt;
-<span class="lineNum">      29 </span>            : struct linearize_header {
-<span class="lineNum">      30 </span>            :   typedef typename string&lt;Tag&gt;::type string_type;
-<span class="lineNum">      31 </span>            : 
-<span class="lineNum">      32 </span>            :   template &lt;class Arguments&gt;
-<span class="lineNum">      33 </span>            :   struct result;
-<span class="lineNum">      34 </span>            : 
-<span class="lineNum">      35 </span>            :   template &lt;class This, class Arg&gt;
-<span class="lineNum">      36 </span>            :   struct result&lt;This(Arg)&gt; {
-<span class="lineNum">      37 </span>            :     typedef string_type type;
-<span class="lineNum">      38 </span>            :   };
-<span class="lineNum">      39 </span>            : 
-<span class="lineNum">      40 </span>            :   template &lt;class ValueType&gt;
-<span class="lineNum">      41 </span>            :   BOOST_CONCEPT_REQUIRES(((Header&lt;typename boost::remove_cv&lt;ValueType&gt;::type&gt;)),
-<span class="lineNum">      42 </span>            :                          (string_type))
-<span class="lineNum">      43 </span>            :   operator()(ValueType&amp; header) {
-<span class="lineNum">      44 </span>            :     typedef typename ostringstream&lt;Tag&gt;::type output_stream;
-<span class="lineNum">      45 </span>            :     typedef constants&lt;Tag&gt; consts;
-<span class="lineNum">      46 </span>            :     output_stream header_line;
-<span class="lineNum">      47 </span>            :     header_line &lt;&lt; name(header) &lt;&lt; consts::colon() &lt;&lt; consts::space()
-<span class="lineNum">      48 </span>            :                 &lt;&lt; value(header) &lt;&lt; consts::crlf();
-<span class="lineNum">      49 </span>            :     return header_line.str();
-<span class="lineNum">      50 </span>            :   }
-<span class="lineNum">      51 </span>            : };
-<span class="lineNum">      52 </span>            : 
-<a name="53"><span class="lineNum">      53 </span>            : template &lt;class Request, class OutputIterator&gt;</a>
-<span class="lineNum">      54 </span>            : BOOST_CONCEPT_REQUIRES(((ClientRequest&lt;Request&gt;)), (OutputIterator))
-<span class="lineNum">      55 </span><span class="lineCov">         36 :     linearize(Request const&amp; request,</span>
-<span class="lineNum">      56 </span>            :               typename Request::string_type const&amp; method,
-<span class="lineNum">      57 </span>            :               unsigned version_major, unsigned version_minor,
-<span class="lineNum">      58 </span>            :               OutputIterator oi) {
-<span class="lineNum">      59 </span>            :   typedef typename Request::tag Tag;
-<span class="lineNum">      60 </span>            :   typedef constants&lt;Tag&gt; consts;
-<span class="lineNum">      61 </span>            :   typedef typename string&lt;Tag&gt;::type string_type;
-<span class="lineNum">      62 </span><span class="lineCov">         36 :   static string_type http_slash = consts::http_slash(),</span>
-<span class="lineNum">      63 </span><span class="lineCov">         36 :                      accept = consts::accept(),</span>
-<span class="lineNum">      64 </span><span class="lineCov">         36 :                      accept_mime = consts::default_accept_mime(),</span>
-<span class="lineNum">      65 </span><span class="lineCov">         36 :                      accept_encoding = consts::accept_encoding(),</span>
-<span class="lineNum">      66 </span>            :                      default_accept_encoding =
-<span class="lineNum">      67 </span><span class="lineCov">         36 :                          consts::default_accept_encoding(),</span>
-<span class="lineNum">      68 </span><span class="lineCov">         36 :                      crlf = consts::crlf(), host = consts::host(),</span>
-<span class="lineNum">      69 </span><span class="lineCov">         36 :                      connection = consts::connection(), close = consts::close();</span>
-<span class="lineNum">      70 </span><span class="lineCov">         36 :   boost::copy(method, oi);</span>
-<span class="lineNum">      71 </span><span class="lineCov">         36 :   *oi = consts::space_char();</span>
-<span class="lineNum">      72 </span><span class="lineCov">         36 :   if (request.path().empty() || request.path()[0] != consts::slash_char())</span>
-<span class="lineNum">      73 </span><span class="lineNoCov">          0 :     *oi = consts::slash_char();</span>
-<span class="lineNum">      74 </span><span class="lineCov">         36 :   boost::copy(request.path(), oi);</span>
-<span class="lineNum">      75 </span><span class="lineCov">         36 :   if (!request.query().empty()) {</span>
-<span class="lineNum">      76 </span><span class="lineCov">          2 :     *oi = consts::question_mark_char();</span>
-<span class="lineNum">      77 </span><span class="lineCov">          2 :     boost::copy(request.query(), oi);</span>
-<span class="lineNum">      78 </span>            :   }
-<span class="lineNum">      79 </span><span class="lineCov">         36 :   if (!request.anchor().empty()) {</span>
-<span class="lineNum">      80 </span><span class="lineNoCov">          0 :     *oi = consts::hash_char();</span>
-<span class="lineNum">      81 </span><span class="lineNoCov">          0 :     boost::copy(request.anchor(), oi);</span>
+<span class="lineNum">       6 </span>            : // Copyright 2015 Google, Inc.
+<span class="lineNum">       7 </span>            : // Distributed under the Boost Software License, Version 1.0.
+<span class="lineNum">       8 </span>            : // (See accompanying file LICENSE_1_0.txt or copy at
+<span class="lineNum">       9 </span>            : // http://www.boost.org/LICENSE_1_0.txt)
+<span class="lineNum">      10 </span>            : 
+<span class="lineNum">      11 </span>            : #include &lt;algorithm&gt;
+<span class="lineNum">      12 </span>            : #include &lt;bitset&gt;
+<span class="lineNum">      13 </span>            : #include &lt;cstdint&gt;
+<span class="lineNum">      14 </span>            : #include &lt;boost/algorithm/string/compare.hpp&gt;
+<span class="lineNum">      15 </span>            : #include &lt;boost/concept/requires.hpp&gt;
+<span class="lineNum">      16 </span>            : #include &lt;boost/network/constants.hpp&gt;
+<span class="lineNum">      17 </span>            : #include &lt;boost/network/message/wrappers/body.hpp&gt;
+<span class="lineNum">      18 </span>            : #include &lt;boost/network/protocol/http/message/header/name.hpp&gt;
+<span class="lineNum">      19 </span>            : #include &lt;boost/network/protocol/http/message/header/value.hpp&gt;
+<span class="lineNum">      20 </span>            : #include &lt;boost/network/protocol/http/message/wrappers/headers.hpp&gt;
+<span class="lineNum">      21 </span>            : #include &lt;boost/network/protocol/http/message/wrappers/port.hpp&gt;
+<span class="lineNum">      22 </span>            : #include &lt;boost/network/protocol/http/traits/connection_keepalive.hpp&gt;
+<span class="lineNum">      23 </span>            : #include &lt;boost/network/traits/headers_container.hpp&gt;
+<span class="lineNum">      24 </span>            : #include &lt;boost/network/traits/ostringstream.hpp&gt;
+<span class="lineNum">      25 </span>            : #include &lt;boost/network/traits/string.hpp&gt;
+<span class="lineNum">      26 </span>            : #include &lt;boost/optional.hpp&gt;
+<span class="lineNum">      27 </span>            : #include &lt;boost/range/algorithm/copy.hpp&gt;
+<span class="lineNum">      28 </span>            : #include &lt;boost/version.hpp&gt;
+<span class="lineNum">      29 </span>            : 
+<span class="lineNum">      30 </span>            : namespace boost {
+<span class="lineNum">      31 </span>            : namespace network {
+<span class="lineNum">      32 </span>            : namespace http {
+<span class="lineNum">      33 </span>            : 
+<span class="lineNum">      34 </span>            : template &lt;class Tag&gt;
+<span class="lineNum">      35 </span>            : struct linearize_header {
+<span class="lineNum">      36 </span>            :   typedef typename string&lt;Tag&gt;::type string_type;
+<span class="lineNum">      37 </span>            : 
+<span class="lineNum">      38 </span>            :   template &lt;class Arguments&gt;
+<span class="lineNum">      39 </span>            :   struct result;
+<span class="lineNum">      40 </span>            : 
+<span class="lineNum">      41 </span>            :   template &lt;class This, class Arg&gt;
+<span class="lineNum">      42 </span>            :   struct result&lt;This(Arg)&gt; {
+<span class="lineNum">      43 </span>            :     typedef string_type type;
+<span class="lineNum">      44 </span>            :   };
+<a name="45"><span class="lineNum">      45 </span>            : </a>
+<span class="lineNum">      46 </span>            :   template &lt;class ValueType&gt;
+<span class="lineNum">      47 </span><span class="lineCov">        248 :   string_type operator()(ValueType&amp; header) {</span>
+<span class="lineNum">      48 </span>            :     typedef typename ostringstream&lt;Tag&gt;::type output_stream;
+<span class="lineNum">      49 </span>            :     typedef constants&lt;Tag&gt; consts;
+<span class="lineNum">      50 </span><span class="lineCov">        496 :     output_stream header_line;</span>
+<span class="lineNum">      51 </span><span class="lineCov">        496 :     header_line &lt;&lt; name(header) &lt;&lt; consts::colon() &lt;&lt; consts::space()</span>
+<span class="lineNum">      52 </span><span class="lineCov">        496 :                 &lt;&lt; value(header) &lt;&lt; consts::crlf();</span>
+<span class="lineNum">      53 </span><span class="lineCov">        496 :     return header_line.str();</span>
+<span class="lineNum">      54 </span>            :   }
+<span class="lineNum">      55 </span>            : };
+<a name="56"><span class="lineNum">      56 </span>            : </a>
+<span class="lineNum">      57 </span>            : template &lt;class Request, class OutputIterator&gt;
+<span class="lineNum">      58 </span><span class="lineCov">         36 : OutputIterator linearize(Request const&amp; request,</span>
+<span class="lineNum">      59 </span>            :                          typename Request::string_type const&amp; method,
+<span class="lineNum">      60 </span>            :                          unsigned version_major, unsigned version_minor,
+<span class="lineNum">      61 </span>            :                          OutputIterator oi) {
+<span class="lineNum">      62 </span>            :   typedef typename Request::tag Tag;
+<span class="lineNum">      63 </span>            :   typedef constants&lt;Tag&gt; consts;
+<span class="lineNum">      64 </span>            :   typedef typename string&lt;Tag&gt;::type string_type;
+<span class="lineNum">      65 </span><span class="lineCov">         36 :   static string_type http_slash = consts::http_slash(),</span>
+<span class="lineNum">      66 </span><span class="lineCov">         36 :                      accept = consts::accept(),</span>
+<span class="lineNum">      67 </span><span class="lineCov">         36 :                      accept_mime = consts::default_accept_mime(),</span>
+<span class="lineNum">      68 </span><span class="lineCov">         36 :                      accept_encoding = consts::accept_encoding(),</span>
+<span class="lineNum">      69 </span>            :                      default_accept_encoding =
+<span class="lineNum">      70 </span><span class="lineCov">         36 :                          consts::default_accept_encoding(),</span>
+<span class="lineNum">      71 </span><span class="lineCov">         36 :                      crlf = consts::crlf(), host = consts::host(),</span>
+<span class="lineNum">      72 </span><span class="lineCov">         36 :                      connection = consts::connection(), close = consts::close();</span>
+<span class="lineNum">      73 </span><span class="lineCov">         36 :   boost::copy(method, oi);</span>
+<span class="lineNum">      74 </span><span class="lineCov">         36 :   *oi = consts::space_char();</span>
+<span class="lineNum">      75 </span><span class="lineCov">         36 :   if (request.path().empty() || request.path()[0] != consts::slash_char()) {</span>
+<span class="lineNum">      76 </span><span class="lineNoCov">          0 :     *oi = consts::slash_char();</span>
+<span class="lineNum">      77 </span>            :   }
+<span class="lineNum">      78 </span><span class="lineCov">         36 :   boost::copy(request.path(), oi);</span>
+<span class="lineNum">      79 </span><span class="lineCov">         36 :   if (!request.query().empty()) {</span>
+<span class="lineNum">      80 </span><span class="lineCov">          2 :     *oi = consts::question_mark_char();</span>
+<span class="lineNum">      81 </span><span class="lineCov">          2 :     boost::copy(request.query(), oi);</span>
 <span class="lineNum">      82 </span>            :   }
-<span class="lineNum">      83 </span><span class="lineCov">         36 :   *oi = consts::space_char();</span>
-<span class="lineNum">      84 </span><span class="lineCov">         36 :   boost::copy(http_slash, oi);</span>
-<span class="lineNum">      85 </span>            :   string_type version_major_str =
-<span class="lineNum">      86 </span><span class="lineCov">         72 :                   boost::lexical_cast&lt;string_type&gt;(version_major),</span>
-<span class="lineNum">      87 </span>            :               version_minor_str =
-<span class="lineNum">      88 </span><span class="lineCov">         72 :                   boost::lexical_cast&lt;string_type&gt;(version_minor);</span>
-<span class="lineNum">      89 </span><span class="lineCov">         36 :   boost::copy(version_major_str, oi);</span>
-<span class="lineNum">      90 </span><span class="lineCov">         36 :   *oi = consts::dot_char();</span>
-<span class="lineNum">      91 </span><span class="lineCov">         36 :   boost::copy(version_minor_str, oi);</span>
-<span class="lineNum">      92 </span><span class="lineCov">         36 :   boost::copy(crlf, oi);</span>
-<span class="lineNum">      93 </span>            : 
-<span class="lineNum">      94 </span>            :   // We need to determine whether we've seen any of the following headers
-<span class="lineNum">      95 </span>            :   // before setting the defaults. We use a bitset to keep track of the
-<span class="lineNum">      96 </span>            :   // defaulted headers.
-<span class="lineNum">      97 </span>            :   enum {
-<span class="lineNum">      98 </span>            :     ACCEPT,
-<span class="lineNum">      99 </span>            :     ACCEPT_ENCODING,
-<span class="lineNum">     100 </span>            :     HOST,
-<span class="lineNum">     101 </span>            :     CONNECTION,
-<span class="lineNum">     102 </span>            :     MAX
-<span class="lineNum">     103 </span>            :   };
-<span class="lineNum">     104 </span><span class="lineCov">         36 :   std::bitset&lt;MAX&gt; found_headers;</span>
-<span class="lineNum">     105 </span>            :   static char const* defaulted_headers[][2] = {
-<span class="lineNum">     106 </span><span class="lineCov">          2 :       {consts::accept(), consts::accept() + std::strlen(consts::accept())},</span>
-<span class="lineNum">     107 </span><span class="lineCov">          1 :       {consts::accept_encoding(),</span>
-<span class="lineNum">     108 </span><span class="lineCov">          1 :        consts::accept_encoding() + std::strlen(consts::accept_encoding())},</span>
-<span class="lineNum">     109 </span><span class="lineCov">          2 :       {consts::host(), consts::host() + std::strlen(consts::host())},</span>
-<span class="lineNum">     110 </span><span class="lineCov">          1 :       {consts::connection(),</span>
-<span class="lineNum">     111 </span><span class="lineCov">         43 :        consts::connection() + std::strlen(consts::connection())}};</span>
-<span class="lineNum">     112 </span>            : 
-<span class="lineNum">     113 </span>            :   typedef typename headers_range&lt;Request&gt;::type headers_range;
-<span class="lineNum">     114 </span>            :   typedef typename range_value&lt;headers_range&gt;::type headers_value;
-<span class="lineNum">     115 </span><span class="lineCov">         57 :   BOOST_FOREACH(const headers_value &amp; header, headers(request)) {</span>
-<span class="lineNum">     116 </span><span class="lineCov">         42 :     string_type header_name = name(header), header_value = value(header);</span>
-<span class="lineNum">     117 </span>            :     // Here we check that we have not seen an override to the defaulted
-<span class="lineNum">     118 </span>            :     // headers.
-<span class="lineNum">     119 </span><span class="lineCov">        105 :     for (int header_index = 0; header_index &lt; MAX; ++header_index)</span>
-<span class="lineNum">     120 </span><span class="lineCov">        336 :       if (std::distance(header_name.begin(), header_name.end()) ==</span>
-<span class="lineNum">     121 </span><span class="lineCov">         84 :               std::distance(defaulted_headers[header_index][0],</span>
-<span class="lineNum">     122 </span><span class="lineCov">        168 :                             defaulted_headers[header_index][1]) &amp;&amp;</span>
-<span class="lineNum">     123 </span><span class="lineCov">         84 :           std::equal(header_name.begin(), header_name.end(),</span>
-<span class="lineNum">     124 </span>            :                      defaulted_headers[header_index][0],
-<span class="lineNum">     125 </span>            :                      algorithm::is_iequal()))
-<span class="lineNum">     126 </span><span class="lineNoCov">          0 :         found_headers.set(header_index, true);</span>
-<span class="lineNum">     127 </span>            : 
-<span class="lineNum">     128 </span>            :     // We ignore empty headers.
-<span class="lineNum">     129 </span><span class="lineCov">         21 :     if (header_value.empty()) continue;</span>
-<span class="lineNum">     130 </span><span class="lineCov">         21 :     boost::copy(header_name, oi);</span>
-<span class="lineNum">     131 </span><span class="lineCov">         21 :     *oi = consts::colon_char();</span>
-<span class="lineNum">     132 </span><span class="lineCov">         21 :     *oi = consts::space_char();</span>
-<span class="lineNum">     133 </span><span class="lineCov">         21 :     boost::copy(header_value, oi);</span>
-<span class="lineNum">     134 </span><span class="lineCov">         21 :     boost::copy(crlf, oi);</span>
-<span class="lineNum">     135 </span>            :   }
-<span class="lineNum">     136 </span>            : 
-<span class="lineNum">     137 </span><span class="lineCov">         36 :   if (!found_headers[HOST]) {</span>
-<span class="lineNum">     138 </span><span class="lineCov">         36 :     boost::copy(host, oi);</span>
-<span class="lineNum">     139 </span><span class="lineCov">         36 :     *oi = consts::colon_char();</span>
-<span class="lineNum">     140 </span><span class="lineCov">         36 :     *oi = consts::space_char();</span>
-<span class="lineNum">     141 </span><span class="lineCov">         36 :     boost::copy(request.host(), oi);</span>
-<span class="lineNum">     142 </span>            :     boost::optional&lt;boost::uint16_t&gt; port_ =
-<span class="lineNum">     143 </span>            : #if (_MSC_VER &gt;= 1600 &amp;&amp; BOOST_VERSION &gt; 105500)
-<span class="lineNum">     144 </span>            :       port(request).as_optional();
-<span class="lineNum">     145 </span>            : #else
-<span class="lineNum">     146 </span><span class="lineCov">         72 :       port(request);</span>
-<span class="lineNum">     147 </span>            : #endif
-<span class="lineNum">     148 </span><span class="lineCov">         36 :     if (port_) {</span>
-<span class="lineNum">     149 </span><span class="lineCov">         72 :       string_type port_str = boost::lexical_cast&lt;string_type&gt;(*port_);</span>
-<span class="lineNum">     150 </span><span class="lineCov">         36 :       *oi = consts::colon_char();</span>
-<span class="lineNum">     151 </span><span class="lineCov">         36 :       boost::copy(port_str, oi);</span>
-<span class="lineNum">     152 </span>            :     }
-<span class="lineNum">     153 </span><span class="lineCov">         36 :     boost::copy(crlf, oi);</span>
-<span class="lineNum">     154 </span>            :   }
-<span class="lineNum">     155 </span>            : 
-<span class="lineNum">     156 </span><span class="lineCov">         36 :   if (!found_headers[ACCEPT]) {</span>
-<span class="lineNum">     157 </span><span class="lineCov">         36 :     boost::copy(accept, oi);</span>
-<span class="lineNum">     158 </span><span class="lineCov">         36 :     *oi = consts::colon_char();</span>
-<span class="lineNum">     159 </span><span class="lineCov">         36 :     *oi = consts::space_char();</span>
-<span class="lineNum">     160 </span><span class="lineCov">         36 :     boost::copy(accept_mime, oi);</span>
-<span class="lineNum">     161 </span><span class="lineCov">         36 :     boost::copy(crlf, oi);</span>
-<span class="lineNum">     162 </span>            :   }
-<span class="lineNum">     163 </span>            : 
-<span class="lineNum">     164 </span><span class="lineCov">        144 :   if (version_major == 1u &amp;&amp; version_minor == 1u &amp;&amp;</span>
-<span class="lineNum">     165 </span><span class="lineCov">        144 :       !found_headers[ACCEPT_ENCODING]) {</span>
-<span class="lineNum">     166 </span><span class="lineCov">         36 :     boost::copy(accept_encoding, oi);</span>
-<span class="lineNum">     167 </span><span class="lineCov">         36 :     *oi = consts::colon_char();</span>
-<span class="lineNum">     168 </span><span class="lineCov">         36 :     *oi = consts::space_char();</span>
-<span class="lineNum">     169 </span><span class="lineCov">         36 :     boost::copy(default_accept_encoding, oi);</span>
-<span class="lineNum">     170 </span><span class="lineCov">         36 :     boost::copy(crlf, oi);</span>
-<span class="lineNum">     171 </span>            :   }
-<span class="lineNum">     172 </span>            : 
-<span class="lineNum">     173 </span><span class="lineCov">         36 :   if (!connection_keepalive&lt;Tag&gt;::value &amp;&amp; !found_headers[CONNECTION]) {</span>
-<span class="lineNum">     174 </span><span class="lineCov">         36 :     boost::copy(connection, oi);</span>
-<span class="lineNum">     175 </span><span class="lineCov">         36 :     *oi = consts::colon_char();</span>
-<span class="lineNum">     176 </span><span class="lineCov">         36 :     *oi = consts::space_char();</span>
-<span class="lineNum">     177 </span><span class="lineCov">         36 :     boost::copy(close, oi);</span>
-<span class="lineNum">     178 </span><span class="lineCov">         36 :     boost::copy(crlf, oi);</span>
-<span class="lineNum">     179 </span>            :   }
-<span class="lineNum">     180 </span>            : 
-<span class="lineNum">     181 </span><span class="lineCov">         36 :   boost::copy(crlf, oi);</span>
-<span class="lineNum">     182 </span><span class="lineCov">         36 :   typename body_range&lt;Request&gt;::type body_data = body(request).range();</span>
-<span class="lineNum">     183 </span><span class="lineCov">         72 :   return boost::copy(body_data, oi);</span>
-<span class="lineNum">     184 </span>            : }
+<span class="lineNum">      83 </span><span class="lineCov">         36 :   if (!request.anchor().empty()) {</span>
+<span class="lineNum">      84 </span><span class="lineNoCov">          0 :     *oi = consts::hash_char();</span>
+<span class="lineNum">      85 </span><span class="lineNoCov">          0 :     boost::copy(request.anchor(), oi);</span>
+<span class="lineNum">      86 </span>            :   }
+<span class="lineNum">      87 </span><span class="lineCov">         36 :   *oi = consts::space_char();</span>
+<span class="lineNum">      88 </span><span class="lineCov">         36 :   boost::copy(http_slash, oi);</span>
+<span class="lineNum">      89 </span><span class="lineCov">         72 :   string_type version_major_str = std::to_string(version_major),</span>
+<span class="lineNum">      90 </span><span class="lineCov">         72 :               version_minor_str = std::to_string(version_minor);</span>
+<span class="lineNum">      91 </span><span class="lineCov">         36 :   boost::copy(version_major_str, oi);</span>
+<span class="lineNum">      92 </span><span class="lineCov">         36 :   *oi = consts::dot_char();</span>
+<span class="lineNum">      93 </span><span class="lineCov">         36 :   boost::copy(version_minor_str, oi);</span>
+<span class="lineNum">      94 </span><span class="lineCov">         36 :   boost::copy(crlf, oi);</span>
+<span class="lineNum">      95 </span>            : 
+<span class="lineNum">      96 </span>            :   // We need to determine whether we've seen any of the following headers
+<span class="lineNum">      97 </span>            :   // before setting the defaults. We use a bitset to keep track of the
+<span class="lineNum">      98 </span>            :   // defaulted headers.
+<span class="lineNum">      99 </span>            :   enum { ACCEPT, ACCEPT_ENCODING, HOST, CONNECTION, MAX };
+<span class="lineNum">     100 </span><span class="lineCov">         36 :   std::bitset&lt;MAX&gt; found_headers;</span>
+<span class="lineNum">     101 </span>            :   static char const* defaulted_headers[][2] = {
+<span class="lineNum">     102 </span><span class="lineCov">          2 :       {consts::accept(), consts::accept() + std::strlen(consts::accept())},</span>
+<span class="lineNum">     103 </span><span class="lineCov">          1 :       {consts::accept_encoding(),</span>
+<span class="lineNum">     104 </span><span class="lineCov">          1 :        consts::accept_encoding() + std::strlen(consts::accept_encoding())},</span>
+<span class="lineNum">     105 </span><span class="lineCov">          2 :       {consts::host(), consts::host() + std::strlen(consts::host())},</span>
+<span class="lineNum">     106 </span><span class="lineCov">          1 :       {consts::connection(),</span>
+<span class="lineNum">     107 </span><span class="lineCov">         43 :        consts::connection() + std::strlen(consts::connection())}};</span>
+<span class="lineNum">     108 </span>            : 
+<span class="lineNum">     109 </span>            :   typedef typename headers_range&lt;Request&gt;::type headers_range;
+<span class="lineNum">     110 </span>            :   typedef typename range_value&lt;headers_range&gt;::type headers_value;
+<span class="lineNum">     111 </span><span class="lineCov">         57 :   for (const headers_value&amp; header : headers(request)) {</span>
+<span class="lineNum">     112 </span><span class="lineCov">         42 :     string_type header_name = name(header), header_value = value(header);</span>
+<span class="lineNum">     113 </span>            :     // Here we check that we have not seen an override to the defaulted
+<span class="lineNum">     114 </span>            :     // headers.
+<span class="lineNum">     115 </span><span class="lineCov">        105 :     for (int header_index = 0; header_index &lt; MAX; ++header_index)</span>
+<span class="lineNum">     116 </span><span class="lineCov">        336 :       if (std::distance(header_name.begin(), header_name.end()) ==</span>
+<span class="lineNum">     117 </span><span class="lineCov">         84 :               std::distance(defaulted_headers[header_index][0],</span>
+<span class="lineNum">     118 </span><span class="lineCov">        168 :                             defaulted_headers[header_index][1]) &amp;&amp;</span>
+<span class="lineNum">     119 </span><span class="lineCov">         84 :           std::equal(header_name.begin(), header_name.end(),</span>
+<span class="lineNum">     120 </span>            :                      defaulted_headers[header_index][0],
+<span class="lineNum">     121 </span>            :                      algorithm::is_iequal()))
+<span class="lineNum">     122 </span><span class="lineNoCov">          0 :         found_headers.set(header_index, true);</span>
+<span class="lineNum">     123 </span>            : 
+<span class="lineNum">     124 </span>            :     // We ignore empty headers.
+<span class="lineNum">     125 </span><span class="lineCov">         21 :     if (header_value.empty()) continue;</span>
+<span class="lineNum">     126 </span><span class="lineCov">         21 :     boost::copy(header_name, oi);</span>
+<span class="lineNum">     127 </span><span class="lineCov">         21 :     *oi = consts::colon_char();</span>
+<span class="lineNum">     128 </span><span class="lineCov">         21 :     *oi = consts::space_char();</span>
+<span class="lineNum">     129 </span><span class="lineCov">         21 :     boost::copy(header_value, oi);</span>
+<span class="lineNum">     130 </span><span class="lineCov">         21 :     boost::copy(crlf, oi);</span>
+<span class="lineNum">     131 </span>            :   }
+<span class="lineNum">     132 </span>            : 
+<span class="lineNum">     133 </span><span class="lineCov">         36 :   if (!found_headers[HOST]) {</span>
+<span class="lineNum">     134 </span><span class="lineCov">         36 :     boost::copy(host, oi);</span>
+<span class="lineNum">     135 </span><span class="lineCov">         36 :     *oi = consts::colon_char();</span>
+<span class="lineNum">     136 </span><span class="lineCov">         36 :     *oi = consts::space_char();</span>
+<span class="lineNum">     137 </span><span class="lineCov">         36 :     boost::copy(request.host(), oi);</span>
+<span class="lineNum">     138 </span>            :     boost::optional&lt;std::uint16_t&gt; port_ =
+<span class="lineNum">     139 </span>            : #if (_MSC_VER &gt;= 1600 &amp;&amp; BOOST_VERSION &gt; 105500)
+<span class="lineNum">     140 </span>            :         port(request).as_optional();
+<span class="lineNum">     141 </span>            : #else
+<span class="lineNum">     142 </span><span class="lineCov">         72 :         port(request);</span>
+<span class="lineNum">     143 </span>            : #endif
+<span class="lineNum">     144 </span><span class="lineCov">         36 :     if (port_) {</span>
+<span class="lineNum">     145 </span><span class="lineCov">         72 :       string_type port_str = std::to_string(*port_);</span>
+<span class="lineNum">     146 </span><span class="lineCov">         36 :       *oi = consts::colon_char();</span>
+<span class="lineNum">     147 </span><span class="lineCov">         36 :       boost::copy(port_str, oi);</span>
+<span class="lineNum">     148 </span>            :     }
+<span class="lineNum">     149 </span><span class="lineCov">         36 :     boost::copy(crlf, oi);</span>
+<span class="lineNum">     150 </span>            :   }
+<span class="lineNum">     151 </span>            : 
+<span class="lineNum">     152 </span><span class="lineCov">         36 :   if (!found_headers[ACCEPT]) {</span>
+<span class="lineNum">     153 </span><span class="lineCov">         36 :     boost::copy(accept, oi);</span>
+<span class="lineNum">     154 </span><span class="lineCov">         36 :     *oi = consts::colon_char();</span>
+<span class="lineNum">     155 </span><span class="lineCov">         36 :     *oi = consts::space_char();</span>
+<span class="lineNum">     156 </span><span class="lineCov">         36 :     boost::copy(accept_mime, oi);</span>
+<span class="lineNum">     157 </span><span class="lineCov">         36 :     boost::copy(crlf, oi);</span>
+<span class="lineNum">     158 </span>            :   }
+<span class="lineNum">     159 </span>            : 
+<span class="lineNum">     160 </span><span class="lineCov">        144 :   if (version_major == 1u &amp;&amp; version_minor == 1u &amp;&amp;</span>
+<span class="lineNum">     161 </span><span class="lineCov">        144 :       !found_headers[ACCEPT_ENCODING]) {</span>
+<span class="lineNum">     162 </span><span class="lineCov">         36 :     boost::copy(accept_encoding, oi);</span>
+<span class="lineNum">     163 </span><span class="lineCov">         36 :     *oi = consts::colon_char();</span>
+<span class="lineNum">     164 </span><span class="lineCov">         36 :     *oi = consts::space_char();</span>
+<span class="lineNum">     165 </span><span class="lineCov">         36 :     boost::copy(default_accept_encoding, oi);</span>
+<span class="lineNum">     166 </span><span class="lineCov">         36 :     boost::copy(crlf, oi);</span>
+<span class="lineNum">     167 </span>            :   }
+<span class="lineNum">     168 </span>            : 
+<span class="lineNum">     169 </span><span class="lineCov">         36 :   if (!connection_keepalive&lt;Tag&gt;::value &amp;&amp; !found_headers[CONNECTION]) {</span>
+<span class="lineNum">     170 </span><span class="lineCov">         36 :     boost::copy(connection, oi);</span>
+<span class="lineNum">     171 </span><span class="lineCov">         36 :     *oi = consts::colon_char();</span>
+<span class="lineNum">     172 </span><span class="lineCov">         36 :     *oi = consts::space_char();</span>
+<span class="lineNum">     173 </span><span class="lineCov">         36 :     boost::copy(close, oi);</span>
+<span class="lineNum">     174 </span><span class="lineCov">         36 :     boost::copy(crlf, oi);</span>
+<span class="lineNum">     175 </span>            :   }
+<span class="lineNum">     176 </span>            : 
+<span class="lineNum">     177 </span><span class="lineCov">         36 :   boost::copy(crlf, oi);</span>
+<span class="lineNum">     178 </span><span class="lineCov">         36 :   auto body_data = body(request).range();</span>
+<span class="lineNum">     179 </span><span class="lineCov">         72 :   return boost::copy(body_data, oi);</span>
+<span class="lineNum">     180 </span>            : }
+<span class="lineNum">     181 </span>            : 
+<span class="lineNum">     182 </span>            : }  // namespace http
+<span class="lineNum">     183 </span>            : }  // namespace network
+<span class="lineNum">     184 </span>            : }  // namespace boost
 <span class="lineNum">     185 </span>            : 
-<span class="lineNum">     186 </span>            : } /* http */
-<span class="lineNum">     187 </span>            : 
-<span class="lineNum">     188 </span>            : } /* net */
-<span class="lineNum">     189 </span>            : 
-<span class="lineNum">     190 </span>            : } /* boost */
-<span class="lineNum">     191 </span>            : 
-<span class="lineNum">     192 </span>            : #endif /* BOOST_NETWORK_PROTOCOL_HTTP_ALGORITHMS_LINEARIZE_HPP_20101028 */
+<span class="lineNum">     186 </span>            : #endif  // BOOST_NETWORK_PROTOCOL_HTTP_ALGORITHMS_LINEARIZE_HPP_20101028
 </pre>
       </td>
     </tr>

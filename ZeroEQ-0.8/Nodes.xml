@@ -10,6 +10,10 @@
         <Path>Changelog.html</Path>
        </Node>
        <Node>
+        <Name>HTTP Server for generic REST interfaces</Name>
+        <Path>httpserverrest.html</Path>
+       </Node>
+       <Node>
         <Name>RFCs</Name>
         <Path>rfcs.html</Path>
         <Subnodes>

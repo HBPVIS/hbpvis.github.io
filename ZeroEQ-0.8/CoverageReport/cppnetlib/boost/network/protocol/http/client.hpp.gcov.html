@@ -37,7 +37,7 @@
           </tr>
           <tr>
             <td class="headerItem">Date:</td>
-            <td class="headerValue">2017-01-31 01:48:09</td>
+            <td class="headerValue">2017-02-18 01:36:25</td>
             <td></td>
             <td class="headerItem">Functions:</td>
             <td class="headerCovTableEntry">2</td>
@@ -68,70 +68,80 @@
 <span class="lineNum">       6 </span>            : //    (See accompanying file LICENSE_1_0.txt or copy at
 <span class="lineNum">       7 </span>            : //          http://www.boost.org/LICENSE_1_0.txt)
 <span class="lineNum">       8 </span>            : 
-<span class="lineNum">       9 </span>            : #include &lt;boost/network/version.hpp&gt;
-<span class="lineNum">      10 </span>            : #include &lt;boost/network/traits/ostringstream.hpp&gt;
-<span class="lineNum">      11 </span>            : #include &lt;boost/network/protocol/http/message.hpp&gt;
+<span class="lineNum">       9 </span>            : #include &lt;boost/config.hpp&gt;
+<span class="lineNum">      10 </span>            : #include &lt;boost/network/protocol/http/message.hpp&gt;
+<span class="lineNum">      11 </span>            : #include &lt;boost/network/protocol/http/request.hpp&gt;
 <span class="lineNum">      12 </span>            : #include &lt;boost/network/protocol/http/response.hpp&gt;
-<span class="lineNum">      13 </span>            : #include &lt;boost/network/protocol/http/request.hpp&gt;
+<span class="lineNum">      13 </span>            : #include &lt;boost/network/traits/ostringstream.hpp&gt;
 <span class="lineNum">      14 </span>            : 
-<span class="lineNum">      15 </span>            : #include &lt;boost/asio/io_service.hpp&gt;
-<span class="lineNum">      16 </span>            : #include &lt;boost/lexical_cast.hpp&gt;
-<span class="lineNum">      17 </span>            : #include &lt;boost/algorithm/string/classification.hpp&gt;
-<span class="lineNum">      18 </span>            : #include &lt;boost/algorithm/string/split.hpp&gt;
-<span class="lineNum">      19 </span>            : #include &lt;boost/foreach.hpp&gt;
-<span class="lineNum">      20 </span>            : #include &lt;ostream&gt;
-<span class="lineNum">      21 </span>            : #include &lt;istream&gt;
-<span class="lineNum">      22 </span>            : #include &lt;string&gt;
-<span class="lineNum">      23 </span>            : #include &lt;stdexcept&gt;
-<span class="lineNum">      24 </span>            : #include &lt;map&gt;
-<span class="lineNum">      25 </span>            : 
-<span class="lineNum">      26 </span>            : #include &lt;boost/network/protocol/http/client/facade.hpp&gt;
-<span class="lineNum">      27 </span>            : #include &lt;boost/network/protocol/http/client/macros.hpp&gt;
-<span class="lineNum">      28 </span>            : #include &lt;boost/network/protocol/http/client/options.hpp&gt;
-<span class="lineNum">      29 </span>            : 
-<span class="lineNum">      30 </span>            : namespace boost {
-<span class="lineNum">      31 </span>            : namespace network {
-<span class="lineNum">      32 </span>            : namespace http {
-<a name="33"><span class="lineNum">      33 </span>            : </a>
-<span class="lineNum">      34 </span>            : template &lt;class Tag, unsigned version_major, unsigned version_minor&gt;
-<span class="lineNum">      35 </span><span class="lineCov">         18 : struct basic_client : basic_client_facade&lt;Tag, version_major, version_minor&gt; {</span>
-<span class="lineNum">      36 </span>            :  private:
-<span class="lineNum">      37 </span>            :   typedef basic_client_facade&lt;Tag, version_major, version_minor&gt;
-<span class="lineNum">      38 </span>            :       base_facade_type;
-<span class="lineNum">      39 </span>            : 
-<span class="lineNum">      40 </span>            :  public:
-<span class="lineNum">      41 </span>            :   typedef basic_request&lt;Tag&gt; request;
-<span class="lineNum">      42 </span>            :   typedef basic_response&lt;Tag&gt; response;
-<span class="lineNum">      43 </span>            :   typedef typename string&lt;Tag&gt;::type string_type;
-<span class="lineNum">      44 </span>            :   typedef Tag tag_type;
-<span class="lineNum">      45 </span>            :   typedef client_options&lt;Tag&gt; options;
-<span class="lineNum">      46 </span>            : 
-<span class="lineNum">      47 </span>            :   // Constructors
-<span class="lineNum">      48 </span>            :   // =================================================================
-<span class="lineNum">      49 </span>            :   // This constructor takes a single options argument of type
-<span class="lineNum">      50 </span>            :   // client_options. See boost/network/protocol/http/client/options.hpp
-<span class="lineNum">      51 </span>            :   // for more details.
-<span class="lineNum">      52 </span>            :   explicit basic_client(options const&amp; options) : base_facade_type(options) {}
-<a name="53"><span class="lineNum">      53 </span>            : </a>
-<span class="lineNum">      54 </span>            :   // This default constructor sets up the default options.
-<span class="lineNum">      55 </span><span class="lineCov">         18 :   basic_client() : base_facade_type(options()) {}</span>
-<span class="lineNum">      56 </span>            :   //
-<span class="lineNum">      57 </span>            :   // =================================================================
-<span class="lineNum">      58 </span>            : };
-<span class="lineNum">      59 </span>            : 
-<span class="lineNum">      60 </span>            : #ifndef BOOST_NETWORK_HTTP_CLIENT_DEFAULT_TAG
-<span class="lineNum">      61 </span>            : #define BOOST_NETWORK_HTTP_CLIENT_DEFAULT_TAG tags::http_async_8bit_udp_resolve
-<span class="lineNum">      62 </span>            : #endif
-<span class="lineNum">      63 </span>            : 
-<span class="lineNum">      64 </span>            : typedef basic_client&lt;BOOST_NETWORK_HTTP_CLIENT_DEFAULT_TAG, 1, 1&gt; client;
+<span class="lineNum">      15 </span>            : #include &lt;boost/algorithm/string/classification.hpp&gt;
+<span class="lineNum">      16 </span>            : #include &lt;boost/algorithm/string/split.hpp&gt;
+<span class="lineNum">      17 </span>            : #include &lt;istream&gt;
+<span class="lineNum">      18 </span>            : #include &lt;map&gt;
+<span class="lineNum">      19 </span>            : #include &lt;ostream&gt;
+<span class="lineNum">      20 </span>            : #include &lt;stdexcept&gt;
+<span class="lineNum">      21 </span>            : #include &lt;string&gt;
+<span class="lineNum">      22 </span>            : 
+<span class="lineNum">      23 </span>            : #include &lt;boost/network/protocol/http/client/facade.hpp&gt;
+<span class="lineNum">      24 </span>            : #include &lt;boost/network/protocol/http/client/macros.hpp&gt;
+<span class="lineNum">      25 </span>            : #include &lt;boost/network/protocol/http/client/options.hpp&gt;
+<span class="lineNum">      26 </span>            : 
+<span class="lineNum">      27 </span>            : namespace boost {
+<span class="lineNum">      28 </span>            : namespace network {
+<span class="lineNum">      29 </span>            : namespace http {
+<span class="lineNum">      30 </span>            : 
+<span class="lineNum">      31 </span>            : /**
+<span class="lineNum">      32 </span>            :  * Basic Client API.
+<span class="lineNum">      33 </span>            :  *
+<span class="lineNum">      34 </span>            :  * This template defines an HTTP client object that is non-copyable and is
+<span class="lineNum">      35 </span>            :  * implemented depending on the `Tag` parameter. It also hard-codes the version
+<span class="lineNum">      36 </span>            :  * of HTTP to support.
+<span class="lineNum">      37 </span>            :  *
+<span class="lineNum">      38 </span>            :  * @tparam Tag The Tag type used to determine certain traits of the
+<span class="lineNum">      39 </span>            :  *   implementation. We use the Tag as an input to other template metafunctions
+<span class="lineNum">      40 </span>            :  *   to determine things like the string type, whether to use TCP or UDP for the
+<span class="lineNum">      41 </span>            :  *   resolver, etc.
+<span class="lineNum">      42 </span>            :  * @tparam version_major The HTTP major version.
+<span class="lineNum">      43 </span>            :  * @tparam version_minor The HTTP minor version.
+<span class="lineNum">      44 </span>            :  *
+<a name="45"><span class="lineNum">      45 </span>            :  */</a>
+<span class="lineNum">      46 </span>            : template &lt;class Tag, unsigned version_major, unsigned version_minor&gt;
+<span class="lineNum">      47 </span><span class="lineCov">         18 : class basic_client : public basic_client_facade&lt;Tag, version_major, version_minor&gt; {</span>
+<span class="lineNum">      48 </span>            :   typedef basic_client_facade&lt;Tag, version_major, version_minor&gt;
+<span class="lineNum">      49 </span>            :       base_facade_type;
+<span class="lineNum">      50 </span>            : 
+<span class="lineNum">      51 </span>            :  public:
+<span class="lineNum">      52 </span>            :   typedef Tag tag_type;
+<span class="lineNum">      53 </span>            :   typedef client_options&lt;Tag&gt; options;
+<span class="lineNum">      54 </span>            : 
+<span class="lineNum">      55 </span>            :   /**
+<span class="lineNum">      56 </span>            :    * This constructor takes a single options argument of type
+<span class="lineNum">      57 </span>            :    * client_options. See boost/network/protocol/http/client/options.hpp for
+<span class="lineNum">      58 </span>            :    * more details.
+<span class="lineNum">      59 </span>            :    */
+<span class="lineNum">      60 </span>            :   explicit basic_client(options const&amp; options) : base_facade_type(options) {}
+<a name="61"><span class="lineNum">      61 </span>            : </a>
+<span class="lineNum">      62 </span>            :   /** This default constructor sets up the default options. */
+<span class="lineNum">      63 </span><span class="lineCov">         18 :   basic_client() : base_facade_type(options()) {}</span>
+<span class="lineNum">      64 </span>            : };
 <span class="lineNum">      65 </span>            : 
-<span class="lineNum">      66 </span>            : }  // namespace http
-<span class="lineNum">      67 </span>            : 
-<span class="lineNum">      68 </span>            : }  // namespace network
+<span class="lineNum">      66 </span>            : #ifndef BOOST_NETWORK_HTTP_CLIENT_DEFAULT_TAG
+<span class="lineNum">      67 </span>            : #define BOOST_NETWORK_HTTP_CLIENT_DEFAULT_TAG tags::http_async_8bit_udp_resolve
+<span class="lineNum">      68 </span>            : #endif
 <span class="lineNum">      69 </span>            : 
-<span class="lineNum">      70 </span>            : }  // namespace boost
-<span class="lineNum">      71 </span>            : 
-<span class="lineNum">      72 </span>            : #endif  // BOOST_NETWORK_PROTOCOL_HTTP_CLIENT_20091215
+<span class="lineNum">      70 </span>            : /**
+<span class="lineNum">      71 </span>            :  * The default HTTP client type is an asynchronous UDP-resolving HTTP/1.1
+<span class="lineNum">      72 </span>            :  * client.
+<span class="lineNum">      73 </span>            :  */
+<span class="lineNum">      74 </span>            : typedef basic_client&lt;BOOST_NETWORK_HTTP_CLIENT_DEFAULT_TAG, 1, 1&gt; client;
+<span class="lineNum">      75 </span>            : 
+<span class="lineNum">      76 </span>            : }  // namespace http
+<span class="lineNum">      77 </span>            : 
+<span class="lineNum">      78 </span>            : }  // namespace network
+<span class="lineNum">      79 </span>            : 
+<span class="lineNum">      80 </span>            : }  // namespace boost
+<span class="lineNum">      81 </span>            : 
+<span class="lineNum">      82 </span>            : #endif  // BOOST_NETWORK_PROTOCOL_HTTP_CLIENT_20091215
 </pre>
       </td>
     </tr>

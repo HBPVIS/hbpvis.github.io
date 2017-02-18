@@ -31,18 +31,18 @@
             <td class="headerValue">ZeroEQ</td>
             <td></td>
             <td class="headerItem">Lines:</td>
-            <td class="headerCovTableEntry">16</td>
-            <td class="headerCovTableEntry">19</td>
-            <td class="headerCovTableEntryHi">84.2 %</td>
+            <td class="headerCovTableEntry">18</td>
+            <td class="headerCovTableEntry">20</td>
+            <td class="headerCovTableEntryHi">90.0 %</td>
           </tr>
           <tr>
             <td class="headerItem">Date:</td>
-            <td class="headerValue">2017-01-31 01:48:09</td>
+            <td class="headerValue">2017-02-18 01:36:25</td>
             <td></td>
             <td class="headerItem">Functions:</td>
-            <td class="headerCovTableEntry">14</td>
             <td class="headerCovTableEntry">15</td>
-            <td class="headerCovTableEntryHi">93.3 %</td>
+            <td class="headerCovTableEntry">15</td>
+            <td class="headerCovTableEntryHi">100.0 %</td>
           </tr>
           <tr><td><img src="../../../../../../glass.png" width=3 height=3 alt=""></td></tr>
         </table>
@@ -61,236 +61,202 @@
 <pre class="sourceHeading">          Line data    Source code</pre>
 <pre class="source">
 <a name="1"><span class="lineNum">       1 </span>            : </a>
-<span class="lineNum">       2 </span>            : //          Copyright Dean Michael Berris 2007,2009,2010.
-<span class="lineNum">       3 </span>            : //          Copyright Michael Dickey 2008.
-<span class="lineNum">       4 </span>            : // Distributed under the Boost Software License, Version 1.0.
-<span class="lineNum">       5 </span>            : //    (See accompanying file LICENSE_1_0.txt or copy at
-<span class="lineNum">       6 </span>            : //          http://www.boost.org/LICENSE_1_0.txt)
-<span class="lineNum">       7 </span>            : 
-<span class="lineNum">       8 </span>            : #ifndef __NETWORK_PROTOCOL_HTTP_REQUEST_IMPL_20070908_1_HPP__
-<span class="lineNum">       9 </span>            : #define __NETWORK_PROTOCOL_HTTP_REQUEST_IMPL_20070908_1_HPP__
-<span class="lineNum">      10 </span>            : 
-<span class="lineNum">      11 </span>            : #include &lt;boost/network/protocol/http/message.hpp&gt;
-<span class="lineNum">      12 </span>            : #include &lt;boost/network/protocol/http/message/header.hpp&gt;
-<span class="lineNum">      13 </span>            : 
-<span class="lineNum">      14 </span>            : #include &lt;boost/fusion/container/map.hpp&gt;
-<span class="lineNum">      15 </span>            : #include &lt;boost/fusion/sequence/intrinsic/at_key.hpp&gt;
-<span class="lineNum">      16 </span>            : #include &lt;boost/fusion/sequence/intrinsic/value_at_key.hpp&gt;
-<span class="lineNum">      17 </span>            : 
-<span class="lineNum">      18 </span>            : #include &lt;boost/network/uri/uri.hpp&gt;
-<span class="lineNum">      19 </span>            : #include &lt;boost/network/traits/vector.hpp&gt;
-<span class="lineNum">      20 </span>            : #include &lt;boost/network/constants.hpp&gt;
-<span class="lineNum">      21 </span>            : 
-<span class="lineNum">      22 </span>            : #include &lt;boost/network/protocol/http/message/async_message.hpp&gt;
-<span class="lineNum">      23 </span>            : #include &lt;boost/network/support/is_async.hpp&gt;
-<span class="lineNum">      24 </span>            : #include &lt;boost/network/protocol/http/support/sync_only.hpp&gt;
-<span class="lineNum">      25 </span>            : 
-<span class="lineNum">      26 </span>            : #include &lt;boost/cstdint.hpp&gt;
-<span class="lineNum">      27 </span>            : 
-<span class="lineNum">      28 </span>            : namespace boost {
-<span class="lineNum">      29 </span>            : namespace network {
-<span class="lineNum">      30 </span>            : 
-<span class="lineNum">      31 </span>            : /** Specialize the traits for the http_server tag. */
-<span class="lineNum">      32 </span>            : template &lt;&gt;
-<span class="lineNum">      33 </span>            : struct headers_container&lt;
-<span class="lineNum">      34 </span>            :     http::tags::http_server&gt; : vector&lt;http::tags::http_server&gt;::
-<span class="lineNum">      35 </span>            :                                    apply&lt;http::request_header&lt;
-<span class="lineNum">      36 </span>            :                                        http::tags::http_server&gt;::type&gt; {};
-<span class="lineNum">      37 </span>            : 
+<span class="lineNum">       2 </span>            : // Copyright Dean Michael Berris 2007,2009,2010.
+<span class="lineNum">       3 </span>            : // Copyright Michael Dickey 2008.
+<span class="lineNum">       4 </span>            : // Copyright Google, Inc. 2015
+<span class="lineNum">       5 </span>            : // Distributed under the Boost Software License, Version 1.0.
+<span class="lineNum">       6 </span>            : // (See accompanying file LICENSE_1_0.txt or copy at
+<span class="lineNum">       7 </span>            : // http://www.boost.org/LICENSE_1_0.txt)
+<span class="lineNum">       8 </span>            : 
+<span class="lineNum">       9 </span>            : #ifndef BOOST_NETWORK_PROTOCOL_HTTP_REQUEST_IMPL_20070908_1_HPP__
+<span class="lineNum">      10 </span>            : #define BOOST_NETWORK_PROTOCOL_HTTP_REQUEST_IMPL_20070908_1_HPP__
+<span class="lineNum">      11 </span>            : 
+<span class="lineNum">      12 </span>            : /** request.hpp
+<span class="lineNum">      13 </span>            :   *
+<span class="lineNum">      14 </span>            :   * This file implements the basic request object required
+<span class="lineNum">      15 </span>            :   * by the HTTP client implementation. The basic_request
+<span class="lineNum">      16 </span>            :   * object encapsulates a URI which is parsed at runtime.
+<span class="lineNum">      17 </span>            :   */
+<span class="lineNum">      18 </span>            : 
+<span class="lineNum">      19 </span>            : #include &lt;cstdint&gt;
+<span class="lineNum">      20 </span>            : #include &lt;boost/algorithm/string.hpp&gt;
+<span class="lineNum">      21 </span>            : #include &lt;boost/fusion/container/map.hpp&gt;
+<span class="lineNum">      22 </span>            : #include &lt;boost/fusion/sequence/intrinsic/at_key.hpp&gt;
+<span class="lineNum">      23 </span>            : #include &lt;boost/fusion/sequence/intrinsic/value_at_key.hpp&gt;
+<span class="lineNum">      24 </span>            : #include &lt;boost/network/constants.hpp&gt;
+<span class="lineNum">      25 </span>            : #include &lt;boost/network/protocol/http/message.hpp&gt;
+<span class="lineNum">      26 </span>            : #include &lt;boost/network/protocol/http/message/async_message.hpp&gt;
+<span class="lineNum">      27 </span>            : #include &lt;boost/network/protocol/http/message/header.hpp&gt;
+<span class="lineNum">      28 </span>            : #include &lt;boost/network/protocol/http/message/wrappers/body.hpp&gt;
+<span class="lineNum">      29 </span>            : #include &lt;boost/network/protocol/http/message/wrappers/headers.hpp&gt;
+<span class="lineNum">      30 </span>            : #include &lt;boost/network/support/is_async.hpp&gt;
+<span class="lineNum">      31 </span>            : #include &lt;boost/network/traits/vector.hpp&gt;
+<span class="lineNum">      32 </span>            : #include &lt;boost/network/uri/uri.hpp&gt;
+<span class="lineNum">      33 </span>            : 
+<span class="lineNum">      34 </span>            : namespace boost {
+<span class="lineNum">      35 </span>            : namespace network {
+<span class="lineNum">      36 </span>            : 
+<span class="lineNum">      37 </span>            : /** Specialize the traits for the http_server tag. */
 <span class="lineNum">      38 </span>            : template &lt;&gt;
-<span class="lineNum">      39 </span>            : struct headers_container&lt;
-<span class="lineNum">      40 </span>            :     http::tags::
-<span class="lineNum">      41 </span>            :         http_async_server&gt; : vector&lt;http::tags::http_async_server&gt;::
-<span class="lineNum">      42 </span>            :                                  apply&lt;http::request_header&lt;
-<span class="lineNum">      43 </span>            :                                      http::tags::http_async_server&gt;::type&gt; {};
+<span class="lineNum">      39 </span>            : struct headers_container&lt;http::tags::http_server&gt;
+<span class="lineNum">      40 </span>            :     : vector&lt;http::tags::http_server&gt;::apply&lt;
+<span class="lineNum">      41 </span>            :           http::request_header&lt;http::tags::http_server&gt;::type&gt; {};
+<span class="lineNum">      42 </span>            : 
+<span class="lineNum">      43 </span>            : namespace http {
 <span class="lineNum">      44 </span>            : 
-<span class="lineNum">      45 </span>            : namespace http {
-<span class="lineNum">      46 </span>            : 
-<span class="lineNum">      47 </span>            : /** request.hpp
-<span class="lineNum">      48 </span>            :   *
-<span class="lineNum">      49 </span>            :   * This file implements the basic request object required
-<span class="lineNum">      50 </span>            :   * by the HTTP client implementation. The basic_request
-<span class="lineNum">      51 </span>            :   * object encapsulates a URI which is parsed at runtime.
-<span class="lineNum">      52 </span>            :   */
-<a name="53"><span class="lineNum">      53 </span>            : </a>
-<span class="lineNum">      54 </span>            : template &lt;class Tag&gt;
-<span class="lineNum">      55 </span><span class="lineCov">         84 : struct basic_request : public basic_message&lt;Tag&gt; {</span>
+<span class="lineNum">      45 </span>            : /**
+<span class="lineNum">      46 </span>            :  * basic_request
+<span class="lineNum">      47 </span>            :  *
+<span class="lineNum">      48 </span>            :  * This is the basic implementation of an HTTP request object.
+<span class="lineNum">      49 </span>            :  *
+<a name="50"><span class="lineNum">      50 </span>            :  */</a>
+<span class="lineNum">      51 </span>            : template &lt;class Tag&gt;
+<span class="lineNum">      52 </span><span class="lineCov">         48 : struct basic_request : public basic_message&lt;Tag&gt; {</span>
+<span class="lineNum">      53 </span>            :   mutable boost::network::uri::uri uri_;
+<span class="lineNum">      54 </span>            :   std::uint16_t source_port_;
+<span class="lineNum">      55 </span>            :   typedef basic_message&lt;Tag&gt; base_type;
 <span class="lineNum">      56 </span>            : 
-<span class="lineNum">      57 </span>            :   mutable boost::network::uri::uri uri_;
-<span class="lineNum">      58 </span>            :   boost::uint16_t source_port_;
-<span class="lineNum">      59 </span>            :   typedef basic_message&lt;Tag&gt; base_type;
-<span class="lineNum">      60 </span>            : 
-<span class="lineNum">      61 </span>            :  public:
-<span class="lineNum">      62 </span>            :   typedef typename sync_only&lt;Tag&gt;::type tag;
-<span class="lineNum">      63 </span>            :   typedef typename string&lt;tag&gt;::type string_type;
-<a name="64"><span class="lineNum">      64 </span>            :   typedef boost::uint16_t port_type;</a>
-<span class="lineNum">      65 </span>            : 
-<span class="lineNum">      66 </span><span class="lineCov">         36 :   explicit basic_request(string_type const&amp; uri_) : uri_(uri_), source_port_(0) {}</span>
+<span class="lineNum">      57 </span>            :  public:
+<span class="lineNum">      58 </span>            :   typedef Tag tag;
+<span class="lineNum">      59 </span>            :   typedef typename string&lt;tag&gt;::type string_type;
+<a name="60"><span class="lineNum">      60 </span>            :   typedef std::uint16_t port_type;</a>
+<span class="lineNum">      61 </span>            : 
+<span class="lineNum">      62 </span><span class="lineCov">         36 :   explicit basic_request(string_type const&amp; uri_)</span>
+<span class="lineNum">      63 </span><span class="lineCov">         36 :       : uri_(uri_), source_port_(0) {}</span>
+<span class="lineNum">      64 </span>            : 
+<span class="lineNum">      65 </span>            :   explicit basic_request(boost::network::uri::uri const&amp; uri_)
+<span class="lineNum">      66 </span>            :       : uri_(uri_), source_port_(0) {}
 <span class="lineNum">      67 </span>            : 
-<a name="68"><span class="lineNum">      68 </span>            :   explicit basic_request(boost::network::uri::uri const&amp; uri_) : uri_(uri_), source_port_(0) {}</a>
+<span class="lineNum">      68 </span>            :   void uri(string_type const&amp; new_uri) { uri_ = new_uri; }
 <span class="lineNum">      69 </span>            : 
-<span class="lineNum">      70 </span><span class="lineNoCov">          0 :   void uri(string_type const&amp; new_uri) { uri_ = new_uri; }</span>
+<span class="lineNum">      70 </span>            :   void uri(boost::network::uri::uri const&amp; new_uri) { uri_ = new_uri; }
 <span class="lineNum">      71 </span>            : 
-<span class="lineNum">      72 </span>            :   void uri(boost::network::uri::uri const&amp; new_uri) { uri_ = new_uri; }
+<a name="72"><span class="lineNum">      72 </span>            :   basic_request() : base_type(), source_port_(0) {}</a>
 <span class="lineNum">      73 </span>            : 
-<a name="74"><span class="lineNum">      74 </span>            :   basic_request() : base_type(), source_port_(0) {}</a>
-<span class="lineNum">      75 </span>            : 
-<span class="lineNum">      76 </span><span class="lineCov">         48 :   basic_request(basic_request const&amp; other)</span>
-<span class="lineNum">      77 </span><span class="lineCov">         48 :       : base_type(other), uri_(other.uri_), source_port_(other.source_port_) {}</span>
-<span class="lineNum">      78 </span>            : 
-<span class="lineNum">      79 </span>            :   basic_request&amp; operator=(basic_request rhs) {
-<span class="lineNum">      80 </span>            :     rhs.swap(*this);
-<span class="lineNum">      81 </span>            :     return *this;
-<span class="lineNum">      82 </span>            :   }
-<span class="lineNum">      83 </span>            : 
-<span class="lineNum">      84 </span>            :   void swap(basic_request&amp; other) {
-<span class="lineNum">      85 </span>            :     base_type&amp; base_ref(other);
-<span class="lineNum">      86 </span>            :     basic_request&lt;Tag&gt;&amp; this_ref(*this);
-<span class="lineNum">      87 </span>            :     base_ref.swap(this_ref);
-<span class="lineNum">      88 </span>            :     boost::swap(other.uri_, this-&gt;uri_);
-<span class="lineNum">      89 </span>            :     boost::swap(other.source_port_, this-&gt;source_port_);
-<a name="90"><span class="lineNum">      90 </span>            :   }</a>
+<span class="lineNum">      74 </span><span class="lineCov">         12 :   basic_request(basic_request const&amp; other)</span>
+<span class="lineNum">      75 </span><span class="lineCov">         12 :       : base_type(other), uri_(other.uri_), source_port_(other.source_port_) {}</span>
+<span class="lineNum">      76 </span>            : 
+<span class="lineNum">      77 </span>            :   basic_request&amp; operator=(basic_request rhs) {
+<span class="lineNum">      78 </span>            :     rhs.swap(*this);
+<span class="lineNum">      79 </span>            :     return *this;
+<span class="lineNum">      80 </span>            :   }
+<span class="lineNum">      81 </span>            : 
+<span class="lineNum">      82 </span>            :   void swap(basic_request&amp; other) {
+<span class="lineNum">      83 </span>            :     base_type&amp; base_ref(other);
+<span class="lineNum">      84 </span>            :     basic_request&lt;Tag&gt;&amp; this_ref(*this);
+<span class="lineNum">      85 </span>            :     base_ref.swap(this_ref);
+<span class="lineNum">      86 </span>            :     boost::swap(other.uri_, this-&gt;uri_);
+<span class="lineNum">      87 </span>            :     boost::swap(other.source_port_, this-&gt;source_port_);
+<a name="88"><span class="lineNum">      88 </span>            :   }</a>
+<span class="lineNum">      89 </span>            : 
+<a name="90"><span class="lineNum">      90 </span><span class="lineCov">         72 :   string_type const host() const { return uri_.host(); }</span></a>
 <span class="lineNum">      91 </span>            : 
-<a name="92"><span class="lineNum">      92 </span><span class="lineCov">        144 :   string_type const host() const { return uri_.host(); }</span></a>
-<span class="lineNum">      93 </span>            : 
-<span class="lineNum">      94 </span><span class="lineCov">         72 :   port_type port() const {</span>
-<span class="lineNum">      95 </span><span class="lineCov">        144 :     boost::optional&lt;port_type&gt; port = uri::port_us(uri_);</span>
-<span class="lineNum">      96 </span><span class="lineCov">         72 :     if (!port) {</span>
-<span class="lineNum">      97 </span>            :       typedef constants&lt;Tag&gt; consts;
-<span class="lineNum">      98 </span><span class="lineNoCov">          0 :       return boost::iequals(uri_.scheme(), string_type(consts::https())) ? 443</span>
-<span class="lineNum">      99 </span><span class="lineNoCov">          0 :                                                                          : 80;</span>
-<span class="lineNum">     100 </span>            :     }
-<span class="lineNum">     101 </span><span class="lineCov">         72 :     return *port;</span>
-<a name="102"><span class="lineNum">     102 </span>            :   }</a>
+<span class="lineNum">      92 </span><span class="lineCov">         36 :   port_type port() const {</span>
+<span class="lineNum">      93 </span><span class="lineCov">         72 :     boost::optional&lt;port_type&gt; port = uri::port_us(uri_);</span>
+<span class="lineNum">      94 </span><span class="lineCov">         36 :     if (!port) {</span>
+<span class="lineNum">      95 </span>            :       typedef constants&lt;Tag&gt; consts;
+<span class="lineNum">      96 </span><span class="lineNoCov">          0 :       return boost::iequals(uri_.scheme(), string_type(consts::https())) ? 443</span>
+<span class="lineNum">      97 </span><span class="lineNoCov">          0 :                                                                          : 80;</span>
+<span class="lineNum">      98 </span>            :     }
+<span class="lineNum">      99 </span><span class="lineCov">         36 :     return *port;</span>
+<a name="100"><span class="lineNum">     100 </span>            :   }</a>
+<span class="lineNum">     101 </span>            : 
+<a name="102"><span class="lineNum">     102 </span><span class="lineCov">        108 :   string_type const path() const { return uri_.path(); }</span></a>
 <span class="lineNum">     103 </span>            : 
-<a name="104"><span class="lineNum">     104 </span><span class="lineCov">        108 :   string_type const path() const { return uri_.path(); }</span></a>
+<a name="104"><span class="lineNum">     104 </span><span class="lineCov">         38 :   string_type const query() const { return uri_.query(); }</span></a>
 <span class="lineNum">     105 </span>            : 
-<a name="106"><span class="lineNum">     106 </span><span class="lineCov">         38 :   string_type const query() const { return uri_.query(); }</span></a>
+<a name="106"><span class="lineNum">     106 </span><span class="lineCov">         36 :   string_type const anchor() const { return uri_.fragment(); }</span></a>
 <span class="lineNum">     107 </span>            : 
-<a name="108"><span class="lineNum">     108 </span><span class="lineCov">         36 :   string_type const anchor() const { return uri_.fragment(); }</span></a>
+<span class="lineNum">     108 </span><span class="lineCov">         36 :   string_type const protocol() const { return uri_.scheme(); }</span>
 <span class="lineNum">     109 </span>            : 
-<span class="lineNum">     110 </span><span class="lineCov">         36 :   string_type const protocol() const { return uri_.scheme(); }</span>
+<a name="110"><span class="lineNum">     110 </span>            :   void uri(string_type const&amp; new_uri) const { uri_ = new_uri; }</a>
 <span class="lineNum">     111 </span>            : 
-<a name="112"><span class="lineNum">     112 </span>            :   void uri(string_type const&amp; new_uri) const { uri_ = new_uri; }</a>
+<span class="lineNum">     112 </span><span class="lineCov">         36 :   boost::network::uri::uri const&amp; uri() const { return uri_; }</span>
 <span class="lineNum">     113 </span>            : 
-<span class="lineNum">     114 </span><span class="lineCov">         36 :   boost::network::uri::uri const&amp; uri() const { return uri_; }</span>
+<a name="114"><span class="lineNum">     114 </span>            :   void source_port(const std::uint16_t port) { source_port_ = port; }</a>
 <span class="lineNum">     115 </span>            : 
-<span class="lineNum">     116 </span>            :   void source_port(const boost::uint16_t port) { source_port_ = port; }
-<span class="lineNum">     117 </span>            : 
-<span class="lineNum">     118 </span>            :   boost::uint16_t source_port() const { return source_port_; }
-<span class="lineNum">     119 </span>            : };
-<span class="lineNum">     120 </span>            : 
-<span class="lineNum">     121 </span>            : /** This is the implementation of a POD request type
-<span class="lineNum">     122 </span>            :  *  that is specificially used by the HTTP server
-<span class="lineNum">     123 </span>            :  *  implementation. This fully specializes the
-<span class="lineNum">     124 </span>            :  *  basic_request template above to be
-<span class="lineNum">     125 </span>            :  *  primarily and be solely a POD for performance
-<span class="lineNum">     126 </span>            :  *  reasons.
-<span class="lineNum">     127 </span>            :  *
-<span class="lineNum">     128 </span>            :  *  Reality check: This is not a POD because it contains a non-POD
-<span class="lineNum">     129 </span>            :  *  member, the headers vector. :(
-<a name="130"><span class="lineNum">     130 </span>            :  */</a>
-<span class="lineNum">     131 </span>            : template &lt;class Tag&gt;
-<span class="lineNum">     132 </span><span class="lineCov">        308 : struct not_quite_pod_request_base {</span>
-<span class="lineNum">     133 </span>            :   typedef Tag tag;
-<span class="lineNum">     134 </span>            :   typedef typename string&lt;Tag&gt;::type string_type;
-<span class="lineNum">     135 </span>            :   typedef typename request_header&lt;Tag&gt;::type header_type;
-<span class="lineNum">     136 </span>            :   typedef typename vector&lt;Tag&gt;::template apply&lt;header_type&gt;::type vector_type;
-<span class="lineNum">     137 </span>            :   typedef vector_type headers_container_type;
-<span class="lineNum">     138 </span>            :   typedef boost::uint16_t port_type;
-<span class="lineNum">     139 </span>            :   mutable string_type source;
-<span class="lineNum">     140 </span>            :   mutable port_type source_port;
-<span class="lineNum">     141 </span>            :   mutable string_type method;
-<span class="lineNum">     142 </span>            :   mutable string_type destination;
-<span class="lineNum">     143 </span>            :   mutable boost::uint8_t http_version_major;
-<span class="lineNum">     144 </span>            :   mutable boost::uint8_t http_version_minor;
-<span class="lineNum">     145 </span>            :   mutable vector_type headers;
-<span class="lineNum">     146 </span>            :   mutable string_type body;
-<span class="lineNum">     147 </span>            : 
-<span class="lineNum">     148 </span>            :   void swap(not_quite_pod_request_base&amp; r) const {
-<span class="lineNum">     149 </span>            :     using std::swap;
-<span class="lineNum">     150 </span>            :     swap(method, r.method);
-<span class="lineNum">     151 </span>            :     swap(source, r.source);
-<span class="lineNum">     152 </span>            :     swap(source_port, r.source_port);
-<span class="lineNum">     153 </span>            :     swap(destination, r.destination);
-<span class="lineNum">     154 </span>            :     swap(http_version_major, r.http_version_major);
-<span class="lineNum">     155 </span>            :     swap(http_version_minor, r.http_version_minor);
-<span class="lineNum">     156 </span>            :     swap(headers, r.headers);
-<span class="lineNum">     157 </span>            :     swap(body, r.body);
-<span class="lineNum">     158 </span>            :   }
-<span class="lineNum">     159 </span>            : };
-<span class="lineNum">     160 </span>            : 
-<span class="lineNum">     161 </span>            : template &lt;&gt;
-<span class="lineNum">     162 </span>            : struct basic_request&lt;tags::http_async_server&gt; : not_quite_pod_request_base&lt;
-<span class="lineNum">     163 </span>            :                                                     tags::http_async_server&gt; {};
-<a name="164"><span class="lineNum">     164 </span>            : </a>
-<span class="lineNum">     165 </span>            : template &lt;&gt;
-<span class="lineNum">     166 </span><span class="lineCov">        308 : struct basic_request&lt;tags::http_server&gt; : not_quite_pod_request_base&lt;</span>
-<span class="lineNum">     167 </span>            :                                               tags::http_server&gt; {};
-<span class="lineNum">     168 </span>            : 
-<span class="lineNum">     169 </span>            : template &lt;class R&gt;
-<span class="lineNum">     170 </span>            : struct ServerRequest;
-<span class="lineNum">     171 </span>            : 
-<span class="lineNum">     172 </span>            : BOOST_CONCEPT_ASSERT((ServerRequest&lt;basic_request&lt;tags::http_async_server&gt; &gt;));
-<span class="lineNum">     173 </span>            : BOOST_CONCEPT_ASSERT((ServerRequest&lt;basic_request&lt;tags::http_server&gt; &gt;));
-<span class="lineNum">     174 </span>            : 
-<span class="lineNum">     175 </span>            : template &lt;class Tag&gt;
-<span class="lineNum">     176 </span>            : inline void swap(basic_request&lt;Tag&gt;&amp; lhs, basic_request&lt;Tag&gt;&amp; rhs) {
-<span class="lineNum">     177 </span>            :   lhs.swap(rhs);
-<span class="lineNum">     178 </span>            : }
-<span class="lineNum">     179 </span>            : 
-<span class="lineNum">     180 </span>            : }  // namespace http
-<span class="lineNum">     181 </span>            : 
-<span class="lineNum">     182 </span>            : namespace http {
-<span class="lineNum">     183 </span>            : namespace impl {
-<span class="lineNum">     184 </span>            : 
-<span class="lineNum">     185 </span>            : template &lt;&gt;
-<span class="lineNum">     186 </span>            : struct request_headers_wrapper&lt;tags::http_server&gt; {
-<span class="lineNum">     187 </span>            :   basic_request&lt;tags::http_server&gt; const&amp; request_;
-<span class="lineNum">     188 </span>            :   request_headers_wrapper(basic_request&lt;tags::http_server&gt; const&amp; request_)
-<span class="lineNum">     189 </span>            :       : request_(request_) {}
-<span class="lineNum">     190 </span>            :   typedef headers_container&lt;tags::http_server&gt;::type headers_container_type;
-<span class="lineNum">     191 </span>            :   operator headers_container_type() { return request_.headers; }
-<span class="lineNum">     192 </span>            : };
-<span class="lineNum">     193 </span>            : 
-<span class="lineNum">     194 </span>            : template &lt;&gt;
-<span class="lineNum">     195 </span>            : struct body_wrapper&lt;basic_request&lt;tags::http_server&gt; &gt; {
-<span class="lineNum">     196 </span>            :   typedef string&lt;tags::http_server&gt;::type string_type;
-<span class="lineNum">     197 </span>            :   basic_request&lt;tags::http_server&gt; const&amp; request_;
-<span class="lineNum">     198 </span>            :   body_wrapper(basic_request&lt;tags::http_server&gt; const&amp; request_)
-<span class="lineNum">     199 </span>            :       : request_(request_) {}
-<span class="lineNum">     200 </span>            :   operator string_type() { return request_.body; }
-<span class="lineNum">     201 </span>            : };
-<span class="lineNum">     202 </span>            : 
-<span class="lineNum">     203 </span>            : template &lt;&gt;
-<span class="lineNum">     204 </span>            : struct request_headers_wrapper&lt;tags::http_async_server&gt; {
-<span class="lineNum">     205 </span>            :   basic_request&lt;tags::http_async_server&gt; const&amp; request_;
-<span class="lineNum">     206 </span>            :   request_headers_wrapper(
-<span class="lineNum">     207 </span>            :       basic_request&lt;tags::http_async_server&gt; const&amp; request_)
-<span class="lineNum">     208 </span>            :       : request_(request_) {}
-<span class="lineNum">     209 </span>            :   typedef headers_container&lt;tags::http_async_server&gt;::type
-<span class="lineNum">     210 </span>            :       headers_container_type;
-<span class="lineNum">     211 </span>            :   operator headers_container_type() { return request_.headers; }
-<span class="lineNum">     212 </span>            : };
-<span class="lineNum">     213 </span>            : 
-<span class="lineNum">     214 </span>            : template &lt;&gt;
-<span class="lineNum">     215 </span>            : struct body_wrapper&lt;basic_request&lt;tags::http_async_server&gt; &gt; {
-<span class="lineNum">     216 </span>            :   typedef string&lt;tags::http_async_server&gt;::type string_type;
-<span class="lineNum">     217 </span>            :   basic_request&lt;tags::http_async_server&gt; const&amp; request_;
-<span class="lineNum">     218 </span>            :   body_wrapper(basic_request&lt;tags::http_async_server&gt; const&amp; request_)
-<span class="lineNum">     219 </span>            :       : request_(request_) {}
-<span class="lineNum">     220 </span>            :   operator string_type() { return request_.body; }
-<span class="lineNum">     221 </span>            : };
-<span class="lineNum">     222 </span>            : 
-<span class="lineNum">     223 </span>            : }  // namespace impl
-<span class="lineNum">     224 </span>            : 
-<span class="lineNum">     225 </span>            : }  // namespace http
-<span class="lineNum">     226 </span>            : 
-<span class="lineNum">     227 </span>            : }  // namespace network
-<span class="lineNum">     228 </span>            : 
-<span class="lineNum">     229 </span>            : }  // namespace boost
-<span class="lineNum">     230 </span>            : 
-<span class="lineNum">     231 </span>            : #endif  // __NETWORK_PROTOCOL_HTTP_REQUEST_IMPL_20070908_1_HPP__
+<span class="lineNum">     116 </span><span class="lineCov">         36 :   std::uint16_t source_port() const { return source_port_; }</span>
+<span class="lineNum">     117 </span>            : };
+<span class="lineNum">     118 </span>            : 
+<span class="lineNum">     119 </span>            : /** This is the implementation of a POD request type
+<span class="lineNum">     120 </span>            :  *  that is specificially used by the HTTP server
+<span class="lineNum">     121 </span>            :  *  implementation. This fully specializes the
+<span class="lineNum">     122 </span>            :  *  basic_request template above to be
+<span class="lineNum">     123 </span>            :  *  primarily and be solely a POD for performance
+<span class="lineNum">     124 </span>            :  *  reasons.
+<span class="lineNum">     125 </span>            :  *
+<span class="lineNum">     126 </span>            :  *  Reality check: This is not a POD because it contains a non-POD
+<span class="lineNum">     127 </span>            :  *  member, the headers vector. :(
+<a name="128"><span class="lineNum">     128 </span>            :  */</a>
+<span class="lineNum">     129 </span>            : template &lt;class Tag&gt;
+<span class="lineNum">     130 </span><span class="lineCov">        252 : struct not_quite_pod_request_base {</span>
+<span class="lineNum">     131 </span>            :   typedef Tag tag;
+<span class="lineNum">     132 </span>            :   typedef typename string&lt;Tag&gt;::type string_type;
+<span class="lineNum">     133 </span>            :   typedef typename request_header&lt;Tag&gt;::type header_type;
+<span class="lineNum">     134 </span>            :   typedef typename vector&lt;Tag&gt;::template apply&lt;header_type&gt;::type vector_type;
+<span class="lineNum">     135 </span>            :   typedef vector_type headers_container_type;
+<span class="lineNum">     136 </span>            :   typedef std::uint16_t port_type;
+<span class="lineNum">     137 </span>            :   mutable string_type source;
+<span class="lineNum">     138 </span>            :   mutable port_type source_port;
+<span class="lineNum">     139 </span>            :   mutable string_type method;
+<span class="lineNum">     140 </span>            :   mutable string_type destination;
+<span class="lineNum">     141 </span>            :   mutable std::uint8_t http_version_major;
+<span class="lineNum">     142 </span>            :   mutable std::uint8_t http_version_minor;
+<span class="lineNum">     143 </span>            :   mutable vector_type headers;
+<span class="lineNum">     144 </span>            :   mutable string_type body;
+<span class="lineNum">     145 </span>            : 
+<span class="lineNum">     146 </span>            :   void swap(not_quite_pod_request_base&amp; r) const {
+<span class="lineNum">     147 </span>            :     using std::swap;
+<span class="lineNum">     148 </span>            :     swap(method, r.method);
+<span class="lineNum">     149 </span>            :     swap(source, r.source);
+<span class="lineNum">     150 </span>            :     swap(source_port, r.source_port);
+<span class="lineNum">     151 </span>            :     swap(destination, r.destination);
+<span class="lineNum">     152 </span>            :     swap(http_version_major, r.http_version_major);
+<span class="lineNum">     153 </span>            :     swap(http_version_minor, r.http_version_minor);
+<span class="lineNum">     154 </span>            :     swap(headers, r.headers);
+<span class="lineNum">     155 </span>            :     swap(body, r.body);
+<span class="lineNum">     156 </span>            :   }
+<span class="lineNum">     157 </span>            : };
+<a name="158"><span class="lineNum">     158 </span>            : </a>
+<span class="lineNum">     159 </span>            : template &lt;&gt;
+<span class="lineNum">     160 </span><span class="lineCov">        252 : struct basic_request&lt;tags::http_server&gt;</span>
+<span class="lineNum">     161 </span>            :     : not_quite_pod_request_base&lt;tags::http_server&gt; {};
+<span class="lineNum">     162 </span>            : 
+<span class="lineNum">     163 </span>            : template &lt;class Tag&gt;
+<span class="lineNum">     164 </span>            : inline void swap(basic_request&lt;Tag&gt;&amp; lhs, basic_request&lt;Tag&gt;&amp; rhs) {
+<span class="lineNum">     165 </span>            :   lhs.swap(rhs);
+<span class="lineNum">     166 </span>            : }
+<span class="lineNum">     167 </span>            : 
+<span class="lineNum">     168 </span>            : }  // namespace http
+<span class="lineNum">     169 </span>            : 
+<span class="lineNum">     170 </span>            : namespace http {
+<span class="lineNum">     171 </span>            : namespace impl {
+<span class="lineNum">     172 </span>            : 
+<span class="lineNum">     173 </span>            : template &lt;&gt;
+<span class="lineNum">     174 </span>            : struct request_headers_wrapper&lt;tags::http_server&gt; {
+<span class="lineNum">     175 </span>            :   basic_request&lt;tags::http_server&gt; const&amp; request_;
+<span class="lineNum">     176 </span>            :   explicit request_headers_wrapper(
+<span class="lineNum">     177 </span>            :       basic_request&lt;tags::http_server&gt; const&amp; request_)
+<span class="lineNum">     178 </span>            :       : request_(request_) {}
+<span class="lineNum">     179 </span>            :   typedef headers_container&lt;tags::http_server&gt;::type headers_container_type;
+<span class="lineNum">     180 </span>            :   operator headers_container_type() { return request_.headers; }
+<span class="lineNum">     181 </span>            : };
+<span class="lineNum">     182 </span>            : 
+<span class="lineNum">     183 </span>            : template &lt;&gt;
+<span class="lineNum">     184 </span>            : struct body_wrapper&lt;basic_request&lt;tags::http_server&gt; &gt; {
+<span class="lineNum">     185 </span>            :   typedef string&lt;tags::http_server&gt;::type string_type;
+<span class="lineNum">     186 </span>            :   basic_request&lt;tags::http_server&gt; const&amp; request_;
+<span class="lineNum">     187 </span>            :   explicit body_wrapper(basic_request&lt;tags::http_server&gt; const&amp; request_)
+<span class="lineNum">     188 </span>            :       : request_(request_) {}
+<span class="lineNum">     189 </span>            :   operator string_type() { return request_.body; }
+<span class="lineNum">     190 </span>            : };
+<span class="lineNum">     191 </span>            : 
+<span class="lineNum">     192 </span>            : }  // namespace impl
+<span class="lineNum">     193 </span>            : }  // namespace http
+<span class="lineNum">     194 </span>            : }  // namespace network
+<span class="lineNum">     195 </span>            : }  // namespace boost
+<span class="lineNum">     196 </span>            : 
+<span class="lineNum">     197 </span>            : #endif  // BOOST_NETWORK_PROTOCOL_HTTP_REQUEST_IMPL_20070908_1_HPP__
 </pre>
       </td>
     </tr>

@@ -31,17 +31,17 @@
             <td class="headerValue">ZeroEQ</td>
             <td></td>
             <td class="headerItem">Lines:</td>
-            <td class="headerCovTableEntry">2</td>
-            <td class="headerCovTableEntry">2</td>
+            <td class="headerCovTableEntry">1</td>
+            <td class="headerCovTableEntry">1</td>
             <td class="headerCovTableEntryHi">100.0 %</td>
           </tr>
           <tr>
             <td class="headerItem">Date:</td>
-            <td class="headerValue">2017-01-31 01:48:09</td>
+            <td class="headerValue">2017-02-18 01:36:25</td>
             <td></td>
             <td class="headerItem">Functions:</td>
-            <td class="headerCovTableEntry">7</td>
-            <td class="headerCovTableEntry">7</td>
+            <td class="headerCovTableEntry">3</td>
+            <td class="headerCovTableEntry">3</td>
             <td class="headerCovTableEntryHi">100.0 %</td>
           </tr>
           <tr><td><img src="../../../../glass.png" width=3 height=3 alt=""></td></tr>
@@ -61,41 +61,43 @@
 <pre class="sourceHeading">          Line data    Source code</pre>
 <pre class="source">
 <a name="1"><span class="lineNum">       1 </span>            : </a>
-<span class="lineNum">       2 </span>            : //          Copyright Dean Michael Berris 2007.
-<span class="lineNum">       3 </span>            : // Distributed under the Boost Software License, Version 1.0.
-<span class="lineNum">       4 </span>            : //    (See accompanying file LICENSE_1_0.txt or copy at
-<span class="lineNum">       5 </span>            : //          http://www.boost.org/LICENSE_1_0.txt)
-<span class="lineNum">       6 </span>            : 
-<span class="lineNum">       7 </span>            : #ifndef __NETWORK_MESSAGE_DIRECTIVES_HPP__
-<span class="lineNum">       8 </span>            : #define __NETWORK_MESSAGE_DIRECTIVES_HPP__
-<span class="lineNum">       9 </span>            : 
-<span class="lineNum">      10 </span>            : #include &lt;boost/network/message/directives/detail/string_directive.hpp&gt;
-<span class="lineNum">      11 </span>            : #include &lt;boost/network/message/directives/header.hpp&gt;
-<span class="lineNum">      12 </span>            : #include &lt;boost/network/message/directives/remove_header.hpp&gt;
-<span class="lineNum">      13 </span>            : 
-<span class="lineNum">      14 </span>            : namespace boost {
-<span class="lineNum">      15 </span>            : namespace network {
-<span class="lineNum">      16 </span>            : 
-<span class="lineNum">      17 </span>            : template &lt;class Tag, class Directive&gt;
-<span class="lineNum">      18 </span>            : inline basic_message&lt;Tag&gt;&amp; operator&lt;&lt;(basic_message&lt;Tag&gt;&amp; message_,
-<span class="lineNum">      19 </span>            :                                       Directive const&amp; directive) {
-<span class="lineNum">      20 </span>            :   directive(message_);
-<span class="lineNum">      21 </span>            :   return message_;
-<a name="22"><span class="lineNum">      22 </span>            : }</a>
-<span class="lineNum">      23 </span>            : 
-<span class="lineNum">      24 </span><span class="lineCov">        108 : BOOST_NETWORK_STRING_DIRECTIVE(source, source_, message.source(source_),</span>
-<span class="lineNum">      25 </span>            :                                message.source = source_);
-<span class="lineNum">      26 </span>            : BOOST_NETWORK_STRING_DIRECTIVE(destination, destination_,
-<a name="27"><span class="lineNum">      27 </span>            :                                message.destination(destination_),</a>
-<span class="lineNum">      28 </span>            :                                message.destination = destination_);
-<span class="lineNum">      29 </span><span class="lineCov">        135 : BOOST_NETWORK_STRING_DIRECTIVE(body, body_, message.body(body_),</span>
-<span class="lineNum">      30 </span>            :                                message.body = body_);
-<span class="lineNum">      31 </span>            : 
-<span class="lineNum">      32 </span>            : }  // namespace network
+<span class="lineNum">       2 </span>            : // Copyright Dean Michael Berris 2007.
+<span class="lineNum">       3 </span>            : // Copyright Google, Inc. 2015
+<span class="lineNum">       4 </span>            : // Distributed under the Boost Software License, Version 1.0.
+<span class="lineNum">       5 </span>            : // (See accompanying file LICENSE_1_0.txt or copy at
+<span class="lineNum">       6 </span>            : // http://www.boost.org/LICENSE_1_0.txt)
+<span class="lineNum">       7 </span>            : 
+<span class="lineNum">       8 </span>            : #ifndef BOOST_NETWORK_MESSAGE_DIRECTIVES_HPP__
+<span class="lineNum">       9 </span>            : #define BOOST_NETWORK_MESSAGE_DIRECTIVES_HPP__
+<span class="lineNum">      10 </span>            : 
+<span class="lineNum">      11 </span>            : #include &lt;boost/network/message_fwd.hpp&gt;
+<span class="lineNum">      12 </span>            : #include &lt;boost/network/message/directives/detail/string_directive.hpp&gt;
+<span class="lineNum">      13 </span>            : #include &lt;boost/network/message/directives/header.hpp&gt;
+<span class="lineNum">      14 </span>            : #include &lt;boost/network/message/directives/remove_header.hpp&gt;
+<span class="lineNum">      15 </span>            : 
+<span class="lineNum">      16 </span>            : namespace boost {
+<span class="lineNum">      17 </span>            : namespace network {
+<span class="lineNum">      18 </span>            : 
+<span class="lineNum">      19 </span>            : template &lt;class Tag, class Directive&gt;
+<span class="lineNum">      20 </span>            : inline basic_message&lt;Tag&gt;&amp; operator&lt;&lt;(basic_message&lt;Tag&gt;&amp; message_,
+<span class="lineNum">      21 </span>            :                                       Directive const&amp; directive) {
+<span class="lineNum">      22 </span>            :   directive(message_);
+<span class="lineNum">      23 </span>            :   return message_;
+<span class="lineNum">      24 </span>            : }
+<span class="lineNum">      25 </span>            : 
+<span class="lineNum">      26 </span>            : BOOST_NETWORK_STRING_DIRECTIVE(source, source_, message.source(source_),
+<span class="lineNum">      27 </span>            :                                message.source = source_);
+<span class="lineNum">      28 </span>            : BOOST_NETWORK_STRING_DIRECTIVE(destination, destination_,
+<a name="29"><span class="lineNum">      29 </span>            :                                message.destination(destination_),</a>
+<span class="lineNum">      30 </span>            :                                message.destination = destination_);
+<span class="lineNum">      31 </span><span class="lineCov">         27 : BOOST_NETWORK_STRING_DIRECTIVE(body, body_, message.body(body_),</span>
+<span class="lineNum">      32 </span>            :                                message.body = body_);
 <span class="lineNum">      33 </span>            : 
-<span class="lineNum">      34 </span>            : }  // namespace boost
+<span class="lineNum">      34 </span>            : }  // namespace network
 <span class="lineNum">      35 </span>            : 
-<span class="lineNum">      36 </span>            : #endif  // __NETWORK_MESSAGE_DIRECTIVES_HPP__
+<span class="lineNum">      36 </span>            : }  // namespace boost
+<span class="lineNum">      37 </span>            : 
+<span class="lineNum">      38 </span>            : #endif  // BOOST_NETWORK_MESSAGE_DIRECTIVES_HPP__
 </pre>
       </td>
     </tr>

@@ -32,17 +32,17 @@
             <td></td>
             <td class="headerItem">Lines:</td>
             <td class="headerCovTableEntry">46</td>
-            <td class="headerCovTableEntry">55</td>
-            <td class="headerCovTableEntryHi">83.6 %</td>
+            <td class="headerCovTableEntry">48</td>
+            <td class="headerCovTableEntryHi">95.8 %</td>
           </tr>
           <tr>
             <td class="headerItem">Date:</td>
-            <td class="headerValue">2017-01-31 01:48:09</td>
+            <td class="headerValue">2017-02-18 01:36:25</td>
             <td></td>
             <td class="headerItem">Functions:</td>
             <td class="headerCovTableEntry">17</td>
-            <td class="headerCovTableEntry">19</td>
-            <td class="headerCovTableEntryHi">89.5 %</td>
+            <td class="headerCovTableEntry">17</td>
+            <td class="headerCovTableEntryHi">100.0 %</td>
           </tr>
           <tr><td><img src="../../../../glass.png" width=3 height=3 alt=""></td></tr>
         </table>
@@ -66,387 +66,403 @@
 <span class="lineNum">       4 </span>            : //    (See accompanying file LICENSE_1_0.txt or copy at
 <span class="lineNum">       5 </span>            : //          http://www.boost.org/LICENSE_1_0.txt)
 <span class="lineNum">       6 </span>            : 
-<span class="lineNum">       7 </span>            : #ifndef __BOOST_NETWORK_URI_INC__
-<span class="lineNum">       8 </span>            : #define __BOOST_NETWORK_URI_INC__
+<span class="lineNum">       7 </span>            : #ifndef BOOST_NETWORK_URI_INC__
+<span class="lineNum">       8 </span>            : #define BOOST_NETWORK_URI_INC__
 <span class="lineNum">       9 </span>            : 
 <span class="lineNum">      10 </span>            : #pragma once
 <span class="lineNum">      11 </span>            : 
-<span class="lineNum">      12 </span>            : #include &lt;boost/network/uri/config.hpp&gt;
-<span class="lineNum">      13 </span>            : #include &lt;boost/network/uri/detail/uri_parts.hpp&gt;
-<span class="lineNum">      14 </span>            : #include &lt;boost/network/uri/schemes.hpp&gt;
-<span class="lineNum">      15 </span>            : #include &lt;boost/utility/swap.hpp&gt;
-<span class="lineNum">      16 </span>            : #include &lt;boost/range/algorithm/equal.hpp&gt;
+<span class="lineNum">      12 </span>            : #include &lt;iterator&gt;
+<span class="lineNum">      13 </span>            : #include &lt;functional&gt;
+<span class="lineNum">      14 </span>            : #include &lt;boost/network/uri/config.hpp&gt;
+<span class="lineNum">      15 </span>            : #include &lt;boost/network/uri/detail/uri_parts.hpp&gt;
+<span class="lineNum">      16 </span>            : #include &lt;boost/network/uri/schemes.hpp&gt;
 <span class="lineNum">      17 </span>            : #include &lt;boost/range/algorithm/copy.hpp&gt;
-<span class="lineNum">      18 </span>            : #include &lt;boost/range/as_literal.hpp&gt;
-<span class="lineNum">      19 </span>            : #include &lt;boost/range/iterator_range.hpp&gt;
-<span class="lineNum">      20 </span>            : #include &lt;boost/lexical_cast.hpp&gt;
-<span class="lineNum">      21 </span>            : #include &lt;boost/optional.hpp&gt;
-<span class="lineNum">      22 </span>            : #include &lt;boost/functional/hash_fwd.hpp&gt;
-<span class="lineNum">      23 </span>            : 
-<span class="lineNum">      24 </span>            : namespace boost {
-<span class="lineNum">      25 </span>            : namespace network {
-<span class="lineNum">      26 </span>            : namespace uri {
-<span class="lineNum">      27 </span>            : namespace detail {
-<span class="lineNum">      28 </span>            : bool parse(std::string::const_iterator first, std::string::const_iterator last,
-<span class="lineNum">      29 </span>            :            uri_parts&lt;std::string::const_iterator&gt; &amp;parts);
-<span class="lineNum">      30 </span>            : }  // namespace detail
-<span class="lineNum">      31 </span>            : 
-<span class="lineNum">      32 </span>            : class BOOST_URI_DECL uri {
-<span class="lineNum">      33 </span>            : 
-<span class="lineNum">      34 </span>            :   friend class builder;
-<span class="lineNum">      35 </span>            : 
-<span class="lineNum">      36 </span>            :  public:
-<span class="lineNum">      37 </span>            :   typedef std::string string_type;
-<span class="lineNum">      38 </span>            :   typedef string_type::value_type value_type;
-<span class="lineNum">      39 </span>            :   typedef string_type::const_iterator const_iterator;
-<span class="lineNum">      40 </span>            :   typedef boost::iterator_range&lt;const_iterator&gt; const_range_type;
-<span class="lineNum">      41 </span>            : 
-<span class="lineNum">      42 </span>            :   uri() : is_valid_(false) {}
-<span class="lineNum">      43 </span>            : 
-<span class="lineNum">      44 </span>            :   // uri(const value_type *uri)
-<span class="lineNum">      45 </span>            :   //    : uri_(uri), is_valid_(false) {
-<span class="lineNum">      46 </span>            :   //    parse();
-<a name="47"><span class="lineNum">      47 </span>            :   //}</a>
-<span class="lineNum">      48 </span>            : 
-<span class="lineNum">      49 </span><span class="lineCov">         36 :   uri(const string_type &amp;uri) : uri_(uri), is_valid_(false) { parse(); }</span>
-<span class="lineNum">      50 </span>            : 
-<span class="lineNum">      51 </span>            :   template &lt;class FwdIter&gt;
-<span class="lineNum">      52 </span>            :   uri(const FwdIter &amp;first, const FwdIter &amp;last)
-<span class="lineNum">      53 </span>            :       : uri_(first, last), is_valid_(false) {
-<span class="lineNum">      54 </span>            :     parse();
-<a name="55"><span class="lineNum">      55 </span>            :   }</a>
-<span class="lineNum">      56 </span>            : 
-<span class="lineNum">      57 </span><span class="lineCov">         48 :   uri(const uri &amp;other) : uri_(other.uri_) { parse(); }</span>
-<span class="lineNum">      58 </span>            : 
-<span class="lineNum">      59 </span>            :   uri &amp;operator=(const uri &amp;other) {
-<span class="lineNum">      60 </span>            :     uri(other).swap(*this);
-<span class="lineNum">      61 </span>            :     return *this;
-<a name="62"><span class="lineNum">      62 </span>            :   }</a>
-<span class="lineNum">      63 </span>            : 
-<span class="lineNum">      64 </span><span class="lineNoCov">          0 :   uri &amp;operator=(const string_type &amp;uri_string) {</span>
-<span class="lineNum">      65 </span><span class="lineNoCov">          0 :     uri(uri_string).swap(*this);</span>
-<span class="lineNum">      66 </span><span class="lineNoCov">          0 :     return *this;</span>
-<a name="67"><span class="lineNum">      67 </span>            :   }</a>
-<span class="lineNum">      68 </span>            : 
-<a name="69"><span class="lineNum">      69 </span><span class="lineCov">         84 :   ~uri() {}</span></a>
-<span class="lineNum">      70 </span>            : 
-<span class="lineNum">      71 </span><span class="lineNoCov">          0 :   void swap(uri &amp;other) {</span>
-<span class="lineNum">      72 </span><span class="lineNoCov">          0 :     boost::swap(uri_, other.uri_);</span>
-<span class="lineNum">      73 </span><span class="lineNoCov">          0 :     other.parse();</span>
-<span class="lineNum">      74 </span><span class="lineNoCov">          0 :     boost::swap(is_valid_, other.is_valid_);</span>
-<span class="lineNum">      75 </span><span class="lineNoCov">          0 :   }</span>
-<span class="lineNum">      76 </span>            : 
-<span class="lineNum">      77 </span>            :   const_iterator begin() const { return uri_.begin(); }
-<span class="lineNum">      78 </span>            : 
-<a name="79"><span class="lineNum">      79 </span>            :   const_iterator end() const { return uri_.end(); }</a>
-<span class="lineNum">      80 </span>            : 
-<span class="lineNum">      81 </span><span class="lineCov">         36 :   const_range_type scheme_range() const { return uri_parts_.scheme; }</span>
-<span class="lineNum">      82 </span>            : 
-<span class="lineNum">      83 </span>            :   const_range_type user_info_range() const {
-<span class="lineNum">      84 </span>            :     return uri_parts_.hier_part.user_info ? uri_parts_.hier_part.user_info.get()
-<span class="lineNum">      85 </span>            :                                           : const_range_type();
-<a name="86"><span class="lineNum">      86 </span>            :   }</a>
-<span class="lineNum">      87 </span>            : 
-<span class="lineNum">      88 </span><span class="lineCov">        144 :   const_range_type host_range() const {</span>
-<span class="lineNum">      89 </span><span class="lineCov">        144 :     return uri_parts_.hier_part.host ? uri_parts_.hier_part.host.get()</span>
-<span class="lineNum">      90 </span><span class="lineCov">        288 :                                      : const_range_type();</span>
-<a name="91"><span class="lineNum">      91 </span>            :   }</a>
-<span class="lineNum">      92 </span>            : 
-<span class="lineNum">      93 </span><span class="lineCov">        108 :   const_range_type port_range() const {</span>
-<span class="lineNum">      94 </span><span class="lineCov">        108 :     return uri_parts_.hier_part.port ? uri_parts_.hier_part.port.get()</span>
-<span class="lineNum">      95 </span><span class="lineCov">        216 :                                      : const_range_type();</span>
-<a name="96"><span class="lineNum">      96 </span>            :   }</a>
-<span class="lineNum">      97 </span>            : 
-<span class="lineNum">      98 </span><span class="lineCov">        108 :   const_range_type path_range() const {</span>
-<span class="lineNum">      99 </span><span class="lineCov">        108 :     return uri_parts_.hier_part.path ? uri_parts_.hier_part.path.get()</span>
-<span class="lineNum">     100 </span><span class="lineCov">        216 :                                      : const_range_type();</span>
-<a name="101"><span class="lineNum">     101 </span>            :   }</a>
-<span class="lineNum">     102 </span>            : 
-<span class="lineNum">     103 </span><span class="lineCov">         38 :   const_range_type query_range() const {</span>
-<span class="lineNum">     104 </span><span class="lineCov">         38 :     return uri_parts_.query ? uri_parts_.query.get() : const_range_type();</span>
-<a name="105"><span class="lineNum">     105 </span>            :   }</a>
-<span class="lineNum">     106 </span>            : 
-<span class="lineNum">     107 </span><span class="lineCov">         36 :   const_range_type fragment_range() const {</span>
-<span class="lineNum">     108 </span><span class="lineCov">         36 :     return uri_parts_.fragment ? uri_parts_.fragment.get() : const_range_type();</span>
-<span class="lineNum">     109 </span>            :   }
-<span class="lineNum">     110 </span>            : 
-<span class="lineNum">     111 </span>            : // hackfix by Simon Haegler, Esri R&amp;D Zurich
-<span class="lineNum">     112 </span>            : // this workaround is needed to avoid running into the &quot;incompatible string iterator&quot; assertion
-<span class="lineNum">     113 </span>            : // triggered by the default-constructed string iterators employed by cpp-netlib (see uri.ipp qi::rule declarations)
-<span class="lineNum">     114 </span>            : #if defined(_MSC_VER) &amp;&amp; defined(_DEBUG)
-<span class="lineNum">     115 </span>            : #       define CATCH_EMPTY_ITERATOR_RANGE if (range.begin()._Getcont() == 0 || range.end()._Getcont() == 0) { return string_type(); }
-<span class="lineNum">     116 </span>            : #else
-<span class="lineNum">     117 </span>            : #       define CATCH_EMPTY_ITERATOR_RANGE
-<a name="118"><span class="lineNum">     118 </span>            : #endif</a>
-<span class="lineNum">     119 </span>            : 
-<span class="lineNum">     120 </span><span class="lineCov">         36 :   string_type scheme() const {</span>
-<span class="lineNum">     121 </span><span class="lineCov">         36 :     const_range_type range = scheme_range();</span>
-<span class="lineNum">     122 </span>            :     CATCH_EMPTY_ITERATOR_RANGE
-<span class="lineNum">     123 </span>            :         return range ? string_type(boost::begin(range), boost::end(range))
-<span class="lineNum">     124 </span><span class="lineCov">         36 :                  : string_type();</span>
-<span class="lineNum">     125 </span>            :   }
-<span class="lineNum">     126 </span>            : 
-<span class="lineNum">     127 </span>            :   string_type user_info() const {
-<span class="lineNum">     128 </span>            :     const_range_type range = user_info_range();
-<span class="lineNum">     129 </span>            :     CATCH_EMPTY_ITERATOR_RANGE
-<span class="lineNum">     130 </span>            :     return range ? string_type(boost::begin(range), boost::end(range))
-<span class="lineNum">     131 </span>            :                  : string_type();
-<a name="132"><span class="lineNum">     132 </span>            :   }</a>
-<span class="lineNum">     133 </span>            : 
-<span class="lineNum">     134 </span><span class="lineCov">        144 :   string_type host() const {</span>
-<span class="lineNum">     135 </span><span class="lineCov">        144 :     const_range_type range = host_range();</span>
-<span class="lineNum">     136 </span>            :     CATCH_EMPTY_ITERATOR_RANGE
-<span class="lineNum">     137 </span>            :     return range ? string_type(boost::begin(range), boost::end(range))
-<span class="lineNum">     138 </span><span class="lineCov">        144 :                  : string_type();</span>
-<a name="139"><span class="lineNum">     139 </span>            :   }</a>
-<span class="lineNum">     140 </span>            : 
-<span class="lineNum">     141 </span><span class="lineCov">        108 :   string_type port() const {</span>
-<span class="lineNum">     142 </span><span class="lineCov">        108 :     const_range_type range = port_range();</span>
-<span class="lineNum">     143 </span>            :     CATCH_EMPTY_ITERATOR_RANGE
-<span class="lineNum">     144 </span>            :     return range ? string_type(boost::begin(range), boost::end(range))
-<span class="lineNum">     145 </span><span class="lineCov">        108 :                  : string_type();</span>
-<a name="146"><span class="lineNum">     146 </span>            :   }</a>
-<span class="lineNum">     147 </span>            : 
-<span class="lineNum">     148 </span><span class="lineCov">        108 :   string_type path() const {</span>
-<span class="lineNum">     149 </span><span class="lineCov">        108 :     const_range_type range = path_range();</span>
-<span class="lineNum">     150 </span>            :     CATCH_EMPTY_ITERATOR_RANGE
-<span class="lineNum">     151 </span>            :     return range ? string_type(boost::begin(range), boost::end(range))
-<span class="lineNum">     152 </span><span class="lineCov">        108 :                  : string_type();</span>
-<a name="153"><span class="lineNum">     153 </span>            :   }</a>
-<span class="lineNum">     154 </span>            : 
-<span class="lineNum">     155 </span><span class="lineCov">         38 :   string_type query() const {</span>
-<span class="lineNum">     156 </span><span class="lineCov">         38 :     const_range_type range = query_range();</span>
-<span class="lineNum">     157 </span>            :     CATCH_EMPTY_ITERATOR_RANGE
-<span class="lineNum">     158 </span>            :     return range ? string_type(boost::begin(range), boost::end(range))
-<span class="lineNum">     159 </span><span class="lineCov">         38 :                  : string_type();</span>
-<a name="160"><span class="lineNum">     160 </span>            :   }</a>
-<span class="lineNum">     161 </span>            : 
-<span class="lineNum">     162 </span><span class="lineCov">         36 :   string_type fragment() const {</span>
-<span class="lineNum">     163 </span><span class="lineCov">         36 :     const_range_type range = fragment_range();</span>
-<span class="lineNum">     164 </span>            :     CATCH_EMPTY_ITERATOR_RANGE
-<span class="lineNum">     165 </span>            :     return range ? string_type(boost::begin(range), boost::end(range))
-<span class="lineNum">     166 </span><span class="lineCov">         36 :                  : string_type();</span>
-<span class="lineNum">     167 </span>            :   }
-<span class="lineNum">     168 </span>            : 
-<span class="lineNum">     169 </span>            :   string_type string() const { return uri_; }
+<span class="lineNum">      18 </span>            : #include &lt;boost/range/algorithm/equal.hpp&gt;
+<span class="lineNum">      19 </span>            : #include &lt;boost/utility/swap.hpp&gt;
+<span class="lineNum">      20 </span>            : #include &lt;boost/range/as_literal.hpp&gt;
+<span class="lineNum">      21 </span>            : #include &lt;boost/range/iterator_range.hpp&gt;
+<span class="lineNum">      22 </span>            : #include &lt;boost/optional.hpp&gt;
+<span class="lineNum">      23 </span>            : #include &lt;boost/functional/hash_fwd.hpp&gt;
+<span class="lineNum">      24 </span>            : 
+<span class="lineNum">      25 </span>            : namespace boost {
+<span class="lineNum">      26 </span>            : namespace network {
+<span class="lineNum">      27 </span>            : namespace uri {
+<span class="lineNum">      28 </span>            : namespace detail {
+<span class="lineNum">      29 </span>            : bool parse(std::string::const_iterator first, std::string::const_iterator last,
+<span class="lineNum">      30 </span>            :            uri_parts&lt;std::string::const_iterator&gt; &amp;parts);
+<span class="lineNum">      31 </span>            : }  // namespace detail
+<span class="lineNum">      32 </span>            : 
+<span class="lineNum">      33 </span>            : class BOOST_URI_DECL uri {
+<span class="lineNum">      34 </span>            : 
+<span class="lineNum">      35 </span>            :   friend class builder;
+<span class="lineNum">      36 </span>            : 
+<span class="lineNum">      37 </span>            :  public:
+<span class="lineNum">      38 </span>            :   typedef std::string string_type;
+<span class="lineNum">      39 </span>            :   typedef string_type::value_type value_type;
+<span class="lineNum">      40 </span>            :   typedef string_type::const_iterator const_iterator;
+<span class="lineNum">      41 </span>            :   typedef boost::iterator_range&lt;const_iterator&gt; const_range_type;
+<span class="lineNum">      42 </span>            : 
+<span class="lineNum">      43 </span>            :   uri() : is_valid_(false) {}
+<span class="lineNum">      44 </span>            : 
+<span class="lineNum">      45 </span>            :   // uri(const value_type *uri)
+<span class="lineNum">      46 </span>            :   //    : uri_(uri), is_valid_(false) {
+<span class="lineNum">      47 </span>            :   //    parse();
+<a name="48"><span class="lineNum">      48 </span>            :   //}</a>
+<span class="lineNum">      49 </span>            : 
+<span class="lineNum">      50 </span><span class="lineCov">         36 :   uri(string_type str) : uri_(std::move(str)), is_valid_(false) { parse(); }</span>
+<span class="lineNum">      51 </span>            : 
+<span class="lineNum">      52 </span>            :   template &lt;class FwdIter&gt;
+<span class="lineNum">      53 </span>            :   uri(const FwdIter &amp;first, const FwdIter &amp;last)
+<span class="lineNum">      54 </span>            :       : uri_(first, last), is_valid_(false) {
+<span class="lineNum">      55 </span>            :     parse();
+<a name="56"><span class="lineNum">      56 </span>            :   }</a>
+<span class="lineNum">      57 </span>            : 
+<span class="lineNum">      58 </span><span class="lineCov">         12 :   uri(const uri &amp;other) : uri_(other.uri_) { parse(); }</span>
+<span class="lineNum">      59 </span>            : 
+<span class="lineNum">      60 </span>            :   uri &amp;operator=(const uri &amp;other) {
+<span class="lineNum">      61 </span>            :     uri(other).swap(*this);
+<span class="lineNum">      62 </span>            :     return *this;
+<span class="lineNum">      63 </span>            :   }
+<span class="lineNum">      64 </span>            : 
+<span class="lineNum">      65 </span>            :   uri &amp;operator=(const string_type &amp;uri_string) {
+<span class="lineNum">      66 </span>            :     uri(uri_string).swap(*this);
+<span class="lineNum">      67 </span>            :     return *this;
+<a name="68"><span class="lineNum">      68 </span>            :   }</a>
+<span class="lineNum">      69 </span>            : 
+<span class="lineNum">      70 </span><span class="lineCov">         48 :   ~uri() = default;</span>
+<span class="lineNum">      71 </span>            : 
+<span class="lineNum">      72 </span>            :   void swap(uri &amp;other) {
+<span class="lineNum">      73 </span>            :     boost::swap(uri_, other.uri_);
+<span class="lineNum">      74 </span>            :     other.parse();
+<span class="lineNum">      75 </span>            :     boost::swap(is_valid_, other.is_valid_);
+<span class="lineNum">      76 </span>            :   }
+<span class="lineNum">      77 </span>            : 
+<span class="lineNum">      78 </span>            :   const_iterator begin() const { return uri_.begin(); }
+<span class="lineNum">      79 </span>            : 
+<a name="80"><span class="lineNum">      80 </span>            :   const_iterator end() const { return uri_.end(); }</a>
+<span class="lineNum">      81 </span>            : 
+<span class="lineNum">      82 </span><span class="lineCov">         36 :   const_range_type scheme_range() const { return uri_parts_.scheme; }</span>
+<span class="lineNum">      83 </span>            : 
+<span class="lineNum">      84 </span>            :   const_range_type user_info_range() const {
+<span class="lineNum">      85 </span>            :     return uri_parts_.hier_part.user_info ? uri_parts_.hier_part.user_info.get()
+<span class="lineNum">      86 </span>            :                                           : const_range_type();
+<a name="87"><span class="lineNum">      87 </span>            :   }</a>
+<span class="lineNum">      88 </span>            : 
+<span class="lineNum">      89 </span><span class="lineCov">         72 :   const_range_type host_range() const {</span>
+<span class="lineNum">      90 </span><span class="lineCov">         72 :     return uri_parts_.hier_part.host ? uri_parts_.hier_part.host.get()</span>
+<span class="lineNum">      91 </span><span class="lineCov">        216 :                                      : const_range_type();</span>
+<a name="92"><span class="lineNum">      92 </span>            :   }</a>
+<span class="lineNum">      93 </span>            : 
+<span class="lineNum">      94 </span><span class="lineCov">         72 :   const_range_type port_range() const {</span>
+<span class="lineNum">      95 </span><span class="lineCov">         72 :     return uri_parts_.hier_part.port ? uri_parts_.hier_part.port.get()</span>
+<span class="lineNum">      96 </span><span class="lineCov">        216 :                                      : const_range_type();</span>
+<a name="97"><span class="lineNum">      97 </span>            :   }</a>
+<span class="lineNum">      98 </span>            : 
+<span class="lineNum">      99 </span><span class="lineCov">        108 :   const_range_type path_range() const {</span>
+<span class="lineNum">     100 </span><span class="lineCov">        108 :     return uri_parts_.hier_part.path ? uri_parts_.hier_part.path.get()</span>
+<span class="lineNum">     101 </span><span class="lineCov">        324 :                                      : const_range_type();</span>
+<a name="102"><span class="lineNum">     102 </span>            :   }</a>
+<span class="lineNum">     103 </span>            : 
+<span class="lineNum">     104 </span><span class="lineCov">         38 :   const_range_type query_range() const {</span>
+<span class="lineNum">     105 </span><span class="lineCov">         76 :     return uri_parts_.query ? uri_parts_.query.get() : const_range_type();</span>
+<a name="106"><span class="lineNum">     106 </span>            :   }</a>
+<span class="lineNum">     107 </span>            : 
+<span class="lineNum">     108 </span><span class="lineCov">         36 :   const_range_type fragment_range() const {</span>
+<span class="lineNum">     109 </span><span class="lineCov">         72 :     return uri_parts_.fragment ? uri_parts_.fragment.get() : const_range_type();</span>
+<span class="lineNum">     110 </span>            :   }
+<span class="lineNum">     111 </span>            : 
+<span class="lineNum">     112 </span>            : // hackfix by Simon Haegler, Esri R&amp;D Zurich
+<span class="lineNum">     113 </span>            : // this workaround is needed to avoid running into the &quot;incompatible string
+<span class="lineNum">     114 </span>            : // iterator&quot; assertion triggered by the default-constructed string iterators
+<span class="lineNum">     115 </span>            : // employed by cpp-netlib (see uri.ipp qi::rule declarations)
+<span class="lineNum">     116 </span>            : #if defined(_MSC_VER) &amp;&amp; defined(_DEBUG)
+<span class="lineNum">     117 </span>            : #       define CATCH_EMPTY_ITERATOR_RANGE if (range.begin()._Getcont() == 0 || range.end()._Getcont() == 0) { return string_type(); }
+<span class="lineNum">     118 </span>            : #else
+<span class="lineNum">     119 </span>            : #       define CATCH_EMPTY_ITERATOR_RANGE
+<a name="120"><span class="lineNum">     120 </span>            : #endif</a>
+<span class="lineNum">     121 </span>            : 
+<span class="lineNum">     122 </span><span class="lineCov">         36 :   string_type scheme() const {</span>
+<span class="lineNum">     123 </span><span class="lineCov">         36 :     const_range_type range = scheme_range();</span>
+<span class="lineNum">     124 </span>            :     CATCH_EMPTY_ITERATOR_RANGE
+<span class="lineNum">     125 </span>            :     return range ? string_type(std::begin(range), std::end(range))
+<span class="lineNum">     126 </span><span class="lineCov">         36 :                  : string_type();</span>
+<span class="lineNum">     127 </span>            :   }
+<span class="lineNum">     128 </span>            : 
+<span class="lineNum">     129 </span>            :   string_type user_info() const {
+<span class="lineNum">     130 </span>            :     const_range_type range = user_info_range();
+<span class="lineNum">     131 </span>            :     CATCH_EMPTY_ITERATOR_RANGE
+<span class="lineNum">     132 </span>            :     return range ? string_type(std::begin(range), std::end(range))
+<span class="lineNum">     133 </span>            :                  : string_type();
+<a name="134"><span class="lineNum">     134 </span>            :   }</a>
+<span class="lineNum">     135 </span>            : 
+<span class="lineNum">     136 </span><span class="lineCov">         72 :   string_type host() const {</span>
+<span class="lineNum">     137 </span><span class="lineCov">         72 :     const_range_type range = host_range();</span>
+<span class="lineNum">     138 </span>            :     CATCH_EMPTY_ITERATOR_RANGE
+<span class="lineNum">     139 </span>            :     return range ? string_type(std::begin(range), std::end(range))
+<span class="lineNum">     140 </span><span class="lineCov">         72 :                  : string_type();</span>
+<a name="141"><span class="lineNum">     141 </span>            :   }</a>
+<span class="lineNum">     142 </span>            : 
+<span class="lineNum">     143 </span><span class="lineCov">         72 :   string_type port() const {</span>
+<span class="lineNum">     144 </span><span class="lineCov">         72 :     const_range_type range = port_range();</span>
+<span class="lineNum">     145 </span>            :     CATCH_EMPTY_ITERATOR_RANGE
+<span class="lineNum">     146 </span>            :     return range ? string_type(std::begin(range), std::end(range))
+<span class="lineNum">     147 </span><span class="lineCov">         72 :                  : string_type();</span>
+<a name="148"><span class="lineNum">     148 </span>            :   }</a>
+<span class="lineNum">     149 </span>            : 
+<span class="lineNum">     150 </span><span class="lineCov">        108 :   string_type path() const {</span>
+<span class="lineNum">     151 </span><span class="lineCov">        108 :     const_range_type range = path_range();</span>
+<span class="lineNum">     152 </span>            :     CATCH_EMPTY_ITERATOR_RANGE
+<span class="lineNum">     153 </span>            :     return range ? string_type(std::begin(range), std::end(range))
+<span class="lineNum">     154 </span><span class="lineCov">        108 :                  : string_type();</span>
+<a name="155"><span class="lineNum">     155 </span>            :   }</a>
+<span class="lineNum">     156 </span>            : 
+<span class="lineNum">     157 </span><span class="lineCov">         38 :   string_type query() const {</span>
+<span class="lineNum">     158 </span><span class="lineCov">         38 :     const_range_type range = query_range();</span>
+<span class="lineNum">     159 </span>            :     CATCH_EMPTY_ITERATOR_RANGE
+<span class="lineNum">     160 </span>            :     return range ? string_type(std::begin(range), std::end(range))
+<span class="lineNum">     161 </span><span class="lineCov">         38 :                  : string_type();</span>
+<a name="162"><span class="lineNum">     162 </span>            :   }</a>
+<span class="lineNum">     163 </span>            : 
+<span class="lineNum">     164 </span><span class="lineCov">         36 :   string_type fragment() const {</span>
+<span class="lineNum">     165 </span><span class="lineCov">         36 :     const_range_type range = fragment_range();</span>
+<span class="lineNum">     166 </span>            :     CATCH_EMPTY_ITERATOR_RANGE
+<span class="lineNum">     167 </span>            :     return range ? string_type(std::begin(range), std::end(range))
+<span class="lineNum">     168 </span><span class="lineCov">         36 :                  : string_type();</span>
+<span class="lineNum">     169 </span>            :   }
 <span class="lineNum">     170 </span>            : 
-<span class="lineNum">     171 </span>            :   bool is_valid() const { return is_valid_; }
-<span class="lineNum">     172 </span>            : 
-<span class="lineNum">     173 </span>            :   void append(const string_type &amp;data) {
-<span class="lineNum">     174 </span>            :     uri_.append(data);
-<span class="lineNum">     175 </span>            :     parse();
-<span class="lineNum">     176 </span>            :   }
-<span class="lineNum">     177 </span>            : 
-<span class="lineNum">     178 </span>            :   template &lt;class FwdIter&gt;
-<span class="lineNum">     179 </span>            :   void append(const FwdIter &amp;first, const FwdIter &amp;last) {
-<span class="lineNum">     180 </span>            :     uri_.append(first, last);
+<span class="lineNum">     171 </span>            : #ifdef CATCH_EMPTY_ITERATOR_RANGE
+<span class="lineNum">     172 </span>            : #undef CATCH_EMPTY_ITERATOR_RANGE
+<span class="lineNum">     173 </span>            : #endif
+<span class="lineNum">     174 </span>            : 
+<span class="lineNum">     175 </span>            :   string_type string() const { return uri_; }
+<span class="lineNum">     176 </span>            : 
+<span class="lineNum">     177 </span>            :   bool is_valid() const { return is_valid_; }
+<span class="lineNum">     178 </span>            : 
+<span class="lineNum">     179 </span>            :   void append(const string_type &amp;data) {
+<span class="lineNum">     180 </span>            :     uri_.append(data);
 <span class="lineNum">     181 </span>            :     parse();
 <span class="lineNum">     182 </span>            :   }
 <span class="lineNum">     183 </span>            : 
-<span class="lineNum">     184 </span>            :  private:
-<span class="lineNum">     185 </span>            :   void parse();
-<span class="lineNum">     186 </span>            : 
-<span class="lineNum">     187 </span>            :   string_type uri_;
-<span class="lineNum">     188 </span>            :   detail::uri_parts&lt;const_iterator&gt; uri_parts_;
-<span class="lineNum">     189 </span>            :   bool is_valid_;
-<a name="190"><span class="lineNum">     190 </span>            : };</a>
-<span class="lineNum">     191 </span>            : 
-<span class="lineNum">     192 </span><span class="lineCov">         84 : inline void uri::parse() {</span>
-<span class="lineNum">     193 </span><span class="lineCov">         84 :   const_iterator first(boost::begin(uri_)), last(boost::end(uri_));</span>
-<span class="lineNum">     194 </span><span class="lineCov">         84 :   is_valid_ = detail::parse(first, last, uri_parts_);</span>
-<span class="lineNum">     195 </span><span class="lineCov">         84 :   if (is_valid_) {</span>
-<span class="lineNum">     196 </span><span class="lineCov">         84 :     if (!uri_parts_.scheme) {</span>
-<span class="lineNum">     197 </span>            :       uri_parts_.scheme =
-<span class="lineNum">     198 </span><span class="lineNoCov">          0 :           const_range_type(boost::begin(uri_), boost::begin(uri_));</span>
-<span class="lineNum">     199 </span>            :     }
-<span class="lineNum">     200 </span><span class="lineCov">         84 :     uri_parts_.update();</span>
-<span class="lineNum">     201 </span>            :   }
-<span class="lineNum">     202 </span><span class="lineCov">         84 : }</span>
-<span class="lineNum">     203 </span>            : 
-<span class="lineNum">     204 </span>            : inline uri::string_type scheme(const uri &amp;uri_) { return uri_.scheme(); }
-<span class="lineNum">     205 </span>            : 
-<span class="lineNum">     206 </span>            : inline uri::string_type user_info(const uri &amp;uri_) { return uri_.user_info(); }
-<span class="lineNum">     207 </span>            : 
-<span class="lineNum">     208 </span>            : inline uri::string_type host(const uri &amp;uri_) { return uri_.host(); }
+<span class="lineNum">     184 </span>            :   template &lt;class FwdIter&gt;
+<span class="lineNum">     185 </span>            :   void append(const FwdIter &amp;first, const FwdIter &amp;last) {
+<span class="lineNum">     186 </span>            :     uri_.append(first, last);
+<span class="lineNum">     187 </span>            :     parse();
+<span class="lineNum">     188 </span>            :   }
+<span class="lineNum">     189 </span>            : 
+<span class="lineNum">     190 </span>            :  private:
+<span class="lineNum">     191 </span>            :   void parse();
+<span class="lineNum">     192 </span>            : 
+<span class="lineNum">     193 </span>            :   string_type uri_;
+<span class="lineNum">     194 </span>            :   detail::uri_parts&lt;const_iterator&gt; uri_parts_;
+<span class="lineNum">     195 </span>            :   bool is_valid_;
+<a name="196"><span class="lineNum">     196 </span>            : };</a>
+<span class="lineNum">     197 </span>            : 
+<span class="lineNum">     198 </span><span class="lineCov">         48 : inline void uri::parse() {</span>
+<span class="lineNum">     199 </span><span class="lineCov">         48 :   const_iterator first(std::begin(uri_)), last(std::end(uri_));</span>
+<span class="lineNum">     200 </span><span class="lineCov">         48 :   is_valid_ = detail::parse(first, last, uri_parts_);</span>
+<span class="lineNum">     201 </span><span class="lineCov">         48 :   if (is_valid_) {</span>
+<span class="lineNum">     202 </span><span class="lineCov">         48 :     if (!uri_parts_.scheme) {</span>
+<span class="lineNum">     203 </span><span class="lineNoCov">          0 :       uri_parts_.scheme =</span>
+<span class="lineNum">     204 </span><span class="lineNoCov">          0 :           const_range_type(std::begin(uri_), std::begin(uri_));</span>
+<span class="lineNum">     205 </span>            :     }
+<span class="lineNum">     206 </span><span class="lineCov">         48 :     uri_parts_.update();</span>
+<span class="lineNum">     207 </span>            :   }
+<span class="lineNum">     208 </span><span class="lineCov">         48 : }</span>
 <span class="lineNum">     209 </span>            : 
-<a name="210"><span class="lineNum">     210 </span>            : inline uri::string_type port(const uri &amp;uri_) { return uri_.port(); }</a>
+<span class="lineNum">     210 </span>            : inline uri::string_type scheme(const uri &amp;uri_) { return uri_.scheme(); }
 <span class="lineNum">     211 </span>            : 
-<span class="lineNum">     212 </span><span class="lineCov">        108 : inline boost::optional&lt;unsigned short&gt; port_us(const uri &amp;uri_) {</span>
-<span class="lineNum">     213 </span><span class="lineCov">        216 :   uri::string_type port = uri_.port();</span>
-<span class="lineNum">     214 </span><span class="lineCov">        108 :   return (port.empty()) ? boost::optional&lt;unsigned short&gt;()</span>
-<span class="lineNum">     215 </span>            :                         : boost::optional&lt;unsigned short&gt;(
-<span class="lineNum">     216 </span><span class="lineCov">        216 :                               boost::lexical_cast&lt;unsigned short&gt;(port));</span>
-<span class="lineNum">     217 </span>            : }
-<span class="lineNum">     218 </span>            : 
-<span class="lineNum">     219 </span>            : inline uri::string_type path(const uri &amp;uri_) { return uri_.path(); }
-<span class="lineNum">     220 </span>            : 
-<span class="lineNum">     221 </span>            : inline uri::string_type query(const uri &amp;uri_) { return uri_.query(); }
-<span class="lineNum">     222 </span>            : 
-<span class="lineNum">     223 </span>            : inline uri::string_type fragment(const uri &amp;uri_) { return uri_.fragment(); }
-<span class="lineNum">     224 </span>            : 
-<span class="lineNum">     225 </span>            : inline uri::string_type hierarchical_part(const uri &amp;uri_) {
-<span class="lineNum">     226 </span>            :   uri::string_type::const_iterator first, last;
-<span class="lineNum">     227 </span>            :   uri::const_range_type user_info = uri_.user_info_range();
-<span class="lineNum">     228 </span>            :   uri::const_range_type host = uri_.host_range();
-<span class="lineNum">     229 </span>            :   uri::const_range_type port = uri_.port_range();
-<span class="lineNum">     230 </span>            :   uri::const_range_type path = uri_.path_range();
-<span class="lineNum">     231 </span>            :   if (user_info) {
-<span class="lineNum">     232 </span>            :     first = boost::begin(user_info);
-<span class="lineNum">     233 </span>            :   } else {
-<span class="lineNum">     234 </span>            :     first = boost::begin(host);
-<span class="lineNum">     235 </span>            :   }
-<span class="lineNum">     236 </span>            :   if (path) {
-<span class="lineNum">     237 </span>            :     last = boost::end(path);
-<span class="lineNum">     238 </span>            :   } else if (port) {
-<span class="lineNum">     239 </span>            :     last = boost::end(port);
-<span class="lineNum">     240 </span>            :   } else {
-<span class="lineNum">     241 </span>            :     last = boost::end(host);
-<span class="lineNum">     242 </span>            :   }
-<span class="lineNum">     243 </span>            :   return uri::string_type(first, last);
-<span class="lineNum">     244 </span>            : }
-<span class="lineNum">     245 </span>            : 
-<span class="lineNum">     246 </span>            : inline uri::string_type authority(const uri &amp;uri_) {
-<span class="lineNum">     247 </span>            :   uri::string_type::const_iterator first, last;
-<span class="lineNum">     248 </span>            :   uri::const_range_type user_info = uri_.user_info_range();
-<span class="lineNum">     249 </span>            :   uri::const_range_type host = uri_.host_range();
-<span class="lineNum">     250 </span>            :   uri::const_range_type port = uri_.port_range();
-<span class="lineNum">     251 </span>            :   if (user_info) {
-<span class="lineNum">     252 </span>            :     first = boost::begin(user_info);
-<span class="lineNum">     253 </span>            :   } else {
-<span class="lineNum">     254 </span>            :     first = boost::begin(host);
-<span class="lineNum">     255 </span>            :   }
-<span class="lineNum">     256 </span>            : 
-<span class="lineNum">     257 </span>            :   if (port) {
-<span class="lineNum">     258 </span>            :     last = boost::end(port);
-<span class="lineNum">     259 </span>            :   } else {
-<span class="lineNum">     260 </span>            :     last = boost::end(host);
-<span class="lineNum">     261 </span>            :   }
-<span class="lineNum">     262 </span>            :   return uri::string_type(first, last);
-<span class="lineNum">     263 </span>            : }
-<span class="lineNum">     264 </span>            : 
-<span class="lineNum">     265 </span>            : inline bool valid(const uri &amp;uri_) { return uri_.is_valid(); }
-<span class="lineNum">     266 </span>            : 
-<span class="lineNum">     267 </span>            : inline bool is_absolute(const uri &amp;uri_) {
-<span class="lineNum">     268 </span>            :   return uri_.is_valid() &amp;&amp; !boost::empty(uri_.scheme_range());
-<span class="lineNum">     269 </span>            : }
-<span class="lineNum">     270 </span>            : 
-<span class="lineNum">     271 </span>            : inline bool is_relative(const uri &amp;uri_) {
-<span class="lineNum">     272 </span>            :   return uri_.is_valid() &amp;&amp; boost::empty(uri_.scheme_range());
-<span class="lineNum">     273 </span>            : }
-<span class="lineNum">     274 </span>            : 
-<span class="lineNum">     275 </span>            : inline bool is_hierarchical(const uri &amp;uri_) {
-<span class="lineNum">     276 </span>            :   return is_absolute(uri_) &amp;&amp; hierarchical_schemes::exists(scheme(uri_));
-<span class="lineNum">     277 </span>            : }
-<span class="lineNum">     278 </span>            : 
-<span class="lineNum">     279 </span>            : inline bool is_opaque(const uri &amp;uri_) {
-<span class="lineNum">     280 </span>            :   return is_absolute(uri_) &amp;&amp; opaque_schemes::exists(scheme(uri_));
-<span class="lineNum">     281 </span>            : }
-<span class="lineNum">     282 </span>            : 
-<span class="lineNum">     283 </span>            : inline bool is_valid(const uri &amp;uri_) { return valid(uri_); }
-<span class="lineNum">     284 </span>            : 
-<span class="lineNum">     285 </span>            : inline void swap(uri &amp;lhs, uri &amp;rhs) { lhs.swap(rhs); }
-<span class="lineNum">     286 </span>            : 
-<span class="lineNum">     287 </span>            : inline std::size_t hash_value(const uri &amp;uri_) {
-<span class="lineNum">     288 </span>            :   std::size_t seed = 0;
-<span class="lineNum">     289 </span>            :   for (uri::const_iterator it = begin(uri_); it != end(uri_); ++it) {
-<span class="lineNum">     290 </span>            :     hash_combine(seed, *it);
-<span class="lineNum">     291 </span>            :   }
-<span class="lineNum">     292 </span>            :   return seed;
-<span class="lineNum">     293 </span>            : }
-<span class="lineNum">     294 </span>            : 
-<span class="lineNum">     295 </span>            : inline bool operator==(const uri &amp;lhs, const uri &amp;rhs) {
-<span class="lineNum">     296 </span>            :   return boost::equal(lhs, rhs);
-<span class="lineNum">     297 </span>            : }
-<span class="lineNum">     298 </span>            : 
-<span class="lineNum">     299 </span>            : inline bool operator==(const uri &amp;lhs, const uri::string_type &amp;rhs) {
-<span class="lineNum">     300 </span>            :   return boost::equal(lhs, rhs);
-<span class="lineNum">     301 </span>            : }
+<span class="lineNum">     212 </span>            : inline uri::string_type user_info(const uri &amp;uri_) { return uri_.user_info(); }
+<span class="lineNum">     213 </span>            : 
+<span class="lineNum">     214 </span>            : inline uri::string_type host(const uri &amp;uri_) { return uri_.host(); }
+<span class="lineNum">     215 </span>            : 
+<a name="216"><span class="lineNum">     216 </span>            : inline uri::string_type port(const uri &amp;uri_) { return uri_.port(); }</a>
+<span class="lineNum">     217 </span>            : 
+<span class="lineNum">     218 </span><span class="lineCov">         72 : inline boost::optional&lt;unsigned short&gt; port_us(const uri &amp;uri_) {</span>
+<span class="lineNum">     219 </span><span class="lineCov">        144 :   uri::string_type port = uri_.port();</span>
+<span class="lineNum">     220 </span><span class="lineCov">         72 :   return (port.empty()) ? boost::optional&lt;unsigned short&gt;()</span>
+<span class="lineNum">     221 </span><span class="lineCov">        144 :                         : boost::optional&lt;unsigned short&gt;(std::stoi(port));</span>
+<span class="lineNum">     222 </span>            : }
+<span class="lineNum">     223 </span>            : 
+<span class="lineNum">     224 </span>            : inline uri::string_type path(const uri &amp;uri_) { return uri_.path(); }
+<span class="lineNum">     225 </span>            : 
+<span class="lineNum">     226 </span>            : inline uri::string_type query(const uri &amp;uri_) { return uri_.query(); }
+<span class="lineNum">     227 </span>            : 
+<span class="lineNum">     228 </span>            : inline uri::string_type fragment(const uri &amp;uri_) { return uri_.fragment(); }
+<span class="lineNum">     229 </span>            : 
+<span class="lineNum">     230 </span>            : inline uri::string_type hierarchical_part(const uri &amp;uri_) {
+<span class="lineNum">     231 </span>            :   uri::string_type::const_iterator first, last;
+<span class="lineNum">     232 </span>            :   uri::const_range_type user_info = uri_.user_info_range();
+<span class="lineNum">     233 </span>            :   uri::const_range_type host = uri_.host_range();
+<span class="lineNum">     234 </span>            :   uri::const_range_type port = uri_.port_range();
+<span class="lineNum">     235 </span>            :   uri::const_range_type path = uri_.path_range();
+<span class="lineNum">     236 </span>            :   if (user_info) {
+<span class="lineNum">     237 </span>            :     first = std::begin(user_info);
+<span class="lineNum">     238 </span>            :   } else {
+<span class="lineNum">     239 </span>            :     first = std::begin(host);
+<span class="lineNum">     240 </span>            :   }
+<span class="lineNum">     241 </span>            :   if (path) {
+<span class="lineNum">     242 </span>            :     last = std::end(path);
+<span class="lineNum">     243 </span>            :   } else if (port) {
+<span class="lineNum">     244 </span>            :     last = std::end(port);
+<span class="lineNum">     245 </span>            :   } else {
+<span class="lineNum">     246 </span>            :     last = std::end(host);
+<span class="lineNum">     247 </span>            :   }
+<span class="lineNum">     248 </span>            :   return uri::string_type(first, last);
+<span class="lineNum">     249 </span>            : }
+<span class="lineNum">     250 </span>            : 
+<span class="lineNum">     251 </span>            : inline uri::string_type authority(const uri &amp;uri_) {
+<span class="lineNum">     252 </span>            :   uri::string_type::const_iterator first, last;
+<span class="lineNum">     253 </span>            :   uri::const_range_type user_info = uri_.user_info_range();
+<span class="lineNum">     254 </span>            :   uri::const_range_type host = uri_.host_range();
+<span class="lineNum">     255 </span>            :   uri::const_range_type port = uri_.port_range();
+<span class="lineNum">     256 </span>            :   if (user_info) {
+<span class="lineNum">     257 </span>            :     first = std::begin(user_info);
+<span class="lineNum">     258 </span>            :   } else {
+<span class="lineNum">     259 </span>            :     first = std::begin(host);
+<span class="lineNum">     260 </span>            :   }
+<span class="lineNum">     261 </span>            : 
+<span class="lineNum">     262 </span>            :   if (port) {
+<span class="lineNum">     263 </span>            :     last = std::end(port);
+<span class="lineNum">     264 </span>            :   } else {
+<span class="lineNum">     265 </span>            :     last = std::end(host);
+<span class="lineNum">     266 </span>            :   }
+<span class="lineNum">     267 </span>            :   return uri::string_type(first, last);
+<span class="lineNum">     268 </span>            : }
+<span class="lineNum">     269 </span>            : 
+<span class="lineNum">     270 </span>            : inline bool valid(const uri &amp;uri_) { return uri_.is_valid(); }
+<span class="lineNum">     271 </span>            : 
+<span class="lineNum">     272 </span>            : inline bool is_absolute(const uri &amp;uri_) {
+<span class="lineNum">     273 </span>            :   return uri_.is_valid() &amp;&amp; !boost::empty(uri_.scheme_range());
+<span class="lineNum">     274 </span>            : }
+<span class="lineNum">     275 </span>            : 
+<span class="lineNum">     276 </span>            : inline bool is_relative(const uri &amp;uri_) {
+<span class="lineNum">     277 </span>            :   return uri_.is_valid() &amp;&amp; boost::empty(uri_.scheme_range());
+<span class="lineNum">     278 </span>            : }
+<span class="lineNum">     279 </span>            : 
+<span class="lineNum">     280 </span>            : inline bool is_hierarchical(const uri &amp;uri_) {
+<span class="lineNum">     281 </span>            :   return is_absolute(uri_) &amp;&amp; hierarchical_schemes::exists(scheme(uri_));
+<span class="lineNum">     282 </span>            : }
+<span class="lineNum">     283 </span>            : 
+<span class="lineNum">     284 </span>            : inline bool is_opaque(const uri &amp;uri_) {
+<span class="lineNum">     285 </span>            :   return is_absolute(uri_) &amp;&amp; opaque_schemes::exists(scheme(uri_));
+<span class="lineNum">     286 </span>            : }
+<span class="lineNum">     287 </span>            : 
+<span class="lineNum">     288 </span>            : inline bool is_valid(const uri &amp;uri_) { return valid(uri_); }
+<span class="lineNum">     289 </span>            : 
+<span class="lineNum">     290 </span>            : inline void swap(uri &amp;lhs, uri &amp;rhs) { lhs.swap(rhs); }
+<span class="lineNum">     291 </span>            : 
+<span class="lineNum">     292 </span>            : inline std::size_t hash_value(const uri &amp;uri_) {
+<span class="lineNum">     293 </span>            :   std::size_t seed = 0;
+<span class="lineNum">     294 </span>            :   for (uri::const_iterator it = begin(uri_); it != end(uri_); ++it) {
+<span class="lineNum">     295 </span>            :     hash_combine(seed, *it);
+<span class="lineNum">     296 </span>            :   }
+<span class="lineNum">     297 </span>            :   return seed;
+<span class="lineNum">     298 </span>            : }
+<span class="lineNum">     299 </span>            : } // namespace uri
+<span class="lineNum">     300 </span>            : } // namespace network
+<span class="lineNum">     301 </span>            : } // namespace boost
 <span class="lineNum">     302 </span>            : 
-<span class="lineNum">     303 </span>            : inline bool operator==(const uri::string_type &amp;lhs, const uri &amp;rhs) {
-<span class="lineNum">     304 </span>            :   return boost::equal(lhs, rhs);
-<span class="lineNum">     305 </span>            : }
+<span class="lineNum">     303 </span>            : namespace std {
+<span class="lineNum">     304 </span>            : template &lt;&gt;
+<span class="lineNum">     305 </span>            : struct hash&lt;boost::network::uri::uri&gt; {
 <span class="lineNum">     306 </span>            : 
-<span class="lineNum">     307 </span>            : inline bool operator==(const uri &amp;lhs, const uri::value_type *rhs) {
-<span class="lineNum">     308 </span>            :   return boost::equal(lhs, boost::as_literal(rhs));
-<span class="lineNum">     309 </span>            : }
-<span class="lineNum">     310 </span>            : 
-<span class="lineNum">     311 </span>            : inline bool operator==(const uri::value_type *lhs, const uri &amp;rhs) {
-<span class="lineNum">     312 </span>            :   return boost::equal(boost::as_literal(lhs), rhs);
-<span class="lineNum">     313 </span>            : }
-<span class="lineNum">     314 </span>            : 
-<span class="lineNum">     315 </span>            : inline bool operator!=(const uri &amp;lhs, const uri &amp;rhs) { return !(lhs == rhs); }
-<span class="lineNum">     316 </span>            : 
-<span class="lineNum">     317 </span>            : inline bool operator&lt;(const uri &amp;lhs, const uri &amp;rhs) {
-<span class="lineNum">     318 </span>            :   return lhs.string() &lt; rhs.string();
-<span class="lineNum">     319 </span>            : }
-<span class="lineNum">     320 </span>            : }  // namespace uri
-<span class="lineNum">     321 </span>            : }  // namespace network
-<span class="lineNum">     322 </span>            : }  // namespace boost
-<span class="lineNum">     323 </span>            : 
-<span class="lineNum">     324 </span>            : #include &lt;boost/network/uri/accessors.hpp&gt;
-<span class="lineNum">     325 </span>            : #include &lt;boost/network/uri/directives.hpp&gt;
-<span class="lineNum">     326 </span>            : #include &lt;boost/network/uri/builder.hpp&gt;
-<span class="lineNum">     327 </span>            : 
-<span class="lineNum">     328 </span>            : namespace boost {
-<span class="lineNum">     329 </span>            : namespace network {
-<span class="lineNum">     330 </span>            : namespace uri {
-<span class="lineNum">     331 </span>            : inline uri from_parts(const uri &amp;base_uri, const uri::string_type &amp;path_,
-<span class="lineNum">     332 </span>            :                       const uri::string_type &amp;query_,
-<span class="lineNum">     333 </span>            :                       const uri::string_type &amp;fragment_) {
-<span class="lineNum">     334 </span>            :   uri uri_(base_uri);
-<span class="lineNum">     335 </span>            :   builder(uri_).path(path_).query(query_).fragment(fragment_);
-<span class="lineNum">     336 </span>            :   return uri_;
-<span class="lineNum">     337 </span>            : }
-<span class="lineNum">     338 </span>            : 
-<span class="lineNum">     339 </span>            : inline uri from_parts(const uri &amp;base_uri, const uri::string_type &amp;path_,
-<span class="lineNum">     340 </span>            :                       const uri::string_type &amp;query_) {
-<span class="lineNum">     341 </span>            :   uri uri_(base_uri);
-<span class="lineNum">     342 </span>            :   builder(uri_).path(path_).query(query_);
-<span class="lineNum">     343 </span>            :   return uri_;
-<span class="lineNum">     344 </span>            : }
-<span class="lineNum">     345 </span>            : 
-<span class="lineNum">     346 </span>            : inline uri from_parts(const uri &amp;base_uri, const uri::string_type &amp;path_) {
-<span class="lineNum">     347 </span>            :   uri uri_(base_uri);
-<span class="lineNum">     348 </span>            :   builder(uri_).path(path_);
-<span class="lineNum">     349 </span>            :   return uri_;
-<span class="lineNum">     350 </span>            : }
-<span class="lineNum">     351 </span>            : 
-<span class="lineNum">     352 </span>            : inline uri from_parts(const uri::string_type &amp;base_uri,
-<span class="lineNum">     353 </span>            :                       const uri::string_type &amp;path,
-<span class="lineNum">     354 </span>            :                       const uri::string_type &amp;query,
-<span class="lineNum">     355 </span>            :                       const uri::string_type &amp;fragment) {
-<span class="lineNum">     356 </span>            :   return from_parts(uri(base_uri), path, query, fragment);
-<span class="lineNum">     357 </span>            : }
-<span class="lineNum">     358 </span>            : 
-<span class="lineNum">     359 </span>            : inline uri from_parts(const uri::string_type &amp;base_uri,
-<span class="lineNum">     360 </span>            :                       const uri::string_type &amp;path,
-<span class="lineNum">     361 </span>            :                       const uri::string_type &amp;query) {
-<span class="lineNum">     362 </span>            :   return from_parts(uri(base_uri), path, query);
-<span class="lineNum">     363 </span>            : }
-<span class="lineNum">     364 </span>            : 
-<span class="lineNum">     365 </span>            : inline uri from_parts(const uri::string_type &amp;base_uri,
-<span class="lineNum">     366 </span>            :                       const uri::string_type &amp;path) {
-<span class="lineNum">     367 </span>            :   return from_parts(uri(base_uri), path);
-<span class="lineNum">     368 </span>            : }
-<span class="lineNum">     369 </span>            : }  // namespace uri
-<span class="lineNum">     370 </span>            : }  // namespace network
-<span class="lineNum">     371 </span>            : }  // namespace boost
-<span class="lineNum">     372 </span>            : 
-<span class="lineNum">     373 </span>            : #include &lt;boost/filesystem/path.hpp&gt;
-<span class="lineNum">     374 </span>            : 
-<span class="lineNum">     375 </span>            : namespace boost {
-<span class="lineNum">     376 </span>            : namespace network {
-<span class="lineNum">     377 </span>            : namespace uri {
-<span class="lineNum">     378 </span>            : inline uri from_file(const filesystem::path &amp;path_) {
-<span class="lineNum">     379 </span>            :   uri uri_;
-<span class="lineNum">     380 </span>            :   builder(uri_).scheme(&quot;file&quot;).path(path_.string());
-<span class="lineNum">     381 </span>            :   return uri_;
-<span class="lineNum">     382 </span>            : }
-<span class="lineNum">     383 </span>            : }  // namespace uri
-<span class="lineNum">     384 </span>            : }  // namespace network
-<span class="lineNum">     385 </span>            : }  // namespace boost
-<span class="lineNum">     386 </span>            : 
-<span class="lineNum">     387 </span>            : #endif  // __BOOST_NETWORK_URI_INC__
+<span class="lineNum">     307 </span>            :   std::size_t operator()(const boost::network::uri::uri &amp;uri_) const {
+<span class="lineNum">     308 </span>            :     std::size_t seed = 0;
+<span class="lineNum">     309 </span>            :     std::for_each(std::begin(uri_), std::end(uri_),
+<span class="lineNum">     310 </span>            :                   [&amp;seed](boost::network::uri::uri::value_type v) {
+<span class="lineNum">     311 </span>            :                     std::hash&lt;boost::network::uri::uri::value_type&gt; hasher;
+<span class="lineNum">     312 </span>            :                     seed ^= hasher(v) + 0x9e3779b9 + (seed &lt;&lt; 6) + (seed &gt;&gt; 2);
+<span class="lineNum">     313 </span>            :                   });
+<span class="lineNum">     314 </span>            :     return seed;
+<span class="lineNum">     315 </span>            :   }
+<span class="lineNum">     316 </span>            : };
+<span class="lineNum">     317 </span>            : }  // namespace std
+<span class="lineNum">     318 </span>            : 
+<span class="lineNum">     319 </span>            : namespace boost {
+<span class="lineNum">     320 </span>            : namespace network {
+<span class="lineNum">     321 </span>            : namespace uri {
+<span class="lineNum">     322 </span>            : inline bool operator==(const uri &amp;lhs, const uri &amp;rhs) {
+<span class="lineNum">     323 </span>            :   return boost::equal(lhs, rhs);
+<span class="lineNum">     324 </span>            : }
+<span class="lineNum">     325 </span>            : 
+<span class="lineNum">     326 </span>            : inline bool operator==(const uri &amp;lhs, const uri::string_type &amp;rhs) {
+<span class="lineNum">     327 </span>            :   return boost::equal(lhs, rhs);
+<span class="lineNum">     328 </span>            : }
+<span class="lineNum">     329 </span>            : 
+<span class="lineNum">     330 </span>            : inline bool operator==(const uri::string_type &amp;lhs, const uri &amp;rhs) {
+<span class="lineNum">     331 </span>            :   return boost::equal(lhs, rhs);
+<span class="lineNum">     332 </span>            : }
+<span class="lineNum">     333 </span>            : 
+<span class="lineNum">     334 </span>            : inline bool operator==(const uri &amp;lhs, const uri::value_type *rhs) {
+<span class="lineNum">     335 </span>            :   auto rlen = std::strlen(rhs);
+<span class="lineNum">     336 </span>            :   size_t llen = std::labs(std::distance(lhs.begin(), lhs.end()));
+<span class="lineNum">     337 </span>            :   if (rlen != llen) return false;
+<span class="lineNum">     338 </span>            :   return boost::equal(lhs, boost::make_iterator_range(rhs, rhs + rlen));
+<span class="lineNum">     339 </span>            : }
+<span class="lineNum">     340 </span>            : 
+<span class="lineNum">     341 </span>            : inline bool operator==(const uri::value_type *lhs, const uri &amp;rhs) {
+<span class="lineNum">     342 </span>            :   return boost::equal(boost::as_literal(lhs), rhs);
+<span class="lineNum">     343 </span>            : }
+<span class="lineNum">     344 </span>            : 
+<span class="lineNum">     345 </span>            : inline bool operator!=(const uri &amp;lhs, const uri &amp;rhs) { return !(lhs == rhs); }
+<span class="lineNum">     346 </span>            : 
+<span class="lineNum">     347 </span>            : inline bool operator&lt;(const uri &amp;lhs, const uri &amp;rhs) {
+<span class="lineNum">     348 </span>            :   return lhs.string() &lt; rhs.string();
+<span class="lineNum">     349 </span>            : }
+<span class="lineNum">     350 </span>            : }  // namespace uri
+<span class="lineNum">     351 </span>            : }  // namespace network
+<span class="lineNum">     352 </span>            : }  // namespace boost
+<span class="lineNum">     353 </span>            : 
+<span class="lineNum">     354 </span>            : #include &lt;boost/network/uri/accessors.hpp&gt;
+<span class="lineNum">     355 </span>            : #include &lt;boost/network/uri/directives.hpp&gt;
+<span class="lineNum">     356 </span>            : #include &lt;boost/network/uri/builder.hpp&gt;
+<span class="lineNum">     357 </span>            : 
+<span class="lineNum">     358 </span>            : namespace boost {
+<span class="lineNum">     359 </span>            : namespace network {
+<span class="lineNum">     360 </span>            : namespace uri {
+<span class="lineNum">     361 </span>            : inline uri from_parts(const uri &amp;base_uri, const uri::string_type &amp;path_,
+<span class="lineNum">     362 </span>            :                       const uri::string_type &amp;query_,
+<span class="lineNum">     363 </span>            :                       const uri::string_type &amp;fragment_) {
+<span class="lineNum">     364 </span>            :   uri uri_(base_uri);
+<span class="lineNum">     365 </span>            :   builder(uri_).path(path_).query(query_).fragment(fragment_);
+<span class="lineNum">     366 </span>            :   return uri_;
+<span class="lineNum">     367 </span>            : }
+<span class="lineNum">     368 </span>            : 
+<span class="lineNum">     369 </span>            : inline uri from_parts(const uri &amp;base_uri, const uri::string_type &amp;path_,
+<span class="lineNum">     370 </span>            :                       const uri::string_type &amp;query_) {
+<span class="lineNum">     371 </span>            :   uri uri_(base_uri);
+<span class="lineNum">     372 </span>            :   builder(uri_).path(path_).query(query_);
+<span class="lineNum">     373 </span>            :   return uri_;
+<span class="lineNum">     374 </span>            : }
+<span class="lineNum">     375 </span>            : 
+<span class="lineNum">     376 </span>            : inline uri from_parts(const uri &amp;base_uri, const uri::string_type &amp;path_) {
+<span class="lineNum">     377 </span>            :   uri uri_(base_uri);
+<span class="lineNum">     378 </span>            :   builder(uri_).path(path_);
+<span class="lineNum">     379 </span>            :   return uri_;
+<span class="lineNum">     380 </span>            : }
+<span class="lineNum">     381 </span>            : 
+<span class="lineNum">     382 </span>            : inline uri from_parts(const uri::string_type &amp;base_uri,
+<span class="lineNum">     383 </span>            :                       const uri::string_type &amp;path,
+<span class="lineNum">     384 </span>            :                       const uri::string_type &amp;query,
+<span class="lineNum">     385 </span>            :                       const uri::string_type &amp;fragment) {
+<span class="lineNum">     386 </span>            :   return from_parts(uri(base_uri), path, query, fragment);
+<span class="lineNum">     387 </span>            : }
+<span class="lineNum">     388 </span>            : 
+<span class="lineNum">     389 </span>            : inline uri from_parts(const uri::string_type &amp;base_uri,
+<span class="lineNum">     390 </span>            :                       const uri::string_type &amp;path,
+<span class="lineNum">     391 </span>            :                       const uri::string_type &amp;query) {
+<span class="lineNum">     392 </span>            :   return from_parts(uri(base_uri), path, query);
+<span class="lineNum">     393 </span>            : }
+<span class="lineNum">     394 </span>            : 
+<span class="lineNum">     395 </span>            : inline uri from_parts(const uri::string_type &amp;base_uri,
+<span class="lineNum">     396 </span>            :                       const uri::string_type &amp;path) {
+<span class="lineNum">     397 </span>            :   return from_parts(uri(base_uri), path);
+<span class="lineNum">     398 </span>            : }
+<span class="lineNum">     399 </span>            : }  // namespace uri
+<span class="lineNum">     400 </span>            : }  // namespace network
+<span class="lineNum">     401 </span>            : }  // namespace boost
+<span class="lineNum">     402 </span>            : 
+<span class="lineNum">     403 </span>            : #endif  // BOOST_NETWORK_URI_INC__
 </pre>
       </td>
     </tr>

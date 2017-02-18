@@ -1,0 +1,141 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN">
+
+<html lang="en">
+
+<head>
+  <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+  <title>LCOV - ZeroEQ - cppnetlib/boost/network/protocol/http/client/connection/connection_delegate_factory.hpp</title>
+  <link rel="stylesheet" type="text/css" href="../../../../../../../gcov.css">
+</head>
+
+<body>
+
+  <table width="100%" border=0 cellspacing=0 cellpadding=0>
+    <tr><td class="title">LCOV - code coverage report</td></tr>
+    <tr><td class="ruler"><img src="../../../../../../../glass.png" width=3 height=3 alt=""></td></tr>
+
+    <tr>
+      <td width="100%">
+        <table cellpadding=1 border=0 width="100%">
+          <tr>
+            <td width="10%" class="headerItem">Current view:</td>
+            <td width="35%" class="headerValue"><a href="../../../../../../../index.html">top level</a> - <a href="index.html">cppnetlib/boost/network/protocol/http/client/connection</a> - connection_delegate_factory.hpp<span style="font-size: 80%;"> (source / <a href="connection_delegate_factory.hpp.func-sort-c.html">functions</a>)</span></td>
+            <td width="5%"></td>
+            <td width="15%"></td>
+            <td width="10%" class="headerCovTableHead">Hit</td>
+            <td width="10%" class="headerCovTableHead">Total</td>
+            <td width="15%" class="headerCovTableHead">Coverage</td>
+          </tr>
+          <tr>
+            <td class="headerItem">Test:</td>
+            <td class="headerValue">ZeroEQ</td>
+            <td></td>
+            <td class="headerItem">Lines:</td>
+            <td class="headerCovTableEntry">5</td>
+            <td class="headerCovTableEntry">6</td>
+            <td class="headerCovTableEntryHi">83.3 %</td>
+          </tr>
+          <tr>
+            <td class="headerItem">Date:</td>
+            <td class="headerValue">2017-02-18 01:36:25</td>
+            <td></td>
+            <td class="headerItem">Functions:</td>
+            <td class="headerCovTableEntry">1</td>
+            <td class="headerCovTableEntry">1</td>
+            <td class="headerCovTableEntryHi">100.0 %</td>
+          </tr>
+          <tr><td><img src="../../../../../../../glass.png" width=3 height=3 alt=""></td></tr>
+        </table>
+      </td>
+    </tr>
+
+    <tr><td class="ruler"><img src="../../../../../../../glass.png" width=3 height=3 alt=""></td></tr>
+  </table>
+
+  <table cellpadding=0 cellspacing=0 border=0>
+    <tr>
+      <td><br></td>
+    </tr>
+    <tr>
+      <td>
+<pre class="sourceHeading">          Line data    Source code</pre>
+<pre class="source">
+<a name="1"><span class="lineNum">       1 </span>            : #ifndef BOOST_NETWORK_PROTOCOL_HTTP_CLIENT_CONNECTION_DELEGATE_FACTORY_HPP_20110819</a>
+<span class="lineNum">       2 </span>            : #define BOOST_NETWORK_PROTOCOL_HTTP_CLIENT_CONNECTION_DELEGATE_FACTORY_HPP_20110819
+<span class="lineNum">       3 </span>            : 
+<span class="lineNum">       4 </span>            : // Copyright 2011 Dean Michael Berris (dberris@google.com).
+<span class="lineNum">       5 </span>            : // Copyright 2011 Google, Inc.
+<span class="lineNum">       6 </span>            : // Distributed under the Boost Software License, Version 1.0.
+<span class="lineNum">       7 </span>            : // (See accompanying file LICENSE_1_0.txt or copy at
+<span class="lineNum">       8 </span>            : // http://www.boost.org/LICENSE_1_0.txt)
+<span class="lineNum">       9 </span>            : 
+<span class="lineNum">      10 </span>            : #include &lt;boost/network/protocol/http/client/connection/connection_delegate.hpp&gt;
+<span class="lineNum">      11 </span>            : #include &lt;boost/network/protocol/http/client/connection/normal_delegate.hpp&gt;
+<span class="lineNum">      12 </span>            : #include &lt;boost/network/traits/string.hpp&gt;
+<span class="lineNum">      13 </span>            : #include &lt;boost/optional/optional.hpp&gt;
+<span class="lineNum">      14 </span>            : #include &lt;boost/throw_exception.hpp&gt;
+<span class="lineNum">      15 </span>            : 
+<span class="lineNum">      16 </span>            : #ifdef BOOST_NETWORK_ENABLE_HTTPS
+<span class="lineNum">      17 </span>            : #include &lt;boost/network/protocol/http/client/connection/ssl_delegate.hpp&gt;
+<span class="lineNum">      18 </span>            : #endif /* BOOST_NETWORK_ENABLE_HTTPS */
+<span class="lineNum">      19 </span>            : 
+<span class="lineNum">      20 </span>            : namespace boost {
+<span class="lineNum">      21 </span>            : namespace network {
+<span class="lineNum">      22 </span>            : namespace http {
+<span class="lineNum">      23 </span>            : namespace impl {
+<span class="lineNum">      24 </span>            : 
+<span class="lineNum">      25 </span>            : struct ssl_delegate;
+<span class="lineNum">      26 </span>            : 
+<span class="lineNum">      27 </span>            : struct normal_delegate;
+<span class="lineNum">      28 </span>            : 
+<span class="lineNum">      29 </span>            : template &lt;class Tag&gt;
+<span class="lineNum">      30 </span>            : struct connection_delegate_factory {
+<span class="lineNum">      31 </span>            :   typedef std::shared_ptr&lt;connection_delegate&gt; connection_delegate_ptr;
+<span class="lineNum">      32 </span>            :   typedef typename string&lt;Tag&gt;::type string_type;
+<span class="lineNum">      33 </span>            : 
+<a name="34"><span class="lineNum">      34 </span>            :   // This is the factory method that actually returns the delegate instance.</a>
+<span class="lineNum">      35 </span>            :   // TODO(dberris): Support passing in proxy settings when crafting connections.
+<span class="lineNum">      36 </span><span class="lineCov">         36 :   static connection_delegate_ptr new_connection_delegate(</span>
+<span class="lineNum">      37 </span>            :       boost::asio::io_service&amp; service, bool https, bool always_verify_peer,
+<span class="lineNum">      38 </span>            :       optional&lt;string_type&gt; certificate_filename,
+<span class="lineNum">      39 </span>            :       optional&lt;string_type&gt; verify_path, optional&lt;string_type&gt; certificate_file,
+<span class="lineNum">      40 </span>            :       optional&lt;string_type&gt; private_key_file, optional&lt;string_type&gt; ciphers,
+<span class="lineNum">      41 </span>            :       optional&lt;string_type&gt; sni_hostname, long ssl_options) {
+<span class="lineNum">      42 </span><span class="lineCov">         36 :     connection_delegate_ptr delegate;</span>
+<span class="lineNum">      43 </span><span class="lineCov">         36 :     if (https) {</span>
+<span class="lineNum">      44 </span>            : #ifdef BOOST_NETWORK_ENABLE_HTTPS
+<span class="lineNum">      45 </span>            :       delegate = std::make_shared&lt;ssl_delegate&gt;(
+<span class="lineNum">      46 </span>            :           service, always_verify_peer, certificate_filename, verify_path,
+<span class="lineNum">      47 </span>            :           certificate_file, private_key_file, ciphers, sni_hostname,
+<span class="lineNum">      48 </span>            :           ssl_options);
+<span class="lineNum">      49 </span>            : #else
+<span class="lineNum">      50 </span><span class="lineNoCov">          0 :       BOOST_THROW_EXCEPTION(std::runtime_error(&quot;HTTPS not supported.&quot;));</span>
+<span class="lineNum">      51 </span>            : #endif /* BOOST_NETWORK_ENABLE_HTTPS */
+<span class="lineNum">      52 </span>            :     } else {
+<span class="lineNum">      53 </span><span class="lineCov">         36 :       delegate = std::make_shared&lt;normal_delegate&gt;(service);</span>
+<span class="lineNum">      54 </span>            :     }
+<span class="lineNum">      55 </span><span class="lineCov">         36 :     return delegate;</span>
+<span class="lineNum">      56 </span>            :   }
+<span class="lineNum">      57 </span>            : };
+<span class="lineNum">      58 </span>            : 
+<span class="lineNum">      59 </span>            : }  // namespace impl
+<span class="lineNum">      60 </span>            : }  // namespace http
+<span class="lineNum">      61 </span>            : }  // namespace network
+<span class="lineNum">      62 </span>            : }  // namespace boost
+<span class="lineNum">      63 </span>            : 
+<span class="lineNum">      64 </span>            : #endif /* BOOST_NETWORK_PROTOCOL_HTTP_CLIENT_CONNECTION_DELEGATE_FACTORY_HPP_20110819 \
+<span class="lineNum">      65 </span>            :           */
+</pre>
+      </td>
+    </tr>
+  </table>
+  <br>
+
+  <table width="100%" border=0 cellspacing=0 cellpadding=0>
+    <tr><td class="ruler"><img src="../../../../../../../glass.png" width=3 height=3 alt=""></td></tr>
+    <tr><td class="versionInfo">Generated by: <a href="http://ltp.sourceforge.net/coverage/lcov.php" target="_parent">LCOV version 1.11</a></td></tr>
+  </table>
+  <br>
+
+</body>
+</html>

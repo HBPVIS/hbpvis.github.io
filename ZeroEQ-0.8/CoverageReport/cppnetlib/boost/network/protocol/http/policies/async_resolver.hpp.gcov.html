@@ -1,0 +1,167 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN">
+
+<html lang="en">
+
+<head>
+  <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+  <title>LCOV - ZeroEQ - cppnetlib/boost/network/protocol/http/policies/async_resolver.hpp</title>
+  <link rel="stylesheet" type="text/css" href="../../../../../../gcov.css">
+</head>
+
+<body>
+
+  <table width="100%" border=0 cellspacing=0 cellpadding=0>
+    <tr><td class="title">LCOV - code coverage report</td></tr>
+    <tr><td class="ruler"><img src="../../../../../../glass.png" width=3 height=3 alt=""></td></tr>
+
+    <tr>
+      <td width="100%">
+        <table cellpadding=1 border=0 width="100%">
+          <tr>
+            <td width="10%" class="headerItem">Current view:</td>
+            <td width="35%" class="headerValue"><a href="../../../../../../index.html">top level</a> - <a href="index.html">cppnetlib/boost/network/protocol/http/policies</a> - async_resolver.hpp<span style="font-size: 80%;"> (source / <a href="async_resolver.hpp.func-sort-c.html">functions</a>)</span></td>
+            <td width="5%"></td>
+            <td width="15%"></td>
+            <td width="10%" class="headerCovTableHead">Hit</td>
+            <td width="10%" class="headerCovTableHead">Total</td>
+            <td width="15%" class="headerCovTableHead">Coverage</td>
+          </tr>
+          <tr>
+            <td class="headerItem">Test:</td>
+            <td class="headerValue">ZeroEQ</td>
+            <td></td>
+            <td class="headerItem">Lines:</td>
+            <td class="headerCovTableEntry">18</td>
+            <td class="headerCovTableEntry">25</td>
+            <td class="headerCovTableEntryMed">72.0 %</td>
+          </tr>
+          <tr>
+            <td class="headerItem">Date:</td>
+            <td class="headerValue">2017-02-18 01:36:25</td>
+            <td></td>
+            <td class="headerItem">Functions:</td>
+            <td class="headerCovTableEntry">8</td>
+            <td class="headerCovTableEntry">8</td>
+            <td class="headerCovTableEntryHi">100.0 %</td>
+          </tr>
+          <tr><td><img src="../../../../../../glass.png" width=3 height=3 alt=""></td></tr>
+        </table>
+      </td>
+    </tr>
+
+    <tr><td class="ruler"><img src="../../../../../../glass.png" width=3 height=3 alt=""></td></tr>
+  </table>
+
+  <table cellpadding=0 cellspacing=0 border=0>
+    <tr>
+      <td><br></td>
+    </tr>
+    <tr>
+      <td>
+<pre class="sourceHeading">          Line data    Source code</pre>
+<pre class="source">
+<a name="1"><span class="lineNum">       1 </span>            : #ifndef BOOST_NETWORK_PROTOCOL_HTTP_POLICIES_ASYNC_RESOLVER_20100622</a>
+<span class="lineNum">       2 </span>            : #define BOOST_NETWORK_PROTOCOL_HTTP_POLICIES_ASYNC_RESOLVER_20100622
+<span class="lineNum">       3 </span>            : 
+<span class="lineNum">       4 </span>            : // Copyright Dean Michael Berris 2010.
+<span class="lineNum">       5 </span>            : // Distributed under the Boost Software License, Version 1.0.
+<span class="lineNum">       6 </span>            : // (See accompanying file LICENSE_1_0.txt or copy at
+<span class="lineNum">       7 </span>            : // http://www.boost.org/LICENSE_1_0.txt)
+<span class="lineNum">       8 </span>            : 
+<span class="lineNum">       9 </span>            : #include &lt;memory&gt;
+<span class="lineNum">      10 </span>            : #include &lt;unordered_map&gt;
+<span class="lineNum">      11 </span>            : #include &lt;cstdint&gt;
+<span class="lineNum">      12 </span>            : #include &lt;functional&gt;
+<span class="lineNum">      13 </span>            : #include &lt;boost/asio/placeholders.hpp&gt;
+<span class="lineNum">      14 </span>            : #include &lt;boost/asio/strand.hpp&gt;
+<span class="lineNum">      15 </span>            : #include &lt;boost/network/protocol/http/traits/resolver.hpp&gt;
+<span class="lineNum">      16 </span>            : #include &lt;boost/network/traits/string.hpp&gt;
+<span class="lineNum">      17 </span>            : #include &lt;boost/algorithm/string/case_conv.hpp&gt;
+<span class="lineNum">      18 </span>            : 
+<span class="lineNum">      19 </span>            : namespace boost {
+<span class="lineNum">      20 </span>            : namespace network {
+<span class="lineNum">      21 </span>            : namespace http {
+<span class="lineNum">      22 </span>            : namespace policies {
+<a name="23"><span class="lineNum">      23 </span>            : </a>
+<span class="lineNum">      24 </span>            : template &lt;class Tag&gt;
+<span class="lineNum">      25 </span><span class="lineCov">         18 : struct async_resolver : std::enable_shared_from_this&lt;async_resolver&lt;Tag&gt; &gt; {</span>
+<span class="lineNum">      26 </span>            :   typedef typename resolver&lt;Tag&gt;::type resolver_type;
+<span class="lineNum">      27 </span>            :   typedef typename resolver_type::iterator resolver_iterator;
+<span class="lineNum">      28 </span>            :   typedef typename resolver_type::query resolver_query;
+<span class="lineNum">      29 </span>            :   typedef std::pair&lt;resolver_iterator, resolver_iterator&gt;
+<span class="lineNum">      30 </span>            :       resolver_iterator_pair;
+<span class="lineNum">      31 </span>            :   typedef typename string&lt;Tag&gt;::type string_type;
+<span class="lineNum">      32 </span>            :   typedef std::unordered_map&lt;string_type, resolver_iterator_pair&gt;
+<span class="lineNum">      33 </span>            :       endpoint_cache;
+<span class="lineNum">      34 </span>            :   typedef std::function&lt;void(boost::system::error_code const &amp;, resolver_iterator_pair)&gt;
+<span class="lineNum">      35 </span>            :       resolve_completion_function;
+<span class="lineNum">      36 </span>            :   typedef std::function&lt;void(resolver_type &amp;, string_type, std::uint16_t,
+<span class="lineNum">      37 </span>            :                              resolve_completion_function)&gt; resolve_function;
+<span class="lineNum">      38 </span>            : 
+<span class="lineNum">      39 </span>            :  protected:
+<span class="lineNum">      40 </span>            :   bool cache_resolved_;
+<span class="lineNum">      41 </span>            :   endpoint_cache endpoint_cache_;
+<span class="lineNum">      42 </span>            :   std::shared_ptr&lt;boost::asio::io_service&gt; service_;
+<a name="43"><span class="lineNum">      43 </span>            :   std::shared_ptr&lt;boost::asio::io_service::strand&gt; resolver_strand_;</a>
+<span class="lineNum">      44 </span>            : 
+<span class="lineNum">      45 </span><span class="lineCov">         18 :   explicit async_resolver(bool cache_resolved)</span>
+<a name="46"><span class="lineNum">      46 </span><span class="lineCov">         18 :       : cache_resolved_(cache_resolved), endpoint_cache_() {}</span></a>
+<span class="lineNum">      47 </span>            : 
+<span class="lineNum">      48 </span><span class="lineCov">         36 :   void resolve(resolver_type &amp;resolver_, string_type const &amp;host,</span>
+<span class="lineNum">      49 </span>            :                std::uint16_t port, resolve_completion_function once_resolved) {
+<span class="lineNum">      50 </span><span class="lineCov">         36 :     if (cache_resolved_) {</span>
+<span class="lineNum">      51 </span>            :       typename endpoint_cache::iterator iter =
+<span class="lineNum">      52 </span><span class="lineNoCov">          0 :           endpoint_cache_.find(boost::to_lower_copy(host));</span>
+<span class="lineNum">      53 </span><span class="lineNoCov">          0 :       if (iter != endpoint_cache_.end()) {</span>
+<span class="lineNum">      54 </span><span class="lineNoCov">          0 :         boost::system::error_code ignored;</span>
+<span class="lineNum">      55 </span><span class="lineNoCov">          0 :         once_resolved(ignored, iter-&gt;second);</span>
+<span class="lineNum">      56 </span><span class="lineNoCov">          0 :         return;</span>
+<span class="lineNum">      57 </span>            :       }
+<span class="lineNum">      58 </span>            :     }
+<span class="lineNum">      59 </span>            : 
+<span class="lineNum">      60 </span><span class="lineCov">         72 :     typename resolver_type::query q(host, std::to_string(port));</span>
+<a name="61"><span class="lineNum">      61 </span><span class="lineCov">         72 :     auto self = this-&gt;shared_from_this();</span></a>
+<a name="62"><span class="lineNum">      62 </span><span class="lineCov">         36 :     resolver_.async_resolve(</span></a>
+<span class="lineNum">      63 </span><span class="lineCov">       1116 :         q, resolver_strand_-&gt;wrap([=](boost::system::error_code const &amp;ec,</span>
+<span class="lineNum">      64 </span><span class="lineCov">         36 :                                       resolver_iterator endpoint_iterator) {</span>
+<span class="lineNum">      65 </span><span class="lineCov">         36 :           self-&gt;handle_resolve(boost::to_lower_copy(host), once_resolved, ec,</span>
+<span class="lineNum">      66 </span>            :                                endpoint_iterator);
+<span class="lineNum">      67 </span><span class="lineCov">         36 :         }));</span>
+<a name="68"><span class="lineNum">      68 </span>            :   }</a>
+<span class="lineNum">      69 </span>            : 
+<span class="lineNum">      70 </span><span class="lineCov">         36 :   void handle_resolve(string_type /*unused*/ const &amp;host,</span>
+<span class="lineNum">      71 </span>            :                       resolve_completion_function once_resolved,
+<span class="lineNum">      72 </span>            :                       boost::system::error_code const &amp;ec,
+<span class="lineNum">      73 </span>            :                       resolver_iterator endpoint_iterator) {
+<span class="lineNum">      74 </span><span class="lineCov">         36 :     typename endpoint_cache::iterator iter;</span>
+<span class="lineNum">      75 </span><span class="lineCov">         36 :     bool inserted = false;</span>
+<span class="lineNum">      76 </span><span class="lineCov">         36 :     if (!ec &amp;&amp; cache_resolved_) {</span>
+<span class="lineNum">      77 </span><span class="lineNoCov">          0 :       std::tie(iter, inserted) = endpoint_cache_.insert(std::make_pair(</span>
+<span class="lineNum">      78 </span>            :           host, std::make_pair(endpoint_iterator, resolver_iterator())));
+<span class="lineNum">      79 </span><span class="lineNoCov">          0 :       once_resolved(ec, iter-&gt;second);</span>
+<span class="lineNum">      80 </span>            :     } else {
+<span class="lineNum">      81 </span><span class="lineCov">         36 :       once_resolved(ec, std::make_pair(endpoint_iterator, resolver_iterator()));</span>
+<span class="lineNum">      82 </span>            :     }
+<span class="lineNum">      83 </span><span class="lineCov">         36 :   }</span>
+<span class="lineNum">      84 </span>            : };
+<span class="lineNum">      85 </span>            : 
+<span class="lineNum">      86 </span>            : }  // namespace policies
+<span class="lineNum">      87 </span>            : }  // namespace http
+<span class="lineNum">      88 </span>            : }  // namespace network
+<span class="lineNum">      89 </span>            : }  // namespace boost
+<span class="lineNum">      90 </span>            : 
+<span class="lineNum">      91 </span>            : #endif  // BOOST_NETWORK_PROTOCOL_HTTP_POLICIES_ASYNC_RESOLVER_20100622
+</pre>
+      </td>
+    </tr>
+  </table>
+  <br>
+
+  <table width="100%" border=0 cellspacing=0 cellpadding=0>
+    <tr><td class="ruler"><img src="../../../../../../glass.png" width=3 height=3 alt=""></td></tr>
+    <tr><td class="versionInfo">Generated by: <a href="http://ltp.sourceforge.net/coverage/lcov.php" target="_parent">LCOV version 1.11</a></td></tr>
+  </table>
+  <br>
+
+</body>
+</html>

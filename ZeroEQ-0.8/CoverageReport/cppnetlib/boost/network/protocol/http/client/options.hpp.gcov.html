@@ -31,17 +31,17 @@
             <td class="headerValue">ZeroEQ</td>
             <td></td>
             <td class="headerItem">Lines:</td>
-            <td class="headerCovTableEntry">20</td>
-            <td class="headerCovTableEntry">20</td>
+            <td class="headerCovTableEntry">21</td>
+            <td class="headerCovTableEntry">21</td>
             <td class="headerCovTableEntryHi">100.0 %</td>
           </tr>
           <tr>
             <td class="headerItem">Date:</td>
-            <td class="headerValue">2017-01-31 01:48:09</td>
+            <td class="headerValue">2017-02-18 01:36:25</td>
             <td></td>
             <td class="headerItem">Functions:</td>
-            <td class="headerCovTableEntry">13</td>
-            <td class="headerCovTableEntry">13</td>
+            <td class="headerCovTableEntry">14</td>
+            <td class="headerCovTableEntry">14</td>
             <td class="headerCovTableEntryHi">100.0 %</td>
           </tr>
           <tr><td><img src="../../../../../../glass.png" width=3 height=3 alt=""></td></tr>
@@ -63,184 +63,220 @@
 <a name="1"><span class="lineNum">       1 </span>            : #ifndef BOOST_NETWORK_PROTOCOL_HTTP_CLIENT_OPTIONS_HPP_20130128</a>
 <span class="lineNum">       2 </span>            : #define BOOST_NETWORK_PROTOCOL_HTTP_CLIENT_OPTIONS_HPP_20130128
 <span class="lineNum">       3 </span>            : 
-<span class="lineNum">       4 </span>            : #include &lt;boost/network/traits/string.hpp&gt;
-<span class="lineNum">       5 </span>            : #include &lt;boost/smart_ptr/shared_ptr.hpp&gt;
-<span class="lineNum">       6 </span>            : #include &lt;boost/optional/optional.hpp&gt;
-<span class="lineNum">       7 </span>            : #include &lt;boost/asio/io_service.hpp&gt;
-<span class="lineNum">       8 </span>            : 
-<span class="lineNum">       9 </span>            : // Copyright 2013 Google, Inc.
-<span class="lineNum">      10 </span>            : // Copyright 2013 Dean Michael Berris &lt;dberris@google.com&gt;
-<span class="lineNum">      11 </span>            : // Distributed under the Boost Software License, Version 1.0.
-<span class="lineNum">      12 </span>            : // (See accompanying file LICENSE_1_0.txt or copy at
-<span class="lineNum">      13 </span>            : // http://www.boost.org/LICENSE_1_0.txt)
+<span class="lineNum">       4 </span>            : // Copyright 2013 Google, Inc.
+<span class="lineNum">       5 </span>            : // Copyright 2013 Dean Michael Berris &lt;dberris@google.com&gt;
+<span class="lineNum">       6 </span>            : // Distributed under the Boost Software License, Version 1.0.
+<span class="lineNum">       7 </span>            : // (See accompanying file LICENSE_1_0.txt or copy at
+<span class="lineNum">       8 </span>            : // http://www.boost.org/LICENSE_1_0.txt)
+<span class="lineNum">       9 </span>            : 
+<span class="lineNum">      10 </span>            : #include &lt;memory&gt;
+<span class="lineNum">      11 </span>            : #include &lt;boost/asio/io_service.hpp&gt;
+<span class="lineNum">      12 </span>            : #include &lt;boost/network/traits/string.hpp&gt;
+<span class="lineNum">      13 </span>            : #include &lt;boost/optional/optional.hpp&gt;
 <span class="lineNum">      14 </span>            : 
 <span class="lineNum">      15 </span>            : namespace boost {
 <span class="lineNum">      16 </span>            : namespace network {
 <span class="lineNum">      17 </span>            : namespace http {
 <a name="18"><span class="lineNum">      18 </span>            : </a>
 <span class="lineNum">      19 </span>            : template &lt;class Tag&gt;
-<span class="lineNum">      20 </span><span class="lineCov">         18 : struct client_options {</span>
-<a name="21"><span class="lineNum">      21 </span>            :   typedef typename string&lt;Tag&gt;::type string_type;</a>
-<span class="lineNum">      22 </span>            : 
-<span class="lineNum">      23 </span><span class="lineCov">         18 :   client_options()</span>
-<span class="lineNum">      24 </span>            :       : cache_resolved_(false),
-<span class="lineNum">      25 </span>            :         follow_redirects_(false),
-<span class="lineNum">      26 </span>            :         openssl_certificate_(),
-<span class="lineNum">      27 </span>            :         openssl_verify_path_(),
-<span class="lineNum">      28 </span>            :         openssl_certificate_file_(),
-<span class="lineNum">      29 </span>            :         openssl_private_key_file_(),
-<span class="lineNum">      30 </span>            :         openssl_ciphers_(),
-<span class="lineNum">      31 </span>            :         openssl_options_(0),
-<span class="lineNum">      32 </span>            :         io_service_(),
-<span class="lineNum">      33 </span>            :         always_verify_peer_(false),
-<span class="lineNum">      34 </span><span class="lineCov">         18 :         timeout_(0) {}</span>
-<span class="lineNum">      35 </span>            : 
-<span class="lineNum">      36 </span>            :   client_options(client_options const&amp; other)
-<span class="lineNum">      37 </span>            :       : cache_resolved_(other.cache_resolved_),
-<span class="lineNum">      38 </span>            :         follow_redirects_(other.follow_redirects_),
-<span class="lineNum">      39 </span>            :         openssl_certificate_(other.openssl_certificate_),
-<span class="lineNum">      40 </span>            :         openssl_verify_path_(other.openssl_verify_path_),
-<span class="lineNum">      41 </span>            :         openssl_certificate_file_(other.openssl_certificate_file_),
-<span class="lineNum">      42 </span>            :         openssl_private_key_file_(other.openssl_private_key_file_),
-<span class="lineNum">      43 </span>            :         openssl_ciphers_(other.openssl_ciphers_),
-<span class="lineNum">      44 </span>            :         openssl_options_(other.openssl_options_),
-<span class="lineNum">      45 </span>            :         io_service_(other.io_service_),
-<span class="lineNum">      46 </span>            :         always_verify_peer_(other.always_verify_peer_),
-<span class="lineNum">      47 </span>            :         timeout_(other.timeout_) {}
-<span class="lineNum">      48 </span>            : 
-<span class="lineNum">      49 </span>            :   client_options&amp; operator=(client_options other) {
-<span class="lineNum">      50 </span>            :     other.swap(*this);
-<span class="lineNum">      51 </span>            :     return *this;
-<span class="lineNum">      52 </span>            :   }
-<span class="lineNum">      53 </span>            : 
-<span class="lineNum">      54 </span>            :   void swap(client_options&amp; other) {
-<span class="lineNum">      55 </span>            :     using std::swap;
-<span class="lineNum">      56 </span>            :     swap(cache_resolved_, other.cache_resolved_);
-<span class="lineNum">      57 </span>            :     swap(follow_redirects_, other.follow_redirects_);
-<span class="lineNum">      58 </span>            :     swap(openssl_certificate_, other.openssl_certificate_);
-<span class="lineNum">      59 </span>            :     swap(openssl_verify_path_, other.openssl_verify_path_);
-<span class="lineNum">      60 </span>            :     swap(openssl_certificate_file_, other.openssl_certificate_file_);
-<span class="lineNum">      61 </span>            :     swap(openssl_private_key_file_, other.openssl_private_key_file_);
-<span class="lineNum">      62 </span>            :     swap(openssl_ciphers_, other.openssl_ciphers_);
-<span class="lineNum">      63 </span>            :     swap(openssl_options_, other.openssl_options_);
-<span class="lineNum">      64 </span>            :     swap(io_service_, other.io_service_);
-<span class="lineNum">      65 </span>            :     swap(always_verify_peer_, other.always_verify_peer_);
-<span class="lineNum">      66 </span>            :     swap(timeout_, other.timeout_);
-<span class="lineNum">      67 </span>            :   }
-<span class="lineNum">      68 </span>            : 
-<span class="lineNum">      69 </span>            :   client_options&amp; cache_resolved(bool v) {
-<span class="lineNum">      70 </span>            :     cache_resolved_ = v;
-<span class="lineNum">      71 </span>            :     return *this;
+<span class="lineNum">      20 </span><span class="lineCov">         18 : class client_options {</span>
+<span class="lineNum">      21 </span>            :  public:
+<span class="lineNum">      22 </span>            :   typedef typename string&lt;Tag&gt;::type string_type;
+<a name="23"><span class="lineNum">      23 </span>            : </a>
+<span class="lineNum">      24 </span>            :   /// Set all the options to default.
+<span class="lineNum">      25 </span><span class="lineCov">         18 :   client_options()</span>
+<span class="lineNum">      26 </span>            :       : cache_resolved_(false),
+<span class="lineNum">      27 </span>            :         follow_redirects_(false),
+<span class="lineNum">      28 </span>            :         openssl_certificate_(),
+<span class="lineNum">      29 </span>            :         openssl_verify_path_(),
+<span class="lineNum">      30 </span>            :         openssl_certificate_file_(),
+<span class="lineNum">      31 </span>            :         openssl_private_key_file_(),
+<span class="lineNum">      32 </span>            :         openssl_ciphers_(),
+<span class="lineNum">      33 </span>            :         openssl_sni_hostname_(),
+<span class="lineNum">      34 </span>            :         openssl_options_(0),
+<span class="lineNum">      35 </span>            :         io_service_(),
+<span class="lineNum">      36 </span>            :         always_verify_peer_(true),
+<span class="lineNum">      37 </span><span class="lineCov">         18 :         timeout_(0) {}</span>
+<span class="lineNum">      38 </span>            : 
+<span class="lineNum">      39 </span>            :   client_options(client_options const&amp; other)
+<span class="lineNum">      40 </span>            :       : cache_resolved_(other.cache_resolved_),
+<span class="lineNum">      41 </span>            :         follow_redirects_(other.follow_redirects_),
+<span class="lineNum">      42 </span>            :         openssl_certificate_(other.openssl_certificate_),
+<span class="lineNum">      43 </span>            :         openssl_verify_path_(other.openssl_verify_path_),
+<span class="lineNum">      44 </span>            :         openssl_certificate_file_(other.openssl_certificate_file_),
+<span class="lineNum">      45 </span>            :         openssl_private_key_file_(other.openssl_private_key_file_),
+<span class="lineNum">      46 </span>            :         openssl_ciphers_(other.openssl_ciphers_),
+<span class="lineNum">      47 </span>            :         openssl_sni_hostname_(other.openssl_sni_hostname_),
+<span class="lineNum">      48 </span>            :         openssl_options_(other.openssl_options_),
+<span class="lineNum">      49 </span>            :         io_service_(other.io_service_),
+<span class="lineNum">      50 </span>            :         always_verify_peer_(other.always_verify_peer_),
+<span class="lineNum">      51 </span>            :         timeout_(other.timeout_) {}
+<span class="lineNum">      52 </span>            : 
+<span class="lineNum">      53 </span>            :   client_options&amp; operator=(client_options other) {
+<span class="lineNum">      54 </span>            :     other.swap(*this);
+<span class="lineNum">      55 </span>            :     return *this;
+<span class="lineNum">      56 </span>            :   }
+<span class="lineNum">      57 </span>            : 
+<span class="lineNum">      58 </span>            :   void swap(client_options&amp; other) {
+<span class="lineNum">      59 </span>            :     using std::swap;
+<span class="lineNum">      60 </span>            :     swap(cache_resolved_, other.cache_resolved_);
+<span class="lineNum">      61 </span>            :     swap(follow_redirects_, other.follow_redirects_);
+<span class="lineNum">      62 </span>            :     swap(openssl_certificate_, other.openssl_certificate_);
+<span class="lineNum">      63 </span>            :     swap(openssl_verify_path_, other.openssl_verify_path_);
+<span class="lineNum">      64 </span>            :     swap(openssl_certificate_file_, other.openssl_certificate_file_);
+<span class="lineNum">      65 </span>            :     swap(openssl_private_key_file_, other.openssl_private_key_file_);
+<span class="lineNum">      66 </span>            :     swap(openssl_ciphers_, other.openssl_ciphers_);
+<span class="lineNum">      67 </span>            :     swap(openssl_sni_hostname_, other.openssl_sni_hostname_);
+<span class="lineNum">      68 </span>            :     swap(openssl_options_, other.openssl_options_);
+<span class="lineNum">      69 </span>            :     swap(io_service_, other.io_service_);
+<span class="lineNum">      70 </span>            :     swap(always_verify_peer_, other.always_verify_peer_);
+<span class="lineNum">      71 </span>            :     swap(timeout_, other.timeout_);
 <span class="lineNum">      72 </span>            :   }
 <span class="lineNum">      73 </span>            : 
-<span class="lineNum">      74 </span>            :   client_options&amp; follow_redirects(bool v) {
-<span class="lineNum">      75 </span>            :     follow_redirects_ = v;
-<span class="lineNum">      76 </span>            :     return *this;
-<span class="lineNum">      77 </span>            :   }
-<span class="lineNum">      78 </span>            : 
-<span class="lineNum">      79 </span>            :   client_options&amp; openssl_certificate(string_type const&amp; v) {
-<span class="lineNum">      80 </span>            :     openssl_certificate_ = v;
-<span class="lineNum">      81 </span>            :     return *this;
-<span class="lineNum">      82 </span>            :   }
-<span class="lineNum">      83 </span>            : 
-<span class="lineNum">      84 </span>            :   client_options&amp; openssl_verify_path(string_type const&amp; v) {
-<span class="lineNum">      85 </span>            :     openssl_verify_path_ = v;
-<span class="lineNum">      86 </span>            :     return *this;
-<span class="lineNum">      87 </span>            :   }
-<span class="lineNum">      88 </span>            : 
-<span class="lineNum">      89 </span>            :   client_options&amp; openssl_certificate_file(string_type const&amp; v) {
-<span class="lineNum">      90 </span>            :     openssl_certificate_file_ = v;
-<span class="lineNum">      91 </span>            :     return *this;
-<span class="lineNum">      92 </span>            :   }
-<span class="lineNum">      93 </span>            : 
-<span class="lineNum">      94 </span>            :   client_options&amp; openssl_private_key_file(string_type const&amp; v) {
-<span class="lineNum">      95 </span>            :     openssl_private_key_file_ = v;
-<span class="lineNum">      96 </span>            :     return *this;
-<span class="lineNum">      97 </span>            :   }
-<span class="lineNum">      98 </span>            : 
-<span class="lineNum">      99 </span>            :   client_options&amp; openssl_ciphers(string_type const&amp; v) {
-<span class="lineNum">     100 </span>            :     openssl_ciphers_ = v;
+<span class="lineNum">      74 </span>            :   /// Specify whether the client should cache resolved endpoints.
+<span class="lineNum">      75 </span>            :   ///
+<span class="lineNum">      76 </span>            :   /// Default: false.
+<span class="lineNum">      77 </span>            :   client_options&amp; cache_resolved(bool v) {
+<span class="lineNum">      78 </span>            :     cache_resolved_ = v;
+<span class="lineNum">      79 </span>            :     return *this;
+<span class="lineNum">      80 </span>            :   }
+<span class="lineNum">      81 </span>            : 
+<span class="lineNum">      82 </span>            :   /// Specify whether the client should follow redirects.
+<span class="lineNum">      83 </span>            :   ///
+<span class="lineNum">      84 </span>            :   /// Default: false.
+<span class="lineNum">      85 </span>            :   /// \deprecated Not supported by asynchronous client implementation.
+<span class="lineNum">      86 </span>            :   client_options&amp; follow_redirects(bool v) {
+<span class="lineNum">      87 </span>            :     follow_redirects_ = v;
+<span class="lineNum">      88 </span>            :     return *this;
+<span class="lineNum">      89 </span>            :   }
+<span class="lineNum">      90 </span>            : 
+<span class="lineNum">      91 </span>            :   /// Set the filename of the certificate to load for the SSL connection for
+<span class="lineNum">      92 </span>            :   /// verification.
+<span class="lineNum">      93 </span>            :   client_options&amp; openssl_certificate(string_type const&amp; v) {
+<span class="lineNum">      94 </span>            :     openssl_certificate_ = v;
+<span class="lineNum">      95 </span>            :     return *this;
+<span class="lineNum">      96 </span>            :   }
+<span class="lineNum">      97 </span>            : 
+<span class="lineNum">      98 </span>            :   /// Set the directory for which the certificate authority files are located.
+<span class="lineNum">      99 </span>            :   client_options&amp; openssl_verify_path(string_type const&amp; v) {
+<span class="lineNum">     100 </span>            :     openssl_verify_path_ = v;
 <span class="lineNum">     101 </span>            :     return *this;
 <span class="lineNum">     102 </span>            :   }
 <span class="lineNum">     103 </span>            : 
-<span class="lineNum">     104 </span>            :   client_options&amp; openssl_options(long o) {
-<span class="lineNum">     105 </span>            :     openssl_options_ = o;
-<span class="lineNum">     106 </span>            :     return *this;
-<span class="lineNum">     107 </span>            :   }
-<span class="lineNum">     108 </span>            : 
-<span class="lineNum">     109 </span>            :   client_options&amp; io_service(boost::shared_ptr&lt;boost::asio::io_service&gt; v) {
-<span class="lineNum">     110 </span>            :     io_service_ = v;
-<span class="lineNum">     111 </span>            :     return *this;
-<span class="lineNum">     112 </span>            :   }
-<span class="lineNum">     113 </span>            : 
-<span class="lineNum">     114 </span>            :   client_options&amp; always_verify_peer(bool v) {
-<span class="lineNum">     115 </span>            :     always_verify_peer_ = v;
-<span class="lineNum">     116 </span>            :     return *this;
-<span class="lineNum">     117 </span>            :   }
-<span class="lineNum">     118 </span>            : 
-<span class="lineNum">     119 </span>            :   client_options&amp; timeout(int v) {
-<span class="lineNum">     120 </span>            :     timeout_ = v;
+<span class="lineNum">     104 </span>            :   /// Set the filename of the certificate to use for client-side SSL session
+<span class="lineNum">     105 </span>            :   /// establishment.
+<span class="lineNum">     106 </span>            :   client_options&amp; openssl_certificate_file(string_type const&amp; v) {
+<span class="lineNum">     107 </span>            :     openssl_certificate_file_ = v;
+<span class="lineNum">     108 </span>            :     return *this;
+<span class="lineNum">     109 </span>            :   }
+<span class="lineNum">     110 </span>            : 
+<span class="lineNum">     111 </span>            :   /// Set the filename of the private key to use for client-side SSL session
+<span class="lineNum">     112 </span>            :   /// establishment.
+<span class="lineNum">     113 </span>            :   client_options&amp; openssl_private_key_file(string_type const&amp; v) {
+<span class="lineNum">     114 </span>            :     openssl_private_key_file_ = v;
+<span class="lineNum">     115 </span>            :     return *this;
+<span class="lineNum">     116 </span>            :   }
+<span class="lineNum">     117 </span>            : 
+<span class="lineNum">     118 </span>            :   /// Set the ciphers to support for SSL negotiation.
+<span class="lineNum">     119 </span>            :   client_options&amp; openssl_ciphers(string_type const&amp; v) {
+<span class="lineNum">     120 </span>            :     openssl_ciphers_ = v;
 <span class="lineNum">     121 </span>            :     return *this;
-<a name="122"><span class="lineNum">     122 </span>            :   }</a>
+<span class="lineNum">     122 </span>            :   }
 <span class="lineNum">     123 </span>            : 
-<a name="124"><span class="lineNum">     124 </span><span class="lineCov">         18 :   bool cache_resolved() const { return cache_resolved_; }</span></a>
-<span class="lineNum">     125 </span>            : 
-<a name="126"><span class="lineNum">     126 </span><span class="lineCov">         18 :   bool follow_redirects() const { return follow_redirects_; }</span></a>
-<span class="lineNum">     127 </span>            : 
-<span class="lineNum">     128 </span><span class="lineCov">         18 :   boost::optional&lt;string_type&gt; openssl_certificate() const {</span>
-<span class="lineNum">     129 </span><span class="lineCov">         18 :     return openssl_certificate_;</span>
-<a name="130"><span class="lineNum">     130 </span>            :   }</a>
-<span class="lineNum">     131 </span>            : 
-<span class="lineNum">     132 </span><span class="lineCov">         18 :   boost::optional&lt;string_type&gt; openssl_verify_path() const {</span>
-<span class="lineNum">     133 </span><span class="lineCov">         18 :     return openssl_verify_path_;</span>
-<a name="134"><span class="lineNum">     134 </span>            :   }</a>
+<span class="lineNum">     124 </span>            :   /// Set the hostname for SSL SNI hostname support.
+<span class="lineNum">     125 </span>            :   client_options&amp; openssl_sni_hostname(string_type const&amp; v) {
+<span class="lineNum">     126 </span>            :     openssl_sni_hostname_ = v;
+<span class="lineNum">     127 </span>            :     return *this;
+<span class="lineNum">     128 </span>            :   }
+<span class="lineNum">     129 </span>            : 
+<span class="lineNum">     130 </span>            :   /// Set the raw OpenSSL options to use for HTTPS requests.
+<span class="lineNum">     131 </span>            :   client_options&amp; openssl_options(long o) {
+<span class="lineNum">     132 </span>            :     openssl_options_ = o;
+<span class="lineNum">     133 </span>            :     return *this;
+<span class="lineNum">     134 </span>            :   }
 <span class="lineNum">     135 </span>            : 
-<span class="lineNum">     136 </span><span class="lineCov">         18 :   boost::optional&lt;string_type&gt; openssl_certificate_file() const {</span>
-<span class="lineNum">     137 </span><span class="lineCov">         18 :     return openssl_certificate_file_;</span>
-<a name="138"><span class="lineNum">     138 </span>            :   }</a>
-<span class="lineNum">     139 </span>            : 
-<span class="lineNum">     140 </span><span class="lineCov">         18 :   boost::optional&lt;string_type&gt; openssl_private_key_file() const {</span>
-<span class="lineNum">     141 </span><span class="lineCov">         18 :     return openssl_private_key_file_;</span>
-<a name="142"><span class="lineNum">     142 </span>            :   }</a>
-<span class="lineNum">     143 </span>            : 
-<span class="lineNum">     144 </span><span class="lineCov">         18 :   boost::optional&lt;string_type&gt; openssl_ciphers() const {</span>
-<span class="lineNum">     145 </span><span class="lineCov">         18 :     return openssl_ciphers_;</span>
-<a name="146"><span class="lineNum">     146 </span>            :   }</a>
-<span class="lineNum">     147 </span>            : 
-<a name="148"><span class="lineNum">     148 </span><span class="lineCov">         18 :   long openssl_options() const { return openssl_options_; }</span></a>
-<span class="lineNum">     149 </span>            : 
-<span class="lineNum">     150 </span><span class="lineCov">         18 :   boost::shared_ptr&lt;boost::asio::io_service&gt; io_service() const {</span>
-<span class="lineNum">     151 </span><span class="lineCov">         18 :     return io_service_;</span>
-<a name="152"><span class="lineNum">     152 </span>            :   }</a>
-<span class="lineNum">     153 </span>            : 
-<a name="154"><span class="lineNum">     154 </span><span class="lineCov">         18 :   bool always_verify_peer() const { return always_verify_peer_; }</span></a>
-<span class="lineNum">     155 </span>            : 
-<span class="lineNum">     156 </span><span class="lineCov">         18 :   int timeout() const { return timeout_; }</span>
-<span class="lineNum">     157 </span>            : 
-<span class="lineNum">     158 </span>            :  private:
-<span class="lineNum">     159 </span>            :   bool cache_resolved_;
-<span class="lineNum">     160 </span>            :   bool follow_redirects_;
-<span class="lineNum">     161 </span>            :   boost::optional&lt;string_type&gt; openssl_certificate_;
-<span class="lineNum">     162 </span>            :   boost::optional&lt;string_type&gt; openssl_verify_path_;
-<span class="lineNum">     163 </span>            :   boost::optional&lt;string_type&gt; openssl_certificate_file_;
-<span class="lineNum">     164 </span>            :   boost::optional&lt;string_type&gt; openssl_private_key_file_;
-<span class="lineNum">     165 </span>            :   boost::optional&lt;string_type&gt; openssl_ciphers_;
-<span class="lineNum">     166 </span>            :   long openssl_options_;
-<span class="lineNum">     167 </span>            :   boost::shared_ptr&lt;boost::asio::io_service&gt; io_service_;
-<span class="lineNum">     168 </span>            :   bool always_verify_peer_;
-<span class="lineNum">     169 </span>            :   int timeout_;
-<span class="lineNum">     170 </span>            : };
-<span class="lineNum">     171 </span>            : 
-<span class="lineNum">     172 </span>            : template &lt;class Tag&gt;
-<span class="lineNum">     173 </span>            : inline void swap(client_options&lt;Tag&gt;&amp; a, client_options&lt;Tag&gt;&amp; b) {
-<span class="lineNum">     174 </span>            :   a.swap(b);
-<span class="lineNum">     175 </span>            : }
+<span class="lineNum">     136 </span>            :   /// Provide an `boost::asio::io_service` hosted in a shared pointer.
+<span class="lineNum">     137 </span>            :   client_options&amp; io_service(std::shared_ptr&lt;boost::asio::io_service&gt; v) {
+<span class="lineNum">     138 </span>            :     io_service_ = v;
+<span class="lineNum">     139 </span>            :     return *this;
+<span class="lineNum">     140 </span>            :   }
+<span class="lineNum">     141 </span>            : 
+<span class="lineNum">     142 </span>            :   /// Set whether we always verify the peer on the other side of the HTTPS
+<span class="lineNum">     143 </span>            :   /// connection.
+<span class="lineNum">     144 </span>            :   ///
+<span class="lineNum">     145 </span>            :   /// Default: true.
+<span class="lineNum">     146 </span>            :   client_options&amp; always_verify_peer(bool v) {
+<span class="lineNum">     147 </span>            :     always_verify_peer_ = v;
+<span class="lineNum">     148 </span>            :     return *this;
+<span class="lineNum">     149 </span>            :   }
+<span class="lineNum">     150 </span>            : 
+<span class="lineNum">     151 </span>            :   /// Set an overall timeout for HTTP requests.
+<span class="lineNum">     152 </span>            :   client_options&amp; timeout(int v) {
+<span class="lineNum">     153 </span>            :     timeout_ = v;
+<span class="lineNum">     154 </span>            :     return *this;
+<a name="155"><span class="lineNum">     155 </span>            :   }</a>
+<span class="lineNum">     156 </span>            : 
+<a name="157"><span class="lineNum">     157 </span><span class="lineCov">         18 :   bool cache_resolved() const { return cache_resolved_; }</span></a>
+<span class="lineNum">     158 </span>            : 
+<a name="159"><span class="lineNum">     159 </span><span class="lineCov">         18 :   bool follow_redirects() const { return follow_redirects_; }</span></a>
+<span class="lineNum">     160 </span>            : 
+<span class="lineNum">     161 </span><span class="lineCov">         18 :   boost::optional&lt;string_type&gt; openssl_certificate() const {</span>
+<span class="lineNum">     162 </span><span class="lineCov">         18 :     return openssl_certificate_;</span>
+<a name="163"><span class="lineNum">     163 </span>            :   }</a>
+<span class="lineNum">     164 </span>            : 
+<span class="lineNum">     165 </span><span class="lineCov">         18 :   boost::optional&lt;string_type&gt; openssl_verify_path() const {</span>
+<span class="lineNum">     166 </span><span class="lineCov">         18 :     return openssl_verify_path_;</span>
+<a name="167"><span class="lineNum">     167 </span>            :   }</a>
+<span class="lineNum">     168 </span>            : 
+<span class="lineNum">     169 </span><span class="lineCov">         18 :   boost::optional&lt;string_type&gt; openssl_certificate_file() const {</span>
+<span class="lineNum">     170 </span><span class="lineCov">         18 :     return openssl_certificate_file_;</span>
+<a name="171"><span class="lineNum">     171 </span>            :   }</a>
+<span class="lineNum">     172 </span>            : 
+<span class="lineNum">     173 </span><span class="lineCov">         18 :   boost::optional&lt;string_type&gt; openssl_private_key_file() const {</span>
+<span class="lineNum">     174 </span><span class="lineCov">         18 :     return openssl_private_key_file_;</span>
+<a name="175"><span class="lineNum">     175 </span>            :   }</a>
 <span class="lineNum">     176 </span>            : 
-<span class="lineNum">     177 </span>            : } /* http */
-<span class="lineNum">     178 </span>            : } /* network */
-<span class="lineNum">     179 </span>            : } /* boost */
+<span class="lineNum">     177 </span><span class="lineCov">         18 :   boost::optional&lt;string_type&gt; openssl_ciphers() const {</span>
+<span class="lineNum">     178 </span><span class="lineCov">         18 :     return openssl_ciphers_;</span>
+<a name="179"><span class="lineNum">     179 </span>            :   }</a>
 <span class="lineNum">     180 </span>            : 
-<span class="lineNum">     181 </span>            : #endif /* BOOST_NETWORK_PROTOCOL_HTTP_CLIENT_OPTIONS_HPP_20130128 */
+<span class="lineNum">     181 </span><span class="lineCov">         18 :   boost::optional&lt;string_type&gt; openssl_sni_hostname() const {</span>
+<span class="lineNum">     182 </span><span class="lineCov">         18 :     return openssl_sni_hostname_;</span>
+<a name="183"><span class="lineNum">     183 </span>            :   }</a>
+<span class="lineNum">     184 </span>            : 
+<a name="185"><span class="lineNum">     185 </span><span class="lineCov">         18 :   long openssl_options() const { return openssl_options_; }</span></a>
+<span class="lineNum">     186 </span>            : 
+<a name="187"><span class="lineNum">     187 </span><span class="lineCov">         18 :   std::shared_ptr&lt;boost::asio::io_service&gt; io_service() const { return io_service_; }</span></a>
+<span class="lineNum">     188 </span>            : 
+<a name="189"><span class="lineNum">     189 </span><span class="lineCov">         18 :   bool always_verify_peer() const { return always_verify_peer_; }</span></a>
+<span class="lineNum">     190 </span>            : 
+<span class="lineNum">     191 </span><span class="lineCov">         18 :   int timeout() const { return timeout_; }</span>
+<span class="lineNum">     192 </span>            : 
+<span class="lineNum">     193 </span>            :  private:
+<span class="lineNum">     194 </span>            :   bool cache_resolved_;
+<span class="lineNum">     195 </span>            :   bool follow_redirects_;
+<span class="lineNum">     196 </span>            :   boost::optional&lt;string_type&gt; openssl_certificate_;
+<span class="lineNum">     197 </span>            :   boost::optional&lt;string_type&gt; openssl_verify_path_;
+<span class="lineNum">     198 </span>            :   boost::optional&lt;string_type&gt; openssl_certificate_file_;
+<span class="lineNum">     199 </span>            :   boost::optional&lt;string_type&gt; openssl_private_key_file_;
+<span class="lineNum">     200 </span>            :   boost::optional&lt;string_type&gt; openssl_ciphers_;
+<span class="lineNum">     201 </span>            :   boost::optional&lt;string_type&gt; openssl_sni_hostname_;
+<span class="lineNum">     202 </span>            :   long openssl_options_;
+<span class="lineNum">     203 </span>            :   std::shared_ptr&lt;boost::asio::io_service&gt; io_service_;
+<span class="lineNum">     204 </span>            :   bool always_verify_peer_;
+<span class="lineNum">     205 </span>            :   int timeout_;
+<span class="lineNum">     206 </span>            : };
+<span class="lineNum">     207 </span>            : 
+<span class="lineNum">     208 </span>            : template &lt;class Tag&gt;
+<span class="lineNum">     209 </span>            : inline void swap(client_options&lt;Tag&gt;&amp; a, client_options&lt;Tag&gt;&amp; b) {
+<span class="lineNum">     210 </span>            :   a.swap(b);
+<span class="lineNum">     211 </span>            : }
+<span class="lineNum">     212 </span>            : 
+<span class="lineNum">     213 </span>            : }  // namespace http
+<span class="lineNum">     214 </span>            : }  // namespace network
+<span class="lineNum">     215 </span>            : }  // namespace boost
+<span class="lineNum">     216 </span>            : 
+<span class="lineNum">     217 </span>            : #endif  // BOOST_NETWORK_PROTOCOL_HTTP_CLIENT_OPTIONS_HPP_20130128
 </pre>
       </td>
     </tr>

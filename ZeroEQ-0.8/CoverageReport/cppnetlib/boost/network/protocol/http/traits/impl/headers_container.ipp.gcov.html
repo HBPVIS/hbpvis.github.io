@@ -37,7 +37,7 @@
           </tr>
           <tr>
             <td class="headerItem">Date:</td>
-            <td class="headerValue">2017-01-31 01:48:09</td>
+            <td class="headerValue">2017-02-18 01:36:25</td>
             <td></td>
             <td class="headerItem">Functions:</td>
             <td class="headerCovTableEntry">1</td>
@@ -70,10 +70,10 @@
 <span class="lineNum">       8 </span>            : #ifndef BOOST_NETWORK_PROTOCOL_HTTP_MESSAGE_TRAITS_HEADERS_CONTAINER_IPP
 <span class="lineNum">       9 </span>            : #define BOOST_NETWORK_PROTOCOL_HTTP_MESSAGE_TRAITS_HEADERS_CONTAINER_IPP
 <span class="lineNum">      10 </span>            : 
-<span class="lineNum">      11 </span>            : #include &lt;boost/utility/enable_if.hpp&gt;
-<span class="lineNum">      12 </span>            : #include &lt;boost/network/traits/headers_container.hpp&gt;
-<span class="lineNum">      13 </span>            : #include &lt;boost/network/protocol/http/tags.hpp&gt;
-<span class="lineNum">      14 </span>            : #include &lt;boost/algorithm/string/case_conv.hpp&gt;
+<span class="lineNum">      11 </span>            : #include &lt;boost/algorithm/string/case_conv.hpp&gt;
+<span class="lineNum">      12 </span>            : #include &lt;boost/network/protocol/http/tags.hpp&gt;
+<span class="lineNum">      13 </span>            : #include &lt;boost/network/traits/headers_container.hpp&gt;
+<span class="lineNum">      14 </span>            : #include &lt;boost/utility/enable_if.hpp&gt;
 <span class="lineNum">      15 </span>            : #include &lt;map&gt;
 <span class="lineNum">      16 </span>            : #include &lt;string&gt;
 <span class="lineNum">      17 </span>            : 
@@ -87,11 +87,11 @@
 <span class="lineNum">      25 </span>            : // --
 <a name="26"><span class="lineNum">      26 </span>            : // returns true if str1 &lt; str2 (ignoring case)</a>
 <span class="lineNum">      27 </span>            : struct is_less_ignore_case_impl {
-<span class="lineNum">      28 </span><span class="lineCov">        783 :   inline bool operator()(</span>
-<span class="lineNum">      29 </span>            :       string&lt;http::tags::http_default_8bit_tcp_resolve&gt;::type const&amp; str1,
+<span class="lineNum">      28 </span><span class="lineCov">        343 :   inline bool operator()(</span>
+<span class="lineNum">      29 </span>            :       string&lt;http::tags::http_default_8bit_tcp_resolve&gt;::type  /*unused*/const&amp; str1,
 <span class="lineNum">      30 </span>            :       string&lt;http::tags::http_default_8bit_tcp_resolve&gt;::type const&amp; str2)
 <span class="lineNum">      31 </span>            :       const {
-<span class="lineNum">      32 </span><span class="lineCov">        783 :     return to_lower_copy(str1) &lt; to_lower_copy(str2);</span>
+<span class="lineNum">      32 </span><span class="lineCov">        343 :     return to_lower_copy(str1) &lt; to_lower_copy(str2);</span>
 <span class="lineNum">      33 </span>            :   };
 <span class="lineNum">      34 </span>            : };
 <span class="lineNum">      35 </span>            : 

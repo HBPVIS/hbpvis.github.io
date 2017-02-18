@@ -1,0 +1,154 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN">
+
+<html lang="en">
+
+<head>
+  <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+  <title>LCOV - ZeroEQ - cppnetlib/boost/network/utils/thread_group.hpp</title>
+  <link rel="stylesheet" type="text/css" href="../../../../gcov.css">
+</head>
+
+<body>
+
+  <table width="100%" border=0 cellspacing=0 cellpadding=0>
+    <tr><td class="title">LCOV - code coverage report</td></tr>
+    <tr><td class="ruler"><img src="../../../../glass.png" width=3 height=3 alt=""></td></tr>
+
+    <tr>
+      <td width="100%">
+        <table cellpadding=1 border=0 width="100%">
+          <tr>
+            <td width="10%" class="headerItem">Current view:</td>
+            <td width="35%" class="headerValue"><a href="../../../../index.html">top level</a> - <a href="index.html">cppnetlib/boost/network/utils</a> - thread_group.hpp<span style="font-size: 80%;"> (source / <a href="thread_group.hpp.func-sort-c.html">functions</a>)</span></td>
+            <td width="5%"></td>
+            <td width="15%"></td>
+            <td width="10%" class="headerCovTableHead">Hit</td>
+            <td width="10%" class="headerCovTableHead">Total</td>
+            <td width="15%" class="headerCovTableHead">Coverage</td>
+          </tr>
+          <tr>
+            <td class="headerItem">Test:</td>
+            <td class="headerValue">ZeroEQ</td>
+            <td></td>
+            <td class="headerItem">Lines:</td>
+            <td class="headerCovTableEntry">13</td>
+            <td class="headerCovTableEntry">13</td>
+            <td class="headerCovTableEntryHi">100.0 %</td>
+          </tr>
+          <tr>
+            <td class="headerItem">Date:</td>
+            <td class="headerValue">2017-02-18 01:36:25</td>
+            <td></td>
+            <td class="headerItem">Functions:</td>
+            <td class="headerCovTableEntry">4</td>
+            <td class="headerCovTableEntry">4</td>
+            <td class="headerCovTableEntryHi">100.0 %</td>
+          </tr>
+          <tr><td><img src="../../../../glass.png" width=3 height=3 alt=""></td></tr>
+        </table>
+      </td>
+    </tr>
+
+    <tr><td class="ruler"><img src="../../../../glass.png" width=3 height=3 alt=""></td></tr>
+  </table>
+
+  <table cellpadding=0 cellspacing=0 border=0>
+    <tr>
+      <td><br></td>
+    </tr>
+    <tr>
+      <td>
+<pre class="sourceHeading">          Line data    Source code</pre>
+<pre class="source">
+<a name="1"><span class="lineNum">       1 </span>            : //            Copyright (c) Glyn Matthews 2016.</a>
+<span class="lineNum">       2 </span>            : //         (C) Copyright 2007-9 Anthony Williams
+<span class="lineNum">       3 </span>            : // Distributed under the Boost Software License, Version 1.0.
+<span class="lineNum">       4 </span>            : //    (See accompanying file LICENSE_1_0.txt or copy at
+<span class="lineNum">       5 </span>            : //          http://www.boost.org/LICENSE_1_0.txt)
+<span class="lineNum">       6 </span>            : 
+<span class="lineNum">       7 </span>            : #ifndef BOOST_NETWORK_UTILS_THREAD_GROUP_INC
+<span class="lineNum">       8 </span>            : #define BOOST_NETWORK_UTILS_THREAD_GROUP_INC
+<span class="lineNum">       9 </span>            : 
+<span class="lineNum">      10 </span>            : #include &lt;thread&gt;
+<span class="lineNum">      11 </span>            : #include &lt;mutex&gt;
+<span class="lineNum">      12 </span>            : #include &lt;memory&gt;
+<span class="lineNum">      13 </span>            : #include &lt;list&gt;
+<span class="lineNum">      14 </span>            : #include &lt;algorithm&gt;
+<span class="lineNum">      15 </span>            : 
+<span class="lineNum">      16 </span>            : namespace boost {
+<span class="lineNum">      17 </span>            : namespace network {
+<span class="lineNum">      18 </span>            : namespace utils {
+<span class="lineNum">      19 </span>            : class thread_group {
+<span class="lineNum">      20 </span>            :  private:
+<span class="lineNum">      21 </span>            :   thread_group(thread_group const&amp;);
+<span class="lineNum">      22 </span>            :   thread_group&amp; operator=(thread_group const&amp;);
+<a name="23"><span class="lineNum">      23 </span>            : </a>
+<a name="24"><span class="lineNum">      24 </span>            :  public:</a>
+<span class="lineNum">      25 </span><span class="lineCov">         56 :   thread_group() {}</span>
+<span class="lineNum">      26 </span><span class="lineCov">         56 :   ~thread_group() {}</span>
+<a name="27"><span class="lineNum">      27 </span>            : </a>
+<span class="lineNum">      28 </span>            :   template &lt;typename F&gt;
+<span class="lineNum">      29 </span><span class="lineCov">         56 :   std::thread* create_thread(F threadfunc) {</span>
+<span class="lineNum">      30 </span><span class="lineCov">        112 :     std::lock_guard&lt;std::mutex&gt; guard(m);</span>
+<span class="lineNum">      31 </span><span class="lineCov">        112 :     std::unique_ptr&lt;std::thread&gt; new_thread(new std::thread(threadfunc));</span>
+<span class="lineNum">      32 </span><span class="lineCov">         56 :     threads.push_back(std::move(new_thread));</span>
+<span class="lineNum">      33 </span><span class="lineCov">        112 :     return threads.back().get();</span>
+<span class="lineNum">      34 </span>            :   }
+<span class="lineNum">      35 </span>            : 
+<span class="lineNum">      36 </span>            :   void add_thread(std::thread* thrd) {
+<span class="lineNum">      37 </span>            :     if (thrd) {
+<span class="lineNum">      38 </span>            :       std::lock_guard&lt;std::mutex&gt; guard(m);
+<span class="lineNum">      39 </span>            :       threads.push_back(std::unique_ptr&lt;std::thread&gt;(thrd));
+<span class="lineNum">      40 </span>            :     }
+<span class="lineNum">      41 </span>            :   }
+<span class="lineNum">      42 </span>            : 
+<span class="lineNum">      43 </span>            :   void remove_thread(std::thread* thrd) {
+<span class="lineNum">      44 </span>            :     std::lock_guard&lt;std::mutex&gt; guard(m);
+<span class="lineNum">      45 </span>            :     auto const it = std::find_if(threads.begin(), threads.end(),
+<span class="lineNum">      46 </span>            :                                  [&amp;thrd] (std::unique_ptr&lt;std::thread&gt; &amp;arg) {
+<span class="lineNum">      47 </span>            :                                    return arg.get() == thrd;
+<span class="lineNum">      48 </span>            :                                  });
+<span class="lineNum">      49 </span>            :     if (it != threads.end()) {
+<span class="lineNum">      50 </span>            :       threads.erase(it);
+<span class="lineNum">      51 </span>            :     }
+<a name="52"><span class="lineNum">      52 </span>            :   }</a>
+<span class="lineNum">      53 </span>            : 
+<span class="lineNum">      54 </span><span class="lineCov">         56 :   void join_all() {</span>
+<span class="lineNum">      55 </span><span class="lineCov">        112 :     std::unique_lock&lt;std::mutex&gt; guard(m);</span>
+<span class="lineNum">      56 </span>            : 
+<span class="lineNum">      57 </span><span class="lineCov">        112 :     for (auto &amp;thread : threads) {</span>
+<span class="lineNum">      58 </span><span class="lineCov">         56 :       if (thread-&gt;joinable()) {</span>
+<span class="lineNum">      59 </span><span class="lineCov">         56 :         thread-&gt;join();</span>
+<span class="lineNum">      60 </span>            :       }
+<span class="lineNum">      61 </span>            :     }
+<span class="lineNum">      62 </span><span class="lineCov">         56 :   }</span>
+<span class="lineNum">      63 </span>            : 
+<span class="lineNum">      64 </span>            :   size_t size() const {
+<span class="lineNum">      65 </span>            :     std::unique_lock&lt;std::mutex&gt; guard(m);
+<span class="lineNum">      66 </span>            :     return threads.size();
+<span class="lineNum">      67 </span>            :   }
+<span class="lineNum">      68 </span>            : 
+<span class="lineNum">      69 </span>            :  private:
+<span class="lineNum">      70 </span>            :   std::list&lt;std::unique_ptr&lt;std::thread&gt;&gt; threads;
+<span class="lineNum">      71 </span>            :   mutable std::mutex m;
+<span class="lineNum">      72 </span>            : };
+<span class="lineNum">      73 </span>            : 
+<span class="lineNum">      74 </span>            : }  // namespace utils
+<span class="lineNum">      75 </span>            : }  // namespace network
+<span class="lineNum">      76 </span>            : }  // namespace boost
+<span class="lineNum">      77 </span>            : 
+<span class="lineNum">      78 </span>            : #endif  // BOOST_NETWORK_UTILS_THREAD_GROUP_INC
+</pre>
+      </td>
+    </tr>
+  </table>
+  <br>
+
+  <table width="100%" border=0 cellspacing=0 cellpadding=0>
+    <tr><td class="ruler"><img src="../../../../glass.png" width=3 height=3 alt=""></td></tr>
+    <tr><td class="versionInfo">Generated by: <a href="http://ltp.sourceforge.net/coverage/lcov.php" target="_parent">LCOV version 1.11</a></td></tr>
+  </table>
+  <br>
+
+</body>
+</html>

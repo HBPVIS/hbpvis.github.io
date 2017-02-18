@@ -31,13 +31,13 @@
             <td class="headerValue">ZeroEQ</td>
             <td></td>
             <td class="headerItem">Lines:</td>
-            <td class="headerCovTableEntry">34</td>
-            <td class="headerCovTableEntry">40</td>
-            <td class="headerCovTableEntryHi">85.0 %</td>
+            <td class="headerCovTableEntry">32</td>
+            <td class="headerCovTableEntry">38</td>
+            <td class="headerCovTableEntryHi">84.2 %</td>
           </tr>
           <tr>
             <td class="headerItem">Date:</td>
-            <td class="headerValue">2017-01-31 01:48:09</td>
+            <td class="headerValue">2017-02-18 01:36:25</td>
             <td></td>
             <td class="headerItem">Functions:</td>
             <td class="headerCovTableEntry">6</td>
@@ -69,171 +69,320 @@
 <span class="lineNum">       7 </span>            : // (See accompanying file LICENSE_1_0.txt or copy at
 <span class="lineNum">       8 </span>            : // http://www.boost.org/LICENSE_1_0.txt)
 <span class="lineNum">       9 </span>            : 
-<span class="lineNum">      10 </span>            : #include &lt;boost/network/protocol/http/request.hpp&gt;
-<span class="lineNum">      11 </span>            : #include &lt;boost/network/protocol/http/response.hpp&gt;
+<span class="lineNum">      10 </span>            : #include &lt;memory&gt;
+<span class="lineNum">      11 </span>            : #include &lt;functional&gt;
 <span class="lineNum">      12 </span>            : #include &lt;boost/network/protocol/http/client/pimpl.hpp&gt;
-<span class="lineNum">      13 </span>            : #include &lt;boost/network/protocol/http/client/options.hpp&gt;
-<span class="lineNum">      14 </span>            : 
-<span class="lineNum">      15 </span>            : namespace boost {
-<span class="lineNum">      16 </span>            : namespace network {
-<span class="lineNum">      17 </span>            : namespace http {
-<span class="lineNum">      18 </span>            : 
-<span class="lineNum">      19 </span>            : template &lt;class Tag&gt;
-<span class="lineNum">      20 </span>            : struct basic_request;
-<span class="lineNum">      21 </span>            : 
-<span class="lineNum">      22 </span>            : template &lt;class Tag&gt;
-<span class="lineNum">      23 </span>            : struct basic_response;
-<span class="lineNum">      24 </span>            : 
-<span class="lineNum">      25 </span>            : template &lt;class Tag, unsigned version_major, unsigned version_minor&gt;
-<span class="lineNum">      26 </span>            : struct basic_client_facade {
-<span class="lineNum">      27 </span>            : 
-<span class="lineNum">      28 </span>            :   typedef typename string&lt;Tag&gt;::type string_type;
-<span class="lineNum">      29 </span>            :   typedef basic_request&lt;Tag&gt; request;
-<span class="lineNum">      30 </span>            :   typedef basic_response&lt;Tag&gt; response;
-<span class="lineNum">      31 </span>            :   typedef basic_client_impl&lt;Tag, version_major, version_minor&gt; pimpl_type;
-<span class="lineNum">      32 </span>            :   typedef function&lt;void(iterator_range&lt;char const*&gt; const&amp;,
-<span class="lineNum">      33 </span>            :                         system::error_code const&amp;)&gt; body_callback_function_type;
-<a name="34"><span class="lineNum">      34 </span>            :   typedef function&lt;bool(string_type&amp;)&gt; body_generator_function_type;</a>
-<span class="lineNum">      35 </span>            : 
-<span class="lineNum">      36 </span><span class="lineCov">         18 :   explicit basic_client_facade(client_options&lt;Tag&gt; const&amp; options) {</span>
-<span class="lineNum">      37 </span><span class="lineCov">         18 :     init_pimpl(options);</span>
-<a name="38"><span class="lineNum">      38 </span><span class="lineCov">         18 :   }</span></a>
+<span class="lineNum">      13 </span>            : #include &lt;boost/network/protocol/http/request.hpp&gt;
+<span class="lineNum">      14 </span>            : #include &lt;boost/network/protocol/http/response.hpp&gt;
+<span class="lineNum">      15 </span>            : 
+<span class="lineNum">      16 </span>            : namespace boost {
+<span class="lineNum">      17 </span>            : namespace network {
+<span class="lineNum">      18 </span>            : namespace http {
+<span class="lineNum">      19 </span>            : 
+<span class="lineNum">      20 </span>            : template &lt;class Tag&gt;
+<span class="lineNum">      21 </span>            : struct basic_request;
+<span class="lineNum">      22 </span>            : 
+<span class="lineNum">      23 </span>            : template &lt;class Tag&gt;
+<span class="lineNum">      24 </span>            : struct basic_response;
+<span class="lineNum">      25 </span>            : 
+<span class="lineNum">      26 </span>            : template &lt;class Tag, unsigned version_major, unsigned version_minor&gt;
+<span class="lineNum">      27 </span>            : class basic_client_facade {
+<span class="lineNum">      28 </span>            :   typedef basic_client_impl&lt;Tag, version_major, version_minor&gt; pimpl_type;
+<span class="lineNum">      29 </span>            : 
+<span class="lineNum">      30 </span>            :  public:
+<span class="lineNum">      31 </span>            :   /**
+<span class="lineNum">      32 </span>            :    * The type to use for strings associated with this client. Typically resolves
+<span class="lineNum">      33 </span>            :    * to `std::string`.
+<span class="lineNum">      34 </span>            :    */
+<span class="lineNum">      35 </span>            :   typedef typename string&lt;Tag&gt;::type string_type;
+<span class="lineNum">      36 </span>            : 
+<span class="lineNum">      37 </span>            :   /** The request type. This models the HTTP Request concept. */
+<span class="lineNum">      38 </span>            :   typedef basic_request&lt;Tag&gt; request;
 <span class="lineNum">      39 </span>            : 
-<span class="lineNum">      40 </span><span class="lineCov">         18 :   ~basic_client_facade() { pimpl-&gt;wait_complete(); }</span>
-<span class="lineNum">      41 </span>            : 
-<span class="lineNum">      42 </span>            :   response head(request const&amp; request) {
-<span class="lineNum">      43 </span>            :     return pimpl-&gt;request_skeleton(request, &quot;HEAD&quot;, false,
-<span class="lineNum">      44 </span>            :                                    body_callback_function_type(),
-<span class="lineNum">      45 </span>            :                                    body_generator_function_type());
-<a name="46"><span class="lineNum">      46 </span>            :   }</a>
-<span class="lineNum">      47 </span>            : 
-<span class="lineNum">      48 </span><span class="lineCov">         24 :   response get(request const&amp; request,</span>
-<span class="lineNum">      49 </span>            :                body_callback_function_type body_handler =
-<span class="lineNum">      50 </span>            :                    body_callback_function_type()) {
-<span class="lineNum">      51 </span><span class="lineCov">         24 :     return pimpl-&gt;request_skeleton(request, &quot;GET&quot;, true, body_handler,</span>
-<span class="lineNum">      52 </span><span class="lineCov">         48 :                                    body_generator_function_type());</span>
-<a name="53"><span class="lineNum">      53 </span>            :   }</a>
+<span class="lineNum">      40 </span>            :   /** The response type. This models the HTTP Response concept.*/
+<span class="lineNum">      41 </span>            :   typedef basic_response&lt;Tag&gt; response;
+<span class="lineNum">      42 </span>            : 
+<span class="lineNum">      43 </span>            :   typedef typename std::array&lt;typename char_&lt;Tag&gt;::type, 1024&gt;::const_iterator const_iterator;
+<span class="lineNum">      44 </span>            :   typedef iterator_range&lt;const_iterator&gt; char_const_range;
+<span class="lineNum">      45 </span>            : 
+<span class="lineNum">      46 </span>            :   /**
+<span class="lineNum">      47 </span>            :    * This callback is invoked with a range representing part of the response's
+<span class="lineNum">      48 </span>            :    * body as it comes in. In case of errors, the second argument is an error
+<span class="lineNum">      49 </span>            :    * code.
+<span class="lineNum">      50 </span>            :    */
+<span class="lineNum">      51 </span>            :   typedef std::function&lt;void(char_const_range,
+<span class="lineNum">      52 </span>            :                              boost::system::error_code const&amp;)&gt;
+<span class="lineNum">      53 </span>            :       body_callback_function_type;
 <span class="lineNum">      54 </span>            : 
-<span class="lineNum">      55 </span><span class="lineCov">          1 :   response post(request request, string_type const&amp; body = string_type(),</span>
-<span class="lineNum">      56 </span>            :                 string_type const&amp; content_type = string_type(),
-<span class="lineNum">      57 </span>            :                 body_callback_function_type body_handler =
-<span class="lineNum">      58 </span>            :                     body_callback_function_type(),
-<span class="lineNum">      59 </span>            :                 body_generator_function_type body_generator =
-<span class="lineNum">      60 </span>            :                     body_generator_function_type()) {
-<span class="lineNum">      61 </span><span class="lineCov">          1 :     if (body != string_type()) {</span>
-<span class="lineNum">      62 </span><span class="lineCov">          1 :       request &lt;&lt; remove_header(&quot;Content-Length&quot;)</span>
-<span class="lineNum">      63 </span><span class="lineCov">          2 :               &lt;&lt; header(&quot;Content-Length&quot;,</span>
-<span class="lineNum">      64 </span><span class="lineCov">          2 :                         boost::lexical_cast&lt;string_type&gt;(body.size()))</span>
-<span class="lineNum">      65 </span><span class="lineCov">          4 :               &lt;&lt; boost::network::body(body);</span>
-<span class="lineNum">      66 </span>            :     }
-<span class="lineNum">      67 </span>            :     typename headers_range&lt;basic_request&lt;Tag&gt; &gt;::type content_type_headers =
-<span class="lineNum">      68 </span><span class="lineCov">          1 :         headers(request)[&quot;Content-Type&quot;];</span>
-<span class="lineNum">      69 </span><span class="lineCov">          1 :     if (content_type != string_type()) {</span>
-<span class="lineNum">      70 </span><span class="lineNoCov">          0 :       if (!boost::empty(content_type_headers))</span>
-<span class="lineNum">      71 </span><span class="lineNoCov">          0 :         request &lt;&lt; remove_header(&quot;Content-Type&quot;);</span>
-<span class="lineNum">      72 </span><span class="lineNoCov">          0 :       request &lt;&lt; header(&quot;Content-Type&quot;, content_type);</span>
-<span class="lineNum">      73 </span>            :     } else {
-<span class="lineNum">      74 </span><span class="lineCov">          1 :       if (boost::empty(content_type_headers)) {</span>
-<span class="lineNum">      75 </span>            :         typedef typename char_&lt;Tag&gt;::type char_type;
-<span class="lineNum">      76 </span>            :         static char_type content_type[] = &quot;x-application/octet-stream&quot;;
-<span class="lineNum">      77 </span><span class="lineCov">          1 :         request &lt;&lt; header(&quot;Content-Type&quot;, content_type);</span>
-<span class="lineNum">      78 </span>            :       }
-<span class="lineNum">      79 </span>            :     }
-<span class="lineNum">      80 </span><span class="lineCov">          1 :     return pimpl-&gt;request_skeleton(request, &quot;POST&quot;, true, body_handler,</span>
-<span class="lineNum">      81 </span><span class="lineCov">          2 :                                    body_generator);</span>
-<span class="lineNum">      82 </span>            :   }
-<span class="lineNum">      83 </span>            : 
-<span class="lineNum">      84 </span>            :   response post(request const&amp; request,
-<span class="lineNum">      85 </span>            :                 body_generator_function_type body_generator,
-<span class="lineNum">      86 </span>            :                 body_callback_function_type callback =
-<span class="lineNum">      87 </span>            :                     body_generator_function_type()) {
-<span class="lineNum">      88 </span>            :     return pimpl-&gt;request_skeleton(request, &quot;POST&quot;, true, callback,
-<span class="lineNum">      89 </span>            :                                    body_generator);
-<span class="lineNum">      90 </span>            :   }
-<span class="lineNum">      91 </span>            : 
-<span class="lineNum">      92 </span>            :   response post(request const&amp; request, body_callback_function_type callback,
-<span class="lineNum">      93 </span>            :                 body_generator_function_type body_generator =
-<span class="lineNum">      94 </span>            :                     body_generator_function_type()) {
-<span class="lineNum">      95 </span>            :     return post(request, string_type(), string_type(), callback,
-<span class="lineNum">      96 </span>            :                 body_generator);
-<span class="lineNum">      97 </span>            :   }
-<span class="lineNum">      98 </span>            : 
-<span class="lineNum">      99 </span>            :   response post(request const&amp; request, string_type const&amp; body,
-<span class="lineNum">     100 </span>            :                 body_callback_function_type callback,
-<span class="lineNum">     101 </span>            :                 body_generator_function_type body_generator =
-<span class="lineNum">     102 </span>            :                     body_generator_function_type()) {
-<span class="lineNum">     103 </span>            :     return post(request, body, string_type(), callback, body_generator);
-<a name="104"><span class="lineNum">     104 </span>            :   }</a>
-<span class="lineNum">     105 </span>            : 
-<span class="lineNum">     106 </span><span class="lineCov">         11 :   response put(request request, string_type const&amp; body = string_type(),</span>
-<span class="lineNum">     107 </span>            :                string_type const&amp; content_type = string_type(),
-<span class="lineNum">     108 </span>            :                body_callback_function_type body_handler =
-<span class="lineNum">     109 </span>            :                    body_callback_function_type(),
-<span class="lineNum">     110 </span>            :                body_generator_function_type body_generator =
-<span class="lineNum">     111 </span>            :                    body_generator_function_type()) {
-<span class="lineNum">     112 </span><span class="lineCov">         11 :     if (body != string_type()) {</span>
-<span class="lineNum">     113 </span><span class="lineCov">          8 :       request &lt;&lt; remove_header(&quot;Content-Length&quot;)</span>
-<span class="lineNum">     114 </span><span class="lineCov">         16 :               &lt;&lt; header(&quot;Content-Length&quot;,</span>
-<span class="lineNum">     115 </span><span class="lineCov">         16 :                         boost::lexical_cast&lt;string_type&gt;(body.size()))</span>
-<span class="lineNum">     116 </span><span class="lineCov">         32 :               &lt;&lt; boost::network::body(body);</span>
-<span class="lineNum">     117 </span>            :     }
-<span class="lineNum">     118 </span>            :     typename headers_range&lt;basic_request&lt;Tag&gt; &gt;::type content_type_headers =
-<span class="lineNum">     119 </span><span class="lineCov">         11 :         headers(request)[&quot;Content-Type&quot;];</span>
-<span class="lineNum">     120 </span><span class="lineCov">         11 :     if (content_type != string_type()) {</span>
-<span class="lineNum">     121 </span><span class="lineNoCov">          0 :       if (!boost::empty(content_type_headers))</span>
-<span class="lineNum">     122 </span><span class="lineNoCov">          0 :         request &lt;&lt; remove_header(&quot;Content-Type&quot;);</span>
-<span class="lineNum">     123 </span><span class="lineNoCov">          0 :       request &lt;&lt; header(&quot;Content-Type&quot;, content_type);</span>
-<span class="lineNum">     124 </span>            :     } else {
-<span class="lineNum">     125 </span><span class="lineCov">         11 :       if (boost::empty(content_type_headers)) {</span>
-<span class="lineNum">     126 </span>            :         typedef typename char_&lt;Tag&gt;::type char_type;
-<span class="lineNum">     127 </span>            :         static char_type content_type[] = &quot;x-application/octet-stream&quot;;
-<span class="lineNum">     128 </span><span class="lineCov">         11 :         request &lt;&lt; header(&quot;Content-Type&quot;, content_type);</span>
-<span class="lineNum">     129 </span>            :       }
-<span class="lineNum">     130 </span>            :     }
-<span class="lineNum">     131 </span><span class="lineCov">         11 :     return pimpl-&gt;request_skeleton(request, &quot;PUT&quot;, true, body_handler,</span>
-<span class="lineNum">     132 </span><span class="lineCov">         22 :                                    body_generator);</span>
-<span class="lineNum">     133 </span>            :   }
-<span class="lineNum">     134 </span>            : 
-<span class="lineNum">     135 </span>            :   response put(request const&amp; request, body_callback_function_type callback,
-<span class="lineNum">     136 </span>            :                body_generator_function_type body_generator =
-<span class="lineNum">     137 </span>            :                    body_generator_function_type()) {
-<span class="lineNum">     138 </span>            :     return put(request, string_type(), string_type(), callback, body_generator);
-<span class="lineNum">     139 </span>            :   }
-<span class="lineNum">     140 </span>            : 
-<span class="lineNum">     141 </span>            :   response put(request const&amp; request, string_type body,
-<span class="lineNum">     142 </span>            :                body_callback_function_type callback,
-<span class="lineNum">     143 </span>            :                body_generator_function_type body_generator =
-<span class="lineNum">     144 </span>            :                    body_generator_function_type()) {
-<span class="lineNum">     145 </span>            :     return put(request, body, string_type(), callback, body_generator);
-<span class="lineNum">     146 </span>            :   }
-<span class="lineNum">     147 </span>            : 
-<span class="lineNum">     148 </span>            :   response delete_(request const&amp; request,
-<span class="lineNum">     149 </span>            :                    body_callback_function_type body_handler =
-<span class="lineNum">     150 </span>            :                        body_callback_function_type()) {
-<span class="lineNum">     151 </span>            :     return pimpl-&gt;request_skeleton(request, &quot;DELETE&quot;, true, body_handler,
-<span class="lineNum">     152 </span>            :                                    body_generator_function_type());
-<span class="lineNum">     153 </span>            :   }
-<span class="lineNum">     154 </span>            : 
-<span class="lineNum">     155 </span>            :   void clear_resolved_cache() { pimpl-&gt;clear_resolved_cache(); }
-<span class="lineNum">     156 </span>            : 
-<span class="lineNum">     157 </span>            :  protected:
-<a name="158"><span class="lineNum">     158 </span>            :   boost::shared_ptr&lt;pimpl_type&gt; pimpl;</a>
-<span class="lineNum">     159 </span>            : 
-<span class="lineNum">     160 </span><span class="lineCov">         18 :   void init_pimpl(client_options&lt;Tag&gt; const&amp; options) {</span>
-<span class="lineNum">     161 </span><span class="lineCov">         18 :     pimpl.reset(new pimpl_type(</span>
-<span class="lineNum">     162 </span>            :         options.cache_resolved(), options.follow_redirects(),
-<span class="lineNum">     163 </span>            :         options.always_verify_peer(), options.openssl_certificate(),
-<span class="lineNum">     164 </span>            :         options.openssl_verify_path(), options.openssl_certificate_file(),
-<span class="lineNum">     165 </span>            :         options.openssl_private_key_file(), options.openssl_ciphers(),
-<span class="lineNum">     166 </span>            :         options.openssl_options(), options.io_service(), options.timeout()));
-<span class="lineNum">     167 </span><span class="lineCov">         18 :   }</span>
-<span class="lineNum">     168 </span>            : };
-<span class="lineNum">     169 </span>            : 
-<span class="lineNum">     170 </span>            : }  // namespace http
-<span class="lineNum">     171 </span>            : }  // namespace network
-<span class="lineNum">     172 </span>            : }  // namespace boost
-<span class="lineNum">     173 </span>            : 
-<span class="lineNum">     174 </span>            : #endif  // BOOST_NETWORK_PROTOCOL_HTTP_CLIENT_FACADE_HPP_20100623
+<span class="lineNum">      55 </span>            :   /**
+<span class="lineNum">      56 </span>            :    * Functions that model this signature will be used to generate part of the
+<span class="lineNum">      57 </span>            :    * body while the request is being performed. This allows users to provide a
+<span class="lineNum">      58 </span>            :    * generator function that will generate the body of the request piece-wise.
+<span class="lineNum">      59 </span>            :    *
+<span class="lineNum">      60 </span>            :    * Implementations should return `true` if there is more to the body of the
+<span class="lineNum">      61 </span>            :    * request, and `false` otherwise.
+<span class="lineNum">      62 </span>            :    */
+<a name="63"><span class="lineNum">      63 </span>            :   typedef std::function&lt;bool(string_type&amp;)&gt; body_generator_function_type;</a>
+<span class="lineNum">      64 </span>            : 
+<span class="lineNum">      65 </span><span class="lineCov">         18 :   explicit basic_client_facade(client_options&lt;Tag&gt; const&amp; options) {</span>
+<span class="lineNum">      66 </span><span class="lineCov">         18 :     init_pimpl(options);</span>
+<a name="67"><span class="lineNum">      67 </span><span class="lineCov">         18 :   }</span></a>
+<span class="lineNum">      68 </span>            : 
+<span class="lineNum">      69 </span><span class="lineCov">         18 :   ~basic_client_facade() { pimpl-&gt;wait_complete(); }</span>
+<span class="lineNum">      70 </span>            : 
+<span class="lineNum">      71 </span>            :   /**
+<span class="lineNum">      72 </span>            :    * Perform a HEAD request.
+<span class="lineNum">      73 </span>            :    */
+<span class="lineNum">      74 </span>            :   response head(request const&amp; request) {
+<span class="lineNum">      75 </span>            :     return pimpl-&gt;request_skeleton(request, &quot;HEAD&quot;, false,
+<span class="lineNum">      76 </span>            :                                    body_callback_function_type(),
+<span class="lineNum">      77 </span>            :                                    body_generator_function_type());
+<span class="lineNum">      78 </span>            :   }
+<span class="lineNum">      79 </span>            : 
+<span class="lineNum">      80 </span>            :   /**
+<span class="lineNum">      81 </span>            :    * Perform a GET request.
+<span class="lineNum">      82 </span>            :    *
+<span class="lineNum">      83 </span>            :    * @param[in] request The request object including the URI and headers.
+<span class="lineNum">      84 </span>            :    * @param[in] body_handler If provided, a callback invoked for parts of the
+<span class="lineNum">      85 </span>            :    *   response's body.
+<span class="lineNum">      86 </span>            :    * @returns A response object.
+<span class="lineNum">      87 </span>            :    * @throw std::exception May throw exceptions on errors, derived from
+<a name="88"><span class="lineNum">      88 </span>            :    *   `std::exception`.</a>
+<span class="lineNum">      89 </span>            :    */
+<span class="lineNum">      90 </span><span class="lineCov">         24 :   response get(request const&amp; request,</span>
+<span class="lineNum">      91 </span>            :                body_callback_function_type body_handler =
+<span class="lineNum">      92 </span>            :                    body_callback_function_type()) {
+<span class="lineNum">      93 </span><span class="lineCov">         24 :     return pimpl-&gt;request_skeleton(request, &quot;GET&quot;, true, body_handler,</span>
+<span class="lineNum">      94 </span><span class="lineCov">         48 :                                    body_generator_function_type());</span>
+<span class="lineNum">      95 </span>            :   }
+<span class="lineNum">      96 </span>            : 
+<span class="lineNum">      97 </span>            :   /**
+<span class="lineNum">      98 </span>            :    * Perform a POST request.
+<span class="lineNum">      99 </span>            :    *
+<span class="lineNum">     100 </span>            :    * @param[in] request A copy of the request object including the URI and
+<span class="lineNum">     101 </span>            :    *   headers.
+<span class="lineNum">     102 </span>            :    * @param[in] body The whole contents of the body. If provided, this overrides
+<span class="lineNum">     103 </span>            :    *   the body in the `request`.
+<span class="lineNum">     104 </span>            :    * @param[in] content_type The content type for the request. This overrides
+<span class="lineNum">     105 </span>            :    *   the content type in the `request`.
+<span class="lineNum">     106 </span>            :    * @param[in] body_handler The callback invoked for parts of the response body
+<span class="lineNum">     107 </span>            :    *   as they come in.
+<span class="lineNum">     108 </span>            :    * @param[in] body_generator If provided, is invoked to generate parts of the
+<span class="lineNum">     109 </span>            :    *   request's body as it is being sent.
+<span class="lineNum">     110 </span>            :    * @returns A response object.
+<span class="lineNum">     111 </span>            :    * @throws std::exception May throw exceptions on errors, derived from
+<a name="112"><span class="lineNum">     112 </span>            :    *   `std::exception`.</a>
+<span class="lineNum">     113 </span>            :    */
+<span class="lineNum">     114 </span><span class="lineCov">          1 :   response post(</span>
+<span class="lineNum">     115 </span>            :       request request, string_type const&amp; body = string_type(),
+<span class="lineNum">     116 </span>            :       string_type const&amp; content_type = string_type(),
+<span class="lineNum">     117 </span>            :       body_callback_function_type body_handler = body_callback_function_type(),
+<span class="lineNum">     118 </span>            :       body_generator_function_type body_generator =
+<span class="lineNum">     119 </span>            :           body_generator_function_type()) {
+<span class="lineNum">     120 </span><span class="lineCov">          1 :     if (body != string_type()) {</span>
+<span class="lineNum">     121 </span><span class="lineCov">          1 :       request &lt;&lt; remove_header(&quot;Content-Length&quot;)</span>
+<span class="lineNum">     122 </span><span class="lineCov">          2 :               &lt;&lt; header(&quot;Content-Length&quot;, std::to_string(body.size()))</span>
+<span class="lineNum">     123 </span><span class="lineCov">          4 :               &lt;&lt; boost::network::body(body);</span>
+<span class="lineNum">     124 </span>            :     }
+<span class="lineNum">     125 </span>            :     typename headers_range&lt;basic_request&lt;Tag&gt; &gt;::type content_type_headers =
+<span class="lineNum">     126 </span><span class="lineCov">          1 :         headers(request)[&quot;Content-Type&quot;];</span>
+<span class="lineNum">     127 </span><span class="lineCov">          1 :     if (content_type != string_type()) {</span>
+<span class="lineNum">     128 </span><span class="lineNoCov">          0 :       if (!boost::empty(content_type_headers))</span>
+<span class="lineNum">     129 </span><span class="lineNoCov">          0 :         request &lt;&lt; remove_header(&quot;Content-Type&quot;);</span>
+<span class="lineNum">     130 </span><span class="lineNoCov">          0 :       request &lt;&lt; header(&quot;Content-Type&quot;, content_type);</span>
+<span class="lineNum">     131 </span>            :     } else {
+<span class="lineNum">     132 </span><span class="lineCov">          1 :       if (boost::empty(content_type_headers)) {</span>
+<span class="lineNum">     133 </span>            :         typedef typename char_&lt;Tag&gt;::type char_type;
+<span class="lineNum">     134 </span>            :         static char_type content_type[] = &quot;x-application/octet-stream&quot;;
+<span class="lineNum">     135 </span><span class="lineCov">          1 :         request &lt;&lt; header(&quot;Content-Type&quot;, content_type);</span>
+<span class="lineNum">     136 </span>            :       }
+<span class="lineNum">     137 </span>            :     }
+<span class="lineNum">     138 </span><span class="lineCov">          1 :     return pimpl-&gt;request_skeleton(request, &quot;POST&quot;, true, body_handler,</span>
+<span class="lineNum">     139 </span><span class="lineCov">          2 :                                    body_generator);</span>
+<span class="lineNum">     140 </span>            :   }
+<span class="lineNum">     141 </span>            : 
+<span class="lineNum">     142 </span>            :   /**
+<span class="lineNum">     143 </span>            :    * Perform a POST request.
+<span class="lineNum">     144 </span>            :    *
+<span class="lineNum">     145 </span>            :    * @param[in] request The request including the URI and headers.
+<span class="lineNum">     146 </span>            :    * @param[in] body_generator The function to call to generate part of the body
+<span class="lineNum">     147 </span>            :    *   while the request is being performed.
+<span class="lineNum">     148 </span>            :    * @param[in] callback If provided, the function to call for parts of the
+<span class="lineNum">     149 </span>            :    *   response's body as they come in.
+<span class="lineNum">     150 </span>            :    * @returns A response object.
+<span class="lineNum">     151 </span>            :    * @throws std::exception May throw exceptions derived from std::exception in
+<span class="lineNum">     152 </span>            :    *   case of errors.
+<span class="lineNum">     153 </span>            :    */
+<span class="lineNum">     154 </span>            :   response post(request const&amp; request,
+<span class="lineNum">     155 </span>            :                 body_generator_function_type body_generator,
+<span class="lineNum">     156 </span>            :                 body_callback_function_type body_handler =
+<span class="lineNum">     157 </span>            :                     body_callback_function_type()) {
+<span class="lineNum">     158 </span>            :     return pimpl-&gt;request_skeleton(request, &quot;POST&quot;, true, body_handler,
+<span class="lineNum">     159 </span>            :                                    body_generator);
+<span class="lineNum">     160 </span>            :   }
+<span class="lineNum">     161 </span>            : 
+<span class="lineNum">     162 </span>            :   /**
+<span class="lineNum">     163 </span>            :    * Perform a POST request.
+<span class="lineNum">     164 </span>            :    *
+<span class="lineNum">     165 </span>            :    * @param[in] request The request including the URI and headers.
+<span class="lineNum">     166 </span>            :    * @param[in] body_generator The function to call to generate part of the body
+<span class="lineNum">     167 </span>            :    *   while the request is being performed.
+<span class="lineNum">     168 </span>            :    * @param[in] callback If provided, the function to call for parts of the
+<span class="lineNum">     169 </span>            :    *   response's body as they come in.
+<span class="lineNum">     170 </span>            :    * @returns A response object.
+<span class="lineNum">     171 </span>            :    * @throws std::exception May throw exceptions derived from std::exception in
+<span class="lineNum">     172 </span>            :    *   case of errors.
+<span class="lineNum">     173 </span>            :    */
+<span class="lineNum">     174 </span>            :   response post(request const&amp; request,
+<span class="lineNum">     175 </span>            :                 body_callback_function_type body_handler,
+<span class="lineNum">     176 </span>            :                 body_generator_function_type body_generator =
+<span class="lineNum">     177 </span>            :                     body_generator_function_type()) {
+<span class="lineNum">     178 </span>            :     return post(request, string_type(), string_type(), body_handler,
+<span class="lineNum">     179 </span>            :                 body_generator);
+<span class="lineNum">     180 </span>            :   }
+<span class="lineNum">     181 </span>            : 
+<span class="lineNum">     182 </span>            :   /**
+<span class="lineNum">     183 </span>            :    * Perform a POST request.
+<span class="lineNum">     184 </span>            :    *
+<span class="lineNum">     185 </span>            :    * @param[in] request The request object including the URI and headers.
+<span class="lineNum">     186 </span>            :    * @param[in] body The whole contents of the body.
+<span class="lineNum">     187 </span>            :    * @param[in] body_handler The callback invoked for parts of the response body
+<span class="lineNum">     188 </span>            :    *   as they come in.
+<span class="lineNum">     189 </span>            :    * @param[in] body_generator If provided, is invoked to generate parts of the
+<span class="lineNum">     190 </span>            :    *   request's body as it is being sent.
+<span class="lineNum">     191 </span>            :    * @returns A response object.
+<span class="lineNum">     192 </span>            :    * @throws std::exception May throw exceptions on errors, derived from
+<span class="lineNum">     193 </span>            :    *   `std::exception`.
+<span class="lineNum">     194 </span>            :    */
+<span class="lineNum">     195 </span>            :   response post(request const&amp; request, string_type const&amp; body,
+<span class="lineNum">     196 </span>            :                 body_callback_function_type body_handler,
+<span class="lineNum">     197 </span>            :                 body_generator_function_type body_generator =
+<span class="lineNum">     198 </span>            :                     body_generator_function_type()) {
+<span class="lineNum">     199 </span>            :     return post(request, body, string_type(), body_handler, body_generator);
+<span class="lineNum">     200 </span>            :   }
+<span class="lineNum">     201 </span>            : 
+<span class="lineNum">     202 </span>            :   /**
+<span class="lineNum">     203 </span>            :    * Perform a PUT request.
+<span class="lineNum">     204 </span>            :    *
+<span class="lineNum">     205 </span>            :    * @param[in] request A copy of the request object including the URI and
+<span class="lineNum">     206 </span>            :    *   headers.
+<span class="lineNum">     207 </span>            :    * @param[in] body The whole contents of the body. If provided, this overrides
+<span class="lineNum">     208 </span>            :    *   the body in the `request`.
+<span class="lineNum">     209 </span>            :    * @param[in] content_type The content type for the request. This overrides
+<span class="lineNum">     210 </span>            :    *   the content type in the `request`.
+<span class="lineNum">     211 </span>            :    * @param[in] body_handler The callback invoked for parts of the response body
+<span class="lineNum">     212 </span>            :    *   as they come in.
+<span class="lineNum">     213 </span>            :    * @param[in] body_generator If provided, is invoked to generate parts of the
+<span class="lineNum">     214 </span>            :    *   request's body as it is being sent.
+<span class="lineNum">     215 </span>            :    * @returns A response object.
+<span class="lineNum">     216 </span>            :    * @throws std::exception May throw exceptions on errors, derived from
+<a name="217"><span class="lineNum">     217 </span>            :    *   `std::exception`.</a>
+<span class="lineNum">     218 </span>            :    */
+<span class="lineNum">     219 </span><span class="lineCov">         11 :   response put(</span>
+<span class="lineNum">     220 </span>            :       request request, string_type const&amp; body = string_type(),
+<span class="lineNum">     221 </span>            :       string_type const&amp; content_type = string_type(),
+<span class="lineNum">     222 </span>            :       body_callback_function_type body_handler = body_callback_function_type(),
+<span class="lineNum">     223 </span>            :       body_generator_function_type body_generator =
+<span class="lineNum">     224 </span>            :           body_generator_function_type()) {
+<span class="lineNum">     225 </span><span class="lineCov">         11 :     if (body != string_type()) {</span>
+<span class="lineNum">     226 </span><span class="lineCov">          8 :       request &lt;&lt; remove_header(&quot;Content-Length&quot;)</span>
+<span class="lineNum">     227 </span><span class="lineCov">         16 :               &lt;&lt; header(&quot;Content-Length&quot;, std::to_string(body.size()))</span>
+<span class="lineNum">     228 </span><span class="lineCov">         32 :               &lt;&lt; boost::network::body(body);</span>
+<span class="lineNum">     229 </span>            :     }
+<span class="lineNum">     230 </span>            :     typename headers_range&lt;basic_request&lt;Tag&gt; &gt;::type content_type_headers =
+<span class="lineNum">     231 </span><span class="lineCov">         11 :         headers(request)[&quot;Content-Type&quot;];</span>
+<span class="lineNum">     232 </span><span class="lineCov">         11 :     if (content_type != string_type()) {</span>
+<span class="lineNum">     233 </span><span class="lineNoCov">          0 :       if (!boost::empty(content_type_headers))</span>
+<span class="lineNum">     234 </span><span class="lineNoCov">          0 :         request &lt;&lt; remove_header(&quot;Content-Type&quot;);</span>
+<span class="lineNum">     235 </span><span class="lineNoCov">          0 :       request &lt;&lt; header(&quot;Content-Type&quot;, content_type);</span>
+<span class="lineNum">     236 </span>            :     } else {
+<span class="lineNum">     237 </span><span class="lineCov">         11 :       if (boost::empty(content_type_headers)) {</span>
+<span class="lineNum">     238 </span>            :         typedef typename char_&lt;Tag&gt;::type char_type;
+<span class="lineNum">     239 </span>            :         static char_type content_type[] = &quot;x-application/octet-stream&quot;;
+<span class="lineNum">     240 </span><span class="lineCov">         11 :         request &lt;&lt; header(&quot;Content-Type&quot;, content_type);</span>
+<span class="lineNum">     241 </span>            :       }
+<span class="lineNum">     242 </span>            :     }
+<span class="lineNum">     243 </span><span class="lineCov">         11 :     return pimpl-&gt;request_skeleton(request, &quot;PUT&quot;, true, body_handler,</span>
+<span class="lineNum">     244 </span><span class="lineCov">         22 :                                    body_generator);</span>
+<span class="lineNum">     245 </span>            :   }
+<span class="lineNum">     246 </span>            : 
+<span class="lineNum">     247 </span>            :   /**
+<span class="lineNum">     248 </span>            :    * Perform a PUT request.
+<span class="lineNum">     249 </span>            :    *
+<span class="lineNum">     250 </span>            :    * @param[in] request The request including the URI and headers.
+<span class="lineNum">     251 </span>            :    * @param[in] callback If provided, the function to call for parts of the
+<span class="lineNum">     252 </span>            :    *   response's body as they come in.
+<span class="lineNum">     253 </span>            :    * @param[in] body_generator The function to call to generate part of the body
+<span class="lineNum">     254 </span>            :    *   while the request is being performed.
+<span class="lineNum">     255 </span>            :    * @returns A response object.
+<span class="lineNum">     256 </span>            :    * @throws std::exception May throw exceptions derived from std::exception in
+<span class="lineNum">     257 </span>            :    *   case of errors.
+<span class="lineNum">     258 </span>            :    */
+<span class="lineNum">     259 </span>            :   response put(request const&amp; request, body_callback_function_type callback,
+<span class="lineNum">     260 </span>            :                body_generator_function_type body_generator =
+<span class="lineNum">     261 </span>            :                    body_generator_function_type()) {
+<span class="lineNum">     262 </span>            :     return put(request, string_type(), string_type(), callback, body_generator);
+<span class="lineNum">     263 </span>            :   }
+<span class="lineNum">     264 </span>            : 
+<span class="lineNum">     265 </span>            :   /**
+<span class="lineNum">     266 </span>            :    * Perform a POST request.
+<span class="lineNum">     267 </span>            :    *
+<span class="lineNum">     268 </span>            :    * @param[in] request The request object including the URI and headers.
+<span class="lineNum">     269 </span>            :    * @param[in] body The whole contents of the body.
+<span class="lineNum">     270 </span>            :    * @param[in] body_handler The callback invoked for parts of the response body
+<span class="lineNum">     271 </span>            :    *   as they come in.
+<span class="lineNum">     272 </span>            :    * @param[in] body_generator If provided, is invoked to generate parts of the
+<span class="lineNum">     273 </span>            :    *   request's body as it is being sent.
+<span class="lineNum">     274 </span>            :    * @returns A response object.
+<span class="lineNum">     275 </span>            :    * @throws std::exception May throw exceptions on errors, derived from
+<span class="lineNum">     276 </span>            :    *   `std::exception`.
+<span class="lineNum">     277 </span>            :    */
+<span class="lineNum">     278 </span>            :   response put(request const&amp; request, string_type body,
+<span class="lineNum">     279 </span>            :                body_callback_function_type body_handler,
+<span class="lineNum">     280 </span>            :                body_generator_function_type body_generator = {}) {
+<span class="lineNum">     281 </span>            :     return put(request, body, string_type(), body_handler, body_generator);
+<span class="lineNum">     282 </span>            :   }
+<span class="lineNum">     283 </span>            : 
+<span class="lineNum">     284 </span>            :   /**
+<span class="lineNum">     285 </span>            :    * Perform a DELETE request.
+<span class="lineNum">     286 </span>            :    *
+<span class="lineNum">     287 </span>            :    * @param[in] request The request object including the URI and the headers.
+<span class="lineNum">     288 </span>            :    * @param[in] body_handler The callback invoked for parts of the response body
+<span class="lineNum">     289 </span>            :    *   as they come in, if provided.
+<span class="lineNum">     290 </span>            :    * @returns A response object.
+<span class="lineNum">     291 </span>            :    * @throws std::exception May throw exceptions on errors, derived from
+<span class="lineNum">     292 </span>            :    *   `std::exception`.
+<span class="lineNum">     293 </span>            :    */
+<span class="lineNum">     294 </span>            :   response delete_(request const&amp; request,
+<span class="lineNum">     295 </span>            :                    body_callback_function_type body_handler = {}) {
+<span class="lineNum">     296 </span>            :     return pimpl-&gt;request_skeleton(request, &quot;DELETE&quot;, true, body_handler,
+<span class="lineNum">     297 </span>            :                                    body_generator_function_type());
+<span class="lineNum">     298 </span>            :   }
+<span class="lineNum">     299 </span>            : 
+<span class="lineNum">     300 </span>            :   /**
+<span class="lineNum">     301 </span>            :    * Clears the cache of resolved endpoints.
+<span class="lineNum">     302 </span>            :    */
+<span class="lineNum">     303 </span>            :   void clear_resolved_cache() { pimpl-&gt;clear_resolved_cache(); }
+<span class="lineNum">     304 </span>            : 
+<span class="lineNum">     305 </span>            :  protected:
+<a name="306"><span class="lineNum">     306 </span>            :   std::shared_ptr&lt;pimpl_type&gt; pimpl;</a>
+<span class="lineNum">     307 </span>            : 
+<span class="lineNum">     308 </span><span class="lineCov">         18 :   void init_pimpl(client_options&lt;Tag&gt; const&amp; options) {</span>
+<span class="lineNum">     309 </span><span class="lineCov">         18 :     pimpl.reset(new pimpl_type(</span>
+<span class="lineNum">     310 </span>            :         options.cache_resolved(), options.follow_redirects(),
+<span class="lineNum">     311 </span>            :         options.always_verify_peer(), options.openssl_certificate(),
+<span class="lineNum">     312 </span>            :         options.openssl_verify_path(), options.openssl_certificate_file(),
+<span class="lineNum">     313 </span>            :         options.openssl_private_key_file(), options.openssl_ciphers(),
+<span class="lineNum">     314 </span>            :         options.openssl_sni_hostname(), options.openssl_options(),
+<span class="lineNum">     315 </span>            :         options.io_service(), options.timeout()));
+<span class="lineNum">     316 </span><span class="lineCov">         18 :   }</span>
+<span class="lineNum">     317 </span>            : };
+<span class="lineNum">     318 </span>            : 
+<span class="lineNum">     319 </span>            : }  // namespace http
+<span class="lineNum">     320 </span>            : }  // namespace network
+<span class="lineNum">     321 </span>            : }  // namespace boost
+<span class="lineNum">     322 </span>            : 
+<span class="lineNum">     323 </span>            : #endif  // BOOST_NETWORK_PROTOCOL_HTTP_CLIENT_FACADE_HPP_20100623
 </pre>
       </td>
     </tr>

@@ -2,6 +2,7 @@ var NAVTREE =
 [
   [ "ZeroEQ", "index.html", [
     [ "Changelog", "Changelog.html", null ],
+    [ "HTTP Server for generic REST interfaces", "httpserverrest.html", null ],
     [ "RFCs", "rfcs.html", "rfcs" ],
     [ "Namespaces", null, [
       [ "Namespace List", "namespaces.html", "namespaces" ],
