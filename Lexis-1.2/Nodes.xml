@@ -1815,9 +1815,19 @@
                   <Anchor>aacd34dea040243c44b7b4664213d574a</Anchor>
                  </Node>
                  <Node>
+                  <Name>operator!=</Name>
+                  <Path>classlexis_1_1render_1_1_histogram.html</Path>
+                  <Anchor>aef162b2617c7147efa81db753de018c8</Anchor>
+                 </Node>
+                 <Node>
                   <Name>operator+=</Name>
                   <Path>classlexis_1_1render_1_1_histogram.html</Path>
                   <Anchor>a4784ce40f4851b40e2f7ab3bcec48521</Anchor>
+                 </Node>
+                 <Node>
+                  <Name>operator==</Name>
+                  <Path>classlexis_1_1render_1_1_histogram.html</Path>
+                  <Anchor>abd8d57aaca3d7e0118d513e02540a01f</Anchor>
                  </Node>
                  <Node>
                   <Name>resize</Name>

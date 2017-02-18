@@ -4,7 +4,7 @@ version: "1.2"
 major: 1
 minor: 2
 description: Vocabulary of events and shared objects for BBP and HBP software
-updated: 16/02/17
+updated: 18/02/17
 homepage: https://github.com/HBPVIS/Lexis
 repository: https://github.com/HBPVIS/Lexis.git
 issuesurl: https://github.com/HBPVIS/Lexis/issues

@@ -7,6 +7,8 @@ var classlexis_1_1render_1_1_histogram =
     [ "getRatio", "classlexis_1_1render_1_1_histogram.html#af6e22e75eee4ad1c94ba1e9af00d586e", null ],
     [ "getSum", "classlexis_1_1render_1_1_histogram.html#acda3b0518b046e5cf26729a83477cecc", null ],
     [ "isEmpty", "classlexis_1_1render_1_1_histogram.html#aacd34dea040243c44b7b4664213d574a", null ],
+    [ "operator!=", "classlexis_1_1render_1_1_histogram.html#aef162b2617c7147efa81db753de018c8", null ],
     [ "operator+=", "classlexis_1_1render_1_1_histogram.html#a4784ce40f4851b40e2f7ab3bcec48521", null ],
+    [ "operator==", "classlexis_1_1render_1_1_histogram.html#abd8d57aaca3d7e0118d513e02540a01f", null ],
     [ "resize", "classlexis_1_1render_1_1_histogram.html#a1281a03b5eec83757943cfa9a6c02675", null ]
 ];

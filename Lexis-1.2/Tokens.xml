@@ -853,6 +853,28 @@
   </Token>
   <Token>
     <TokenIdentifier>
+      <Name>operator==</Name>
+      <APILanguage>cpp</APILanguage>
+      <Type>instm</Type>
+      <Scope>lexis::render::Histogram</Scope>
+    </TokenIdentifier>
+    <Path>classlexis_1_1render_1_1_histogram.html</Path>
+    <Anchor>abd8d57aaca3d7e0118d513e02540a01f</Anchor>
+    <DeclaredIn>Histogram.h</DeclaredIn>
+  </Token>
+  <Token>
+    <TokenIdentifier>
+      <Name>operator!=</Name>
+      <APILanguage>cpp</APILanguage>
+      <Type>instm</Type>
+      <Scope>lexis::render::Histogram</Scope>
+    </TokenIdentifier>
+    <Path>classlexis_1_1render_1_1_histogram.html</Path>
+    <Anchor>aef162b2617c7147efa81db753de018c8</Anchor>
+    <DeclaredIn>Histogram.h</DeclaredIn>
+  </Token>
+  <Token>
+    <TokenIdentifier>
       <Name>getMinIndex</Name>
       <APILanguage>cpp</APILanguage>
       <Type>instm</Type>

@@ -52,14 +52,16 @@ var NAVTREEINDEX1 =
 "classlexis_1_1render_1_1_frame.html#ae71120a3e397f11f4ad6e947dc2dcb7a":[3,0,0,1,4,26],
 "classlexis_1_1render_1_1_frame.html#afad21d8c65729665455dca6f7980187f":[3,0,0,1,4,8],
 "classlexis_1_1render_1_1_histogram.html":[3,0,0,1,5],
-"classlexis_1_1render_1_1_histogram.html#a1281a03b5eec83757943cfa9a6c02675":[3,0,0,1,5,8],
-"classlexis_1_1render_1_1_histogram.html#a4784ce40f4851b40e2f7ab3bcec48521":[3,0,0,1,5,7],
+"classlexis_1_1render_1_1_histogram.html#a1281a03b5eec83757943cfa9a6c02675":[3,0,0,1,5,10],
+"classlexis_1_1render_1_1_histogram.html#a4784ce40f4851b40e2f7ab3bcec48521":[3,0,0,1,5,8],
 "classlexis_1_1render_1_1_histogram.html#a57b1118d36d4a02cac9190b7c6e18b0e":[3,0,0,1,5,3],
 "classlexis_1_1render_1_1_histogram.html#a77b4f9b83088c8ff8ada95239845c677":[3,0,0,1,5,0],
 "classlexis_1_1render_1_1_histogram.html#a7cdd5aa9295bd87d9b4c0c1e5dec3680":[3,0,0,1,5,1],
 "classlexis_1_1render_1_1_histogram.html#aacd34dea040243c44b7b4664213d574a":[3,0,0,1,5,6],
+"classlexis_1_1render_1_1_histogram.html#abd8d57aaca3d7e0118d513e02540a01f":[3,0,0,1,5,9],
 "classlexis_1_1render_1_1_histogram.html#acda3b0518b046e5cf26729a83477cecc":[3,0,0,1,5,5],
 "classlexis_1_1render_1_1_histogram.html#ad9662c086d7fcc498097b88e940f91e1":[3,0,0,1,5,2],
+"classlexis_1_1render_1_1_histogram.html#aef162b2617c7147efa81db753de018c8":[3,0,0,1,5,7],
 "classlexis_1_1render_1_1_histogram.html#af6e22e75eee4ad1c94ba1e9af00d586e":[3,0,0,1,5,4],
 "classlexis_1_1render_1_1_image_j_p_e_g.html":[3,0,0,1,6],
 "classlexis_1_1render_1_1_image_j_p_e_g.html#a1530ae4bd2662447e427801912d65093":[3,0,0,1,6,3],
@@ -247,7 +249,5 @@ var NAVTREEINDEX1 =
 "classlexis_1_1render_1_1_stream.html#afc60312e7b881786fd1e5083de0b73a9":[3,0,0,1,10,26],
 "classlexis_1_1render_1_1_viewport.html":[3,0,0,1,11],
 "classlexis_1_1render_1_1_viewport.html#a02e08cbd5b9033a456315c9ab9e15602":[3,0,0,1,11,6],
-"classlexis_1_1render_1_1_viewport.html#a1121ad7a653b749dee7dd8f184ff0919":[3,0,0,1,11,1],
-"classlexis_1_1render_1_1_viewport.html#a18021326f0543c0e24f69575d124cfd3":[3,0,0,1,11,18],
-"classlexis_1_1render_1_1_viewport.html#a2d761b1a6a80f23a6eb25d9514186c08":[3,0,0,1,11,13]
+"classlexis_1_1render_1_1_viewport.html#a1121ad7a653b749dee7dd8f184ff0919":[3,0,0,1,11,1]
 };
