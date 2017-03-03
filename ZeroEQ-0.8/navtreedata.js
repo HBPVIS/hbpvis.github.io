@@ -1,6 +1,7 @@
 var NAVTREE =
 [
   [ "ZeroEQ", "index.html", [
+    [ "Introduction", "index.html", null ],
     [ "Changelog", "Changelog.html", null ],
     [ "HTTP Server for generic REST interfaces", "httpserverrest.html", null ],
     [ "RFCs", "rfcs.html", "rfcs" ],

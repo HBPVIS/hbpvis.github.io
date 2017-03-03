@@ -1,4 +1,4 @@
 var searchData=
 [
-  ['publishing_20the_20rest_20api_20exposed_20by_20the_20http_20server',['Publishing the REST API exposed by the HTTP Server',['../restapi.html',1,'rfcs']]]
+  ['landing_20page_20for_20http_3a_3aserver',['Landing page for http::Server',['../landingpage.html',1,'rfcs']]]
 ];
