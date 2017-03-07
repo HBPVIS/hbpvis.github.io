@@ -12,11 +12,10 @@
 <area shape="rect" id="node29" href="$classlexis_1_1render_1_1_frame.html" title="lexis::render::Frame" alt="" coords="159,603,316,632"/>
 <area shape="rect" id="node31" href="$classlexis_1_1render_1_1_image_j_p_e_g.html" title="lexis::render::ImageJPEG" alt="" coords="143,656,332,685"/>
 <area shape="rect" id="node33" href="$classlexis_1_1render_1_1_look_out.html" title="lexis::render::LookOut" alt="" coords="151,709,324,739"/>
-<area shape="rect" id="node35" href="$classlexis_1_1render_1_1_lookup_table1_d.html" title="lexis::render::LookupTable1D" alt="" coords="129,763,345,792"/>
-<area shape="rect" id="node37" href="$classlexis_1_1render_1_1_material_l_u_t.html" title="lexis::render::MaterialLUT" alt="" coords="140,816,335,845"/>
-<area shape="rect" id="node39" href="$classlexis_1_1render_1_1_stream.html" title="lexis::render::Stream" alt="" coords="155,869,320,899"/>
-<area shape="rect" id="node41" href="$classlexis_1_1render_1_1_viewport.html" title="lexis::render::Viewport" alt="" coords="149,923,325,952"/>
-<area shape="rect" id="node43" href="$classlexis_1_1_request.html" title="lexis::Request" alt="" coords="179,976,296,1005"/>
+<area shape="rect" id="node35" href="$classlexis_1_1render_1_1_material_l_u_t.html" title="lexis::render::MaterialLUT" alt="" coords="140,763,335,792"/>
+<area shape="rect" id="node37" href="$classlexis_1_1render_1_1_stream.html" title="lexis::render::Stream" alt="" coords="155,816,320,845"/>
+<area shape="rect" id="node39" href="$classlexis_1_1render_1_1_viewport.html" title="lexis::render::Viewport" alt="" coords="149,869,325,899"/>
+<area shape="rect" id="node41" href="$classlexis_1_1_request.html" title="lexis::Request" alt="" coords="179,923,296,952"/>
 <area shape="rect" id="node7" href="$classlexis_1_1data_1_1_progress.html" title="Drop&#45;in progress meter for boost::progress_display. " alt="" coords="408,67,568,96"/>
 <area shape="rect" id="node19" href="$classlexis_1_1render_1_1_clip_planes.html" title="lexis::render::ClipPlanes" alt="" coords="396,349,580,379"/>
 <area shape="rect" id="node23" href="$classlexis_1_1render_1_1_histogram.html" title="lexis::render::Histogram" alt="" coords="396,419,580,448"/>

@@ -10,5 +10,6 @@ var classlexis_1_1render_1_1_histogram =
     [ "operator!=", "classlexis_1_1render_1_1_histogram.html#aef162b2617c7147efa81db753de018c8", null ],
     [ "operator+=", "classlexis_1_1render_1_1_histogram.html#a4784ce40f4851b40e2f7ab3bcec48521", null ],
     [ "operator==", "classlexis_1_1render_1_1_histogram.html#abd8d57aaca3d7e0118d513e02540a01f", null ],
-    [ "resize", "classlexis_1_1render_1_1_histogram.html#a1281a03b5eec83757943cfa9a6c02675", null ]
+    [ "resize", "classlexis_1_1render_1_1_histogram.html#a1281a03b5eec83757943cfa9a6c02675", null ],
+    [ "sampleCurve", "classlexis_1_1render_1_1_histogram.html#aeb7ba2a97a403cde118c40142bd72597", null ]
 ];

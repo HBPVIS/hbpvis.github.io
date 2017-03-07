@@ -31,18 +31,18 @@
             <td class="headerValue">Lexis</td>
             <td></td>
             <td class="headerItem">Lines:</td>
-            <td class="headerCovTableEntry">0</td>
             <td class="headerCovTableEntry">1</td>
-            <td class="headerCovTableEntryLo">0.0 %</td>
+            <td class="headerCovTableEntry">1</td>
+            <td class="headerCovTableEntryHi">100.0 %</td>
           </tr>
           <tr>
             <td class="headerItem">Date:</td>
-            <td class="headerValue">2017-02-18 03:15:13</td>
+            <td class="headerValue">2017-03-07 03:15:33</td>
             <td></td>
             <td class="headerItem">Functions:</td>
-            <td class="headerCovTableEntry">0</td>
+            <td class="headerCovTableEntry">1</td>
             <td class="headerCovTableEntry">3</td>
-            <td class="headerCovTableEntryLo">0.0 %</td>
+            <td class="headerCovTableEntryLo">33.3 %</td>
           </tr>
           <tr><td><img src="../glass.png" width=3 height=3 alt=""></td></tr>
         </table>
@@ -75,7 +75,7 @@
 <span class="lineNum">      13 </span>            : namespace render
 <a name="14"><span class="lineNum">      14 </span>            : {</a>
 <span class="lineNum">      15 </span>            : 
-<span class="lineNum">      16 </span><span class="lineNoCov">          0 : class Histogram : public detail::Histogram</span>
+<span class="lineNum">      16 </span><span class="lineCov">          3 : class Histogram : public detail::Histogram</span>
 <span class="lineNum">      17 </span>            : {
 <span class="lineNum">      18 </span>            : public:
 <span class="lineNum">      19 </span>            :     /** The minimum value is set to -inf and maximum value is set to -inf. */
@@ -129,10 +129,20 @@
 <span class="lineNum">      67 </span>            : 
 <span class="lineNum">      68 </span>            :     /** Sets the number of bins to newSize and clears the histogram. */
 <span class="lineNum">      69 </span>            :     LEXIS_API void resize( size_t newSize );
-<span class="lineNum">      70 </span>            : };
-<span class="lineNum">      71 </span>            : 
-<span class="lineNum">      72 </span>            : }
-<span class="lineNum">      73 </span>            : }
+<span class="lineNum">      70 </span>            : 
+<span class="lineNum">      71 </span>            :     /**
+<span class="lineNum">      72 </span>            :      * Linear sampling of the histogram.
+<span class="lineNum">      73 </span>            :      *
+<span class="lineNum">      74 </span>            :      * @param logScale use log for the y-values
+<span class="lineNum">      75 </span>            :      * @param range the range in [0..1] to use bins from
+<span class="lineNum">      76 </span>            :      * @return list of points from [0..1] in both axis.
+<span class="lineNum">      77 </span>            :      */
+<span class="lineNum">      78 </span>            :     LEXIS_API std::vector&lt; vmml::Vector2f &gt;
+<span class="lineNum">      79 </span>            :     sampleCurve( bool logScale, const vmml::Vector2f&amp; range ) const;
+<span class="lineNum">      80 </span>            : };
+<span class="lineNum">      81 </span>            : 
+<span class="lineNum">      82 </span>            : }
+<span class="lineNum">      83 </span>            : }
 </pre>
       </td>
     </tr>

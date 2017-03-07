@@ -163,6 +163,9 @@ Public Member Functions</h2></td></tr>
 <tr class="memitem:a1281a03b5eec83757943cfa9a6c02675"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classlexis_1_1render_1_1_histogram.html#a1281a03b5eec83757943cfa9a6c02675">resize</a> (size_t newSize)</td></tr>
 <tr class="memdesc:a1281a03b5eec83757943cfa9a6c02675"><td class="mdescLeft">&#160;</td><td class="mdescRight">Sets the number of bins to newSize and clears the histogram.  <a href="#a1281a03b5eec83757943cfa9a6c02675">More...</a><br /></td></tr>
 <tr class="separator:a1281a03b5eec83757943cfa9a6c02675"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:aeb7ba2a97a403cde118c40142bd72597"><td class="memItemLeft" align="right" valign="top">std::vector&lt; vmml::Vector2f &gt;&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classlexis_1_1render_1_1_histogram.html#aeb7ba2a97a403cde118c40142bd72597">sampleCurve</a> (bool logScale, const vmml::Vector2f &amp;range) const </td></tr>
+<tr class="memdesc:aeb7ba2a97a403cde118c40142bd72597"><td class="mdescLeft">&#160;</td><td class="mdescRight">Linear sampling of the histogram.  <a href="#aeb7ba2a97a403cde118c40142bd72597">More...</a><br /></td></tr>
+<tr class="separator:aeb7ba2a97a403cde118c40142bd72597"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="inherit_header pub_methods_classlexis_1_1render_1_1detail_1_1_histogram"><td colspan="2" onclick="javascript:toggleInherit('pub_methods_classlexis_1_1render_1_1detail_1_1_histogram')"><img src="closed.png" alt="-"/>&#160;Public Member Functions inherited from <a class="el" href="classlexis_1_1render_1_1detail_1_1_histogram.html">lexis::render::detail::Histogram</a></td></tr>
 <tr class="memitem:a426fb7dc9465e0cbcc10b4e688f9cf16 inherit pub_methods_classlexis_1_1render_1_1detail_1_1_histogram"><td class="memItemLeft" align="right" valign="top">Histogram::Bins &amp;&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classlexis_1_1render_1_1detail_1_1_histogram.html#a426fb7dc9465e0cbcc10b4e688f9cf16">getBins</a> ()</td></tr>
 <tr class="memdesc:a426fb7dc9465e0cbcc10b4e688f9cf16 inherit pub_methods_classlexis_1_1render_1_1detail_1_1_histogram"><td class="mdescLeft">&#160;</td><td class="mdescRight">Get a reference to the Bins dynamic member.  <a href="#a426fb7dc9465e0cbcc10b4e688f9cf16">More...</a><br /></td></tr>
@@ -467,6 +470,42 @@ static ConstHistogramPtr&#160;</td><td class="memItemRight" valign="bottom"><b>c
 
 </div>
 </div>
+<a class="anchor" id="aeb7ba2a97a403cde118c40142bd72597"></a>
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">std::vector&lt; vmml::Vector2f &gt; lexis::render::Histogram::sampleCurve </td>
+          <td>(</td>
+          <td class="paramtype">bool&#160;</td>
+          <td class="paramname"><em>logScale</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">const vmml::Vector2f &amp;&#160;</td>
+          <td class="paramname"><em>range</em>&#160;</td>
+        </tr>
+        <tr>
+          <td></td>
+          <td>)</td>
+          <td></td><td> const</td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p>Linear sampling of the histogram. </p>
+<dl class="params"><dt>Parameters</dt><dd>
+  <table class="params">
+    <tr><td class="paramname">logScale</td><td>use log for the y-values </td></tr>
+    <tr><td class="paramname">range</td><td>the range in [0..1] to use bins from </td></tr>
+  </table>
+  </dd>
+</dl>
+<dl class="section return"><dt>Returns</dt><dd>list of points from [0..1] in both axis. </dd></dl>
+
+</div>
+</div>
 <hr/>The documentation for this class was generated from the following file:<ul>
 <li><a class="el" href="_histogram_8h_source.html">Histogram.h</a></li>
 </ul>
@@ -476,7 +515,7 @@ static ConstHistogramPtr&#160;</td><td class="memItemRight" valign="bottom"><b>c
 <div id="nav-path" class="navpath"><!-- id is needed for treeview function! -->
   <ul>
     <li class="navelem"><b>lexis</b></li><li class="navelem"><b>render</b></li><li class="navelem"><a class="el" href="classlexis_1_1render_1_1_histogram.html">Histogram</a></li>
-    <li class="footer">Generated on Sat Feb 18 2017 03:15:14 for Lexis by
+    <li class="footer">Generated on Tue Mar 7 2017 03:15:34 for Lexis by
     <a href="http://www.doxygen.org/index.html">
     <img class="footer" src="doxygen.png" alt="doxygen"/></a> 1.8.11 </li>
   </ul>

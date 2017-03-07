@@ -11,7 +11,6 @@ var searchData=
   ['gethost',['getHost',['../classlexis_1_1render_1_1_stream.html#a6d52090b6dcfe49983dcc39c9a41df06',1,'lexis::render::Stream']]],
   ['getid',['getId',['../classlexis_1_1render_1_1_stream.html#ae8a8124f1acf0849143bcb618a510094',1,'lexis::render::Stream']]],
   ['getids',['getIds',['../classlexis_1_1data_1_1_selected_i_ds.html#a78d6f0aea607d7d32a40dd74f28015e0',1,'lexis::data::SelectedIDs::getIds()'],['../classlexis_1_1data_1_1_toggle_i_d_request.html#a977c6670c486bfde5d834f87ecf9450d',1,'lexis::data::ToggleIDRequest::getIds()']]],
-  ['getlut',['getLut',['../classlexis_1_1render_1_1_lookup_table1_d.html#aa045047524cbbfa149cda12c221f20e6',1,'lexis::render::LookupTable1D']]],
   ['getmajor',['getMajor',['../classlexis_1_1_version.html#a0ab08f92265f8abbc57784eed4827553',1,'lexis::Version']]],
   ['getmatrix',['getMatrix',['../classlexis_1_1render_1_1_look_out.html#a50da24acf12b2b6e7a402511e6672dbd',1,'lexis::render::LookOut']]],
   ['getmaxindex',['getMaxIndex',['../classlexis_1_1render_1_1_histogram.html#a7cdd5aa9295bd87d9b4c0c1e5dec3680',1,'lexis::render::Histogram']]],

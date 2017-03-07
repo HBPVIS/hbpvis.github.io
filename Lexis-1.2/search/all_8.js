@@ -12,6 +12,5 @@ var searchData=
   ['lexis_5fversion_5fminor',['LEXIS_VERSION_MINOR',['../version_8h.html#aa912f1acceb5e6d6ac0b63ea94aeab8a',1,'version.h']]],
   ['lexis_5fversion_5fpatch',['LEXIS_VERSION_PATCH',['../version_8h.html#acca6f7d9ac6ec026f96eedba54ead70f',1,'version.h']]],
   ['lexis_5fversion_5frevision',['LEXIS_VERSION_REVISION',['../version_8h.html#aad4f9c46048668a14298a9819833c2c3',1,'version.h']]],
-  ['lookout',['LookOut',['../classlexis_1_1render_1_1_look_out.html',1,'lexis::render']]],
-  ['lookuptable1d',['LookupTable1D',['../classlexis_1_1render_1_1_lookup_table1_d.html',1,'lexis::render']]]
+  ['lookout',['LookOut',['../classlexis_1_1render_1_1_look_out.html',1,'lexis::render']]]
 ];
