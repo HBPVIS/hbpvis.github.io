@@ -37,7 +37,7 @@
           </tr>
           <tr>
             <td class="headerItem">Date:</td>
-            <td class="headerValue">2017-03-03 11:48:24</td>
+            <td class="headerValue">2017-03-10 01:36:51</td>
             <td></td>
             <td class="headerItem">Functions:</td>
             <td class="headerCovTableEntry">6</td>
@@ -193,7 +193,7 @@
 <span class="lineNum">     131 </span>            :     } else {
 <span class="lineNum">     132 </span><span class="lineCov">          1 :       if (boost::empty(content_type_headers)) {</span>
 <span class="lineNum">     133 </span>            :         typedef typename char_&lt;Tag&gt;::type char_type;
-<span class="lineNum">     134 </span>            :         static char_type content_type[] = &quot;x-application/octet-stream&quot;;
+<span class="lineNum">     134 </span>            :         static char_type const content_type[] = &quot;x-application/octet-stream&quot;;
 <span class="lineNum">     135 </span><span class="lineCov">          1 :         request &lt;&lt; header(&quot;Content-Type&quot;, content_type);</span>
 <span class="lineNum">     136 </span>            :       }
 <span class="lineNum">     137 </span>            :     }
@@ -298,7 +298,7 @@
 <span class="lineNum">     236 </span>            :     } else {
 <span class="lineNum">     237 </span><span class="lineCov">         11 :       if (boost::empty(content_type_headers)) {</span>
 <span class="lineNum">     238 </span>            :         typedef typename char_&lt;Tag&gt;::type char_type;
-<span class="lineNum">     239 </span>            :         static char_type content_type[] = &quot;x-application/octet-stream&quot;;
+<span class="lineNum">     239 </span>            :         static char_type const content_type[] = &quot;x-application/octet-stream&quot;;
 <span class="lineNum">     240 </span><span class="lineCov">         11 :         request &lt;&lt; header(&quot;Content-Type&quot;, content_type);</span>
 <span class="lineNum">     241 </span>            :       }
 <span class="lineNum">     242 </span>            :     }

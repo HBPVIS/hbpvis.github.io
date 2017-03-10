@@ -37,7 +37,7 @@
           </tr>
           <tr>
             <td class="headerItem">Date:</td>
-            <td class="headerValue">2017-03-03 11:48:24</td>
+            <td class="headerValue">2017-03-10 01:36:51</td>
             <td></td>
             <td class="headerItem">Functions:</td>
             <td class="headerCovTableEntry">15</td>
@@ -153,7 +153,7 @@
 <span class="lineNum">      91 </span><span class="lineCov">         35 :     for (string_type const &amp; key : removed_headers) {</span>
 <span class="lineNum">      92 </span><span class="lineNoCov">          0 :       raw_headers.erase(key);</span>
 <span class="lineNum">      93 </span>            :     }
-<span class="lineNum">      94 </span><span class="lineCov">         35 :     retrieved_headers_ = raw_headers;</span>
+<span class="lineNum">      94 </span><span class="lineCov">         35 :     retrieved_headers_ = make_optional(raw_headers);</span>
 <span class="lineNum">      95 </span><span class="lineCov">         35 :     return *retrieved_headers_;</span>
 <a name="96"><span class="lineNum">      96 </span>            :   }</a>
 <span class="lineNum">      97 </span>            : 
