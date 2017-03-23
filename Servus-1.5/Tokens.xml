@@ -440,7 +440,7 @@
       <Scope>servus::Serializable</Scope>
     </TokenIdentifier>
     <Path>classservus_1_1_serializable.html</Path>
-    <Anchor>ab521b0997d87ae83ffdc3d28b22fae7e</Anchor>
+    <Anchor>aa4bbe0fd1fff3d1ce2874a44ee36e6f7</Anchor>
     <Abstract>Callbacks for change notifications. </Abstract>
   </Token>
   <Token>
@@ -486,7 +486,7 @@
       <Scope>servus::Serializable::Data</Scope>
     </TokenIdentifier>
     <Path>structservus_1_1_serializable_1_1_data.html</Path>
-    <Anchor>ae9999e67e09b83e634c9e0eded65d144</Anchor>
+    <Anchor>af2740c55a962b39e986ecd8e5a65fc0b</Anchor>
     <Abstract>ptr to the binary serialization </Abstract>
   </Token>
   <Token>

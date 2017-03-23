@@ -1,7 +1,7 @@
 var classservus_1_1_u_r_i =
 [
     [ "ConstKVIter", "classservus_1_1_u_r_i.html#a3768e58d01c242ae84a2cf54b1a4c944", null ],
-    [ "KVMap", "classservus_1_1_u_r_i.html#adfbe36b7ec5fbcb3e9b5f4aee3bf0cc8", null ],
+    [ "KVMap", "classservus_1_1_u_r_i.html#a41a33a49b30a6585034aae6a5a985344", null ],
     [ "URI", "classservus_1_1_u_r_i.html#af00fa88bf9fdb04653476fa0ce7811c6", null ],
     [ "URI", "classservus_1_1_u_r_i.html#af9931dea6fe3f04c85bd32aab79af2b8", null ],
     [ "URI", "classservus_1_1_u_r_i.html#ac591f612235fc5f72b982e1c3cecbd8b", null ],

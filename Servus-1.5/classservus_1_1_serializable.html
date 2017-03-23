@@ -169,13 +169,13 @@ Protected Member Functions</h2></td></tr>
 </table><table class="memberdecls">
 <tr class="heading"><td colspan="2"><h2 class="groupheader"><a name="member-group"></a>
 Change Notifications</h2></td></tr>
-<tr class="memitem:ab521b0997d87ae83ffdc3d28b22fae7e"><td class="memItemLeft" align="right" valign="top">typedef std::function&lt; void() &gt;&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classservus_1_1_serializable.html#ab521b0997d87ae83ffdc3d28b22fae7e">DeserializedCallback</a></td></tr>
-<tr class="memdesc:ab521b0997d87ae83ffdc3d28b22fae7e"><td class="mdescLeft">&#160;</td><td class="mdescRight">Callbacks for change notifications.  <a href="#ab521b0997d87ae83ffdc3d28b22fae7e">More...</a><br /></td></tr>
-<tr class="separator:ab521b0997d87ae83ffdc3d28b22fae7e"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:aa6733a136a71e7c88a795187bfcc557f"><td class="memItemLeft" align="right" valign="top"><a class="anchor" id="aa6733a136a71e7c88a795187bfcc557f"></a>
-typedef std::function&lt; void() &gt;&#160;</td><td class="memItemRight" valign="bottom"><b>SerializeCallback</b></td></tr>
-<tr class="separator:aa6733a136a71e7c88a795187bfcc557f"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:ae753421f537f9d852529fab3e7b0589a"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classservus_1_1_serializable.html#ae753421f537f9d852529fab3e7b0589a">registerDeserializedCallback</a> (const <a class="el" href="classservus_1_1_serializable.html#ab521b0997d87ae83ffdc3d28b22fae7e">DeserializedCallback</a> &amp;)</td></tr>
+<tr class="memitem:aa4bbe0fd1fff3d1ce2874a44ee36e6f7"><td class="memItemLeft" align="right" valign="top">typedef std::function&lt; void()&gt;&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classservus_1_1_serializable.html#aa4bbe0fd1fff3d1ce2874a44ee36e6f7">DeserializedCallback</a></td></tr>
+<tr class="memdesc:aa4bbe0fd1fff3d1ce2874a44ee36e6f7"><td class="mdescLeft">&#160;</td><td class="mdescRight">Callbacks for change notifications.  <a href="#aa4bbe0fd1fff3d1ce2874a44ee36e6f7">More...</a><br /></td></tr>
+<tr class="separator:aa4bbe0fd1fff3d1ce2874a44ee36e6f7"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a8c686161fd8e8692a3d83ae2ac4f5daf"><td class="memItemLeft" align="right" valign="top"><a class="anchor" id="a8c686161fd8e8692a3d83ae2ac4f5daf"></a>
+typedef std::function&lt; void()&gt;&#160;</td><td class="memItemRight" valign="bottom"><b>SerializeCallback</b></td></tr>
+<tr class="separator:a8c686161fd8e8692a3d83ae2ac4f5daf"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:ae753421f537f9d852529fab3e7b0589a"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classservus_1_1_serializable.html#ae753421f537f9d852529fab3e7b0589a">registerDeserializedCallback</a> (const <a class="el" href="classservus_1_1_serializable.html#aa4bbe0fd1fff3d1ce2874a44ee36e6f7">DeserializedCallback</a> &amp;)</td></tr>
 <tr class="memdesc:ae753421f537f9d852529fab3e7b0589a"><td class="mdescLeft">&#160;</td><td class="mdescRight">Register a function called after the object has been updated remotely (via a subscriber, a http server, loading from file...).  <a href="#ae753421f537f9d852529fab3e7b0589a">More...</a><br /></td></tr>
 <tr class="separator:ae753421f537f9d852529fab3e7b0589a"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:abf6382ae4a1de7e62d873f8ba2252a5e"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classservus_1_1_serializable.html#abf6382ae4a1de7e62d873f8ba2252a5e">registerSerializeCallback</a> (const SerializeCallback &amp;)</td></tr>
@@ -185,21 +185,21 @@ typedef std::function&lt; void() &gt;&#160;</td><td class="memItemRight" valign=
 <a name="details" id="details"></a><h2 class="groupheader">Detailed Description</h2>
 <div class="textblock"><p>Interface for serializable objects. </p>
 
-<p>Definition at line <a class="el" href="serializable_8h_source.html#l00033">33</a> of file <a class="el" href="serializable_8h_source.html">serializable.h</a>.</p>
+<p>Definition at line <a class="el" href="serializable_8h_source.html#l00032">32</a> of file <a class="el" href="serializable_8h_source.html">serializable.h</a>.</p>
 </div><h2 class="groupheader">Member Typedef Documentation</h2>
-<a class="anchor" id="ab521b0997d87ae83ffdc3d28b22fae7e"></a>
+<a class="anchor" id="aa4bbe0fd1fff3d1ce2874a44ee36e6f7"></a>
 <div class="memitem">
 <div class="memproto">
       <table class="memname">
         <tr>
-          <td class="memname">typedef std::function&lt; void() &gt; <a class="el" href="classservus_1_1_serializable.html#ab521b0997d87ae83ffdc3d28b22fae7e">servus::Serializable::DeserializedCallback</a></td>
+          <td class="memname">typedef std::function&lt;void()&gt; <a class="el" href="classservus_1_1_serializable.html#aa4bbe0fd1fff3d1ce2874a44ee36e6f7">servus::Serializable::DeserializedCallback</a></td>
         </tr>
       </table>
 </div><div class="memdoc">
 
 <p>Callbacks for change notifications. </p>
 
-<p>Definition at line <a class="el" href="serializable_8h_source.html#l00088">88</a> of file <a class="el" href="serializable_8h_source.html">serializable.h</a>.</p>
+<p>Definition at line <a class="el" href="serializable_8h_source.html#l00089">89</a> of file <a class="el" href="serializable_8h_source.html">serializable.h</a>.</p>
 
 </div>
 </div>
@@ -292,7 +292,7 @@ typedef std::function&lt; void() &gt;&#160;</td><td class="memItemRight" valign=
 </div><div class="memdoc">
 <dl class="section return"><dt>Returns</dt><dd>the description of the objects' data layout. </dd></dl>
 
-<p>Definition at line <a class="el" href="serializable_8h_source.html#l00056">56</a> of file <a class="el" href="serializable_8h_source.html">serializable.h</a>.</p>
+<p>Definition at line <a class="el" href="serializable_8h_source.html#l00058">58</a> of file <a class="el" href="serializable_8h_source.html">serializable.h</a>.</p>
 
 <p>References <a class="el" href="classservus_1_1_serializable.html#ad22a242cda7fab6d67a93755e8bdb7f1">fromBinary()</a>, <a class="el" href="classservus_1_1_serializable.html#aa2dc11be817dd99bdff1a4dc3cd1d6c0">fromJSON()</a>, <a class="el" href="structservus_1_1_serializable_1_1_data.html#a6c225f50408736b544f45984555cf004">servus::Serializable::Data::size</a>, <a class="el" href="classservus_1_1_serializable.html#a90e9c69a8b2df8038b47e99a0c35f66a">toBinary()</a>, and <a class="el" href="classservus_1_1_serializable.html#af87ccb0b463f144a4788b1645e293396">toJSON()</a>.</p>
 
@@ -368,7 +368,7 @@ typedef std::function&lt; void() &gt;&#160;</td><td class="memItemRight" valign=
         <tr>
           <td class="memname">void servus::Serializable::registerDeserializedCallback </td>
           <td>(</td>
-          <td class="paramtype">const <a class="el" href="classservus_1_1_serializable.html#ab521b0997d87ae83ffdc3d28b22fae7e">DeserializedCallback</a> &amp;&#160;</td>
+          <td class="paramtype">const <a class="el" href="classservus_1_1_serializable.html#aa4bbe0fd1fff3d1ce2874a44ee36e6f7">DeserializedCallback</a> &amp;&#160;</td>
           <td class="paramname"></td><td>)</td>
           <td></td>
         </tr>
@@ -483,7 +483,7 @@ typedef std::function&lt; void() &gt;&#160;</td><td class="memItemRight" valign=
 <div id="nav-path" class="navpath"><!-- id is needed for treeview function! -->
   <ul>
     <li class="navelem"><b>servus</b></li><li class="navelem"><a class="el" href="classservus_1_1_serializable.html">Serializable</a></li>
-    <li class="footer">Generated on Tue Jan 31 2017 03:06:27 for Servus by
+    <li class="footer">Generated on Thu Mar 23 2017 03:07:14 for Servus by
     <a href="http://www.doxygen.org/index.html">
     <img class="footer" src="doxygen.png" alt="doxygen"/></a> 1.8.11 </li>
   </ul>

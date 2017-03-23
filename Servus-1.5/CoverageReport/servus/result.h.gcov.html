@@ -31,13 +31,13 @@
             <td class="headerValue">Servus</td>
             <td></td>
             <td class="headerItem">Lines:</td>
-            <td class="headerCovTableEntry">5</td>
-            <td class="headerCovTableEntry">12</td>
-            <td class="headerCovTableEntryMed">41.7 %</td>
+            <td class="headerCovTableEntry">8</td>
+            <td class="headerCovTableEntry">15</td>
+            <td class="headerCovTableEntryMed">53.3 %</td>
           </tr>
           <tr>
             <td class="headerItem">Date:</td>
-            <td class="headerValue">2017-01-31 03:06:26</td>
+            <td class="headerValue">2017-03-23 03:07:13</td>
             <td></td>
             <td class="headerItem">Functions:</td>
             <td class="headerCovTableEntry">5</td>
@@ -88,52 +88,52 @@
 <span class="lineNum">      26 </span>            : 
 <span class="lineNum">      27 </span>            : namespace servus
 <span class="lineNum">      28 </span>            : {
-<span class="lineNum">      29 </span>            : 
-<span class="lineNum">      30 </span>            : /** A result returns an error code and behaves like a boolean. */
-<span class="lineNum">      31 </span>            : class Result
-<a name="32"><span class="lineNum">      32 </span>            : {</a>
-<span class="lineNum">      33 </span>            :     typedef void (Result::*bool_t)() const;
-<span class="lineNum">      34 </span><span class="lineNoCov">          0 :     void bool_true() const {}</span>
-<span class="lineNum">      35 </span>            : 
-<span class="lineNum">      36 </span>            : public:
-<span class="lineNum">      37 </span>            :     static const int32_t SUCCESS = 0;
-<a name="38"><span class="lineNum">      38 </span>            : </a>
-<span class="lineNum">      39 </span>            :     /** Construct a new result. */
-<span class="lineNum">      40 </span><span class="lineCov">         39 :     explicit Result( const int32_t code ) : code_( code ){}</span>
-<a name="41"><span class="lineNum">      41 </span>            : </a>
-<span class="lineNum">      42 </span>            :     /** Destruct the result. */
-<span class="lineNum">      43 </span><span class="lineCov">         39 :     virtual ~Result(){}</span>
-<a name="44"><span class="lineNum">      44 </span>            : </a>
+<span class="lineNum">      29 </span>            : /** A result returns an error code and behaves like a boolean. */
+<span class="lineNum">      30 </span>            : class Result
+<a name="31"><span class="lineNum">      31 </span>            : {</a>
+<span class="lineNum">      32 </span>            :     typedef void (Result::*bool_t)() const;
+<span class="lineNum">      33 </span><span class="lineNoCov">          0 :     void bool_true() const {}</span>
+<span class="lineNum">      34 </span>            : public:
+<span class="lineNum">      35 </span>            :     static const int32_t SUCCESS = 0;
+<a name="36"><span class="lineNum">      36 </span>            : </a>
+<span class="lineNum">      37 </span>            :     /** Construct a new result. */
+<span class="lineNum">      38 </span><span class="lineCov">         39 :     explicit Result(const int32_t code)</span>
+<span class="lineNum">      39 </span><span class="lineCov">         39 :         : code_(code)</span>
+<span class="lineNum">      40 </span>            :     {
+<span class="lineNum">      41 </span><span class="lineCov">         39 :     }</span>
+<a name="42"><span class="lineNum">      42 </span>            : </a>
+<span class="lineNum">      43 </span>            :     /** Destruct the result. */
+<a name="44"><span class="lineNum">      44 </span><span class="lineCov">         39 :     virtual ~Result() {}</span></a>
 <span class="lineNum">      45 </span>            :     /** @return true if no error occured, false otherwise. */
-<span class="lineNum">      46 </span><span class="lineCov">          2 :     operator bool_t() const { return code_ == SUCCESS ? &amp;Result::bool_true : 0;}</span>
-<a name="47"><span class="lineNum">      47 </span>            : </a>
-<span class="lineNum">      48 </span>            :     /** @return true if an error occured, false otherwise. */
-<span class="lineNum">      49 </span><span class="lineCov">          2 :     bool operator !() const { return code_ != SUCCESS; }</span>
+<span class="lineNum">      46 </span><span class="lineCov">          2 :     operator bool_t() const</span>
+<span class="lineNum">      47 </span>            :     {
+<span class="lineNum">      48 </span><span class="lineCov">          2 :         return code_ == SUCCESS ? &amp;Result::bool_true : 0;</span>
+<span class="lineNum">      49 </span>            :     }
 <a name="50"><span class="lineNum">      50 </span>            : </a>
-<span class="lineNum">      51 </span>            :     /** @return true if the result is equal to the given value. */
-<span class="lineNum">      52 </span><span class="lineNoCov">          0 :     bool operator == ( const int32_t code ) const { return code_ == code; }</span>
-<a name="53"><span class="lineNum">      53 </span>            : </a>
-<span class="lineNum">      54 </span>            :     /** @return true if the result is not equal to the rhs. */
-<span class="lineNum">      55 </span><span class="lineCov">          3 :     bool operator != ( const int32_t code ) const { return code != code_; }</span>
-<a name="56"><span class="lineNum">      56 </span>            : </a>
+<span class="lineNum">      51 </span>            :     /** @return true if an error occured, false otherwise. */
+<a name="52"><span class="lineNum">      52 </span><span class="lineCov">          2 :     bool operator!() const { return code_ != SUCCESS; }</span></a>
+<span class="lineNum">      53 </span>            :     /** @return true if the result is equal to the given value. */
+<a name="54"><span class="lineNum">      54 </span><span class="lineNoCov">          0 :     bool operator==(const int32_t code) const { return code_ == code; }</span></a>
+<span class="lineNum">      55 </span>            :     /** @return true if the result is not equal to the rhs. */
+<a name="56"><span class="lineNum">      56 </span><span class="lineCov">          3 :     bool operator!=(const int32_t code) const { return code != code_; }</span></a>
 <span class="lineNum">      57 </span>            :     /** @return the result code. */
-<span class="lineNum">      58 </span><span class="lineNoCov">          0 :     int32_t getCode() const { return code_; }</span>
-<a name="59"><span class="lineNum">      59 </span>            : </a>
-<span class="lineNum">      60 </span>            :     /** @return the result string. */
-<span class="lineNum">      61 </span><span class="lineNoCov">          0 :     virtual std::string getString() const</span>
-<span class="lineNum">      62 </span><span class="lineNoCov">          0 :         { return code_ == SUCCESS ? &quot;success&quot; : &quot;result&quot;; }</span>
-<span class="lineNum">      63 </span>            : 
-<span class="lineNum">      64 </span>            : protected:
-<span class="lineNum">      65 </span>            :     int32_t code_;
-<a name="66"><span class="lineNum">      66 </span>            : };</a>
-<span class="lineNum">      67 </span>            : 
-<span class="lineNum">      68 </span><span class="lineNoCov">          0 : inline std::ostream&amp; operator &lt;&lt; ( std::ostream&amp; os, const Result&amp; result )</span>
-<span class="lineNum">      69 </span>            : {
-<span class="lineNum">      70 </span><span class="lineNoCov">          0 :     return os &lt;&lt; result.getString() &lt;&lt; &quot; (&quot; &lt;&lt; result.getCode() &lt;&lt; &quot;)&quot;;</span>
-<span class="lineNum">      71 </span>            : }
-<span class="lineNum">      72 </span>            : 
+<a name="58"><span class="lineNum">      58 </span><span class="lineNoCov">          0 :     int32_t getCode() const { return code_; }</span></a>
+<span class="lineNum">      59 </span>            :     /** @return the result string. */
+<span class="lineNum">      60 </span><span class="lineNoCov">          0 :     virtual std::string getString() const</span>
+<span class="lineNum">      61 </span>            :     {
+<span class="lineNum">      62 </span><span class="lineNoCov">          0 :         return code_ == SUCCESS ? &quot;success&quot; : &quot;result&quot;;</span>
+<span class="lineNum">      63 </span>            :     }
+<span class="lineNum">      64 </span>            : 
+<span class="lineNum">      65 </span>            : protected:
+<span class="lineNum">      66 </span>            :     int32_t code_;
+<a name="67"><span class="lineNum">      67 </span>            : };</a>
+<span class="lineNum">      68 </span>            : 
+<span class="lineNum">      69 </span><span class="lineNoCov">          0 : inline std::ostream&amp; operator&lt;&lt;(std::ostream&amp; os, const Result&amp; result)</span>
+<span class="lineNum">      70 </span>            : {
+<span class="lineNum">      71 </span><span class="lineNoCov">          0 :     return os &lt;&lt; result.getString() &lt;&lt; &quot; (&quot; &lt;&lt; result.getCode() &lt;&lt; &quot;)&quot;;</span>
+<span class="lineNum">      72 </span>            : }
 <span class="lineNum">      73 </span>            : }
-<span class="lineNum">      74 </span>            : #endif //SERVUS_RESULT_H
+<span class="lineNum">      74 </span>            : #endif // SERVUS_RESULT_H
 </pre>
       </td>
     </tr>

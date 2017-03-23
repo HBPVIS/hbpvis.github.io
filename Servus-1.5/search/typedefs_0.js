@@ -1,4 +1,4 @@
 var searchData=
 [
-  ['deserializedcallback',['DeserializedCallback',['../classservus_1_1_serializable.html#ab521b0997d87ae83ffdc3d28b22fae7e',1,'servus::Serializable']]]
+  ['deserializedcallback',['DeserializedCallback',['../classservus_1_1_serializable.html#aa4bbe0fd1fff3d1ce2874a44ee36e6f7',1,'servus::Serializable']]]
 ];

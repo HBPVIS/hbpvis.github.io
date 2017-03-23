@@ -1,8 +1,8 @@
 var classservus_1_1_serializable =
 [
     [ "Data", "structservus_1_1_serializable_1_1_data.html", "structservus_1_1_serializable_1_1_data" ],
-    [ "DeserializedCallback", "classservus_1_1_serializable.html#ab521b0997d87ae83ffdc3d28b22fae7e", null ],
-    [ "SerializeCallback", "classservus_1_1_serializable.html#aa6733a136a71e7c88a795187bfcc557f", null ],
+    [ "DeserializedCallback", "classservus_1_1_serializable.html#aa4bbe0fd1fff3d1ce2874a44ee36e6f7", null ],
+    [ "SerializeCallback", "classservus_1_1_serializable.html#a8c686161fd8e8692a3d83ae2ac4f5daf", null ],
     [ "Serializable", "classservus_1_1_serializable.html#aff8c3b483a7abdea45568ed82cc43146", null ],
     [ "~Serializable", "classservus_1_1_serializable.html#a6ed920e10538583670f363fcaff92057", null ],
     [ "Serializable", "classservus_1_1_serializable.html#a06f93ca5e7c5d07fa75c31182747efa9", null ],

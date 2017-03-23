@@ -166,7 +166,7 @@
                  <Node>
                   <Name>ptr</Name>
                   <Path>structservus_1_1_serializable_1_1_data.html</Path>
-                  <Anchor>ae9999e67e09b83e634c9e0eded65d144</Anchor>
+                  <Anchor>af2740c55a962b39e986ecd8e5a65fc0b</Anchor>
                  </Node>
                  <Node>
                   <Name>size</Name>
@@ -178,12 +178,12 @@
                <Node>
                 <Name>DeserializedCallback</Name>
                 <Path>classservus_1_1_serializable.html</Path>
-                <Anchor>ab521b0997d87ae83ffdc3d28b22fae7e</Anchor>
+                <Anchor>aa4bbe0fd1fff3d1ce2874a44ee36e6f7</Anchor>
                </Node>
                <Node>
                 <Name>SerializeCallback</Name>
                 <Path>classservus_1_1_serializable.html</Path>
-                <Anchor>aa6733a136a71e7c88a795187bfcc557f</Anchor>
+                <Anchor>a8c686161fd8e8692a3d83ae2ac4f5daf</Anchor>
                </Node>
                <Node>
                 <Name>Serializable</Name>
@@ -300,7 +300,7 @@
                <Node>
                 <Name>Data</Name>
                 <Path>classservus_1_1_servus.html</Path>
-                <Anchor>a6122635287ae97e3e601315f1c3e5db4</Anchor>
+                <Anchor>a2d1bfcf6d0b47306066c5d8457938c2d</Anchor>
                </Node>
                <Node>
                 <Name>Interface</Name>
@@ -599,7 +599,7 @@
                <Node>
                 <Name>KVMap</Name>
                 <Path>classservus_1_1_u_r_i.html</Path>
-                <Anchor>adfbe36b7ec5fbcb3e9b5f4aee3bf0cc8</Anchor>
+                <Anchor>a41a33a49b30a6585034aae6a5a985344</Anchor>
                </Node>
                <Node>
                 <Name>URI</Name>

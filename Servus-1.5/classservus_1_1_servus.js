@@ -1,7 +1,7 @@
 var classservus_1_1_servus =
 [
     [ "Result", "classservus_1_1_servus_1_1_result.html", "classservus_1_1_servus_1_1_result" ],
-    [ "Data", "classservus_1_1_servus.html#a6122635287ae97e3e601315f1c3e5db4", null ],
+    [ "Data", "classservus_1_1_servus.html#a2d1bfcf6d0b47306066c5d8457938c2d", null ],
     [ "Interface", "classservus_1_1_servus.html#a5001a7c3e7b1c263554ba5a862fb4c70", [
       [ "IF_ALL", "classservus_1_1_servus.html#a5001a7c3e7b1c263554ba5a862fb4c70ad1b8789e158c323a5a34c62669628446", null ],
       [ "IF_LOCAL", "classservus_1_1_servus.html#a5001a7c3e7b1c263554ba5a862fb4c70a3be4617e17be4b39066bf5170cf9858f", null ]
