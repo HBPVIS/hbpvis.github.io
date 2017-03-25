@@ -104,15 +104,15 @@ $(document).ready(function(){initNavTree('index.html','');});
 <div class="title">Introduction </div>  </div>
 </div><!--header-->
 <div class="contents">
-<div class="textblock"><p>ZeroEQ is a cross-platform C++ library to publish and subscribe for events. Applications communicate using ZeroMQ, discover each other automatically through the integrated ZeroConf protocol or through explicit addressing using hostname and port. A defined vocabulary defines semantics for the published events, provided by <a href="https://github.com/HBPVIS/ZeroBuf">ZeroBuf</a> or using a simple Serializable interface. An optional <a href="http::Server">http::Server</a> provides a web service API in C++ applications.</p>
+<div class="textblock"><p>ZeroEQ is a cross-platform C++ library for modern messaging. It provides pub-sub messaging using ZeroMQ and integrates REST APIs with JSON payload in C++ applications using an optional <a href="http::Server">http::Server</a>. ZeroEQ applications are linked using automatic discovery based on ZeroConf protocol or through explicit connection addressing using hostname and port. Applications can define a vocabulary for the published messages, provided by <a href="https://github.com/HBPVIS/ZeroBuf">ZeroBuf</a> or by implementing a simple Serializable interface.</p>
 <h1>Features</h1>
 <p>ZeroEQ provides the following major features:</p>
 <ul>
 <li>Publish events using <a class="el" href="classzeroeq_1_1_publisher.html" title="Serves and publishes events, consumed by Subscriber. ">zeroeq::Publisher</a></li>
 <li>Subscribe to events using <a class="el" href="classzeroeq_1_1_subscriber.html" title="Subscribes to Publisher to receive events. ">zeroeq::Subscriber</a></li>
-<li>Web service GET and PUT events using <a class="el" href="classzeroeq_1_1http_1_1_server.html" title="Serves HTTP GET and PUT requests for servus::Serializable objects. ">zeroeq::http::Server</a> using REST and JSON</li>
-<li>Asynchronous, reliable transport using ZMQ</li>
-<li>Automatic publisher discovery using Zeroconf</li>
+<li>Web service APIs using <a class="el" href="classzeroeq_1_1http_1_1_server.html" title="Serves HTTP GET and PUT requests for servus::Serializable objects. ">zeroeq::http::Server</a> using REST and JSON</li>
+<li>Asynchronous, reliable transport using <a href="http://www.zeromq.org">ZeroMQ</a></li>
+<li>Automatic publisher discovery using <a href="https://en.wikipedia.org/wiki/Zero-configuration_networking">Zeroconf</a></li>
 <li>Serialization of events using <a href="https://github.com/HBPVIS/ZeroBuf">ZeroBuf</a></li>
 <li><a class="el" href="rfcs.html">List of RFCs</a></li>
 </ul>
@@ -143,7 +143,7 @@ ninja
 <!-- start footer part -->
 <div id="nav-path" class="navpath"><!-- id is needed for treeview function! -->
   <ul>
-    <li class="footer">Generated on Fri Mar 10 2017 01:36:53 for ZeroEQ by
+    <li class="footer">Generated on Sat Mar 25 2017 01:36:53 for ZeroEQ by
     <a href="http://www.doxygen.org/index.html">
     <img class="footer" src="doxygen.png" alt="doxygen"/></a> 1.8.11 </li>
   </ul>
