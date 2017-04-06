@@ -37,7 +37,7 @@
           </tr>
           <tr>
             <td class="headerItem">Date:</td>
-            <td class="headerValue">2017-03-25 01:36:51</td>
+            <td class="headerValue">2017-04-07 01:36:37</td>
             <td></td>
             <td class="headerItem">Functions:</td>
             <td class="headerCovTableEntry">14</td>
@@ -79,12 +79,12 @@
 <span class="lineNum">      17 </span>            : namespace http {
 <a name="18"><span class="lineNum">      18 </span>            : </a>
 <span class="lineNum">      19 </span>            : template &lt;class Tag&gt;
-<span class="lineNum">      20 </span><span class="lineCov">         18 : class client_options {</span>
+<span class="lineNum">      20 </span><span class="lineCov">         24 : class client_options {</span>
 <span class="lineNum">      21 </span>            :  public:
 <span class="lineNum">      22 </span>            :   typedef typename string&lt;Tag&gt;::type string_type;
 <a name="23"><span class="lineNum">      23 </span>            : </a>
 <span class="lineNum">      24 </span>            :   /// Set all the options to default.
-<span class="lineNum">      25 </span><span class="lineCov">         18 :   client_options()</span>
+<span class="lineNum">      25 </span><span class="lineCov">         24 :   client_options()</span>
 <span class="lineNum">      26 </span>            :       : cache_resolved_(false),
 <span class="lineNum">      27 </span>            :         follow_redirects_(false),
 <span class="lineNum">      28 </span>            :         openssl_certificate_(),
@@ -96,7 +96,7 @@
 <span class="lineNum">      34 </span>            :         openssl_options_(0),
 <span class="lineNum">      35 </span>            :         io_service_(),
 <span class="lineNum">      36 </span>            :         always_verify_peer_(true),
-<span class="lineNum">      37 </span><span class="lineCov">         18 :         timeout_(0) {}</span>
+<span class="lineNum">      37 </span><span class="lineCov">         24 :         timeout_(0) {}</span>
 <span class="lineNum">      38 </span>            : 
 <span class="lineNum">      39 </span>            :   client_options(client_options const&amp; other)
 <span class="lineNum">      40 </span>            :       : cache_resolved_(other.cache_resolved_),
@@ -216,41 +216,41 @@
 <span class="lineNum">     154 </span>            :     return *this;
 <a name="155"><span class="lineNum">     155 </span>            :   }</a>
 <span class="lineNum">     156 </span>            : 
-<a name="157"><span class="lineNum">     157 </span><span class="lineCov">         18 :   bool cache_resolved() const { return cache_resolved_; }</span></a>
+<a name="157"><span class="lineNum">     157 </span><span class="lineCov">         24 :   bool cache_resolved() const { return cache_resolved_; }</span></a>
 <span class="lineNum">     158 </span>            : 
-<a name="159"><span class="lineNum">     159 </span><span class="lineCov">         18 :   bool follow_redirects() const { return follow_redirects_; }</span></a>
+<a name="159"><span class="lineNum">     159 </span><span class="lineCov">         24 :   bool follow_redirects() const { return follow_redirects_; }</span></a>
 <span class="lineNum">     160 </span>            : 
-<span class="lineNum">     161 </span><span class="lineCov">         18 :   boost::optional&lt;string_type&gt; openssl_certificate() const {</span>
-<span class="lineNum">     162 </span><span class="lineCov">         18 :     return openssl_certificate_;</span>
+<span class="lineNum">     161 </span><span class="lineCov">         24 :   boost::optional&lt;string_type&gt; openssl_certificate() const {</span>
+<span class="lineNum">     162 </span><span class="lineCov">         24 :     return openssl_certificate_;</span>
 <a name="163"><span class="lineNum">     163 </span>            :   }</a>
 <span class="lineNum">     164 </span>            : 
-<span class="lineNum">     165 </span><span class="lineCov">         18 :   boost::optional&lt;string_type&gt; openssl_verify_path() const {</span>
-<span class="lineNum">     166 </span><span class="lineCov">         18 :     return openssl_verify_path_;</span>
+<span class="lineNum">     165 </span><span class="lineCov">         24 :   boost::optional&lt;string_type&gt; openssl_verify_path() const {</span>
+<span class="lineNum">     166 </span><span class="lineCov">         24 :     return openssl_verify_path_;</span>
 <a name="167"><span class="lineNum">     167 </span>            :   }</a>
 <span class="lineNum">     168 </span>            : 
-<span class="lineNum">     169 </span><span class="lineCov">         18 :   boost::optional&lt;string_type&gt; openssl_certificate_file() const {</span>
-<span class="lineNum">     170 </span><span class="lineCov">         18 :     return openssl_certificate_file_;</span>
+<span class="lineNum">     169 </span><span class="lineCov">         24 :   boost::optional&lt;string_type&gt; openssl_certificate_file() const {</span>
+<span class="lineNum">     170 </span><span class="lineCov">         24 :     return openssl_certificate_file_;</span>
 <a name="171"><span class="lineNum">     171 </span>            :   }</a>
 <span class="lineNum">     172 </span>            : 
-<span class="lineNum">     173 </span><span class="lineCov">         18 :   boost::optional&lt;string_type&gt; openssl_private_key_file() const {</span>
-<span class="lineNum">     174 </span><span class="lineCov">         18 :     return openssl_private_key_file_;</span>
+<span class="lineNum">     173 </span><span class="lineCov">         24 :   boost::optional&lt;string_type&gt; openssl_private_key_file() const {</span>
+<span class="lineNum">     174 </span><span class="lineCov">         24 :     return openssl_private_key_file_;</span>
 <a name="175"><span class="lineNum">     175 </span>            :   }</a>
 <span class="lineNum">     176 </span>            : 
-<span class="lineNum">     177 </span><span class="lineCov">         18 :   boost::optional&lt;string_type&gt; openssl_ciphers() const {</span>
-<span class="lineNum">     178 </span><span class="lineCov">         18 :     return openssl_ciphers_;</span>
+<span class="lineNum">     177 </span><span class="lineCov">         24 :   boost::optional&lt;string_type&gt; openssl_ciphers() const {</span>
+<span class="lineNum">     178 </span><span class="lineCov">         24 :     return openssl_ciphers_;</span>
 <a name="179"><span class="lineNum">     179 </span>            :   }</a>
 <span class="lineNum">     180 </span>            : 
-<span class="lineNum">     181 </span><span class="lineCov">         18 :   boost::optional&lt;string_type&gt; openssl_sni_hostname() const {</span>
-<span class="lineNum">     182 </span><span class="lineCov">         18 :     return openssl_sni_hostname_;</span>
+<span class="lineNum">     181 </span><span class="lineCov">         24 :   boost::optional&lt;string_type&gt; openssl_sni_hostname() const {</span>
+<span class="lineNum">     182 </span><span class="lineCov">         24 :     return openssl_sni_hostname_;</span>
 <a name="183"><span class="lineNum">     183 </span>            :   }</a>
 <span class="lineNum">     184 </span>            : 
-<a name="185"><span class="lineNum">     185 </span><span class="lineCov">         18 :   long openssl_options() const { return openssl_options_; }</span></a>
+<a name="185"><span class="lineNum">     185 </span><span class="lineCov">         24 :   long openssl_options() const { return openssl_options_; }</span></a>
 <span class="lineNum">     186 </span>            : 
-<a name="187"><span class="lineNum">     187 </span><span class="lineCov">         18 :   std::shared_ptr&lt;boost::asio::io_service&gt; io_service() const { return io_service_; }</span></a>
+<a name="187"><span class="lineNum">     187 </span><span class="lineCov">         24 :   std::shared_ptr&lt;boost::asio::io_service&gt; io_service() const { return io_service_; }</span></a>
 <span class="lineNum">     188 </span>            : 
-<a name="189"><span class="lineNum">     189 </span><span class="lineCov">         18 :   bool always_verify_peer() const { return always_verify_peer_; }</span></a>
+<a name="189"><span class="lineNum">     189 </span><span class="lineCov">         24 :   bool always_verify_peer() const { return always_verify_peer_; }</span></a>
 <span class="lineNum">     190 </span>            : 
-<span class="lineNum">     191 </span><span class="lineCov">         18 :   int timeout() const { return timeout_; }</span>
+<span class="lineNum">     191 </span><span class="lineCov">         24 :   int timeout() const { return timeout_; }</span>
 <span class="lineNum">     192 </span>            : 
 <span class="lineNum">     193 </span>            :  private:
 <span class="lineNum">     194 </span>            :   bool cache_resolved_;

@@ -31,17 +31,17 @@
             <td class="headerValue">ZeroEQ</td>
             <td></td>
             <td class="headerItem">Lines:</td>
-            <td class="headerCovTableEntry">32</td>
-            <td class="headerCovTableEntry">38</td>
-            <td class="headerCovTableEntryHi">84.2 %</td>
+            <td class="headerCovTableEntry">35</td>
+            <td class="headerCovTableEntry">41</td>
+            <td class="headerCovTableEntryHi">85.4 %</td>
           </tr>
           <tr>
             <td class="headerItem">Date:</td>
-            <td class="headerValue">2017-03-25 01:36:51</td>
+            <td class="headerValue">2017-04-07 01:36:37</td>
             <td></td>
             <td class="headerItem">Functions:</td>
-            <td class="headerCovTableEntry">6</td>
-            <td class="headerCovTableEntry">6</td>
+            <td class="headerCovTableEntry">7</td>
+            <td class="headerCovTableEntry">7</td>
             <td class="headerCovTableEntryHi">100.0 %</td>
           </tr>
           <tr><td><img src="../../../../../../glass.png" width=3 height=3 alt=""></td></tr>
@@ -124,11 +124,11 @@
 <span class="lineNum">      62 </span>            :    */
 <a name="63"><span class="lineNum">      63 </span>            :   typedef std::function&lt;bool(string_type&amp;)&gt; body_generator_function_type;</a>
 <span class="lineNum">      64 </span>            : 
-<span class="lineNum">      65 </span><span class="lineCov">         18 :   explicit basic_client_facade(client_options&lt;Tag&gt; const&amp; options) {</span>
-<span class="lineNum">      66 </span><span class="lineCov">         18 :     init_pimpl(options);</span>
-<a name="67"><span class="lineNum">      67 </span><span class="lineCov">         18 :   }</span></a>
+<span class="lineNum">      65 </span><span class="lineCov">         24 :   explicit basic_client_facade(client_options&lt;Tag&gt; const&amp; options) {</span>
+<span class="lineNum">      66 </span><span class="lineCov">         24 :     init_pimpl(options);</span>
+<a name="67"><span class="lineNum">      67 </span><span class="lineCov">         24 :   }</span></a>
 <span class="lineNum">      68 </span>            : 
-<span class="lineNum">      69 </span><span class="lineCov">         18 :   ~basic_client_facade() { pimpl-&gt;wait_complete(); }</span>
+<span class="lineNum">      69 </span><span class="lineCov">         24 :   ~basic_client_facade() { pimpl-&gt;wait_complete(); }</span>
 <span class="lineNum">      70 </span>            : 
 <span class="lineNum">      71 </span>            :   /**
 <span class="lineNum">      72 </span>            :    * Perform a HEAD request.
@@ -149,11 +149,11 @@
 <span class="lineNum">      87 </span>            :    * @throw std::exception May throw exceptions on errors, derived from
 <a name="88"><span class="lineNum">      88 </span>            :    *   `std::exception`.</a>
 <span class="lineNum">      89 </span>            :    */
-<span class="lineNum">      90 </span><span class="lineCov">         24 :   response get(request const&amp; request,</span>
+<span class="lineNum">      90 </span><span class="lineCov">         57 :   response get(request const&amp; request,</span>
 <span class="lineNum">      91 </span>            :                body_callback_function_type body_handler =
 <span class="lineNum">      92 </span>            :                    body_callback_function_type()) {
-<span class="lineNum">      93 </span><span class="lineCov">         24 :     return pimpl-&gt;request_skeleton(request, &quot;GET&quot;, true, body_handler,</span>
-<span class="lineNum">      94 </span><span class="lineCov">         48 :                                    body_generator_function_type());</span>
+<span class="lineNum">      93 </span><span class="lineCov">         57 :     return pimpl-&gt;request_skeleton(request, &quot;GET&quot;, true, body_handler,</span>
+<span class="lineNum">      94 </span><span class="lineCov">        114 :                                    body_generator_function_type());</span>
 <span class="lineNum">      95 </span>            :   }
 <span class="lineNum">      96 </span>            : 
 <span class="lineNum">      97 </span>            :   /**
@@ -173,32 +173,32 @@
 <span class="lineNum">     111 </span>            :    * @throws std::exception May throw exceptions on errors, derived from
 <a name="112"><span class="lineNum">     112 </span>            :    *   `std::exception`.</a>
 <span class="lineNum">     113 </span>            :    */
-<span class="lineNum">     114 </span><span class="lineCov">          1 :   response post(</span>
+<span class="lineNum">     114 </span><span class="lineCov">          4 :   response post(</span>
 <span class="lineNum">     115 </span>            :       request request, string_type const&amp; body = string_type(),
 <span class="lineNum">     116 </span>            :       string_type const&amp; content_type = string_type(),
 <span class="lineNum">     117 </span>            :       body_callback_function_type body_handler = body_callback_function_type(),
 <span class="lineNum">     118 </span>            :       body_generator_function_type body_generator =
 <span class="lineNum">     119 </span>            :           body_generator_function_type()) {
-<span class="lineNum">     120 </span><span class="lineCov">          1 :     if (body != string_type()) {</span>
-<span class="lineNum">     121 </span><span class="lineCov">          1 :       request &lt;&lt; remove_header(&quot;Content-Length&quot;)</span>
-<span class="lineNum">     122 </span><span class="lineCov">          2 :               &lt;&lt; header(&quot;Content-Length&quot;, std::to_string(body.size()))</span>
-<span class="lineNum">     123 </span><span class="lineCov">          4 :               &lt;&lt; boost::network::body(body);</span>
+<span class="lineNum">     120 </span><span class="lineCov">          4 :     if (body != string_type()) {</span>
+<span class="lineNum">     121 </span><span class="lineCov">          3 :       request &lt;&lt; remove_header(&quot;Content-Length&quot;)</span>
+<span class="lineNum">     122 </span><span class="lineCov">          6 :               &lt;&lt; header(&quot;Content-Length&quot;, std::to_string(body.size()))</span>
+<span class="lineNum">     123 </span><span class="lineCov">         12 :               &lt;&lt; boost::network::body(body);</span>
 <span class="lineNum">     124 </span>            :     }
 <span class="lineNum">     125 </span>            :     typename headers_range&lt;basic_request&lt;Tag&gt; &gt;::type content_type_headers =
-<span class="lineNum">     126 </span><span class="lineCov">          1 :         headers(request)[&quot;Content-Type&quot;];</span>
-<span class="lineNum">     127 </span><span class="lineCov">          1 :     if (content_type != string_type()) {</span>
+<span class="lineNum">     126 </span><span class="lineCov">          4 :         headers(request)[&quot;Content-Type&quot;];</span>
+<span class="lineNum">     127 </span><span class="lineCov">          4 :     if (content_type != string_type()) {</span>
 <span class="lineNum">     128 </span><span class="lineNoCov">          0 :       if (!boost::empty(content_type_headers))</span>
 <span class="lineNum">     129 </span><span class="lineNoCov">          0 :         request &lt;&lt; remove_header(&quot;Content-Type&quot;);</span>
 <span class="lineNum">     130 </span><span class="lineNoCov">          0 :       request &lt;&lt; header(&quot;Content-Type&quot;, content_type);</span>
 <span class="lineNum">     131 </span>            :     } else {
-<span class="lineNum">     132 </span><span class="lineCov">          1 :       if (boost::empty(content_type_headers)) {</span>
+<span class="lineNum">     132 </span><span class="lineCov">          4 :       if (boost::empty(content_type_headers)) {</span>
 <span class="lineNum">     133 </span>            :         typedef typename char_&lt;Tag&gt;::type char_type;
 <span class="lineNum">     134 </span>            :         static char_type const content_type[] = &quot;x-application/octet-stream&quot;;
-<span class="lineNum">     135 </span><span class="lineCov">          1 :         request &lt;&lt; header(&quot;Content-Type&quot;, content_type);</span>
+<span class="lineNum">     135 </span><span class="lineCov">          4 :         request &lt;&lt; header(&quot;Content-Type&quot;, content_type);</span>
 <span class="lineNum">     136 </span>            :       }
 <span class="lineNum">     137 </span>            :     }
-<span class="lineNum">     138 </span><span class="lineCov">          1 :     return pimpl-&gt;request_skeleton(request, &quot;POST&quot;, true, body_handler,</span>
-<span class="lineNum">     139 </span><span class="lineCov">          2 :                                    body_generator);</span>
+<span class="lineNum">     138 </span><span class="lineCov">          4 :     return pimpl-&gt;request_skeleton(request, &quot;POST&quot;, true, body_handler,</span>
+<span class="lineNum">     139 </span><span class="lineCov">          8 :                                    body_generator);</span>
 <span class="lineNum">     140 </span>            :   }
 <span class="lineNum">     141 </span>            : 
 <span class="lineNum">     142 </span>            :   /**
@@ -278,32 +278,32 @@
 <span class="lineNum">     216 </span>            :    * @throws std::exception May throw exceptions on errors, derived from
 <a name="217"><span class="lineNum">     217 </span>            :    *   `std::exception`.</a>
 <span class="lineNum">     218 </span>            :    */
-<span class="lineNum">     219 </span><span class="lineCov">         11 :   response put(</span>
+<span class="lineNum">     219 </span><span class="lineCov">         15 :   response put(</span>
 <span class="lineNum">     220 </span>            :       request request, string_type const&amp; body = string_type(),
 <span class="lineNum">     221 </span>            :       string_type const&amp; content_type = string_type(),
 <span class="lineNum">     222 </span>            :       body_callback_function_type body_handler = body_callback_function_type(),
 <span class="lineNum">     223 </span>            :       body_generator_function_type body_generator =
 <span class="lineNum">     224 </span>            :           body_generator_function_type()) {
-<span class="lineNum">     225 </span><span class="lineCov">         11 :     if (body != string_type()) {</span>
-<span class="lineNum">     226 </span><span class="lineCov">          8 :       request &lt;&lt; remove_header(&quot;Content-Length&quot;)</span>
-<span class="lineNum">     227 </span><span class="lineCov">         16 :               &lt;&lt; header(&quot;Content-Length&quot;, std::to_string(body.size()))</span>
-<span class="lineNum">     228 </span><span class="lineCov">         32 :               &lt;&lt; boost::network::body(body);</span>
+<span class="lineNum">     225 </span><span class="lineCov">         15 :     if (body != string_type()) {</span>
+<span class="lineNum">     226 </span><span class="lineCov">         10 :       request &lt;&lt; remove_header(&quot;Content-Length&quot;)</span>
+<span class="lineNum">     227 </span><span class="lineCov">         20 :               &lt;&lt; header(&quot;Content-Length&quot;, std::to_string(body.size()))</span>
+<span class="lineNum">     228 </span><span class="lineCov">         40 :               &lt;&lt; boost::network::body(body);</span>
 <span class="lineNum">     229 </span>            :     }
 <span class="lineNum">     230 </span>            :     typename headers_range&lt;basic_request&lt;Tag&gt; &gt;::type content_type_headers =
-<span class="lineNum">     231 </span><span class="lineCov">         11 :         headers(request)[&quot;Content-Type&quot;];</span>
-<span class="lineNum">     232 </span><span class="lineCov">         11 :     if (content_type != string_type()) {</span>
+<span class="lineNum">     231 </span><span class="lineCov">         15 :         headers(request)[&quot;Content-Type&quot;];</span>
+<span class="lineNum">     232 </span><span class="lineCov">         15 :     if (content_type != string_type()) {</span>
 <span class="lineNum">     233 </span><span class="lineNoCov">          0 :       if (!boost::empty(content_type_headers))</span>
 <span class="lineNum">     234 </span><span class="lineNoCov">          0 :         request &lt;&lt; remove_header(&quot;Content-Type&quot;);</span>
 <span class="lineNum">     235 </span><span class="lineNoCov">          0 :       request &lt;&lt; header(&quot;Content-Type&quot;, content_type);</span>
 <span class="lineNum">     236 </span>            :     } else {
-<span class="lineNum">     237 </span><span class="lineCov">         11 :       if (boost::empty(content_type_headers)) {</span>
+<span class="lineNum">     237 </span><span class="lineCov">         15 :       if (boost::empty(content_type_headers)) {</span>
 <span class="lineNum">     238 </span>            :         typedef typename char_&lt;Tag&gt;::type char_type;
 <span class="lineNum">     239 </span>            :         static char_type const content_type[] = &quot;x-application/octet-stream&quot;;
-<span class="lineNum">     240 </span><span class="lineCov">         11 :         request &lt;&lt; header(&quot;Content-Type&quot;, content_type);</span>
+<span class="lineNum">     240 </span><span class="lineCov">         15 :         request &lt;&lt; header(&quot;Content-Type&quot;, content_type);</span>
 <span class="lineNum">     241 </span>            :       }
 <span class="lineNum">     242 </span>            :     }
-<span class="lineNum">     243 </span><span class="lineCov">         11 :     return pimpl-&gt;request_skeleton(request, &quot;PUT&quot;, true, body_handler,</span>
-<span class="lineNum">     244 </span><span class="lineCov">         22 :                                    body_generator);</span>
+<span class="lineNum">     243 </span><span class="lineCov">         15 :     return pimpl-&gt;request_skeleton(request, &quot;PUT&quot;, true, body_handler,</span>
+<span class="lineNum">     244 </span><span class="lineCov">         30 :                                    body_generator);</span>
 <span class="lineNum">     245 </span>            :   }
 <span class="lineNum">     246 </span>            : 
 <span class="lineNum">     247 </span>            :   /**
@@ -351,12 +351,12 @@
 <span class="lineNum">     289 </span>            :    *   as they come in, if provided.
 <span class="lineNum">     290 </span>            :    * @returns A response object.
 <span class="lineNum">     291 </span>            :    * @throws std::exception May throw exceptions on errors, derived from
-<span class="lineNum">     292 </span>            :    *   `std::exception`.
+<a name="292"><span class="lineNum">     292 </span>            :    *   `std::exception`.</a>
 <span class="lineNum">     293 </span>            :    */
-<span class="lineNum">     294 </span>            :   response delete_(request const&amp; request,
+<span class="lineNum">     294 </span><span class="lineCov">          3 :   response delete_(request const&amp; request,</span>
 <span class="lineNum">     295 </span>            :                    body_callback_function_type body_handler = {}) {
-<span class="lineNum">     296 </span>            :     return pimpl-&gt;request_skeleton(request, &quot;DELETE&quot;, true, body_handler,
-<span class="lineNum">     297 </span>            :                                    body_generator_function_type());
+<span class="lineNum">     296 </span><span class="lineCov">          3 :     return pimpl-&gt;request_skeleton(request, &quot;DELETE&quot;, true, body_handler,</span>
+<span class="lineNum">     297 </span><span class="lineCov">          6 :                                    body_generator_function_type());</span>
 <span class="lineNum">     298 </span>            :   }
 <span class="lineNum">     299 </span>            : 
 <span class="lineNum">     300 </span>            :   /**
@@ -367,15 +367,15 @@
 <span class="lineNum">     305 </span>            :  protected:
 <a name="306"><span class="lineNum">     306 </span>            :   std::shared_ptr&lt;pimpl_type&gt; pimpl;</a>
 <span class="lineNum">     307 </span>            : 
-<span class="lineNum">     308 </span><span class="lineCov">         18 :   void init_pimpl(client_options&lt;Tag&gt; const&amp; options) {</span>
-<span class="lineNum">     309 </span><span class="lineCov">         18 :     pimpl.reset(new pimpl_type(</span>
+<span class="lineNum">     308 </span><span class="lineCov">         24 :   void init_pimpl(client_options&lt;Tag&gt; const&amp; options) {</span>
+<span class="lineNum">     309 </span><span class="lineCov">         24 :     pimpl.reset(new pimpl_type(</span>
 <span class="lineNum">     310 </span>            :         options.cache_resolved(), options.follow_redirects(),
 <span class="lineNum">     311 </span>            :         options.always_verify_peer(), options.openssl_certificate(),
 <span class="lineNum">     312 </span>            :         options.openssl_verify_path(), options.openssl_certificate_file(),
 <span class="lineNum">     313 </span>            :         options.openssl_private_key_file(), options.openssl_ciphers(),
 <span class="lineNum">     314 </span>            :         options.openssl_sni_hostname(), options.openssl_options(),
 <span class="lineNum">     315 </span>            :         options.io_service(), options.timeout()));
-<span class="lineNum">     316 </span><span class="lineCov">         18 :   }</span>
+<span class="lineNum">     316 </span><span class="lineCov">         24 :   }</span>
 <span class="lineNum">     317 </span>            : };
 <span class="lineNum">     318 </span>            : 
 <span class="lineNum">     319 </span>            : }  // namespace http

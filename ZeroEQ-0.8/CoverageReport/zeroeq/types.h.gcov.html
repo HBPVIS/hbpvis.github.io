@@ -37,7 +37,7 @@
           </tr>
           <tr>
             <td class="headerItem">Date:</td>
-            <td class="headerValue">2017-03-25 01:36:51</td>
+            <td class="headerValue">2017-04-07 01:36:37</td>
             <td></td>
             <td class="headerItem">Functions:</td>
             <td class="headerCovTableEntry">0</td>
@@ -61,7 +61,7 @@
 <pre class="sourceHeading">          Line data    Source code</pre>
 <pre class="source">
 <a name="1"><span class="lineNum">       1 </span>            : </a>
-<span class="lineNum">       2 </span>            : /* Copyright (c) 2014-2016, Human Brain Project
+<span class="lineNum">       2 </span>            : /* Copyright (c) 2014-2017, Human Brain Project
 <span class="lineNum">       3 </span>            :  *                          Daniel Nachbaur &lt;daniel.nachbaur@epfl.ch&gt;
 <span class="lineNum">       4 </span>            :  *                          Juan Hernando &lt;jhernando@fi.upm.es&gt;
 <span class="lineNum">       5 </span>            :  */
@@ -110,35 +110,26 @@
 <span class="lineNum">      48 </span>            : /** Callback for receival of subscribed event w/ payload. */
 <span class="lineNum">      49 </span>            : typedef std::function&lt; void( const void*, size_t ) &gt; EventPayloadFunc;
 <span class="lineNum">      50 </span>            : 
-<span class="lineNum">      51 </span>            : /** HTTP PUT callback w/o payload, return reply success. */
-<span class="lineNum">      52 </span>            : typedef std::function&lt; bool() &gt; PUTFunc;
-<span class="lineNum">      53 </span>            : 
-<span class="lineNum">      54 </span>            : /** HTTP PUT callback w/ JSON payload, return reply success. */
-<span class="lineNum">      55 </span>            : typedef std::function&lt; bool( const std::string&amp; ) &gt; PUTPayloadFunc;
+<span class="lineNum">      51 </span>            : #ifdef WIN32
+<span class="lineNum">      52 </span>            : typedef SOCKET SocketDescriptor;
+<span class="lineNum">      53 </span>            : #else
+<span class="lineNum">      54 </span>            : typedef int SocketDescriptor;
+<span class="lineNum">      55 </span>            : #endif
 <span class="lineNum">      56 </span>            : 
-<span class="lineNum">      57 </span>            : /** HTTP GET callback to return JSON reply. */
-<span class="lineNum">      58 </span>            : typedef std::function&lt; std::string() &gt; GETFunc;
-<span class="lineNum">      59 </span>            : 
-<span class="lineNum">      60 </span>            : #ifdef WIN32
-<span class="lineNum">      61 </span>            : typedef SOCKET SocketDescriptor;
-<span class="lineNum">      62 </span>            : #else
-<span class="lineNum">      63 </span>            : typedef int SocketDescriptor;
-<span class="lineNum">      64 </span>            : #endif
+<span class="lineNum">      57 </span>            : /** Constant defining 'wait forever' in methods with wait parameters. */
+<span class="lineNum">      58 </span>            : // Attn: identical to Win32 INFINITE!
+<span class="lineNum">      59 </span>            : static const uint32_t TIMEOUT_INDEFINITE = 0xffffffffu;
+<span class="lineNum">      60 </span>            : 
+<span class="lineNum">      61 </span>            : using servus::make_uint128;
+<span class="lineNum">      62 </span>            : 
+<span class="lineNum">      63 </span><span class="lineCov">         69 : static const std::string DEFAULT_SESSION = &quot;__zeroeq&quot;;</span>
+<span class="lineNum">      64 </span><span class="lineCov">         69 : static const std::string NULL_SESSION = &quot;__null_session&quot;;</span>
 <span class="lineNum">      65 </span>            : 
-<span class="lineNum">      66 </span>            : /** Constant defining 'wait forever' in methods with wait parameters. */
-<span class="lineNum">      67 </span>            : // Attn: identical to Win32 INFINITE!
-<span class="lineNum">      68 </span>            : static const uint32_t TIMEOUT_INDEFINITE = 0xffffffffu;
+<span class="lineNum">      66 </span>            : namespace detail { struct Socket; }
+<span class="lineNum">      67 </span>            : 
+<span class="lineNum">      68 </span>            : }
 <span class="lineNum">      69 </span>            : 
-<span class="lineNum">      70 </span>            : using servus::make_uint128;
-<span class="lineNum">      71 </span>            : 
-<span class="lineNum">      72 </span><span class="lineCov">         69 : static const std::string DEFAULT_SESSION = &quot;__zeroeq&quot;;</span>
-<span class="lineNum">      73 </span><span class="lineCov">         69 : static const std::string NULL_SESSION = &quot;__null_session&quot;;</span>
-<span class="lineNum">      74 </span>            : 
-<span class="lineNum">      75 </span>            : namespace detail { struct Socket; }
-<span class="lineNum">      76 </span>            : 
-<span class="lineNum">      77 </span>            : }
-<span class="lineNum">      78 </span>            : 
-<span class="lineNum">      79 </span>            : #endif
+<span class="lineNum">      70 </span>            : #endif
 </pre>
       </td>
     </tr>

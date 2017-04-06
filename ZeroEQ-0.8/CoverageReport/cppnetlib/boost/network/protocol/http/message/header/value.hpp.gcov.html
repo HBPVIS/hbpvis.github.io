@@ -37,7 +37,7 @@
           </tr>
           <tr>
             <td class="headerItem">Date:</td>
-            <td class="headerValue">2017-03-25 01:36:51</td>
+            <td class="headerValue">2017-04-07 01:36:37</td>
             <td></td>
             <td class="headerItem">Functions:</td>
             <td class="headerCovTableEntry">2</td>
@@ -80,8 +80,8 @@
 <span class="lineNum">      18 </span>            : struct response_header_wide;
 <a name="19"><span class="lineNum">      19 </span>            : </a>
 <span class="lineNum">      20 </span>            : template &lt;class T1, class T2&gt;
-<span class="lineNum">      21 </span><span class="lineCov">         21 : T1&amp; value(std::pair&lt;T1, T2&gt; const&amp; p) {</span>
-<span class="lineNum">      22 </span><span class="lineCov">         21 :   return p.second;</span>
+<span class="lineNum">      21 </span><span class="lineCov">         37 : T1&amp; value(std::pair&lt;T1, T2&gt; const&amp; p) {</span>
+<span class="lineNum">      22 </span><span class="lineCov">         37 :   return p.second;</span>
 <span class="lineNum">      23 </span>            : }
 <span class="lineNum">      24 </span>            : 
 <span class="lineNum">      25 </span>            : inline request_header_narrow::string_type const&amp; value(
@@ -94,9 +94,9 @@
 <span class="lineNum">      32 </span>            :   return h.value;
 <a name="33"><span class="lineNum">      33 </span>            : }</a>
 <span class="lineNum">      34 </span>            : 
-<span class="lineNum">      35 </span><span class="lineCov">        248 : inline response_header_narrow::string_type const&amp; value(</span>
+<span class="lineNum">      35 </span><span class="lineCov">        754 : inline response_header_narrow::string_type const&amp; value(</span>
 <span class="lineNum">      36 </span>            :     response_header_narrow const&amp; h) {
-<span class="lineNum">      37 </span><span class="lineCov">        248 :   return h.value;</span>
+<span class="lineNum">      37 </span><span class="lineCov">        754 :   return h.value;</span>
 <span class="lineNum">      38 </span>            : }
 <span class="lineNum">      39 </span>            : 
 <span class="lineNum">      40 </span>            : inline response_header_wide::string_type const&amp; value(

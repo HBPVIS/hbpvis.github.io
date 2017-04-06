@@ -4,6 +4,8 @@ var hierarchy =
       [ "zeroeq::URI", "classzeroeq_1_1_u_r_i.html", null ]
     ] ],
     [ "zeroeq::connection::Service", "classzeroeq_1_1connection_1_1_service.html", null ],
+    [ "zeroeq::http::Request", "structzeroeq_1_1http_1_1_request.html", null ],
+    [ "zeroeq::http::Response", "structzeroeq_1_1http_1_1_response.html", null ],
     [ "zeroeq::Publisher", "classzeroeq_1_1_publisher.html", null ],
     [ "zeroeq::Receiver", "classzeroeq_1_1_receiver.html", [
       [ "zeroeq::connection::Broker", "classzeroeq_1_1connection_1_1_broker.html", null ],

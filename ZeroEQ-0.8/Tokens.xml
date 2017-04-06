@@ -290,42 +290,6 @@
   </Token>
   <Token>
     <TokenIdentifier>
-      <Name>PUTFunc</Name>
-      <APILanguage>cpp</APILanguage>
-      <Type>tdef</Type>
-      <Scope>zeroeq</Scope>
-    </TokenIdentifier>
-    <Path>namespacezeroeq.html</Path>
-    <Anchor>a4aebbbb7639d0b0a854bc88e41d64760</Anchor>
-    <Abstract>HTTP PUT callback w/o payload, return reply success. </Abstract>
-    <DeclaredIn>types.h</DeclaredIn>
-  </Token>
-  <Token>
-    <TokenIdentifier>
-      <Name>PUTPayloadFunc</Name>
-      <APILanguage>cpp</APILanguage>
-      <Type>tdef</Type>
-      <Scope>zeroeq</Scope>
-    </TokenIdentifier>
-    <Path>namespacezeroeq.html</Path>
-    <Anchor>a280eae381af4892d971d57bedce964e4</Anchor>
-    <Abstract>HTTP PUT callback w/ JSON payload, return reply success. </Abstract>
-    <DeclaredIn>types.h</DeclaredIn>
-  </Token>
-  <Token>
-    <TokenIdentifier>
-      <Name>GETFunc</Name>
-      <APILanguage>cpp</APILanguage>
-      <Type>tdef</Type>
-      <Scope>zeroeq</Scope>
-    </TokenIdentifier>
-    <Path>namespacezeroeq.html</Path>
-    <Anchor>a5b004b2ff75a0a6c93c1c3d4df3985ae</Anchor>
-    <Abstract>HTTP GET callback to return JSON reply. </Abstract>
-    <DeclaredIn>types.h</DeclaredIn>
-  </Token>
-  <Token>
-    <TokenIdentifier>
       <Name>TIMEOUT_INDEFINITE</Name>
       <APILanguage>cpp</APILanguage>
       <Type>data</Type>
@@ -1190,6 +1154,156 @@
   </Token>
   <Token>
     <TokenIdentifier>
+      <Name>PUTFunc</Name>
+      <APILanguage>cpp</APILanguage>
+      <Type>tdef</Type>
+      <Scope>zeroeq::http</Scope>
+    </TokenIdentifier>
+    <Path>namespacezeroeq_1_1http.html</Path>
+    <Anchor>a8b112e4df1fbe2e2469e3f9b51817bf8</Anchor>
+    <Abstract>HTTP PUT callback w/o payload, return reply success. </Abstract>
+    <DeclaredIn>server.h</DeclaredIn>
+  </Token>
+  <Token>
+    <TokenIdentifier>
+      <Name>PUTPayloadFunc</Name>
+      <APILanguage>cpp</APILanguage>
+      <Type>tdef</Type>
+      <Scope>zeroeq::http</Scope>
+    </TokenIdentifier>
+    <Path>namespacezeroeq_1_1http.html</Path>
+    <Anchor>ab2d295706b8f73e9664a7ac47f8ac2b2</Anchor>
+    <Abstract>HTTP PUT callback w/ JSON payload, return reply success. </Abstract>
+    <DeclaredIn>server.h</DeclaredIn>
+  </Token>
+  <Token>
+    <TokenIdentifier>
+      <Name>GETFunc</Name>
+      <APILanguage>cpp</APILanguage>
+      <Type>tdef</Type>
+      <Scope>zeroeq::http</Scope>
+    </TokenIdentifier>
+    <Path>namespacezeroeq_1_1http.html</Path>
+    <Anchor>a3e0b7599906e378718ce0c0cef17c068</Anchor>
+    <Abstract>HTTP GET callback to return JSON reply. </Abstract>
+    <DeclaredIn>server.h</DeclaredIn>
+  </Token>
+  <Token>
+    <TokenIdentifier>
+      <Name>RESTFunc</Name>
+      <APILanguage>cpp</APILanguage>
+      <Type>tdef</Type>
+      <Scope>zeroeq::http</Scope>
+    </TokenIdentifier>
+    <Path>namespacezeroeq_1_1http.html</Path>
+    <Anchor>a184625f2f47d8052f7a12b6513986d42</Anchor>
+    <Abstract>HTTP REST callback with Request parameter returning a Response future. </Abstract>
+    <DeclaredIn>server.h</DeclaredIn>
+  </Token>
+  <Token>
+    <TokenIdentifier>
+      <Name>make_ready_response</Name>
+      <APILanguage>cpp</APILanguage>
+      <Type>func</Type>
+      <Scope>zeroeq::http</Scope>
+    </TokenIdentifier>
+    <Path>namespacezeroeq_1_1http.html</Path>
+    <Anchor>a3df76eadc8a3057c112d879297c7e9a0</Anchor>
+    <DeclaredIn>helpers.h</DeclaredIn>
+  </Token>
+  <Token>
+    <TokenIdentifier>
+      <Name>zeroeq::http::Request</Name>
+      <APILanguage>c</APILanguage>
+      <Type>cl</Type>
+      <Scope>zeroeq::http::Request</Scope>
+    </TokenIdentifier>
+    <Path>structzeroeq_1_1http_1_1_request.html</Path>
+    <Abstract>HTTP Request with method, path and body. </Abstract>
+    <DeclaredIn>request.h</DeclaredIn>
+  </Token>
+  <Token>
+    <TokenIdentifier>
+      <Name>zeroeq::http::Response</Name>
+      <APILanguage>c</APILanguage>
+      <Type>cl</Type>
+      <Scope>zeroeq::http::Response</Scope>
+    </TokenIdentifier>
+    <Path>structzeroeq_1_1http_1_1_response.html</Path>
+    <Abstract>Response to an HTTP Request. </Abstract>
+    <DeclaredIn>response.h</DeclaredIn>
+  </Token>
+  <Token>
+    <TokenIdentifier>
+      <Name>Response</Name>
+      <APILanguage>cpp</APILanguage>
+      <Type>func</Type>
+      <Scope>zeroeq::http::Response</Scope>
+    </TokenIdentifier>
+    <Path>structzeroeq_1_1http_1_1_response.html</Path>
+    <Anchor>a1afe46d812ed4fcc70d123ec8c499303</Anchor>
+    <Abstract>Construct a Response with a given return code and payload. </Abstract>
+    <DeclaredIn>response.h</DeclaredIn>
+  </Token>
+  <Token>
+    <TokenIdentifier>
+      <Name>Response</Name>
+      <APILanguage>cpp</APILanguage>
+      <Type>func</Type>
+      <Scope>zeroeq::http::Response</Scope>
+    </TokenIdentifier>
+    <Path>structzeroeq_1_1http_1_1_response.html</Path>
+    <Anchor>ae10b56356562575ee4620d0ca575d54d</Anchor>
+    <Abstract>Construct a Response with a given code, payload and content type. </Abstract>
+    <DeclaredIn>response.h</DeclaredIn>
+  </Token>
+  <Token>
+    <TokenIdentifier>
+      <Name>Response</Name>
+      <APILanguage>cpp</APILanguage>
+      <Type>func</Type>
+      <Scope>zeroeq::http::Response</Scope>
+    </TokenIdentifier>
+    <Path>structzeroeq_1_1http_1_1_response.html</Path>
+    <Anchor>a2a47690c52bb6ef7bf46c1de6e476ea5</Anchor>
+    <Abstract>Construct a Response with a given code, payload and map of headers. </Abstract>
+    <DeclaredIn>response.h</DeclaredIn>
+  </Token>
+  <Token>
+    <TokenIdentifier>
+      <Name>code</Name>
+      <APILanguage>cpp</APILanguage>
+      <Type>data</Type>
+      <Scope>zeroeq::http::Response</Scope>
+    </TokenIdentifier>
+    <Path>structzeroeq_1_1http_1_1_response.html</Path>
+    <Anchor>afe18e2ea18472eb9d61b3926ec8f9da2</Anchor>
+    <Abstract>HTTP return code. </Abstract>
+  </Token>
+  <Token>
+    <TokenIdentifier>
+      <Name>body</Name>
+      <APILanguage>cpp</APILanguage>
+      <Type>data</Type>
+      <Scope>zeroeq::http::Response</Scope>
+    </TokenIdentifier>
+    <Path>structzeroeq_1_1http_1_1_response.html</Path>
+    <Anchor>a538ef40d879efa44ab1ada380f72a06d</Anchor>
+    <Abstract>Payload to return in a format specified in CONTENT_TYPE header. </Abstract>
+  </Token>
+  <Token>
+    <TokenIdentifier>
+      <Name>headers</Name>
+      <APILanguage>cpp</APILanguage>
+      <Type>data</Type>
+      <Scope>zeroeq::http::Response</Scope>
+    </TokenIdentifier>
+    <Path>structzeroeq_1_1http_1_1_response.html</Path>
+    <Anchor>ad803cd05f85cdc28b56fbacc55163089</Anchor>
+    <Abstract>HTTP message headers. </Abstract>
+  </Token>
+  <Token>
+    <TokenIdentifier>
       <Name>zeroeq::http::Server</Name>
       <APILanguage>c</APILanguage>
       <Type>cl</Type>
@@ -1197,6 +1311,18 @@
     </TokenIdentifier>
     <Path>classzeroeq_1_1http_1_1_server.html</Path>
     <Abstract>Serves HTTP GET and PUT requests for servus::Serializable objects. </Abstract>
+    <DeclaredIn>server.h</DeclaredIn>
+  </Token>
+  <Token>
+    <TokenIdentifier>
+      <Name>handle</Name>
+      <APILanguage>cpp</APILanguage>
+      <Type>instm</Type>
+      <Scope>zeroeq::http::Server</Scope>
+    </TokenIdentifier>
+    <Path>classzeroeq_1_1http_1_1_server.html</Path>
+    <Anchor>aa83fad47cb63ba7d7935aca1b0d7d6b2</Anchor>
+    <Abstract>Handle a single method on a given endpoint. </Abstract>
     <DeclaredIn>server.h</DeclaredIn>
   </Token>
   <Token>
@@ -1244,7 +1370,7 @@
     </TokenIdentifier>
     <Path>classzeroeq_1_1http_1_1_server.html</Path>
     <Anchor>ab8906d6b22e78f6cda70df6b881dc727</Anchor>
-    <Abstract>Remove PUT and GET handling for given endpoint. </Abstract>
+    <Abstract>Remove all handling for given endpoint. </Abstract>
     <DeclaredIn>server.h</DeclaredIn>
   </Token>
   <Token>

@@ -37,7 +37,7 @@
           </tr>
           <tr>
             <td class="headerItem">Date:</td>
-            <td class="headerValue">2017-03-25 01:36:51</td>
+            <td class="headerValue">2017-04-07 01:36:37</td>
             <td></td>
             <td class="headerItem">Functions:</td>
             <td class="headerCovTableEntry">3</td>
@@ -85,12 +85,12 @@
 <span class="lineNum">      23 </span>            : 
 <a name="24"><span class="lineNum">      24 </span>            :   basic_response&lt;Tag&gt; const&amp; response_;</a>
 <span class="lineNum">      25 </span>            : 
-<span class="lineNum">      26 </span><span class="lineCov">         70 :   explicit status_wrapper(basic_response&lt;Tag&gt; const&amp; response)</span>
-<span class="lineNum">      27 </span><span class="lineCov">         70 :       : response_(response) {}</span>
+<span class="lineNum">      26 </span><span class="lineCov">        162 :   explicit status_wrapper(basic_response&lt;Tag&gt; const&amp; response)</span>
+<span class="lineNum">      27 </span><span class="lineCov">        162 :       : response_(response) {}</span>
 <span class="lineNum">      28 </span>            : 
 <a name="29"><span class="lineNum">      29 </span>            :   status_wrapper(status_wrapper const&amp; other) : response_(other.response_) {}</a>
 <span class="lineNum">      30 </span>            : 
-<span class="lineNum">      31 </span><span class="lineCov">         70 :   operator std::uint16_t() { return response_.status(); }</span>
+<span class="lineNum">      31 </span><span class="lineCov">        162 :   operator std::uint16_t() { return response_.status(); }</span>
 <span class="lineNum">      32 </span>            : };
 <span class="lineNum">      33 </span>            : 
 <span class="lineNum">      34 </span>            : }  // namespace impl
@@ -99,8 +99,8 @@
 <span class="lineNum">      37 </span>            : struct Response;
 <a name="38"><span class="lineNum">      38 </span>            : </a>
 <span class="lineNum">      39 </span>            : template &lt;class Tag&gt;
-<span class="lineNum">      40 </span><span class="lineCov">         70 : inline impl::status_wrapper&lt;Tag&gt; status(basic_response&lt;Tag&gt; const&amp; response) {</span>
-<span class="lineNum">      41 </span><span class="lineCov">         70 :   return impl::status_wrapper&lt;Tag&gt;(response);</span>
+<span class="lineNum">      40 </span><span class="lineCov">        162 : inline impl::status_wrapper&lt;Tag&gt; status(basic_response&lt;Tag&gt; const&amp; response) {</span>
+<span class="lineNum">      41 </span><span class="lineCov">        162 :   return impl::status_wrapper&lt;Tag&gt;(response);</span>
 <span class="lineNum">      42 </span>            : }
 <span class="lineNum">      43 </span>            : 
 <span class="lineNum">      44 </span>            : }  // namespace http

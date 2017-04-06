@@ -37,7 +37,7 @@
           </tr>
           <tr>
             <td class="headerItem">Date:</td>
-            <td class="headerValue">2017-03-25 01:36:51</td>
+            <td class="headerValue">2017-04-07 01:36:37</td>
             <td></td>
             <td class="headerItem">Functions:</td>
             <td class="headerCovTableEntry">6</td>
@@ -78,7 +78,7 @@
 <span class="lineNum">      16 </span>            : namespace uri {
 <a name="17"><span class="lineNum">      17 </span>            : namespace detail {</a>
 <span class="lineNum">      18 </span>            : template &lt;class FwdIter&gt;
-<span class="lineNum">      19 </span><span class="lineCov">         96 : struct hierarchical_part {</span>
+<span class="lineNum">      19 </span><span class="lineCov">        208 : struct hierarchical_part {</span>
 <span class="lineNum">      20 </span>            :   optional&lt;iterator_range&lt;FwdIter&gt; &gt; user_info;
 <span class="lineNum">      21 </span>            :   optional&lt;iterator_range&lt;FwdIter&gt; &gt; host;
 <span class="lineNum">      22 </span>            :   optional&lt;iterator_range&lt;FwdIter&gt; &gt; port;
@@ -88,36 +88,36 @@
 <span class="lineNum">      26 </span>            : 
 <a name="27"><span class="lineNum">      27 </span>            :   FwdIter end() const { return std::end(path); }</a>
 <span class="lineNum">      28 </span>            : 
-<span class="lineNum">      29 </span><span class="lineCov">         48 :   void update() {</span>
-<span class="lineNum">      30 </span><span class="lineCov">         48 :     if (!user_info) {</span>
-<span class="lineNum">      31 </span><span class="lineCov">         96 :       if (host) {</span>
-<span class="lineNum">      32 </span><span class="lineCov">         48 :         user_info = make_optional(iterator_range&lt;FwdIter&gt;(std::begin(host.get()),</span>
-<span class="lineNum">      33 </span><span class="lineCov">         48 :                                             std::begin(host.get())));</span>
+<span class="lineNum">      29 </span><span class="lineCov">        104 :   void update() {</span>
+<span class="lineNum">      30 </span><span class="lineCov">        104 :     if (!user_info) {</span>
+<span class="lineNum">      31 </span><span class="lineCov">        208 :       if (host) {</span>
+<span class="lineNum">      32 </span><span class="lineCov">        104 :         user_info = make_optional(iterator_range&lt;FwdIter&gt;(std::begin(host.get()),</span>
+<span class="lineNum">      33 </span><span class="lineCov">        104 :                                             std::begin(host.get())));</span>
 <span class="lineNum">      34 </span><span class="lineNoCov">          0 :       } else if (path) {</span>
 <span class="lineNum">      35 </span><span class="lineNoCov">          0 :         user_info = make_optional(iterator_range&lt;FwdIter&gt;(std::begin(path.get()),</span>
 <span class="lineNum">      36 </span><span class="lineNoCov">          0 :                                             std::begin(path.get())));</span>
 <span class="lineNum">      37 </span>            :       }
 <span class="lineNum">      38 </span>            :     }
 <span class="lineNum">      39 </span>            : 
-<span class="lineNum">      40 </span><span class="lineCov">         48 :     if (!host) {</span>
+<span class="lineNum">      40 </span><span class="lineCov">        104 :     if (!host) {</span>
 <span class="lineNum">      41 </span><span class="lineNoCov">          0 :       host = make_optional(iterator_range&lt;FwdIter&gt;(std::begin(path.get()),</span>
 <span class="lineNum">      42 </span><span class="lineNoCov">          0 :                                      std::begin(path.get())));</span>
 <span class="lineNum">      43 </span>            :     }
 <span class="lineNum">      44 </span>            : 
-<span class="lineNum">      45 </span><span class="lineCov">         48 :     if (!port) {</span>
+<span class="lineNum">      45 </span><span class="lineCov">        104 :     if (!port) {</span>
 <span class="lineNum">      46 </span><span class="lineNoCov">          0 :       port = make_optional(iterator_range&lt;FwdIter&gt;(std::end(host.get()),</span>
 <span class="lineNum">      47 </span><span class="lineNoCov">          0 :                                      std::end(host.get())));</span>
 <span class="lineNum">      48 </span>            :     }
 <span class="lineNum">      49 </span>            : 
-<span class="lineNum">      50 </span><span class="lineCov">         48 :     if (!path) {</span>
+<span class="lineNum">      50 </span><span class="lineCov">        104 :     if (!path) {</span>
 <span class="lineNum">      51 </span><span class="lineNoCov">          0 :       path = make_optional(iterator_range&lt;FwdIter&gt;(std::end(port.get()),</span>
 <span class="lineNum">      52 </span><span class="lineNoCov">          0 :                                      std::end(port.get())));</span>
 <span class="lineNum">      53 </span>            :     }
-<span class="lineNum">      54 </span><span class="lineCov">         48 :   }</span>
+<span class="lineNum">      54 </span><span class="lineCov">        104 :   }</span>
 <span class="lineNum">      55 </span>            : };
 <a name="56"><span class="lineNum">      56 </span>            : </a>
 <span class="lineNum">      57 </span>            : template &lt;class FwdIter&gt;
-<span class="lineNum">      58 </span><span class="lineCov">         96 : struct uri_parts {</span>
+<span class="lineNum">      58 </span><span class="lineCov">        208 : struct uri_parts {</span>
 <span class="lineNum">      59 </span>            :   iterator_range&lt;FwdIter&gt; scheme;
 <span class="lineNum">      60 </span>            :   hierarchical_part&lt;FwdIter&gt; hier_part;
 <span class="lineNum">      61 </span>            :   optional&lt;iterator_range&lt;FwdIter&gt; &gt; query;
@@ -127,20 +127,20 @@
 <span class="lineNum">      65 </span>            : 
 <a name="66"><span class="lineNum">      66 </span>            :   FwdIter end() const { return std::end(fragment); }</a>
 <span class="lineNum">      67 </span>            : 
-<span class="lineNum">      68 </span><span class="lineCov">         48 :   void update() {</span>
+<span class="lineNum">      68 </span><span class="lineCov">        104 :   void update() {</span>
 <span class="lineNum">      69 </span>            : 
-<span class="lineNum">      70 </span><span class="lineCov">         48 :     hier_part.update();</span>
+<span class="lineNum">      70 </span><span class="lineCov">        104 :     hier_part.update();</span>
 <span class="lineNum">      71 </span>            : 
-<span class="lineNum">      72 </span><span class="lineCov">         48 :     if (!query) {</span>
-<span class="lineNum">      73 </span><span class="lineCov">         46 :       query = make_optional(iterator_range&lt;FwdIter&gt;(std::end(hier_part.path.get()),</span>
-<span class="lineNum">      74 </span><span class="lineCov">         46 :                                       std::end(hier_part.path.get())));</span>
+<span class="lineNum">      72 </span><span class="lineCov">        104 :     if (!query) {</span>
+<span class="lineNum">      73 </span><span class="lineCov">         94 :       query = make_optional(iterator_range&lt;FwdIter&gt;(std::end(hier_part.path.get()),</span>
+<span class="lineNum">      74 </span><span class="lineCov">         94 :                                       std::end(hier_part.path.get())));</span>
 <span class="lineNum">      75 </span>            :     }
 <span class="lineNum">      76 </span>            : 
-<span class="lineNum">      77 </span><span class="lineCov">         48 :     if (!fragment) {</span>
-<span class="lineNum">      78 </span><span class="lineCov">         48 :       fragment = make_optional(iterator_range&lt;FwdIter&gt;(std::end(query.get()),</span>
-<span class="lineNum">      79 </span><span class="lineCov">         48 :                                          std::end(query.get())));</span>
+<span class="lineNum">      77 </span><span class="lineCov">        104 :     if (!fragment) {</span>
+<span class="lineNum">      78 </span><span class="lineCov">        104 :       fragment = make_optional(iterator_range&lt;FwdIter&gt;(std::end(query.get()),</span>
+<span class="lineNum">      79 </span><span class="lineCov">        104 :                                          std::end(query.get())));</span>
 <span class="lineNum">      80 </span>            :     }
-<span class="lineNum">      81 </span><span class="lineCov">         48 :   }</span>
+<span class="lineNum">      81 </span><span class="lineCov">        104 :   }</span>
 <span class="lineNum">      82 </span>            : };
 <span class="lineNum">      83 </span>            : }  // namespace detail
 <span class="lineNum">      84 </span>            : }  // namespace uri

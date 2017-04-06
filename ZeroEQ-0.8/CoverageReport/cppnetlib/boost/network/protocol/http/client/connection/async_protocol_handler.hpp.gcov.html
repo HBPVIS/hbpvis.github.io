@@ -31,13 +31,13 @@
             <td class="headerValue">ZeroEQ</td>
             <td></td>
             <td class="headerItem">Lines:</td>
-            <td class="headerCovTableEntry">129</td>
+            <td class="headerCovTableEntry">128</td>
             <td class="headerCovTableEntry">198</td>
-            <td class="headerCovTableEntryMed">65.2 %</td>
+            <td class="headerCovTableEntryMed">64.6 %</td>
           </tr>
           <tr>
             <td class="headerItem">Date:</td>
-            <td class="headerValue">2017-03-25 01:36:51</td>
+            <td class="headerValue">2017-04-07 01:36:37</td>
             <td></td>
             <td class="headerItem">Functions:</td>
             <td class="headerCovTableEntry">12</td>
@@ -87,7 +87,7 @@
 <span class="lineNum">      25 </span>            : namespace impl {
 <a name="26"><span class="lineNum">      26 </span>            : </a>
 <span class="lineNum">      27 </span>            : template &lt;class Tag, unsigned version_major, unsigned version_minor&gt;
-<span class="lineNum">      28 </span><span class="lineCov">         72 : struct http_async_protocol_handler {</span>
+<span class="lineNum">      28 </span><span class="lineCov">        164 : struct http_async_protocol_handler {</span>
 <span class="lineNum">      29 </span>            :  protected:
 <span class="lineNum">      30 </span>            :   typedef typename string&lt;Tag&gt;::type string_type;
 <span class="lineNum">      31 </span>            : 
@@ -116,37 +116,37 @@
 <span class="lineNum">      54 </span>            : #endif
 <a name="55"><span class="lineNum">      55 </span>            : </a>
 <span class="lineNum">      56 </span>            :   template &lt;class ResponseType&gt;
-<span class="lineNum">      57 </span><span class="lineCov">         36 :   void init_response(ResponseType&amp; response_, bool get_body) {</span>
+<span class="lineNum">      57 </span><span class="lineCov">         82 :   void init_response(ResponseType&amp; response_, bool get_body) {</span>
 <span class="lineNum">      58 </span>            :     // TODO(dberris): review parameter necessity.
 <span class="lineNum">      59 </span>            :     (void)get_body;
 <span class="lineNum">      60 </span>            : 
 <span class="lineNum">      61 </span>            :     boost::shared_future&lt;string_type&gt; source_future(
-<span class="lineNum">      62 </span><span class="lineCov">         72 :         source_promise.get_future());</span>
-<span class="lineNum">      63 </span><span class="lineCov">         36 :     source(response_, source_future);</span>
+<span class="lineNum">      62 </span><span class="lineCov">        164 :         source_promise.get_future());</span>
+<span class="lineNum">      63 </span><span class="lineCov">         82 :     source(response_, source_future);</span>
 <span class="lineNum">      64 </span>            : 
 <span class="lineNum">      65 </span>            :     boost::shared_future&lt;string_type&gt; destination_future(
-<span class="lineNum">      66 </span><span class="lineCov">         72 :         destination_promise.get_future());</span>
-<span class="lineNum">      67 </span><span class="lineCov">         36 :     destination(response_, destination_future);</span>
+<span class="lineNum">      66 </span><span class="lineCov">        164 :         destination_promise.get_future());</span>
+<span class="lineNum">      67 </span><span class="lineCov">         82 :     destination(response_, destination_future);</span>
 <span class="lineNum">      68 </span>            : 
 <span class="lineNum">      69 </span>            :     boost::shared_future&lt;typename headers_container&lt;Tag&gt;::type&gt; headers_future(
-<span class="lineNum">      70 </span><span class="lineCov">         72 :         headers_promise.get_future());</span>
-<span class="lineNum">      71 </span><span class="lineCov">         36 :     headers(response_, headers_future);</span>
+<span class="lineNum">      70 </span><span class="lineCov">        164 :         headers_promise.get_future());</span>
+<span class="lineNum">      71 </span><span class="lineCov">         82 :     headers(response_, headers_future);</span>
 <span class="lineNum">      72 </span>            : 
-<span class="lineNum">      73 </span><span class="lineCov">         72 :     boost::shared_future&lt;string_type&gt; body_future(body_promise.get_future());</span>
-<span class="lineNum">      74 </span><span class="lineCov">         36 :     body(response_, body_future);</span>
+<span class="lineNum">      73 </span><span class="lineCov">        164 :     boost::shared_future&lt;string_type&gt; body_future(body_promise.get_future());</span>
+<span class="lineNum">      74 </span><span class="lineCov">         82 :     body(response_, body_future);</span>
 <span class="lineNum">      75 </span>            : 
 <span class="lineNum">      76 </span>            :     boost::shared_future&lt;string_type&gt; version_future(
-<span class="lineNum">      77 </span><span class="lineCov">         72 :         version_promise.get_future());</span>
-<span class="lineNum">      78 </span><span class="lineCov">         36 :     version(response_, version_future);</span>
+<span class="lineNum">      77 </span><span class="lineCov">        164 :         version_promise.get_future());</span>
+<span class="lineNum">      78 </span><span class="lineCov">         82 :     version(response_, version_future);</span>
 <span class="lineNum">      79 </span>            : 
 <span class="lineNum">      80 </span>            :     boost::shared_future&lt;std::uint16_t&gt; status_future(
-<span class="lineNum">      81 </span><span class="lineCov">         72 :         status_promise.get_future());</span>
-<span class="lineNum">      82 </span><span class="lineCov">         36 :     status(response_, status_future);</span>
+<span class="lineNum">      81 </span><span class="lineCov">        164 :         status_promise.get_future());</span>
+<span class="lineNum">      82 </span><span class="lineCov">         82 :     status(response_, status_future);</span>
 <span class="lineNum">      83 </span>            : 
 <span class="lineNum">      84 </span>            :     boost::shared_future&lt;string_type&gt; status_message_future(
-<span class="lineNum">      85 </span><span class="lineCov">         72 :         status_message_promise.get_future());</span>
-<span class="lineNum">      86 </span><span class="lineCov">         36 :     status_message(response_, status_message_future);</span>
-<span class="lineNum">      87 </span><span class="lineCov">         36 :   }</span>
+<span class="lineNum">      85 </span><span class="lineCov">        164 :         status_message_promise.get_future());</span>
+<span class="lineNum">      86 </span><span class="lineCov">         82 :     status_message(response_, status_message_future);</span>
+<span class="lineNum">      87 </span><span class="lineCov">         82 :   }</span>
 <span class="lineNum">      88 </span>            : 
 <span class="lineNum">      89 </span>            :   struct to_http_headers {
 <span class="lineNum">      90 </span>            :     typedef typename string&lt;Tag&gt;::type string_type;
@@ -162,24 +162,24 @@
 <span class="lineNum">     100 </span>            :   };
 <a name="101"><span class="lineNum">     101 </span>            : </a>
 <span class="lineNum">     102 </span>            :   template &lt;class Delegate, class Callback&gt;
-<span class="lineNum">     103 </span><span class="lineCov">         36 :   logic::tribool parse_version(Delegate&amp; delegate_, Callback callback,</span>
+<span class="lineNum">     103 </span><span class="lineCov">         82 :   logic::tribool parse_version(Delegate&amp; delegate_, Callback callback,</span>
 <span class="lineNum">     104 </span>            :                                size_t bytes) {
-<span class="lineNum">     105 </span><span class="lineCov">         36 :     logic::tribool parsed_ok;</span>
-<span class="lineNum">     106 </span><span class="lineCov">         36 :     part_begin = part.begin();</span>
-<span class="lineNum">     107 </span><span class="lineCov">         36 :     typename buffer_type::const_iterator part_end = part.begin();</span>
-<span class="lineNum">     108 </span><span class="lineCov">         36 :     std::advance(part_end, bytes);</span>
+<span class="lineNum">     105 </span><span class="lineCov">         82 :     logic::tribool parsed_ok;</span>
+<span class="lineNum">     106 </span><span class="lineCov">         82 :     part_begin = part.begin();</span>
+<span class="lineNum">     107 </span><span class="lineCov">         82 :     typename buffer_type::const_iterator part_end = part.begin();</span>
+<span class="lineNum">     108 </span><span class="lineCov">         82 :     std::advance(part_end, bytes);</span>
 <span class="lineNum">     109 </span>            :     typename boost::iterator_range&lt;typename buffer_type::const_iterator&gt;
-<span class="lineNum">     110 </span><span class="lineCov">         36 :         result_range,</span>
-<span class="lineNum">     111 </span><span class="lineCov">         36 :         input_range = boost::make_iterator_range(part_begin, part_end);</span>
-<span class="lineNum">     112 </span><span class="lineCov">         36 :     std::tie(parsed_ok, result_range) = response_parser_.parse_until(</span>
+<span class="lineNum">     110 </span><span class="lineCov">         82 :         result_range,</span>
+<span class="lineNum">     111 </span><span class="lineCov">         82 :         input_range = boost::make_iterator_range(part_begin, part_end);</span>
+<span class="lineNum">     112 </span><span class="lineCov">         82 :     std::tie(parsed_ok, result_range) = response_parser_.parse_until(</span>
 <span class="lineNum">     113 </span>            :         response_parser_type::http_version_done, input_range);
-<span class="lineNum">     114 </span><span class="lineCov">         36 :     if (parsed_ok == true) {</span>
-<span class="lineNum">     115 </span><span class="lineCov">         72 :       string_type version;</span>
-<span class="lineNum">     116 </span><span class="lineCov">         36 :       std::swap(version, partial_parsed);</span>
-<span class="lineNum">     117 </span><span class="lineCov">         36 :       version.append(std::begin(result_range), std::end(result_range));</span>
-<span class="lineNum">     118 </span><span class="lineCov">         36 :       algorithm::trim(version);</span>
-<span class="lineNum">     119 </span><span class="lineCov">         36 :       version_promise.set_value(version);</span>
-<span class="lineNum">     120 </span><span class="lineCov">         36 :       part_begin = std::end(result_range);</span>
+<span class="lineNum">     114 </span><span class="lineCov">         82 :     if (parsed_ok == true) {</span>
+<span class="lineNum">     115 </span><span class="lineCov">        164 :       string_type version;</span>
+<span class="lineNum">     116 </span><span class="lineCov">         82 :       std::swap(version, partial_parsed);</span>
+<span class="lineNum">     117 </span><span class="lineCov">         82 :       version.append(std::begin(result_range), std::end(result_range));</span>
+<span class="lineNum">     118 </span><span class="lineCov">         82 :       algorithm::trim(version);</span>
+<span class="lineNum">     119 </span><span class="lineCov">         82 :       version_promise.set_value(version);</span>
+<span class="lineNum">     120 </span><span class="lineCov">         82 :       part_begin = std::end(result_range);</span>
 <span class="lineNum">     121 </span><span class="lineNoCov">          0 :     } else if (parsed_ok == false) {</span>
 <span class="lineNum">     122 </span>            : #ifdef BOOST_NETWORK_DEBUG
 <span class="lineNum">     123 </span>            :       string_type escaped;
@@ -205,28 +205,28 @@
 <span class="lineNum">     143 </span><span class="lineNoCov">          0 :           boost::asio::mutable_buffers_1(part.data(), part.size()),</span>
 <span class="lineNum">     144 </span>            :           callback);
 <span class="lineNum">     145 </span>            :     }
-<span class="lineNum">     146 </span><span class="lineCov">         36 :     return parsed_ok;</span>
+<span class="lineNum">     146 </span><span class="lineCov">         82 :     return parsed_ok;</span>
 <span class="lineNum">     147 </span>            :   }
 <a name="148"><span class="lineNum">     148 </span>            : </a>
 <span class="lineNum">     149 </span>            :   template &lt;class Delegate, class Callback&gt;
-<span class="lineNum">     150 </span><span class="lineCov">         36 :   logic::tribool parse_status(Delegate&amp; delegate_, Callback callback,</span>
+<span class="lineNum">     150 </span><span class="lineCov">         82 :   logic::tribool parse_status(Delegate&amp; delegate_, Callback callback,</span>
 <span class="lineNum">     151 </span>            :                               size_t bytes) {
-<span class="lineNum">     152 </span><span class="lineCov">         36 :     logic::tribool parsed_ok;</span>
-<span class="lineNum">     153 </span><span class="lineCov">         36 :     typename buffer_type::const_iterator part_end = part.begin();</span>
-<span class="lineNum">     154 </span><span class="lineCov">         36 :     std::advance(part_end, bytes);</span>
+<span class="lineNum">     152 </span><span class="lineCov">         82 :     logic::tribool parsed_ok;</span>
+<span class="lineNum">     153 </span><span class="lineCov">         82 :     typename buffer_type::const_iterator part_end = part.begin();</span>
+<span class="lineNum">     154 </span><span class="lineCov">         82 :     std::advance(part_end, bytes);</span>
 <span class="lineNum">     155 </span>            :     typename boost::iterator_range&lt;typename buffer_type::const_iterator&gt;
-<span class="lineNum">     156 </span><span class="lineCov">         36 :         result_range,</span>
-<span class="lineNum">     157 </span><span class="lineCov">         36 :         input_range = boost::make_iterator_range(part_begin, part_end);</span>
-<span class="lineNum">     158 </span><span class="lineCov">         36 :     std::tie(parsed_ok, result_range) = response_parser_.parse_until(</span>
+<span class="lineNum">     156 </span><span class="lineCov">         82 :         result_range,</span>
+<span class="lineNum">     157 </span><span class="lineCov">         82 :         input_range = boost::make_iterator_range(part_begin, part_end);</span>
+<span class="lineNum">     158 </span><span class="lineCov">         82 :     std::tie(parsed_ok, result_range) = response_parser_.parse_until(</span>
 <span class="lineNum">     159 </span>            :         response_parser_type::http_status_done, input_range);
-<span class="lineNum">     160 </span><span class="lineCov">         36 :     if (parsed_ok == true) {</span>
-<span class="lineNum">     161 </span><span class="lineCov">         72 :       string_type status;</span>
-<span class="lineNum">     162 </span><span class="lineCov">         36 :       std::swap(status, partial_parsed);</span>
-<span class="lineNum">     163 </span><span class="lineCov">         36 :       status.append(std::begin(result_range), std::end(result_range));</span>
-<span class="lineNum">     164 </span><span class="lineCov">         36 :       trim(status);</span>
-<span class="lineNum">     165 </span><span class="lineCov">         36 :       std::uint16_t status_int = std::stoi(status);</span>
-<span class="lineNum">     166 </span><span class="lineCov">         36 :       status_promise.set_value(status_int);</span>
-<span class="lineNum">     167 </span><span class="lineCov">         36 :       part_begin = std::end(result_range);</span>
+<span class="lineNum">     160 </span><span class="lineCov">         82 :     if (parsed_ok == true) {</span>
+<span class="lineNum">     161 </span><span class="lineCov">        164 :       string_type status;</span>
+<span class="lineNum">     162 </span><span class="lineCov">         82 :       std::swap(status, partial_parsed);</span>
+<span class="lineNum">     163 </span><span class="lineCov">         82 :       status.append(std::begin(result_range), std::end(result_range));</span>
+<span class="lineNum">     164 </span><span class="lineCov">         82 :       trim(status);</span>
+<span class="lineNum">     165 </span><span class="lineCov">         82 :       std::uint16_t status_int = std::stoi(status);</span>
+<span class="lineNum">     166 </span><span class="lineCov">         82 :       status_promise.set_value(status_int);</span>
+<span class="lineNum">     167 </span><span class="lineCov">         82 :       part_begin = std::end(result_range);</span>
 <span class="lineNum">     168 </span><span class="lineNoCov">          0 :     } else if (parsed_ok == false) {</span>
 <span class="lineNum">     169 </span>            : #ifdef BOOST_NETWORK_DEBUG
 <span class="lineNum">     170 </span>            :       string_type escaped;
@@ -251,28 +251,28 @@
 <span class="lineNum">     189 </span><span class="lineNoCov">          0 :           boost::asio::mutable_buffers_1(part.data(), part.size()),</span>
 <span class="lineNum">     190 </span>            :           callback);
 <span class="lineNum">     191 </span>            :     }
-<span class="lineNum">     192 </span><span class="lineCov">         36 :     return parsed_ok;</span>
+<span class="lineNum">     192 </span><span class="lineCov">         82 :     return parsed_ok;</span>
 <span class="lineNum">     193 </span>            :   }
 <a name="194"><span class="lineNum">     194 </span>            : </a>
 <span class="lineNum">     195 </span>            :   template &lt;class Delegate, class Callback&gt;
-<span class="lineNum">     196 </span><span class="lineCov">         36 :   logic::tribool parse_status_message(Delegate&amp; delegate_, Callback callback,</span>
+<span class="lineNum">     196 </span><span class="lineCov">         82 :   logic::tribool parse_status_message(Delegate&amp; delegate_, Callback callback,</span>
 <span class="lineNum">     197 </span>            :                                       size_t bytes) {
-<span class="lineNum">     198 </span><span class="lineCov">         36 :     logic::tribool parsed_ok;</span>
-<span class="lineNum">     199 </span><span class="lineCov">         36 :     typename buffer_type::const_iterator part_end = part.begin();</span>
-<span class="lineNum">     200 </span><span class="lineCov">         36 :     std::advance(part_end, bytes);</span>
+<span class="lineNum">     198 </span><span class="lineCov">         82 :     logic::tribool parsed_ok;</span>
+<span class="lineNum">     199 </span><span class="lineCov">         82 :     typename buffer_type::const_iterator part_end = part.begin();</span>
+<span class="lineNum">     200 </span><span class="lineCov">         82 :     std::advance(part_end, bytes);</span>
 <span class="lineNum">     201 </span>            :     typename boost::iterator_range&lt;typename buffer_type::const_iterator&gt;
-<span class="lineNum">     202 </span><span class="lineCov">         36 :         result_range,</span>
-<span class="lineNum">     203 </span><span class="lineCov">         36 :         input_range = boost::make_iterator_range(part_begin, part_end);</span>
-<span class="lineNum">     204 </span><span class="lineCov">         36 :     std::tie(parsed_ok, result_range) = response_parser_.parse_until(</span>
+<span class="lineNum">     202 </span><span class="lineCov">         82 :         result_range,</span>
+<span class="lineNum">     203 </span><span class="lineCov">         82 :         input_range = boost::make_iterator_range(part_begin, part_end);</span>
+<span class="lineNum">     204 </span><span class="lineCov">         82 :     std::tie(parsed_ok, result_range) = response_parser_.parse_until(</span>
 <span class="lineNum">     205 </span>            :         response_parser_type::http_status_message_done, input_range);
-<span class="lineNum">     206 </span><span class="lineCov">         36 :     if (parsed_ok == true) {</span>
-<span class="lineNum">     207 </span><span class="lineCov">         72 :       string_type status_message;</span>
-<span class="lineNum">     208 </span><span class="lineCov">         36 :       std::swap(status_message, partial_parsed);</span>
-<span class="lineNum">     209 </span><span class="lineCov">         36 :       status_message.append(std::begin(result_range),</span>
+<span class="lineNum">     206 </span><span class="lineCov">         82 :     if (parsed_ok == true) {</span>
+<span class="lineNum">     207 </span><span class="lineCov">        164 :       string_type status_message;</span>
+<span class="lineNum">     208 </span><span class="lineCov">         82 :       std::swap(status_message, partial_parsed);</span>
+<span class="lineNum">     209 </span><span class="lineCov">         82 :       status_message.append(std::begin(result_range),</span>
 <span class="lineNum">     210 </span>            :                             std::end(result_range));
-<span class="lineNum">     211 </span><span class="lineCov">         36 :       algorithm::trim(status_message);</span>
-<span class="lineNum">     212 </span><span class="lineCov">         36 :       status_message_promise.set_value(status_message);</span>
-<span class="lineNum">     213 </span><span class="lineCov">         36 :       part_begin = std::end(result_range);</span>
+<span class="lineNum">     211 </span><span class="lineCov">         82 :       algorithm::trim(status_message);</span>
+<span class="lineNum">     212 </span><span class="lineCov">         82 :       status_message_promise.set_value(status_message);</span>
+<span class="lineNum">     213 </span><span class="lineCov">         82 :       part_begin = std::end(result_range);</span>
 <span class="lineNum">     214 </span><span class="lineNoCov">          0 :     } else if (parsed_ok == false) {</span>
 <span class="lineNum">     215 </span>            : #ifdef BOOST_NETWORK_DEBUG
 <span class="lineNum">     216 </span>            :       string_type escaped;
@@ -296,47 +296,47 @@
 <span class="lineNum">     234 </span><span class="lineNoCov">          0 :           boost::asio::mutable_buffers_1(part.data(), part.size()),</span>
 <span class="lineNum">     235 </span>            :           callback);
 <span class="lineNum">     236 </span>            :     }
-<span class="lineNum">     237 </span><span class="lineCov">         36 :     return parsed_ok;</span>
+<span class="lineNum">     237 </span><span class="lineCov">         82 :     return parsed_ok;</span>
 <a name="238"><span class="lineNum">     238 </span>            :   }</a>
 <span class="lineNum">     239 </span>            : 
-<span class="lineNum">     240 </span><span class="lineCov">         36 :   void parse_headers_real(string_type&amp; headers_part) {</span>
+<span class="lineNum">     240 </span><span class="lineCov">         82 :   void parse_headers_real(string_type&amp; headers_part) {</span>
 <span class="lineNum">     241 </span>            :     typename boost::iterator_range&lt;typename string_type::const_iterator&gt;
-<span class="lineNum">     242 </span><span class="lineCov">         36 :         input_range = boost::make_iterator_range(headers_part),</span>
-<span class="lineNum">     243 </span><span class="lineCov">         36 :         result_range;</span>
-<span class="lineNum">     244 </span><span class="lineCov">         36 :     logic::tribool parsed_ok;</span>
+<span class="lineNum">     242 </span><span class="lineCov">         82 :         input_range = boost::make_iterator_range(headers_part),</span>
+<span class="lineNum">     243 </span><span class="lineCov">         82 :         result_range;</span>
+<span class="lineNum">     244 </span><span class="lineCov">         82 :     logic::tribool parsed_ok;</span>
 <span class="lineNum">     245 </span>            :     response_parser_type headers_parser(
-<span class="lineNum">     246 </span><span class="lineCov">         36 :         response_parser_type::http_header_line_done);</span>
-<span class="lineNum">     247 </span><span class="lineCov">         72 :     typename headers_container&lt;Tag&gt;::type headers;</span>
-<span class="lineNum">     248 </span><span class="lineCov">         72 :     std::pair&lt;string_type, string_type&gt; header_pair;</span>
+<span class="lineNum">     246 </span><span class="lineCov">         82 :         response_parser_type::http_header_line_done);</span>
+<span class="lineNum">     247 </span><span class="lineCov">        164 :     typename headers_container&lt;Tag&gt;::type headers;</span>
+<span class="lineNum">     248 </span><span class="lineCov">        164 :     std::pair&lt;string_type, string_type&gt; header_pair;</span>
 <span class="lineNum">     249 </span>            :     //init params
-<span class="lineNum">     250 </span><span class="lineCov">         36 :     is_content_length = false;</span>
-<span class="lineNum">     251 </span><span class="lineCov">         36 :     content_length = -1;</span>
-<span class="lineNum">     252 </span><span class="lineCov">         36 :     is_chunk_end = false;</span>
-<span class="lineNum">     253 </span><span class="lineCov">        284 :     while (!boost::empty(input_range)) {</span>
-<span class="lineNum">     254 </span><span class="lineCov">        160 :       std::tie(parsed_ok, result_range) = headers_parser.parse_until(</span>
+<span class="lineNum">     250 </span><span class="lineCov">         82 :     is_content_length = false;</span>
+<span class="lineNum">     251 </span><span class="lineCov">         82 :     content_length = -1;</span>
+<span class="lineNum">     252 </span><span class="lineCov">         82 :     is_chunk_end = false;</span>
+<span class="lineNum">     253 </span><span class="lineCov">        836 :     while (!boost::empty(input_range)) {</span>
+<span class="lineNum">     254 </span><span class="lineCov">        459 :       std::tie(parsed_ok, result_range) = headers_parser.parse_until(</span>
 <span class="lineNum">     255 </span>            :           response_parser_type::http_header_colon, input_range);
-<span class="lineNum">     256 </span><span class="lineCov">        160 :       if (headers_parser.state() != response_parser_type::http_header_colon)</span>
-<span class="lineNum">     257 </span><span class="lineCov">         36 :         break;</span>
-<span class="lineNum">     258 </span><span class="lineCov">        124 :       header_pair.first =</span>
+<span class="lineNum">     256 </span><span class="lineCov">        459 :       if (headers_parser.state() != response_parser_type::http_header_colon)</span>
+<span class="lineNum">     257 </span><span class="lineCov">         82 :         break;</span>
+<span class="lineNum">     258 </span><span class="lineCov">        377 :       header_pair.first =</span>
 <span class="lineNum">     259 </span>            :           string_type(std::begin(result_range), std::end(result_range));
-<span class="lineNum">     260 </span><span class="lineCov">        124 :       input_range.advance_begin(boost::distance(result_range));</span>
-<span class="lineNum">     261 </span><span class="lineCov">        124 :       std::tie(parsed_ok, result_range) = headers_parser.parse_until(</span>
+<span class="lineNum">     260 </span><span class="lineCov">        377 :       input_range.advance_begin(boost::distance(result_range));</span>
+<span class="lineNum">     261 </span><span class="lineCov">        377 :       std::tie(parsed_ok, result_range) = headers_parser.parse_until(</span>
 <span class="lineNum">     262 </span>            :           response_parser_type::http_header_line_done, input_range);
-<span class="lineNum">     263 </span><span class="lineCov">        124 :       header_pair.second =</span>
+<span class="lineNum">     263 </span><span class="lineCov">        377 :       header_pair.second =</span>
 <span class="lineNum">     264 </span>            :           string_type(std::begin(result_range), std::end(result_range));
-<span class="lineNum">     265 </span><span class="lineCov">        124 :       input_range.advance_begin(boost::distance(result_range));</span>
+<span class="lineNum">     265 </span><span class="lineCov">        377 :       input_range.advance_begin(boost::distance(result_range));</span>
 <span class="lineNum">     266 </span>            : 
-<span class="lineNum">     267 </span><span class="lineCov">        124 :       trim(header_pair.first);</span>
-<span class="lineNum">     268 </span><span class="lineCov">        124 :       if (header_pair.first.size() &gt; 1) {</span>
-<span class="lineNum">     269 </span><span class="lineCov">        124 :         header_pair.first.erase(header_pair.first.size() - 1);</span>
+<span class="lineNum">     267 </span><span class="lineCov">        377 :       trim(header_pair.first);</span>
+<span class="lineNum">     268 </span><span class="lineCov">        377 :       if (header_pair.first.size() &gt; 1) {</span>
+<span class="lineNum">     269 </span><span class="lineCov">        377 :         header_pair.first.erase(header_pair.first.size() - 1);</span>
 <span class="lineNum">     270 </span>            :       }
-<span class="lineNum">     271 </span><span class="lineCov">        124 :       trim(header_pair.second);</span>
-<span class="lineNum">     272 </span><span class="lineCov">        124 :       headers.insert(header_pair);</span>
-<span class="lineNum">     273 </span><span class="lineCov">        496 :       if (!is_content_length &amp;&amp; </span>
-<span class="lineNum">     274 </span><span class="lineCov">        496 :           boost::iequals(header_pair.first, &quot;Content-Length&quot;)) {</span>
+<span class="lineNum">     271 </span><span class="lineCov">        377 :       trim(header_pair.second);</span>
+<span class="lineNum">     272 </span><span class="lineCov">        377 :       headers.insert(header_pair);</span>
+<span class="lineNum">     273 </span><span class="lineCov">       1459 :       if (!is_content_length &amp;&amp; </span>
+<span class="lineNum">     274 </span><span class="lineCov">       1361 :           boost::iequals(header_pair.first, &quot;Content-Length&quot;)) {</span>
 <span class="lineNum">     275 </span>            :         try {
-<span class="lineNum">     276 </span><span class="lineCov">         16 :           content_length = std::stoll(header_pair.second);</span>
-<span class="lineNum">     277 </span><span class="lineCov">         16 :           is_content_length = true;</span>
+<span class="lineNum">     276 </span><span class="lineCov">         82 :           content_length = std::stoll(header_pair.second);</span>
+<span class="lineNum">     277 </span><span class="lineCov">         82 :           is_content_length = true;</span>
 <span class="lineNum">     278 </span>            :         }
 <span class="lineNum">     279 </span><span class="lineNoCov">          0 :         catch (std::exception&amp;) {</span>
 <span class="lineNum">     280 </span>            :           //is_content_length = false;
@@ -345,33 +345,33 @@
 <span class="lineNum">     283 </span>            :     }
 <span class="lineNum">     284 </span>            :     // determine if the body parser will need to handle chunked encoding
 <span class="lineNum">     285 </span>            :     typename headers_range&lt;basic_response&lt;Tag&gt; &gt;::type transfer_encoding_range =
-<span class="lineNum">     286 </span><span class="lineCov">         36 :         headers.equal_range(&quot;Transfer-Encoding&quot;);</span>
-<span class="lineNum">     287 </span><span class="lineCov">         72 :     is_chunk_encoding =</span>
-<span class="lineNum">     288 </span><span class="lineCov">         36 :         !boost::empty(transfer_encoding_range) &amp;&amp;</span>
-<span class="lineNum">     289 </span><span class="lineCov">         36 :         boost::iequals(std::begin(transfer_encoding_range)-&gt;second,</span>
+<span class="lineNum">     286 </span><span class="lineCov">         82 :         headers.equal_range(&quot;Transfer-Encoding&quot;);</span>
+<span class="lineNum">     287 </span><span class="lineCov">        164 :     is_chunk_encoding =</span>
+<span class="lineNum">     288 </span><span class="lineCov">         82 :         !boost::empty(transfer_encoding_range) &amp;&amp;</span>
+<span class="lineNum">     289 </span><span class="lineCov">         82 :         boost::iequals(std::begin(transfer_encoding_range)-&gt;second,</span>
 <span class="lineNum">     290 </span>            :                        &quot;chunked&quot;);
-<span class="lineNum">     291 </span><span class="lineCov">         36 :     headers_promise.set_value(headers);</span>
-<span class="lineNum">     292 </span><span class="lineCov">         36 :   }</span>
+<span class="lineNum">     291 </span><span class="lineCov">         82 :     headers_promise.set_value(headers);</span>
+<span class="lineNum">     292 </span><span class="lineCov">         82 :   }</span>
 <a name="293"><span class="lineNum">     293 </span>            : </a>
 <span class="lineNum">     294 </span>            :   template &lt;class Delegate, class Callback&gt;
-<span class="lineNum">     295 </span><span class="lineCov">         36 :   std::tuple&lt;logic::tribool, size_t&gt; parse_headers(Delegate&amp; delegate_,</span>
+<span class="lineNum">     295 </span><span class="lineCov">         82 :   std::tuple&lt;logic::tribool, size_t&gt; parse_headers(Delegate&amp; delegate_,</span>
 <span class="lineNum">     296 </span>            :                                                    Callback callback,
 <span class="lineNum">     297 </span>            :                                                    size_t bytes) {
-<span class="lineNum">     298 </span><span class="lineCov">         36 :     logic::tribool parsed_ok;</span>
-<span class="lineNum">     299 </span><span class="lineCov">         36 :     typename buffer_type::const_iterator part_end = part.begin();</span>
-<span class="lineNum">     300 </span><span class="lineCov">         36 :     std::advance(part_end, bytes);</span>
+<span class="lineNum">     298 </span><span class="lineCov">         82 :     logic::tribool parsed_ok;</span>
+<span class="lineNum">     299 </span><span class="lineCov">         82 :     typename buffer_type::const_iterator part_end = part.begin();</span>
+<span class="lineNum">     300 </span><span class="lineCov">         82 :     std::advance(part_end, bytes);</span>
 <span class="lineNum">     301 </span>            :     typename boost::iterator_range&lt;typename buffer_type::const_iterator&gt;
-<span class="lineNum">     302 </span><span class="lineCov">         36 :         result_range,</span>
-<span class="lineNum">     303 </span><span class="lineCov">         36 :         input_range = boost::make_iterator_range(part_begin, part_end);</span>
-<span class="lineNum">     304 </span><span class="lineCov">         36 :     std::tie(parsed_ok, result_range) = response_parser_.parse_until(</span>
+<span class="lineNum">     302 </span><span class="lineCov">         82 :         result_range,</span>
+<span class="lineNum">     303 </span><span class="lineCov">         82 :         input_range = boost::make_iterator_range(part_begin, part_end);</span>
+<span class="lineNum">     304 </span><span class="lineCov">         82 :     std::tie(parsed_ok, result_range) = response_parser_.parse_until(</span>
 <span class="lineNum">     305 </span>            :         response_parser_type::http_headers_done, input_range);
-<span class="lineNum">     306 </span><span class="lineCov">         36 :     if (parsed_ok == true) {</span>
-<span class="lineNum">     307 </span><span class="lineCov">         72 :       string_type headers_string;</span>
-<span class="lineNum">     308 </span><span class="lineCov">         36 :       std::swap(headers_string, partial_parsed);</span>
-<span class="lineNum">     309 </span><span class="lineCov">         36 :       headers_string.append(std::begin(result_range),</span>
+<span class="lineNum">     306 </span><span class="lineCov">         82 :     if (parsed_ok == true) {</span>
+<span class="lineNum">     307 </span><span class="lineCov">        164 :       string_type headers_string;</span>
+<span class="lineNum">     308 </span><span class="lineCov">         82 :       std::swap(headers_string, partial_parsed);</span>
+<span class="lineNum">     309 </span><span class="lineCov">         82 :       headers_string.append(std::begin(result_range),</span>
 <span class="lineNum">     310 </span>            :                             std::end(result_range));
-<span class="lineNum">     311 </span><span class="lineCov">         36 :       part_begin = std::end(result_range);</span>
-<span class="lineNum">     312 </span><span class="lineCov">         36 :       this-&gt;parse_headers_real(headers_string);</span>
+<span class="lineNum">     311 </span><span class="lineCov">         82 :       part_begin = std::end(result_range);</span>
+<span class="lineNum">     312 </span><span class="lineCov">         82 :       this-&gt;parse_headers_real(headers_string);</span>
 <span class="lineNum">     313 </span><span class="lineNoCov">          0 :     } else if (parsed_ok == false) {</span>
 <span class="lineNum">     314 </span>            : // We want to output the contents of the buffer that caused
 <span class="lineNum">     315 </span>            : // the error in debug builds.
@@ -398,21 +398,21 @@
 <span class="lineNum">     336 </span>            :           callback);
 <span class="lineNum">     337 </span>            :     }
 <span class="lineNum">     338 </span>            :     return std::make_tuple(
-<span class="lineNum">     339 </span><span class="lineCov">         36 :         parsed_ok, std::distance(std::end(result_range), part_end));</span>
+<span class="lineNum">     339 </span><span class="lineCov">         82 :         parsed_ok, std::distance(std::end(result_range), part_end));</span>
 <a name="340"><span class="lineNum">     340 </span>            :   }</a>
 <span class="lineNum">     341 </span>            : 
-<span class="lineNum">     342 </span><span class="lineCov">         52 :   inline bool check_parse_body_complete() const {</span>
-<span class="lineNum">     343 </span><span class="lineCov">         52 :     if (this-&gt;is_chunk_encoding) {</span>
+<span class="lineNum">     342 </span><span class="lineCov">        127 :   inline bool check_parse_body_complete() const {</span>
+<span class="lineNum">     343 </span><span class="lineCov">        127 :     if (this-&gt;is_chunk_encoding) {</span>
 <span class="lineNum">     344 </span><span class="lineNoCov">          0 :       return parse_chunk_encoding_complete();</span>
 <span class="lineNum">     345 </span>            :     }
-<span class="lineNum">     346 </span><span class="lineCov">         52 :     if (this-&gt;is_content_length &amp;&amp; this-&gt;content_length &gt;= 0) {</span>
-<span class="lineNum">     347 </span><span class="lineCov">         32 :       return parse_content_length_complete();</span>
+<span class="lineNum">     346 </span><span class="lineCov">        127 :     if (this-&gt;is_content_length &amp;&amp; this-&gt;content_length &gt;= 0) {</span>
+<span class="lineNum">     347 </span><span class="lineCov">        127 :       return parse_content_length_complete();</span>
 <span class="lineNum">     348 </span>            :     }
-<span class="lineNum">     349 </span><span class="lineCov">         20 :     return false;</span>
+<span class="lineNum">     349 </span><span class="lineNoCov">          0 :     return false;</span>
 <a name="350"><span class="lineNum">     350 </span>            :   }</a>
 <span class="lineNum">     351 </span>            :   
-<span class="lineNum">     352 </span><span class="lineCov">         32 :   inline bool parse_content_length_complete() const {</span>
-<span class="lineNum">     353 </span><span class="lineCov">         32 :     return this-&gt;partial_parsed.length() &gt;= this-&gt; content_length;</span>
+<span class="lineNum">     352 </span><span class="lineCov">        127 :   inline bool parse_content_length_complete() const {</span>
+<span class="lineNum">     353 </span><span class="lineCov">        127 :     return this-&gt;partial_parsed.length() &gt;= this-&gt; content_length;</span>
 <a name="354"><span class="lineNum">     354 </span>            :   }</a>
 <span class="lineNum">     355 </span>            : 
 <span class="lineNum">     356 </span><span class="lineNoCov">          0 :   bool parse_chunk_encoding_complete() const {</span>
@@ -445,20 +445,20 @@
 <span class="lineNum">     383 </span>            :   }
 <a name="384"><span class="lineNum">     384 </span>            : </a>
 <span class="lineNum">     385 </span>            :   template &lt;class Delegate, class Callback&gt;
-<span class="lineNum">     386 </span><span class="lineCov">         52 :   void parse_body(Delegate&amp; delegate_, Callback callback, size_t bytes) {</span>
+<span class="lineNum">     386 </span><span class="lineCov">        127 :   void parse_body(Delegate&amp; delegate_, Callback callback, size_t bytes) {</span>
 <span class="lineNum">     387 </span>            :     // TODO(dberris): we should really not use a string for the partial body
 <span class="lineNum">     388 </span>            :     // buffer.
-<span class="lineNum">     389 </span><span class="lineCov">         52 :     auto it = part_begin;</span>
-<span class="lineNum">     390 </span><span class="lineCov">         52 :         std::advance(it, bytes);</span>
-<span class="lineNum">     391 </span><span class="lineCov">         52 :     partial_parsed.append(part_begin, it);</span>
-<span class="lineNum">     392 </span><span class="lineCov">         52 :     part_begin = part.begin();</span>
-<span class="lineNum">     393 </span><span class="lineCov">         52 :     if (check_parse_body_complete()) {</span>
-<span class="lineNum">     394 </span><span class="lineCov">         16 :       callback(boost::asio::error::eof, bytes);</span>
+<span class="lineNum">     389 </span><span class="lineCov">        127 :     auto it = part_begin;</span>
+<span class="lineNum">     390 </span><span class="lineCov">        127 :         std::advance(it, bytes);</span>
+<span class="lineNum">     391 </span><span class="lineCov">        127 :     partial_parsed.append(part_begin, it);</span>
+<span class="lineNum">     392 </span><span class="lineCov">        127 :     part_begin = part.begin();</span>
+<span class="lineNum">     393 </span><span class="lineCov">        127 :     if (check_parse_body_complete()) {</span>
+<span class="lineNum">     394 </span><span class="lineCov">         82 :       callback(boost::asio::error::eof, bytes);</span>
 <span class="lineNum">     395 </span>            :     } else {
-<span class="lineNum">     396 </span><span class="lineCov">         72 :       delegate_-&gt;read_some(</span>
-<span class="lineNum">     397 </span><span class="lineCov">         36 :           boost::asio::mutable_buffers_1(part.data(), part.size()), callback);</span>
+<span class="lineNum">     396 </span><span class="lineCov">         90 :       delegate_-&gt;read_some(</span>
+<span class="lineNum">     397 </span><span class="lineCov">         45 :           boost::asio::mutable_buffers_1(part.data(), part.size()), callback);</span>
 <span class="lineNum">     398 </span>            :     }
-<span class="lineNum">     399 </span><span class="lineCov">         52 :   }</span>
+<span class="lineNum">     399 </span><span class="lineCov">        127 :   }</span>
 <span class="lineNum">     400 </span>            : 
 <span class="lineNum">     401 </span>            :   typedef response_parser&lt;Tag&gt; response_parser_type;
 <span class="lineNum">     402 </span>            :   // TODO(dberris): make 1024 go away and become a configurable value.

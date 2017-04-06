@@ -37,7 +37,7 @@
           </tr>
           <tr>
             <td class="headerItem">Date:</td>
-            <td class="headerValue">2017-03-25 01:36:51</td>
+            <td class="headerValue">2017-04-07 01:36:37</td>
             <td></td>
             <td class="headerItem">Functions:</td>
             <td class="headerCovTableEntry">2</td>
@@ -75,17 +75,17 @@
 <span class="lineNum">      13 </span>            : namespace network {
 <a name="14"><span class="lineNum">      14 </span>            : namespace http {</a>
 <span class="lineNum">      15 </span>            : 
-<span class="lineNum">      16 </span><span class="lineCov">         56 : struct server_storage_base {</span>
+<span class="lineNum">      16 </span><span class="lineCov">         68 : struct server_storage_base {</span>
 <span class="lineNum">      17 </span>            :   struct no_io_service {};
 <span class="lineNum">      18 </span>            :   struct has_io_service {};
 <span class="lineNum">      19 </span>            : 
 <a name="20"><span class="lineNum">      20 </span>            :  protected:</a>
 <span class="lineNum">      21 </span>            :   template &lt;class Tag, class Handler&gt;
-<span class="lineNum">      22 </span><span class="lineCov">         56 :   explicit server_storage_base(server_options&lt;Tag, Handler&gt; const&amp; options)</span>
+<span class="lineNum">      22 </span><span class="lineCov">         68 :   explicit server_storage_base(server_options&lt;Tag, Handler&gt; const&amp; options)</span>
 <span class="lineNum">      23 </span>            :       : self_service_(options.io_service()
-<span class="lineNum">      24 </span><span class="lineCov">        112 :                           ? options.io_service()</span>
+<span class="lineNum">      24 </span><span class="lineCov">        136 :                           ? options.io_service()</span>
 <span class="lineNum">      25 </span>            :                           : std::make_shared&lt;boost::asio::io_service&gt;()),
-<span class="lineNum">      26 </span><span class="lineCov">        112 :         service_(*self_service_) {}</span>
+<span class="lineNum">      26 </span><span class="lineCov">        136 :         service_(*self_service_) {}</span>
 <span class="lineNum">      27 </span>            : 
 <span class="lineNum">      28 </span>            :   std::shared_ptr&lt;boost::asio::io_service&gt; self_service_;
 <span class="lineNum">      29 </span>            :   boost::asio::io_service&amp; service_;

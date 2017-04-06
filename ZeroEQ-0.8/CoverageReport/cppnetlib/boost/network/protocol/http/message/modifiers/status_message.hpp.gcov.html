@@ -37,7 +37,7 @@
           </tr>
           <tr>
             <td class="headerItem">Date:</td>
-            <td class="headerValue">2017-03-25 01:36:51</td>
+            <td class="headerValue">2017-04-07 01:36:37</td>
             <td></td>
             <td class="headerItem">Functions:</td>
             <td class="headerCovTableEntry">2</td>
@@ -87,17 +87,17 @@
 <span class="lineNum">      25 </span>            : }
 <a name="26"><span class="lineNum">      26 </span>            : </a>
 <span class="lineNum">      27 </span>            : template &lt;class Tag, class T&gt;
-<span class="lineNum">      28 </span><span class="lineCov">         36 : void status_message(basic_response&lt;Tag&gt; &amp;response, T const &amp;future,</span>
+<span class="lineNum">      28 </span><span class="lineCov">         82 : void status_message(basic_response&lt;Tag&gt; &amp;response, T const &amp;future,</span>
 <span class="lineNum">      29 </span>            :                     mpl::true_ const &amp; /*unused*/) {
-<span class="lineNum">      30 </span><span class="lineCov">         36 :   response.status_message(future);</span>
-<span class="lineNum">      31 </span><span class="lineCov">         36 : }</span>
+<span class="lineNum">      30 </span><span class="lineCov">         82 :   response.status_message(future);</span>
+<span class="lineNum">      31 </span><span class="lineCov">         82 : }</span>
 <span class="lineNum">      32 </span>            : 
 <span class="lineNum">      33 </span>            : }  // namespace impl
 <a name="34"><span class="lineNum">      34 </span>            : </a>
 <span class="lineNum">      35 </span>            : template &lt;class Tag, class T&gt;
-<span class="lineNum">      36 </span><span class="lineCov">         36 : void status_message(basic_response&lt;Tag&gt; &amp;response, T const &amp;value) {</span>
-<span class="lineNum">      37 </span><span class="lineCov">         36 :   impl::status_message(response, value, is_async&lt;Tag&gt;());</span>
-<span class="lineNum">      38 </span><span class="lineCov">         36 : }</span>
+<span class="lineNum">      36 </span><span class="lineCov">         82 : void status_message(basic_response&lt;Tag&gt; &amp;response, T const &amp;value) {</span>
+<span class="lineNum">      37 </span><span class="lineCov">         82 :   impl::status_message(response, value, is_async&lt;Tag&gt;());</span>
+<span class="lineNum">      38 </span><span class="lineCov">         82 : }</span>
 <span class="lineNum">      39 </span>            : 
 <span class="lineNum">      40 </span>            : }  // namespace http
 <span class="lineNum">      41 </span>            : 

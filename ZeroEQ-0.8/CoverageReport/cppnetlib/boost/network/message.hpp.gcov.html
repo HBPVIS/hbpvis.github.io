@@ -37,7 +37,7 @@
           </tr>
           <tr>
             <td class="headerItem">Date:</td>
-            <td class="headerValue">2017-03-25 01:36:51</td>
+            <td class="headerValue">2017-04-07 01:36:37</td>
             <td></td>
             <td class="headerItem">Functions:</td>
             <td class="headerCovTableEntry">8</td>
@@ -97,12 +97,12 @@
 <span class="lineNum">      35 </span>            :   typedef typename headers_container_type::value_type header_type;
 <a name="36"><span class="lineNum">      36 </span>            :   typedef typename string&lt;Tag&gt;::type string_type;</a>
 <a name="37"><span class="lineNum">      37 </span>            : </a>
-<span class="lineNum">      38 </span><span class="lineCov">         36 :   basic_message() = default;</span>
-<span class="lineNum">      39 </span><span class="lineCov">         12 :   basic_message(const basic_message&amp;) = default;</span>
+<span class="lineNum">      38 </span><span class="lineCov">         82 :   basic_message() = default;</span>
+<span class="lineNum">      39 </span><span class="lineCov">         22 :   basic_message(const basic_message&amp;) = default;</span>
 <span class="lineNum">      40 </span>            :   basic_message(basic_message&amp;&amp;) = default;
 <a name="41"><span class="lineNum">      41 </span>            :   basic_message&amp; operator=(basic_message const&amp;) = default;</a>
 <span class="lineNum">      42 </span>            :   basic_message&amp; operator=(basic_message&amp;&amp;) = default;
-<span class="lineNum">      43 </span><span class="lineCov">         48 :   ~basic_message() = default;</span>
+<span class="lineNum">      43 </span><span class="lineCov">        104 :   ~basic_message() = default;</span>
 <span class="lineNum">      44 </span>            : 
 <span class="lineNum">      45 </span>            :   void swap(basic_message&lt;Tag&gt;&amp; other) {
 <span class="lineNum">      46 </span>            :     using std::swap;
@@ -112,29 +112,29 @@
 <span class="lineNum">      50 </span>            :     swap(other.destination_, destination_);
 <a name="51"><span class="lineNum">      51 </span>            :   }</a>
 <span class="lineNum">      52 </span>            : 
-<span class="lineNum">      53 </span><span class="lineCov">          9 :   headers_container_type&amp; headers() { return headers_; }</span>
+<span class="lineNum">      53 </span><span class="lineCov">         15 :   headers_container_type&amp; headers() { return headers_; }</span>
 <span class="lineNum">      54 </span>            : 
 <span class="lineNum">      55 </span>            :   void headers(headers_container_type headers) const {
 <span class="lineNum">      56 </span>            :     headers_ = std::move(headers);
 <a name="57"><span class="lineNum">      57 </span>            :   }</a>
 <span class="lineNum">      58 </span>            : 
-<span class="lineNum">      59 </span><span class="lineCov">         21 :   void add_header(</span>
+<span class="lineNum">      59 </span><span class="lineCov">         37 :   void add_header(</span>
 <span class="lineNum">      60 </span>            :       typename headers_container_type::value_type const&amp; pair_) const {
-<span class="lineNum">      61 </span><span class="lineCov">         21 :     headers_.insert(pair_);</span>
-<span class="lineNum">      62 </span><span class="lineCov">         21 :   }</span>
+<span class="lineNum">      61 </span><span class="lineCov">         37 :     headers_.insert(pair_);</span>
+<span class="lineNum">      62 </span><span class="lineCov">         37 :   }</span>
 <span class="lineNum">      63 </span>            : 
 <span class="lineNum">      64 </span>            :   void remove_header(
 <span class="lineNum">      65 </span>            :       typename headers_container_type::key_type const&amp; key) const {
 <span class="lineNum">      66 </span>            :     headers_.erase(key);
 <a name="67"><span class="lineNum">      67 </span>            :   }</a>
 <span class="lineNum">      68 </span>            : 
-<span class="lineNum">      69 </span><span class="lineCov">         84 :   headers_container_type const&amp; headers() const { return headers_; }</span>
+<span class="lineNum">      69 </span><span class="lineCov">        186 :   headers_container_type const&amp; headers() const { return headers_; }</span>
 <span class="lineNum">      70 </span>            : 
 <a name="71"><span class="lineNum">      71 </span>            :   string_type&amp; body() { return body_; }</a>
 <span class="lineNum">      72 </span>            : 
-<a name="73"><span class="lineNum">      73 </span><span class="lineCov">          9 :   void body(string_type body) const { body_ = std::move(body); }</span></a>
+<a name="73"><span class="lineNum">      73 </span><span class="lineCov">         15 :   void body(string_type body) const { body_ = std::move(body); }</span></a>
 <span class="lineNum">      74 </span>            : 
-<span class="lineNum">      75 </span><span class="lineCov">         36 :   string_type const&amp; body() const { return body_; }</span>
+<span class="lineNum">      75 </span><span class="lineCov">         82 :   string_type const&amp; body() const { return body_; }</span>
 <span class="lineNum">      76 </span>            : 
 <span class="lineNum">      77 </span>            :   string_type&amp; source() { return source_; }
 <span class="lineNum">      78 </span>            : 

@@ -10,6 +10,7 @@ var classzeroeq_1_1http_1_1_server =
     [ "getSchema", "classzeroeq_1_1http_1_1_server.html#a50738d4551dff3a52e782305e2196430", null ],
     [ "getSocketDescriptor", "classzeroeq_1_1http_1_1_server.html#a15be7e2843c62325d2d27b4d9f86735a", null ],
     [ "getURI", "classzeroeq_1_1http_1_1_server.html#a409acf9588c95462d1ba0f3186c84e33", null ],
+    [ "handle", "classzeroeq_1_1http_1_1_server.html#aa83fad47cb63ba7d7935aca1b0d7d6b2", null ],
     [ "handle", "classzeroeq_1_1http_1_1_server.html#a998de6b80bdb286af3ee0881f4f7075e", null ],
     [ "handle", "classzeroeq_1_1http_1_1_server.html#a0991980d3b61915aad29bbcab1a9a53f", null ],
     [ "handleGET", "classzeroeq_1_1http_1_1_server.html#a0898f2483742ae48c6a4773fbf89cd80", null ],

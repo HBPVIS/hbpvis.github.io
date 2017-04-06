@@ -37,7 +37,7 @@
           </tr>
           <tr>
             <td class="headerItem">Date:</td>
-            <td class="headerValue">2017-03-25 01:36:51</td>
+            <td class="headerValue">2017-04-07 01:36:37</td>
             <td></td>
             <td class="headerItem">Functions:</td>
             <td class="headerCovTableEntry">6</td>
@@ -84,15 +84,15 @@
 <span class="lineNum">      22 </span>            : struct body_wrapper {
 <a name="23"><span class="lineNum">      23 </span>            :   typedef typename string&lt;typename Message::tag&gt;::type string_type;</a>
 <span class="lineNum">      24 </span>            :   Message const&amp; message_;
-<span class="lineNum">      25 </span><span class="lineCov">         71 :   explicit body_wrapper(Message const&amp; message) : message_(message) {}</span>
+<span class="lineNum">      25 </span><span class="lineCov">        163 :   explicit body_wrapper(Message const&amp; message) : message_(message) {}</span>
 <a name="26"><span class="lineNum">      26 </span>            :   body_wrapper(body_wrapper const&amp; other) : message_(other.message_) {}</a>
 <span class="lineNum">      27 </span>            : 
-<span class="lineNum">      28 </span><span class="lineCov">         35 :   operator string_type() const { return message_.body(); }</span>
+<span class="lineNum">      28 </span><span class="lineCov">         81 :   operator string_type() const { return message_.body(); }</span>
 <span class="lineNum">      29 </span>            : 
 <a name="30"><span class="lineNum">      30 </span>            :   size_t size() const { return message_.body().size(); }</a>
 <span class="lineNum">      31 </span>            : 
-<span class="lineNum">      32 </span><span class="lineCov">         36 :   boost::iterator_range&lt;typename string_type::const_iterator&gt; range() const {</span>
-<span class="lineNum">      33 </span><span class="lineCov">         36 :     return boost::make_iterator_range(message_.body());</span>
+<span class="lineNum">      32 </span><span class="lineCov">         82 :   boost::iterator_range&lt;typename string_type::const_iterator&gt; range() const {</span>
+<span class="lineNum">      33 </span><span class="lineCov">         82 :     return boost::make_iterator_range(message_.body());</span>
 <span class="lineNum">      34 </span>            :   }
 <span class="lineNum">      35 </span>            : };
 <span class="lineNum">      36 </span>            : 
@@ -106,15 +106,15 @@
 <span class="lineNum">      44 </span>            : }  // namespace impl
 <a name="45"><span class="lineNum">      45 </span>            : </a>
 <span class="lineNum">      46 </span>            : template &lt;class Tag&gt;
-<span class="lineNum">      47 </span><span class="lineCov">         35 : inline typename impl::body_wrapper&lt;basic_response&lt;Tag&gt; &gt; body(</span>
+<span class="lineNum">      47 </span><span class="lineCov">         81 : inline typename impl::body_wrapper&lt;basic_response&lt;Tag&gt; &gt; body(</span>
 <span class="lineNum">      48 </span>            :     basic_response&lt;Tag&gt; const&amp; message) {
-<span class="lineNum">      49 </span><span class="lineCov">         35 :   return impl::body_wrapper&lt;basic_response&lt;Tag&gt; &gt;(message);</span>
+<span class="lineNum">      49 </span><span class="lineCov">         81 :   return impl::body_wrapper&lt;basic_response&lt;Tag&gt; &gt;(message);</span>
 <span class="lineNum">      50 </span>            : }
 <a name="51"><span class="lineNum">      51 </span>            : </a>
 <span class="lineNum">      52 </span>            : template &lt;class Tag&gt;
-<span class="lineNum">      53 </span><span class="lineCov">         36 : inline typename impl::body_wrapper&lt;basic_request&lt;Tag&gt; &gt; body(</span>
+<span class="lineNum">      53 </span><span class="lineCov">         82 : inline typename impl::body_wrapper&lt;basic_request&lt;Tag&gt; &gt; body(</span>
 <span class="lineNum">      54 </span>            :     basic_request&lt;Tag&gt; const&amp; message) {
-<span class="lineNum">      55 </span><span class="lineCov">         36 :   return impl::body_wrapper&lt;basic_request&lt;Tag&gt; &gt;(message);</span>
+<span class="lineNum">      55 </span><span class="lineCov">         82 :   return impl::body_wrapper&lt;basic_request&lt;Tag&gt; &gt;(message);</span>
 <span class="lineNum">      56 </span>            : }
 <span class="lineNum">      57 </span>            : 
 <span class="lineNum">      58 </span>            : }  // namespace http

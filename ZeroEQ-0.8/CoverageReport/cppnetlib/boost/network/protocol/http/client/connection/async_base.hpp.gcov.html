@@ -37,7 +37,7 @@
           </tr>
           <tr>
             <td class="headerItem">Date:</td>
-            <td class="headerValue">2017-03-25 01:36:51</td>
+            <td class="headerValue">2017-04-07 01:36:37</td>
             <td></td>
             <td class="headerItem">Functions:</td>
             <td class="headerCovTableEntry">3</td>
@@ -85,7 +85,7 @@
 <span class="lineNum">      23 </span>            : namespace impl {
 <a name="24"><span class="lineNum">      24 </span>            : </a>
 <span class="lineNum">      25 </span>            : template &lt;class Tag, unsigned version_major, unsigned version_minor&gt;
-<span class="lineNum">      26 </span><span class="lineCov">         36 : struct async_connection_base {</span>
+<span class="lineNum">      26 </span><span class="lineCov">         82 : struct async_connection_base {</span>
 <span class="lineNum">      27 </span>            :   typedef async_connection_base&lt;Tag, version_major, version_minor&gt; this_type;
 <span class="lineNum">      28 </span>            :   typedef typename resolver_policy&lt;Tag&gt;::type resolver_base;
 <span class="lineNum">      29 </span>            :   typedef typename resolver_base::resolver_type resolver_type;
@@ -103,7 +103,7 @@
 <span class="lineNum">      41 </span>            :   // This is the factory function which constructs the appropriate async
 <a name="42"><span class="lineNum">      42 </span>            :   // connection implementation with the correct delegate chosen based on the</a>
 <span class="lineNum">      43 </span>            :   // tag.
-<span class="lineNum">      44 </span><span class="lineCov">         36 :   static connection_ptr new_connection(</span>
+<span class="lineNum">      44 </span><span class="lineCov">         82 :   static connection_ptr new_connection(</span>
 <span class="lineNum">      45 </span>            :       resolve_function resolve, resolver_type &amp;resolver, bool follow_redirect,
 <span class="lineNum">      46 </span>            :       bool always_verify_peer, bool https, int timeout,
 <span class="lineNum">      47 </span>            :       optional&lt;string_type&gt; certificate_filename = optional&lt;string_type&gt;(),
@@ -119,11 +119,11 @@
 <span class="lineNum">      57 </span>            :     auto delegate = delegate_factory_type::new_connection_delegate(
 <span class="lineNum">      58 </span>            :         resolver.get_io_service(), https, always_verify_peer,
 <span class="lineNum">      59 </span>            :         certificate_filename, verify_path, certificate_file, private_key_file,
-<span class="lineNum">      60 </span><span class="lineCov">         72 :         ciphers, sni_hostname, ssl_options);</span>
+<span class="lineNum">      60 </span><span class="lineCov">        164 :         ciphers, sni_hostname, ssl_options);</span>
 <span class="lineNum">      61 </span>            :     auto temp = std::make_shared&lt;async_connection&gt;(
-<span class="lineNum">      62 </span><span class="lineCov">         72 :         resolver, resolve, follow_redirect, timeout, std::move(delegate));</span>
-<span class="lineNum">      63 </span><span class="lineCov">         36 :     BOOST_ASSERT(temp != nullptr);</span>
-<span class="lineNum">      64 </span><span class="lineCov">         72 :     return temp;</span>
+<span class="lineNum">      62 </span><span class="lineCov">        164 :         resolver, resolve, follow_redirect, timeout, std::move(delegate));</span>
+<span class="lineNum">      63 </span><span class="lineCov">         82 :     BOOST_ASSERT(temp != nullptr);</span>
+<span class="lineNum">      64 </span><span class="lineCov">        164 :     return temp;</span>
 <span class="lineNum">      65 </span>            :   }
 <span class="lineNum">      66 </span>            : 
 <span class="lineNum">      67 </span>            :   // This is the pure virtual entry-point for all asynchronous
@@ -132,7 +132,7 @@
 <span class="lineNum">      70 </span>            :                          bool get_body, body_callback_function_type callback,
 <a name="71"><span class="lineNum">      71 </span>            :                          body_generator_function_type generator) = 0;</a>
 <span class="lineNum">      72 </span>            : 
-<span class="lineNum">      73 </span><span class="lineCov">         36 :   virtual ~async_connection_base() = default;</span>
+<span class="lineNum">      73 </span><span class="lineCov">         82 :   virtual ~async_connection_base() = default;</span>
 <span class="lineNum">      74 </span>            : };
 <span class="lineNum">      75 </span>            : 
 <span class="lineNum">      76 </span>            : }  // namespace impl

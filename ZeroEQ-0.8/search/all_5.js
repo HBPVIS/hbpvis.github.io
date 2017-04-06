@@ -1,7 +1,7 @@
 var searchData=
 [
   ['getabi',['getABI',['../classzeroeqhttp_1_1_version.html#a1637c9276b5d6431aedee7f3059c20ad',1,'zeroeqhttp::Version::getABI()'],['../classzeroeq_1_1_version.html#a9ecc76d3a37ad6f3842efbf65d3a60af',1,'zeroeq::Version::getABI()']]],
-  ['getfunc',['GETFunc',['../namespacezeroeq.html#a5b004b2ff75a0a6c93c1c3d4df3985ae',1,'zeroeq']]],
+  ['getfunc',['GETFunc',['../namespacezeroeq_1_1http.html#a3e0b7599906e378718ce0c0cef17c068',1,'zeroeq::http']]],
   ['getmajor',['getMajor',['../classzeroeqhttp_1_1_version.html#a0c219b5c472c13452ab942e27b475bd5',1,'zeroeqhttp::Version::getMajor()'],['../classzeroeq_1_1_version.html#a3922d590d921556db3364f342a9de35b',1,'zeroeq::Version::getMajor()']]],
   ['getminor',['getMinor',['../classzeroeqhttp_1_1_version.html#ab9ce11adf1606ecfcdb0919ed13fa1b0',1,'zeroeqhttp::Version::getMinor()'],['../classzeroeq_1_1_version.html#ac9bf2336e9766d3b4932ec24358d9fe3',1,'zeroeq::Version::getMinor()']]],
   ['getpatch',['getPatch',['../classzeroeqhttp_1_1_version.html#a987b5a0f146800b4d48355488955f8fe',1,'zeroeqhttp::Version::getPatch()'],['../classzeroeq_1_1_version.html#a0b6fe9dd2d568fd46dda4d1a6b6e3756',1,'zeroeq::Version::getPatch()']]],

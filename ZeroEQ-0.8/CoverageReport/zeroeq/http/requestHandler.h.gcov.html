@@ -37,7 +37,7 @@
           </tr>
           <tr>
             <td class="headerItem">Date:</td>
-            <td class="headerValue">2017-03-25 01:36:51</td>
+            <td class="headerValue">2017-04-07 01:36:37</td>
             <td></td>
             <td class="headerItem">Functions:</td>
             <td class="headerCovTableEntry">2</td>
@@ -69,62 +69,56 @@
 <span class="lineNum">       7 </span>            : #ifndef ZEROEQ_HTTP_REQUESTHANDLER_H
 <span class="lineNum">       8 </span>            : #define ZEROEQ_HTTP_REQUESTHANDLER_H
 <span class="lineNum">       9 </span>            : 
-<span class="lineNum">      10 </span>            : #include &lt;boost/network/protocol/http/server.hpp&gt;
-<span class="lineNum">      11 </span>            : #include &lt;string&gt;
+<span class="lineNum">      10 </span>            : #include &lt;zeroeq/http/response.h&gt; // member
+<span class="lineNum">      11 </span>            : #include &lt;zeroeq/http/request.h&gt;  // member
 <span class="lineNum">      12 </span>            : 
-<span class="lineNum">      13 </span>            : namespace zeroeq
-<span class="lineNum">      14 </span>            : {
-<span class="lineNum">      15 </span>            : namespace http
-<span class="lineNum">      16 </span>            : {
-<span class="lineNum">      17 </span>            : 
-<span class="lineNum">      18 </span>            : class RequestHandler;
-<span class="lineNum">      19 </span>            : typedef boost::network::http::server&lt; RequestHandler &gt; HTTPServer;
+<span class="lineNum">      13 </span>            : #include &lt;boost/network/protocol/http/server.hpp&gt;
+<span class="lineNum">      14 </span>            : #include &lt;future&gt;
+<span class="lineNum">      15 </span>            : 
+<span class="lineNum">      16 </span>            : namespace zeroeq
+<span class="lineNum">      17 </span>            : {
+<span class="lineNum">      18 </span>            : namespace http
+<span class="lineNum">      19 </span>            : {
 <span class="lineNum">      20 </span>            : 
-<a name="21"><span class="lineNum">      21 </span>            : // Contains in/out values for an HTTP request to exchange information between</a>
-<span class="lineNum">      22 </span>            : // cppnetlib and zeroeq::http::Server
-<span class="lineNum">      23 </span><span class="lineCov">        140 : struct HTTPRequest</span>
-<span class="lineNum">      24 </span>            : {
-<span class="lineNum">      25 </span>            :     enum class Method
-<span class="lineNum">      26 </span>            :     {
-<span class="lineNum">      27 </span>            :         PUT,
-<span class="lineNum">      28 </span>            :         GET
-<span class="lineNum">      29 </span>            :     };
+<span class="lineNum">      21 </span>            : class RequestHandler;
+<span class="lineNum">      22 </span>            : typedef boost::network::http::server&lt; RequestHandler &gt; HTTPServer;
+<span class="lineNum">      23 </span>            : 
+<a name="24"><span class="lineNum">      24 </span>            : // Contains in/out values for an HTTP request to exchange information between</a>
+<span class="lineNum">      25 </span>            : // cppnetlib and zeroeq::http::Server
+<span class="lineNum">      26 </span><span class="lineCov">        328 : struct Message</span>
+<span class="lineNum">      27 </span>            : {
+<span class="lineNum">      28 </span>            :     // input from cppnetlib and updated in server.cpp
+<span class="lineNum">      29 </span>            :     Request request;
 <span class="lineNum">      30 </span>            : 
-<span class="lineNum">      31 </span>            :     // input from cppnetlib
-<span class="lineNum">      32 </span>            :     Method method;
-<span class="lineNum">      33 </span>            :     std::string url;
-<span class="lineNum">      34 </span>            :     std::string request;
-<span class="lineNum">      35 </span>            : 
-<span class="lineNum">      36 </span>            :     // output from zeroeq::http::Server
-<span class="lineNum">      37 </span>            :     HTTPServer::connection::status_t status;
-<span class="lineNum">      38 </span>            :     std::string reply;
-<span class="lineNum">      39 </span>            : };
-<span class="lineNum">      40 </span>            : 
-<span class="lineNum">      41 </span>            : // The handler class called for each incoming HTTP request from cppnetlib
-<span class="lineNum">      42 </span>            : class RequestHandler
-<span class="lineNum">      43 </span>            : {
-<span class="lineNum">      44 </span>            : public:
-<span class="lineNum">      45 </span>            :     /**
-<span class="lineNum">      46 </span>            :      * @param zmqURL URL to inproc socket for communication between cppnetlib
-<span class="lineNum">      47 </span>            :      *               thread and zeroeq::http::Server thread
-<span class="lineNum">      48 </span>            :      * @param zmqContext the context to create the inproc socket in
-<span class="lineNum">      49 </span>            :      */
-<span class="lineNum">      50 </span>            :     RequestHandler( const std::string&amp; zmqURL, void* zmqContext );
+<span class="lineNum">      31 </span>            :     // output from zeroeq::http::Server
+<span class="lineNum">      32 </span>            :     std::future&lt; Response &gt; response;
+<span class="lineNum">      33 </span>            : };
+<span class="lineNum">      34 </span>            : 
+<span class="lineNum">      35 </span>            : // The handler class called for each incoming HTTP request from cppnetlib
+<span class="lineNum">      36 </span>            : class RequestHandler
+<span class="lineNum">      37 </span>            : {
+<span class="lineNum">      38 </span>            : public:
+<span class="lineNum">      39 </span>            :     /**
+<span class="lineNum">      40 </span>            :      * @param zmqURL URL to inproc socket for communication between cppnetlib
+<span class="lineNum">      41 </span>            :      *               thread and zeroeq::http::Server thread
+<span class="lineNum">      42 </span>            :      * @param zmqContext the context to create the inproc socket in
+<span class="lineNum">      43 </span>            :      */
+<span class="lineNum">      44 </span>            :     RequestHandler( const std::string&amp; zmqURL, void* zmqContext );
+<span class="lineNum">      45 </span>            : 
+<span class="lineNum">      46 </span>            :     ~RequestHandler();
+<span class="lineNum">      47 </span>            : 
+<span class="lineNum">      48 </span>            :     /** Callback for each request from cppnetlib server. */
+<span class="lineNum">      49 </span>            :     void operator() ( const HTTPServer::request&amp; request,
+<span class="lineNum">      50 </span>            :                       HTTPServer::connection_ptr connection );
 <span class="lineNum">      51 </span>            : 
-<span class="lineNum">      52 </span>            :     ~RequestHandler();
-<span class="lineNum">      53 </span>            : 
-<span class="lineNum">      54 </span>            :     /** Callback for each request from cppnetlib server. */
-<span class="lineNum">      55 </span>            :     void operator() ( const HTTPServer::request&amp; request,
-<span class="lineNum">      56 </span>            :                       HTTPServer::connection_ptr connection );
-<span class="lineNum">      57 </span>            : 
-<span class="lineNum">      58 </span>            : private:
-<span class="lineNum">      59 </span>            :     void* _socket;
-<span class="lineNum">      60 </span>            : };
-<span class="lineNum">      61 </span>            : 
-<span class="lineNum">      62 </span>            : }
-<span class="lineNum">      63 </span>            : }
-<span class="lineNum">      64 </span>            : 
-<span class="lineNum">      65 </span>            : #endif
+<span class="lineNum">      52 </span>            : private:
+<span class="lineNum">      53 </span>            :     void* _socket;
+<span class="lineNum">      54 </span>            : };
+<span class="lineNum">      55 </span>            : 
+<span class="lineNum">      56 </span>            : }
+<span class="lineNum">      57 </span>            : }
+<span class="lineNum">      58 </span>            : 
+<span class="lineNum">      59 </span>            : #endif
 </pre>
       </td>
     </tr>

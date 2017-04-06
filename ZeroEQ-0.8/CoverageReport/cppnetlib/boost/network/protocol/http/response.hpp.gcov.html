@@ -37,7 +37,7 @@
           </tr>
           <tr>
             <td class="headerItem">Date:</td>
-            <td class="headerValue">2017-03-25 01:36:51</td>
+            <td class="headerValue">2017-04-07 01:36:37</td>
             <td></td>
             <td class="headerItem">Functions:</td>
             <td class="headerCovTableEntry">4</td>
@@ -98,7 +98,7 @@
 <span class="lineNum">      36 </span>            : namespace http {
 <a name="37"><span class="lineNum">      37 </span>            : </a>
 <span class="lineNum">      38 </span>            : template &lt;class Tag&gt;
-<span class="lineNum">      39 </span><span class="lineCov">         71 : struct basic_response : public message_base&lt;Tag&gt;::type {</span>
+<span class="lineNum">      39 </span><span class="lineCov">        163 : struct basic_response : public message_base&lt;Tag&gt;::type {</span>
 <span class="lineNum">      40 </span>            : 
 <span class="lineNum">      41 </span>            :   typedef typename string&lt;Tag&gt;::type string_type;
 <span class="lineNum">      42 </span>            : 
@@ -108,19 +108,19 @@
 <span class="lineNum">      46 </span>            :  public:
 <a name="47"><span class="lineNum">      47 </span>            :   typedef Tag tag;</a>
 <span class="lineNum">      48 </span>            : 
-<span class="lineNum">      49 </span><span class="lineCov">         71 :   basic_response() : base_type() {}</span>
+<span class="lineNum">      49 </span><span class="lineCov">        163 :   basic_response() : base_type() {}</span>
 <span class="lineNum">      50 </span>            : 
 <a name="51"><span class="lineNum">      51 </span>            :   basic_response(basic_response const&amp; other) : base_type(other) {}</a>
 <span class="lineNum">      52 </span>            : 
-<span class="lineNum">      53 </span><span class="lineCov">         35 :   basic_response&amp; operator=(basic_response rhs) {</span>
-<span class="lineNum">      54 </span><span class="lineCov">         35 :     rhs.swap(*this);</span>
-<span class="lineNum">      55 </span><span class="lineCov">         35 :     return *this;</span>
+<span class="lineNum">      53 </span><span class="lineCov">         81 :   basic_response&amp; operator=(basic_response rhs) {</span>
+<span class="lineNum">      54 </span><span class="lineCov">         81 :     rhs.swap(*this);</span>
+<span class="lineNum">      55 </span><span class="lineCov">         81 :     return *this;</span>
 <a name="56"><span class="lineNum">      56 </span>            :   };</a>
 <span class="lineNum">      57 </span>            : 
-<span class="lineNum">      58 </span><span class="lineCov">         35 :   void swap(basic_response&amp; other) {</span>
-<span class="lineNum">      59 </span><span class="lineCov">         35 :     base_type&amp; base_ref(other), &amp;this_ref(*this);</span>
-<span class="lineNum">      60 </span><span class="lineCov">         35 :     std::swap(this_ref, base_ref);</span>
-<span class="lineNum">      61 </span><span class="lineCov">         35 :   };</span>
+<span class="lineNum">      58 </span><span class="lineCov">         81 :   void swap(basic_response&amp; other) {</span>
+<span class="lineNum">      59 </span><span class="lineCov">         81 :     base_type&amp; base_ref(other), &amp;this_ref(*this);</span>
+<span class="lineNum">      60 </span><span class="lineCov">         81 :     std::swap(this_ref, base_ref);</span>
+<span class="lineNum">      61 </span><span class="lineCov">         81 :   };</span>
 <span class="lineNum">      62 </span>            : };
 <span class="lineNum">      63 </span>            : 
 <span class="lineNum">      64 </span>            : template &lt;class Tag&gt;

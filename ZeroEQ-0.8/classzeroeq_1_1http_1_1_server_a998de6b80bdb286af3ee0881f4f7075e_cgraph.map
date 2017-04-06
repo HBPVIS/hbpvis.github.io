@@ -1,5 +1,6 @@
 <map id="zeroeq::http::Server::handle" name="zeroeq::http::Server::handle">
 <area shape="rect" id="node3" href="$classzeroeq_1_1http_1_1_server.html#a546fd235c0a099fa87274bff7fdece52" title="zeroeq::http::Server\l::getSchema" alt="" coords="216,5,379,51"/>
-<area shape="rect" id="node5" href="$classzeroeq_1_1http_1_1_server.html#a0898f2483742ae48c6a4773fbf89cd80" title="Subscribe a serializable object to serve HTTP GET requests. " alt="" coords="216,74,379,121"/>
-<area shape="rect" id="node7" href="$classzeroeq_1_1http_1_1_server.html#a0aeb9801f53704adb9b8e22f5a19ffec" title="Subscribe a serializable object to receive updates from HTTP PUT requests. " alt="" coords="216,143,379,190"/>
+<area shape="rect" id="node5" href="$classzeroeq_1_1http_1_1_server.html#aa83fad47cb63ba7d7935aca1b0d7d6b2" title="Handle a single method on a given endpoint. " alt="" coords="216,74,379,121"/>
+<area shape="rect" id="node7" href="$classzeroeq_1_1http_1_1_server.html#a0898f2483742ae48c6a4773fbf89cd80" title="Subscribe a serializable object to serve HTTP GET requests. " alt="" coords="216,143,379,190"/>
+<area shape="rect" id="node9" href="$classzeroeq_1_1http_1_1_server.html#a0aeb9801f53704adb9b8e22f5a19ffec" title="Subscribe a serializable object to receive updates from HTTP PUT requests. " alt="" coords="216,213,379,259"/>
 </map>

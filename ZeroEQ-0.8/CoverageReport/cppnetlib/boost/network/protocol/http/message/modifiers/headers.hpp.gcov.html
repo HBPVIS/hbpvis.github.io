@@ -37,7 +37,7 @@
           </tr>
           <tr>
             <td class="headerItem">Date:</td>
-            <td class="headerValue">2017-03-25 01:36:51</td>
+            <td class="headerValue">2017-04-07 01:36:37</td>
             <td></td>
             <td class="headerItem">Functions:</td>
             <td class="headerCovTableEntry">2</td>
@@ -90,10 +90,10 @@
 <span class="lineNum">      28 </span>            : }
 <a name="29"><span class="lineNum">      29 </span>            : </a>
 <span class="lineNum">      30 </span>            : template &lt;class Tag, class T&gt;
-<span class="lineNum">      31 </span><span class="lineCov">         36 : void headers(basic_response&lt;Tag&gt; &amp;response, T const &amp;future,</span>
+<span class="lineNum">      31 </span><span class="lineCov">         82 : void headers(basic_response&lt;Tag&gt; &amp;response, T const &amp;future,</span>
 <span class="lineNum">      32 </span>            :              mpl::true_ const &amp; /*unused*/) {
-<span class="lineNum">      33 </span><span class="lineCov">         36 :   response.headers(future);</span>
-<span class="lineNum">      34 </span><span class="lineCov">         36 : }</span>
+<span class="lineNum">      33 </span><span class="lineCov">         82 :   response.headers(future);</span>
+<span class="lineNum">      34 </span><span class="lineCov">         82 : }</span>
 <span class="lineNum">      35 </span>            : 
 <span class="lineNum">      36 </span>            : template &lt;class Tag, class T&gt;
 <span class="lineNum">      37 </span>            : void headers(basic_request&lt;Tag&gt; &amp;request, T const &amp;value,
@@ -103,9 +103,9 @@
 <span class="lineNum">      41 </span>            : } // namespace impl
 <a name="42"><span class="lineNum">      42 </span>            : </a>
 <span class="lineNum">      43 </span>            : template &lt;class Tag, class T&gt;
-<span class="lineNum">      44 </span><span class="lineCov">         36 : inline void headers(basic_response&lt;Tag&gt; &amp;response, T const &amp;value) {</span>
-<span class="lineNum">      45 </span><span class="lineCov">         36 :   impl::headers(response, value, is_async&lt;Tag&gt;());</span>
-<span class="lineNum">      46 </span><span class="lineCov">         36 : }</span>
+<span class="lineNum">      44 </span><span class="lineCov">         82 : inline void headers(basic_response&lt;Tag&gt; &amp;response, T const &amp;value) {</span>
+<span class="lineNum">      45 </span><span class="lineCov">         82 :   impl::headers(response, value, is_async&lt;Tag&gt;());</span>
+<span class="lineNum">      46 </span><span class="lineCov">         82 : }</span>
 <span class="lineNum">      47 </span>            : 
 <span class="lineNum">      48 </span>            : template &lt;class Tag, class T&gt;
 <span class="lineNum">      49 </span>            : inline void headers(basic_request&lt;Tag&gt; &amp;request, T const &amp;value) {

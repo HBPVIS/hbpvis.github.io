@@ -37,7 +37,7 @@
           </tr>
           <tr>
             <td class="headerItem">Date:</td>
-            <td class="headerValue">2017-03-25 01:36:51</td>
+            <td class="headerValue">2017-04-07 01:36:37</td>
             <td></td>
             <td class="headerItem">Functions:</td>
             <td class="headerCovTableEntry">8</td>
@@ -91,19 +91,19 @@
 <span class="lineNum">      29 </span>            :   basic_thread_pool(basic_thread_pool&amp;&amp;) noexcept = default;
 <a name="30"><span class="lineNum">      30 </span>            :   basic_thread_pool &amp;operator=(basic_thread_pool&amp;&amp;) = default;</a>
 <span class="lineNum">      31 </span>            : 
-<a name="32"><span class="lineNum">      32 </span><span class="lineCov">         56 :   basic_thread_pool() : basic_thread_pool(1) {}</span></a>
+<a name="32"><span class="lineNum">      32 </span><span class="lineCov">         68 :   basic_thread_pool() : basic_thread_pool(1) {}</span></a>
 <span class="lineNum">      33 </span>            : 
-<span class="lineNum">      34 </span><span class="lineCov">         56 :   explicit basic_thread_pool(std::size_t threads,</span>
+<span class="lineNum">      34 </span><span class="lineCov">         68 :   explicit basic_thread_pool(std::size_t threads,</span>
 <span class="lineNum">      35 </span>            :                     io_service_ptr io_service = io_service_ptr(),
 <span class="lineNum">      36 </span>            :                     worker_threads_ptr worker_threads = worker_threads_ptr())
 <span class="lineNum">      37 </span>            :       : threads_(threads),
-<span class="lineNum">      38 </span><span class="lineCov">         56 :         io_service_(std::move(io_service)),</span>
-<span class="lineNum">      39 </span><span class="lineCov">         56 :         worker_threads_(std::move(worker_threads)),</span>
-<a name="40"><span class="lineNum">      40 </span><span class="lineCov">        168 :         sentinel_() {</span></a>
-<span class="lineNum">      41 </span><span class="lineCov">         56 :     bool commit = false;</span>
-<span class="lineNum">      42 </span><span class="lineCov">        224 :     BOOST_SCOPE_EXIT_TPL(</span>
+<span class="lineNum">      38 </span><span class="lineCov">         68 :         io_service_(std::move(io_service)),</span>
+<span class="lineNum">      39 </span><span class="lineCov">         68 :         worker_threads_(std::move(worker_threads)),</span>
+<a name="40"><span class="lineNum">      40 </span><span class="lineCov">        204 :         sentinel_() {</span></a>
+<span class="lineNum">      41 </span><span class="lineCov">         68 :     bool commit = false;</span>
+<span class="lineNum">      42 </span><span class="lineCov">        272 :     BOOST_SCOPE_EXIT_TPL(</span>
 <span class="lineNum">      43 </span>            :         (&amp;commit)(&amp;io_service_)(&amp;worker_threads_)(&amp;sentinel_)) {
-<span class="lineNum">      44 </span><span class="lineCov">         56 :       if (!commit) {</span>
+<span class="lineNum">      44 </span><span class="lineCov">         68 :       if (!commit) {</span>
 <span class="lineNum">      45 </span><span class="lineNoCov">          0 :         sentinel_.reset();</span>
 <span class="lineNum">      46 </span><span class="lineNoCov">          0 :         io_service_.reset();</span>
 <span class="lineNum">      47 </span><span class="lineNoCov">          0 :         if (worker_threads_.get()) {</span>
@@ -112,42 +112,42 @@
 <span class="lineNum">      50 </span>            :         }
 <span class="lineNum">      51 </span><span class="lineNoCov">          0 :         worker_threads_.reset();</span>
 <span class="lineNum">      52 </span>            :       }
-<span class="lineNum">      53 </span><span class="lineCov">         56 :     }</span>
-<span class="lineNum">      54 </span><span class="lineCov">        112 :     BOOST_SCOPE_EXIT_END</span>
+<span class="lineNum">      53 </span><span class="lineCov">         68 :     }</span>
+<span class="lineNum">      54 </span><span class="lineCov">        136 :     BOOST_SCOPE_EXIT_END</span>
 <span class="lineNum">      55 </span>            : 
-<span class="lineNum">      56 </span><span class="lineCov">         56 :     if (!io_service_.get()) {</span>
-<span class="lineNum">      57 </span><span class="lineCov">         56 :       io_service_.reset(new boost::asio::io_service);</span>
+<span class="lineNum">      56 </span><span class="lineCov">         68 :     if (!io_service_.get()) {</span>
+<span class="lineNum">      57 </span><span class="lineCov">         68 :       io_service_.reset(new boost::asio::io_service);</span>
 <span class="lineNum">      58 </span>            :     }
 <span class="lineNum">      59 </span>            : 
-<span class="lineNum">      60 </span><span class="lineCov">         56 :     if (!worker_threads_.get()) {</span>
-<span class="lineNum">      61 </span><span class="lineCov">         56 :       worker_threads_.reset(new utils::thread_group);</span>
+<span class="lineNum">      60 </span><span class="lineCov">         68 :     if (!worker_threads_.get()) {</span>
+<span class="lineNum">      61 </span><span class="lineCov">         68 :       worker_threads_.reset(new utils::thread_group);</span>
 <span class="lineNum">      62 </span>            :     }
 <span class="lineNum">      63 </span>            : 
-<span class="lineNum">      64 </span><span class="lineCov">         56 :     if (!sentinel_.get()) {</span>
-<span class="lineNum">      65 </span><span class="lineCov">         56 :       sentinel_.reset(new boost::asio::io_service::work(*io_service_));</span>
+<span class="lineNum">      64 </span><span class="lineCov">         68 :     if (!sentinel_.get()) {</span>
+<span class="lineNum">      65 </span><span class="lineCov">         68 :       sentinel_.reset(new boost::asio::io_service::work(*io_service_));</span>
 <span class="lineNum">      66 </span>            :     }
 <a name="67"><span class="lineNum">      67 </span>            : </a>
-<span class="lineNum">      68 </span><span class="lineCov">        112 :     for (std::size_t counter = 0; counter &lt; threads_; ++counter) {</span>
-<span class="lineNum">      69 </span><span class="lineCov">        112 :       worker_threads_-&gt;create_thread([=] () { io_service_-&gt;run(); });</span>
+<span class="lineNum">      68 </span><span class="lineCov">        136 :     for (std::size_t counter = 0; counter &lt; threads_; ++counter) {</span>
+<span class="lineNum">      69 </span><span class="lineCov">        136 :       worker_threads_-&gt;create_thread([=] () { io_service_-&gt;run(); });</span>
 <span class="lineNum">      70 </span>            :     }
 <span class="lineNum">      71 </span>            : 
-<span class="lineNum">      72 </span><span class="lineCov">         56 :     commit = true;</span>
-<span class="lineNum">      73 </span><span class="lineCov">         56 :   }</span>
+<span class="lineNum">      72 </span><span class="lineCov">         68 :     commit = true;</span>
+<span class="lineNum">      73 </span><span class="lineCov">         68 :   }</span>
 <span class="lineNum">      74 </span>            : 
 <a name="75"><span class="lineNum">      75 </span>            :   std::size_t thread_count() const { return threads_; }</a>
 <span class="lineNum">      76 </span>            : 
-<a name="77"><span class="lineNum">      77 </span><span class="lineCov">        224 :   void post(std::function&lt;void()&gt; f) { io_service_-&gt;post(f); }</span></a>
+<a name="77"><span class="lineNum">      77 </span><span class="lineCov">        538 :   void post(std::function&lt;void()&gt; f) { io_service_-&gt;post(f); }</span></a>
 <span class="lineNum">      78 </span>            : 
-<span class="lineNum">      79 </span><span class="lineCov">         56 :   ~basic_thread_pool() throw() {</span>
-<span class="lineNum">      80 </span><span class="lineCov">         56 :     sentinel_.reset();</span>
+<span class="lineNum">      79 </span><span class="lineCov">         68 :   ~basic_thread_pool() throw() {</span>
+<span class="lineNum">      80 </span><span class="lineCov">         68 :     sentinel_.reset();</span>
 <span class="lineNum">      81 </span>            :     try {
-<span class="lineNum">      82 </span><span class="lineCov">         56 :       worker_threads_-&gt;join_all();</span>
+<span class="lineNum">      82 </span><span class="lineCov">         68 :       worker_threads_-&gt;join_all();</span>
 <span class="lineNum">      83 </span>            :     }
 <span class="lineNum">      84 </span><span class="lineNoCov">          0 :     catch (...) {</span>
 <span class="lineNum">      85 </span><span class="lineNoCov">          0 :       BOOST_ASSERT(false &amp;&amp;</span>
 <span class="lineNum">      86 </span>            :                    &quot;A handler was not supposed to throw, but one did.&quot;);
 <span class="lineNum">      87 </span>            :     }
-<span class="lineNum">      88 </span><span class="lineCov">         56 :   }</span>
+<span class="lineNum">      88 </span><span class="lineCov">         68 :   }</span>
 <span class="lineNum">      89 </span>            : 
 <span class="lineNum">      90 </span>            :   void swap(basic_thread_pool &amp;other) {
 <span class="lineNum">      91 </span>            :     using std::swap;

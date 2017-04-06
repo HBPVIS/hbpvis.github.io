@@ -37,7 +37,7 @@
           </tr>
           <tr>
             <td class="headerItem">Date:</td>
-            <td class="headerValue">2017-03-25 01:36:51</td>
+            <td class="headerValue">2017-04-07 01:36:37</td>
             <td></td>
             <td class="headerItem">Functions:</td>
             <td class="headerCovTableEntry">2</td>
@@ -89,17 +89,17 @@
 <span class="lineNum">      27 </span>            : }
 <a name="28"><span class="lineNum">      28 </span>            : </a>
 <span class="lineNum">      29 </span>            : template &lt;class Tag, class T&gt;
-<span class="lineNum">      30 </span><span class="lineCov">         36 : void version(basic_response&lt;Tag&gt; &amp;response, T const &amp;future,</span>
+<span class="lineNum">      30 </span><span class="lineCov">         82 : void version(basic_response&lt;Tag&gt; &amp;response, T const &amp;future,</span>
 <span class="lineNum">      31 </span>            :              mpl::true_ const &amp; /*unused*/) {
-<span class="lineNum">      32 </span><span class="lineCov">         36 :   response.version(future);</span>
-<span class="lineNum">      33 </span><span class="lineCov">         36 : }</span>
+<span class="lineNum">      32 </span><span class="lineCov">         82 :   response.version(future);</span>
+<span class="lineNum">      33 </span><span class="lineCov">         82 : }</span>
 <span class="lineNum">      34 </span>            : 
 <span class="lineNum">      35 </span>            : }  // namespace impl
 <a name="36"><span class="lineNum">      36 </span>            : </a>
 <span class="lineNum">      37 </span>            : template &lt;class Tag, class T&gt;
-<span class="lineNum">      38 </span><span class="lineCov">         36 : void version(basic_response&lt;Tag&gt; &amp;response, T const &amp;value) {</span>
-<span class="lineNum">      39 </span><span class="lineCov">         36 :   impl::version(response, value, is_async&lt;Tag&gt;());</span>
-<span class="lineNum">      40 </span><span class="lineCov">         36 : }</span>
+<span class="lineNum">      38 </span><span class="lineCov">         82 : void version(basic_response&lt;Tag&gt; &amp;response, T const &amp;value) {</span>
+<span class="lineNum">      39 </span><span class="lineCov">         82 :   impl::version(response, value, is_async&lt;Tag&gt;());</span>
+<span class="lineNum">      40 </span><span class="lineCov">         82 : }</span>
 <span class="lineNum">      41 </span>            : 
 <span class="lineNum">      42 </span>            : }  // namespace http
 <span class="lineNum">      43 </span>            : 

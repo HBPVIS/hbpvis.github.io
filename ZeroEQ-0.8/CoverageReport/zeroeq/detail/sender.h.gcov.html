@@ -37,7 +37,7 @@
           </tr>
           <tr>
             <td class="headerItem">Date:</td>
-            <td class="headerValue">2017-03-25 01:36:51</td>
+            <td class="headerValue">2017-04-07 01:36:37</td>
             <td></td>
             <td class="headerItem">Functions:</td>
             <td class="headerCovTableEntry">7</td>
@@ -96,26 +96,26 @@
 <span class="lineNum">      34 </span>            :         : Sender( URI(), context, type )
 <a name="35"><span class="lineNum">      35 </span>            :     {}</a>
 <span class="lineNum">      36 </span>            : 
-<span class="lineNum">      37 </span><span class="lineCov">         96 :     Sender( const URI&amp; uri_, void* context, const int type )</span>
-<span class="lineNum">      38 </span><span class="lineCov">         96 :         : _context( nullptr )</span>
+<span class="lineNum">      37 </span><span class="lineCov">        108 :     Sender( const URI&amp; uri_, void* context, const int type )</span>
+<span class="lineNum">      38 </span><span class="lineCov">        108 :         : _context( nullptr )</span>
 <span class="lineNum">      39 </span>            :         , uri( uri_ )
-<span class="lineNum">      40 </span><span class="lineCov">         96 :         , socket( zmq_socket( _createContext( context ), type ))</span>
+<span class="lineNum">      40 </span><span class="lineCov">        108 :         , socket( zmq_socket( _createContext( context ), type ))</span>
 <span class="lineNum">      41 </span>            :     {
-<span class="lineNum">      42 </span><span class="lineCov">         96 :         const int hwm = 0;</span>
-<span class="lineNum">      43 </span><span class="lineCov">         96 :         zmq_setsockopt( socket, ZMQ_SNDHWM, &amp;hwm, sizeof( hwm ));</span>
-<a name="44"><span class="lineNum">      44 </span><span class="lineCov">         96 :     }</span></a>
+<span class="lineNum">      42 </span><span class="lineCov">        108 :         const int hwm = 0;</span>
+<span class="lineNum">      43 </span><span class="lineCov">        108 :         zmq_setsockopt( socket, ZMQ_SNDHWM, &amp;hwm, sizeof( hwm ));</span>
+<a name="44"><span class="lineNum">      44 </span><span class="lineCov">        108 :     }</span></a>
 <span class="lineNum">      45 </span>            : 
-<span class="lineNum">      46 </span><span class="lineCov">         96 :     ~Sender()</span>
-<span class="lineNum">      47 </span><span class="lineCov">         96 :     {</span>
-<span class="lineNum">      48 </span><span class="lineCov">         96 :         if( socket )</span>
-<span class="lineNum">      49 </span><span class="lineCov">         92 :             zmq_close( socket );</span>
-<span class="lineNum">      50 </span><span class="lineCov">         96 :         if( _context )</span>
-<span class="lineNum">      51 </span><span class="lineCov">         88 :             zmq_ctx_destroy( _context );</span>
-<a name="52"><span class="lineNum">      52 </span><span class="lineCov">         96 :     }</span></a>
+<span class="lineNum">      46 </span><span class="lineCov">        108 :     ~Sender()</span>
+<span class="lineNum">      47 </span><span class="lineCov">        108 :     {</span>
+<span class="lineNum">      48 </span><span class="lineCov">        108 :         if( socket )</span>
+<span class="lineNum">      49 </span><span class="lineCov">        104 :             zmq_close( socket );</span>
+<span class="lineNum">      50 </span><span class="lineCov">        108 :         if( _context )</span>
+<span class="lineNum">      51 </span><span class="lineCov">        100 :             zmq_ctx_destroy( _context );</span>
+<a name="52"><span class="lineNum">      52 </span><span class="lineCov">        108 :     }</span></a>
 <span class="lineNum">      53 </span>            : 
-<span class="lineNum">      54 </span><span class="lineCov">         56 :     void* getContext()</span>
+<span class="lineNum">      54 </span><span class="lineCov">         68 :     void* getContext()</span>
 <span class="lineNum">      55 </span>            :     {
-<span class="lineNum">      56 </span><span class="lineCov">         56 :         return _context;</span>
+<span class="lineNum">      56 </span><span class="lineCov">         68 :         return _context;</span>
 <a name="57"><span class="lineNum">      57 </span>            :     }</a>
 <span class="lineNum">      58 </span>            : 
 <span class="lineNum">      59 </span><span class="lineCov">          7 :     std::string getAddress() const</span>
@@ -179,13 +179,13 @@
 <span class="lineNum">     117 </span>            :         }
 <a name="118"><span class="lineNum">     118 </span><span class="lineCov">         17 :     }</span></a>
 <span class="lineNum">     119 </span>            : 
-<span class="lineNum">     120 </span><span class="lineCov">         96 :     void* _createContext( void* context )</span>
+<span class="lineNum">     120 </span><span class="lineCov">        108 :     void* _createContext( void* context )</span>
 <span class="lineNum">     121 </span>            :     {
-<span class="lineNum">     122 </span><span class="lineCov">         96 :         if( context )</span>
+<span class="lineNum">     122 </span><span class="lineCov">        108 :         if( context )</span>
 <span class="lineNum">     123 </span><span class="lineCov">          8 :             return context;</span>
 <span class="lineNum">     124 </span>            : 
-<span class="lineNum">     125 </span><span class="lineCov">         88 :         _context = zmq_ctx_new();</span>
-<span class="lineNum">     126 </span><span class="lineCov">         88 :         return _context;</span>
+<span class="lineNum">     125 </span><span class="lineCov">        100 :         _context = zmq_ctx_new();</span>
+<span class="lineNum">     126 </span><span class="lineCov">        100 :         return _context;</span>
 <span class="lineNum">     127 </span>            :     }
 <span class="lineNum">     128 </span>            : };
 <span class="lineNum">     129 </span>            : 

@@ -1,6 +1,7 @@
 var searchData=
 [
-  ['receive',['receive',['../classzeroeq_1_1_receiver.html#a97e7e5ce4223d96ebcb541e564efec49',1,'zeroeq::Receiver']]],
-  ['receiver',['Receiver',['../classzeroeq_1_1_receiver.html#ad5773a0809d164c0a047821503c28c6d',1,'zeroeq::Receiver::Receiver()'],['../classzeroeq_1_1_receiver.html#ad767195111bae3fae7de8ac0e57f4d0f',1,'zeroeq::Receiver::Receiver(Receiver &amp;shared)']]],
-  ['remove',['remove',['../classzeroeq_1_1http_1_1_server.html#a2016a682e927c0226ae0d5320b1d4e23',1,'zeroeq::http::Server::remove(const servus::Serializable &amp;object)'],['../classzeroeq_1_1http_1_1_server.html#ab8906d6b22e78f6cda70df6b881dc727',1,'zeroeq::http::Server::remove(const std::string &amp;endpoint)']]]
+  ['parse',['parse',['../classzeroeq_1_1http_1_1_server.html#a90935407417630e6bd5c1f17cd86e979',1,'zeroeq::http::Server']]],
+  ['process',['process',['../classzeroeq_1_1_receiver.html#a3197718f62ef7f946d0fabaf87864e45',1,'zeroeq::Receiver']]],
+  ['publish',['publish',['../classzeroeq_1_1_publisher.html#a0b630f6cb6176fc697b516f531d9cf54',1,'zeroeq::Publisher::publish(const servus::Serializable &amp;serializable)'],['../classzeroeq_1_1_publisher.html#aebc18419655d08f3cdd6467edf5af10b',1,'zeroeq::Publisher::publish(const uint128_t &amp;event)'],['../classzeroeq_1_1_publisher.html#aee75dc306eca5563aa673379b2368a99',1,'zeroeq::Publisher::publish(const uint128_t &amp;event, const void *data, size_t size)']]],
+  ['publisher',['Publisher',['../classzeroeq_1_1_publisher.html#a552d1b5334d99fefb35cf84293b01d73',1,'zeroeq::Publisher::Publisher()'],['../classzeroeq_1_1_publisher.html#a9a20e5a20520da326988e0bce37c8ba1',1,'zeroeq::Publisher::Publisher(const std::string &amp;session)'],['../classzeroeq_1_1_publisher.html#a91863f6c12302586f229c2afa70913d5',1,'zeroeq::Publisher::Publisher(const URI &amp;uri)'],['../classzeroeq_1_1_publisher.html#a9d4b8a6ed086abccd2d5a06427add77d',1,'zeroeq::Publisher::Publisher(const URI &amp;uri, const std::string &amp;session)']]]
 ];

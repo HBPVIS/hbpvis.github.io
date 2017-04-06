@@ -37,7 +37,7 @@
           </tr>
           <tr>
             <td class="headerItem">Date:</td>
-            <td class="headerValue">2017-03-25 01:36:51</td>
+            <td class="headerValue">2017-04-07 01:36:37</td>
             <td></td>
             <td class="headerItem">Functions:</td>
             <td class="headerCovTableEntry">3</td>
@@ -120,27 +120,28 @@
 <span class="lineNum">      58 </span>            :     using servus::URI::getHost;
 <span class="lineNum">      59 </span>            :     using servus::URI::getPort;
 <span class="lineNum">      60 </span>            :     using servus::URI::getPath;
-<span class="lineNum">      61 </span>            :     using servus::URI::setHost;
-<span class="lineNum">      62 </span>            :     using servus::URI::setPort;
-<span class="lineNum">      63 </span>            :     //@}
-<a name="64"><span class="lineNum">      64 </span>            : };</a>
-<span class="lineNum">      65 </span>            : 
-<span class="lineNum">      66 </span><span class="lineCov">         17 : inline std::ostream&amp; operator &lt;&lt; ( std::ostream&amp; os, const URI&amp; uri )</span>
-<span class="lineNum">      67 </span>            : {
-<span class="lineNum">      68 </span><span class="lineCov">         17 :     return os &lt;&lt; uri.toServusURI();</span>
-<span class="lineNum">      69 </span>            : }
-<span class="lineNum">      70 </span>            : 
-<span class="lineNum">      71 </span>            : } // namespace zeroeq
-<span class="lineNum">      72 </span>            : 
-<a name="73"><span class="lineNum">      73 </span>            : namespace std</a>
-<span class="lineNum">      74 </span>            : {
-<span class="lineNum">      75 </span><span class="lineCov">          4 : inline std::string to_string( const zeroeq::URI&amp; uri )</span>
-<span class="lineNum">      76 </span>            : {
-<span class="lineNum">      77 </span><span class="lineCov">          4 :     return to_string( uri.toServusURI( ));</span>
-<span class="lineNum">      78 </span>            : }
+<span class="lineNum">      61 </span>            :     using servus::URI::getQuery;
+<span class="lineNum">      62 </span>            :     using servus::URI::setHost;
+<span class="lineNum">      63 </span>            :     using servus::URI::setPort;
+<span class="lineNum">      64 </span>            :     //@}
+<a name="65"><span class="lineNum">      65 </span>            : };</a>
+<span class="lineNum">      66 </span>            : 
+<span class="lineNum">      67 </span><span class="lineCov">         17 : inline std::ostream&amp; operator &lt;&lt; ( std::ostream&amp; os, const URI&amp; uri )</span>
+<span class="lineNum">      68 </span>            : {
+<span class="lineNum">      69 </span><span class="lineCov">         17 :     return os &lt;&lt; uri.toServusURI();</span>
+<span class="lineNum">      70 </span>            : }
+<span class="lineNum">      71 </span>            : 
+<span class="lineNum">      72 </span>            : } // namespace zeroeq
+<span class="lineNum">      73 </span>            : 
+<a name="74"><span class="lineNum">      74 </span>            : namespace std</a>
+<span class="lineNum">      75 </span>            : {
+<span class="lineNum">      76 </span><span class="lineCov">          4 : inline std::string to_string( const zeroeq::URI&amp; uri )</span>
+<span class="lineNum">      77 </span>            : {
+<span class="lineNum">      78 </span><span class="lineCov">          4 :     return to_string( uri.toServusURI( ));</span>
 <span class="lineNum">      79 </span>            : }
-<span class="lineNum">      80 </span>            : 
-<span class="lineNum">      81 </span>            : #endif
+<span class="lineNum">      80 </span>            : }
+<span class="lineNum">      81 </span>            : 
+<span class="lineNum">      82 </span>            : #endif
 </pre>
       </td>
     </tr>

@@ -37,7 +37,7 @@
           </tr>
           <tr>
             <td class="headerItem">Date:</td>
-            <td class="headerValue">2017-03-25 01:36:51</td>
+            <td class="headerValue">2017-04-07 01:36:37</td>
             <td></td>
             <td class="headerItem">Functions:</td>
             <td class="headerCovTableEntry">3</td>
@@ -80,15 +80,15 @@
 <span class="lineNum">      18 </span>            : template &lt;class Tag&gt;
 <a name="19"><span class="lineNum">      19 </span>            : struct protocol_wrapper {</a>
 <span class="lineNum">      20 </span>            :   basic_request&lt;Tag&gt; const&amp; message_;
-<a name="21"><span class="lineNum">      21 </span><span class="lineCov">         36 :   explicit protocol_wrapper(basic_request&lt;Tag&gt; const&amp; message) : message_(message) {}</span></a>
+<a name="21"><span class="lineNum">      21 </span><span class="lineCov">         82 :   explicit protocol_wrapper(basic_request&lt;Tag&gt; const&amp; message) : message_(message) {}</span></a>
 <span class="lineNum">      22 </span>            :   typedef typename basic_request&lt;Tag&gt;::string_type string_type;
-<span class="lineNum">      23 </span><span class="lineCov">         36 :   operator string_type() { return message_.protocol(); }</span>
+<span class="lineNum">      23 </span><span class="lineCov">         82 :   operator string_type() { return message_.protocol(); }</span>
 <span class="lineNum">      24 </span>            : };
 <span class="lineNum">      25 </span>            : } // namespace impl
 <a name="26"><span class="lineNum">      26 </span>            : </a>
 <span class="lineNum">      27 </span>            : template &lt;class Tag&gt;
-<span class="lineNum">      28 </span><span class="lineCov">         36 : inline impl::protocol_wrapper&lt;Tag&gt; protocol(basic_request&lt;Tag&gt; const&amp; request) {</span>
-<span class="lineNum">      29 </span><span class="lineCov">         36 :   return impl::protocol_wrapper&lt;Tag&gt;(request);</span>
+<span class="lineNum">      28 </span><span class="lineCov">         82 : inline impl::protocol_wrapper&lt;Tag&gt; protocol(basic_request&lt;Tag&gt; const&amp; request) {</span>
+<span class="lineNum">      29 </span><span class="lineCov">         82 :   return impl::protocol_wrapper&lt;Tag&gt;(request);</span>
 <span class="lineNum">      30 </span>            : }
 <span class="lineNum">      31 </span>            : 
 <span class="lineNum">      32 </span>            : }  // namespace http

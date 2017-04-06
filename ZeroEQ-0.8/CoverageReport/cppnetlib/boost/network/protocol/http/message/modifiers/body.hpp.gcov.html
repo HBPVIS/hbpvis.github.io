@@ -37,7 +37,7 @@
           </tr>
           <tr>
             <td class="headerItem">Date:</td>
-            <td class="headerValue">2017-03-25 01:36:51</td>
+            <td class="headerValue">2017-04-07 01:36:37</td>
             <td></td>
             <td class="headerItem">Functions:</td>
             <td class="headerCovTableEntry">2</td>
@@ -92,15 +92,15 @@
 <span class="lineNum">      30 </span>            : }
 <a name="31"><span class="lineNum">      31 </span>            : </a>
 <span class="lineNum">      32 </span>            : template &lt;class Tag, class T&gt;
-<span class="lineNum">      33 </span><span class="lineCov">         36 : void body(basic_response&lt;Tag&gt; &amp;response, T const &amp;future, mpl::true_ const &amp; /*unused*/) {</span>
-<span class="lineNum">      34 </span><span class="lineCov">         36 :   response.body(future);</span>
-<span class="lineNum">      35 </span><span class="lineCov">         36 : }</span>
+<span class="lineNum">      33 </span><span class="lineCov">         82 : void body(basic_response&lt;Tag&gt; &amp;response, T const &amp;future, mpl::true_ const &amp; /*unused*/) {</span>
+<span class="lineNum">      34 </span><span class="lineCov">         82 :   response.body(future);</span>
+<span class="lineNum">      35 </span><span class="lineCov">         82 : }</span>
 <span class="lineNum">      36 </span>            : }  // namespace impl
 <a name="37"><span class="lineNum">      37 </span>            : </a>
 <span class="lineNum">      38 </span>            : template &lt;class Tag, class T&gt;
-<span class="lineNum">      39 </span><span class="lineCov">         36 : inline void body(basic_response&lt;Tag&gt; &amp;response, T const &amp;value) {</span>
-<span class="lineNum">      40 </span><span class="lineCov">         36 :   impl::body(response, value, is_async&lt;Tag&gt;());</span>
-<span class="lineNum">      41 </span><span class="lineCov">         36 : }</span>
+<span class="lineNum">      39 </span><span class="lineCov">         82 : inline void body(basic_response&lt;Tag&gt; &amp;response, T const &amp;value) {</span>
+<span class="lineNum">      40 </span><span class="lineCov">         82 :   impl::body(response, value, is_async&lt;Tag&gt;());</span>
+<span class="lineNum">      41 </span><span class="lineCov">         82 : }</span>
 <span class="lineNum">      42 </span>            : 
 <span class="lineNum">      43 </span>            : template &lt;class Tag, class T&gt;
 <span class="lineNum">      44 </span>            : inline void body_impl(basic_request&lt;Tag&gt; &amp;request, T const &amp;value,
