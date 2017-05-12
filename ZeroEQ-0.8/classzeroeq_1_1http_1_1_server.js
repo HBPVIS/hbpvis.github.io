@@ -23,8 +23,8 @@ var classzeroeq_1_1http_1_1_server =
     [ "handlePUT", "classzeroeq_1_1http_1_1_server.html#a1e653b146b7aa53d11e10213fa16a376", null ],
     [ "handlePUT", "classzeroeq_1_1http_1_1_server.html#a2c297f4e8dec6a9f90b1838d40ee1213", null ],
     [ "handlePUT", "classzeroeq_1_1http_1_1_server.html#aa5f2d5a37605cbe1ecbb31af4edb511e", null ],
-    [ "parse", "classzeroeq_1_1http_1_1_server.html#a90935407417630e6bd5c1f17cd86e979", null ],
-    [ "parse", "classzeroeq_1_1http_1_1_server.html#a6569929956b72ce9480d00b47c93e96b", null ],
+    [ "parse", "classzeroeq_1_1http_1_1_server.html#af3b682a61f9f997e2248be919131133b", null ],
+    [ "parse", "classzeroeq_1_1http_1_1_server.html#a914c63057fea449a7128492bab17b8d0", null ],
     [ "remove", "classzeroeq_1_1http_1_1_server.html#a2016a682e927c0226ae0d5320b1d4e23", null ],
     [ "remove", "classzeroeq_1_1http_1_1_server.html#ab8906d6b22e78f6cda70df6b881dc727", null ]
 ];

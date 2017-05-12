@@ -234,7 +234,7 @@
                  <Node>
                   <Name>headers</Name>
                   <Path>structzeroeq_1_1http_1_1_response.html</Path>
-                  <Anchor>ad803cd05f85cdc28b56fbacc55163089</Anchor>
+                  <Anchor>abd2461018ef69503e03ba1ed150edea6</Anchor>
                  </Node>
                 </Subnodes>
                </Node>
@@ -360,12 +360,12 @@
                  <Node>
                   <Name>parse</Name>
                   <Path>classzeroeq_1_1http_1_1_server.html</Path>
-                  <Anchor>a90935407417630e6bd5c1f17cd86e979</Anchor>
+                  <Anchor>af3b682a61f9f997e2248be919131133b</Anchor>
                  </Node>
                  <Node>
                   <Name>parse</Name>
                   <Path>classzeroeq_1_1http_1_1_server.html</Path>
-                  <Anchor>a6569929956b72ce9480d00b47c93e96b</Anchor>
+                  <Anchor>a914c63057fea449a7128492bab17b8d0</Anchor>
                  </Node>
                  <Node>
                   <Name>remove</Name>
@@ -464,7 +464,7 @@
                <Node>
                 <Name>addConnection</Name>
                 <Path>classzeroeq_1_1_receiver.html</Path>
-                <Anchor>a571fbe24485e13b06a0d0900d370d8a6</Anchor>
+                <Anchor>a4c7109254d8db6af6fb0c22c92b8a0d6</Anchor>
                </Node>
                <Node>
                 <Name>addSockets</Name>

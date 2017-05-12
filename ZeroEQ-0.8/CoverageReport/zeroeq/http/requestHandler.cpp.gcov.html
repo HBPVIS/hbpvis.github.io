@@ -37,7 +37,7 @@
           </tr>
           <tr>
             <td class="headerItem">Date:</td>
-            <td class="headerValue">2017-04-07 01:36:37</td>
+            <td class="headerValue">2017-05-13 01:36:17</td>
             <td></td>
             <td class="headerItem">Functions:</td>
             <td class="headerCovTableEntry">15</td>
@@ -80,232 +80,229 @@
 <span class="lineNum">      18 </span>            : {
 <span class="lineNum">      19 </span>            : namespace http
 <span class="lineNum">      20 </span>            : {
-<span class="lineNum">      21 </span>            : namespace
-<a name="22"><span class="lineNum">      22 </span>            : {</a>
-<span class="lineNum">      23 </span>            : 
-<span class="lineNum">      24 </span><span class="lineCov">         50 : int _getContentLength( const HTTPServer::request&amp; request )</span>
-<span class="lineNum">      25 </span>            : {
-<span class="lineNum">      26 </span><span class="lineCov">        144 :     for( const auto&amp; i : request.headers )</span>
-<span class="lineNum">      27 </span>            :     {
-<span class="lineNum">      28 </span><span class="lineCov">        124 :         if( i.name == &quot;Content-Length&quot; )</span>
-<span class="lineNum">      29 </span><span class="lineCov">         30 :             return std::stoi( i.value );</span>
-<span class="lineNum">      30 </span>            :     }
-<span class="lineNum">      31 </span><span class="lineCov">         20 :     return 0;</span>
-<a name="32"><span class="lineNum">      32 </span>            : }</a>
-<span class="lineNum">      33 </span>            : 
-<span class="lineNum">      34 </span><span class="lineCov">        164 : Method _getMethodType( const std::string&amp; methodName )</span>
-<span class="lineNum">      35 </span>            : {
-<span class="lineNum">      36 </span><span class="lineCov">        164 :     if( methodName == &quot;GET&quot; )</span>
-<span class="lineNum">      37 </span><span class="lineCov">        114 :         return Method::GET;</span>
-<span class="lineNum">      38 </span><span class="lineCov">         50 :     if( methodName == &quot;POST&quot; )</span>
-<span class="lineNum">      39 </span><span class="lineCov">          8 :         return Method::POST;</span>
-<span class="lineNum">      40 </span><span class="lineCov">         42 :     if( methodName == &quot;PUT&quot; )</span>
-<span class="lineNum">      41 </span><span class="lineCov">         30 :         return Method::PUT;</span>
-<span class="lineNum">      42 </span><span class="lineCov">         12 :     if( methodName == &quot;PATCH&quot; )</span>
-<span class="lineNum">      43 </span><span class="lineCov">          6 :         return Method::PATCH;</span>
-<span class="lineNum">      44 </span><span class="lineCov">          6 :     if( methodName == &quot;DELETE&quot; )</span>
-<span class="lineNum">      45 </span><span class="lineCov">          6 :         return Method::DELETE;</span>
-<span class="lineNum">      46 </span><span class="lineNoCov">          0 :     throw std::invalid_argument( &quot;Method not supported&quot; );</span>
-<a name="47"><span class="lineNum">      47 </span>            : }</a>
-<span class="lineNum">      48 </span>            : 
-<span class="lineNum">      49 </span><span class="lineCov">         98 : std::string _headerEnumToString( const Header header )</span>
-<span class="lineNum">      50 </span>            : {
-<span class="lineNum">      51 </span><span class="lineCov">         98 :     switch( header )</span>
-<span class="lineNum">      52 </span>            :     {
-<span class="lineNum">      53 </span>            :     case Header::ALLOW:
-<span class="lineNum">      54 </span><span class="lineCov">         16 :         return &quot;Allow&quot;;</span>
-<span class="lineNum">      55 </span>            :     case Header::CONTENT_TYPE:
-<span class="lineNum">      56 </span><span class="lineCov">         52 :         return &quot;Content-Type&quot;;</span>
-<span class="lineNum">      57 </span>            :     case Header::LAST_MODIFIED:
-<span class="lineNum">      58 </span><span class="lineCov">         10 :         return &quot;Last-Modified&quot;;</span>
-<span class="lineNum">      59 </span>            :     case Header::LOCATION:
-<span class="lineNum">      60 </span><span class="lineCov">         10 :         return &quot;Location&quot;;</span>
-<span class="lineNum">      61 </span>            :     case Header::RETRY_AFTER:
-<span class="lineNum">      62 </span><span class="lineCov">         10 :         return &quot;Retry-After&quot;;</span>
-<span class="lineNum">      63 </span>            :     default:
-<span class="lineNum">      64 </span><span class="lineNoCov">          0 :         throw std::logic_error( &quot;no such header&quot; );</span>
-<span class="lineNum">      65 </span>            :     }
-<span class="lineNum">      66 </span>            : }
-<span class="lineNum">      67 </span>            : 
-<a name="68"><span class="lineNum">      68 </span>            : // The actual handler for each incoming request where the data is read from</a>
-<span class="lineNum">      69 </span>            : // a dedicated connection to the client.
-<a name="70"><span class="lineNum">      70 </span><span class="lineCov">        164 : struct ConnectionHandler : std::enable_shared_from_this&lt; ConnectionHandler &gt;</span></a>
-<span class="lineNum">      71 </span>            : {
-<span class="lineNum">      72 </span><span class="lineCov">        164 :     ConnectionHandler( const HTTPServer::request&amp; request, void* socket )</span>
-<span class="lineNum">      73 </span><span class="lineCov">        164 :         : _request( request )</span>
-<span class="lineNum">      74 </span><span class="lineCov">        164 :         , _socket( socket )</span>
-<a name="75"><span class="lineNum">      75 </span><span class="lineCov">        164 :     {}</span></a>
+<a name="21"><span class="lineNum">      21 </span>            : namespace</a>
+<span class="lineNum">      22 </span>            : {
+<span class="lineNum">      23 </span><span class="lineCov">         50 : int _getContentLength(const HTTPServer::request&amp; request)</span>
+<span class="lineNum">      24 </span>            : {
+<span class="lineNum">      25 </span><span class="lineCov">        144 :     for (const auto&amp; i : request.headers)</span>
+<span class="lineNum">      26 </span>            :     {
+<span class="lineNum">      27 </span><span class="lineCov">        124 :         if (i.name == &quot;Content-Length&quot;)</span>
+<span class="lineNum">      28 </span><span class="lineCov">         30 :             return std::stoi(i.value);</span>
+<span class="lineNum">      29 </span>            :     }
+<span class="lineNum">      30 </span><span class="lineCov">         20 :     return 0;</span>
+<a name="31"><span class="lineNum">      31 </span>            : }</a>
+<span class="lineNum">      32 </span>            : 
+<span class="lineNum">      33 </span><span class="lineCov">        164 : Method _getMethodType(const std::string&amp; methodName)</span>
+<span class="lineNum">      34 </span>            : {
+<span class="lineNum">      35 </span><span class="lineCov">        164 :     if (methodName == &quot;GET&quot;)</span>
+<span class="lineNum">      36 </span><span class="lineCov">        114 :         return Method::GET;</span>
+<span class="lineNum">      37 </span><span class="lineCov">         50 :     if (methodName == &quot;POST&quot;)</span>
+<span class="lineNum">      38 </span><span class="lineCov">          8 :         return Method::POST;</span>
+<span class="lineNum">      39 </span><span class="lineCov">         42 :     if (methodName == &quot;PUT&quot;)</span>
+<span class="lineNum">      40 </span><span class="lineCov">         30 :         return Method::PUT;</span>
+<span class="lineNum">      41 </span><span class="lineCov">         12 :     if (methodName == &quot;PATCH&quot;)</span>
+<span class="lineNum">      42 </span><span class="lineCov">          6 :         return Method::PATCH;</span>
+<span class="lineNum">      43 </span><span class="lineCov">          6 :     if (methodName == &quot;DELETE&quot;)</span>
+<span class="lineNum">      44 </span><span class="lineCov">          6 :         return Method::DELETE;</span>
+<span class="lineNum">      45 </span><span class="lineNoCov">          0 :     throw std::invalid_argument(&quot;Method not supported&quot;);</span>
+<a name="46"><span class="lineNum">      46 </span>            : }</a>
+<span class="lineNum">      47 </span>            : 
+<span class="lineNum">      48 </span><span class="lineCov">         98 : std::string _headerEnumToString(const Header header)</span>
+<span class="lineNum">      49 </span>            : {
+<span class="lineNum">      50 </span><span class="lineCov">         98 :     switch (header)</span>
+<span class="lineNum">      51 </span>            :     {
+<span class="lineNum">      52 </span>            :     case Header::ALLOW:
+<span class="lineNum">      53 </span><span class="lineCov">         16 :         return &quot;Allow&quot;;</span>
+<span class="lineNum">      54 </span>            :     case Header::CONTENT_TYPE:
+<span class="lineNum">      55 </span><span class="lineCov">         52 :         return &quot;Content-Type&quot;;</span>
+<span class="lineNum">      56 </span>            :     case Header::LAST_MODIFIED:
+<span class="lineNum">      57 </span><span class="lineCov">         10 :         return &quot;Last-Modified&quot;;</span>
+<span class="lineNum">      58 </span>            :     case Header::LOCATION:
+<span class="lineNum">      59 </span><span class="lineCov">         10 :         return &quot;Location&quot;;</span>
+<span class="lineNum">      60 </span>            :     case Header::RETRY_AFTER:
+<span class="lineNum">      61 </span><span class="lineCov">         10 :         return &quot;Retry-After&quot;;</span>
+<span class="lineNum">      62 </span>            :     default:
+<span class="lineNum">      63 </span><span class="lineNoCov">          0 :         throw std::logic_error(&quot;no such header&quot;);</span>
+<span class="lineNum">      64 </span>            :     }
+<span class="lineNum">      65 </span>            : }
+<span class="lineNum">      66 </span>            : 
+<a name="67"><span class="lineNum">      67 </span>            : // The actual handler for each incoming request where the data is read from</a>
+<span class="lineNum">      68 </span>            : // a dedicated connection to the client.
+<a name="69"><span class="lineNum">      69 </span><span class="lineCov">        164 : struct ConnectionHandler : std::enable_shared_from_this&lt;ConnectionHandler&gt;</span></a>
+<span class="lineNum">      70 </span>            : {
+<span class="lineNum">      71 </span><span class="lineCov">        164 :     ConnectionHandler(const HTTPServer::request&amp; request, void* socket)</span>
+<span class="lineNum">      72 </span><span class="lineCov">        164 :         : _request(request)</span>
+<span class="lineNum">      73 </span><span class="lineCov">        164 :         , _socket(socket)</span>
+<span class="lineNum">      74 </span>            :     {
+<a name="75"><span class="lineNum">      75 </span><span class="lineCov">        164 :     }</span></a>
 <span class="lineNum">      76 </span>            : 
-<span class="lineNum">      77 </span><span class="lineCov">        164 :     void operator()( HTTPServer::connection_ptr connection )</span>
+<span class="lineNum">      77 </span><span class="lineCov">        164 :     void operator()(HTTPServer::connection_ptr connection)</span>
 <span class="lineNum">      78 </span>            :     {
 <span class="lineNum">      79 </span>            :         try
 <span class="lineNum">      80 </span>            :         {
-<span class="lineNum">      81 </span><span class="lineCov">        164 :             const auto method = _getMethodType( _request.method );</span>
-<span class="lineNum">      82 </span><span class="lineCov">        164 :             if( method != Method::GET )</span>
+<span class="lineNum">      81 </span><span class="lineCov">        164 :             const auto method = _getMethodType(_request.method);</span>
+<span class="lineNum">      82 </span><span class="lineCov">        164 :             if (method != Method::GET)</span>
 <span class="lineNum">      83 </span>            :             {
-<span class="lineNum">      84 </span><span class="lineCov">         50 :                 _size = _getContentLength( _request );</span>
+<span class="lineNum">      84 </span><span class="lineCov">         50 :                 _size = _getContentLength(_request);</span>
 <span class="lineNum">      85 </span>            :                 // if we have payload, schedule an (async) read of all chunks.
 <span class="lineNum">      86 </span>            :                 // Will call _handleRequest() after all data has been read.
-<span class="lineNum">      87 </span><span class="lineCov">         50 :                 if( _size &gt; 0 )</span>
+<span class="lineNum">      87 </span><span class="lineCov">         50 :                 if (_size &gt; 0)</span>
 <span class="lineNum">      88 </span>            :                 {
-<span class="lineNum">      89 </span><span class="lineCov">         30 :                     _readChunk( connection, method );</span>
+<span class="lineNum">      89 </span><span class="lineCov">         30 :                     _readChunk(connection, method);</span>
 <span class="lineNum">      90 </span><span class="lineCov">         30 :                     return;</span>
 <span class="lineNum">      91 </span>            :                 }
 <span class="lineNum">      92 </span>            :             }
-<span class="lineNum">      93 </span><span class="lineCov">        134 :             _handleRequest( method, connection );</span>
+<span class="lineNum">      93 </span><span class="lineCov">        134 :             _handleRequest(method, connection);</span>
 <span class="lineNum">      94 </span>            :         }
-<span class="lineNum">      95 </span><span class="lineNoCov">          0 :         catch( const std::invalid_argument&amp; )</span>
+<span class="lineNum">      95 </span><span class="lineNoCov">          0 :         catch (const std::invalid_argument&amp;)</span>
 <span class="lineNum">      96 </span>            :         {
-<span class="lineNum">      97 </span><span class="lineNoCov">          0 :             std::vector&lt; HTTPServer::response_header &gt; headers;</span>
-<span class="lineNum">      98 </span><span class="lineNoCov">          0 :             _addCorsHeaders( headers );</span>
-<span class="lineNum">      99 </span><span class="lineNoCov">          0 :             connection-&gt;set_status( HTTPServer::connection::not_supported );</span>
-<span class="lineNum">     100 </span><span class="lineNoCov">          0 :             connection-&gt;set_headers( headers );</span>
+<span class="lineNum">      97 </span><span class="lineNoCov">          0 :             std::vector&lt;HTTPServer::response_header&gt; headers;</span>
+<span class="lineNum">      98 </span><span class="lineNoCov">          0 :             _addCorsHeaders(headers);</span>
+<span class="lineNum">      99 </span><span class="lineNoCov">          0 :             connection-&gt;set_status(HTTPServer::connection::not_supported);</span>
+<span class="lineNum">     100 </span><span class="lineNoCov">          0 :             connection-&gt;set_headers(headers);</span>
 <span class="lineNum">     101 </span>            :         }
 <span class="lineNum">     102 </span>            :     }
 <a name="103"><span class="lineNum">     103 </span>            : </a>
 <span class="lineNum">     104 </span>            : private:
-<span class="lineNum">     105 </span><span class="lineCov">         30 :     void _readChunk( HTTPServer::connection_ptr connection,</span>
-<span class="lineNum">     106 </span>            :                      const Method method )
-<span class="lineNum">     107 </span>            :     {
-<span class="lineNum">     108 </span>            :         namespace pl = std::placeholders;
-<span class="lineNum">     109 </span><span class="lineCov">         60 :         connection-&gt;read( std::bind( &amp;ConnectionHandler::_handleChunk,</span>
-<span class="lineNum">     110 </span><span class="lineCov">         60 :                                      ConnectionHandler::shared_from_this(),</span>
-<span class="lineNum">     111 </span>            :                                      pl::_1, pl::_2, pl::_3, connection,
-<span class="lineNum">     112 </span><span class="lineCov">         30 :                                      method ));</span>
-<a name="113"><span class="lineNum">     113 </span><span class="lineCov">         30 :     }</span></a>
-<span class="lineNum">     114 </span>            : 
-<span class="lineNum">     115 </span><span class="lineCov">         30 :     void _handleChunk( HTTPServer::connection::input_range range,</span>
-<span class="lineNum">     116 </span>            :                        const boost::system::error_code error, const size_t size,
-<span class="lineNum">     117 </span>            :                        HTTPServer::connection_ptr connection,
-<span class="lineNum">     118 </span>            :                        const Method method_ )
-<span class="lineNum">     119 </span>            :     {
-<span class="lineNum">     120 </span><span class="lineCov">         30 :         if( error )</span>
-<span class="lineNum">     121 </span>            :         {
-<span class="lineNum">     122 </span>            :             ZEROEQERROR &lt;&lt; &quot;Error during ConnectionHandler::_handleChunk: &quot;
-<span class="lineNum">     123 </span><span class="lineNoCov">          0 :                         &lt;&lt; error.message() &lt;&lt; std::endl;</span>
-<span class="lineNum">     124 </span><span class="lineNoCov">          0 :             return;</span>
-<span class="lineNum">     125 </span>            :         }
-<span class="lineNum">     126 </span>            : 
-<span class="lineNum">     127 </span><span class="lineCov">         30 :         _body.append( std::begin( range ), size );</span>
-<span class="lineNum">     128 </span><span class="lineCov">         30 :         _size -= size;</span>
-<span class="lineNum">     129 </span><span class="lineCov">         30 :         if( _size &gt; 0 )</span>
-<span class="lineNum">     130 </span><span class="lineNoCov">          0 :             _readChunk( connection, method_ );</span>
-<span class="lineNum">     131 </span>            :         else
-<span class="lineNum">     132 </span><span class="lineCov">         30 :             _handleRequest( method_, connection );</span>
-<a name="133"><span class="lineNum">     133 </span>            :     }</a>
-<span class="lineNum">     134 </span>            : 
-<span class="lineNum">     135 </span><span class="lineCov">        164 :     void _handleRequest( const Method method,</span>
-<span class="lineNum">     136 </span>            :                          HTTPServer::connection_ptr connection )
-<span class="lineNum">     137 </span>            :     {
-<span class="lineNum">     138 </span><span class="lineCov">        328 :         Message message;</span>
-<span class="lineNum">     139 </span><span class="lineCov">        164 :         message.request.method = method;</span>
-<span class="lineNum">     140 </span><span class="lineCov">        328 :         const auto uri = URI( _request.destination );</span>
-<span class="lineNum">     141 </span><span class="lineCov">        164 :         message.request.path = uri.getPath();</span>
-<span class="lineNum">     142 </span><span class="lineCov">        164 :         message.request.query = uri.getQuery();</span>
-<span class="lineNum">     143 </span><span class="lineCov">        164 :         message.request.body.swap( _body );</span>
-<span class="lineNum">     144 </span>            : 
-<span class="lineNum">     145 </span><span class="lineCov">        164 :         void* messagePtr = &amp;message;</span>
-<span class="lineNum">     146 </span><span class="lineCov">        164 :         zmq_send( _socket, &amp;messagePtr, sizeof( void* ), 0 );</span>
-<span class="lineNum">     147 </span>            :         bool done;
-<span class="lineNum">     148 </span><span class="lineCov">        164 :         zmq_recv( _socket, &amp;done, sizeof( done ), 0 );</span>
-<span class="lineNum">     149 </span>            : 
-<span class="lineNum">     150 </span><span class="lineCov">        328 :         Response response;</span>
-<span class="lineNum">     151 </span>            :         try
-<span class="lineNum">     152 </span>            :         {
-<span class="lineNum">     153 </span><span class="lineCov">        164 :             response = message.response.get();</span>
-<span class="lineNum">     154 </span>            :         }
-<span class="lineNum">     155 </span><span class="lineNoCov">          0 :         catch( std::future_error&amp; error )</span>
-<span class="lineNum">     156 </span>            :         {
-<span class="lineNum">     157 </span><span class="lineNoCov">          0 :             response.code = http::Code::INTERNAL_SERVER_ERROR;</span>
-<span class="lineNum">     158 </span>            :             ZEROEQINFO &lt;&lt; &quot;Error during ConnectionHandler::_handleRequest: &quot;
-<span class="lineNum">     159 </span><span class="lineNoCov">          0 :                        &lt;&lt; error.what() &lt;&lt; std::endl;</span>
-<span class="lineNum">     160 </span>            :         }
-<span class="lineNum">     161 </span>            : 
-<span class="lineNum">     162 </span><span class="lineCov">        328 :         std::vector&lt; HTTPServer::response_header &gt; headers;</span>
-<span class="lineNum">     163 </span><span class="lineCov">        164 :         _addCorsHeaders( headers );</span>
-<span class="lineNum">     164 </span>            : 
-<span class="lineNum">     165 </span><span class="lineCov">        328 :         HTTPServer::response_header contentLength;</span>
-<span class="lineNum">     166 </span><span class="lineCov">        164 :         contentLength.name = &quot;Content-Length&quot;;</span>
-<span class="lineNum">     167 </span><span class="lineCov">        164 :         contentLength.value = std::to_string( response.body.length( ));</span>
-<span class="lineNum">     168 </span><span class="lineCov">        164 :         headers.push_back( contentLength );</span>
-<span class="lineNum">     169 </span>            : 
-<span class="lineNum">     170 </span><span class="lineCov">        262 :         for( auto it = response.headers.begin(); it != response.headers.end();</span>
-<span class="lineNum">     171 </span>            :              ++it )
-<span class="lineNum">     172 </span>            :         {
-<span class="lineNum">     173 </span><span class="lineCov">        196 :             HTTPServer::response_header header;</span>
-<span class="lineNum">     174 </span><span class="lineCov">         98 :             header.name = _headerEnumToString( it-&gt;first );</span>
-<span class="lineNum">     175 </span><span class="lineCov">         98 :             header.value = it-&gt;second ;</span>
-<span class="lineNum">     176 </span><span class="lineCov">         98 :             headers.push_back( header );</span>
-<span class="lineNum">     177 </span>            :         }
-<span class="lineNum">     178 </span><span class="lineCov">        164 :         const auto status = HTTPServer::connection::status_t( response.code );</span>
-<span class="lineNum">     179 </span><span class="lineCov">        164 :         connection-&gt;set_status( status );</span>
-<span class="lineNum">     180 </span><span class="lineCov">        164 :         connection-&gt;set_headers( headers );</span>
-<span class="lineNum">     181 </span><span class="lineCov">        164 :         connection-&gt;write( response.body );</span>
-<a name="182"><span class="lineNum">     182 </span><span class="lineCov">        164 :     }</span></a>
-<span class="lineNum">     183 </span>            : 
-<span class="lineNum">     184 </span><span class="lineCov">        164 :     void _addCorsHeaders( std::vector&lt; HTTPServer::response_header &gt;&amp; headers )</span>
-<span class="lineNum">     185 </span>            :     {
-<span class="lineNum">     186 </span>            :         // In a typical situation, user agents can discover via a preflight
-<span class="lineNum">     187 </span>            :         // request whether a cross-origin resource is prepared to accept
-<span class="lineNum">     188 </span>            :         // requests. The current implementation of this class does not support
-<span class="lineNum">     189 </span>            :         // this mechanism and has to accept cross-origin resources. In order to
-<span class="lineNum">     190 </span>            :         // achieve that, access control headers are added to all HTTP responses,
-<span class="lineNum">     191 </span>            :         // meaning that all sources are accepted for all requests. More
-<span class="lineNum">     192 </span>            :         // information can be found here: https://www.w3.org/TR/cors
-<span class="lineNum">     193 </span>            : 
-<span class="lineNum">     194 </span><span class="lineCov">        328 :         HTTPServer::response_header allowHeaders;</span>
-<span class="lineNum">     195 </span><span class="lineCov">        164 :         allowHeaders.name = &quot;Access-Control-Allow-Headers&quot;;</span>
-<span class="lineNum">     196 </span><span class="lineCov">        164 :         allowHeaders.value = &quot;Content-Type&quot;;</span>
-<span class="lineNum">     197 </span>            : 
-<span class="lineNum">     198 </span><span class="lineCov">        328 :         HTTPServer::response_header allowMethods;</span>
-<span class="lineNum">     199 </span><span class="lineCov">        164 :         allowMethods.name = &quot;Access-Control-Allow-Methods&quot;;</span>
-<span class="lineNum">     200 </span><span class="lineCov">        164 :         allowMethods.value = &quot;GET,POST,PUT,PATCH,DELETE,OPTIONS&quot;;</span>
-<span class="lineNum">     201 </span>            : 
-<span class="lineNum">     202 </span><span class="lineCov">        328 :         HTTPServer::response_header allowOrigin;</span>
-<span class="lineNum">     203 </span><span class="lineCov">        164 :         allowOrigin.name = &quot;Access-Control-Allow-Origin&quot;;</span>
-<span class="lineNum">     204 </span><span class="lineCov">        164 :         allowOrigin.value = &quot;*&quot;;</span>
-<span class="lineNum">     205 </span>            : 
-<span class="lineNum">     206 </span><span class="lineCov">        164 :         headers.push_back( allowHeaders );</span>
-<span class="lineNum">     207 </span><span class="lineCov">        164 :         headers.push_back( allowMethods );</span>
-<span class="lineNum">     208 </span><span class="lineCov">        164 :         headers.push_back( allowOrigin );</span>
-<span class="lineNum">     209 </span><span class="lineCov">        164 :     }</span>
-<span class="lineNum">     210 </span>            : 
-<span class="lineNum">     211 </span>            :     const HTTPServer::request&amp; _request;
-<span class="lineNum">     212 </span>            :     void* _socket;
-<span class="lineNum">     213 </span>            :     std::string _body;
-<span class="lineNum">     214 </span>            :     int _size = 0;
-<span class="lineNum">     215 </span>            : };
-<a name="216"><span class="lineNum">     216 </span>            : } // anonymous namespace</a>
-<span class="lineNum">     217 </span>            : 
-<span class="lineNum">     218 </span><span class="lineCov">         68 : RequestHandler::RequestHandler( const std::string&amp; zmqURL, void* zmqContext )</span>
-<span class="lineNum">     219 </span><span class="lineCov">         68 :     : _socket( zmq_socket( zmqContext, ZMQ_PAIR ))</span>
-<span class="lineNum">     220 </span>            : {
-<span class="lineNum">     221 </span><span class="lineCov">         68 :     if( zmq_connect( _socket, zmqURL.c_str( )) == -1 )</span>
-<span class="lineNum">     222 </span>            :     {
-<span class="lineNum">     223 </span><span class="lineNoCov">          0 :         ZEROEQTHROW( std::runtime_error(</span>
-<span class="lineNum">     224 </span>            :                         &quot;Cannot connect RequestHandler to inproc socket&quot; ));
-<span class="lineNum">     225 </span>            :     }
-<a name="226"><span class="lineNum">     226 </span><span class="lineCov">         68 : }</span></a>
-<span class="lineNum">     227 </span>            : 
-<span class="lineNum">     228 </span><span class="lineCov">        136 : RequestHandler::~RequestHandler()</span>
-<span class="lineNum">     229 </span>            : {
-<span class="lineNum">     230 </span><span class="lineCov">         68 :     zmq_close( _socket );</span>
-<a name="231"><span class="lineNum">     231 </span><span class="lineCov">         68 : }</span></a>
-<span class="lineNum">     232 </span>            : 
-<span class="lineNum">     233 </span><span class="lineCov">        164 : void RequestHandler::operator() ( const HTTPServer::request&amp; request,</span>
-<span class="lineNum">     234 </span>            :                                   HTTPServer::connection_ptr connection )
-<span class="lineNum">     235 </span>            : {
-<span class="lineNum">     236 </span>            :     // as the underlying cppnetlib http server is asynchronous and payload for
-<span class="lineNum">     237 </span>            :     // PUT events has to be read in chunks in the cppnetlib thread, create
-<span class="lineNum">     238 </span>            :     // a shared instance of the handler object that is passed to cppnetlib for
-<span class="lineNum">     239 </span>            :     // processing the request.
-<span class="lineNum">     240 </span>            :     std::shared_ptr&lt; ConnectionHandler &gt; connectionHandler
-<span class="lineNum">     241 </span><span class="lineCov">        328 :             (new ConnectionHandler( request, _socket ));</span>
-<span class="lineNum">     242 </span><span class="lineCov">        164 :     (*connectionHandler)(connection);</span>
-<span class="lineNum">     243 </span><span class="lineCov">        164 : }</span>
-<a name="244"><span class="lineNum">     244 </span>            : </a>
-<span class="lineNum">     245 </span>            : }
-<span class="lineNum">     246 </span><span class="lineCov">         42 : }</span>
+<span class="lineNum">     105 </span><span class="lineCov">         30 :     void _readChunk(HTTPServer::connection_ptr connection, const Method method)</span>
+<span class="lineNum">     106 </span>            :     {
+<span class="lineNum">     107 </span>            :         namespace pl = std::placeholders;
+<span class="lineNum">     108 </span><span class="lineCov">         60 :         connection-&gt;read(std::bind(&amp;ConnectionHandler::_handleChunk,</span>
+<span class="lineNum">     109 </span><span class="lineCov">         60 :                                    ConnectionHandler::shared_from_this(),</span>
+<span class="lineNum">     110 </span><span class="lineCov">         30 :                                    pl::_1, pl::_2, pl::_3, connection, method));</span>
+<a name="111"><span class="lineNum">     111 </span><span class="lineCov">         30 :     }</span></a>
+<span class="lineNum">     112 </span>            : 
+<span class="lineNum">     113 </span><span class="lineCov">         30 :     void _handleChunk(HTTPServer::connection::input_range range,</span>
+<span class="lineNum">     114 </span>            :                       const boost::system::error_code error, const size_t size,
+<span class="lineNum">     115 </span>            :                       HTTPServer::connection_ptr connection,
+<span class="lineNum">     116 </span>            :                       const Method method_)
+<span class="lineNum">     117 </span>            :     {
+<span class="lineNum">     118 </span><span class="lineCov">         30 :         if (error)</span>
+<span class="lineNum">     119 </span>            :         {
+<span class="lineNum">     120 </span>            :             ZEROEQERROR &lt;&lt; &quot;Error during ConnectionHandler::_handleChunk: &quot;
+<span class="lineNum">     121 </span><span class="lineNoCov">          0 :                         &lt;&lt; error.message() &lt;&lt; std::endl;</span>
+<span class="lineNum">     122 </span><span class="lineNoCov">          0 :             return;</span>
+<span class="lineNum">     123 </span>            :         }
+<span class="lineNum">     124 </span>            : 
+<span class="lineNum">     125 </span><span class="lineCov">         30 :         _body.append(std::begin(range), size);</span>
+<span class="lineNum">     126 </span><span class="lineCov">         30 :         _size -= size;</span>
+<span class="lineNum">     127 </span><span class="lineCov">         30 :         if (_size &gt; 0)</span>
+<span class="lineNum">     128 </span><span class="lineNoCov">          0 :             _readChunk(connection, method_);</span>
+<span class="lineNum">     129 </span>            :         else
+<span class="lineNum">     130 </span><span class="lineCov">         30 :             _handleRequest(method_, connection);</span>
+<a name="131"><span class="lineNum">     131 </span>            :     }</a>
+<span class="lineNum">     132 </span>            : 
+<span class="lineNum">     133 </span><span class="lineCov">        164 :     void _handleRequest(const Method method,</span>
+<span class="lineNum">     134 </span>            :                         HTTPServer::connection_ptr connection)
+<span class="lineNum">     135 </span>            :     {
+<span class="lineNum">     136 </span><span class="lineCov">        328 :         Message message;</span>
+<span class="lineNum">     137 </span><span class="lineCov">        164 :         message.request.method = method;</span>
+<span class="lineNum">     138 </span><span class="lineCov">        328 :         const auto uri = URI(_request.destination);</span>
+<span class="lineNum">     139 </span><span class="lineCov">        164 :         message.request.path = uri.getPath();</span>
+<span class="lineNum">     140 </span><span class="lineCov">        164 :         message.request.query = uri.getQuery();</span>
+<span class="lineNum">     141 </span><span class="lineCov">        164 :         message.request.body.swap(_body);</span>
+<span class="lineNum">     142 </span>            : 
+<span class="lineNum">     143 </span><span class="lineCov">        164 :         void* messagePtr = &amp;message;</span>
+<span class="lineNum">     144 </span><span class="lineCov">        164 :         zmq_send(_socket, &amp;messagePtr, sizeof(void*), 0);</span>
+<span class="lineNum">     145 </span>            :         bool done;
+<span class="lineNum">     146 </span><span class="lineCov">        164 :         zmq_recv(_socket, &amp;done, sizeof(done), 0);</span>
+<span class="lineNum">     147 </span>            : 
+<span class="lineNum">     148 </span><span class="lineCov">        328 :         Response response;</span>
+<span class="lineNum">     149 </span>            :         try
+<span class="lineNum">     150 </span>            :         {
+<span class="lineNum">     151 </span><span class="lineCov">        164 :             response = message.response.get();</span>
+<span class="lineNum">     152 </span>            :         }
+<span class="lineNum">     153 </span><span class="lineNoCov">          0 :         catch (std::future_error&amp; error)</span>
+<span class="lineNum">     154 </span>            :         {
+<span class="lineNum">     155 </span><span class="lineNoCov">          0 :             response.code = http::Code::INTERNAL_SERVER_ERROR;</span>
+<span class="lineNum">     156 </span>            :             ZEROEQINFO &lt;&lt; &quot;Error during ConnectionHandler::_handleRequest: &quot;
+<span class="lineNum">     157 </span><span class="lineNoCov">          0 :                        &lt;&lt; error.what() &lt;&lt; std::endl;</span>
+<span class="lineNum">     158 </span>            :         }
+<span class="lineNum">     159 </span>            : 
+<span class="lineNum">     160 </span><span class="lineCov">        328 :         std::vector&lt;HTTPServer::response_header&gt; headers;</span>
+<span class="lineNum">     161 </span><span class="lineCov">        164 :         _addCorsHeaders(headers);</span>
+<span class="lineNum">     162 </span>            : 
+<span class="lineNum">     163 </span><span class="lineCov">        328 :         HTTPServer::response_header contentLength;</span>
+<span class="lineNum">     164 </span><span class="lineCov">        164 :         contentLength.name = &quot;Content-Length&quot;;</span>
+<span class="lineNum">     165 </span><span class="lineCov">        164 :         contentLength.value = std::to_string(response.body.length());</span>
+<span class="lineNum">     166 </span><span class="lineCov">        164 :         headers.push_back(contentLength);</span>
+<span class="lineNum">     167 </span>            : 
+<span class="lineNum">     168 </span><span class="lineCov">        262 :         for (auto it = response.headers.begin(); it != response.headers.end();</span>
+<span class="lineNum">     169 </span>            :              ++it)
+<span class="lineNum">     170 </span>            :         {
+<span class="lineNum">     171 </span><span class="lineCov">        196 :             HTTPServer::response_header header;</span>
+<span class="lineNum">     172 </span><span class="lineCov">         98 :             header.name = _headerEnumToString(it-&gt;first);</span>
+<span class="lineNum">     173 </span><span class="lineCov">         98 :             header.value = it-&gt;second;</span>
+<span class="lineNum">     174 </span><span class="lineCov">         98 :             headers.push_back(header);</span>
+<span class="lineNum">     175 </span>            :         }
+<span class="lineNum">     176 </span><span class="lineCov">        164 :         const auto status = HTTPServer::connection::status_t(response.code);</span>
+<span class="lineNum">     177 </span><span class="lineCov">        164 :         connection-&gt;set_status(status);</span>
+<span class="lineNum">     178 </span><span class="lineCov">        164 :         connection-&gt;set_headers(headers);</span>
+<span class="lineNum">     179 </span><span class="lineCov">        164 :         connection-&gt;write(response.body);</span>
+<a name="180"><span class="lineNum">     180 </span><span class="lineCov">        164 :     }</span></a>
+<span class="lineNum">     181 </span>            : 
+<span class="lineNum">     182 </span><span class="lineCov">        164 :     void _addCorsHeaders(std::vector&lt;HTTPServer::response_header&gt;&amp; headers)</span>
+<span class="lineNum">     183 </span>            :     {
+<span class="lineNum">     184 </span>            :         // In a typical situation, user agents can discover via a preflight
+<span class="lineNum">     185 </span>            :         // request whether a cross-origin resource is prepared to accept
+<span class="lineNum">     186 </span>            :         // requests. The current implementation of this class does not support
+<span class="lineNum">     187 </span>            :         // this mechanism and has to accept cross-origin resources. In order to
+<span class="lineNum">     188 </span>            :         // achieve that, access control headers are added to all HTTP responses,
+<span class="lineNum">     189 </span>            :         // meaning that all sources are accepted for all requests. More
+<span class="lineNum">     190 </span>            :         // information can be found here: https://www.w3.org/TR/cors
+<span class="lineNum">     191 </span>            : 
+<span class="lineNum">     192 </span><span class="lineCov">        328 :         HTTPServer::response_header allowHeaders;</span>
+<span class="lineNum">     193 </span><span class="lineCov">        164 :         allowHeaders.name = &quot;Access-Control-Allow-Headers&quot;;</span>
+<span class="lineNum">     194 </span><span class="lineCov">        164 :         allowHeaders.value = &quot;Content-Type&quot;;</span>
+<span class="lineNum">     195 </span>            : 
+<span class="lineNum">     196 </span><span class="lineCov">        328 :         HTTPServer::response_header allowMethods;</span>
+<span class="lineNum">     197 </span><span class="lineCov">        164 :         allowMethods.name = &quot;Access-Control-Allow-Methods&quot;;</span>
+<span class="lineNum">     198 </span><span class="lineCov">        164 :         allowMethods.value = &quot;GET,POST,PUT,PATCH,DELETE,OPTIONS&quot;;</span>
+<span class="lineNum">     199 </span>            : 
+<span class="lineNum">     200 </span><span class="lineCov">        328 :         HTTPServer::response_header allowOrigin;</span>
+<span class="lineNum">     201 </span><span class="lineCov">        164 :         allowOrigin.name = &quot;Access-Control-Allow-Origin&quot;;</span>
+<span class="lineNum">     202 </span><span class="lineCov">        164 :         allowOrigin.value = &quot;*&quot;;</span>
+<span class="lineNum">     203 </span>            : 
+<span class="lineNum">     204 </span><span class="lineCov">        164 :         headers.push_back(allowHeaders);</span>
+<span class="lineNum">     205 </span><span class="lineCov">        164 :         headers.push_back(allowMethods);</span>
+<span class="lineNum">     206 </span><span class="lineCov">        164 :         headers.push_back(allowOrigin);</span>
+<span class="lineNum">     207 </span><span class="lineCov">        164 :     }</span>
+<span class="lineNum">     208 </span>            : 
+<span class="lineNum">     209 </span>            :     const HTTPServer::request&amp; _request;
+<span class="lineNum">     210 </span>            :     void* _socket;
+<span class="lineNum">     211 </span>            :     std::string _body;
+<span class="lineNum">     212 </span>            :     int _size = 0;
+<span class="lineNum">     213 </span>            : };
+<a name="214"><span class="lineNum">     214 </span>            : } // anonymous namespace</a>
+<span class="lineNum">     215 </span>            : 
+<span class="lineNum">     216 </span><span class="lineCov">         68 : RequestHandler::RequestHandler(const std::string&amp; zmqURL, void* zmqContext)</span>
+<span class="lineNum">     217 </span><span class="lineCov">         68 :     : _socket(zmq_socket(zmqContext, ZMQ_PAIR))</span>
+<span class="lineNum">     218 </span>            : {
+<span class="lineNum">     219 </span><span class="lineCov">         68 :     if (zmq_connect(_socket, zmqURL.c_str()) == -1)</span>
+<span class="lineNum">     220 </span>            :     {
+<span class="lineNum">     221 </span><span class="lineNoCov">          0 :         ZEROEQTHROW(std::runtime_error(</span>
+<span class="lineNum">     222 </span>            :             &quot;Cannot connect RequestHandler to inproc socket&quot;));
+<span class="lineNum">     223 </span>            :     }
+<a name="224"><span class="lineNum">     224 </span><span class="lineCov">         68 : }</span></a>
+<span class="lineNum">     225 </span>            : 
+<span class="lineNum">     226 </span><span class="lineCov">        136 : RequestHandler::~RequestHandler()</span>
+<span class="lineNum">     227 </span>            : {
+<span class="lineNum">     228 </span><span class="lineCov">         68 :     zmq_close(_socket);</span>
+<a name="229"><span class="lineNum">     229 </span><span class="lineCov">         68 : }</span></a>
+<span class="lineNum">     230 </span>            : 
+<span class="lineNum">     231 </span><span class="lineCov">        164 : void RequestHandler::operator()(const HTTPServer::request&amp; request,</span>
+<span class="lineNum">     232 </span>            :                                 HTTPServer::connection_ptr connection)
+<span class="lineNum">     233 </span>            : {
+<span class="lineNum">     234 </span>            :     // as the underlying cppnetlib http server is asynchronous and payload for
+<span class="lineNum">     235 </span>            :     // PUT events has to be read in chunks in the cppnetlib thread, create
+<span class="lineNum">     236 </span>            :     // a shared instance of the handler object that is passed to cppnetlib for
+<span class="lineNum">     237 </span>            :     // processing the request.
+<span class="lineNum">     238 </span>            :     std::shared_ptr&lt;ConnectionHandler&gt; connectionHandler(
+<span class="lineNum">     239 </span><span class="lineCov">        328 :         new ConnectionHandler(request, _socket));</span>
+<span class="lineNum">     240 </span><span class="lineCov">        164 :     (*connectionHandler)(connection);</span>
+<a name="241"><span class="lineNum">     241 </span><span class="lineCov">        164 : }</span></a>
+<span class="lineNum">     242 </span>            : }
+<span class="lineNum">     243 </span><span class="lineCov">         42 : }</span>
 </pre>
       </td>
     </tr>

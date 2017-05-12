@@ -1,5 +1,5 @@
 var searchData=
 [
-  ['putfunc',['PUTFunc',['../namespacezeroeq_1_1http.html#a8b112e4df1fbe2e2469e3f9b51817bf8',1,'zeroeq::http']]],
-  ['putpayloadfunc',['PUTPayloadFunc',['../namespacezeroeq_1_1http.html#ab2d295706b8f73e9664a7ac47f8ac2b2',1,'zeroeq::http']]]
+  ['putfunc',['PUTFunc',['../namespacezeroeq_1_1http.html#a3bb1928b0e0eeaf52d94164d19b20e86',1,'zeroeq::http']]],
+  ['putpayloadfunc',['PUTPayloadFunc',['../namespacezeroeq_1_1http.html#a87de14039fa144751a64c583573f1beb',1,'zeroeq::http']]]
 ];

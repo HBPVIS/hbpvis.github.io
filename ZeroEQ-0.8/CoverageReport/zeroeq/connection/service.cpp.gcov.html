@@ -32,12 +32,12 @@
             <td></td>
             <td class="headerItem">Lines:</td>
             <td class="headerCovTableEntry">23</td>
-            <td class="headerCovTableEntry">36</td>
-            <td class="headerCovTableEntryMed">63.9 %</td>
+            <td class="headerCovTableEntry">35</td>
+            <td class="headerCovTableEntryMed">65.7 %</td>
           </tr>
           <tr>
             <td class="headerItem">Date:</td>
-            <td class="headerValue">2017-04-07 01:36:37</td>
+            <td class="headerValue">2017-05-13 01:36:17</td>
             <td></td>
             <td class="headerItem">Functions:</td>
             <td class="headerCovTableEntry">4</td>
@@ -66,9 +66,9 @@
 <span class="lineNum">       4 </span>            :  */
 <span class="lineNum">       5 </span>            : 
 <span class="lineNum">       6 </span>            : #include &quot;service.h&quot;
-<span class="lineNum">       7 </span>            : #include &lt;zeroeq/publisher.h&gt;
-<span class="lineNum">       8 </span>            : #include &lt;zeroeq/detail/port.h&gt;
-<span class="lineNum">       9 </span>            : #include &lt;zeroeq/log.h&gt;
+<span class="lineNum">       7 </span>            : #include &lt;zeroeq/detail/port.h&gt;
+<span class="lineNum">       8 </span>            : #include &lt;zeroeq/log.h&gt;
+<span class="lineNum">       9 </span>            : #include &lt;zeroeq/publisher.h&gt;
 <span class="lineNum">      10 </span>            : 
 <span class="lineNum">      11 </span>            : #include &lt;zmq.h&gt;
 <span class="lineNum">      12 </span>            : 
@@ -76,70 +76,65 @@
 <span class="lineNum">      14 </span>            : 
 <span class="lineNum">      15 </span>            : namespace zeroeq
 <span class="lineNum">      16 </span>            : {
-<span class="lineNum">      17 </span>            : namespace connection
-<a name="18"><span class="lineNum">      18 </span>            : {</a>
-<span class="lineNum">      19 </span>            : 
-<span class="lineNum">      20 </span><span class="lineCov">          2 : bool Service::subscribe( const std::string&amp; address,</span>
-<span class="lineNum">      21 </span>            :                          const Publisher&amp; publisher )
-<span class="lineNum">      22 </span>            : {
-<span class="lineNum">      23 </span><span class="lineCov">          2 :     void* context = zmq_ctx_new();</span>
-<span class="lineNum">      24 </span><span class="lineCov">          2 :     void* socket = zmq_socket( context, ZMQ_REQ );</span>
-<span class="lineNum">      25 </span><span class="lineCov">          4 :     const std::string zmqAddress = std::string( &quot;tcp://&quot; ) + address;</span>
-<span class="lineNum">      26 </span><span class="lineCov">          2 :     if( zmq_connect( socket, zmqAddress.c_str( )) == -1 )</span>
-<span class="lineNum">      27 </span>            :     {
-<span class="lineNum">      28 </span><span class="lineNoCov">          0 :         ZEROEQINFO &lt;&lt; &quot;Can't reach connection broker at &quot; &lt;&lt; address</span>
-<span class="lineNum">      29 </span><span class="lineNoCov">          0 :                    &lt;&lt; std::endl;</span>
-<span class="lineNum">      30 </span><span class="lineNoCov">          0 :         zmq_close( socket );</span>
-<span class="lineNum">      31 </span><span class="lineNoCov">          0 :         zmq_ctx_destroy( context );</span>
-<span class="lineNum">      32 </span><span class="lineNoCov">          0 :         return false;</span>
-<span class="lineNum">      33 </span>            :     }
-<span class="lineNum">      34 </span>            : 
-<span class="lineNum">      35 </span><span class="lineCov">          4 :     const std::string&amp; pubAddress = publisher.getAddress();</span>
-<span class="lineNum">      36 </span>            :     zmq_msg_t request;
-<span class="lineNum">      37 </span><span class="lineCov">          2 :     zmq_msg_init_size( &amp;request, pubAddress.size( ));</span>
-<span class="lineNum">      38 </span><span class="lineCov">          2 :     memcpy( zmq_msg_data( &amp;request ), pubAddress.c_str(), pubAddress.size( ));</span>
-<span class="lineNum">      39 </span>            : 
-<span class="lineNum">      40 </span><span class="lineCov">          2 :     if( zmq_msg_send( &amp;request, socket, 0 ) == -1 )</span>
-<span class="lineNum">      41 </span>            :     {
-<span class="lineNum">      42 </span><span class="lineNoCov">          0 :         zmq_msg_close( &amp;request );</span>
-<span class="lineNum">      43 </span>            :         ZEROEQINFO &lt;&lt; &quot;Can't send connection request &quot; &lt;&lt; pubAddress &lt;&lt; &quot; to &quot;
-<span class="lineNum">      44 </span><span class="lineNoCov">          0 :                    &lt;&lt; address &lt;&lt; &quot;: &quot; &lt;&lt; zmq_strerror( zmq_errno( ))</span>
-<span class="lineNum">      45 </span><span class="lineNoCov">          0 :                    &lt;&lt; std::endl;</span>
-<span class="lineNum">      46 </span><span class="lineNoCov">          0 :         return false;</span>
-<span class="lineNum">      47 </span>            :     }
-<span class="lineNum">      48 </span><span class="lineCov">          2 :     zmq_msg_close( &amp;request );</span>
-<span class="lineNum">      49 </span>            : 
-<span class="lineNum">      50 </span>            :     zmq_msg_t reply;
-<span class="lineNum">      51 </span><span class="lineCov">          2 :     zmq_msg_init( &amp;reply );</span>
-<span class="lineNum">      52 </span><span class="lineCov">          2 :     if( zmq_msg_recv( &amp;reply, socket, 0 )  == -1 )</span>
-<span class="lineNum">      53 </span>            :     {
-<span class="lineNum">      54 </span><span class="lineNoCov">          0 :         zmq_msg_close( &amp;reply );</span>
-<span class="lineNum">      55 </span><span class="lineNoCov">          0 :         ZEROEQINFO &lt;&lt; &quot;Can't receive connection reply from &quot; &lt;&lt; address</span>
-<span class="lineNum">      56 </span><span class="lineNoCov">          0 :                    &lt;&lt; std::endl;</span>
-<span class="lineNum">      57 </span><span class="lineNoCov">          0 :         return false;</span>
-<span class="lineNum">      58 </span>            :     }
-<span class="lineNum">      59 </span>            : 
-<span class="lineNum">      60 </span><span class="lineCov">          2 :     const std::string result( (const char*)zmq_msg_data( &amp;reply ),</span>
-<span class="lineNum">      61 </span><span class="lineCov">          6 :                               zmq_msg_size( &amp;reply ));</span>
-<span class="lineNum">      62 </span><span class="lineCov">          2 :     zmq_msg_close( &amp;reply );</span>
+<a name="17"><span class="lineNum">      17 </span>            : namespace connection</a>
+<span class="lineNum">      18 </span>            : {
+<span class="lineNum">      19 </span><span class="lineCov">          2 : bool Service::subscribe(const std::string&amp; address, const Publisher&amp; publisher)</span>
+<span class="lineNum">      20 </span>            : {
+<span class="lineNum">      21 </span><span class="lineCov">          2 :     void* context = zmq_ctx_new();</span>
+<span class="lineNum">      22 </span><span class="lineCov">          2 :     void* socket = zmq_socket(context, ZMQ_REQ);</span>
+<span class="lineNum">      23 </span><span class="lineCov">          4 :     const std::string zmqAddress = std::string(&quot;tcp://&quot;) + address;</span>
+<span class="lineNum">      24 </span><span class="lineCov">          2 :     if (zmq_connect(socket, zmqAddress.c_str()) == -1)</span>
+<span class="lineNum">      25 </span>            :     {
+<span class="lineNum">      26 </span><span class="lineNoCov">          0 :         ZEROEQINFO &lt;&lt; &quot;Can't reach connection broker at &quot; &lt;&lt; address</span>
+<span class="lineNum">      27 </span><span class="lineNoCov">          0 :                    &lt;&lt; std::endl;</span>
+<span class="lineNum">      28 </span><span class="lineNoCov">          0 :         zmq_close(socket);</span>
+<span class="lineNum">      29 </span><span class="lineNoCov">          0 :         zmq_ctx_destroy(context);</span>
+<span class="lineNum">      30 </span><span class="lineNoCov">          0 :         return false;</span>
+<span class="lineNum">      31 </span>            :     }
+<span class="lineNum">      32 </span>            : 
+<span class="lineNum">      33 </span><span class="lineCov">          4 :     const std::string&amp; pubAddress = publisher.getAddress();</span>
+<span class="lineNum">      34 </span>            :     zmq_msg_t request;
+<span class="lineNum">      35 </span><span class="lineCov">          2 :     zmq_msg_init_size(&amp;request, pubAddress.size());</span>
+<span class="lineNum">      36 </span><span class="lineCov">          2 :     memcpy(zmq_msg_data(&amp;request), pubAddress.c_str(), pubAddress.size());</span>
+<span class="lineNum">      37 </span>            : 
+<span class="lineNum">      38 </span><span class="lineCov">          2 :     if (zmq_msg_send(&amp;request, socket, 0) == -1)</span>
+<span class="lineNum">      39 </span>            :     {
+<span class="lineNum">      40 </span><span class="lineNoCov">          0 :         zmq_msg_close(&amp;request);</span>
+<span class="lineNum">      41 </span>            :         ZEROEQINFO &lt;&lt; &quot;Can't send connection request &quot; &lt;&lt; pubAddress &lt;&lt; &quot; to &quot;
+<span class="lineNum">      42 </span><span class="lineNoCov">          0 :                    &lt;&lt; address &lt;&lt; &quot;: &quot; &lt;&lt; zmq_strerror(zmq_errno()) &lt;&lt; std::endl;</span>
+<span class="lineNum">      43 </span><span class="lineNoCov">          0 :         return false;</span>
+<span class="lineNum">      44 </span>            :     }
+<span class="lineNum">      45 </span><span class="lineCov">          2 :     zmq_msg_close(&amp;request);</span>
+<span class="lineNum">      46 </span>            : 
+<span class="lineNum">      47 </span>            :     zmq_msg_t reply;
+<span class="lineNum">      48 </span><span class="lineCov">          2 :     zmq_msg_init(&amp;reply);</span>
+<span class="lineNum">      49 </span><span class="lineCov">          2 :     if (zmq_msg_recv(&amp;reply, socket, 0) == -1)</span>
+<span class="lineNum">      50 </span>            :     {
+<span class="lineNum">      51 </span><span class="lineNoCov">          0 :         zmq_msg_close(&amp;reply);</span>
+<span class="lineNum">      52 </span><span class="lineNoCov">          0 :         ZEROEQINFO &lt;&lt; &quot;Can't receive connection reply from &quot; &lt;&lt; address</span>
+<span class="lineNum">      53 </span><span class="lineNoCov">          0 :                    &lt;&lt; std::endl;</span>
+<span class="lineNum">      54 </span><span class="lineNoCov">          0 :         return false;</span>
+<span class="lineNum">      55 </span>            :     }
+<span class="lineNum">      56 </span>            : 
+<span class="lineNum">      57 </span><span class="lineCov">          2 :     const std::string result((const char*)zmq_msg_data(&amp;reply),</span>
+<span class="lineNum">      58 </span><span class="lineCov">          6 :                              zmq_msg_size(&amp;reply));</span>
+<span class="lineNum">      59 </span><span class="lineCov">          2 :     zmq_msg_close(&amp;reply);</span>
+<span class="lineNum">      60 </span>            : 
+<span class="lineNum">      61 </span><span class="lineCov">          2 :     zmq_close(socket);</span>
+<span class="lineNum">      62 </span><span class="lineCov">          2 :     zmq_ctx_destroy(context);</span>
 <span class="lineNum">      63 </span>            : 
-<span class="lineNum">      64 </span><span class="lineCov">          2 :     zmq_close( socket );</span>
-<span class="lineNum">      65 </span><span class="lineCov">          2 :     zmq_ctx_destroy( context );</span>
+<span class="lineNum">      64 </span><span class="lineCov">          2 :     return pubAddress == std::string(result);</span>
+<a name="65"><span class="lineNum">      65 </span>            : }</a>
 <span class="lineNum">      66 </span>            : 
-<span class="lineNum">      67 </span><span class="lineCov">          2 :     return pubAddress == std::string( result );</span>
-<a name="68"><span class="lineNum">      68 </span>            : }</a>
-<span class="lineNum">      69 </span>            : 
-<span class="lineNum">      70 </span><span class="lineCov">          1 : bool Service::subscribe( const std::string&amp; hostname,</span>
-<span class="lineNum">      71 </span>            :                          const std::string&amp; name,
-<span class="lineNum">      72 </span>            :                          const Publisher&amp; publisher )
-<span class="lineNum">      73 </span>            : {
-<span class="lineNum">      74 </span><span class="lineCov">          2 :     const std::string address( hostname + &quot;:&quot; +</span>
-<span class="lineNum">      75 </span><span class="lineCov">          4 :                            std::to_string( uint32_t( detail::getPort( name ))));</span>
-<span class="lineNum">      76 </span><span class="lineCov">          2 :     return subscribe( address, publisher );</span>
-<span class="lineNum">      77 </span>            : }
-<a name="78"><span class="lineNum">      78 </span>            : </a>
-<span class="lineNum">      79 </span>            : }
-<span class="lineNum">      80 </span><span class="lineCov">         21 : }</span>
+<span class="lineNum">      67 </span><span class="lineCov">          1 : bool Service::subscribe(const std::string&amp; hostname, const std::string&amp; name,</span>
+<span class="lineNum">      68 </span>            :                         const Publisher&amp; publisher)
+<span class="lineNum">      69 </span>            : {
+<span class="lineNum">      70 </span><span class="lineCov">          2 :     const std::string address(hostname + &quot;:&quot; +</span>
+<span class="lineNum">      71 </span><span class="lineCov">          4 :                               std::to_string(uint32_t(detail::getPort(name))));</span>
+<span class="lineNum">      72 </span><span class="lineCov">          2 :     return subscribe(address, publisher);</span>
+<a name="73"><span class="lineNum">      73 </span>            : }</a>
+<span class="lineNum">      74 </span>            : }
+<span class="lineNum">      75 </span><span class="lineCov">         21 : }</span>
 </pre>
       </td>
     </tr>

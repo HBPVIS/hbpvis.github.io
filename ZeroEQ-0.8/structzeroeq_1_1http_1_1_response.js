@@ -5,5 +5,5 @@ var structzeroeq_1_1http_1_1_response =
     [ "Response", "structzeroeq_1_1http_1_1_response.html#a2a47690c52bb6ef7bf46c1de6e476ea5", null ],
     [ "body", "structzeroeq_1_1http_1_1_response.html#a538ef40d879efa44ab1ada380f72a06d", null ],
     [ "code", "structzeroeq_1_1http_1_1_response.html#afe18e2ea18472eb9d61b3926ec8f9da2", null ],
-    [ "headers", "structzeroeq_1_1http_1_1_response.html#ad803cd05f85cdc28b56fbacc55163089", null ]
+    [ "headers", "structzeroeq_1_1http_1_1_response.html#abd2461018ef69503e03ba1ed150edea6", null ]
 ];

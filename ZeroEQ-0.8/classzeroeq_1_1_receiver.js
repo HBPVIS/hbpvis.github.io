@@ -3,7 +3,7 @@ var classzeroeq_1_1_receiver =
     [ "Receiver", "classzeroeq_1_1_receiver.html#ad5773a0809d164c0a047821503c28c6d", null ],
     [ "Receiver", "classzeroeq_1_1_receiver.html#ad767195111bae3fae7de8ac0e57f4d0f", null ],
     [ "~Receiver", "classzeroeq_1_1_receiver.html#a28db3700ff81373a9bf3c74ab393fe00", null ],
-    [ "addConnection", "classzeroeq_1_1_receiver.html#a571fbe24485e13b06a0d0900d370d8a6", null ],
+    [ "addConnection", "classzeroeq_1_1_receiver.html#a4c7109254d8db6af6fb0c22c92b8a0d6", null ],
     [ "addSockets", "classzeroeq_1_1_receiver.html#a51027302e01489101776ae6c418a3833", null ],
     [ "getZMQContext", "classzeroeq_1_1_receiver.html#a82da61a8da998734450c4befbfd8f04b", null ],
     [ "process", "classzeroeq_1_1_receiver.html#a3197718f62ef7f946d0fabaf87864e45", null ],
