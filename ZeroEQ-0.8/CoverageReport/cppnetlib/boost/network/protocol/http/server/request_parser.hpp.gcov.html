@@ -37,7 +37,7 @@
           </tr>
           <tr>
             <td class="headerItem">Date:</td>
-            <td class="headerValue">2017-05-13 01:36:17</td>
+            <td class="headerValue">2017-05-16 01:36:23</td>
             <td></td>
             <td class="headerItem">Functions:</td>
             <td class="headerCovTableEntry">2</td>
@@ -107,8 +107,8 @@
 <span class="lineNum">      45 </span>            :     headers_done
 <a name="46"><span class="lineNum">      46 </span>            :   };</a>
 <span class="lineNum">      47 </span>            : 
-<span class="lineNum">      48 </span><span class="lineCov">        232 :   explicit request_parser(state_t start_state = method_start)</span>
-<span class="lineNum">      49 </span><span class="lineCov">        232 :       : internal_state(start_state) {}</span>
+<span class="lineNum">      48 </span><span class="lineCov">        230 :   explicit request_parser(state_t start_state = method_start)</span>
+<span class="lineNum">      49 </span><span class="lineCov">        230 :       : internal_state(start_state) {}</span>
 <span class="lineNum">      50 </span>            : 
 <span class="lineNum">      51 </span>            :   void reset(state_t start_state = method_start) {
 <span class="lineNum">      52 </span>            :     internal_state = method_start;
@@ -125,10 +125,10 @@
 <span class="lineNum">      63 </span><span class="lineCov">        660 :              current_iterator = start;</span>
 <span class="lineNum">      64 </span>            :     iterator_range&lt;iterator&gt; local_range =
 <span class="lineNum">      65 </span><span class="lineCov">        660 :         boost::make_iterator_range(start, end);</span>
-<span class="lineNum">      66 </span><span class="lineCov">     157740 :     while (!boost::empty(local_range) &amp;&amp; stop_state != internal_state &amp;&amp;</span>
-<span class="lineNum">      67 </span><span class="lineCov">     117480 :            indeterminate(parsed_ok)) {</span>
-<span class="lineNum">      68 </span><span class="lineCov">      38940 :       current_iterator = std::begin(local_range);</span>
-<span class="lineNum">      69 </span><span class="lineCov">      38940 :       switch (internal_state) {</span>
+<span class="lineNum">      66 </span><span class="lineCov">     162988 :     while (!boost::empty(local_range) &amp;&amp; stop_state != internal_state &amp;&amp;</span>
+<span class="lineNum">      67 </span><span class="lineCov">     121416 :            indeterminate(parsed_ok)) {</span>
+<span class="lineNum">      68 </span><span class="lineCov">      40252 :       current_iterator = std::begin(local_range);</span>
+<span class="lineNum">      69 </span><span class="lineCov">      40252 :       switch (internal_state) {</span>
 <span class="lineNum">      70 </span>            :         case method_start:
 <span class="lineNum">      71 </span><span class="lineCov">        164 :           if (algorithm::is_upper()(*current_iterator))</span>
 <span class="lineNum">      72 </span><span class="lineCov">        164 :             internal_state = method_char;</span>
@@ -241,11 +241,11 @@
 <span class="lineNum">     179 </span><span class="lineNoCov">          0 :             parsed_ok = false;</span>
 <span class="lineNum">     180 </span><span class="lineCov">        730 :           break;</span>
 <span class="lineNum">     181 </span>            :         case header_value:
-<span class="lineNum">     182 </span><span class="lineCov">       9132 :           if (*current_iterator == '\r')</span>
+<span class="lineNum">     182 </span><span class="lineCov">      10444 :           if (*current_iterator == '\r')</span>
 <span class="lineNum">     183 </span><span class="lineCov">        730 :             internal_state = header_cr;</span>
-<span class="lineNum">     184 </span><span class="lineCov">       8402 :           else if (algorithm::is_cntrl()(*current_iterator))</span>
+<span class="lineNum">     184 </span><span class="lineCov">       9714 :           else if (algorithm::is_cntrl()(*current_iterator))</span>
 <span class="lineNum">     185 </span><span class="lineNoCov">          0 :             parsed_ok = false;</span>
-<span class="lineNum">     186 </span><span class="lineCov">       9132 :           break;</span>
+<span class="lineNum">     186 </span><span class="lineCov">      10444 :           break;</span>
 <span class="lineNum">     187 </span>            :         case header_cr:
 <span class="lineNum">     188 </span><span class="lineCov">        730 :           if (*current_iterator == '\n')</span>
 <span class="lineNum">     189 </span><span class="lineCov">        730 :             internal_state = header_line_done;</span>
@@ -272,8 +272,8 @@
 <span class="lineNum">     210 </span>            :         default:
 <span class="lineNum">     211 </span><span class="lineNoCov">          0 :           parsed_ok = false;</span>
 <span class="lineNum">     212 </span>            :       };
-<span class="lineNum">     213 </span><span class="lineCov">      38940 :       if (internal_state == stop_state) parsed_ok = true;</span>
-<span class="lineNum">     214 </span><span class="lineCov">      38940 :       local_range = boost::make_iterator_range(++current_iterator, end);</span>
+<span class="lineNum">     213 </span><span class="lineCov">      40252 :       if (internal_state == stop_state) parsed_ok = true;</span>
+<span class="lineNum">     214 </span><span class="lineCov">      40252 :       local_range = boost::make_iterator_range(++current_iterator, end);</span>
 <span class="lineNum">     215 </span>            :     }
 <span class="lineNum">     216 </span>            :     return std::make_tuple(
 <span class="lineNum">     217 </span><span class="lineCov">        660 :         parsed_ok, boost::make_iterator_range(start, current_iterator));</span>

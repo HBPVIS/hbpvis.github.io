@@ -37,7 +37,7 @@
           </tr>
           <tr>
             <td class="headerItem">Date:</td>
-            <td class="headerValue">2017-05-13 01:36:17</td>
+            <td class="headerValue">2017-05-16 01:36:23</td>
             <td></td>
             <td class="headerItem">Functions:</td>
             <td class="headerCovTableEntry">4</td>
@@ -84,15 +84,15 @@
 <span class="lineNum">      22 </span>            :   thread_group&amp; operator=(thread_group const&amp;);
 <a name="23"><span class="lineNum">      23 </span>            : </a>
 <a name="24"><span class="lineNum">      24 </span>            :  public:</a>
-<span class="lineNum">      25 </span><span class="lineCov">         68 :   thread_group() {}</span>
-<span class="lineNum">      26 </span><span class="lineCov">         68 :   ~thread_group() {}</span>
+<span class="lineNum">      25 </span><span class="lineCov">         66 :   thread_group() {}</span>
+<span class="lineNum">      26 </span><span class="lineCov">         66 :   ~thread_group() {}</span>
 <a name="27"><span class="lineNum">      27 </span>            : </a>
 <span class="lineNum">      28 </span>            :   template &lt;typename F&gt;
-<span class="lineNum">      29 </span><span class="lineCov">         68 :   std::thread* create_thread(F threadfunc) {</span>
-<span class="lineNum">      30 </span><span class="lineCov">        136 :     std::lock_guard&lt;std::mutex&gt; guard(m);</span>
-<span class="lineNum">      31 </span><span class="lineCov">        136 :     std::unique_ptr&lt;std::thread&gt; new_thread(new std::thread(threadfunc));</span>
-<span class="lineNum">      32 </span><span class="lineCov">         68 :     threads.push_back(std::move(new_thread));</span>
-<span class="lineNum">      33 </span><span class="lineCov">        136 :     return threads.back().get();</span>
+<span class="lineNum">      29 </span><span class="lineCov">         66 :   std::thread* create_thread(F threadfunc) {</span>
+<span class="lineNum">      30 </span><span class="lineCov">        132 :     std::lock_guard&lt;std::mutex&gt; guard(m);</span>
+<span class="lineNum">      31 </span><span class="lineCov">        132 :     std::unique_ptr&lt;std::thread&gt; new_thread(new std::thread(threadfunc));</span>
+<span class="lineNum">      32 </span><span class="lineCov">         66 :     threads.push_back(std::move(new_thread));</span>
+<span class="lineNum">      33 </span><span class="lineCov">        132 :     return threads.back().get();</span>
 <span class="lineNum">      34 </span>            :   }
 <span class="lineNum">      35 </span>            : 
 <span class="lineNum">      36 </span>            :   void add_thread(std::thread* thrd) {
@@ -113,15 +113,15 @@
 <span class="lineNum">      51 </span>            :     }
 <a name="52"><span class="lineNum">      52 </span>            :   }</a>
 <span class="lineNum">      53 </span>            : 
-<span class="lineNum">      54 </span><span class="lineCov">         68 :   void join_all() {</span>
-<span class="lineNum">      55 </span><span class="lineCov">        136 :     std::unique_lock&lt;std::mutex&gt; guard(m);</span>
+<span class="lineNum">      54 </span><span class="lineCov">         66 :   void join_all() {</span>
+<span class="lineNum">      55 </span><span class="lineCov">        132 :     std::unique_lock&lt;std::mutex&gt; guard(m);</span>
 <span class="lineNum">      56 </span>            : 
-<span class="lineNum">      57 </span><span class="lineCov">        136 :     for (auto &amp;thread : threads) {</span>
-<span class="lineNum">      58 </span><span class="lineCov">         68 :       if (thread-&gt;joinable()) {</span>
-<span class="lineNum">      59 </span><span class="lineCov">         68 :         thread-&gt;join();</span>
+<span class="lineNum">      57 </span><span class="lineCov">        132 :     for (auto &amp;thread : threads) {</span>
+<span class="lineNum">      58 </span><span class="lineCov">         66 :       if (thread-&gt;joinable()) {</span>
+<span class="lineNum">      59 </span><span class="lineCov">         66 :         thread-&gt;join();</span>
 <span class="lineNum">      60 </span>            :       }
 <span class="lineNum">      61 </span>            :     }
-<span class="lineNum">      62 </span><span class="lineCov">         68 :   }</span>
+<span class="lineNum">      62 </span><span class="lineCov">         66 :   }</span>
 <span class="lineNum">      63 </span>            : 
 <span class="lineNum">      64 </span>            :   size_t size() const {
 <span class="lineNum">      65 </span>            :     std::unique_lock&lt;std::mutex&gt; guard(m);

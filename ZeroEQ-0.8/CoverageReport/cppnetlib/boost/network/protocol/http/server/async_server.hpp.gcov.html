@@ -31,13 +31,13 @@
             <td class="headerValue">ZeroEQ</td>
             <td></td>
             <td class="headerItem">Lines:</td>
-            <td class="headerCovTableEntry">69</td>
+            <td class="headerCovTableEntry">67</td>
             <td class="headerCovTableEntry">74</td>
-            <td class="headerCovTableEntryHi">93.2 %</td>
+            <td class="headerCovTableEntryHi">90.5 %</td>
           </tr>
           <tr>
             <td class="headerItem">Date:</td>
-            <td class="headerValue">2017-05-13 01:36:17</td>
+            <td class="headerValue">2017-05-16 01:36:23</td>
             <td></td>
             <td class="headerItem">Functions:</td>
             <td class="headerCovTableEntry">14</td>
@@ -82,7 +82,7 @@
 <span class="lineNum">      20 </span>            : namespace http {
 <a name="21"><span class="lineNum">      21 </span>            : </a>
 <span class="lineNum">      22 </span>            : template &lt;class Tag, class Handler&gt;
-<span class="lineNum">      23 </span><span class="lineCov">         68 : struct async_server_base : server_storage_base, socket_options_base {</span>
+<span class="lineNum">      23 </span><span class="lineCov">         66 : struct async_server_base : server_storage_base, socket_options_base {</span>
 <span class="lineNum">      24 </span>            :   /// The request type for this server.
 <span class="lineNum">      25 </span>            :   typedef basic_request&lt;Tag&gt; request;
 <span class="lineNum">      26 </span>            :   typedef typename string&lt;Tag&gt;::type string_type;
@@ -101,7 +101,7 @@
 <span class="lineNum">      39 </span>            :   typedef server_options&lt;Tag, Handler&gt; options;
 <a name="40"><span class="lineNum">      40 </span>            : </a>
 <span class="lineNum">      41 </span>            :   /// Constructs and initializes the asynchronous server core.
-<span class="lineNum">      42 </span><span class="lineCov">         68 :   explicit async_server_base(options const &amp;options)</span>
+<span class="lineNum">      42 </span><span class="lineCov">         66 :   explicit async_server_base(options const &amp;options)</span>
 <span class="lineNum">      43 </span>            :       : server_storage_base(options),
 <span class="lineNum">      44 </span>            :         socket_options_base(options),
 <span class="lineNum">      45 </span>            :         handler(options.handler()),
@@ -109,7 +109,7 @@
 <span class="lineNum">      47 </span>            :         port_(options.port()),
 <span class="lineNum">      48 </span>            :         protocol_family(options.protocol_family()),
 <span class="lineNum">      49 </span>            :         thread_pool(options.thread_pool()
-<span class="lineNum">      50 </span><span class="lineCov">        136 :                         ? options.thread_pool()</span>
+<span class="lineNum">      50 </span><span class="lineCov">        132 :                         ? options.thread_pool()</span>
 <span class="lineNum">      51 </span>            :                         : std::make_shared&lt;utils::thread_pool&gt;()),
 <span class="lineNum">      52 </span>            :         acceptor(server_storage_base::service_),
 <span class="lineNum">      53 </span>            :         stopping(false),
@@ -117,7 +117,7 @@
 <span class="lineNum">      55 </span>            :         listening_mutex_(),
 <span class="lineNum">      56 </span>            :         stopping_mutex_(),
 <span class="lineNum">      57 </span>            :         listening(false),
-<span class="lineNum">      58 </span><span class="lineCov">        204 :         ctx_(options.context()) {}</span>
+<span class="lineNum">      58 </span><span class="lineCov">        198 :         ctx_(options.context()) {}</span>
 <span class="lineNum">      59 </span>            : 
 <span class="lineNum">      60 </span>            :   /**
 <span class="lineNum">      61 </span>            :    * Listens to the correct port and runs the server's event loop. This can be
@@ -140,7 +140,7 @@
 <span class="lineNum">      78 </span><span class="lineCov">         66 :   void run() {</span>
 <span class="lineNum">      79 </span><span class="lineCov">         66 :     listen();</span>
 <span class="lineNum">      80 </span><span class="lineCov">         66 :     service_.run();</span>
-<span class="lineNum">      81 </span><span class="lineCov">         64 :   };</span>
+<span class="lineNum">      81 </span><span class="lineCov">         66 :   };</span>
 <span class="lineNum">      82 </span>            : 
 <a name="83"><span class="lineNum">      83 </span>            :   /// Stops the HTTP server acceptor and waits for all pending request handlers</a>
 <span class="lineNum">      84 </span>            :   /// to finish.
@@ -155,21 +155,21 @@
 <span class="lineNum">      93 </span><span class="lineCov">         66 :       boost::system::error_code ignored;</span>
 <a name="94"><span class="lineNum">      94 </span><span class="lineCov">         66 :       acceptor.close(ignored);</span></a>
 <span class="lineNum">      95 </span><span class="lineCov">         66 :       listening = false;</span>
-<span class="lineNum">      96 </span><span class="lineCov">        130 :       service_.post([this]() { this-&gt;handle_stop(); });</span>
+<span class="lineNum">      96 </span><span class="lineCov">        132 :       service_.post([this]() { this-&gt;handle_stop(); });</span>
 <span class="lineNum">      97 </span>            :     }
 <span class="lineNum">      98 </span><span class="lineCov">         66 :   }</span>
 <span class="lineNum">      99 </span>            : 
 <a name="100"><span class="lineNum">     100 </span>            :   /// Explicitly listens on the configured host and port. May be called</a>
 <span class="lineNum">     101 </span>            :   /// multiple times but only takes effect once.
-<span class="lineNum">     102 </span><span class="lineCov">        134 :   void listen() {</span>
-<span class="lineNum">     103 </span><span class="lineCov">        268 :     scoped_mutex_lock listening_lock(listening_mutex_);</span>
+<span class="lineNum">     102 </span><span class="lineCov">        132 :   void listen() {</span>
+<span class="lineNum">     103 </span><span class="lineCov">        264 :     scoped_mutex_lock listening_lock(listening_mutex_);</span>
 <span class="lineNum">     104 </span>            :     BOOST_NETWORK_MESSAGE(&quot;Listening on &quot; &lt;&lt; address_ &lt;&lt; ':' &lt;&lt; port_);
-<span class="lineNum">     105 </span><span class="lineCov">        134 :     if (!listening)</span>
-<span class="lineNum">     106 </span><span class="lineCov">         70 :       start_listening();  // we only initialize our acceptor/sockets if we</span>
+<span class="lineNum">     105 </span><span class="lineCov">        132 :     if (!listening)</span>
+<span class="lineNum">     106 </span><span class="lineCov">         66 :       start_listening();  // we only initialize our acceptor/sockets if we</span>
 <span class="lineNum">     107 </span>            :                           // arent already listening
-<span class="lineNum">     108 </span><span class="lineCov">        134 :     if (!listening) {</span>
+<span class="lineNum">     108 </span><span class="lineCov">        132 :     if (!listening) {</span>
 <span class="lineNum">     109 </span>            :       BOOST_NETWORK_MESSAGE(&quot;Error listening on &quot; &lt;&lt; address_ &lt;&lt; ':' &lt;&lt; port_);
-<span class="lineNum">     110 </span><span class="lineCov">          4 :       boost::throw_exception(</span>
+<span class="lineNum">     110 </span><span class="lineNoCov">          0 :       boost::throw_exception(</span>
 <span class="lineNum">     111 </span>            :           std::runtime_error(&quot;Error listening on provided port.&quot;));
 <span class="lineNum">     112 </span>            :     }
 <span class="lineNum">     113 </span><span class="lineCov">        132 :   }</span>
@@ -196,30 +196,30 @@
 <span class="lineNum">     134 </span>            :   bool listening;
 <a name="135"><span class="lineNum">     135 </span>            :   std::shared_ptr&lt;ssl_context&gt; ctx_;</a>
 <span class="lineNum">     136 </span>            : 
-<span class="lineNum">     137 </span><span class="lineCov">         64 :   void handle_stop() {</span>
-<span class="lineNum">     138 </span><span class="lineCov">        128 :     scoped_mutex_lock stopping_lock(stopping_mutex_);</span>
-<span class="lineNum">     139 </span><span class="lineCov">         64 :     if (stopping)</span>
-<span class="lineNum">     140 </span><span class="lineCov">         64 :       service_.stop();  // a user may have started listening again before</span>
+<span class="lineNum">     137 </span><span class="lineCov">         66 :   void handle_stop() {</span>
+<span class="lineNum">     138 </span><span class="lineCov">        132 :     scoped_mutex_lock stopping_lock(stopping_mutex_);</span>
+<span class="lineNum">     139 </span><span class="lineCov">         66 :     if (stopping)</span>
+<span class="lineNum">     140 </span><span class="lineCov">         66 :       service_.stop();  // a user may have started listening again before</span>
 <span class="lineNum">     141 </span>            :                         // the stop command is reached
-<a name="142"><span class="lineNum">     142 </span><span class="lineCov">         64 :   }</span></a>
+<a name="142"><span class="lineNum">     142 </span><span class="lineCov">         66 :   }</span></a>
 <span class="lineNum">     143 </span>            : 
 <span class="lineNum">     144 </span><span class="lineCov">        230 :   void handle_accept(boost::system::error_code const &amp;ec) {</span>
 <span class="lineNum">     145 </span>            :     {
-<span class="lineNum">     146 </span><span class="lineCov">        396 :       scoped_mutex_lock stopping_lock(stopping_mutex_);</span>
+<span class="lineNum">     146 </span><span class="lineCov">        394 :       scoped_mutex_lock stopping_lock(stopping_mutex_);</span>
 <span class="lineNum">     147 </span><span class="lineCov">        230 :       if (stopping)</span>
-<span class="lineNum">     148 </span><span class="lineCov">         64 :         return;  // we dont want to add another handler instance, and we</span>
+<span class="lineNum">     148 </span><span class="lineCov">         66 :         return;  // we dont want to add another handler instance, and we</span>
 <span class="lineNum">     149 </span>            :                  // dont want to know about errors for a socket we dont
 <span class="lineNum">     150 </span>            :                  // need anymore
 <span class="lineNum">     151 </span>            :     }
 <span class="lineNum">     152 </span>            : 
-<span class="lineNum">     153 </span><span class="lineCov">        166 :     if (ec) {</span>
+<span class="lineNum">     153 </span><span class="lineCov">        164 :     if (ec) {</span>
 <span class="lineNum">     154 </span>            :       BOOST_NETWORK_MESSAGE(&quot;Error accepting connection, reason: &quot; &lt;&lt; ec);
 <span class="lineNum">     155 </span>            :     }
 <span class="lineNum">     156 </span>            : 
 <span class="lineNum">     157 </span>            : #ifdef BOOST_NETWORK_ENABLE_HTTPS
 <span class="lineNum">     158 </span>            :     socket_options_base::socket_options(new_connection-&gt;socket().next_layer());
 <span class="lineNum">     159 </span>            : #else
-<span class="lineNum">     160 </span><span class="lineCov">        166 :     socket_options_base::socket_options(new_connection-&gt;socket());</span>
+<span class="lineNum">     160 </span><span class="lineCov">        164 :     socket_options_base::socket_options(new_connection-&gt;socket());</span>
 <span class="lineNum">     161 </span>            : #endif
 <span class="lineNum">     162 </span>            : 
 <span class="lineNum">     163 </span><span class="lineCov">        164 :     new_connection-&gt;start();</span>
@@ -233,59 +233,59 @@
 <span class="lineNum">     171 </span><span class="lineCov">        164 :         [this](boost::system::error_code const &amp;ec) { this-&gt;handle_accept(ec); });</span>
 <a name="172"><span class="lineNum">     172 </span>            :   }</a>
 <span class="lineNum">     173 </span>            : 
-<span class="lineNum">     174 </span><span class="lineCov">         70 :   void start_listening() {</span>
+<span class="lineNum">     174 </span><span class="lineCov">         66 :   void start_listening() {</span>
 <span class="lineNum">     175 </span>            :     using boost::asio::ip::tcp;
-<span class="lineNum">     176 </span><span class="lineCov">         70 :     boost::system::error_code error;</span>
+<span class="lineNum">     176 </span><span class="lineCov">         66 :     boost::system::error_code error;</span>
 <span class="lineNum">     177 </span>            :     // this allows repeated cycles of run -&gt; stop -&gt; run
-<a name="178"><span class="lineNum">     178 </span><span class="lineCov">         70 :     service_.reset();</span></a>
-<span class="lineNum">     179 </span><span class="lineCov">        138 :     tcp::resolver resolver(service_);</span>
-<span class="lineNum">     180 </span><span class="lineCov">         70 :     tcp::resolver::query query( [&amp;]{</span>
-<span class="lineNum">     181 </span><span class="lineCov">        140 :         switch(protocol_family) {</span>
+<a name="178"><span class="lineNum">     178 </span><span class="lineCov">         66 :     service_.reset();</span></a>
+<span class="lineNum">     179 </span><span class="lineCov">        132 :     tcp::resolver resolver(service_);</span>
+<span class="lineNum">     180 </span><span class="lineCov">         66 :     tcp::resolver::query query( [&amp;]{</span>
+<span class="lineNum">     181 </span><span class="lineCov">        132 :         switch(protocol_family) {</span>
 <span class="lineNum">     182 </span>            :         case options::ipv4:
-<span class="lineNum">     183 </span><span class="lineCov">        140 :             return tcp::resolver::query(tcp::v4(), address_, port_);</span>
+<span class="lineNum">     183 </span><span class="lineCov">        132 :             return tcp::resolver::query(tcp::v4(), address_, port_);</span>
 <span class="lineNum">     184 </span>            :         case options::ipv6:
 <span class="lineNum">     185 </span><span class="lineNoCov">          0 :             return tcp::resolver::query(tcp::v6(), address_, port_);</span>
 <span class="lineNum">     186 </span>            :         default:
 <span class="lineNum">     187 </span><span class="lineNoCov">          0 :             return tcp::resolver::query(address_, port_);</span>
-<span class="lineNum">     188 </span><span class="lineCov">        138 :         }}());</span>
-<span class="lineNum">     189 </span><span class="lineCov">        138 :     tcp::resolver::iterator endpoint_iterator = resolver.resolve(query, error);</span>
-<span class="lineNum">     190 </span><span class="lineCov">         70 :     if (error) {</span>
+<span class="lineNum">     188 </span><span class="lineCov">        132 :         }}());</span>
+<span class="lineNum">     189 </span><span class="lineCov">        132 :     tcp::resolver::iterator endpoint_iterator = resolver.resolve(query, error);</span>
+<span class="lineNum">     190 </span><span class="lineCov">         66 :     if (error) {</span>
 <span class="lineNum">     191 </span>            :       BOOST_NETWORK_MESSAGE(&quot;Error resolving '&quot; &lt;&lt; address_ &lt;&lt; ':' &lt;&lt; port_);
 <span class="lineNum">     192 </span><span class="lineNoCov">          0 :       return;</span>
 <span class="lineNum">     193 </span>            :     }
-<span class="lineNum">     194 </span><span class="lineCov">         70 :     tcp::endpoint endpoint = *endpoint_iterator;</span>
-<span class="lineNum">     195 </span><span class="lineCov">         70 :     acceptor.open(endpoint.protocol(), error);</span>
-<span class="lineNum">     196 </span><span class="lineCov">         70 :     if (error) {</span>
+<span class="lineNum">     194 </span><span class="lineCov">         66 :     tcp::endpoint endpoint = *endpoint_iterator;</span>
+<span class="lineNum">     195 </span><span class="lineCov">         66 :     acceptor.open(endpoint.protocol(), error);</span>
+<span class="lineNum">     196 </span><span class="lineCov">         66 :     if (error) {</span>
 <span class="lineNum">     197 </span>            :       BOOST_NETWORK_MESSAGE(&quot;Error opening socket: &quot; &lt;&lt; address_ &lt;&lt; &quot;:&quot;
 <span class="lineNum">     198 </span>            :                                                      &lt;&lt; port_);
 <span class="lineNum">     199 </span><span class="lineNoCov">          0 :       return;</span>
 <span class="lineNum">     200 </span>            :     }
-<span class="lineNum">     201 </span><span class="lineCov">         70 :     socket_options_base::acceptor_options(acceptor);</span>
-<span class="lineNum">     202 </span><span class="lineCov">         70 :     acceptor.bind(endpoint, error);</span>
-<span class="lineNum">     203 </span><span class="lineCov">         70 :     if (error) {</span>
+<span class="lineNum">     201 </span><span class="lineCov">         66 :     socket_options_base::acceptor_options(acceptor);</span>
+<span class="lineNum">     202 </span><span class="lineCov">         66 :     acceptor.bind(endpoint, error);</span>
+<span class="lineNum">     203 </span><span class="lineCov">         66 :     if (error) {</span>
 <span class="lineNum">     204 </span>            :       BOOST_NETWORK_MESSAGE(&quot;Error binding socket: &quot; &lt;&lt; address_ &lt;&lt; &quot;:&quot;
 <span class="lineNum">     205 </span>            :                                                      &lt;&lt; port_);
-<span class="lineNum">     206 </span><span class="lineCov">          2 :       return;</span>
+<span class="lineNum">     206 </span><span class="lineNoCov">          0 :       return;</span>
 <span class="lineNum">     207 </span>            :     }
-<span class="lineNum">     208 </span><span class="lineCov">         68 :     address_ = acceptor.local_endpoint().address().to_string();</span>
-<span class="lineNum">     209 </span><span class="lineCov">         68 :     port_ = std::to_string(acceptor.local_endpoint().port());</span>
-<span class="lineNum">     210 </span><span class="lineCov">         68 :     acceptor.listen(boost::asio::socket_base::max_connections, error);</span>
-<span class="lineNum">     211 </span><span class="lineCov">         68 :     if (error) {</span>
+<span class="lineNum">     208 </span><span class="lineCov">         66 :     address_ = acceptor.local_endpoint().address().to_string();</span>
+<span class="lineNum">     209 </span><span class="lineCov">         66 :     port_ = std::to_string(acceptor.local_endpoint().port());</span>
+<span class="lineNum">     210 </span><span class="lineCov">         66 :     acceptor.listen(boost::asio::socket_base::max_connections, error);</span>
+<span class="lineNum">     211 </span><span class="lineCov">         66 :     if (error) {</span>
 <span class="lineNum">     212 </span>            :       BOOST_NETWORK_MESSAGE(&quot;Error listening on socket: '&quot;
 <span class="lineNum">     213 </span>            :                             &lt;&lt; error &lt;&lt; &quot;' on &quot; &lt;&lt; address_ &lt;&lt; &quot;:&quot; &lt;&lt; port_);
 <span class="lineNum">     214 </span><span class="lineNoCov">          0 :       return;</span>
 <span class="lineNum">     215 </span>            :     }
-<span class="lineNum">     216 </span><span class="lineCov">         68 :     new_connection.reset(new connection(service_, handler, *thread_pool, ctx_));</span>
-<span class="lineNum">     217 </span><span class="lineCov">         68 :     acceptor.async_accept(</span>
+<span class="lineNum">     216 </span><span class="lineCov">         66 :     new_connection.reset(new connection(service_, handler, *thread_pool, ctx_));</span>
+<span class="lineNum">     217 </span><span class="lineCov">         66 :     acceptor.async_accept(</span>
 <span class="lineNum">     218 </span>            : #ifdef BOOST_NETWORK_ENABLE_HTTPS
 <span class="lineNum">     219 </span>            :         new_connection-&gt;socket().next_layer(),
 <span class="lineNum">     220 </span>            : #else
 <a name="221"><span class="lineNum">     221 </span>            :         new_connection-&gt;socket(),</a>
 <span class="lineNum">     222 </span>            : #endif
 <span class="lineNum">     223 </span><span class="lineCov">         66 :         [this](boost::system::error_code const &amp;ec) { this-&gt;handle_accept(ec); });</span>
-<span class="lineNum">     224 </span><span class="lineCov">         68 :     listening = true;</span>
-<span class="lineNum">     225 </span><span class="lineCov">        136 :     scoped_mutex_lock stopping_lock(stopping_mutex_);</span>
-<span class="lineNum">     226 </span><span class="lineCov">         68 :     stopping = false;  // if we were in the process of stopping, we revoke</span>
+<span class="lineNum">     224 </span><span class="lineCov">         66 :     listening = true;</span>
+<span class="lineNum">     225 </span><span class="lineCov">        132 :     scoped_mutex_lock stopping_lock(stopping_mutex_);</span>
+<span class="lineNum">     226 </span><span class="lineCov">         66 :     stopping = false;  // if we were in the process of stopping, we revoke</span>
 <span class="lineNum">     227 </span>            :                        // that command and continue listening
 <span class="lineNum">     228 </span>            :     BOOST_NETWORK_MESSAGE(&quot;Now listening on socket: '&quot; &lt;&lt; address_ &lt;&lt; &quot;:&quot;
 <span class="lineNum">     229 </span>            :                                                        &lt;&lt; port_ &lt;&lt; &quot;'&quot;);

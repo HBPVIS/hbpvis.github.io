@@ -14,6 +14,7 @@ var files =
     [ "server.h", "server_8h_source.html", null ],
     [ "service.h", "service_8h_source.html", null ],
     [ "subscriber.h", "subscriber_8h_source.html", null ],
+    [ "http/types.h", "http_2types_8h_source.html", null ],
     [ "types.h", "types_8h_source.html", null ],
     [ "uri.h", "uri_8h_source.html", null ],
     [ "http/version.h", "http_2version_8h.html", "http_2version_8h" ],

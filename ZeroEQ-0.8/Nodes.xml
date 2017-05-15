@@ -260,12 +260,12 @@
                  <Node>
                   <Name>Server</Name>
                   <Path>classzeroeq_1_1http_1_1_server.html</Path>
-                  <Anchor>a5dfd2aeb281e8e63d0ca10f4500610ff</Anchor>
+                  <Anchor>a981278eceff54f0d5bb414d3d627470d</Anchor>
                  </Node>
                  <Node>
                   <Name>Server</Name>
                   <Path>classzeroeq_1_1http_1_1_server.html</Path>
-                  <Anchor>a8de430d315304cfbea62859bad0ea26b</Anchor>
+                  <Anchor>a5dfd2aeb281e8e63d0ca10f4500610ff</Anchor>
                  </Node>
                  <Node>
                   <Name>~Server</Name>
@@ -974,6 +974,10 @@
            <Node>
             <Name>subscriber.h</Name>
             <Path>subscriber_8h_source.html</Path>
+           </Node>
+           <Node>
+            <Name>http/types.h</Name>
+            <Path>http_2types_8h_source.html</Path>
            </Node>
            <Node>
             <Name>types.h</Name>

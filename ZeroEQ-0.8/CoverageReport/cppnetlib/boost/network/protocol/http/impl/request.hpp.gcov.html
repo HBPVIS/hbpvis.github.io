@@ -37,7 +37,7 @@
           </tr>
           <tr>
             <td class="headerItem">Date:</td>
-            <td class="headerValue">2017-05-13 01:36:17</td>
+            <td class="headerValue">2017-05-16 01:36:23</td>
             <td></td>
             <td class="headerItem">Functions:</td>
             <td class="headerCovTableEntry">15</td>
@@ -189,7 +189,7 @@
 <span class="lineNum">     127 </span>            :  *  member, the headers vector. :(
 <a name="128"><span class="lineNum">     128 </span>            :  */</a>
 <span class="lineNum">     129 </span>            : template &lt;class Tag&gt;
-<span class="lineNum">     130 </span><span class="lineCov">        464 : struct not_quite_pod_request_base {</span>
+<span class="lineNum">     130 </span><span class="lineCov">        460 : struct not_quite_pod_request_base {</span>
 <span class="lineNum">     131 </span>            :   typedef Tag tag;
 <span class="lineNum">     132 </span>            :   typedef typename string&lt;Tag&gt;::type string_type;
 <span class="lineNum">     133 </span>            :   typedef typename request_header&lt;Tag&gt;::type header_type;
@@ -219,7 +219,7 @@
 <span class="lineNum">     157 </span>            : };
 <a name="158"><span class="lineNum">     158 </span>            : </a>
 <span class="lineNum">     159 </span>            : template &lt;&gt;
-<span class="lineNum">     160 </span><span class="lineCov">        464 : struct basic_request&lt;tags::http_server&gt;</span>
+<span class="lineNum">     160 </span><span class="lineCov">        460 : struct basic_request&lt;tags::http_server&gt;</span>
 <span class="lineNum">     161 </span>            :     : not_quite_pod_request_base&lt;tags::http_server&gt; {};
 <span class="lineNum">     162 </span>            : 
 <span class="lineNum">     163 </span>            : template &lt;class Tag&gt;

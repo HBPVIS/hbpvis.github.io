@@ -37,7 +37,7 @@
           </tr>
           <tr>
             <td class="headerItem">Date:</td>
-            <td class="headerValue">2017-05-13 01:36:17</td>
+            <td class="headerValue">2017-05-16 01:36:23</td>
             <td></td>
             <td class="headerItem">Functions:</td>
             <td class="headerCovTableEntry">53</td>
@@ -244,7 +244,7 @@
 <span class="lineNum">     182 </span>            :   }
 <a name="183"><span class="lineNum">     183 </span>            : </a>
 <span class="lineNum">     184 </span>            :  public:
-<span class="lineNum">     185 </span><span class="lineCov">        232 :   async_connection(</span>
+<span class="lineNum">     185 </span><span class="lineCov">        230 :   async_connection(</span>
 <span class="lineNum">     186 </span>            :       boost::asio::io_service&amp; io_service, Handler&amp; handler,
 <span class="lineNum">     187 </span>            :       utils::thread_pool&amp; thread_pool,
 <span class="lineNum">     188 </span>            :       std::shared_ptr&lt;ssl_context&gt; ctx = std::shared_ptr&lt;ssl_context&gt;())
@@ -260,16 +260,16 @@
 <span class="lineNum">     198 </span>            : #endif
 <span class="lineNum">     199 </span>            :         handshake_done(false),
 <span class="lineNum">     200 </span>            :         headers_already_sent(false),
-<span class="lineNum">     201 </span><span class="lineCov">        232 :         headers_in_progress(false) {</span>
+<span class="lineNum">     201 </span><span class="lineCov">        230 :         headers_in_progress(false) {</span>
 <span class="lineNum">     202 </span>            :     (void)ctx;
-<span class="lineNum">     203 </span><span class="lineCov">        232 :     new_start = read_buffer_.begin();</span>
-<span class="lineNum">     204 </span><span class="lineCov">        232 :     data_end = read_buffer_.begin();</span>
-<a name="205"><span class="lineNum">     205 </span><span class="lineCov">        232 :   }</span></a>
+<span class="lineNum">     203 </span><span class="lineCov">        230 :     new_start = read_buffer_.begin();</span>
+<span class="lineNum">     204 </span><span class="lineCov">        230 :     data_end = read_buffer_.begin();</span>
+<a name="205"><span class="lineNum">     205 </span><span class="lineCov">        230 :   }</span></a>
 <span class="lineNum">     206 </span>            : 
-<span class="lineNum">     207 </span><span class="lineCov">        232 :   ~async_connection() throw() {</span>
-<span class="lineNum">     208 </span><span class="lineCov">        232 :     boost::system::error_code ignored;</span>
-<span class="lineNum">     209 </span><span class="lineCov">        232 :     socket_.shutdown(boost::asio::ip::tcp::socket::shutdown_receive, ignored);</span>
-<span class="lineNum">     210 </span><span class="lineCov">        232 :   }</span>
+<span class="lineNum">     207 </span><span class="lineCov">        230 :   ~async_connection() throw() {</span>
+<span class="lineNum">     208 </span><span class="lineCov">        230 :     boost::system::error_code ignored;</span>
+<span class="lineNum">     209 </span><span class="lineCov">        230 :     socket_.shutdown(boost::asio::ip::tcp::socket::shutdown_receive, ignored);</span>
+<span class="lineNum">     210 </span><span class="lineCov">        230 :   }</span>
 <span class="lineNum">     211 </span>            : 
 <span class="lineNum">     212 </span>            :   /**
 <span class="lineNum">     213 </span>            :    * A call to set_headers takes a Range where each element models the Header
@@ -460,7 +460,7 @@
 <span class="lineNum">     398 </span>            :   }
 <a name="399"><span class="lineNum">     399 </span>            : </a>
 <span class="lineNum">     400 </span>            :   /// Returns a reference to the underlying socket.
-<span class="lineNum">     401 </span><span class="lineCov">        562 :   boost::network::stream_handler&amp; socket() { return socket_; }</span>
+<span class="lineNum">     401 </span><span class="lineCov">        558 :   boost::network::stream_handler&amp; socket() { return socket_; }</span>
 <a name="402"><span class="lineNum">     402 </span>            : </a>
 <span class="lineNum">     403 </span>            :   /// Returns a reference to the thread_pool running this handler.
 <span class="lineNum">     404 </span><span class="lineCov">        538 :   utils::thread_pool&amp; thread_pool() { return thread_pool_; }</span>

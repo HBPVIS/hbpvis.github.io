@@ -1174,7 +1174,7 @@
     <Path>namespacezeroeq_1_1http.html</Path>
     <Anchor>a3bb1928b0e0eeaf52d94164d19b20e86</Anchor>
     <Abstract>HTTP PUT callback w/o payload, return reply success. </Abstract>
-    <DeclaredIn>server.h</DeclaredIn>
+    <DeclaredIn>http/types.h</DeclaredIn>
   </Token>
   <Token>
     <TokenIdentifier>
@@ -1186,7 +1186,7 @@
     <Path>namespacezeroeq_1_1http.html</Path>
     <Anchor>a87de14039fa144751a64c583573f1beb</Anchor>
     <Abstract>HTTP PUT callback w/ JSON payload, return reply success. </Abstract>
-    <DeclaredIn>server.h</DeclaredIn>
+    <DeclaredIn>http/types.h</DeclaredIn>
   </Token>
   <Token>
     <TokenIdentifier>
@@ -1198,7 +1198,7 @@
     <Path>namespacezeroeq_1_1http.html</Path>
     <Anchor>aa2e52f11b45f065b9b75ce70d504da87</Anchor>
     <Abstract>HTTP GET callback to return JSON reply. </Abstract>
-    <DeclaredIn>server.h</DeclaredIn>
+    <DeclaredIn>http/types.h</DeclaredIn>
   </Token>
   <Token>
     <TokenIdentifier>
@@ -1210,7 +1210,7 @@
     <Path>namespacezeroeq_1_1http.html</Path>
     <Anchor>a7de91afe48d04a3f12222febcf18dfaf</Anchor>
     <Abstract>HTTP REST callback with Request parameter returning a Response future. </Abstract>
-    <DeclaredIn>server.h</DeclaredIn>
+    <DeclaredIn>http/types.h</DeclaredIn>
   </Token>
   <Token>
     <TokenIdentifier>
@@ -1585,6 +1585,18 @@
     <Path>classzeroeq_1_1http_1_1_server.html</Path>
     <Anchor>a827286f7fd1f8baeb3ae32c83d10fb6e</Anchor>
     <Abstract>Construct a new HTTP server. </Abstract>
+    <DeclaredIn>server.h</DeclaredIn>
+  </Token>
+  <Token>
+    <TokenIdentifier>
+      <Name>~Server</Name>
+      <APILanguage>cpp</APILanguage>
+      <Type>instm</Type>
+      <Scope>zeroeq::http::Server</Scope>
+    </TokenIdentifier>
+    <Path>classzeroeq_1_1http_1_1_server.html</Path>
+    <Anchor>a5369e9ffc7df51437b5ef918f32316d4</Anchor>
+    <Abstract>Destruct this http server. </Abstract>
     <DeclaredIn>server.h</DeclaredIn>
   </Token>
   <Token>

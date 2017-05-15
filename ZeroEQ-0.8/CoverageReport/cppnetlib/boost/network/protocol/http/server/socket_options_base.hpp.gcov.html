@@ -37,7 +37,7 @@
           </tr>
           <tr>
             <td class="headerItem">Date:</td>
-            <td class="headerValue">2017-05-13 01:36:17</td>
+            <td class="headerValue">2017-05-16 01:36:23</td>
             <td></td>
             <td class="headerItem">Functions:</td>
             <td class="headerCovTableEntry">4</td>
@@ -74,7 +74,7 @@
 <span class="lineNum">      12 </span>            : namespace network {
 <a name="13"><span class="lineNum">      13 </span>            : namespace http {</a>
 <span class="lineNum">      14 </span>            : 
-<span class="lineNum">      15 </span><span class="lineCov">         68 : struct socket_options_base {</span>
+<span class="lineNum">      15 </span><span class="lineCov">         66 : struct socket_options_base {</span>
 <span class="lineNum">      16 </span>            :  protected:
 <span class="lineNum">      17 </span>            :   boost::asio::socket_base::reuse_address acceptor_reuse_address;
 <span class="lineNum">      18 </span>            :   boost::asio::socket_base::enable_connection_aborted acceptor_report_aborted;
@@ -87,7 +87,7 @@
 <span class="lineNum">      25 </span>            :   boost::asio::socket_base::linger linger;
 <a name="26"><span class="lineNum">      26 </span>            : </a>
 <span class="lineNum">      27 </span>            :   template &lt;class Tag, class Handler&gt;
-<span class="lineNum">      28 </span><span class="lineCov">         68 :   explicit socket_options_base(server_options&lt;Tag, Handler&gt; const &amp;options)</span>
+<span class="lineNum">      28 </span><span class="lineCov">         66 :   explicit socket_options_base(server_options&lt;Tag, Handler&gt; const &amp;options)</span>
 <span class="lineNum">      29 </span>            :       : acceptor_reuse_address(options.reuse_address()),
 <span class="lineNum">      30 </span>            :         acceptor_report_aborted(options.report_aborted()),
 <span class="lineNum">      31 </span>            :         receive_buffer_size(options.receive_buffer_size()),
@@ -95,16 +95,16 @@
 <span class="lineNum">      33 </span>            :         receive_low_watermark(options.receive_low_watermark()),
 <span class="lineNum">      34 </span>            :         send_low_watermark(options.send_low_watermark()),
 <span class="lineNum">      35 </span>            :         non_blocking_io(options.non_blocking_io()),
-<a name="36"><span class="lineNum">      36 </span><span class="lineCov">         68 :         linger(options.linger(), options.linger_timeout()) {}</span></a>
+<a name="36"><span class="lineNum">      36 </span><span class="lineCov">         66 :         linger(options.linger(), options.linger_timeout()) {}</span></a>
 <span class="lineNum">      37 </span>            : 
-<span class="lineNum">      38 </span><span class="lineCov">         70 :   void acceptor_options(boost::asio::ip::tcp::acceptor &amp;acceptor) {</span>
-<span class="lineNum">      39 </span><span class="lineCov">         70 :     acceptor.set_option(acceptor_reuse_address);</span>
-<span class="lineNum">      40 </span><span class="lineCov">         70 :     acceptor.set_option(acceptor_report_aborted);</span>
-<a name="41"><span class="lineNum">      41 </span><span class="lineCov">         70 :   }</span></a>
+<span class="lineNum">      38 </span><span class="lineCov">         66 :   void acceptor_options(boost::asio::ip::tcp::acceptor &amp;acceptor) {</span>
+<span class="lineNum">      39 </span><span class="lineCov">         66 :     acceptor.set_option(acceptor_reuse_address);</span>
+<span class="lineNum">      40 </span><span class="lineCov">         66 :     acceptor.set_option(acceptor_report_aborted);</span>
+<a name="41"><span class="lineNum">      41 </span><span class="lineCov">         66 :   }</span></a>
 <span class="lineNum">      42 </span>            : 
-<span class="lineNum">      43 </span><span class="lineCov">        166 :   void socket_options(boost::asio::ip::tcp::socket &amp;socket) {</span>
-<span class="lineNum">      44 </span><span class="lineCov">        166 :     boost::system::error_code ignored;</span>
-<span class="lineNum">      45 </span><span class="lineCov">        166 :     socket.non_blocking(non_blocking_io);</span>
+<span class="lineNum">      43 </span><span class="lineCov">        164 :   void socket_options(boost::asio::ip::tcp::socket &amp;socket) {</span>
+<span class="lineNum">      44 </span><span class="lineCov">        164 :     boost::system::error_code ignored;</span>
+<span class="lineNum">      45 </span><span class="lineCov">        164 :     socket.non_blocking(non_blocking_io);</span>
 <span class="lineNum">      46 </span><span class="lineCov">        164 :     socket.set_option(linger, ignored);</span>
 <span class="lineNum">      47 </span><span class="lineCov">        328 :     if (receive_buffer_size) socket.set_option(*receive_buffer_size, ignored);</span>
 <span class="lineNum">      48 </span><span class="lineCov">        328 :     if (receive_low_watermark)</span>
