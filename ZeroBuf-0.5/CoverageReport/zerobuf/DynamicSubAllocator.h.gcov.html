@@ -37,7 +37,7 @@
           </tr>
           <tr>
             <td class="headerItem">Date:</td>
-            <td class="headerValue">2017-02-15 01:08:14</td>
+            <td class="headerValue">2017-05-24 01:08:17</td>
             <td></td>
             <td class="headerItem">Functions:</td>
             <td class="headerCovTableEntry">1</td>
@@ -68,8 +68,8 @@
 <span class="lineNum">       6 </span>            : #ifndef ZEROBUF_DYNAMICSUBALLOCATOR_H
 <span class="lineNum">       7 </span>            : #define ZEROBUF_DYNAMICSUBALLOCATOR_H
 <span class="lineNum">       8 </span>            : 
-<span class="lineNum">       9 </span>            : #include &lt;zerobuf/api.h&gt;
-<span class="lineNum">      10 </span>            : #include &lt;zerobuf/Allocator.h&gt; // base class
+<span class="lineNum">       9 </span>            : #include &lt;zerobuf/Allocator.h&gt; // base class
+<span class="lineNum">      10 </span>            : #include &lt;zerobuf/api.h&gt;
 <span class="lineNum">      11 </span>            : 
 <span class="lineNum">      12 </span>            : namespace zerobuf
 <span class="lineNum">      13 </span>            : {
@@ -77,36 +77,35 @@
 <span class="lineNum">      15 </span>            :   * A zerobuf child allocator which manages a dynamic allocation of
 <span class="lineNum">      16 </span>            :   * statically-sized members
 <span class="lineNum">      17 </span>            :   */
-<span class="lineNum">      18 </span>            : template&lt; class A &gt; class DynamicSubAllocatorBase : public Allocator
-<span class="lineNum">      19 </span>            : {
-<span class="lineNum">      20 </span>            : public:
-<span class="lineNum">      21 </span>            :     ZEROBUF_API DynamicSubAllocatorBase( A&amp; parent, size_t headerIndex,
-<span class="lineNum">      22 </span>            :                                          size_t elementIndex, size_t size );
-<span class="lineNum">      23 </span>            :     ZEROBUF_API ~DynamicSubAllocatorBase();
-<span class="lineNum">      24 </span>            : 
-<a name="25"><span class="lineNum">      25 </span>            :     ZEROBUF_API uint8_t* getData() final;</a>
-<span class="lineNum">      26 </span>            :     ZEROBUF_API const uint8_t* getData() const final;
-<a name="27"><span class="lineNum">      27 </span><span class="lineCov">          1 :     size_t getSize() const  final { return _size; }</span></a>
-<span class="lineNum">      28 </span>            :     ZEROBUF_API void copyBuffer( const void* data, size_t size ) final;
-<span class="lineNum">      29 </span><span class="lineNoCov">          0 :     bool isMutable() const final { return _parent.isMutable(); }</span>
-<span class="lineNum">      30 </span>            : 
+<span class="lineNum">      18 </span>            : template &lt;class A&gt;
+<span class="lineNum">      19 </span>            : class DynamicSubAllocatorBase : public Allocator
+<span class="lineNum">      20 </span>            : {
+<span class="lineNum">      21 </span>            : public:
+<span class="lineNum">      22 </span>            :     ZEROBUF_API DynamicSubAllocatorBase(A&amp; parent, size_t headerIndex,
+<span class="lineNum">      23 </span>            :                                         size_t elementIndex, size_t size);
+<span class="lineNum">      24 </span>            :     ZEROBUF_API ~DynamicSubAllocatorBase();
+<span class="lineNum">      25 </span>            : 
+<a name="26"><span class="lineNum">      26 </span>            :     ZEROBUF_API uint8_t* getData() final;</a>
+<span class="lineNum">      27 </span>            :     ZEROBUF_API const uint8_t* getData() const final;
+<a name="28"><span class="lineNum">      28 </span><span class="lineCov">          1 :     size_t getSize() const final { return _size; }</span></a>
+<span class="lineNum">      29 </span>            :     ZEROBUF_API void copyBuffer(const void* data, size_t size) final;
+<span class="lineNum">      30 </span><span class="lineNoCov">          0 :     bool isMutable() const final { return _parent.isMutable(); }</span>
 <span class="lineNum">      31 </span>            : private:
 <span class="lineNum">      32 </span>            :     A&amp; _parent;
 <span class="lineNum">      33 </span>            :     const size_t _header;
 <span class="lineNum">      34 </span>            :     const size_t _element;
 <span class="lineNum">      35 </span>            :     const size_t _size;
 <span class="lineNum">      36 </span>            : 
-<span class="lineNum">      37 </span>            :     DynamicSubAllocatorBase( const DynamicSubAllocatorBase&lt; A &gt;&amp; ) = delete;
-<span class="lineNum">      38 </span>            :     DynamicSubAllocatorBase&lt; A &gt;&amp; operator = (
-<span class="lineNum">      39 </span>            :             const DynamicSubAllocatorBase&lt; A &gt;&amp; ) = delete;
+<span class="lineNum">      37 </span>            :     DynamicSubAllocatorBase(const DynamicSubAllocatorBase&lt;A&gt;&amp;) = delete;
+<span class="lineNum">      38 </span>            :     DynamicSubAllocatorBase&lt;A&gt;&amp; operator=(const DynamicSubAllocatorBase&lt;A&gt;&amp;) =
+<span class="lineNum">      39 </span>            :         delete;
 <span class="lineNum">      40 </span>            : };
 <span class="lineNum">      41 </span>            : 
-<span class="lineNum">      42 </span>            : typedef DynamicSubAllocatorBase&lt; Allocator &gt; DynamicSubAllocator;
-<span class="lineNum">      43 </span>            : typedef DynamicSubAllocatorBase&lt; const Allocator &gt; ConstDynamicSubAllocator;
-<span class="lineNum">      44 </span>            : 
-<span class="lineNum">      45 </span>            : }
-<span class="lineNum">      46 </span>            : 
-<span class="lineNum">      47 </span>            : #endif
+<span class="lineNum">      42 </span>            : typedef DynamicSubAllocatorBase&lt;Allocator&gt; DynamicSubAllocator;
+<span class="lineNum">      43 </span>            : typedef DynamicSubAllocatorBase&lt;const Allocator&gt; ConstDynamicSubAllocator;
+<span class="lineNum">      44 </span>            : }
+<span class="lineNum">      45 </span>            : 
+<span class="lineNum">      46 </span>            : #endif
 </pre>
       </td>
     </tr>

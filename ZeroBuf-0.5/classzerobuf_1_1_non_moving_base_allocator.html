@@ -275,7 +275,7 @@ void&#160;</td><td class="memItemRight" valign="bottom"><b>_checkIndex</b> (cons
 
 <p>Update allocation of the dynamic elem at index to have newSize bytes. </p>
 <p>The offset and size fields in the static section are updated as needed. Does not copy the old data to the new location.</p>
-<dl class="section return"><dt>Returns</dt><dd>the pointer to the elem at the new place. </dd></dl>
+<dl class="section return"><dt>Returns</dt><dd>the pointer to the elem at the new place, or nullptr if it was not moved. </dd></dl>
 
 <p>Reimplemented from <a class="el" href="classzerobuf_1_1_allocator.html#a59b22f7bccb9384c0cb3069c076b3a51">zerobuf::Allocator</a>.</p>
 
@@ -290,7 +290,7 @@ void&#160;</td><td class="memItemRight" valign="bottom"><b>_checkIndex</b> (cons
 <div id="nav-path" class="navpath"><!-- id is needed for treeview function! -->
   <ul>
     <li class="navelem"><a class="el" href="namespacezerobuf.html">zerobuf</a></li><li class="navelem"><a class="el" href="classzerobuf_1_1_non_moving_base_allocator.html">NonMovingBaseAllocator</a></li>
-    <li class="footer">Generated on Wed Feb 15 2017 01:08:15 for ZeroBuf by
+    <li class="footer">Generated on Wed May 24 2017 01:08:17 for ZeroBuf by
     <a href="http://www.doxygen.org/index.html">
     <img class="footer" src="doxygen.png" alt="doxygen"/></a> 1.8.11 </li>
   </ul>

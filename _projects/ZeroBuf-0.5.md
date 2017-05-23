@@ -4,7 +4,7 @@ version: "0.5"
 major: 0
 minor: 5
 description: Zero-copy, zero-serialize, zero-hassle protocol buffers
-updated: 15/02/17
+updated: 24/05/17
 homepage: https://github.com/HBPVIS/ZeroBuf
 repository: https://github.com/HBPVIS/ZeroBuf.git
 issuesurl: https://github.com/HBPVIS/ZeroBuf/issues
@@ -32,7 +32,7 @@ shortcomings:
 
 # Features
 
-* Storage of (u)int[8,16,32,64,128]_t, float, double single elements,
+* Storage of (u)int[8,16,32,64,128]_t, float, double and enum single elements,
   static and dynamic sub-structures, fixed size and dynamic arrays of
   static-sized elements
 * Access to arrays using raw pointers, iterators, std::array,
@@ -58,10 +58,10 @@ build environments are tested:
 
 Building from source is as simple as:
 
-    git clone https://github.com/HBPVIS/ZeroBuf.git
+    git clone --recursive https://github.com/HBPVIS/ZeroBuf.git
     mkdir ZeroBuf/build
     cd ZeroBuf/build
-    cmake -GNinja ..
+    cmake -GNinja -DCLONE_SUBPROJECTS=ON ..
     ninja
 
 This work has been partially funded by the European Union Seventh Framework Program (FP7/2007­2013) under grant agreement no. 604102 (HBP).

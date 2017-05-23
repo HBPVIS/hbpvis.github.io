@@ -37,7 +37,7 @@
           </tr>
           <tr>
             <td class="headerItem">Date:</td>
-            <td class="headerValue">2017-02-15 01:08:14</td>
+            <td class="headerValue">2017-05-24 01:08:17</td>
             <td></td>
             <td class="headerItem">Functions:</td>
             <td class="headerCovTableEntry">4</td>
@@ -69,8 +69,8 @@
 <span class="lineNum">       7 </span>            : #ifndef ZEROBUF_NONMOVINGALLOCATOR_H
 <span class="lineNum">       8 </span>            : #define ZEROBUF_NONMOVINGALLOCATOR_H
 <span class="lineNum">       9 </span>            : 
-<span class="lineNum">      10 </span>            : #include &lt;zerobuf/api.h&gt;
-<span class="lineNum">      11 </span>            : #include &lt;zerobuf/NonMovingBaseAllocator.h&gt; // base class
+<span class="lineNum">      10 </span>            : #include &lt;zerobuf/NonMovingBaseAllocator.h&gt; // base class
+<span class="lineNum">      11 </span>            : #include &lt;zerobuf/api.h&gt;
 <span class="lineNum">      12 </span>            : 
 <span class="lineNum">      13 </span>            : namespace zerobuf
 <span class="lineNum">      14 </span>            : {
@@ -78,26 +78,25 @@
 <span class="lineNum">      16 </span>            : class NonMovingAllocator : public NonMovingBaseAllocator
 <span class="lineNum">      17 </span>            : {
 <span class="lineNum">      18 </span>            : public:
-<span class="lineNum">      19 </span>            :     ZEROBUF_API NonMovingAllocator( size_t staticSize, size_t numDynamic );
+<span class="lineNum">      19 </span>            :     ZEROBUF_API NonMovingAllocator(size_t staticSize, size_t numDynamic);
 <a name="20"><span class="lineNum">      20 </span>            :     ZEROBUF_API ~NonMovingAllocator();</a>
 <a name="21"><span class="lineNum">      21 </span>            : </a>
 <a name="22"><span class="lineNum">      22 </span><span class="lineCov">      23583 :     uint8_t* getData() final { return _data; }</span></a>
 <span class="lineNum">      23 </span><span class="lineCov">      46415 :     const uint8_t* getData() const final { return _data; }</span>
 <a name="24"><span class="lineNum">      24 </span><span class="lineCov">      23919 :     size_t getSize() const final { return _size; }</span></a>
-<span class="lineNum">      25 </span>            :     ZEROBUF_API void copyBuffer( const void* data, size_t size ) final;
+<span class="lineNum">      25 </span>            :     ZEROBUF_API void copyBuffer(const void* data, size_t size) final;
 <span class="lineNum">      26 </span><span class="lineCov">          2 :     bool isMovable() const final { return true; }</span>
-<span class="lineNum">      27 </span>            : 
-<span class="lineNum">      28 </span>            : private:
-<span class="lineNum">      29 </span>            :     NonMovingAllocator( const NonMovingAllocator&amp; ) = delete;
-<span class="lineNum">      30 </span>            :     NonMovingAllocator&amp; operator = ( const NonMovingAllocator&amp; ) = delete;
-<span class="lineNum">      31 </span>            : 
-<span class="lineNum">      32 </span>            :     uint8_t* _data;
-<span class="lineNum">      33 </span>            :     size_t _size;
-<span class="lineNum">      34 </span>            : 
-<span class="lineNum">      35 </span>            :     void _resize( size_t newSize ) final;
-<span class="lineNum">      36 </span>            : };
-<span class="lineNum">      37 </span>            : }
-<span class="lineNum">      38 </span>            : #endif
+<span class="lineNum">      27 </span>            : private:
+<span class="lineNum">      28 </span>            :     NonMovingAllocator(const NonMovingAllocator&amp;) = delete;
+<span class="lineNum">      29 </span>            :     NonMovingAllocator&amp; operator=(const NonMovingAllocator&amp;) = delete;
+<span class="lineNum">      30 </span>            : 
+<span class="lineNum">      31 </span>            :     uint8_t* _data;
+<span class="lineNum">      32 </span>            :     size_t _size;
+<span class="lineNum">      33 </span>            : 
+<span class="lineNum">      34 </span>            :     void _resize(size_t newSize) final;
+<span class="lineNum">      35 </span>            : };
+<span class="lineNum">      36 </span>            : }
+<span class="lineNum">      37 </span>            : #endif
 </pre>
       </td>
     </tr>

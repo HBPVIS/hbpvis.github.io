@@ -5,7 +5,7 @@ var classzerobuf_1_1_version =
     [ "getMajor", "classzerobuf_1_1_version.html#a8ce4f9f8afb81d04f84b8333cc987c53", null ],
     [ "getMinor", "classzerobuf_1_1_version.html#af814565d1577b1e2234c95f92f862522", null ],
     [ "getPatch", "classzerobuf_1_1_version.html#a64cffd493e4bb0515bd667df8b91c0d7", null ],
-    [ "getRevision", "classzerobuf_1_1_version.html#a2239f3544d20deb996323f983b5f5d0e", null ],
+    [ "getRevision", "classzerobuf_1_1_version.html#a1caf581f7bb7c17b7e91d74690034369", null ],
     [ "getRevString", "classzerobuf_1_1_version.html#a755addec551de5943786a7a29947ede9", null ],
     [ "getSchema", "classzerobuf_1_1_version.html#a0e19fa9aa74105735ed80d45c14bb8fb", null ],
     [ "getString", "classzerobuf_1_1_version.html#a91a7f1eea9b09ad081304a6a75cf1bcc", null ],
