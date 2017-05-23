@@ -4,7 +4,7 @@ version: "0.8"
 major: 0
 minor: 8
 description: ZeroEQ - Zero Event Queue
-updated: 17/05/17
+updated: 24/05/17
 homepage: https://github.com/HBPVIS/ZeroEQ
 repository: https://github.com/HBPVIS/ZeroEQ.git
 issuesurl: https://github.com/HBPVIS/ZeroEQ/issues
@@ -12,7 +12,7 @@ packageurl:
 license: LGPL
 maturity: EP
 maintainers: Human Brain Project (HBPVis@googlegroups.com)
-contributors: Stefan Eilemann
+contributors: Raphael Dumusc
 readmetype: text/x-markdown
 ---
 
@@ -64,10 +64,10 @@ ZeroEQ requires the following external, pre-installed dependencies:
 
 Building from source is as simple as:
 
-    git clone https://github.com/HBPVIS/ZeroEQ.git
+    git clone --recursive https://github.com/HBPVIS/ZeroEQ.git
     mkdir ZeroEQ/build
     cd ZeroEQ/build
-    cmake -GNinja ..
+    cmake -GNinja -DCLONE_SUBPROJECTS=ON ..
     ninja
 This work has been partially funded by the European Union Seventh Framework Program (FP7/2007­2013) under grant agreement no. 604102 (HBP).
 
