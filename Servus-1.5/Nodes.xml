@@ -201,6 +201,11 @@
                 <Anchor>a06f93ca5e7c5d07fa75c31182747efa9</Anchor>
                </Node>
                <Node>
+                <Name>Serializable</Name>
+                <Path>classservus_1_1_serializable.html</Path>
+                <Anchor>aaa9dc58ba698c50d9a698983541f2726</Anchor>
+               </Node>
+               <Node>
                 <Name>fromBinary</Name>
                 <Path>classservus_1_1_serializable.html</Path>
                 <Anchor>ad22a242cda7fab6d67a93755e8bdb7f1</Anchor>
@@ -234,6 +239,11 @@
                 <Name>operator=</Name>
                 <Path>classservus_1_1_serializable.html</Path>
                 <Anchor>a86014d587052361c024273e4afbcc0bd</Anchor>
+               </Node>
+               <Node>
+                <Name>operator=</Name>
+                <Path>classservus_1_1_serializable.html</Path>
+                <Anchor>a1c5ab7f1ffce3c06dd0cb76818543ab8</Anchor>
                </Node>
                <Node>
                 <Name>registerDeserializedCallback</Name>
@@ -770,7 +780,7 @@
                <Node>
                 <Name>getRevision</Name>
                 <Path>classservus_1_1_version.html</Path>
-                <Anchor>a7678481633c47a5b9d0c4fcbbe7ab801</Anchor>
+                <Anchor>abe3efa55c510a00cdbdc427d460c8b0d</Anchor>
                </Node>
                <Node>
                 <Name>getRevString</Name>
@@ -778,9 +788,19 @@
                 <Anchor>a8a9d0d2cad4effd5a0f508b878660aa3</Anchor>
                </Node>
                <Node>
+                <Name>getSchema</Name>
+                <Path>classservus_1_1_version.html</Path>
+                <Anchor>ab36537d7d4e587368e84759fc1629503</Anchor>
+               </Node>
+               <Node>
                 <Name>getString</Name>
                 <Path>classservus_1_1_version.html</Path>
                 <Anchor>a5bc48216002f686b422ea291f3680403</Anchor>
+               </Node>
+               <Node>
+                <Name>toJSON</Name>
+                <Path>classservus_1_1_version.html</Path>
+                <Anchor>a420f165aa799b92ba9a43e69a42c73ec</Anchor>
                </Node>
               </Subnodes>
              </Node>
@@ -822,7 +842,7 @@
                <Node>
                 <Name>getRevision</Name>
                 <Path>classservusqt_1_1_version.html</Path>
-                <Anchor>a554281d97701ed9776b92fbea57ef531</Anchor>
+                <Anchor>a8ca749fb42aea3c974d6b48cbc99741b</Anchor>
                </Node>
                <Node>
                 <Name>getRevString</Name>
@@ -830,9 +850,19 @@
                 <Anchor>a51c0d953e9757947da06c997e9e0f7ca</Anchor>
                </Node>
                <Node>
+                <Name>getSchema</Name>
+                <Path>classservusqt_1_1_version.html</Path>
+                <Anchor>ab6dc243add4baf93ec8ab20f4f9e4ada</Anchor>
+               </Node>
+               <Node>
                 <Name>getString</Name>
                 <Path>classservusqt_1_1_version.html</Path>
                 <Anchor>a44755225ec7f81fb0610d688a1ff7a20</Anchor>
+               </Node>
+               <Node>
+                <Name>toJSON</Name>
+                <Path>classservusqt_1_1_version.html</Path>
+                <Anchor>ae3a039e9915f4dd2b5f7ef95511b9a4e</Anchor>
                </Node>
               </Subnodes>
              </Node>
@@ -1100,7 +1130,7 @@
                <Node>
                 <Name>getRevision</Name>
                 <Path>classservusqt_1_1_version.html</Path>
-                <Anchor>a554281d97701ed9776b92fbea57ef531</Anchor>
+                <Anchor>a8ca749fb42aea3c974d6b48cbc99741b</Anchor>
                </Node>
                <Node>
                 <Name>getRevString</Name>
@@ -1108,9 +1138,19 @@
                 <Anchor>a51c0d953e9757947da06c997e9e0f7ca</Anchor>
                </Node>
                <Node>
+                <Name>getSchema</Name>
+                <Path>classservusqt_1_1_version.html</Path>
+                <Anchor>ab6dc243add4baf93ec8ab20f4f9e4ada</Anchor>
+               </Node>
+               <Node>
                 <Name>getString</Name>
                 <Path>classservusqt_1_1_version.html</Path>
                 <Anchor>a44755225ec7f81fb0610d688a1ff7a20</Anchor>
+               </Node>
+               <Node>
+                <Name>toJSON</Name>
+                <Path>classservusqt_1_1_version.html</Path>
+                <Anchor>ae3a039e9915f4dd2b5f7ef95511b9a4e</Anchor>
                </Node>
               </Subnodes>
              </Node>
@@ -1197,7 +1237,7 @@
                <Node>
                 <Name>getRevision</Name>
                 <Path>classservus_1_1_version.html</Path>
-                <Anchor>a7678481633c47a5b9d0c4fcbbe7ab801</Anchor>
+                <Anchor>abe3efa55c510a00cdbdc427d460c8b0d</Anchor>
                </Node>
                <Node>
                 <Name>getRevString</Name>
@@ -1205,9 +1245,19 @@
                 <Anchor>a8a9d0d2cad4effd5a0f508b878660aa3</Anchor>
                </Node>
                <Node>
+                <Name>getSchema</Name>
+                <Path>classservus_1_1_version.html</Path>
+                <Anchor>ab36537d7d4e587368e84759fc1629503</Anchor>
+               </Node>
+               <Node>
                 <Name>getString</Name>
                 <Path>classservus_1_1_version.html</Path>
                 <Anchor>a5bc48216002f686b422ea291f3680403</Anchor>
+               </Node>
+               <Node>
+                <Name>toJSON</Name>
+                <Path>classservus_1_1_version.html</Path>
+                <Anchor>a420f165aa799b92ba9a43e69a42c73ec</Anchor>
                </Node>
               </Subnodes>
              </Node>

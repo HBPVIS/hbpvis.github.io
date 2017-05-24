@@ -37,7 +37,7 @@
           </tr>
           <tr>
             <td class="headerItem">Date:</td>
-            <td class="headerValue">2017-03-23 03:07:13</td>
+            <td class="headerValue">2017-05-24 03:07:00</td>
             <td></td>
             <td class="headerItem">Functions:</td>
             <td class="headerCovTableEntry">21</td>
@@ -334,21 +334,21 @@
 <span class="lineNum">     272 </span><span class="lineCov">          5 :     }</span>
 <a name="273"><span class="lineNum">     273 </span>            : </a>
 <span class="lineNum">     274 </span>            :     // Browsing
-<span class="lineNum">     275 </span><span class="lineCov">          7 :     static void _browseCBS(AvahiServiceBrowser*, AvahiIfIndex ifIndex,</span>
+<span class="lineNum">     275 </span><span class="lineCov">          8 :     static void _browseCBS(AvahiServiceBrowser*, AvahiIfIndex ifIndex,</span>
 <span class="lineNum">     276 </span>            :                            AvahiProtocol protocol, AvahiBrowserEvent event,
 <span class="lineNum">     277 </span>            :                            const char* name, const char* type,
 <span class="lineNum">     278 </span>            :                            const char* domain, AvahiLookupResultFlags,
 <span class="lineNum">     279 </span>            :                            void* servus)
 <span class="lineNum">     280 </span>            :     {
 <span class="lineNum">     281 </span>            :         ((Servus*)servus)
-<span class="lineNum">     282 </span><span class="lineCov">          7 :             -&gt;_browseCB(ifIndex, protocol, event, name, type, domain);</span>
-<a name="283"><span class="lineNum">     283 </span><span class="lineCov">          7 :     }</span></a>
+<span class="lineNum">     282 </span><span class="lineCov">          8 :             -&gt;_browseCB(ifIndex, protocol, event, name, type, domain);</span>
+<a name="283"><span class="lineNum">     283 </span><span class="lineCov">          8 :     }</span></a>
 <span class="lineNum">     284 </span>            : 
-<span class="lineNum">     285 </span><span class="lineCov">          7 :     void _browseCB(const AvahiIfIndex ifIndex, const AvahiProtocol protocol,</span>
+<span class="lineNum">     285 </span><span class="lineCov">          8 :     void _browseCB(const AvahiIfIndex ifIndex, const AvahiProtocol protocol,</span>
 <span class="lineNum">     286 </span>            :                    const AvahiBrowserEvent event, const char* name,
 <span class="lineNum">     287 </span>            :                    const char* type, const char* domain)
 <span class="lineNum">     288 </span>            :     {
-<span class="lineNum">     289 </span><span class="lineCov">          7 :         switch (event)</span>
+<span class="lineNum">     289 </span><span class="lineCov">          8 :         switch (event)</span>
 <span class="lineNum">     290 </span>            :         {
 <span class="lineNum">     291 </span>            :         case AVAHI_BROWSER_FAILURE:
 <span class="lineNum">     292 </span><span class="lineNoCov">          0 :             _result = avahi_client_errno(_client);</span>
@@ -360,7 +360,7 @@
 <span class="lineNum">     298 </span>            :             // We ignore the returned resolver object. In the callback function
 <span class="lineNum">     299 </span>            :             // we free it. If the server is terminated before the callback
 <span class="lineNum">     300 </span>            :             // function is called the server will free the resolver for us.
-<span class="lineNum">     301 </span><span class="lineCov">          3 :             if (!avahi_service_resolver_new(_client, ifIndex, protocol, name,</span>
+<span class="lineNum">     301 </span><span class="lineCov">          4 :             if (!avahi_service_resolver_new(_client, ifIndex, protocol, name,</span>
 <span class="lineNum">     302 </span>            :                                             type, domain, AVAHI_PROTO_UNSPEC,
 <span class="lineNum">     303 </span>            :                                             (AvahiLookupFlags)(0), _resolveCBS,
 <span class="lineNum">     304 </span>            :                                             this))
@@ -373,43 +373,43 @@
 <span class="lineNum">     311 </span>            :             }
 <span class="lineNum">     312 </span>            : 
 <span class="lineNum">     313 </span>            :         case AVAHI_BROWSER_REMOVE:
-<span class="lineNum">     314 </span><span class="lineCov">          4 :             _instanceMap.erase(name);</span>
-<span class="lineNum">     315 </span><span class="lineCov">         36 :             for (detail::Listeners::iterator i = _listeners.begin();</span>
-<span class="lineNum">     316 </span><span class="lineCov">         24 :                  i != _listeners.end(); ++i)</span>
+<span class="lineNum">     314 </span><span class="lineCov">          5 :             _instanceMap.erase(name);</span>
+<span class="lineNum">     315 </span><span class="lineCov">         45 :             for (detail::Listeners::iterator i = _listeners.begin();</span>
+<span class="lineNum">     316 </span><span class="lineCov">         30 :                  i != _listeners.end(); ++i)</span>
 <span class="lineNum">     317 </span>            :             {
-<span class="lineNum">     318 </span><span class="lineCov">          8 :                 (*i)-&gt;instanceRemoved(name);</span>
+<span class="lineNum">     318 </span><span class="lineCov">         10 :                 (*i)-&gt;instanceRemoved(name);</span>
 <span class="lineNum">     319 </span>            :             }
-<span class="lineNum">     320 </span><span class="lineCov">          4 :             break;</span>
+<span class="lineNum">     320 </span><span class="lineCov">          5 :             break;</span>
 <span class="lineNum">     321 </span>            : 
 <span class="lineNum">     322 </span>            :         case AVAHI_BROWSER_ALL_FOR_NOW:
 <span class="lineNum">     323 </span>            :         case AVAHI_BROWSER_CACHE_EXHAUSTED:
 <span class="lineNum">     324 </span><span class="lineCov">          3 :             _result = servus::Result::SUCCESS;</span>
 <span class="lineNum">     325 </span><span class="lineCov">          3 :             break;</span>
 <span class="lineNum">     326 </span>            :         }
-<a name="327"><span class="lineNum">     327 </span><span class="lineCov">          7 :     }</span></a>
+<a name="327"><span class="lineNum">     327 </span><span class="lineCov">          8 :     }</span></a>
 <span class="lineNum">     328 </span>            : 
-<span class="lineNum">     329 </span><span class="lineCov">          3 :     static void _resolveCBS(AvahiServiceResolver* resolver, AvahiIfIndex,</span>
+<span class="lineNum">     329 </span><span class="lineCov">          4 :     static void _resolveCBS(AvahiServiceResolver* resolver, AvahiIfIndex,</span>
 <span class="lineNum">     330 </span>            :                             AvahiProtocol, AvahiResolverEvent event,
 <span class="lineNum">     331 </span>            :                             const char* name, const char*, const char*,
 <span class="lineNum">     332 </span>            :                             const char* host, const AvahiAddress*, uint16_t,
 <span class="lineNum">     333 </span>            :                             AvahiStringList* txt, AvahiLookupResultFlags flags,
 <span class="lineNum">     334 </span>            :                             void* servus)
 <span class="lineNum">     335 </span>            :     {
-<span class="lineNum">     336 </span><span class="lineCov">          3 :         ((Servus*)servus)-&gt;_resolveCB(resolver, event, name, host, txt, flags);</span>
-<a name="337"><span class="lineNum">     337 </span><span class="lineCov">          3 :     }</span></a>
+<span class="lineNum">     336 </span><span class="lineCov">          4 :         ((Servus*)servus)-&gt;_resolveCB(resolver, event, name, host, txt, flags);</span>
+<a name="337"><span class="lineNum">     337 </span><span class="lineCov">          4 :     }</span></a>
 <span class="lineNum">     338 </span>            : 
-<span class="lineNum">     339 </span><span class="lineCov">          3 :     void _resolveCB(AvahiServiceResolver* resolver,</span>
+<span class="lineNum">     339 </span><span class="lineCov">          4 :     void _resolveCB(AvahiServiceResolver* resolver,</span>
 <span class="lineNum">     340 </span>            :                     const AvahiResolverEvent event, const char* name,
 <span class="lineNum">     341 </span>            :                     const char* host, AvahiStringList* txt,
 <span class="lineNum">     342 </span>            :                     const AvahiLookupResultFlags flags)
 <span class="lineNum">     343 </span>            :     {
 <span class="lineNum">     344 </span>            :         // If browsing through the local interface, consider only the local
 <span class="lineNum">     345 </span>            :         // instances
-<span class="lineNum">     346 </span><span class="lineCov">          3 :         if (_scope == servus::Servus::IF_LOCAL &amp;&amp;</span>
+<span class="lineNum">     346 </span><span class="lineCov">          4 :         if (_scope == servus::Servus::IF_LOCAL &amp;&amp;</span>
 <span class="lineNum">     347 </span><span class="lineNoCov">          0 :             !(flags &amp; AVAHI_LOOKUP_RESULT_LOCAL))</span>
 <span class="lineNum">     348 </span><span class="lineNoCov">          0 :             return;</span>
 <span class="lineNum">     349 </span>            : 
-<span class="lineNum">     350 </span><span class="lineCov">          3 :         switch (event)</span>
+<span class="lineNum">     350 </span><span class="lineCov">          4 :         switch (event)</span>
 <span class="lineNum">     351 </span>            :         {
 <span class="lineNum">     352 </span>            :         case AVAHI_RESOLVER_FAILURE:
 <span class="lineNum">     353 </span><span class="lineNoCov">          0 :             _result = avahi_client_errno(_client);</span>
@@ -418,28 +418,28 @@
 <span class="lineNum">     356 </span>            : 
 <span class="lineNum">     357 </span>            :         case AVAHI_RESOLVER_FOUND:
 <span class="lineNum">     358 </span>            :         {
-<span class="lineNum">     359 </span><span class="lineCov">          3 :             detail::ValueMap&amp; values = _instanceMap[name];</span>
-<span class="lineNum">     360 </span><span class="lineCov">          3 :             values[&quot;servus_host&quot;] = host;</span>
-<span class="lineNum">     361 </span><span class="lineCov">          9 :             for (; txt; txt = txt-&gt;next)</span>
+<span class="lineNum">     359 </span><span class="lineCov">          4 :             detail::ValueMap&amp; values = _instanceMap[name];</span>
+<span class="lineNum">     360 </span><span class="lineCov">          4 :             values[&quot;servus_host&quot;] = host;</span>
+<span class="lineNum">     361 </span><span class="lineCov">         12 :             for (; txt; txt = txt-&gt;next)</span>
 <span class="lineNum">     362 </span>            :             {
 <span class="lineNum">     363 </span>            :                 const std::string entry(reinterpret_cast&lt;const char*&gt;(
 <span class="lineNum">     364 </span>            :                                             txt-&gt;text),
-<span class="lineNum">     365 </span><span class="lineCov">          6 :                                         txt-&gt;size);</span>
-<span class="lineNum">     366 </span><span class="lineCov">          3 :                 const size_t pos = entry.find_first_of(&quot;=&quot;);</span>
-<span class="lineNum">     367 </span><span class="lineCov">          6 :                 const std::string key = entry.substr(0, pos);</span>
-<span class="lineNum">     368 </span><span class="lineCov">          6 :                 const std::string value = entry.substr(pos + 1);</span>
-<span class="lineNum">     369 </span><span class="lineCov">          3 :                 values[key] = value;</span>
+<span class="lineNum">     365 </span><span class="lineCov">          8 :                                         txt-&gt;size);</span>
+<span class="lineNum">     366 </span><span class="lineCov">          4 :                 const size_t pos = entry.find_first_of(&quot;=&quot;);</span>
+<span class="lineNum">     367 </span><span class="lineCov">          8 :                 const std::string key = entry.substr(0, pos);</span>
+<span class="lineNum">     368 </span><span class="lineCov">          8 :                 const std::string value = entry.substr(pos + 1);</span>
+<span class="lineNum">     369 </span><span class="lineCov">          4 :                 values[key] = value;</span>
 <span class="lineNum">     370 </span>            :             }
-<span class="lineNum">     371 </span><span class="lineCov">         27 :             for (detail::Listeners::iterator i = _listeners.begin();</span>
-<span class="lineNum">     372 </span><span class="lineCov">         18 :                  i != _listeners.end(); ++i)</span>
+<span class="lineNum">     371 </span><span class="lineCov">         36 :             for (detail::Listeners::iterator i = _listeners.begin();</span>
+<span class="lineNum">     372 </span><span class="lineCov">         24 :                  i != _listeners.end(); ++i)</span>
 <span class="lineNum">     373 </span>            :             {
-<span class="lineNum">     374 </span><span class="lineCov">          6 :                 (*i)-&gt;instanceAdded(name);</span>
+<span class="lineNum">     374 </span><span class="lineCov">          8 :                 (*i)-&gt;instanceAdded(name);</span>
 <span class="lineNum">     375 </span>            :             }
 <span class="lineNum">     376 </span>            :         }
-<span class="lineNum">     377 </span><span class="lineCov">          3 :         break;</span>
+<span class="lineNum">     377 </span><span class="lineCov">          4 :         break;</span>
 <span class="lineNum">     378 </span>            :         }
 <span class="lineNum">     379 </span>            : 
-<span class="lineNum">     380 </span><span class="lineCov">          3 :         avahi_service_resolver_free(resolver);</span>
+<span class="lineNum">     380 </span><span class="lineCov">          4 :         avahi_service_resolver_free(resolver);</span>
 <a name="381"><span class="lineNum">     381 </span>            :     }</a>
 <span class="lineNum">     382 </span>            : 
 <span class="lineNum">     383 </span><span class="lineCov">          2 :     void _updateRecord() final</span>

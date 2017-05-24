@@ -32,7 +32,7 @@
  <tr style="height: 56px;">
   <td id="projectalign" style="padding-left: 0.5em;">
    <div id="projectname">Servus
-   &#160;<span id="projectnumber">1.5.0</span>
+   &#160;<span id="projectnumber">1.5.1</span>
    </div>
    <div id="projectbrief">C++ network oriented utilities including a zeroconf implementation</div>
   </td>
@@ -137,8 +137,8 @@ Static Public Member Functions</h2></td></tr>
 <tr class="separator:af5adec8dc8ca4ebee303a0456cebefce"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a5bc48216002f686b422ea291f3680403"><td class="memItemLeft" align="right" valign="top">static std::string&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classservus_1_1_version.html#a5bc48216002f686b422ea291f3680403">getString</a> ()</td></tr>
 <tr class="separator:a5bc48216002f686b422ea291f3680403"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a7678481633c47a5b9d0c4fcbbe7ab801"><td class="memItemLeft" align="right" valign="top">static int&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classservus_1_1_version.html#a7678481633c47a5b9d0c4fcbbe7ab801">getRevision</a> ()</td></tr>
-<tr class="separator:a7678481633c47a5b9d0c4fcbbe7ab801"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:abe3efa55c510a00cdbdc427d460c8b0d"><td class="memItemLeft" align="right" valign="top">static unsigned long long&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classservus_1_1_version.html#abe3efa55c510a00cdbdc427d460c8b0d">getRevision</a> ()</td></tr>
+<tr class="separator:abe3efa55c510a00cdbdc427d460c8b0d"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:ac3b6b50349a035aaa136c2b4a5995c3f"><td class="memItemLeft" align="right" valign="top">static int&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classservus_1_1_version.html#ac3b6b50349a035aaa136c2b4a5995c3f">getABI</a> ()</td></tr>
 <tr class="separator:ac3b6b50349a035aaa136c2b4a5995c3f"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a8a9d0d2cad4effd5a0f508b878660aa3"><td class="memItemLeft" align="right" valign="top">static std::string&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classservus_1_1_version.html#a8a9d0d2cad4effd5a0f508b878660aa3">getRevString</a> ()</td></tr>
@@ -146,6 +146,10 @@ Static Public Member Functions</h2></td></tr>
 <tr class="memitem:aa93a3fb04d36f96c7dbf6e345786a96d"><td class="memItemLeft" align="right" valign="top">static bool&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classservus_1_1_version.html#aa93a3fb04d36f96c7dbf6e345786a96d">check</a> ()</td></tr>
 <tr class="memdesc:aa93a3fb04d36f96c7dbf6e345786a96d"><td class="mdescLeft">&#160;</td><td class="mdescRight">Runtime check for ABI compatibility.  <a href="#aa93a3fb04d36f96c7dbf6e345786a96d">More...</a><br /></td></tr>
 <tr class="separator:aa93a3fb04d36f96c7dbf6e345786a96d"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:ab36537d7d4e587368e84759fc1629503"><td class="memItemLeft" align="right" valign="top">static std::string&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classservus_1_1_version.html#ab36537d7d4e587368e84759fc1629503">getSchema</a> ()</td></tr>
+<tr class="separator:ab36537d7d4e587368e84759fc1629503"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a420f165aa799b92ba9a43e69a42c73ec"><td class="memItemLeft" align="right" valign="top">static std::string&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classservus_1_1_version.html#a420f165aa799b92ba9a43e69a42c73ec">toJSON</a> ()</td></tr>
+<tr class="separator:a420f165aa799b92ba9a43e69a42c73ec"><td class="memSeparator" colspan="2">&#160;</td></tr>
 </table>
 <a name="details" id="details"></a><h2 class="groupheader">Detailed Description</h2>
 <div class="textblock"><p>Information about the current <a class="el" href="classservus_1_1_servus.html" title="Simple wrapper for ZeroConf key/value pairs. ">Servus</a> version. </p>
@@ -279,7 +283,7 @@ Static Public Member Functions</h2></td></tr>
 
 </div>
 </div>
-<a class="anchor" id="a7678481633c47a5b9d0c4fcbbe7ab801"></a>
+<a class="anchor" id="abe3efa55c510a00cdbdc427d460c8b0d"></a>
 <div class="memitem">
 <div class="memproto">
 <table class="mlabels">
@@ -287,7 +291,7 @@ Static Public Member Functions</h2></td></tr>
   <td class="mlabels-left">
       <table class="memname">
         <tr>
-          <td class="memname">static int servus::Version::getRevision </td>
+          <td class="memname">static unsigned long long servus::Version::getRevision </td>
           <td>(</td>
           <td class="paramname"></td><td>)</td>
           <td></td>
@@ -327,6 +331,32 @@ Static Public Member Functions</h2></td></tr>
 
 </div>
 </div>
+<a class="anchor" id="ab36537d7d4e587368e84759fc1629503"></a>
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">static std::string servus::Version::getSchema </td>
+          <td>(</td>
+          <td class="paramname"></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">inline</span><span class="mlabel">static</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+<dl class="section return"><dt>Returns</dt><dd>JSON schema describing this object. </dd></dl>
+
+<p>Definition at line <a class="el" href="version_8h_source.html#l00095">95</a> of file <a class="el" href="version_8h_source.html">version.h</a>.</p>
+
+</div>
+</div>
 <a class="anchor" id="a5bc48216002f686b422ea291f3680403"></a>
 <div class="memitem">
 <div class="memproto">
@@ -351,6 +381,32 @@ Static Public Member Functions</h2></td></tr>
 
 </div>
 </div>
+<a class="anchor" id="a420f165aa799b92ba9a43e69a42c73ec"></a>
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">static std::string servus::Version::toJSON </td>
+          <td>(</td>
+          <td class="paramname"></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">inline</span><span class="mlabel">static</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+<dl class="section return"><dt>Returns</dt><dd>JSON-encoded data for this object. </dd></dl>
+
+<p>Definition at line <a class="el" href="version_8h_source.html#l00114">114</a> of file <a class="el" href="version_8h_source.html">version.h</a>.</p>
+
+</div>
+</div>
 <hr/>The documentation for this class was generated from the following file:<ul>
 <li><a class="el" href="version_8h_source.html">version.h</a></li>
 </ul>
@@ -360,7 +416,7 @@ Static Public Member Functions</h2></td></tr>
 <div id="nav-path" class="navpath"><!-- id is needed for treeview function! -->
   <ul>
     <li class="navelem"><b>servus</b></li><li class="navelem"><a class="el" href="classservus_1_1_version.html">Version</a></li>
-    <li class="footer">Generated on Thu Mar 23 2017 03:07:14 for Servus by
+    <li class="footer">Generated on Wed May 24 2017 03:07:00 for Servus by
     <a href="http://www.doxygen.org/index.html">
     <img class="footer" src="doxygen.png" alt="doxygen"/></a> 1.8.11 </li>
   </ul>

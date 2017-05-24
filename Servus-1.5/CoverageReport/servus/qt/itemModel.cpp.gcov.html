@@ -37,7 +37,7 @@
           </tr>
           <tr>
             <td class="headerItem">Date:</td>
-            <td class="headerValue">2017-03-23 03:07:13</td>
+            <td class="headerValue">2017-05-24 03:07:00</td>
             <td></td>
             <td class="headerItem">Functions:</td>
             <td class="headerCovTableEntry">18</td>
@@ -120,11 +120,11 @@
 <span class="lineNum">      58 </span><span class="lineCov">          4 :         service.endBrowsing();</span>
 <a name="59"><span class="lineNum">      59 </span><span class="lineCov">          8 :     }</span></a>
 <span class="lineNum">      60 </span>            : 
-<span class="lineNum">      61 </span><span class="lineCov">          6 :     void instanceAdded(const std::string&amp; instance) final</span>
+<span class="lineNum">      61 </span><span class="lineCov">          8 :     void instanceAdded(const std::string&amp; instance) final</span>
 <span class="lineNum">      62 </span>            :     {
-<span class="lineNum">      63 </span><span class="lineCov">          8 :         const QString&amp; qstr = QString::fromStdString(instance);</span>
-<span class="lineNum">      64 </span><span class="lineCov">          6 :         if (rootItem-&gt;findChild&lt;QObject*&gt;(qstr))</span>
-<span class="lineNum">      65 </span><span class="lineCov">          4 :             return;</span>
+<span class="lineNum">      63 </span><span class="lineCov">         10 :         const QString&amp; qstr = QString::fromStdString(instance);</span>
+<span class="lineNum">      64 </span><span class="lineCov">          8 :         if (rootItem-&gt;findChild&lt;QObject*&gt;(qstr))</span>
+<span class="lineNum">      65 </span><span class="lineCov">          6 :             return;</span>
 <span class="lineNum">      66 </span>            : 
 <span class="lineNum">      67 </span><span class="lineCov">          6 :         parent.beginInsertRows(QModelIndex(), rootItem-&gt;children().size(),</span>
 <span class="lineNum">      68 </span><span class="lineCov">          6 :                                rootItem-&gt;children().size());</span>
@@ -132,12 +132,12 @@
 <span class="lineNum">      70 </span><span class="lineCov">          2 :         parent.endInsertRows();</span>
 <a name="71"><span class="lineNum">      71 </span>            :     }</a>
 <span class="lineNum">      72 </span>            : 
-<span class="lineNum">      73 </span><span class="lineCov">          8 :     void instanceRemoved(const std::string&amp; instance) final</span>
+<span class="lineNum">      73 </span><span class="lineCov">         10 :     void instanceRemoved(const std::string&amp; instance) final</span>
 <span class="lineNum">      74 </span>            :     {
-<span class="lineNum">      75 </span><span class="lineCov">         10 :         const QString&amp; qstr = QString::fromStdString(instance);</span>
-<span class="lineNum">      76 </span><span class="lineCov">          8 :         QObject* child = rootItem-&gt;findChild&lt;QObject*&gt;(qstr);</span>
-<span class="lineNum">      77 </span><span class="lineCov">          8 :         if (!child)</span>
-<span class="lineNum">      78 </span><span class="lineCov">          6 :             return;</span>
+<span class="lineNum">      75 </span><span class="lineCov">         12 :         const QString&amp; qstr = QString::fromStdString(instance);</span>
+<span class="lineNum">      76 </span><span class="lineCov">         10 :         QObject* child = rootItem-&gt;findChild&lt;QObject*&gt;(qstr);</span>
+<span class="lineNum">      77 </span><span class="lineCov">         10 :         if (!child)</span>
+<span class="lineNum">      78 </span><span class="lineCov">          8 :             return;</span>
 <span class="lineNum">      79 </span>            : 
 <span class="lineNum">      80 </span><span class="lineCov">          2 :         const QObjectList&amp; children = rootItem-&gt;children();</span>
 <span class="lineNum">      81 </span><span class="lineCov">          2 :         const int childIdx = children.indexOf(child);</span>

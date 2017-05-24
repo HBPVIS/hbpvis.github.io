@@ -31,18 +31,18 @@
             <td class="headerValue">Servus</td>
             <td></td>
             <td class="headerItem">Lines:</td>
-            <td class="headerCovTableEntry">52</td>
             <td class="headerCovTableEntry">57</td>
-            <td class="headerCovTableEntryHi">91.2 %</td>
+            <td class="headerCovTableEntry">57</td>
+            <td class="headerCovTableEntryHi">100.0 %</td>
           </tr>
           <tr>
             <td class="headerItem">Date:</td>
-            <td class="headerValue">2017-03-23 03:07:13</td>
+            <td class="headerValue">2017-05-24 03:07:00</td>
             <td></td>
             <td class="headerItem">Functions:</td>
-            <td class="headerCovTableEntry">17</td>
             <td class="headerCovTableEntry">18</td>
-            <td class="headerCovTableEntryHi">94.4 %</td>
+            <td class="headerCovTableEntry">18</td>
+            <td class="headerCovTableEntryHi">100.0 %</td>
           </tr>
           <tr><td><img src="../glass.png" width=3 height=3 alt=""></td></tr>
         </table>
@@ -113,11 +113,11 @@
 <span class="lineNum">      51 </span>            :     /**
 <a name="52"><span class="lineNum">      52 </span>            :      * Construct a new 128 bit integer with a default value.</a>
 <span class="lineNum">      53 </span>            :      */
-<span class="lineNum">      54 </span><span class="lineCov">     100004 :     explicit uint128_t(const unsigned long long low_ = 0)</span>
-<span class="lineNum">      55 </span><span class="lineCov">     100004 :         : _high(0)</span>
-<span class="lineNum">      56 </span><span class="lineCov">     100004 :         , _low(low_)</span>
+<span class="lineNum">      54 </span><span class="lineCov">      99997 :     explicit uint128_t(const unsigned long long low_ = 0)</span>
+<span class="lineNum">      55 </span><span class="lineCov">      99997 :         : _high(0)</span>
+<span class="lineNum">      56 </span><span class="lineCov">      99997 :         , _low(low_)</span>
 <span class="lineNum">      57 </span>            :     {
-<span class="lineNum">      58 </span><span class="lineCov">     100004 :     }</span>
+<span class="lineNum">      58 </span><span class="lineCov">      99997 :     }</span>
 <span class="lineNum">      59 </span>            : 
 <span class="lineNum">      60 </span>            :     /**
 <span class="lineNum">      61 </span>            :      * Construct a new 128 bit integer with a default value.
@@ -302,13 +302,13 @@
 <span class="lineNum">     240 </span>            :     }
 <a name="241"><span class="lineNum">     241 </span>            : </a>
 <span class="lineNum">     242 </span>            :     /** @return the reference to the lower 64 bits of this 128 bit value. */
-<a name="243"><span class="lineNum">     243 </span><span class="lineCov">     199961 :     const uint64_t&amp; low() const { return _low; }</span></a>
+<a name="243"><span class="lineNum">     243 </span><span class="lineCov">     199941 :     const uint64_t&amp; low() const { return _low; }</span></a>
 <span class="lineNum">     244 </span>            :     /** @return the reference to the high 64 bits of this 128 bit value. */
-<a name="245"><span class="lineNum">     245 </span><span class="lineCov">     299683 :     const uint64_t&amp; high() const { return _high; }</span></a>
+<a name="245"><span class="lineNum">     245 </span><span class="lineCov">     299739 :     const uint64_t&amp; high() const { return _high; }</span></a>
 <span class="lineNum">     246 </span>            :     /** @return the reference to the lower 64 bits of this 128 bit value. */
-<a name="247"><span class="lineNum">     247 </span><span class="lineCov">     100032 :     uint64_t&amp; low() { return _low; }</span></a>
+<a name="247"><span class="lineNum">     247 </span><span class="lineCov">     100034 :     uint64_t&amp; low() { return _low; }</span></a>
 <span class="lineNum">     248 </span>            :     /** @return the reference to the high 64 bits of this 128 bit value. */
-<span class="lineNum">     249 </span><span class="lineCov">     299902 :     uint64_t&amp; high() { return _high; }</span>
+<span class="lineNum">     249 </span><span class="lineCov">     299951 :     uint64_t&amp; high() { return _high; }</span>
 <span class="lineNum">     250 </span>            :     /** @return a short, but not necessarily unique, string of the value. */
 <span class="lineNum">     251 </span>            :     std::string getShortString() const
 <span class="lineNum">     252 </span>            :     {
@@ -342,13 +342,13 @@
 <span class="lineNum">     280 </span>            : };
 <a name="281"><span class="lineNum">     281 </span>            : </a>
 <span class="lineNum">     282 </span>            : /** ostream operator for 128 bit unsigned integers. */
-<span class="lineNum">     283 </span><span class="lineNoCov">          0 : inline std::ostream&amp; operator&lt;&lt;(std::ostream&amp; os, const uint128_t&amp; id)</span>
+<span class="lineNum">     283 </span><span class="lineCov">          2 : inline std::ostream&amp; operator&lt;&lt;(std::ostream&amp; os, const uint128_t&amp; id)</span>
 <span class="lineNum">     284 </span>            : {
-<span class="lineNum">     285 </span><span class="lineNoCov">          0 :     if (id.high() == 0)</span>
-<span class="lineNum">     286 </span><span class="lineNoCov">          0 :         os &lt;&lt; std::hex &lt;&lt; id.low() &lt;&lt; std::dec;</span>
+<span class="lineNum">     285 </span><span class="lineCov">          2 :     if (id.high() == 0)</span>
+<span class="lineNum">     286 </span><span class="lineCov">          1 :         os &lt;&lt; std::hex &lt;&lt; id.low() &lt;&lt; std::dec;</span>
 <span class="lineNum">     287 </span>            :     else
-<span class="lineNum">     288 </span><span class="lineNoCov">          0 :         os &lt;&lt; std::hex &lt;&lt; id.high() &lt;&lt; ':' &lt;&lt; id.low() &lt;&lt; std::dec;</span>
-<span class="lineNum">     289 </span><span class="lineNoCov">          0 :     return os;</span>
+<span class="lineNum">     288 </span><span class="lineCov">          1 :         os &lt;&lt; std::hex &lt;&lt; id.high() &lt;&lt; ':' &lt;&lt; id.low() &lt;&lt; std::dec;</span>
+<span class="lineNum">     289 </span><span class="lineCov">          2 :     return os;</span>
 <span class="lineNum">     290 </span>            : }
 <span class="lineNum">     291 </span>            : 
 <span class="lineNum">     292 </span>            : /** istream operator for 128 bit unsigned integers. */

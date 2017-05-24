@@ -31,18 +31,18 @@
             <td class="headerValue">Servus</td>
             <td></td>
             <td class="headerItem">Lines:</td>
-            <td class="headerCovTableEntry">86</td>
+            <td class="headerCovTableEntry">91</td>
             <td class="headerCovTableEntry">143</td>
-            <td class="headerCovTableEntryMed">60.1 %</td>
+            <td class="headerCovTableEntryMed">63.6 %</td>
           </tr>
           <tr>
             <td class="headerItem">Date:</td>
-            <td class="headerValue">2017-03-23 03:07:13</td>
+            <td class="headerValue">2017-05-24 03:07:00</td>
             <td></td>
             <td class="headerItem">Functions:</td>
-            <td class="headerCovTableEntry">30</td>
+            <td class="headerCovTableEntry">31</td>
             <td class="headerCovTableEntry">44</td>
-            <td class="headerCovTableEntryMed">68.2 %</td>
+            <td class="headerCovTableEntryMed">70.5 %</td>
           </tr>
           <tr><td><img src="../glass.png" width=3 height=3 alt=""></td></tr>
         </table>
@@ -269,10 +269,10 @@
 <span class="lineNum">     207 </span><span class="lineCov">          3 :     return _impl-&gt;getName();</span>
 <a name="208"><span class="lineNum">     208 </span>            : }</a>
 <span class="lineNum">     209 </span>            : 
-<span class="lineNum">     210 </span><span class="lineNoCov">          0 : std::string Servus::Result::getString() const</span>
+<span class="lineNum">     210 </span><span class="lineCov">          2 : std::string Servus::Result::getString() const</span>
 <span class="lineNum">     211 </span>            : {
-<span class="lineNum">     212 </span><span class="lineNoCov">          0 :     const int32_t code = getCode();</span>
-<span class="lineNum">     213 </span><span class="lineNoCov">          0 :     switch (code)</span>
+<span class="lineNum">     212 </span><span class="lineCov">          2 :     const int32_t code = getCode();</span>
+<span class="lineNum">     213 </span><span class="lineCov">          2 :     switch (code)</span>
 <span class="lineNum">     214 </span>            :     {
 <span class="lineNum">     215 </span>            : #ifdef SERVUS_USE_DNSSD
 <span class="lineNum">     216 </span>            :     case kDNSServiceErr_Unknown:
@@ -328,9 +328,9 @@
 <span class="lineNum">     266 </span>            :     case POLL_ERROR:
 <span class="lineNum">     267 </span><span class="lineNoCov">          0 :         return &quot;Error polling for events&quot;;</span>
 <span class="lineNum">     268 </span>            :     default:
-<span class="lineNum">     269 </span><span class="lineNoCov">          0 :         if (code &gt; 0)</span>
+<span class="lineNum">     269 </span><span class="lineCov">          2 :         if (code &gt; 0)</span>
 <span class="lineNum">     270 </span><span class="lineNoCov">          0 :             return ::strerror(code);</span>
-<span class="lineNum">     271 </span><span class="lineNoCov">          0 :         return servus::Result::getString();</span>
+<span class="lineNum">     271 </span><span class="lineCov">          2 :         return servus::Result::getString();</span>
 <span class="lineNum">     272 </span>            :     }
 <a name="273"><span class="lineNum">     273 </span>            : }</a>
 <span class="lineNum">     274 </span>            : 
