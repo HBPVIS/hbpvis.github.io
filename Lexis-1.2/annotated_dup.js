@@ -19,7 +19,6 @@ var annotated_dup =
         ] ],
         [ "ClipPlanes", "classlexis_1_1render_1_1_clip_planes.html", "classlexis_1_1render_1_1_clip_planes" ],
         [ "Color", "classlexis_1_1render_1_1_color.html", "classlexis_1_1render_1_1_color" ],
-        [ "Exit", "classlexis_1_1render_1_1_exit.html", "classlexis_1_1render_1_1_exit" ],
         [ "Frame", "classlexis_1_1render_1_1_frame.html", "classlexis_1_1render_1_1_frame" ],
         [ "Histogram", "classlexis_1_1render_1_1_histogram.html", "classlexis_1_1render_1_1_histogram" ],
         [ "ImageJPEG", "classlexis_1_1render_1_1_image_j_p_e_g.html", "classlexis_1_1render_1_1_image_j_p_e_g" ],
@@ -28,7 +27,6 @@ var annotated_dup =
         [ "Stream", "classlexis_1_1render_1_1_stream.html", "classlexis_1_1render_1_1_stream" ],
         [ "Viewport", "classlexis_1_1render_1_1_viewport.html", "classlexis_1_1render_1_1_viewport" ]
       ] ],
-      [ "Request", "classlexis_1_1_request.html", "classlexis_1_1_request" ],
       [ "Version", "classlexis_1_1_version.html", "classlexis_1_1_version" ]
     ] ]
 ];

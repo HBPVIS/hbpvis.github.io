@@ -143,27 +143,6 @@
   </Token>
   <Token>
     <TokenIdentifier>
-      <Name>lexis::Request</Name>
-      <APILanguage>c</APILanguage>
-      <Type>cl</Type>
-      <Scope>lexis::Request</Scope>
-    </TokenIdentifier>
-    <Path>classlexis_1_1_request.html</Path>
-  </Token>
-  <Token>
-    <TokenIdentifier>
-      <Name>setEvent</Name>
-      <APILanguage>cpp</APILanguage>
-      <Type>instm</Type>
-      <Scope>lexis::Request</Scope>
-    </TokenIdentifier>
-    <Path>classlexis_1_1_request.html</Path>
-    <Anchor>aa3d64e72f6be2b7157d3a272574a305b</Anchor>
-    <Abstract>Set the Event value. </Abstract>
-    <DeclaredIn>request.h</DeclaredIn>
-  </Token>
-  <Token>
-    <TokenIdentifier>
       <Name>lexis::Version</Name>
       <APILanguage>c</APILanguage>
       <Type>cl</Type>
@@ -751,15 +730,6 @@
     <Anchor>ace6af820cf19a631fa8aa14e95b7bb87</Anchor>
     <Abstract>Set the Blue value. </Abstract>
     <DeclaredIn>materialLUT.h</DeclaredIn>
-  </Token>
-  <Token>
-    <TokenIdentifier>
-      <Name>lexis::render::Exit</Name>
-      <APILanguage>c</APILanguage>
-      <Type>cl</Type>
-      <Scope>lexis::render::Exit</Scope>
-    </TokenIdentifier>
-    <Path>classlexis_1_1render_1_1_exit.html</Path>
   </Token>
   <Token>
     <TokenIdentifier>

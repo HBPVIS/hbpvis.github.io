@@ -15,7 +15,6 @@ var searchData=
   ['setemission',['setEmission',['../classlexis_1_1render_1_1_material_l_u_t.html#a94188d5c16ae4a812aa0333fa6bfbfe7',1,'lexis::render::MaterialLUT']]],
   ['setenabled',['setEnabled',['../classlexis_1_1render_1_1_stream.html#a351503e668c961fbf43952e62aeb7d45',1,'lexis::render::Stream']]],
   ['setend',['setEnd',['../classlexis_1_1data_1_1_frame_range.html#a4f90b0ff0c93c3c2e3ebcac299a00770',1,'lexis::data::FrameRange::setEnd()'],['../classlexis_1_1render_1_1_frame.html#a16b3ad628ae4d337f377341403716f4c',1,'lexis::render::Frame::setEnd()']]],
-  ['setevent',['setEvent',['../classlexis_1_1_request.html#aa3d64e72f6be2b7157d3a272574a305b',1,'lexis::Request']]],
   ['setfirst',['setFirst',['../classlexis_1_1data_1_1_cell_set_binary_op.html#a5e944c55779cc859960f07e5708ab1d3',1,'lexis::data::CellSetBinaryOp::setFirst(uint32_t const *value, size_t size)'],['../classlexis_1_1data_1_1_cell_set_binary_op.html#a398f58d7a137be630eafaa71556f5368',1,'lexis::data::CellSetBinaryOp::setFirst(const std::vector&lt; uint32_t &gt; &amp;value)']]],
   ['setgreen',['setGreen',['../classlexis_1_1render_1_1_color.html#a7ab6e80f2e9bdec326c6044478791357',1,'lexis::render::Color']]],
   ['sethost',['setHost',['../classlexis_1_1render_1_1_stream.html#ab9aef74e41ed3669568191512cb3f3b2',1,'lexis::render::Stream::setHost(char const *value, size_t size)'],['../classlexis_1_1render_1_1_stream.html#a85b1f631806087e054047e02d8ac3971',1,'lexis::render::Stream::setHost(const std::string &amp;value)']]],

@@ -1,5 +1,5 @@
 var searchData=
 [
-  ['selectedids',['SelectedIDs',['../classlexis_1_1data_1_1_selected_i_ds.html',1,'lexis::data']]],
-  ['stream',['Stream',['../classlexis_1_1render_1_1_stream.html',1,'lexis::render']]]
+  ['version',['Version',['../classlexis_1_1_version.html',1,'lexis']]],
+  ['viewport',['Viewport',['../classlexis_1_1render_1_1_viewport.html',1,'lexis::render']]]
 ];

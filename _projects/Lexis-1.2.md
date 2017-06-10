@@ -4,7 +4,7 @@ version: "1.2"
 major: 1
 minor: 2
 description: Vocabulary of events and shared objects for BBP and HBP software
-updated: 07/03/17
+updated: 10/06/17
 homepage: https://github.com/HBPVIS/Lexis
 repository: https://github.com/HBPVIS/Lexis.git
 issuesurl: https://github.com/HBPVIS/Lexis/issues
@@ -12,7 +12,7 @@ packageurl:
 license: LGPL
 maturity: EP
 maintainers: Human Brain Project (HBPVis@googlegroups.com)
-contributors: Daniel Nachbaur
+contributors: Stefan Eilemann
 readmetype: text/x-markdown
 ---
 Lexis
@@ -38,9 +38,9 @@ build environments are tested:
 
 Building from source is as simple as:
 
-    git clone https://github.com/HBPVIS/Lexis.git
+    git clone --recursive https://github.com/HBPVIS/Lexis.git
     mkdir Lexis/build
     cd Lexis/build
-    cmake -GNinja ..
+    cmake -GNinja -DCLONE_SUBPROJECTS=ON ..
     ninja
 

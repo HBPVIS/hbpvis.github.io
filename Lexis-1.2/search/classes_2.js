@@ -1,5 +1,5 @@
 var searchData=
 [
-  ['frame',['Frame',['../classlexis_1_1render_1_1_frame.html',1,'lexis::render']]],
-  ['framerange',['FrameRange',['../classlexis_1_1data_1_1_frame_range.html',1,'lexis::data']]]
+  ['histogram',['Histogram',['../classlexis_1_1render_1_1detail_1_1_histogram.html',1,'lexis::render::detail']]],
+  ['histogram',['Histogram',['../classlexis_1_1render_1_1_histogram.html',1,'lexis::render']]]
 ];
