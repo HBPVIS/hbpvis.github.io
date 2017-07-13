@@ -7,5 +7,6 @@ var rfcs =
     [ "Landing page for http::Server", "landingpage.html", null ],
     [ "Publishing the REST API exposed by the HTTP Server", "restapi.html", null ],
     [ "Publishing the REST API exposed by the HTTP Server", "restapi.html", null ],
-    [ "Request-Reply", "reqrep.html", null ]
+    [ "Request-Reply", "reqrep.html", null ],
+    [ "Subscription Monitor", "monitor.html", null ]
 ];

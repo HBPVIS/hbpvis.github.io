@@ -49,6 +49,10 @@
           <Name>Request-Reply</Name>
           <Path>reqrep.html</Path>
          </Node>
+         <Node>
+          <Name>Subscription Monitor</Name>
+          <Path>monitor.html</Path>
+         </Node>
         </Subnodes>
        </Node>
        <Node>
@@ -395,6 +399,32 @@
               </Subnodes>
              </Node>
              <Node>
+              <Name>Monitor</Name>
+              <Path>classzeroeq_1_1_monitor.html</Path>
+              <Subnodes>
+               <Node>
+                <Name>Monitor</Name>
+                <Path>classzeroeq_1_1_monitor.html</Path>
+                <Anchor>a23060dddbcd7be5c7bc870fb52b26337</Anchor>
+               </Node>
+               <Node>
+                <Name>Monitor</Name>
+                <Path>classzeroeq_1_1_monitor.html</Path>
+                <Anchor>af268e99469a3d1001c30339a91cf7a3b</Anchor>
+               </Node>
+               <Node>
+                <Name>~Monitor</Name>
+                <Path>classzeroeq_1_1_monitor.html</Path>
+                <Anchor>a0246718385b6d1fd60a42124422e872d</Anchor>
+               </Node>
+               <Node>
+                <Name>notifyNewConnection</Name>
+                <Path>classzeroeq_1_1_monitor.html</Path>
+                <Anchor>a5266261104fb38156c83425fd9d4c5d4</Anchor>
+               </Node>
+              </Subnodes>
+             </Node>
+             <Node>
               <Name>Publisher</Name>
               <Path>classzeroeq_1_1_publisher.html</Path>
               <Subnodes>
@@ -513,6 +543,22 @@
                 <Name>detail::Receiver</Name>
                 <Path>classzeroeq_1_1_receiver.html</Path>
                 <Anchor>aca0c2c2e0a917d860a97fd9d89e9aac8</Anchor>
+               </Node>
+              </Subnodes>
+             </Node>
+             <Node>
+              <Name>Sender</Name>
+              <Path>classzeroeq_1_1_sender.html</Path>
+              <Subnodes>
+               <Node>
+                <Name>~Sender</Name>
+                <Path>classzeroeq_1_1_sender.html</Path>
+                <Anchor>ade827d5fec538cb970a17e08b68a3295</Anchor>
+               </Node>
+               <Node>
+                <Name>getSocket</Name>
+                <Path>classzeroeq_1_1_sender.html</Path>
+                <Anchor>aff94b077ead3a181aed81a2b9b707609</Anchor>
                </Node>
               </Subnodes>
              </Node>
@@ -811,10 +857,6 @@
             <Path>structzeroeq_1_1http_1_1_response.html</Path>
            </Node>
            <Node>
-            <Name>zeroeq::Publisher</Name>
-            <Path>classzeroeq_1_1_publisher.html</Path>
-           </Node>
-           <Node>
             <Name>zeroeq::Receiver</Name>
             <Path>classzeroeq_1_1_receiver.html</Path>
             <Subnodes>
@@ -827,8 +869,22 @@
               <Path>classzeroeq_1_1http_1_1_server.html</Path>
              </Node>
              <Node>
+              <Name>zeroeq::Monitor</Name>
+              <Path>classzeroeq_1_1_monitor.html</Path>
+             </Node>
+             <Node>
               <Name>zeroeq::Subscriber</Name>
               <Path>classzeroeq_1_1_subscriber.html</Path>
+             </Node>
+            </Subnodes>
+           </Node>
+           <Node>
+            <Name>zeroeq::Sender</Name>
+            <Path>classzeroeq_1_1_sender.html</Path>
+            <Subnodes>
+             <Node>
+              <Name>zeroeq::Publisher</Name>
+              <Path>classzeroeq_1_1_publisher.html</Path>
              </Node>
             </Subnodes>
            </Node>
@@ -951,6 +1007,10 @@
             <Path>log_8h_source.html</Path>
            </Node>
            <Node>
+            <Name>monitor.h</Name>
+            <Path>monitor_8h_source.html</Path>
+           </Node>
+           <Node>
             <Name>publisher.h</Name>
             <Path>publisher_8h_source.html</Path>
            </Node>
@@ -965,6 +1025,10 @@
            <Node>
             <Name>response.h</Name>
             <Path>response_8h_source.html</Path>
+           </Node>
+           <Node>
+            <Name>sender.h</Name>
+            <Path>sender_8h_source.html</Path>
            </Node>
            <Node>
             <Name>server.h</Name>

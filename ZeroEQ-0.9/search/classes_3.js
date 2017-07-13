@@ -1,6 +1,6 @@
 var searchData=
 [
-  ['server',['Server',['../classzeroeq_1_1http_1_1_server.html',1,'zeroeq::http']]],
-  ['service',['Service',['../classzeroeq_1_1connection_1_1_service.html',1,'zeroeq::connection']]],
-  ['subscriber',['Subscriber',['../classzeroeq_1_1_subscriber.html',1,'zeroeq']]]
+  ['receiver',['Receiver',['../classzeroeq_1_1_receiver.html',1,'zeroeq']]],
+  ['request',['Request',['../structzeroeq_1_1http_1_1_request.html',1,'zeroeq::http']]],
+  ['response',['Response',['../structzeroeq_1_1http_1_1_response.html',1,'zeroeq::http']]]
 ];

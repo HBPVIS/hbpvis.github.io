@@ -1,5 +1,4 @@
 var searchData=
 [
-  ['version',['Version',['../classzeroeq_1_1_version.html',1,'zeroeq']]],
-  ['version',['Version',['../classzeroeqhttp_1_1_version.html',1,'zeroeqhttp']]]
+  ['uri',['URI',['../classzeroeq_1_1_u_r_i.html',1,'zeroeq']]]
 ];

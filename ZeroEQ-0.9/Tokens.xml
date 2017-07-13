@@ -235,6 +235,13 @@
   </Token>
   <Token>
     <TokenIdentifier>
+      <Name>monitor</Name>
+      <APILanguage>markdown</APILanguage>
+    </TokenIdentifier>
+    <Path>monitor.html</Path>
+  </Token>
+  <Token>
+    <TokenIdentifier>
       <Name>reqrep</Name>
       <APILanguage>markdown</APILanguage>
     </TokenIdentifier>
@@ -306,6 +313,161 @@
     <Anchor>afc7f553a4ab6b16de0bdb5f399634ae4</Anchor>
     <Abstract>Constant defining &amp;#39;wait forever&amp;#39; in methods with wait parameters. </Abstract>
     <DeclaredIn>types.h</DeclaredIn>
+  </Token>
+  <Token>
+    <TokenIdentifier>
+      <Name>zeroeq::Monitor</Name>
+      <APILanguage>c</APILanguage>
+      <Type>cl</Type>
+      <Scope>zeroeq::Monitor</Scope>
+    </TokenIdentifier>
+    <Path>classzeroeq_1_1_monitor.html</Path>
+    <Abstract>Monitors a Sender and notifies on events on its socket. </Abstract>
+    <DeclaredIn>monitor.h</DeclaredIn>
+  </Token>
+  <Token>
+    <TokenIdentifier>
+      <Name>Monitor</Name>
+      <APILanguage>cpp</APILanguage>
+      <Type>instm</Type>
+      <Scope>zeroeq::Monitor</Scope>
+    </TokenIdentifier>
+    <Path>classzeroeq_1_1_monitor.html</Path>
+    <Anchor>a23060dddbcd7be5c7bc870fb52b26337</Anchor>
+    <Abstract>Monitor the given sender. </Abstract>
+    <DeclaredIn>monitor.h</DeclaredIn>
+  </Token>
+  <Token>
+    <TokenIdentifier>
+      <Name>Monitor</Name>
+      <APILanguage>cpp</APILanguage>
+      <Type>instm</Type>
+      <Scope>zeroeq::Monitor</Scope>
+    </TokenIdentifier>
+    <Path>classzeroeq_1_1_monitor.html</Path>
+    <Anchor>af268e99469a3d1001c30339a91cf7a3b</Anchor>
+    <Abstract>Monitor the given sender and notify with the given shared group. </Abstract>
+    <DeclaredIn>monitor.h</DeclaredIn>
+  </Token>
+  <Token>
+    <TokenIdentifier>
+      <Name>~Monitor</Name>
+      <APILanguage>cpp</APILanguage>
+      <Type>instm</Type>
+      <Scope>zeroeq::Monitor</Scope>
+    </TokenIdentifier>
+    <Path>classzeroeq_1_1_monitor.html</Path>
+    <Anchor>a0246718385b6d1fd60a42124422e872d</Anchor>
+    <Abstract>Destroy this monitor. </Abstract>
+    <DeclaredIn>monitor.h</DeclaredIn>
+  </Token>
+  <Token>
+    <TokenIdentifier>
+      <Name>notifyNewConnection</Name>
+      <APILanguage>cpp</APILanguage>
+      <Type>instm</Type>
+      <Scope>zeroeq::Monitor</Scope>
+    </TokenIdentifier>
+    <Path>classzeroeq_1_1_monitor.html</Path>
+    <Anchor>a5266261104fb38156c83425fd9d4c5d4</Anchor>
+    <Abstract>Notify of a new connection to the sender. </Abstract>
+    <DeclaredIn>monitor.h</DeclaredIn>
+  </Token>
+  <Token>
+    <TokenIdentifier>
+      <Name>Receiver</Name>
+      <APILanguage>cpp</APILanguage>
+      <Type>instm</Type>
+      <Scope>zeroeq::Receiver</Scope>
+    </TokenIdentifier>
+    <Path>classzeroeq_1_1_receiver.html</Path>
+    <Anchor>ad5773a0809d164c0a047821503c28c6d</Anchor>
+    <Abstract>Create a new standalone receiver. </Abstract>
+    <DeclaredIn>receiver.h</DeclaredIn>
+  </Token>
+  <Token>
+    <TokenIdentifier>
+      <Name>Receiver</Name>
+      <APILanguage>cpp</APILanguage>
+      <Type>instm</Type>
+      <Scope>zeroeq::Receiver</Scope>
+    </TokenIdentifier>
+    <Path>classzeroeq_1_1_receiver.html</Path>
+    <Anchor>ad767195111bae3fae7de8ac0e57f4d0f</Anchor>
+    <Abstract>Create a shared receiver. </Abstract>
+    <DeclaredIn>receiver.h</DeclaredIn>
+  </Token>
+  <Token>
+    <TokenIdentifier>
+      <Name>~Receiver</Name>
+      <APILanguage>cpp</APILanguage>
+      <Type>instm</Type>
+      <Scope>zeroeq::Receiver</Scope>
+    </TokenIdentifier>
+    <Path>classzeroeq_1_1_receiver.html</Path>
+    <Anchor>a28db3700ff81373a9bf3c74ab393fe00</Anchor>
+    <Abstract>Destroy this receiver. </Abstract>
+    <DeclaredIn>receiver.h</DeclaredIn>
+  </Token>
+  <Token>
+    <TokenIdentifier>
+      <Name>receive</Name>
+      <APILanguage>cpp</APILanguage>
+      <Type>instm</Type>
+      <Scope>zeroeq::Receiver</Scope>
+    </TokenIdentifier>
+    <Path>classzeroeq_1_1_receiver.html</Path>
+    <Anchor>a97e7e5ce4223d96ebcb541e564efec49</Anchor>
+    <Abstract>Receive at least one event from all shared receivers. </Abstract>
+    <DeclaredIn>receiver.h</DeclaredIn>
+  </Token>
+  <Token>
+    <TokenIdentifier>
+      <Name>addSockets</Name>
+      <APILanguage>cpp</APILanguage>
+      <Type>instm</Type>
+      <Scope>zeroeq::Receiver</Scope>
+    </TokenIdentifier>
+    <Path>classzeroeq_1_1_receiver.html</Path>
+    <Anchor>a51027302e01489101776ae6c418a3833</Anchor>
+    <Abstract>Add this receiver&amp;#39;s sockets to the given list. </Abstract>
+    <DeclaredIn>receiver.h</DeclaredIn>
+  </Token>
+  <Token>
+    <TokenIdentifier>
+      <Name>process</Name>
+      <APILanguage>cpp</APILanguage>
+      <Type>instm</Type>
+      <Scope>zeroeq::Receiver</Scope>
+    </TokenIdentifier>
+    <Path>classzeroeq_1_1_receiver.html</Path>
+    <Anchor>a3197718f62ef7f946d0fabaf87864e45</Anchor>
+    <Abstract>Process data on a signalled socket. </Abstract>
+    <DeclaredIn>receiver.h</DeclaredIn>
+  </Token>
+  <Token>
+    <TokenIdentifier>
+      <Name>update</Name>
+      <APILanguage>cpp</APILanguage>
+      <Type>instm</Type>
+      <Scope>zeroeq::Receiver</Scope>
+    </TokenIdentifier>
+    <Path>classzeroeq_1_1_receiver.html</Path>
+    <Anchor>ad7935ae7f25b938975b822ff05af965b</Anchor>
+    <Abstract>Update the internal connection list. </Abstract>
+    <DeclaredIn>receiver.h</DeclaredIn>
+  </Token>
+  <Token>
+    <TokenIdentifier>
+      <Name>addConnection</Name>
+      <APILanguage>cpp</APILanguage>
+      <Type>instm</Type>
+      <Scope>zeroeq::Receiver</Scope>
+    </TokenIdentifier>
+    <Path>classzeroeq_1_1_receiver.html</Path>
+    <Anchor>a4c7109254d8db6af6fb0c22c92b8a0d6</Anchor>
+    <Abstract>Add the given connection to the list of receiving sockets. </Abstract>
+    <DeclaredIn>receiver.h</DeclaredIn>
   </Token>
   <Token>
     <TokenIdentifier>
@@ -531,6 +693,28 @@
     <Anchor>a4c7109254d8db6af6fb0c22c92b8a0d6</Anchor>
     <Abstract>Add the given connection to the list of receiving sockets. </Abstract>
     <DeclaredIn>receiver.h</DeclaredIn>
+  </Token>
+  <Token>
+    <TokenIdentifier>
+      <Name>zeroeq::Sender</Name>
+      <APILanguage>c</APILanguage>
+      <Type>cl</Type>
+      <Scope>zeroeq::Sender</Scope>
+    </TokenIdentifier>
+    <Path>classzeroeq_1_1_sender.html</Path>
+    <Abstract>Interface for entities sending data. </Abstract>
+    <DeclaredIn>sender.h</DeclaredIn>
+  </Token>
+  <Token>
+    <TokenIdentifier>
+      <Name>getSocket</Name>
+      <APILanguage>cpp</APILanguage>
+      <Type>instm</Type>
+      <Scope>zeroeq::Sender</Scope>
+    </TokenIdentifier>
+    <Path>classzeroeq_1_1_sender.html</Path>
+    <Anchor>aff94b077ead3a181aed81a2b9b707609</Anchor>
+    <DeclaredIn>sender.h</DeclaredIn>
   </Token>
   <Token>
     <TokenIdentifier>
