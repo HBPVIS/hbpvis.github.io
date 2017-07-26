@@ -441,7 +441,7 @@
       <Scope>zeroeq::Receiver</Scope>
     </TokenIdentifier>
     <Path>classzeroeq_1_1_receiver.html</Path>
-    <Anchor>a3197718f62ef7f946d0fabaf87864e45</Anchor>
+    <Anchor>ae130ee25e292a79ca37cb2dbf12a7da0</Anchor>
     <Abstract>Process data on a signalled socket. </Abstract>
     <DeclaredIn>receiver.h</DeclaredIn>
   </Token>
@@ -666,7 +666,7 @@
       <Scope>zeroeq::Receiver</Scope>
     </TokenIdentifier>
     <Path>classzeroeq_1_1_receiver.html</Path>
-    <Anchor>a3197718f62ef7f946d0fabaf87864e45</Anchor>
+    <Anchor>ae130ee25e292a79ca37cb2dbf12a7da0</Anchor>
     <Abstract>Process data on a signalled socket. </Abstract>
     <DeclaredIn>receiver.h</DeclaredIn>
   </Token>
@@ -1236,7 +1236,7 @@
       <Scope>zeroeq::Receiver</Scope>
     </TokenIdentifier>
     <Path>classzeroeq_1_1_receiver.html</Path>
-    <Anchor>a3197718f62ef7f946d0fabaf87864e45</Anchor>
+    <Anchor>ae130ee25e292a79ca37cb2dbf12a7da0</Anchor>
     <Abstract>Process data on a signalled socket. </Abstract>
     <DeclaredIn>receiver.h</DeclaredIn>
   </Token>

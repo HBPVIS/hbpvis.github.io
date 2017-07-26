@@ -37,7 +37,7 @@
           </tr>
           <tr>
             <td class="headerItem">Date:</td>
-            <td class="headerValue">2017-07-14 01:36:38</td>
+            <td class="headerValue">2017-07-27 01:36:40</td>
             <td></td>
             <td class="headerItem">Functions:</td>
             <td class="headerCovTableEntry">3</td>
@@ -124,18 +124,18 @@
 <span class="lineNum">      62 </span>            :     //@}
 <a name="63"><span class="lineNum">      63 </span>            : };</a>
 <span class="lineNum">      64 </span>            : 
-<span class="lineNum">      65 </span><span class="lineCov">         17 : inline std::ostream&amp; operator&lt;&lt;(std::ostream&amp; os, const URI&amp; uri)</span>
+<span class="lineNum">      65 </span><span class="lineCov">         16 : inline std::ostream&amp; operator&lt;&lt;(std::ostream&amp; os, const URI&amp; uri)</span>
 <span class="lineNum">      66 </span>            : {
-<span class="lineNum">      67 </span><span class="lineCov">         17 :     return os &lt;&lt; uri.toServusURI();</span>
+<span class="lineNum">      67 </span><span class="lineCov">         16 :     return os &lt;&lt; uri.toServusURI();</span>
 <span class="lineNum">      68 </span>            : }
 <span class="lineNum">      69 </span>            : 
 <span class="lineNum">      70 </span>            : } // namespace zeroeq
 <span class="lineNum">      71 </span>            : 
 <a name="72"><span class="lineNum">      72 </span>            : namespace std</a>
 <span class="lineNum">      73 </span>            : {
-<span class="lineNum">      74 </span><span class="lineCov">          5 : inline std::string to_string(const zeroeq::URI&amp; uri)</span>
+<span class="lineNum">      74 </span><span class="lineCov">          6 : inline std::string to_string(const zeroeq::URI&amp; uri)</span>
 <span class="lineNum">      75 </span>            : {
-<span class="lineNum">      76 </span><span class="lineCov">          5 :     return to_string(uri.toServusURI());</span>
+<span class="lineNum">      76 </span><span class="lineCov">          6 :     return to_string(uri.toServusURI());</span>
 <span class="lineNum">      77 </span>            : }
 <span class="lineNum">      78 </span>            : }
 <span class="lineNum">      79 </span>            : 

@@ -37,7 +37,7 @@
           </tr>
           <tr>
             <td class="headerItem">Date:</td>
-            <td class="headerValue">2017-07-14 01:36:38</td>
+            <td class="headerValue">2017-07-27 01:36:40</td>
             <td></td>
             <td class="headerItem">Functions:</td>
             <td class="headerCovTableEntry">16</td>
@@ -280,34 +280,35 @@
 <span class="lineNum">     218 </span>            : };
 <a name="219"><span class="lineNum">     219 </span>            : } // anonymous namespace</a>
 <span class="lineNum">     220 </span>            : 
-<span class="lineNum">     221 </span><span class="lineCov">         70 : RequestHandler::RequestHandler(const std::string&amp; zmqURL, void* zmqContext)</span>
-<span class="lineNum">     222 </span><span class="lineCov">         70 :     : _socket(zmq_socket(zmqContext, ZMQ_PAIR))</span>
-<span class="lineNum">     223 </span>            : {
-<span class="lineNum">     224 </span><span class="lineCov">         70 :     if (zmq_connect(_socket, zmqURL.c_str()) == -1)</span>
-<span class="lineNum">     225 </span>            :     {
-<span class="lineNum">     226 </span><span class="lineNoCov">          0 :         ZEROEQTHROW(std::runtime_error(</span>
-<span class="lineNum">     227 </span>            :             &quot;Cannot connect RequestHandler to inproc socket&quot;));
-<span class="lineNum">     228 </span>            :     }
-<a name="229"><span class="lineNum">     229 </span><span class="lineCov">         70 : }</span></a>
-<span class="lineNum">     230 </span>            : 
-<span class="lineNum">     231 </span><span class="lineCov">        140 : RequestHandler::~RequestHandler()</span>
-<span class="lineNum">     232 </span>            : {
-<span class="lineNum">     233 </span><span class="lineCov">         70 :     zmq_close(_socket);</span>
-<a name="234"><span class="lineNum">     234 </span><span class="lineCov">         70 : }</span></a>
-<span class="lineNum">     235 </span>            : 
-<span class="lineNum">     236 </span><span class="lineCov">        194 : void RequestHandler::operator()(const HTTPServer::request&amp; request,</span>
-<span class="lineNum">     237 </span>            :                                 HTTPServer::connection_ptr connection)
-<span class="lineNum">     238 </span>            : {
-<span class="lineNum">     239 </span>            :     // as the underlying cppnetlib http server is asynchronous and payload for
-<span class="lineNum">     240 </span>            :     // PUT events has to be read in chunks in the cppnetlib thread, create
-<span class="lineNum">     241 </span>            :     // a shared instance of the handler object that is passed to cppnetlib for
-<span class="lineNum">     242 </span>            :     // processing the request.
-<span class="lineNum">     243 </span>            :     std::shared_ptr&lt;ConnectionHandler&gt; connectionHandler(
-<span class="lineNum">     244 </span><span class="lineCov">        388 :         new ConnectionHandler(request, _socket));</span>
-<span class="lineNum">     245 </span><span class="lineCov">        194 :     (*connectionHandler)(connection);</span>
-<a name="246"><span class="lineNum">     246 </span><span class="lineCov">        194 : }</span></a>
-<span class="lineNum">     247 </span>            : }
-<span class="lineNum">     248 </span><span class="lineCov">         42 : }</span>
+<span class="lineNum">     221 </span><span class="lineCov">         70 : RequestHandler::RequestHandler(const std::string&amp; zmqURL)</span>
+<span class="lineNum">     222 </span>            :     : _context(detail::getContext())
+<span class="lineNum">     223 </span><span class="lineCov">         70 :     , _socket(zmq_socket(_context.get(), ZMQ_PAIR))</span>
+<span class="lineNum">     224 </span>            : {
+<span class="lineNum">     225 </span><span class="lineCov">         70 :     if (zmq_connect(_socket, zmqURL.c_str()) == -1)</span>
+<span class="lineNum">     226 </span>            :     {
+<span class="lineNum">     227 </span><span class="lineNoCov">          0 :         ZEROEQTHROW(std::runtime_error(</span>
+<span class="lineNum">     228 </span>            :             &quot;Cannot connect RequestHandler to inproc socket&quot;));
+<span class="lineNum">     229 </span>            :     }
+<a name="230"><span class="lineNum">     230 </span><span class="lineCov">         70 : }</span></a>
+<span class="lineNum">     231 </span>            : 
+<span class="lineNum">     232 </span><span class="lineCov">        140 : RequestHandler::~RequestHandler()</span>
+<span class="lineNum">     233 </span>            : {
+<span class="lineNum">     234 </span><span class="lineCov">         70 :     zmq_close(_socket);</span>
+<a name="235"><span class="lineNum">     235 </span><span class="lineCov">         70 : }</span></a>
+<span class="lineNum">     236 </span>            : 
+<span class="lineNum">     237 </span><span class="lineCov">        194 : void RequestHandler::operator()(const HTTPServer::request&amp; request,</span>
+<span class="lineNum">     238 </span>            :                                 HTTPServer::connection_ptr connection)
+<span class="lineNum">     239 </span>            : {
+<span class="lineNum">     240 </span>            :     // as the underlying cppnetlib http server is asynchronous and payload for
+<span class="lineNum">     241 </span>            :     // PUT events has to be read in chunks in the cppnetlib thread, create
+<span class="lineNum">     242 </span>            :     // a shared instance of the handler object that is passed to cppnetlib for
+<span class="lineNum">     243 </span>            :     // processing the request.
+<span class="lineNum">     244 </span>            :     std::shared_ptr&lt;ConnectionHandler&gt; connectionHandler(
+<span class="lineNum">     245 </span><span class="lineCov">        388 :         new ConnectionHandler(request, _socket));</span>
+<span class="lineNum">     246 </span><span class="lineCov">        194 :     (*connectionHandler)(connection);</span>
+<a name="247"><span class="lineNum">     247 </span><span class="lineCov">        194 : }</span></a>
+<span class="lineNum">     248 </span>            : }
+<span class="lineNum">     249 </span><span class="lineCov">         42 : }</span>
 </pre>
       </td>
     </tr>

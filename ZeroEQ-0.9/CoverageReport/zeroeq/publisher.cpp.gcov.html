@@ -31,13 +31,13 @@
             <td class="headerValue">ZeroEQ</td>
             <td></td>
             <td class="headerItem">Lines:</td>
-            <td class="headerCovTableEntry">71</td>
+            <td class="headerCovTableEntry">74</td>
             <td class="headerCovTableEntry">80</td>
-            <td class="headerCovTableEntryHi">88.8 %</td>
+            <td class="headerCovTableEntryHi">92.5 %</td>
           </tr>
           <tr>
             <td class="headerItem">Date:</td>
-            <td class="headerValue">2017-07-14 01:36:38</td>
+            <td class="headerValue">2017-07-27 01:36:40</td>
             <td></td>
             <td class="headerItem">Functions:</td>
             <td class="headerCovTableEntry">20</td>
@@ -86,7 +86,7 @@
 <a name="24"><span class="lineNum">      24 </span>            : {</a>
 <span class="lineNum">      25 </span>            : public:
 <span class="lineNum">      26 </span><span class="lineCov">         16 :     Impl(const URI&amp; uri_, const std::string&amp; session)</span>
-<span class="lineNum">      27 </span><span class="lineCov">         16 :         : detail::Sender(uri_, 0, ZMQ_XPUB)</span>
+<span class="lineNum">      27 </span><span class="lineCov">         16 :         : detail::Sender(uri_, ZMQ_XPUB)</span>
 <span class="lineNum">      28 </span>            :         , _service(PUBLISHER_SERVICE)
 <span class="lineNum">      29 </span><span class="lineCov">         18 :         , _session(session == DEFAULT_SESSION ? getDefaultSession() : session)</span>
 <span class="lineNum">      30 </span>            :     {
@@ -191,24 +191,24 @@
 <span class="lineNum">     129 </span>            : {
 <a name="130"><span class="lineNum">     130 </span><span class="lineCov">          1 : }</span></a>
 <span class="lineNum">     131 </span>            : 
-<span class="lineNum">     132 </span><span class="lineCov">         13 : Publisher::Publisher(const std::string&amp; session)</span>
-<span class="lineNum">     133 </span><span class="lineCov">         14 :     : _impl(new Impl(URI(), session))</span>
+<span class="lineNum">     132 </span><span class="lineCov">         12 : Publisher::Publisher(const std::string&amp; session)</span>
+<span class="lineNum">     133 </span><span class="lineCov">         13 :     : _impl(new Impl(URI(), session))</span>
 <span class="lineNum">     134 </span>            : {
-<a name="135"><span class="lineNum">     135 </span><span class="lineCov">         12 : }</span></a>
+<a name="135"><span class="lineNum">     135 </span><span class="lineCov">         11 : }</span></a>
 <span class="lineNum">     136 </span>            : 
 <span class="lineNum">     137 </span><span class="lineCov">          2 : Publisher::Publisher(const URI&amp; uri)</span>
 <span class="lineNum">     138 </span><span class="lineCov">          3 :     : _impl(new Impl(uri, DEFAULT_SESSION))</span>
 <span class="lineNum">     139 </span>            : {
 <a name="140"><span class="lineNum">     140 </span><span class="lineCov">          1 : }</span></a>
 <span class="lineNum">     141 </span>            : 
-<span class="lineNum">     142 </span><span class="lineNoCov">          0 : Publisher::Publisher(const URI&amp; uri, const std::string&amp; session)</span>
-<span class="lineNum">     143 </span><span class="lineNoCov">          0 :     : _impl(new Impl(uri, session))</span>
+<span class="lineNum">     142 </span><span class="lineCov">          1 : Publisher::Publisher(const URI&amp; uri, const std::string&amp; session)</span>
+<span class="lineNum">     143 </span><span class="lineCov">          1 :     : _impl(new Impl(uri, session))</span>
 <span class="lineNum">     144 </span>            : {
-<a name="145"><span class="lineNum">     145 </span><span class="lineNoCov">          0 : }</span></a>
+<a name="145"><span class="lineNum">     145 </span><span class="lineCov">          1 : }</span></a>
 <span class="lineNum">     146 </span>            : 
-<span class="lineNum">     147 </span><span class="lineCov">         15 : Publisher::~Publisher()</span>
+<span class="lineNum">     147 </span><span class="lineCov">         14 : Publisher::~Publisher()</span>
 <span class="lineNum">     148 </span>            : {
-<a name="149"><span class="lineNum">     149 </span><span class="lineCov">         15 : }</span></a>
+<a name="149"><span class="lineNum">     149 </span><span class="lineCov">         14 : }</span></a>
 <span class="lineNum">     150 </span>            : 
 <span class="lineNum">     151 </span><span class="lineCov">      40015 : bool Publisher::publish(const servus::Serializable&amp; serializable)</span>
 <span class="lineNum">     152 </span>            : {

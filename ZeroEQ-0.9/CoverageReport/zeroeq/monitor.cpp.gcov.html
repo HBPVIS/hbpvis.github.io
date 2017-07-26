@@ -32,12 +32,12 @@
             <td></td>
             <td class="headerItem">Lines:</td>
             <td class="headerCovTableEntry">48</td>
-            <td class="headerCovTableEntry">86</td>
-            <td class="headerCovTableEntryMed">55.8 %</td>
+            <td class="headerCovTableEntry">87</td>
+            <td class="headerCovTableEntryMed">55.2 %</td>
           </tr>
           <tr>
             <td class="headerItem">Date:</td>
-            <td class="headerValue">2017-07-14 01:36:38</td>
+            <td class="headerValue">2017-07-27 01:36:40</td>
             <td></td>
             <td class="headerItem">Functions:</td>
             <td class="headerCovTableEntry">15</td>
@@ -68,196 +68,207 @@
 <span class="lineNum">       6 </span>            : #include &quot;monitor.h&quot;
 <span class="lineNum">       7 </span>            : 
 <span class="lineNum">       8 </span>            : #include &quot;detail/constants.h&quot;
-<span class="lineNum">       9 </span>            : #include &quot;detail/socket.h&quot;
-<span class="lineNum">      10 </span>            : #include &quot;log.h&quot;
-<span class="lineNum">      11 </span>            : #include &quot;publisher.h&quot;
-<span class="lineNum">      12 </span>            : 
-<span class="lineNum">      13 </span>            : #include &lt;zmq.h&gt;
-<span class="lineNum">      14 </span>            : 
-<span class="lineNum">      15 </span>            : namespace zeroeq
-<span class="lineNum">      16 </span>            : {
-<span class="lineNum">      17 </span>            : class Monitor::Impl
-<a name="18"><span class="lineNum">      18 </span>            : {</a>
-<a name="19"><span class="lineNum">      19 </span>            : public:</a>
-<a name="20"><span class="lineNum">      20 </span><span class="lineCov">          2 :     Impl() {}</span></a>
-<span class="lineNum">      21 </span><span class="lineCov">          2 :     virtual ~Impl() {}</span>
-<span class="lineNum">      22 </span><span class="lineCov">          8 :     void addSockets(std::vector&lt;zeroeq::detail::Socket&gt;&amp; entries)</span>
-<span class="lineNum">      23 </span>            :     {
-<span class="lineNum">      24 </span>            :         zeroeq::detail::Socket entry;
-<span class="lineNum">      25 </span><span class="lineCov">          8 :         entry.socket = _socket;</span>
-<span class="lineNum">      26 </span><span class="lineCov">          8 :         entry.events = ZMQ_POLLIN;</span>
-<span class="lineNum">      27 </span><span class="lineCov">          8 :         entries.push_back(entry);</span>
-<span class="lineNum">      28 </span><span class="lineCov">          8 :     }</span>
-<span class="lineNum">      29 </span>            : 
-<span class="lineNum">      30 </span>            :     virtual void process(void* socket, Monitor&amp; monitor) = 0;
-<span class="lineNum">      31 </span>            : 
-<span class="lineNum">      32 </span>            : protected:
-<span class="lineNum">      33 </span>            :     void* _socket;
-<span class="lineNum">      34 </span>            : };
-<span class="lineNum">      35 </span>            : 
-<span class="lineNum">      36 </span>            : namespace
-<span class="lineNum">      37 </span>            : {
-<span class="lineNum">      38 </span>            : class XPubImpl : public Monitor::Impl
-<a name="39"><span class="lineNum">      39 </span>            : {</a>
-<span class="lineNum">      40 </span>            : public:
-<span class="lineNum">      41 </span><span class="lineCov">          2 :     XPubImpl(Sender&amp; sender)</span>
-<span class="lineNum">      42 </span><span class="lineCov">          2 :     {</span>
-<span class="lineNum">      43 </span><span class="lineCov">          2 :         _socket = sender.getSocket();</span>
-<span class="lineNum">      44 </span>            : 
-<span class="lineNum">      45 </span><span class="lineCov">          2 :         const int on = 1;</span>
-<span class="lineNum">      46 </span><span class="lineCov">          2 :         if (zmq_setsockopt(_socket, ZMQ_XPUB_VERBOSE, &amp;on, sizeof(on)) == -1)</span>
-<span class="lineNum">      47 </span>            :         {
-<span class="lineNum">      48 </span><span class="lineNoCov">          0 :             ZEROEQTHROW(std::runtime_error(</span>
-<span class="lineNum">      49 </span>            :                 std::string(&quot;Enabling ZMQ_XPUB_VERBOSE failed: &quot;) +
-<span class="lineNum">      50 </span>            :                 zmq_strerror(zmq_errno())));
-<span class="lineNum">      51 </span>            :         }
-<a name="52"><span class="lineNum">      52 </span><span class="lineCov">          2 :     }</span></a>
-<span class="lineNum">      53 </span>            : 
-<span class="lineNum">      54 </span><span class="lineCov">          4 :     ~XPubImpl()</span>
-<span class="lineNum">      55 </span><span class="lineCov">          4 :     {</span>
-<span class="lineNum">      56 </span><span class="lineCov">          2 :         if (_socket)</span>
-<span class="lineNum">      57 </span>            :         {
-<span class="lineNum">      58 </span><span class="lineCov">          2 :             const int off = 0;</span>
-<span class="lineNum">      59 </span><span class="lineCov">          2 :             zmq_setsockopt(_socket, ZMQ_XPUB_VERBOSE, &amp;off, sizeof(off));</span>
-<span class="lineNum">      60 </span>            :         }
-<a name="61"><span class="lineNum">      61 </span><span class="lineCov">          4 :     }</span></a>
-<span class="lineNum">      62 </span>            : 
-<span class="lineNum">      63 </span><span class="lineCov">          4 :     void process(void* socket, Monitor&amp; monitor)</span>
-<span class="lineNum">      64 </span>            :     {
-<span class="lineNum">      65 </span>            :         // Message event is one byte 0=unsub or 1=sub, followed by topic
-<span class="lineNum">      66 </span>            :         zmq_msg_t msg;
-<span class="lineNum">      67 </span><span class="lineCov">          4 :         zmq_msg_init(&amp;msg);</span>
-<span class="lineNum">      68 </span><span class="lineCov">          4 :         if (zmq_msg_recv(&amp;msg, socket, 0) == -1)</span>
-<span class="lineNum">      69 </span><span class="lineNoCov">          0 :             return;</span>
-<span class="lineNum">      70 </span>            : 
-<span class="lineNum">      71 </span><span class="lineCov">          4 :         const uint8_t* data = (const uint8_t*)zmq_msg_data(&amp;msg);</span>
-<span class="lineNum">      72 </span><span class="lineCov">          4 :         switch (*data)</span>
-<span class="lineNum">      73 </span>            :         {
-<span class="lineNum">      74 </span>            :         case 0:
-<span class="lineNum">      75 </span><span class="lineNoCov">          0 :             break; // unsub</span>
-<span class="lineNum">      76 </span>            : 
-<span class="lineNum">      77 </span>            :         case 1: // sub
-<span class="lineNum">      78 </span><span class="lineCov">          8 :             if (zmq_msg_size(&amp;msg) == sizeof(uint8_t) + sizeof(uint128_t) &amp;&amp;</span>
-<span class="lineNum">      79 </span><span class="lineCov">          4 :                 *(const uint128_t*)(data + 1) == MEERKAT) // new subscriber</span>
-<span class="lineNum">      80 </span>            :             {
-<span class="lineNum">      81 </span><span class="lineCov">          2 :                 monitor.notifyNewConnection();</span>
-<span class="lineNum">      82 </span>            :             }
-<span class="lineNum">      83 </span><span class="lineCov">          4 :             break;</span>
-<span class="lineNum">      84 </span>            : 
-<span class="lineNum">      85 </span>            :         default:
-<span class="lineNum">      86 </span><span class="lineNoCov">          0 :             ZEROEQWARN &lt;&lt; &quot;Unhandled monitor event&quot; &lt;&lt; std::endl;</span>
-<span class="lineNum">      87 </span>            :         }
-<span class="lineNum">      88 </span><span class="lineCov">          4 :         zmq_msg_close(&amp;msg);</span>
-<span class="lineNum">      89 </span><span class="lineCov">          4 :         return;</span>
-<span class="lineNum">      90 </span>            :     }
-<span class="lineNum">      91 </span>            : };
-<span class="lineNum">      92 </span>            : 
-<span class="lineNum">      93 </span>            : class SocketImpl : public Monitor::Impl
-<a name="94"><span class="lineNum">      94 </span>            : {</a>
-<span class="lineNum">      95 </span>            : public:
-<span class="lineNum">      96 </span><span class="lineNoCov">          0 :     SocketImpl(Sender&amp; sender, void* context)</span>
-<span class="lineNum">      97 </span><span class="lineNoCov">          0 :     {</span>
-<span class="lineNum">      98 </span><span class="lineNoCov">          0 :         const auto inproc = std::string(&quot;inproc://zeroeq.monitor.&quot;) +</span>
-<span class="lineNum">      99 </span><span class="lineNoCov">          0 :                             servus::make_UUID().getString();</span>
-<span class="lineNum">     100 </span>            : 
-<span class="lineNum">     101 </span><span class="lineNoCov">          0 :         if (::zmq_socket_monitor(sender.getSocket(), inproc.c_str(),</span>
-<span class="lineNum">     102 </span>            :                                  ZMQ_EVENT_ALL) != 0)
-<span class="lineNum">     103 </span>            :         {
-<span class="lineNum">     104 </span><span class="lineNoCov">          0 :             ZEROEQTHROW(</span>
-<span class="lineNum">     105 </span>            :                 std::runtime_error(std::string(&quot;Cannot monitor socket: &quot;) +
-<span class="lineNum">     106 </span>            :                                    zmq_strerror(zmq_errno())));
-<span class="lineNum">     107 </span>            :         }
-<span class="lineNum">     108 </span>            : 
-<span class="lineNum">     109 </span><span class="lineNoCov">          0 :         _socket = ::zmq_socket(context, ZMQ_PAIR);</span>
-<span class="lineNum">     110 </span><span class="lineNoCov">          0 :         if (!_socket)</span>
-<span class="lineNum">     111 </span><span class="lineNoCov">          0 :             ZEROEQTHROW(std::runtime_error(</span>
-<span class="lineNum">     112 </span>            :                 std::string(&quot;Cannot create inproc socket: &quot;) +
-<span class="lineNum">     113 </span>            :                 zmq_strerror(zmq_errno())));
-<span class="lineNum">     114 </span>            : 
-<span class="lineNum">     115 </span><span class="lineNoCov">          0 :         if (::zmq_connect(_socket, inproc.c_str()) != 0)</span>
-<span class="lineNum">     116 </span>            :         {
-<span class="lineNum">     117 </span><span class="lineNoCov">          0 :             ZEROEQTHROW(std::runtime_error(</span>
-<span class="lineNum">     118 </span>            :                 std::string(&quot;Cannot connect inproc socket: &quot;) +
-<span class="lineNum">     119 </span>            :                 zmq_strerror(zmq_errno())));
-<span class="lineNum">     120 </span>            :         }
-<a name="121"><span class="lineNum">     121 </span><span class="lineNoCov">          0 :     }</span></a>
-<span class="lineNum">     122 </span>            : 
-<span class="lineNum">     123 </span><span class="lineNoCov">          0 :     ~SocketImpl()</span>
-<span class="lineNum">     124 </span><span class="lineNoCov">          0 :     {</span>
-<span class="lineNum">     125 </span><span class="lineNoCov">          0 :         if (_socket)</span>
-<span class="lineNum">     126 </span><span class="lineNoCov">          0 :             ::zmq_close(_socket);</span>
-<a name="127"><span class="lineNum">     127 </span><span class="lineNoCov">          0 :     }</span></a>
-<span class="lineNum">     128 </span>            : 
-<span class="lineNum">     129 </span><span class="lineNoCov">          0 :     void process(void* socket, Monitor&amp; monitor)</span>
-<span class="lineNum">     130 </span>            :     {
-<span class="lineNum">     131 </span>            :         // Messages consist of 2 Frames, the first containing the event-id and
-<span class="lineNum">     132 </span>            :         // the associated value. The second frame holds the affected endpoint as
-<span class="lineNum">     133 </span>            :         // string.
-<span class="lineNum">     134 </span>            :         zmq_msg_t msg;
-<span class="lineNum">     135 </span><span class="lineNoCov">          0 :         zmq_msg_init(&amp;msg);</span>
-<span class="lineNum">     136 </span>            : 
-<span class="lineNum">     137 </span>            :         //  The layout of the first Frame is: 16 bit event id 32 bit event value
-<span class="lineNum">     138 </span><span class="lineNoCov">          0 :         if (zmq_msg_recv(&amp;msg, socket, 0) == -1)</span>
-<span class="lineNum">     139 </span><span class="lineNoCov">          0 :             return;</span>
-<span class="lineNum">     140 </span>            : 
-<span class="lineNum">     141 </span><span class="lineNoCov">          0 :         const uint16_t event = *(uint16_t*)zmq_msg_data(&amp;msg);</span>
-<span class="lineNum">     142 </span><span class="lineNoCov">          0 :         if (!zmq_msg_more(&amp;msg))</span>
-<span class="lineNum">     143 </span><span class="lineNoCov">          0 :             return;</span>
-<span class="lineNum">     144 </span><span class="lineNoCov">          0 :         zmq_msg_close(&amp;msg);</span>
-<span class="lineNum">     145 </span>            : 
-<span class="lineNum">     146 </span>            :         //  Second frame in message contains event address, skip
-<span class="lineNum">     147 </span><span class="lineNoCov">          0 :         zmq_msg_init(&amp;msg);</span>
-<span class="lineNum">     148 </span><span class="lineNoCov">          0 :         if (zmq_msg_recv(&amp;msg, socket, 0) == -1)</span>
-<span class="lineNum">     149 </span><span class="lineNoCov">          0 :             return;</span>
-<span class="lineNum">     150 </span><span class="lineNoCov">          0 :         zmq_msg_close(&amp;msg);</span>
-<span class="lineNum">     151 </span>            : 
-<span class="lineNum">     152 </span><span class="lineNoCov">          0 :         switch (event)</span>
-<span class="lineNum">     153 </span>            :         {
-<span class="lineNum">     154 </span>            :         case ZMQ_EVENT_CONNECTED:
-<span class="lineNum">     155 </span>            :         case ZMQ_EVENT_ACCEPTED:
-<span class="lineNum">     156 </span><span class="lineNoCov">          0 :             monitor.notifyNewConnection();</span>
-<span class="lineNum">     157 </span><span class="lineNoCov">          0 :             break;</span>
+<span class="lineNum">       9 </span>            : #include &quot;detail/context.h&quot;
+<span class="lineNum">      10 </span>            : #include &quot;detail/socket.h&quot;
+<span class="lineNum">      11 </span>            : #include &quot;log.h&quot;
+<span class="lineNum">      12 </span>            : #include &quot;publisher.h&quot;
+<span class="lineNum">      13 </span>            : 
+<span class="lineNum">      14 </span>            : #include &lt;zmq.h&gt;
+<span class="lineNum">      15 </span>            : 
+<span class="lineNum">      16 </span>            : namespace zeroeq
+<span class="lineNum">      17 </span>            : {
+<span class="lineNum">      18 </span>            : class Monitor::Impl
+<a name="19"><span class="lineNum">      19 </span>            : {</a>
+<a name="20"><span class="lineNum">      20 </span>            : public:</a>
+<a name="21"><span class="lineNum">      21 </span><span class="lineCov">          2 :     Impl() {}</span></a>
+<span class="lineNum">      22 </span><span class="lineCov">          2 :     virtual ~Impl() {}</span>
+<span class="lineNum">      23 </span><span class="lineCov">         25 :     void addSockets(std::vector&lt;zeroeq::detail::Socket&gt;&amp; entries)</span>
+<span class="lineNum">      24 </span>            :     {
+<span class="lineNum">      25 </span>            :         zeroeq::detail::Socket entry;
+<span class="lineNum">      26 </span><span class="lineCov">         25 :         entry.socket = _socket;</span>
+<span class="lineNum">      27 </span><span class="lineCov">         25 :         entry.events = ZMQ_POLLIN;</span>
+<span class="lineNum">      28 </span><span class="lineCov">         25 :         entries.push_back(entry);</span>
+<span class="lineNum">      29 </span><span class="lineCov">         25 :     }</span>
+<span class="lineNum">      30 </span>            : 
+<span class="lineNum">      31 </span>            :     virtual bool process(void* socket, Monitor&amp; monitor) = 0;
+<span class="lineNum">      32 </span>            : 
+<span class="lineNum">      33 </span>            : protected:
+<span class="lineNum">      34 </span>            :     void* _socket;
+<span class="lineNum">      35 </span>            : };
+<span class="lineNum">      36 </span>            : 
+<span class="lineNum">      37 </span>            : namespace
+<span class="lineNum">      38 </span>            : {
+<span class="lineNum">      39 </span>            : class XPubImpl : public Monitor::Impl
+<a name="40"><span class="lineNum">      40 </span>            : {</a>
+<span class="lineNum">      41 </span>            : public:
+<span class="lineNum">      42 </span><span class="lineCov">          2 :     XPubImpl(Sender&amp; sender)</span>
+<span class="lineNum">      43 </span><span class="lineCov">          2 :     {</span>
+<span class="lineNum">      44 </span><span class="lineCov">          2 :         _socket = sender.getSocket();</span>
+<span class="lineNum">      45 </span>            : 
+<span class="lineNum">      46 </span><span class="lineCov">          2 :         const int on = 1;</span>
+<span class="lineNum">      47 </span><span class="lineCov">          2 :         if (zmq_setsockopt(_socket, ZMQ_XPUB_VERBOSE, &amp;on, sizeof(on)) == -1)</span>
+<span class="lineNum">      48 </span>            :         {
+<span class="lineNum">      49 </span><span class="lineNoCov">          0 :             ZEROEQTHROW(std::runtime_error(</span>
+<span class="lineNum">      50 </span>            :                 std::string(&quot;Enabling ZMQ_XPUB_VERBOSE failed: &quot;) +
+<span class="lineNum">      51 </span>            :                 zmq_strerror(zmq_errno())));
+<span class="lineNum">      52 </span>            :         }
+<a name="53"><span class="lineNum">      53 </span><span class="lineCov">          2 :     }</span></a>
+<span class="lineNum">      54 </span>            : 
+<span class="lineNum">      55 </span><span class="lineCov">          4 :     ~XPubImpl()</span>
+<span class="lineNum">      56 </span><span class="lineCov">          4 :     {</span>
+<span class="lineNum">      57 </span><span class="lineCov">          2 :         if (_socket)</span>
+<span class="lineNum">      58 </span>            :         {
+<span class="lineNum">      59 </span><span class="lineCov">          2 :             const int off = 0;</span>
+<span class="lineNum">      60 </span><span class="lineCov">          2 :             zmq_setsockopt(_socket, ZMQ_XPUB_VERBOSE, &amp;off, sizeof(off));</span>
+<span class="lineNum">      61 </span>            :         }
+<a name="62"><span class="lineNum">      62 </span><span class="lineCov">          4 :     }</span></a>
+<span class="lineNum">      63 </span>            : 
+<span class="lineNum">      64 </span><span class="lineCov">          3 :     bool process(void* socket, Monitor&amp; monitor)</span>
+<span class="lineNum">      65 </span>            :     {
+<span class="lineNum">      66 </span>            :         // Message event is one byte 0=unsub or 1=sub, followed by topic
+<span class="lineNum">      67 </span>            :         zmq_msg_t msg;
+<span class="lineNum">      68 </span><span class="lineCov">          3 :         zmq_msg_init(&amp;msg);</span>
+<span class="lineNum">      69 </span><span class="lineCov">          3 :         if (zmq_msg_recv(&amp;msg, socket, 0) == -1)</span>
+<span class="lineNum">      70 </span><span class="lineNoCov">          0 :             return false;</span>
+<span class="lineNum">      71 </span>            : 
+<span class="lineNum">      72 </span><span class="lineCov">          3 :         const uint8_t* data = (const uint8_t*)zmq_msg_data(&amp;msg);</span>
+<span class="lineNum">      73 </span><span class="lineCov">          3 :         switch (*data)</span>
+<span class="lineNum">      74 </span>            :         {
+<span class="lineNum">      75 </span>            :         case 0:
+<span class="lineNum">      76 </span><span class="lineNoCov">          0 :             break; // unsub</span>
+<span class="lineNum">      77 </span>            : 
+<span class="lineNum">      78 </span>            :         case 1: // sub
+<span class="lineNum">      79 </span><span class="lineCov">          6 :             if (zmq_msg_size(&amp;msg) == sizeof(uint8_t) + sizeof(uint128_t) &amp;&amp;</span>
+<span class="lineNum">      80 </span><span class="lineCov">          3 :                 *(const uint128_t*)(data + 1) == MEERKAT) // new subscriber</span>
+<span class="lineNum">      81 </span>            :             {
+<span class="lineNum">      82 </span><span class="lineCov">          2 :                 monitor.notifyNewConnection();</span>
+<span class="lineNum">      83 </span><span class="lineCov">          2 :                 return true;</span>
+<span class="lineNum">      84 </span>            :             }
+<span class="lineNum">      85 </span><span class="lineCov">          1 :             break;</span>
+<span class="lineNum">      86 </span>            : 
+<span class="lineNum">      87 </span>            :         default:
+<span class="lineNum">      88 </span><span class="lineNoCov">          0 :             ZEROEQWARN &lt;&lt; &quot;Unhandled monitor event&quot; &lt;&lt; std::endl;</span>
+<span class="lineNum">      89 </span>            :         }
+<span class="lineNum">      90 </span><span class="lineCov">          1 :         zmq_msg_close(&amp;msg);</span>
+<span class="lineNum">      91 </span><span class="lineCov">          1 :         return false;</span>
+<span class="lineNum">      92 </span>            :     }
+<span class="lineNum">      93 </span>            : };
+<span class="lineNum">      94 </span>            : 
+<span class="lineNum">      95 </span>            : class SocketImpl : public Monitor::Impl
+<a name="96"><span class="lineNum">      96 </span>            : {</a>
+<span class="lineNum">      97 </span>            : public:
+<span class="lineNum">      98 </span><span class="lineNoCov">          0 :     SocketImpl(Sender&amp; sender)</span>
+<span class="lineNum">      99 </span><span class="lineNoCov">          0 :         : _context(detail::getContext())</span>
+<span class="lineNum">     100 </span>            :     {
+<span class="lineNum">     101 </span>            : #if (ZMQ_VERSION &lt; 40104)
+<span class="lineNum">     102 </span>            :         ZEROEQTHROW(std::runtime_error(
+<span class="lineNum">     103 </span>            :             &quot;ZeroEQ version with bug in socket monitor, need at least 4.1.4&quot;));
+<span class="lineNum">     104 </span>            : #endif
+<span class="lineNum">     105 </span><span class="lineNoCov">          0 :         const auto inproc = std::string(&quot;inproc://zeroeq.monitor.&quot;) +</span>
+<span class="lineNum">     106 </span><span class="lineNoCov">          0 :                             servus::make_UUID().getString();</span>
+<span class="lineNum">     107 </span>            : 
+<span class="lineNum">     108 </span><span class="lineNoCov">          0 :         if (::zmq_socket_monitor(sender.getSocket(), inproc.c_str(),</span>
+<span class="lineNum">     109 </span>            :                                  ZMQ_EVENT_ALL) != 0)
+<span class="lineNum">     110 </span>            :         {
+<span class="lineNum">     111 </span><span class="lineNoCov">          0 :             ZEROEQTHROW(</span>
+<span class="lineNum">     112 </span>            :                 std::runtime_error(std::string(&quot;Cannot monitor socket: &quot;) +
+<span class="lineNum">     113 </span>            :                                    zmq_strerror(zmq_errno())));
+<span class="lineNum">     114 </span>            :         }
+<span class="lineNum">     115 </span>            : 
+<span class="lineNum">     116 </span><span class="lineNoCov">          0 :         _socket = ::zmq_socket(_context.get(), ZMQ_PAIR);</span>
+<span class="lineNum">     117 </span><span class="lineNoCov">          0 :         if (!_socket)</span>
+<span class="lineNum">     118 </span><span class="lineNoCov">          0 :             ZEROEQTHROW(std::runtime_error(</span>
+<span class="lineNum">     119 </span>            :                 std::string(&quot;Cannot create inproc socket: &quot;) +
+<span class="lineNum">     120 </span>            :                 zmq_strerror(zmq_errno())));
+<span class="lineNum">     121 </span>            : 
+<span class="lineNum">     122 </span><span class="lineNoCov">          0 :         if (::zmq_connect(_socket, inproc.c_str()) != 0)</span>
+<span class="lineNum">     123 </span>            :         {
+<span class="lineNum">     124 </span><span class="lineNoCov">          0 :             ZEROEQTHROW(std::runtime_error(</span>
+<span class="lineNum">     125 </span>            :                 std::string(&quot;Cannot connect inproc socket: &quot;) +
+<span class="lineNum">     126 </span>            :                 zmq_strerror(zmq_errno())));
+<span class="lineNum">     127 </span>            :         }
+<a name="128"><span class="lineNum">     128 </span><span class="lineNoCov">          0 :     }</span></a>
+<span class="lineNum">     129 </span>            : 
+<span class="lineNum">     130 </span><span class="lineNoCov">          0 :     ~SocketImpl()</span>
+<span class="lineNum">     131 </span><span class="lineNoCov">          0 :     {</span>
+<span class="lineNum">     132 </span><span class="lineNoCov">          0 :         if (_socket)</span>
+<span class="lineNum">     133 </span><span class="lineNoCov">          0 :             ::zmq_close(_socket);</span>
+<a name="134"><span class="lineNum">     134 </span><span class="lineNoCov">          0 :     }</span></a>
+<span class="lineNum">     135 </span>            : 
+<span class="lineNum">     136 </span><span class="lineNoCov">          0 :     bool process(void* socket, Monitor&amp; monitor)</span>
+<span class="lineNum">     137 </span>            :     {
+<span class="lineNum">     138 </span>            :         // Messages consist of 2 Frames, the first containing the event-id and
+<span class="lineNum">     139 </span>            :         // the associated value. The second frame holds the affected endpoint as
+<span class="lineNum">     140 </span>            :         // string.
+<span class="lineNum">     141 </span>            :         zmq_msg_t msg;
+<span class="lineNum">     142 </span><span class="lineNoCov">          0 :         zmq_msg_init(&amp;msg);</span>
+<span class="lineNum">     143 </span>            : 
+<span class="lineNum">     144 </span>            :         //  The layout of the first Frame is: 16 bit event id 32 bit event value
+<span class="lineNum">     145 </span><span class="lineNoCov">          0 :         if (zmq_msg_recv(&amp;msg, socket, 0) == -1)</span>
+<span class="lineNum">     146 </span><span class="lineNoCov">          0 :             return false;</span>
+<span class="lineNum">     147 </span>            : 
+<span class="lineNum">     148 </span><span class="lineNoCov">          0 :         const uint16_t event = *(uint16_t*)zmq_msg_data(&amp;msg);</span>
+<span class="lineNum">     149 </span><span class="lineNoCov">          0 :         if (!zmq_msg_more(&amp;msg))</span>
+<span class="lineNum">     150 </span><span class="lineNoCov">          0 :             return false;</span>
+<span class="lineNum">     151 </span><span class="lineNoCov">          0 :         zmq_msg_close(&amp;msg);</span>
+<span class="lineNum">     152 </span>            : 
+<span class="lineNum">     153 </span>            :         //  Second frame in message contains event address, skip
+<span class="lineNum">     154 </span><span class="lineNoCov">          0 :         zmq_msg_init(&amp;msg);</span>
+<span class="lineNum">     155 </span><span class="lineNoCov">          0 :         if (zmq_msg_recv(&amp;msg, socket, 0) == -1)</span>
+<span class="lineNum">     156 </span><span class="lineNoCov">          0 :             return false;</span>
+<span class="lineNum">     157 </span><span class="lineNoCov">          0 :         zmq_msg_close(&amp;msg);</span>
 <span class="lineNum">     158 </span>            : 
-<span class="lineNum">     159 </span>            :         default:
-<span class="lineNum">     160 </span><span class="lineNoCov">          0 :             ZEROEQWARN &lt;&lt; &quot;Unhandled monitor event &quot; &lt;&lt; event &lt;&lt; std::endl;</span>
-<span class="lineNum">     161 </span>            :         }
-<span class="lineNum">     162 </span>            :     }
-<a name="163"><span class="lineNum">     163 </span>            : };</a>
-<span class="lineNum">     164 </span>            : 
-<span class="lineNum">     165 </span><span class="lineCov">          2 : Monitor::Impl* newImpl(Sender&amp; sender, void* context)</span>
-<span class="lineNum">     166 </span>            : {
-<span class="lineNum">     167 </span><span class="lineCov">          2 :     if (dynamic_cast&lt;Publisher*&gt;(&amp;sender))</span>
-<span class="lineNum">     168 </span><span class="lineCov">          2 :         return new XPubImpl(sender);</span>
-<span class="lineNum">     169 </span><span class="lineNoCov">          0 :     return new SocketImpl(sender, context);</span>
-<span class="lineNum">     170 </span>            : }
-<a name="171"><span class="lineNum">     171 </span>            : }</a>
-<span class="lineNum">     172 </span>            : 
-<span class="lineNum">     173 </span><span class="lineCov">          1 : Monitor::Monitor(Sender&amp; sender)</span>
-<span class="lineNum">     174 </span>            :     : Receiver()
-<span class="lineNum">     175 </span><span class="lineCov">          1 :     , _impl(newImpl(sender, getZMQContext()))</span>
-<span class="lineNum">     176 </span>            : {
-<a name="177"><span class="lineNum">     177 </span><span class="lineCov">          1 : }</span></a>
-<span class="lineNum">     178 </span>            : 
-<span class="lineNum">     179 </span><span class="lineCov">          1 : Monitor::Monitor(Sender&amp; sender, Receiver&amp; shared)</span>
-<span class="lineNum">     180 </span>            :     : Receiver(shared)
-<span class="lineNum">     181 </span><span class="lineCov">          1 :     , _impl(newImpl(sender, getZMQContext()))</span>
-<span class="lineNum">     182 </span>            : {
-<a name="183"><span class="lineNum">     183 </span><span class="lineCov">          1 : }</span></a>
-<span class="lineNum">     184 </span>            : 
-<span class="lineNum">     185 </span><span class="lineCov">          2 : Monitor::~Monitor()</span>
-<span class="lineNum">     186 </span>            : {
-<a name="187"><span class="lineNum">     187 </span><span class="lineCov">          2 : }</span></a>
-<span class="lineNum">     188 </span>            : 
-<span class="lineNum">     189 </span><span class="lineCov">          8 : void Monitor::addSockets(std::vector&lt;zeroeq::detail::Socket&gt;&amp; entries)</span>
-<span class="lineNum">     190 </span>            : {
-<span class="lineNum">     191 </span><span class="lineCov">          8 :     _impl-&gt;addSockets(entries);</span>
-<a name="192"><span class="lineNum">     192 </span><span class="lineCov">          8 : }</span></a>
-<span class="lineNum">     193 </span>            : 
-<span class="lineNum">     194 </span><span class="lineCov">          4 : void Monitor::process(zeroeq::detail::Socket&amp; socket, uint32_t)</span>
-<span class="lineNum">     195 </span>            : {
-<a name="196"><span class="lineNum">     196 </span><span class="lineCov">          4 :     _impl-&gt;process(socket.socket, *this);</span></a>
-<span class="lineNum">     197 </span><span class="lineCov">          4 : }</span>
-<span class="lineNum">     198 </span><span class="lineCov">         21 : }</span>
+<span class="lineNum">     159 </span><span class="lineNoCov">          0 :         switch (event)</span>
+<span class="lineNum">     160 </span>            :         {
+<span class="lineNum">     161 </span>            :         case ZMQ_EVENT_CONNECTED:
+<span class="lineNum">     162 </span>            :         case ZMQ_EVENT_ACCEPTED:
+<span class="lineNum">     163 </span><span class="lineNoCov">          0 :             monitor.notifyNewConnection();</span>
+<span class="lineNum">     164 </span><span class="lineNoCov">          0 :             return true;</span>
+<span class="lineNum">     165 </span>            : 
+<span class="lineNum">     166 </span>            :         default:
+<span class="lineNum">     167 </span><span class="lineNoCov">          0 :             ZEROEQWARN &lt;&lt; &quot;Unhandled monitor event &quot; &lt;&lt; event &lt;&lt; std::endl;</span>
+<span class="lineNum">     168 </span>            :         }
+<span class="lineNum">     169 </span><span class="lineNoCov">          0 :         return false;</span>
+<span class="lineNum">     170 </span>            :     }
+<span class="lineNum">     171 </span>            : 
+<span class="lineNum">     172 </span>            : private:
+<span class="lineNum">     173 </span>            :     detail::ContextPtr _context;
+<a name="174"><span class="lineNum">     174 </span>            : };</a>
+<span class="lineNum">     175 </span>            : 
+<span class="lineNum">     176 </span><span class="lineCov">          2 : Monitor::Impl* newImpl(Sender&amp; sender)</span>
+<span class="lineNum">     177 </span>            : {
+<span class="lineNum">     178 </span><span class="lineCov">          2 :     if (dynamic_cast&lt;Publisher*&gt;(&amp;sender))</span>
+<span class="lineNum">     179 </span><span class="lineCov">          2 :         return new XPubImpl(sender);</span>
+<span class="lineNum">     180 </span><span class="lineNoCov">          0 :     return new SocketImpl(sender);</span>
+<span class="lineNum">     181 </span>            : }
+<a name="182"><span class="lineNum">     182 </span>            : }</a>
+<span class="lineNum">     183 </span>            : 
+<span class="lineNum">     184 </span><span class="lineCov">          1 : Monitor::Monitor(Sender&amp; sender)</span>
+<span class="lineNum">     185 </span>            :     : Receiver()
+<span class="lineNum">     186 </span><span class="lineCov">          1 :     , _impl(newImpl(sender))</span>
+<span class="lineNum">     187 </span>            : {
+<a name="188"><span class="lineNum">     188 </span><span class="lineCov">          1 : }</span></a>
+<span class="lineNum">     189 </span>            : 
+<span class="lineNum">     190 </span><span class="lineCov">          1 : Monitor::Monitor(Sender&amp; sender, Receiver&amp; shared)</span>
+<span class="lineNum">     191 </span>            :     : Receiver(shared)
+<span class="lineNum">     192 </span><span class="lineCov">          1 :     , _impl(newImpl(sender))</span>
+<span class="lineNum">     193 </span>            : {
+<a name="194"><span class="lineNum">     194 </span><span class="lineCov">          1 : }</span></a>
+<span class="lineNum">     195 </span>            : 
+<span class="lineNum">     196 </span><span class="lineCov">          2 : Monitor::~Monitor()</span>
+<span class="lineNum">     197 </span>            : {
+<a name="198"><span class="lineNum">     198 </span><span class="lineCov">          2 : }</span></a>
+<span class="lineNum">     199 </span>            : 
+<span class="lineNum">     200 </span><span class="lineCov">         25 : void Monitor::addSockets(std::vector&lt;zeroeq::detail::Socket&gt;&amp; entries)</span>
+<span class="lineNum">     201 </span>            : {
+<span class="lineNum">     202 </span><span class="lineCov">         25 :     _impl-&gt;addSockets(entries);</span>
+<a name="203"><span class="lineNum">     203 </span><span class="lineCov">         25 : }</span></a>
+<span class="lineNum">     204 </span>            : 
+<span class="lineNum">     205 </span><span class="lineCov">          3 : bool Monitor::process(zeroeq::detail::Socket&amp; socket)</span>
+<span class="lineNum">     206 </span>            : {
+<a name="207"><span class="lineNum">     207 </span><span class="lineCov">          3 :     return _impl-&gt;process(socket.socket, *this);</span></a>
+<span class="lineNum">     208 </span>            : }
+<span class="lineNum">     209 </span><span class="lineCov">         21 : }</span>
 </pre>
       </td>
     </tr>

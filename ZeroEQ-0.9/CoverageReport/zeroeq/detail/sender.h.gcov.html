@@ -31,17 +31,17 @@
             <td class="headerValue">ZeroEQ</td>
             <td></td>
             <td class="headerItem">Lines:</td>
-            <td class="headerCovTableEntry">50</td>
-            <td class="headerCovTableEntry">51</td>
-            <td class="headerCovTableEntryHi">98.0 %</td>
+            <td class="headerCovTableEntry">43</td>
+            <td class="headerCovTableEntry">44</td>
+            <td class="headerCovTableEntryHi">97.7 %</td>
           </tr>
           <tr>
             <td class="headerItem">Date:</td>
-            <td class="headerValue">2017-07-14 01:36:38</td>
+            <td class="headerValue">2017-07-27 01:36:40</td>
             <td></td>
             <td class="headerItem">Functions:</td>
-            <td class="headerCovTableEntry">7</td>
-            <td class="headerCovTableEntry">7</td>
+            <td class="headerCovTableEntry">5</td>
+            <td class="headerCovTableEntry">5</td>
             <td class="headerCovTableEntryHi">100.0 %</td>
           </tr>
           <tr><td><img src="../../glass.png" width=3 height=3 alt=""></td></tr>
@@ -68,127 +68,115 @@
 <span class="lineNum">       6 </span>            : #ifndef ZEROEQ_DETAIL_SENDER_H
 <span class="lineNum">       7 </span>            : #define ZEROEQ_DETAIL_SENDER_H
 <span class="lineNum">       8 </span>            : 
-<span class="lineNum">       9 </span>            : #include &lt;zeroeq/log.h&gt; // ZEROEQINFO
-<span class="lineNum">      10 </span>            : #include &lt;zeroeq/types.h&gt;
-<span class="lineNum">      11 </span>            : #include &lt;zeroeq/uri.h&gt;
-<span class="lineNum">      12 </span>            : #include &lt;zmq.h&gt;
-<span class="lineNum">      13 </span>            : 
-<span class="lineNum">      14 </span>            : // for NI_MAXHOST
-<span class="lineNum">      15 </span>            : #ifdef _WIN32
-<span class="lineNum">      16 </span>            : #include &lt;Ws2tcpip.h&gt;
-<span class="lineNum">      17 </span>            : #else
-<span class="lineNum">      18 </span>            : #include &lt;netdb.h&gt;
-<span class="lineNum">      19 </span>            : #include &lt;unistd.h&gt;
-<span class="lineNum">      20 </span>            : #endif
-<span class="lineNum">      21 </span>            : 
-<span class="lineNum">      22 </span>            : #include &lt;stdexcept&gt;
+<span class="lineNum">       9 </span>            : #include &lt;zeroeq/detail/constants.h&gt;
+<span class="lineNum">      10 </span>            : #include &lt;zeroeq/detail/context.h&gt;
+<span class="lineNum">      11 </span>            : #include &lt;zeroeq/log.h&gt; // ZEROEQINFO
+<span class="lineNum">      12 </span>            : #include &lt;zeroeq/types.h&gt;
+<span class="lineNum">      13 </span>            : #include &lt;zeroeq/uri.h&gt;
+<span class="lineNum">      14 </span>            : #include &lt;zmq.h&gt;
+<span class="lineNum">      15 </span>            : 
+<span class="lineNum">      16 </span>            : // for NI_MAXHOST
+<span class="lineNum">      17 </span>            : #ifdef _WIN32
+<span class="lineNum">      18 </span>            : #include &lt;Ws2tcpip.h&gt;
+<span class="lineNum">      19 </span>            : #else
+<span class="lineNum">      20 </span>            : #include &lt;netdb.h&gt;
+<span class="lineNum">      21 </span>            : #include &lt;unistd.h&gt;
+<span class="lineNum">      22 </span>            : #endif
 <span class="lineNum">      23 </span>            : 
-<span class="lineNum">      24 </span>            : namespace zeroeq
-<span class="lineNum">      25 </span>            : {
-<span class="lineNum">      26 </span>            : namespace detail
+<span class="lineNum">      24 </span>            : #include &lt;stdexcept&gt;
+<span class="lineNum">      25 </span>            : 
+<span class="lineNum">      26 </span>            : namespace zeroeq
 <span class="lineNum">      27 </span>            : {
-<span class="lineNum">      28 </span>            : class Sender
+<span class="lineNum">      28 </span>            : namespace detail
 <span class="lineNum">      29 </span>            : {
-<span class="lineNum">      30 </span>            :     void* _context; // must be private before socket
-<span class="lineNum">      31 </span>            : 
-<span class="lineNum">      32 </span>            : public:
-<span class="lineNum">      33 </span>            :     Sender(void* context, const int type)
-<span class="lineNum">      34 </span>            :         : Sender(URI(), context, type)
-<span class="lineNum">      35 </span>            :     {
-<a name="36"><span class="lineNum">      36 </span>            :     }</a>
-<span class="lineNum">      37 </span>            : 
-<span class="lineNum">      38 </span><span class="lineCov">        110 :     Sender(const URI&amp; uri_, void* context, const int type)</span>
-<span class="lineNum">      39 </span><span class="lineCov">        110 :         : _context(nullptr)</span>
-<span class="lineNum">      40 </span>            :         , uri(uri_)
-<span class="lineNum">      41 </span><span class="lineCov">        110 :         , socket(zmq_socket(_createContext(context), type))</span>
-<span class="lineNum">      42 </span>            :     {
-<span class="lineNum">      43 </span><span class="lineCov">        110 :         const int hwm = 0;</span>
-<span class="lineNum">      44 </span><span class="lineCov">        110 :         zmq_setsockopt(socket, ZMQ_SNDHWM, &amp;hwm, sizeof(hwm));</span>
-<a name="45"><span class="lineNum">      45 </span><span class="lineCov">        110 :     }</span></a>
-<span class="lineNum">      46 </span>            : 
-<span class="lineNum">      47 </span><span class="lineCov">        110 :     ~Sender()</span>
-<span class="lineNum">      48 </span><span class="lineCov">        110 :     {</span>
-<span class="lineNum">      49 </span><span class="lineCov">        110 :         if (socket)</span>
-<span class="lineNum">      50 </span><span class="lineCov">        106 :             zmq_close(socket);</span>
-<span class="lineNum">      51 </span><span class="lineCov">        110 :         if (_context)</span>
-<span class="lineNum">      52 </span><span class="lineCov">        102 :             zmq_ctx_destroy(_context);</span>
-<a name="53"><span class="lineNum">      53 </span><span class="lineCov">        110 :     }</span></a>
-<a name="54"><span class="lineNum">      54 </span>            : </a>
-<span class="lineNum">      55 </span><span class="lineCov">         70 :     void* getContext() { return _context; }</span>
-<span class="lineNum">      56 </span><span class="lineCov">         84 :     std::string getAddress() const</span>
-<span class="lineNum">      57 </span>            :     {
-<span class="lineNum">      58 </span><span class="lineCov">         84 :         return uri.getHost() + &quot;:&quot; + std::to_string(uint32_t(uri.getPort()));</span>
-<a name="59"><span class="lineNum">      59 </span>            :     }</a>
-<span class="lineNum">      60 </span>            : 
-<span class="lineNum">      61 </span><span class="lineCov">         17 :     void initURI()</span>
-<span class="lineNum">      62 </span>            :     {
-<span class="lineNum">      63 </span><span class="lineCov">         34 :         std::string host = uri.getHost();</span>
-<span class="lineNum">      64 </span><span class="lineCov">         17 :         if (host == &quot;*&quot;)</span>
-<span class="lineNum">      65 </span><span class="lineCov">          3 :             host.clear();</span>
-<span class="lineNum">      66 </span>            : 
-<span class="lineNum">      67 </span><span class="lineCov">         17 :         uint16_t port = uri.getPort();</span>
-<span class="lineNum">      68 </span><span class="lineCov">         17 :         if (host.empty() || port == 0)</span>
-<span class="lineNum">      69 </span>            :         {
-<span class="lineNum">      70 </span><span class="lineCov">         34 :             std::string hostStr, portStr;</span>
-<span class="lineNum">      71 </span><span class="lineCov">         17 :             _getEndPoint(hostStr, portStr);</span>
-<span class="lineNum">      72 </span>            : 
-<span class="lineNum">      73 </span><span class="lineCov">         17 :             if (port == 0)</span>
-<span class="lineNum">      74 </span>            :             {
-<span class="lineNum">      75 </span>            :                 // No overflow is possible unless ZMQ reports bad port number.
-<span class="lineNum">      76 </span><span class="lineCov">         16 :                 port = std::stoi(portStr);</span>
-<span class="lineNum">      77 </span><span class="lineCov">         16 :                 uri.setPort(port);</span>
-<span class="lineNum">      78 </span>            :             }
+<span class="lineNum">      30 </span>            : class Sender
+<span class="lineNum">      31 </span>            : {
+<span class="lineNum">      32 </span>            :     detail::ContextPtr _context; // must be private before socket
+<a name="33"><span class="lineNum">      33 </span>            : </a>
+<span class="lineNum">      34 </span>            : public:
+<span class="lineNum">      35 </span><span class="lineCov">        110 :     Sender(const URI&amp; uri_, const int type)</span>
+<span class="lineNum">      36 </span><span class="lineCov">        110 :         : _context(detail::getContext())</span>
+<span class="lineNum">      37 </span>            :         , uri(uri_)
+<span class="lineNum">      38 </span><span class="lineCov">        110 :         , socket(zmq_socket(_context.get(), type))</span>
+<span class="lineNum">      39 </span>            :     {
+<span class="lineNum">      40 </span><span class="lineCov">        110 :         const int hwm = 0;</span>
+<span class="lineNum">      41 </span><span class="lineCov">        110 :         zmq_setsockopt(socket, ZMQ_SNDHWM, &amp;hwm, sizeof(hwm));</span>
+<a name="42"><span class="lineNum">      42 </span><span class="lineCov">        110 :     }</span></a>
+<span class="lineNum">      43 </span>            : 
+<span class="lineNum">      44 </span><span class="lineCov">        110 :     ~Sender()</span>
+<span class="lineNum">      45 </span><span class="lineCov">        110 :     {</span>
+<span class="lineNum">      46 </span><span class="lineCov">        110 :         if (socket)</span>
+<span class="lineNum">      47 </span><span class="lineCov">        106 :             zmq_close(socket);</span>
+<a name="48"><span class="lineNum">      48 </span><span class="lineCov">        110 :     }</span></a>
+<span class="lineNum">      49 </span>            : 
+<span class="lineNum">      50 </span><span class="lineCov">         84 :     std::string getAddress() const</span>
+<span class="lineNum">      51 </span>            :     {
+<span class="lineNum">      52 </span><span class="lineCov">         84 :         return uri.getHost() + &quot;:&quot; + std::to_string(uint32_t(uri.getPort()));</span>
+<a name="53"><span class="lineNum">      53 </span>            :     }</a>
+<span class="lineNum">      54 </span>            : 
+<span class="lineNum">      55 </span><span class="lineCov">         17 :     void initURI()</span>
+<span class="lineNum">      56 </span>            :     {
+<span class="lineNum">      57 </span><span class="lineCov">         17 :         if (uri.getScheme() != DEFAULT_SCHEMA)</span>
+<span class="lineNum">      58 </span><span class="lineCov">          1 :             return;</span>
+<span class="lineNum">      59 </span>            : 
+<span class="lineNum">      60 </span><span class="lineCov">         32 :         std::string host = uri.getHost();</span>
+<span class="lineNum">      61 </span><span class="lineCov">         16 :         if (host == &quot;*&quot;)</span>
+<span class="lineNum">      62 </span><span class="lineCov">          3 :             host.clear();</span>
+<span class="lineNum">      63 </span>            : 
+<span class="lineNum">      64 </span><span class="lineCov">         16 :         uint16_t port = uri.getPort();</span>
+<span class="lineNum">      65 </span><span class="lineCov">         16 :         if (host.empty() || port == 0)</span>
+<span class="lineNum">      66 </span>            :         {
+<span class="lineNum">      67 </span><span class="lineCov">         32 :             std::string hostStr, portStr;</span>
+<span class="lineNum">      68 </span><span class="lineCov">         16 :             _getEndPoint(hostStr, portStr);</span>
+<span class="lineNum">      69 </span>            : 
+<span class="lineNum">      70 </span><span class="lineCov">         16 :             if (port == 0)</span>
+<span class="lineNum">      71 </span>            :             {
+<span class="lineNum">      72 </span>            :                 // No overflow is possible unless ZMQ reports bad port number.
+<span class="lineNum">      73 </span><span class="lineCov">         14 :                 port = std::stoi(portStr);</span>
+<span class="lineNum">      74 </span><span class="lineCov">         14 :                 uri.setPort(port);</span>
+<span class="lineNum">      75 </span>            :             }
+<span class="lineNum">      76 </span>            : 
+<span class="lineNum">      77 </span><span class="lineCov">         16 :             if (host.empty())</span>
+<span class="lineNum">      78 </span><span class="lineCov">         15 :                 uri.setHost(hostStr);</span>
 <span class="lineNum">      79 </span>            : 
-<span class="lineNum">      80 </span><span class="lineCov">         17 :             if (host.empty())</span>
-<span class="lineNum">      81 </span><span class="lineCov">         16 :                 uri.setHost(hostStr);</span>
-<span class="lineNum">      82 </span>            : 
-<span class="lineNum">      83 </span><span class="lineCov">         17 :             ZEROEQINFO &lt;&lt; &quot;Bound to &quot; &lt;&lt; uri &lt;&lt; std::endl;</span>
-<span class="lineNum">      84 </span>            :         }
-<span class="lineNum">      85 </span><span class="lineCov">         17 :     }</span>
-<span class="lineNum">      86 </span>            : 
-<span class="lineNum">      87 </span>            :     ZEROEQ_API static uint128_t&amp; getUUID();
-<span class="lineNum">      88 </span>            : 
-<span class="lineNum">      89 </span>            :     URI uri;
-<span class="lineNum">      90 </span>            :     void* socket;
-<a name="91"><span class="lineNum">      91 </span>            : </a>
-<span class="lineNum">      92 </span>            : private:
-<span class="lineNum">      93 </span><span class="lineCov">         17 :     void _getEndPoint(std::string&amp; host, std::string&amp; port) const</span>
-<span class="lineNum">      94 </span>            :     {
-<span class="lineNum">      95 </span>            :         char buffer[1024];
-<span class="lineNum">      96 </span><span class="lineCov">         17 :         size_t size = sizeof(buffer);</span>
-<span class="lineNum">      97 </span><span class="lineCov">         17 :         if (zmq_getsockopt(socket, ZMQ_LAST_ENDPOINT, &amp;buffer, &amp;size) == -1)</span>
-<span class="lineNum">      98 </span>            :         {
-<span class="lineNum">      99 </span><span class="lineNoCov">          0 :             ZEROEQTHROW(</span>
-<span class="lineNum">     100 </span>            :                 std::runtime_error(&quot;Cannot determine port of publisher&quot;));
-<span class="lineNum">     101 </span>            :         }
-<span class="lineNum">     102 </span><span class="lineCov">         34 :         const std::string endPoint(buffer);</span>
-<span class="lineNum">     103 </span>            : 
-<span class="lineNum">     104 </span><span class="lineCov">         17 :         port = endPoint.substr(endPoint.find_last_of(&quot;:&quot;) + 1);</span>
-<span class="lineNum">     105 </span><span class="lineCov">         17 :         const size_t start = endPoint.find_last_of(&quot;/&quot;) + 1;</span>
-<span class="lineNum">     106 </span><span class="lineCov">         17 :         const size_t end = endPoint.find_last_of(&quot;:&quot;);</span>
-<span class="lineNum">     107 </span><span class="lineCov">         17 :         host = endPoint.substr(start, end - start);</span>
-<span class="lineNum">     108 </span><span class="lineCov">         17 :         if (host == &quot;0.0.0.0&quot;)</span>
-<span class="lineNum">     109 </span>            :         {
-<span class="lineNum">     110 </span><span class="lineCov">         16 :             char hostname[NI_MAXHOST + 1] = {0};</span>
-<span class="lineNum">     111 </span><span class="lineCov">         16 :             gethostname(hostname, NI_MAXHOST);</span>
-<span class="lineNum">     112 </span><span class="lineCov">         16 :             hostname[NI_MAXHOST] = '\0';</span>
-<span class="lineNum">     113 </span><span class="lineCov">         16 :             host = hostname;</span>
-<span class="lineNum">     114 </span>            :         }
-<a name="115"><span class="lineNum">     115 </span><span class="lineCov">         17 :     }</span></a>
+<span class="lineNum">      80 </span><span class="lineCov">         16 :             ZEROEQINFO &lt;&lt; &quot;Bound to &quot; &lt;&lt; uri &lt;&lt; std::endl;</span>
+<span class="lineNum">      81 </span>            :         }
+<span class="lineNum">      82 </span>            :     }
+<span class="lineNum">      83 </span>            : 
+<span class="lineNum">      84 </span>            :     ZEROEQ_API static uint128_t&amp; getUUID();
+<span class="lineNum">      85 </span>            : 
+<span class="lineNum">      86 </span>            :     URI uri;
+<span class="lineNum">      87 </span>            :     void* socket;
+<a name="88"><span class="lineNum">      88 </span>            : </a>
+<span class="lineNum">      89 </span>            : private:
+<span class="lineNum">      90 </span><span class="lineCov">         16 :     void _getEndPoint(std::string&amp; host, std::string&amp; port) const</span>
+<span class="lineNum">      91 </span>            :     {
+<span class="lineNum">      92 </span>            :         char buffer[1024];
+<span class="lineNum">      93 </span><span class="lineCov">         16 :         size_t size = sizeof(buffer);</span>
+<span class="lineNum">      94 </span><span class="lineCov">         16 :         if (zmq_getsockopt(socket, ZMQ_LAST_ENDPOINT, &amp;buffer, &amp;size) == -1)</span>
+<span class="lineNum">      95 </span>            :         {
+<span class="lineNum">      96 </span><span class="lineNoCov">          0 :             ZEROEQTHROW(</span>
+<span class="lineNum">      97 </span>            :                 std::runtime_error(&quot;Cannot determine port of publisher&quot;));
+<span class="lineNum">      98 </span>            :         }
+<span class="lineNum">      99 </span><span class="lineCov">         32 :         const std::string endPoint(buffer);</span>
+<span class="lineNum">     100 </span>            : 
+<span class="lineNum">     101 </span><span class="lineCov">         16 :         port = endPoint.substr(endPoint.find_last_of(&quot;:&quot;) + 1);</span>
+<span class="lineNum">     102 </span><span class="lineCov">         16 :         const size_t start = endPoint.find_last_of(&quot;/&quot;) + 1;</span>
+<span class="lineNum">     103 </span><span class="lineCov">         16 :         const size_t end = endPoint.find_last_of(&quot;:&quot;);</span>
+<span class="lineNum">     104 </span><span class="lineCov">         16 :         host = endPoint.substr(start, end - start);</span>
+<span class="lineNum">     105 </span><span class="lineCov">         16 :         if (host == &quot;0.0.0.0&quot;)</span>
+<span class="lineNum">     106 </span>            :         {
+<span class="lineNum">     107 </span><span class="lineCov">         15 :             char hostname[NI_MAXHOST + 1] = {0};</span>
+<span class="lineNum">     108 </span><span class="lineCov">         15 :             gethostname(hostname, NI_MAXHOST);</span>
+<span class="lineNum">     109 </span><span class="lineCov">         15 :             hostname[NI_MAXHOST] = '\0';</span>
+<span class="lineNum">     110 </span><span class="lineCov">         15 :             host = hostname;</span>
+<span class="lineNum">     111 </span>            :         }
+<span class="lineNum">     112 </span><span class="lineCov">         16 :     }</span>
+<span class="lineNum">     113 </span>            : };
+<span class="lineNum">     114 </span>            : }
+<span class="lineNum">     115 </span>            : }
 <span class="lineNum">     116 </span>            : 
-<span class="lineNum">     117 </span><span class="lineCov">        110 :     void* _createContext(void* context)</span>
-<span class="lineNum">     118 </span>            :     {
-<span class="lineNum">     119 </span><span class="lineCov">        110 :         if (context)</span>
-<span class="lineNum">     120 </span><span class="lineCov">          8 :             return context;</span>
-<span class="lineNum">     121 </span>            : 
-<span class="lineNum">     122 </span><span class="lineCov">        102 :         _context = zmq_ctx_new();</span>
-<span class="lineNum">     123 </span><span class="lineCov">        102 :         return _context;</span>
-<span class="lineNum">     124 </span>            :     }
-<span class="lineNum">     125 </span>            : };
-<span class="lineNum">     126 </span>            : }
-<span class="lineNum">     127 </span>            : }
-<span class="lineNum">     128 </span>            : 
-<span class="lineNum">     129 </span>            : #endif
+<span class="lineNum">     117 </span>            : #endif
 </pre>
       </td>
     </tr>

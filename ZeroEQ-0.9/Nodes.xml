@@ -515,14 +515,9 @@
                 <Anchor>a51027302e01489101776ae6c418a3833</Anchor>
                </Node>
                <Node>
-                <Name>getZMQContext</Name>
-                <Path>classzeroeq_1_1_receiver.html</Path>
-                <Anchor>a82da61a8da998734450c4befbfd8f04b</Anchor>
-               </Node>
-               <Node>
                 <Name>process</Name>
                 <Path>classzeroeq_1_1_receiver.html</Path>
-                <Anchor>a3197718f62ef7f946d0fabaf87864e45</Anchor>
+                <Anchor>ae130ee25e292a79ca37cb2dbf12a7da0</Anchor>
                </Node>
                <Node>
                 <Name>receive</Name>

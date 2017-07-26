@@ -31,13 +31,13 @@
             <td class="headerValue">ZeroEQ</td>
             <td></td>
             <td class="headerItem">Lines:</td>
-            <td class="headerCovTableEntry">15</td>
-            <td class="headerCovTableEntry">15</td>
+            <td class="headerCovTableEntry">17</td>
+            <td class="headerCovTableEntry">17</td>
             <td class="headerCovTableEntryHi">100.0 %</td>
           </tr>
           <tr>
             <td class="headerItem">Date:</td>
-            <td class="headerValue">2017-07-14 01:36:38</td>
+            <td class="headerValue">2017-07-27 01:36:40</td>
             <td></td>
             <td class="headerItem">Functions:</td>
             <td class="headerCovTableEntry">4</td>
@@ -61,7 +61,7 @@
 <pre class="sourceHeading">          Line data    Source code</pre>
 <pre class="source">
 <a name="1"><span class="lineNum">       1 </span>            : </a>
-<span class="lineNum">       2 </span>            : /* Copyright (c) 2014-2015, Human Brain Project
+<span class="lineNum">       2 </span>            : /* Copyright (c) 2014-2017, Human Brain Project
 <span class="lineNum">       3 </span>            :  *                          Daniel Nachbaur &lt;daniel.nachbaur@epfl.ch&gt;
 <span class="lineNum">       4 </span>            :  *                          Stefan.Eilemann@epfl.ch
 <span class="lineNum">       5 </span>            :  */
@@ -88,44 +88,46 @@
 <span class="lineNum">      26 </span>            : 
 <a name="27"><span class="lineNum">      27 </span>            : namespace</a>
 <span class="lineNum">      28 </span>            : {
-<span class="lineNum">      29 </span><span class="lineCov">         30 : inline std::string buildZmqURI(const std::string&amp; schema, std::string host,</span>
+<span class="lineNum">      29 </span><span class="lineCov">         28 : inline std::string buildZmqURI(const std::string&amp; schema, std::string host,</span>
 <span class="lineNum">      30 </span>            :                                const uint16_t port)
 <span class="lineNum">      31 </span>            : {
-<span class="lineNum">      32 </span><span class="lineCov">         30 :     if (host.empty())</span>
-<span class="lineNum">      33 </span><span class="lineCov">         13 :         host = &quot;*&quot;;</span>
+<span class="lineNum">      32 </span><span class="lineCov">         28 :     if (host.empty())</span>
+<span class="lineNum">      33 </span><span class="lineCov">         12 :         host = &quot;*&quot;;</span>
 <span class="lineNum">      34 </span>            : 
-<span class="lineNum">      35 </span><span class="lineCov">         60 :     const std::string zmqURI(schema + &quot;://&quot; + host);</span>
-<span class="lineNum">      36 </span><span class="lineCov">         30 :     if (port == 0) // zmq expects host:* instead of host:0</span>
-<span class="lineNum">      37 </span><span class="lineCov">         15 :         return zmqURI + &quot;:*&quot;;</span>
+<span class="lineNum">      35 </span><span class="lineCov">         56 :     const std::string zmqURI(schema + &quot;://&quot; + host);</span>
+<span class="lineNum">      36 </span><span class="lineCov">         28 :     if (port == 0) // zmq expects host:* instead of host:0</span>
+<span class="lineNum">      37 </span><span class="lineCov">         14 :         return zmqURI + &quot;:*&quot;;</span>
 <span class="lineNum">      38 </span>            : 
-<span class="lineNum">      39 </span><span class="lineCov">         15 :     return zmqURI + &quot;:&quot; + std::to_string(int(port));</span>
+<span class="lineNum">      39 </span><span class="lineCov">         14 :     return zmqURI + &quot;:&quot; + std::to_string(int(port));</span>
 <a name="40"><span class="lineNum">      40 </span>            : }</a>
 <span class="lineNum">      41 </span>            : 
 <span class="lineNum">      42 </span><span class="lineCov">         30 : inline std::string buildZmqURI(const zeroeq::URI&amp; uri)</span>
 <span class="lineNum">      43 </span>            : {
-<span class="lineNum">      44 </span><span class="lineCov">         30 :     return buildZmqURI(uri.getScheme(), uri.getHost(), uri.getPort());</span>
-<a name="45"><span class="lineNum">      45 </span>            : }</a>
-<span class="lineNum">      46 </span>            : 
-<span class="lineNum">      47 </span><span class="lineCov">        160 : inline std::string getUserName()</span>
-<span class="lineNum">      48 </span>            : {
-<span class="lineNum">      49 </span>            : #ifdef _MSC_VER
-<span class="lineNum">      50 </span>            :     char user[UNLEN + 1];
-<span class="lineNum">      51 </span>            :     DWORD userLength = UNLEN + 1;
-<span class="lineNum">      52 </span>            :     GetUserName(user, &amp;userLength);
-<span class="lineNum">      53 </span>            : #else
-<span class="lineNum">      54 </span><span class="lineCov">        160 :     const char* user = getlogin();</span>
-<span class="lineNum">      55 </span>            : #endif
-<span class="lineNum">      56 </span><span class="lineCov">        160 :     return user ? user : UNKNOWN_USER;</span>
-<a name="57"><span class="lineNum">      57 </span>            : }</a>
-<span class="lineNum">      58 </span>            : 
-<span class="lineNum">      59 </span><span class="lineCov">         87 : inline std::string getDefaultSession()</span>
-<span class="lineNum">      60 </span>            : {
-<span class="lineNum">      61 </span><span class="lineCov">         87 :     const char* session = getenv(ENV_SESSION.c_str());</span>
-<span class="lineNum">      62 </span><span class="lineCov">         87 :     return session &amp;&amp; strcmp(session, &quot;&quot;) != 0 ? session : getUserName();</span>
-<span class="lineNum">      63 </span>            : }
-<span class="lineNum">      64 </span>            : }
-<span class="lineNum">      65 </span>            : 
-<span class="lineNum">      66 </span>            : #endif
+<span class="lineNum">      44 </span><span class="lineCov">         30 :     if (uri.getScheme() == DEFAULT_SCHEMA)</span>
+<span class="lineNum">      45 </span><span class="lineCov">         28 :         return buildZmqURI(uri.getScheme(), uri.getHost(), uri.getPort());</span>
+<span class="lineNum">      46 </span><span class="lineCov">          2 :     return std::to_string(uri);</span>
+<a name="47"><span class="lineNum">      47 </span>            : }</a>
+<span class="lineNum">      48 </span>            : 
+<span class="lineNum">      49 </span><span class="lineCov">        160 : inline std::string getUserName()</span>
+<span class="lineNum">      50 </span>            : {
+<span class="lineNum">      51 </span>            : #ifdef _MSC_VER
+<span class="lineNum">      52 </span>            :     char user[UNLEN + 1];
+<span class="lineNum">      53 </span>            :     DWORD userLength = UNLEN + 1;
+<span class="lineNum">      54 </span>            :     GetUserName(user, &amp;userLength);
+<span class="lineNum">      55 </span>            : #else
+<span class="lineNum">      56 </span><span class="lineCov">        160 :     const char* user = getlogin();</span>
+<span class="lineNum">      57 </span>            : #endif
+<span class="lineNum">      58 </span><span class="lineCov">        160 :     return user ? user : UNKNOWN_USER;</span>
+<a name="59"><span class="lineNum">      59 </span>            : }</a>
+<span class="lineNum">      60 </span>            : 
+<span class="lineNum">      61 </span><span class="lineCov">         87 : inline std::string getDefaultSession()</span>
+<span class="lineNum">      62 </span>            : {
+<span class="lineNum">      63 </span><span class="lineCov">         87 :     const char* session = getenv(ENV_SESSION.c_str());</span>
+<span class="lineNum">      64 </span><span class="lineCov">         87 :     return session &amp;&amp; strcmp(session, &quot;&quot;) != 0 ? session : getUserName();</span>
+<span class="lineNum">      65 </span>            : }
+<span class="lineNum">      66 </span>            : }
+<span class="lineNum">      67 </span>            : 
+<span class="lineNum">      68 </span>            : #endif
 </pre>
       </td>
     </tr>

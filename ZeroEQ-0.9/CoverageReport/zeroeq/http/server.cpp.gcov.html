@@ -31,13 +31,13 @@
             <td class="headerValue">ZeroEQ</td>
             <td></td>
             <td class="headerItem">Lines:</td>
-            <td class="headerCovTableEntry">309</td>
+            <td class="headerCovTableEntry">306</td>
             <td class="headerCovTableEntry">326</td>
-            <td class="headerCovTableEntryHi">94.8 %</td>
+            <td class="headerCovTableEntryHi">93.9 %</td>
           </tr>
           <tr>
             <td class="headerItem">Date:</td>
-            <td class="headerValue">2017-07-14 01:36:38</td>
+            <td class="headerValue">2017-07-27 01:36:40</td>
             <td></td>
             <td class="headerItem">Functions:</td>
             <td class="headerCovTableEntry">75</td>
@@ -200,8 +200,8 @@
 <a name="138"><span class="lineNum">     138 </span>            : {</a>
 <span class="lineNum">     139 </span>            : public:
 <span class="lineNum">     140 </span><span class="lineCov">         70 :     Impl(const URI&amp; uri_, const std::string&amp; session)</span>
-<span class="lineNum">     141 </span><span class="lineCov">        140 :         : detail::Sender(URI(_getInprocURI()), 0, ZMQ_PAIR)</span>
-<span class="lineNum">     142 </span><span class="lineCov">        140 :         , _requestHandler(_getInprocURI(), getContext())</span>
+<span class="lineNum">     141 </span><span class="lineCov">        140 :         : detail::Sender(URI(_getInprocURI()), ZMQ_PAIR)</span>
+<span class="lineNum">     142 </span><span class="lineCov">        140 :         , _requestHandler(_getInprocURI())</span>
 <span class="lineNum">     143 </span>            :         , _httpOptions(_requestHandler)
 <span class="lineNum">     144 </span><span class="lineCov">        140 :         , _httpServer(_httpOptions.address(_getHost(uri_))</span>
 <span class="lineNum">     145 </span><span class="lineCov">        210 :                           .port(std::to_string(int(uri_.getPort())))</span>
@@ -224,11 +224,11 @@
 <span class="lineNum">     162 </span>            :                 {
 <span class="lineNum">     163 </span><span class="lineCov">         70 :                     _httpServer.run();</span>
 <span class="lineNum">     164 </span>            :                 }
-<span class="lineNum">     165 </span><span class="lineCov">          4 :                 catch (const std::exception&amp; e)</span>
+<span class="lineNum">     165 </span><span class="lineNoCov">          0 :                 catch (const std::exception&amp; e)</span>
 <span class="lineNum">     166 </span>            :                 {
 <span class="lineNum">     167 </span>            :                     ZEROEQERROR
-<span class="lineNum">     168 </span><span class="lineCov">          2 :                         &lt;&lt; &quot;Error during HTTPServer::run(): &quot; &lt;&lt; e.what()</span>
-<span class="lineNum">     169 </span><span class="lineCov">          2 :                         &lt;&lt; std::endl;</span>
+<span class="lineNum">     168 </span><span class="lineNoCov">          0 :                         &lt;&lt; &quot;Error during HTTPServer::run(): &quot; &lt;&lt; e.what()</span>
+<span class="lineNum">     169 </span><span class="lineNoCov">          0 :                         &lt;&lt; std::endl;</span>
 <span class="lineNum">     170 </span>            :                 }
 <span class="lineNum">     171 </span><span class="lineCov">        210 :             }));</span>
 <span class="lineNum">     172 </span>            :         }
@@ -379,13 +379,13 @@
 <span class="lineNum">     317 </span><span class="lineCov">         48 :         return true;</span>
 <a name="318"><span class="lineNum">     318 </span>            :     }</a>
 <span class="lineNum">     319 </span>            : 
-<span class="lineNum">     320 </span><span class="lineCov">       1606 :     void addSockets(std::vector&lt;detail::Socket&gt;&amp; entries)</span>
+<span class="lineNum">     320 </span><span class="lineCov">    1970940 :     void addSockets(std::vector&lt;detail::Socket&gt;&amp; entries)</span>
 <span class="lineNum">     321 </span>            :     {
 <span class="lineNum">     322 </span>            :         detail::Socket entry;
-<span class="lineNum">     323 </span><span class="lineCov">       1606 :         entry.socket = socket;</span>
-<span class="lineNum">     324 </span><span class="lineCov">       1606 :         entry.events = ZMQ_POLLIN;</span>
-<span class="lineNum">     325 </span><span class="lineCov">       1606 :         entries.push_back(entry);</span>
-<a name="326"><span class="lineNum">     326 </span><span class="lineCov">       1606 :     }</span></a>
+<span class="lineNum">     323 </span><span class="lineCov">    1970940 :         entry.socket = socket;</span>
+<span class="lineNum">     324 </span><span class="lineCov">    1970940 :         entry.events = ZMQ_POLLIN;</span>
+<span class="lineNum">     325 </span><span class="lineCov">    1970940 :         entries.push_back(entry);</span>
+<a name="326"><span class="lineNum">     326 </span><span class="lineCov">    1970940 :     }</span></a>
 <span class="lineNum">     327 </span>            : 
 <span class="lineNum">     328 </span><span class="lineCov">          6 :     std::string getRegistry() const</span>
 <span class="lineNum">     329 </span>            :     {
@@ -721,12 +721,12 @@
 <span class="lineNum">     659 </span><span class="lineCov">        182 :     return _impl-&gt;respondTo(request);</span>
 <a name="660"><span class="lineNum">     660 </span>            : }</a>
 <span class="lineNum">     661 </span>            : 
-<span class="lineNum">     662 </span><span class="lineCov">       1606 : void Server::addSockets(std::vector&lt;detail::Socket&gt;&amp; entries)</span>
+<span class="lineNum">     662 </span><span class="lineCov">    1970940 : void Server::addSockets(std::vector&lt;detail::Socket&gt;&amp; entries)</span>
 <span class="lineNum">     663 </span>            : {
-<span class="lineNum">     664 </span><span class="lineCov">       1606 :     _impl-&gt;addSockets(entries);</span>
-<a name="665"><span class="lineNum">     665 </span><span class="lineCov">       1606 : }</span></a>
+<span class="lineNum">     664 </span><span class="lineCov">    1970940 :     _impl-&gt;addSockets(entries);</span>
+<a name="665"><span class="lineNum">     665 </span><span class="lineCov">    1970940 : }</span></a>
 <span class="lineNum">     666 </span>            : 
-<span class="lineNum">     667 </span><span class="lineCov">        194 : void Server::process(detail::Socket&amp;, const uint32_t)</span>
+<span class="lineNum">     667 </span><span class="lineCov">        194 : bool Server::process(detail::Socket&amp;)</span>
 <span class="lineNum">     668 </span>            : {
 <span class="lineNum">     669 </span><span class="lineCov">        194 :     Message* message = nullptr;</span>
 <span class="lineNum">     670 </span><span class="lineCov">        194 :     ::zmq_recv(_impl-&gt;socket, &amp;message, sizeof(message), 0);</span>
@@ -755,9 +755,10 @@
 <span class="lineNum">     693 </span>            : 
 <span class="lineNum">     694 </span><span class="lineCov">        194 :     bool done = true;</span>
 <span class="lineNum">     695 </span><span class="lineCov">        194 :     ::zmq_send(_impl-&gt;socket, &amp;done, sizeof(done), 0);</span>
-<a name="696"><span class="lineNum">     696 </span><span class="lineCov">        194 : }</span></a>
-<span class="lineNum">     697 </span>            : }
-<span class="lineNum">     698 </span><span class="lineCov">         42 : }</span>
+<span class="lineNum">     696 </span><span class="lineCov">        194 :     return true;</span>
+<a name="697"><span class="lineNum">     697 </span>            : }</a>
+<span class="lineNum">     698 </span>            : }
+<span class="lineNum">     699 </span><span class="lineCov">         42 : }</span>
 </pre>
       </td>
     </tr>
