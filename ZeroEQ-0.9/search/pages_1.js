@@ -1,4 +1,4 @@
 var searchData=
 [
-  ['event_20communication',['Event Communication',['../eventbased.html',1,'rfcs']]]
+  ['deprecated_20list',['Deprecated List',['../deprecated.html',1,'']]]
 ];

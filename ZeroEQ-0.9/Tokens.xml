@@ -270,6 +270,13 @@
   </Token>
   <Token>
     <TokenIdentifier>
+      <Name>deprecated</Name>
+      <APILanguage>unknown</APILanguage>
+    </TokenIdentifier>
+    <Path>deprecated.html</Path>
+  </Token>
+  <Token>
+    <TokenIdentifier>
       <Name>zeroeq</Name>
       <APILanguage>c</APILanguage>
       <Type>ns</Type>
@@ -280,13 +287,25 @@
   </Token>
   <Token>
     <TokenIdentifier>
+      <Name>URIs</Name>
+      <APILanguage>cpp</APILanguage>
+      <Type>tdef</Type>
+      <Scope>zeroeq</Scope>
+    </TokenIdentifier>
+    <Path>namespacezeroeq.html</Path>
+    <Anchor>ab5d14cb00b63da2b25ddcd0a9fc9d735</Anchor>
+    <Abstract>A vector of URIs. </Abstract>
+    <DeclaredIn>types.h</DeclaredIn>
+  </Token>
+  <Token>
+    <TokenIdentifier>
       <Name>EventFunc</Name>
       <APILanguage>cpp</APILanguage>
       <Type>tdef</Type>
       <Scope>zeroeq</Scope>
     </TokenIdentifier>
     <Path>namespacezeroeq.html</Path>
-    <Anchor>a32c3dd37d40884999713a3950abc03fc</Anchor>
+    <Anchor>a254e586308434b75d1952f0fe862aa05</Anchor>
     <Abstract>Callback for receival of subscribed event w/o payload. </Abstract>
     <DeclaredIn>types.h</DeclaredIn>
   </Token>
@@ -298,7 +317,7 @@
       <Scope>zeroeq</Scope>
     </TokenIdentifier>
     <Path>namespacezeroeq.html</Path>
-    <Anchor>a86f317a0b0ef3c9c17e664127503d946</Anchor>
+    <Anchor>addda9bf8318976ed3e1422255188e906</Anchor>
     <Abstract>Callback for receival of subscribed event w/ payload. </Abstract>
     <DeclaredIn>types.h</DeclaredIn>
   </Token>
@@ -759,8 +778,8 @@
       <Scope>zeroeq::Subscriber</Scope>
     </TokenIdentifier>
     <Path>classzeroeq_1_1_subscriber.html</Path>
-    <Anchor>a43e5f52ad08404e043855a90ce37f22e</Anchor>
-    <Abstract>Create a subscriber which subscribes to a specific publisher. </Abstract>
+    <Anchor>ad7dd7065bed4790b405edf577b6d5f9f</Anchor>
+    <Abstract>Create a subscriber which subscribes to specific publishers. </Abstract>
     <DeclaredIn>subscriber.h</DeclaredIn>
   </Token>
   <Token>
@@ -795,8 +814,8 @@
       <Scope>zeroeq::Subscriber</Scope>
     </TokenIdentifier>
     <Path>classzeroeq_1_1_subscriber.html</Path>
-    <Anchor>ae07967f815353954a4655267b6caa7f3</Anchor>
-    <Abstract>Create a shared subscriber which subscribes to publisher(s) on the given URI. </Abstract>
+    <Anchor>ab12c8b180a9d74bde296f411e22764ae</Anchor>
+    <Abstract>Create a shared subscriber which subscribes to publishers on the given URIs. </Abstract>
     <DeclaredIn>subscriber.h</DeclaredIn>
   </Token>
   <Token>
@@ -809,6 +828,28 @@
     <Path>classzeroeq_1_1_subscriber.html</Path>
     <Anchor>ae83c8480398f8f42d75f27e5794afc7a</Anchor>
     <Abstract>Destroy this subscriber and withdraw any subscriptions. </Abstract>
+    <DeclaredIn>subscriber.h</DeclaredIn>
+  </Token>
+  <Token>
+    <TokenIdentifier>
+      <Name>Subscriber</Name>
+      <APILanguage>cpp</APILanguage>
+      <Type>instm</Type>
+      <Scope>zeroeq::Subscriber</Scope>
+    </TokenIdentifier>
+    <Path>classzeroeq_1_1_subscriber.html</Path>
+    <Anchor>a43e5f52ad08404e043855a90ce37f22e</Anchor>
+    <DeclaredIn>subscriber.h</DeclaredIn>
+  </Token>
+  <Token>
+    <TokenIdentifier>
+      <Name>Subscriber</Name>
+      <APILanguage>cpp</APILanguage>
+      <Type>instm</Type>
+      <Scope>zeroeq::Subscriber</Scope>
+    </TokenIdentifier>
+    <Path>classzeroeq_1_1_subscriber.html</Path>
+    <Anchor>ae07967f815353954a4655267b6caa7f3</Anchor>
     <DeclaredIn>subscriber.h</DeclaredIn>
   </Token>
   <Token>

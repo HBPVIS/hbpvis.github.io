@@ -4,6 +4,7 @@ var NAVTREE =
     [ "Introduction", "index.html", null ],
     [ "Changelog", "Changelog.html", null ],
     [ "RFCs", "rfcs.html", "rfcs" ],
+    [ "Deprecated List", "deprecated.html", null ],
     [ "Namespaces", null, [
       [ "Namespace List", "namespaces.html", "namespaces" ],
       [ "Namespace Members", "namespacemembers.html", [

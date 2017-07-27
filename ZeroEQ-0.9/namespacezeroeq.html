@@ -155,12 +155,16 @@ Classes</h2></td></tr>
 </table><table class="memberdecls">
 <tr class="heading"><td colspan="2"><h2 class="groupheader"><a name="typedef-members"></a>
 Typedefs</h2></td></tr>
-<tr class="memitem:a32c3dd37d40884999713a3950abc03fc"><td class="memItemLeft" align="right" valign="top">typedef std::function&lt; void()&gt;&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="namespacezeroeq.html#a32c3dd37d40884999713a3950abc03fc">EventFunc</a></td></tr>
-<tr class="memdesc:a32c3dd37d40884999713a3950abc03fc"><td class="mdescLeft">&#160;</td><td class="mdescRight">Callback for receival of subscribed event w/o payload.  <a href="#a32c3dd37d40884999713a3950abc03fc">More...</a><br /></td></tr>
-<tr class="separator:a32c3dd37d40884999713a3950abc03fc"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a86f317a0b0ef3c9c17e664127503d946"><td class="memItemLeft" align="right" valign="top">typedef std::function&lt; void(const void *, size_t)&gt;&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="namespacezeroeq.html#a86f317a0b0ef3c9c17e664127503d946">EventPayloadFunc</a></td></tr>
-<tr class="memdesc:a86f317a0b0ef3c9c17e664127503d946"><td class="mdescLeft">&#160;</td><td class="mdescRight">Callback for receival of subscribed event w/ payload.  <a href="#a86f317a0b0ef3c9c17e664127503d946">More...</a><br /></td></tr>
-<tr class="separator:a86f317a0b0ef3c9c17e664127503d946"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:ab5d14cb00b63da2b25ddcd0a9fc9d735"><td class="memItemLeft" align="right" valign="top"><a class="anchor" id="ab5d14cb00b63da2b25ddcd0a9fc9d735"></a>
+using&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="namespacezeroeq.html#ab5d14cb00b63da2b25ddcd0a9fc9d735">URIs</a> = std::vector&lt; <a class="el" href="classzeroeq_1_1_u_r_i.html">URI</a> &gt;</td></tr>
+<tr class="memdesc:ab5d14cb00b63da2b25ddcd0a9fc9d735"><td class="mdescLeft">&#160;</td><td class="mdescRight">A vector of URIs. <br /></td></tr>
+<tr class="separator:ab5d14cb00b63da2b25ddcd0a9fc9d735"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a254e586308434b75d1952f0fe862aa05"><td class="memItemLeft" align="right" valign="top">using&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="namespacezeroeq.html#a254e586308434b75d1952f0fe862aa05">EventFunc</a> = std::function&lt; void()&gt;</td></tr>
+<tr class="memdesc:a254e586308434b75d1952f0fe862aa05"><td class="mdescLeft">&#160;</td><td class="mdescRight">Callback for receival of subscribed event w/o payload.  <a href="#a254e586308434b75d1952f0fe862aa05">More...</a><br /></td></tr>
+<tr class="separator:a254e586308434b75d1952f0fe862aa05"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:addda9bf8318976ed3e1422255188e906"><td class="memItemLeft" align="right" valign="top">using&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="namespacezeroeq.html#addda9bf8318976ed3e1422255188e906">EventPayloadFunc</a> = std::function&lt; void(const void *, size_t)&gt;</td></tr>
+<tr class="memdesc:addda9bf8318976ed3e1422255188e906"><td class="mdescLeft">&#160;</td><td class="mdescRight">Callback for receival of subscribed event w/ payload.  <a href="#addda9bf8318976ed3e1422255188e906">More...</a><br /></td></tr>
+<tr class="separator:addda9bf8318976ed3e1422255188e906"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:ac518788947b3d91f3597383b878cb2b9"><td class="memItemLeft" align="right" valign="top"><a class="anchor" id="ac518788947b3d91f3597383b878cb2b9"></a>
 typedef int&#160;</td><td class="memItemRight" valign="bottom"><b>SocketDescriptor</b></td></tr>
 <tr class="separator:ac518788947b3d91f3597383b878cb2b9"><td class="memSeparator" colspan="2">&#160;</td></tr>
@@ -190,35 +194,35 @@ static const std::string&#160;</td><td class="memItemRight" valign="bottom"><b>N
 <p>The <a class="el" href="classzeroeq_1_1connection_1_1_broker.html" title="Brokers subscription requests for a zeroeq::Receiver. ">connection::Broker</a> and <a class="el" href="classzeroeq_1_1connection_1_1_service.html" title="Subscribes a Publisher to a remote receiver using a connection::Broker. ">connection::Service</a> may be used to introduce a subscriber to a remote, not zeroconf visible, publisher.</p>
 <p>An Event contains a strongly type, semantically defined message. Applications or groups of applications can define their own vocabulary. </p>
 </div><h2 class="groupheader">Typedef Documentation</h2>
-<a class="anchor" id="a32c3dd37d40884999713a3950abc03fc"></a>
+<a class="anchor" id="a254e586308434b75d1952f0fe862aa05"></a>
 <div class="memitem">
 <div class="memproto">
       <table class="memname">
         <tr>
-          <td class="memname">typedef std::function&lt;void()&gt; <a class="el" href="namespacezeroeq.html#a32c3dd37d40884999713a3950abc03fc">zeroeq::EventFunc</a></td>
+          <td class="memname">using <a class="el" href="namespacezeroeq.html#a254e586308434b75d1952f0fe862aa05">zeroeq::EventFunc</a> = typedef std::function&lt;void()&gt;</td>
         </tr>
       </table>
 </div><div class="memdoc">
 
 <p>Callback for receival of subscribed event w/o payload. </p>
 
-<p>Definition at line <a class="el" href="types_8h_source.html#l00044">44</a> of file <a class="el" href="types_8h_source.html">types.h</a>.</p>
+<p>Definition at line <a class="el" href="types_8h_source.html#l00049">49</a> of file <a class="el" href="types_8h_source.html">types.h</a>.</p>
 
 </div>
 </div>
-<a class="anchor" id="a86f317a0b0ef3c9c17e664127503d946"></a>
+<a class="anchor" id="addda9bf8318976ed3e1422255188e906"></a>
 <div class="memitem">
 <div class="memproto">
       <table class="memname">
         <tr>
-          <td class="memname">typedef std::function&lt;void(const void*, size_t)&gt; <a class="el" href="namespacezeroeq.html#a86f317a0b0ef3c9c17e664127503d946">zeroeq::EventPayloadFunc</a></td>
+          <td class="memname">using <a class="el" href="namespacezeroeq.html#addda9bf8318976ed3e1422255188e906">zeroeq::EventPayloadFunc</a> = typedef std::function&lt;void(const void*, size_t)&gt;</td>
         </tr>
       </table>
 </div><div class="memdoc">
 
 <p>Callback for receival of subscribed event w/ payload. </p>
 
-<p>Definition at line <a class="el" href="types_8h_source.html#l00050">50</a> of file <a class="el" href="types_8h_source.html">types.h</a>.</p>
+<p>Definition at line <a class="el" href="types_8h_source.html#l00052">52</a> of file <a class="el" href="types_8h_source.html">types.h</a>.</p>
 
 </div>
 </div>
@@ -243,7 +247,7 @@ static const std::string&#160;</td><td class="memItemRight" valign="bottom"><b>N
 
 <p>Constant defining 'wait forever' in methods with wait parameters. </p>
 
-<p>Definition at line <a class="el" href="types_8h_source.html#l00060">60</a> of file <a class="el" href="types_8h_source.html">types.h</a>.</p>
+<p>Definition at line <a class="el" href="types_8h_source.html#l00062">62</a> of file <a class="el" href="types_8h_source.html">types.h</a>.</p>
 
 </div>
 </div>
@@ -253,7 +257,7 @@ static const std::string&#160;</td><td class="memItemRight" valign="bottom"><b>N
 <div id="nav-path" class="navpath"><!-- id is needed for treeview function! -->
   <ul>
     <li class="navelem"><a class="el" href="namespacezeroeq.html">zeroeq</a></li>
-    <li class="footer">Generated on Thu Jul 27 2017 01:36:41 for ZeroEQ by
+    <li class="footer">Generated on Fri Jul 28 2017 01:36:54 for ZeroEQ by
     <a href="http://www.doxygen.org/index.html">
     <img class="footer" src="doxygen.png" alt="doxygen"/></a> 1.8.11 </li>
   </ul>

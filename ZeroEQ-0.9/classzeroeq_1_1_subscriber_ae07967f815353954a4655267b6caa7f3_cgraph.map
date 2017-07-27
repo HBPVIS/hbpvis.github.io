@@ -1,0 +1,5 @@
+<map id="zeroeq::Subscriber::Subscriber" name="zeroeq::Subscriber::Subscriber">
+<area shape="rect" id="node3" href="$classzeroeq_1_1_subscriber.html#a0196f0e0fcac5115fb1b225c2ac38f5f" title="zeroeq::Subscriber\l::getSession" alt="" coords="204,5,351,51"/>
+<area shape="rect" id="node5" href="$classzeroeq_1_1_subscriber.html#aeb6a4dacf8cba7a4e9475f224cd5924c" title="Subscribe a serializable object to receive updates from any connected publisher. " alt="" coords="204,74,351,121"/>
+<area shape="rect" id="node7" href="$classzeroeq_1_1_subscriber.html#a896a51a1d6a83e8c945eed8c7007e1d9" title="Unsubscribe a serializable object to stop applying updates from any connected publisher. " alt="" coords="204,143,351,190"/>
+</map>

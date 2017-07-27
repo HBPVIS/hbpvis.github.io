@@ -37,7 +37,7 @@
           </tr>
           <tr>
             <td class="headerItem">Date:</td>
-            <td class="headerValue">2017-07-27 01:36:40</td>
+            <td class="headerValue">2017-07-28 01:36:53</td>
             <td></td>
             <td class="headerItem">Functions:</td>
             <td class="headerCovTableEntry">3</td>
@@ -111,7 +111,7 @@
 <span class="lineNum">      49 </span>            :     ZEROEQ_API bool operator!=(const servus::URI&amp; rhs) const;
 <a name="50"><span class="lineNum">      50 </span>            : </a>
 <span class="lineNum">      51 </span>            :     /** Convert this URI to a servus::URI */
-<span class="lineNum">      52 </span><span class="lineCov">         22 :     const servus::URI&amp; toServusURI() const { return *this; }</span>
+<span class="lineNum">      52 </span><span class="lineCov">         24 :     const servus::URI&amp; toServusURI() const { return *this; }</span>
 <span class="lineNum">      53 </span>            :     /** @name servus::URI API */
 <span class="lineNum">      54 </span>            :     //@{
 <span class="lineNum">      55 </span>            :     using servus::URI::getScheme;
@@ -124,9 +124,9 @@
 <span class="lineNum">      62 </span>            :     //@}
 <a name="63"><span class="lineNum">      63 </span>            : };</a>
 <span class="lineNum">      64 </span>            : 
-<span class="lineNum">      65 </span><span class="lineCov">         16 : inline std::ostream&amp; operator&lt;&lt;(std::ostream&amp; os, const URI&amp; uri)</span>
+<span class="lineNum">      65 </span><span class="lineCov">         18 : inline std::ostream&amp; operator&lt;&lt;(std::ostream&amp; os, const URI&amp; uri)</span>
 <span class="lineNum">      66 </span>            : {
-<span class="lineNum">      67 </span><span class="lineCov">         16 :     return os &lt;&lt; uri.toServusURI();</span>
+<span class="lineNum">      67 </span><span class="lineCov">         18 :     return os &lt;&lt; uri.toServusURI();</span>
 <span class="lineNum">      68 </span>            : }
 <span class="lineNum">      69 </span>            : 
 <span class="lineNum">      70 </span>            : } // namespace zeroeq

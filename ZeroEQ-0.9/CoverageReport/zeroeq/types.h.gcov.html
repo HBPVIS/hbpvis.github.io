@@ -37,7 +37,7 @@
           </tr>
           <tr>
             <td class="headerItem">Date:</td>
-            <td class="headerValue">2017-07-27 01:36:40</td>
+            <td class="headerValue">2017-07-28 01:36:53</td>
             <td></td>
             <td class="headerItem">Functions:</td>
             <td class="headerCovTableEntry">0</td>
@@ -105,34 +105,36 @@
 <span class="lineNum">      43 </span>            : class Subscriber;
 <span class="lineNum">      44 </span>            : class URI;
 <span class="lineNum">      45 </span>            : 
-<span class="lineNum">      46 </span>            : /** Callback for receival of subscribed event w/o payload. */
-<span class="lineNum">      47 </span>            : typedef std::function&lt;void()&gt; EventFunc;
-<span class="lineNum">      48 </span>            : 
-<span class="lineNum">      49 </span>            : /** Callback for receival of subscribed event w/ payload. */
-<span class="lineNum">      50 </span>            : typedef std::function&lt;void(const void*, size_t)&gt; EventPayloadFunc;
-<span class="lineNum">      51 </span>            : 
-<span class="lineNum">      52 </span>            : #ifdef WIN32
-<span class="lineNum">      53 </span>            : typedef SOCKET SocketDescriptor;
-<span class="lineNum">      54 </span>            : #else
-<span class="lineNum">      55 </span>            : typedef int SocketDescriptor;
-<span class="lineNum">      56 </span>            : #endif
-<span class="lineNum">      57 </span>            : 
-<span class="lineNum">      58 </span>            : /** Constant defining 'wait forever' in methods with wait parameters. */
-<span class="lineNum">      59 </span>            : // Attn: identical to Win32 INFINITE!
-<span class="lineNum">      60 </span>            : static const uint32_t TIMEOUT_INDEFINITE = 0xffffffffu;
-<span class="lineNum">      61 </span>            : 
-<span class="lineNum">      62 </span>            : using servus::make_uint128;
+<span class="lineNum">      46 </span>            : using URIs = std::vector&lt;URI&gt;; //!&lt; A vector of URIs
+<span class="lineNum">      47 </span>            : 
+<span class="lineNum">      48 </span>            : /** Callback for receival of subscribed event w/o payload. */
+<span class="lineNum">      49 </span>            : using EventFunc = std::function&lt;void()&gt;;
+<span class="lineNum">      50 </span>            : 
+<span class="lineNum">      51 </span>            : /** Callback for receival of subscribed event w/ payload. */
+<span class="lineNum">      52 </span>            : using EventPayloadFunc = std::function&lt;void(const void*, size_t)&gt;;
+<span class="lineNum">      53 </span>            : 
+<span class="lineNum">      54 </span>            : #ifdef WIN32
+<span class="lineNum">      55 </span>            : typedef SOCKET SocketDescriptor;
+<span class="lineNum">      56 </span>            : #else
+<span class="lineNum">      57 </span>            : typedef int SocketDescriptor;
+<span class="lineNum">      58 </span>            : #endif
+<span class="lineNum">      59 </span>            : 
+<span class="lineNum">      60 </span>            : /** Constant defining 'wait forever' in methods with wait parameters. */
+<span class="lineNum">      61 </span>            : // Attn: identical to Win32 INFINITE!
+<span class="lineNum">      62 </span>            : static const uint32_t TIMEOUT_INDEFINITE = 0xffffffffu;
 <span class="lineNum">      63 </span>            : 
-<span class="lineNum">      64 </span><span class="lineCov">         76 : static const std::string DEFAULT_SESSION = &quot;__zeroeq&quot;;</span>
-<span class="lineNum">      65 </span><span class="lineCov">         76 : static const std::string NULL_SESSION = &quot;__null_session&quot;;</span>
-<span class="lineNum">      66 </span>            : 
-<span class="lineNum">      67 </span>            : namespace detail
-<span class="lineNum">      68 </span>            : {
-<span class="lineNum">      69 </span>            : struct Socket;
-<span class="lineNum">      70 </span>            : }
-<span class="lineNum">      71 </span>            : }
-<span class="lineNum">      72 </span>            : 
-<span class="lineNum">      73 </span>            : #endif
+<span class="lineNum">      64 </span>            : using servus::make_uint128;
+<span class="lineNum">      65 </span>            : 
+<span class="lineNum">      66 </span><span class="lineCov">         76 : static const std::string DEFAULT_SESSION = &quot;__zeroeq&quot;;</span>
+<span class="lineNum">      67 </span><span class="lineCov">         76 : static const std::string NULL_SESSION = &quot;__null_session&quot;;</span>
+<span class="lineNum">      68 </span>            : 
+<span class="lineNum">      69 </span>            : namespace detail
+<span class="lineNum">      70 </span>            : {
+<span class="lineNum">      71 </span>            : struct Socket;
+<span class="lineNum">      72 </span>            : }
+<span class="lineNum">      73 </span>            : }
+<span class="lineNum">      74 </span>            : 
+<span class="lineNum">      75 </span>            : #endif
 </pre>
       </td>
     </tr>
