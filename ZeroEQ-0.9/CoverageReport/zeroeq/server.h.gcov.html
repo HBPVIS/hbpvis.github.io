@@ -1,0 +1,274 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN">
+
+<html lang="en">
+
+<head>
+  <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+  <title>LCOV - ZeroEQ - zeroeq/server.h</title>
+  <link rel="stylesheet" type="text/css" href="../gcov.css">
+</head>
+
+<body>
+
+  <table width="100%" border=0 cellspacing=0 cellpadding=0>
+    <tr><td class="title">LCOV - code coverage report</td></tr>
+    <tr><td class="ruler"><img src="../glass.png" width=3 height=3 alt=""></td></tr>
+
+    <tr>
+      <td width="100%">
+        <table cellpadding=1 border=0 width="100%">
+          <tr>
+            <td width="10%" class="headerItem">Current view:</td>
+            <td width="35%" class="headerValue"><a href="../index.html">top level</a> - <a href="index.html">zeroeq</a> - server.h<span style="font-size: 80%;"> (source / <a href="server.h.func-sort-c.html">functions</a>)</span></td>
+            <td width="5%"></td>
+            <td width="15%"></td>
+            <td width="10%" class="headerCovTableHead">Hit</td>
+            <td width="10%" class="headerCovTableHead">Total</td>
+            <td width="15%" class="headerCovTableHead">Coverage</td>
+          </tr>
+          <tr>
+            <td class="headerItem">Test:</td>
+            <td class="headerValue">ZeroEQ</td>
+            <td></td>
+            <td class="headerItem">Lines:</td>
+            <td class="headerCovTableEntry">0</td>
+            <td class="headerCovTableEntry">1</td>
+            <td class="headerCovTableEntryLo">0.0 %</td>
+          </tr>
+          <tr>
+            <td class="headerItem">Date:</td>
+            <td class="headerValue">2017-07-29 01:37:37</td>
+            <td></td>
+            <td class="headerItem">Functions:</td>
+            <td class="headerCovTableEntry">0</td>
+            <td class="headerCovTableEntry">2</td>
+            <td class="headerCovTableEntryLo">0.0 %</td>
+          </tr>
+          <tr><td><img src="../glass.png" width=3 height=3 alt=""></td></tr>
+        </table>
+      </td>
+    </tr>
+
+    <tr><td class="ruler"><img src="../glass.png" width=3 height=3 alt=""></td></tr>
+  </table>
+
+  <table cellpadding=0 cellspacing=0 border=0>
+    <tr>
+      <td><br></td>
+    </tr>
+    <tr>
+      <td>
+<pre class="sourceHeading">          Line data    Source code</pre>
+<pre class="source">
+<a name="1"><span class="lineNum">       1 </span>            : </a>
+<span class="lineNum">       2 </span>            : /* Copyright (c) 2017, Human Brain Project
+<span class="lineNum">       3 </span>            :  *                     Stefan.Eilemann@epfl.ch
+<span class="lineNum">       4 </span>            :  */
+<span class="lineNum">       5 </span>            : 
+<span class="lineNum">       6 </span>            : #pragma once
+<span class="lineNum">       7 </span>            : 
+<span class="lineNum">       8 </span>            : #include &lt;zeroeq/api.h&gt;
+<span class="lineNum">       9 </span>            : #include &lt;zeroeq/receiver.h&gt; // base class
+<span class="lineNum">      10 </span>            : #include &lt;zeroeq/sender.h&gt;   // base class
+<span class="lineNum">      11 </span>            : #include &lt;zeroeq/types.h&gt;
+<span class="lineNum">      12 </span>            : 
+<span class="lineNum">      13 </span>            : namespace zeroeq
+<span class="lineNum">      14 </span>            : {
+<span class="lineNum">      15 </span>            : /**
+<span class="lineNum">      16 </span>            :  * Serves request from one or more Client(s).
+<span class="lineNum">      17 </span>            :  *
+<span class="lineNum">      18 </span>            :  * The session is tied to ZeroConf announcement and can be disabled by passing
+<span class="lineNum">      19 </span>            :  * zeroeq::NULL_SESSION as the session name.
+<span class="lineNum">      20 </span>            :  *
+<a name="21"><span class="lineNum">      21 </span>            :  * Example: @include tests/reqRep.cpp</a>
+<span class="lineNum">      22 </span>            :  */
+<span class="lineNum">      23 </span><span class="lineNoCov">          0 : class Server : public Receiver, public Sender</span>
+<span class="lineNum">      24 </span>            : {
+<span class="lineNum">      25 </span>            : public:
+<span class="lineNum">      26 </span>            :     /**
+<span class="lineNum">      27 </span>            :      * Create a default server.
+<span class="lineNum">      28 </span>            :      *
+<span class="lineNum">      29 </span>            :      * Postconditions:
+<span class="lineNum">      30 </span>            :      * - bound to all network interfaces
+<span class="lineNum">      31 </span>            :      * - runs on a random port
+<span class="lineNum">      32 </span>            :      * - announces itself on the _zeroeq_rep._tcp ZeroConf service as host:port
+<span class="lineNum">      33 </span>            :      * - announces session \&lt;username\&gt; or ZEROEQ_SERVER_SESSION from
+<span class="lineNum">      34 </span>            :      * environment
+<span class="lineNum">      35 </span>            :      *
+<span class="lineNum">      36 </span>            :      * @throw std::runtime_error if session is empty or socket setup fails
+<span class="lineNum">      37 </span>            :      */
+<span class="lineNum">      38 </span>            :     ZEROEQ_API Server();
+<span class="lineNum">      39 </span>            : 
+<span class="lineNum">      40 </span>            :     /**
+<span class="lineNum">      41 </span>            :      * Create a server which announces itself using the specified session.
+<span class="lineNum">      42 </span>            :      *
+<span class="lineNum">      43 </span>            :      * Postconditions:
+<span class="lineNum">      44 </span>            :      * - bound to all network interfaces
+<span class="lineNum">      45 </span>            :      * - runs on a random port
+<span class="lineNum">      46 </span>            :      * - announces itself on the _zeroeq_rep._tcp ZeroConf service as host:port
+<span class="lineNum">      47 </span>            :      * - announces given session
+<span class="lineNum">      48 </span>            :      *
+<span class="lineNum">      49 </span>            :      * @param session session name used for announcement
+<span class="lineNum">      50 </span>            :      * @throw std::runtime_error if session is empty or socket setup fails
+<span class="lineNum">      51 </span>            :      */
+<span class="lineNum">      52 </span>            :     ZEROEQ_API explicit Server(const std::string&amp; session);
+<span class="lineNum">      53 </span>            : 
+<span class="lineNum">      54 </span>            :     /**
+<span class="lineNum">      55 </span>            :      * Create a server which runs on the specified URI.
+<span class="lineNum">      56 </span>            :      *
+<span class="lineNum">      57 </span>            :      * Postconditions:
+<span class="lineNum">      58 </span>            :      * - bound to the host and/or port from the given URI
+<span class="lineNum">      59 </span>            :      * - announces itself on the _zeroeq_rep._tcp ZeroConf service as host:port
+<span class="lineNum">      60 </span>            :      * - announces session \&lt;username\&gt; or ZEROEQ_SERVER_SESSION from
+<span class="lineNum">      61 </span>            :      * environment
+<span class="lineNum">      62 </span>            :      *
+<span class="lineNum">      63 </span>            :      * @param uri publishing URI in the format [*|host|IP|IF][:port]
+<span class="lineNum">      64 </span>            :      * @throw std::runtime_error if session is empty or socket setup fails
+<span class="lineNum">      65 </span>            :      */
+<span class="lineNum">      66 </span>            :     ZEROEQ_API explicit Server(const URI&amp; uri);
+<span class="lineNum">      67 </span>            : 
+<span class="lineNum">      68 </span>            :     /**
+<span class="lineNum">      69 </span>            :      * Create a server which runs on the specified URI and announces the
+<span class="lineNum">      70 </span>            :      * specified session.
+<span class="lineNum">      71 </span>            :      *
+<span class="lineNum">      72 </span>            :      * Postconditions:
+<span class="lineNum">      73 </span>            :      * - bound to the host and/or port from the given URI
+<span class="lineNum">      74 </span>            :      * - announces itself on the _zeroeq_rep._tcp ZeroConf service as host:port
+<span class="lineNum">      75 </span>            :      * - announces given session
+<span class="lineNum">      76 </span>            :      *
+<span class="lineNum">      77 </span>            :      * @param session session name used for announcement
+<span class="lineNum">      78 </span>            :      * @param uri publishing URI in the format [*|host|IP|IF][:port]
+<span class="lineNum">      79 </span>            :      * @throw std::runtime_error if session is empty or socket setup fails
+<span class="lineNum">      80 </span>            :      */
+<span class="lineNum">      81 </span>            :     ZEROEQ_API Server(const URI&amp; uri, const std::string&amp; session);
+<span class="lineNum">      82 </span>            : 
+<span class="lineNum">      83 </span>            :     /**
+<span class="lineNum">      84 </span>            :      * Create a default server.
+<span class="lineNum">      85 </span>            :      *
+<span class="lineNum">      86 </span>            :      * Postconditions:
+<span class="lineNum">      87 </span>            :      * - bound to all network interfaces
+<span class="lineNum">      88 </span>            :      * - runs on a random port
+<span class="lineNum">      89 </span>            :      * - announces itself on the _zeroeq_rep._tcp ZeroConf service as host:port
+<span class="lineNum">      90 </span>            :      * - announces session \&lt;username\&gt; or ZEROEQ_SERVER_SESSION from
+<span class="lineNum">      91 </span>            :      * environment
+<span class="lineNum">      92 </span>            :      *
+<span class="lineNum">      93 </span>            :      * @param shared another receiver to share data reception with
+<span class="lineNum">      94 </span>            :      * @throw std::runtime_error if session is empty or socket setup fails
+<span class="lineNum">      95 </span>            :      */
+<span class="lineNum">      96 </span>            :     ZEROEQ_API explicit Server(Receiver&amp; shared);
+<span class="lineNum">      97 </span>            : 
+<span class="lineNum">      98 </span>            :     /**
+<span class="lineNum">      99 </span>            :      * Create a server which announces itself using the specified session.
+<span class="lineNum">     100 </span>            :      *
+<span class="lineNum">     101 </span>            :      * Postconditions:
+<span class="lineNum">     102 </span>            :      * - bound to all network interfaces
+<span class="lineNum">     103 </span>            :      * - runs on a random port
+<span class="lineNum">     104 </span>            :      * - announces itself on the _zeroeq_rep._tcp ZeroConf service as host:port
+<span class="lineNum">     105 </span>            :      * - announces given session
+<span class="lineNum">     106 </span>            :      *
+<span class="lineNum">     107 </span>            :      * @param session session name used for announcement
+<span class="lineNum">     108 </span>            :      * @param shared another receiver to share data reception with
+<span class="lineNum">     109 </span>            :      * @throw std::runtime_error if session is empty or socket setup fails
+<span class="lineNum">     110 </span>            :      */
+<span class="lineNum">     111 </span>            :     ZEROEQ_API Server(const std::string&amp; session, Receiver&amp; shared);
+<span class="lineNum">     112 </span>            : 
+<span class="lineNum">     113 </span>            :     /**
+<span class="lineNum">     114 </span>            :      * Create a server which runs on the specified URI.
+<span class="lineNum">     115 </span>            :      *
+<span class="lineNum">     116 </span>            :      * Postconditions:
+<span class="lineNum">     117 </span>            :      * - bound to the host and/or port from the given URI
+<span class="lineNum">     118 </span>            :      * - announces itself on the _zeroeq_rep._tcp ZeroConf service as host:port
+<span class="lineNum">     119 </span>            :      * - announces session \&lt;username\&gt; or ZEROEQ_SERVER_SESSION from
+<span class="lineNum">     120 </span>            :      * environment
+<span class="lineNum">     121 </span>            :      *
+<span class="lineNum">     122 </span>            :      * @param uri publishing URI in the format [*|host|IP|IF][:port]
+<span class="lineNum">     123 </span>            :      * @param shared another receiver to share data reception with
+<span class="lineNum">     124 </span>            :      * @throw std::runtime_error if session is empty or socket setup fails
+<span class="lineNum">     125 </span>            :      */
+<span class="lineNum">     126 </span>            :     ZEROEQ_API Server(const URI&amp; uri, Receiver&amp; shared);
+<span class="lineNum">     127 </span>            : 
+<span class="lineNum">     128 </span>            :     /**
+<span class="lineNum">     129 </span>            :      * Create a server which runs on the specified URI and announces the
+<span class="lineNum">     130 </span>            :      * specified session.
+<span class="lineNum">     131 </span>            :      *
+<span class="lineNum">     132 </span>            :      * Postconditions:
+<span class="lineNum">     133 </span>            :      * - bound to the host and/or port from the given URI
+<span class="lineNum">     134 </span>            :      * - announces itself on the _zeroeq_rep._tcp ZeroConf service as host:port
+<span class="lineNum">     135 </span>            :      * - announces given session
+<span class="lineNum">     136 </span>            :      *
+<span class="lineNum">     137 </span>            :      * @param session session name used for announcement
+<span class="lineNum">     138 </span>            :      * @param uri publishing URI in the format [*|host|IP|IF][:port]
+<span class="lineNum">     139 </span>            :      * @param shared another receiver to share data reception with
+<span class="lineNum">     140 </span>            :      * @throw std::runtime_error if session is empty or socket setup fails
+<span class="lineNum">     141 </span>            :      */
+<span class="lineNum">     142 </span>            :     ZEROEQ_API Server(const URI&amp; uri, const std::string&amp; session,
+<span class="lineNum">     143 </span>            :                       Receiver&amp; shared);
+<span class="lineNum">     144 </span>            : 
+<span class="lineNum">     145 </span>            :     /** Destroy this server. */
+<span class="lineNum">     146 </span>            :     ZEROEQ_API ~Server();
+<span class="lineNum">     147 </span>            : 
+<span class="lineNum">     148 </span>            :     ZEROEQ_API Server(Server&amp;&amp;);
+<span class="lineNum">     149 </span>            :     ZEROEQ_API Server&amp; operator=(Server&amp;&amp;);
+<span class="lineNum">     150 </span>            : 
+<span class="lineNum">     151 </span>            :     /**
+<span class="lineNum">     152 </span>            :      * Register a request handler.
+<span class="lineNum">     153 </span>            :      *
+<span class="lineNum">     154 </span>            :      * Exceptions in a request handler are considered an error (0 is returned to
+<span class="lineNum">     155 </span>            :      * client).
+<span class="lineNum">     156 </span>            :      *
+<span class="lineNum">     157 </span>            :      * @param request the request to handle
+<span class="lineNum">     158 </span>            :      * @param func the function to call on receive() of a Client::request()
+<span class="lineNum">     159 </span>            :      * @return true if subscription was successful, false otherwise
+<span class="lineNum">     160 </span>            :      */
+<span class="lineNum">     161 </span>            :     ZEROEQ_API bool handle(const uint128_t&amp; request, const HandleFunc&amp; func);
+<span class="lineNum">     162 </span>            : 
+<span class="lineNum">     163 </span>            :     /**
+<span class="lineNum">     164 </span>            :      * Remove a registered request handler.
+<span class="lineNum">     165 </span>            :      *
+<span class="lineNum">     166 </span>            :      * @return true if the handler was removed, false if it was not registered.
+<span class="lineNum">     167 </span>            :      */
+<span class="lineNum">     168 </span>            :     ZEROEQ_API bool remove(const uint128_t&amp; request);
+<span class="lineNum">     169 </span>            : 
+<span class="lineNum">     170 </span>            :     /**
+<span class="lineNum">     171 </span>            :      * Get the server URI.
+<span class="lineNum">     172 </span>            :      *
+<span class="lineNum">     173 </span>            :      * Contains the used hostname and port, if none where given in the
+<span class="lineNum">     174 </span>            :      * constructor uri.
+<span class="lineNum">     175 </span>            :      *
+<span class="lineNum">     176 </span>            :      * @return the server URI.
+<span class="lineNum">     177 </span>            :      */
+<span class="lineNum">     178 </span>            :     ZEROEQ_API const URI&amp; getURI() const;
+<span class="lineNum">     179 </span>            : 
+<span class="lineNum">     180 </span>            :     /** @return the session name that is announced */
+<span class="lineNum">     181 </span>            :     ZEROEQ_API const std::string&amp; getSession() const;
+<span class="lineNum">     182 </span>            : 
+<span class="lineNum">     183 </span>            : private:
+<span class="lineNum">     184 </span>            :     class Impl;
+<span class="lineNum">     185 </span>            :     std::unique_ptr&lt;Impl&gt; _impl;
+<span class="lineNum">     186 </span>            : 
+<span class="lineNum">     187 </span>            :     Server(const Server&amp;) = delete;
+<span class="lineNum">     188 </span>            :     Server&amp; operator=(const Server&amp;) = delete;
+<span class="lineNum">     189 </span>            : 
+<span class="lineNum">     190 </span>            :     // Receiver API
+<span class="lineNum">     191 </span>            :     void addSockets(std::vector&lt;detail::Socket&gt;&amp; entries) final;
+<span class="lineNum">     192 </span>            :     bool process(detail::Socket&amp; socket) final;
+<span class="lineNum">     193 </span>            :     void addConnection(const std::string&amp; uri) final;
+<span class="lineNum">     194 </span>            : 
+<span class="lineNum">     195 </span>            :     // Sender API
+<span class="lineNum">     196 </span>            :     ZEROEQ_API zmq::SocketPtr getSocket() final;
+<span class="lineNum">     197 </span>            : };
+<span class="lineNum">     198 </span>            : }
+</pre>
+      </td>
+    </tr>
+  </table>
+  <br>
+
+  <table width="100%" border=0 cellspacing=0 cellpadding=0>
+    <tr><td class="ruler"><img src="../glass.png" width=3 height=3 alt=""></td></tr>
+    <tr><td class="versionInfo">Generated by: <a href="http://ltp.sourceforge.net/coverage/lcov.php" target="_parent">LCOV version 1.11</a></td></tr>
+  </table>
+  <br>
+
+</body>
+</html>

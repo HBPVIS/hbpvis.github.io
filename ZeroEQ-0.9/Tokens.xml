@@ -323,6 +323,42 @@
   </Token>
   <Token>
     <TokenIdentifier>
+      <Name>ReplyFunc</Name>
+      <APILanguage>cpp</APILanguage>
+      <Type>tdef</Type>
+      <Scope>zeroeq</Scope>
+    </TokenIdentifier>
+    <Path>namespacezeroeq.html</Path>
+    <Anchor>a92eb9e18b67bf7b8aed11d5932eff7c7</Anchor>
+    <Abstract>Callback for the reply of a Client::request(). </Abstract>
+    <DeclaredIn>types.h</DeclaredIn>
+  </Token>
+  <Token>
+    <TokenIdentifier>
+      <Name>ReplyData</Name>
+      <APILanguage>cpp</APILanguage>
+      <Type>tdef</Type>
+      <Scope>zeroeq</Scope>
+    </TokenIdentifier>
+    <Path>namespacezeroeq.html</Path>
+    <Anchor>a65ff79d6d212c7e81c540c3e4f38d36e</Anchor>
+    <Abstract>Return value of HandleFunc. </Abstract>
+    <DeclaredIn>types.h</DeclaredIn>
+  </Token>
+  <Token>
+    <TokenIdentifier>
+      <Name>HandleFunc</Name>
+      <APILanguage>cpp</APILanguage>
+      <Type>tdef</Type>
+      <Scope>zeroeq</Scope>
+    </TokenIdentifier>
+    <Path>namespacezeroeq.html</Path>
+    <Anchor>a2ce05537435016fc98b830a8f7b48326</Anchor>
+    <Abstract>Callback for serving a Client::request() in Server::handle(). </Abstract>
+    <DeclaredIn>types.h</DeclaredIn>
+  </Token>
+  <Token>
+    <TokenIdentifier>
       <Name>TIMEOUT_INDEFINITE</Name>
       <APILanguage>cpp</APILanguage>
       <Type>data</Type>
@@ -332,6 +368,172 @@
     <Anchor>afc7f553a4ab6b16de0bdb5f399634ae4</Anchor>
     <Abstract>Constant defining &amp;#39;wait forever&amp;#39; in methods with wait parameters. </Abstract>
     <DeclaredIn>types.h</DeclaredIn>
+  </Token>
+  <Token>
+    <TokenIdentifier>
+      <Name>zeroeq::Client</Name>
+      <APILanguage>c</APILanguage>
+      <Type>cl</Type>
+      <Scope>zeroeq::Client</Scope>
+    </TokenIdentifier>
+    <Path>classzeroeq_1_1_client.html</Path>
+    <Abstract>Requests a remote procedure call on a Server. </Abstract>
+    <DeclaredIn>client.h</DeclaredIn>
+  </Token>
+  <Token>
+    <TokenIdentifier>
+      <Name>Client</Name>
+      <APILanguage>cpp</APILanguage>
+      <Type>instm</Type>
+      <Scope>zeroeq::Client</Scope>
+    </TokenIdentifier>
+    <Path>classzeroeq_1_1_client.html</Path>
+    <Anchor>a18a12501ef968baa0504d1adb51fa611</Anchor>
+    <Abstract>Create a default client. </Abstract>
+    <DeclaredIn>client.h</DeclaredIn>
+  </Token>
+  <Token>
+    <TokenIdentifier>
+      <Name>Client</Name>
+      <APILanguage>cpp</APILanguage>
+      <Type>instm</Type>
+      <Scope>zeroeq::Client</Scope>
+    </TokenIdentifier>
+    <Path>classzeroeq_1_1_client.html</Path>
+    <Anchor>a6cb14105150fd5196cfed7cfa680e5fe</Anchor>
+    <Abstract>Create a client which connects to servers from the given session. </Abstract>
+    <DeclaredIn>client.h</DeclaredIn>
+  </Token>
+  <Token>
+    <TokenIdentifier>
+      <Name>Client</Name>
+      <APILanguage>cpp</APILanguage>
+      <Type>instm</Type>
+      <Scope>zeroeq::Client</Scope>
+    </TokenIdentifier>
+    <Path>classzeroeq_1_1_client.html</Path>
+    <Anchor>ac569370ce447d97e4138aacfad14d919</Anchor>
+    <Abstract>Create a client which subscribes to specific servers. </Abstract>
+    <DeclaredIn>client.h</DeclaredIn>
+  </Token>
+  <Token>
+    <TokenIdentifier>
+      <Name>Client</Name>
+      <APILanguage>cpp</APILanguage>
+      <Type>instm</Type>
+      <Scope>zeroeq::Client</Scope>
+    </TokenIdentifier>
+    <Path>classzeroeq_1_1_client.html</Path>
+    <Anchor>ae3781cea4e13401b341f361a8aeec851</Anchor>
+    <Abstract>Create a default shared client. </Abstract>
+    <DeclaredIn>client.h</DeclaredIn>
+  </Token>
+  <Token>
+    <TokenIdentifier>
+      <Name>Client</Name>
+      <APILanguage>cpp</APILanguage>
+      <Type>instm</Type>
+      <Scope>zeroeq::Client</Scope>
+    </TokenIdentifier>
+    <Path>classzeroeq_1_1_client.html</Path>
+    <Anchor>ae48cee3b9b81872eccaa7fdff1742001</Anchor>
+    <Abstract>Create a shared client which subscribes to servers from the given session. </Abstract>
+    <DeclaredIn>client.h</DeclaredIn>
+  </Token>
+  <Token>
+    <TokenIdentifier>
+      <Name>Client</Name>
+      <APILanguage>cpp</APILanguage>
+      <Type>instm</Type>
+      <Scope>zeroeq::Client</Scope>
+    </TokenIdentifier>
+    <Path>classzeroeq_1_1_client.html</Path>
+    <Anchor>afcdb021ce5d87a8d6e60461314e55181</Anchor>
+    <Abstract>Create a shared client which subscribes to servers on the given URIs. </Abstract>
+    <DeclaredIn>client.h</DeclaredIn>
+  </Token>
+  <Token>
+    <TokenIdentifier>
+      <Name>~Client</Name>
+      <APILanguage>cpp</APILanguage>
+      <Type>instm</Type>
+      <Scope>zeroeq::Client</Scope>
+    </TokenIdentifier>
+    <Path>classzeroeq_1_1_client.html</Path>
+    <Anchor>ae073ba6fbddcbf73e870bf74528f4189</Anchor>
+    <Abstract>Destroy this client. </Abstract>
+    <DeclaredIn>client.h</DeclaredIn>
+  </Token>
+  <Token>
+    <TokenIdentifier>
+      <Name>request</Name>
+      <APILanguage>cpp</APILanguage>
+      <Type>instm</Type>
+      <Scope>zeroeq::Client</Scope>
+    </TokenIdentifier>
+    <Path>classzeroeq_1_1_client.html</Path>
+    <Anchor>a632afac6a797e4c25daa844bb71d0f72</Anchor>
+    <Abstract>Request the execution of the given data on a connected Server. </Abstract>
+    <DeclaredIn>client.h</DeclaredIn>
+  </Token>
+  <Token>
+    <TokenIdentifier>
+      <Name>request</Name>
+      <APILanguage>cpp</APILanguage>
+      <Type>instm</Type>
+      <Scope>zeroeq::Client</Scope>
+    </TokenIdentifier>
+    <Path>classzeroeq_1_1_client.html</Path>
+    <Anchor>a259c03e447bcd374e73172cd50514170</Anchor>
+    <Abstract>Request the execution of the given data on a connected Server. </Abstract>
+    <DeclaredIn>client.h</DeclaredIn>
+  </Token>
+  <Token>
+    <TokenIdentifier>
+      <Name>getSession</Name>
+      <APILanguage>cpp</APILanguage>
+      <Type>instm</Type>
+      <Scope>zeroeq::Client</Scope>
+    </TokenIdentifier>
+    <Path>classzeroeq_1_1_client.html</Path>
+    <Anchor>a2e8acea4d42c5c36cf1b500e67d4dd82</Anchor>
+    <DeclaredIn>client.h</DeclaredIn>
+  </Token>
+  <Token>
+    <TokenIdentifier>
+      <Name>Receiver</Name>
+      <APILanguage>cpp</APILanguage>
+      <Type>instm</Type>
+      <Scope>zeroeq::Receiver</Scope>
+    </TokenIdentifier>
+    <Path>classzeroeq_1_1_receiver.html</Path>
+    <Anchor>ad5773a0809d164c0a047821503c28c6d</Anchor>
+    <Abstract>Create a new standalone receiver. </Abstract>
+    <DeclaredIn>receiver.h</DeclaredIn>
+  </Token>
+  <Token>
+    <TokenIdentifier>
+      <Name>Receiver</Name>
+      <APILanguage>cpp</APILanguage>
+      <Type>instm</Type>
+      <Scope>zeroeq::Receiver</Scope>
+    </TokenIdentifier>
+    <Path>classzeroeq_1_1_receiver.html</Path>
+    <Anchor>ad767195111bae3fae7de8ac0e57f4d0f</Anchor>
+    <Abstract>Create a shared receiver. </Abstract>
+    <DeclaredIn>receiver.h</DeclaredIn>
+  </Token>
+  <Token>
+    <TokenIdentifier>
+      <Name>receive</Name>
+      <APILanguage>cpp</APILanguage>
+      <Type>instm</Type>
+      <Scope>zeroeq::Receiver</Scope>
+    </TokenIdentifier>
+    <Path>classzeroeq_1_1_receiver.html</Path>
+    <Anchor>a97e7e5ce4223d96ebcb541e564efec49</Anchor>
+    <Abstract>Receive at least one event from all shared receivers. </Abstract>
+    <DeclaredIn>receiver.h</DeclaredIn>
   </Token>
   <Token>
     <TokenIdentifier>
@@ -414,18 +616,6 @@
     <Path>classzeroeq_1_1_receiver.html</Path>
     <Anchor>ad767195111bae3fae7de8ac0e57f4d0f</Anchor>
     <Abstract>Create a shared receiver. </Abstract>
-    <DeclaredIn>receiver.h</DeclaredIn>
-  </Token>
-  <Token>
-    <TokenIdentifier>
-      <Name>~Receiver</Name>
-      <APILanguage>cpp</APILanguage>
-      <Type>instm</Type>
-      <Scope>zeroeq::Receiver</Scope>
-    </TokenIdentifier>
-    <Path>classzeroeq_1_1_receiver.html</Path>
-    <Anchor>a28db3700ff81373a9bf3c74ab393fe00</Anchor>
-    <Abstract>Destroy this receiver. </Abstract>
     <DeclaredIn>receiver.h</DeclaredIn>
   </Token>
   <Token>
@@ -643,18 +833,6 @@
   </Token>
   <Token>
     <TokenIdentifier>
-      <Name>~Receiver</Name>
-      <APILanguage>cpp</APILanguage>
-      <Type>instm</Type>
-      <Scope>zeroeq::Receiver</Scope>
-    </TokenIdentifier>
-    <Path>classzeroeq_1_1_receiver.html</Path>
-    <Anchor>a28db3700ff81373a9bf3c74ab393fe00</Anchor>
-    <Abstract>Destroy this receiver. </Abstract>
-    <DeclaredIn>receiver.h</DeclaredIn>
-  </Token>
-  <Token>
-    <TokenIdentifier>
       <Name>receive</Name>
       <APILanguage>cpp</APILanguage>
       <Type>instm</Type>
@@ -732,8 +910,222 @@
       <Scope>zeroeq::Sender</Scope>
     </TokenIdentifier>
     <Path>classzeroeq_1_1_sender.html</Path>
-    <Anchor>aff94b077ead3a181aed81a2b9b707609</Anchor>
+    <Anchor>a4d5719fe170086af01f5e4e08a3482fa</Anchor>
     <DeclaredIn>sender.h</DeclaredIn>
+  </Token>
+  <Token>
+    <TokenIdentifier>
+      <Name>zeroeq::Server</Name>
+      <APILanguage>c</APILanguage>
+      <Type>cl</Type>
+      <Scope>zeroeq::Server</Scope>
+    </TokenIdentifier>
+    <Path>classzeroeq_1_1_server.html</Path>
+    <Abstract>Serves request from one or more Client(s). </Abstract>
+    <DeclaredIn>server.h</DeclaredIn>
+  </Token>
+  <Token>
+    <TokenIdentifier>
+      <Name>Server</Name>
+      <APILanguage>cpp</APILanguage>
+      <Type>instm</Type>
+      <Scope>zeroeq::Server</Scope>
+    </TokenIdentifier>
+    <Path>classzeroeq_1_1_server.html</Path>
+    <Anchor>aaa8e8bbc4ab329a958b594e442561891</Anchor>
+    <Abstract>Create a default server. </Abstract>
+    <DeclaredIn>server.h</DeclaredIn>
+  </Token>
+  <Token>
+    <TokenIdentifier>
+      <Name>Server</Name>
+      <APILanguage>cpp</APILanguage>
+      <Type>instm</Type>
+      <Scope>zeroeq::Server</Scope>
+    </TokenIdentifier>
+    <Path>classzeroeq_1_1_server.html</Path>
+    <Anchor>a5bcf378b3c72fbd1f339f68a3a91a155</Anchor>
+    <Abstract>Create a server which announces itself using the specified session. </Abstract>
+    <DeclaredIn>server.h</DeclaredIn>
+  </Token>
+  <Token>
+    <TokenIdentifier>
+      <Name>Server</Name>
+      <APILanguage>cpp</APILanguage>
+      <Type>instm</Type>
+      <Scope>zeroeq::Server</Scope>
+    </TokenIdentifier>
+    <Path>classzeroeq_1_1_server.html</Path>
+    <Anchor>a63de74a836ee09137a4bdf38557d3b87</Anchor>
+    <Abstract>Create a server which runs on the specified URI. </Abstract>
+    <DeclaredIn>server.h</DeclaredIn>
+  </Token>
+  <Token>
+    <TokenIdentifier>
+      <Name>Server</Name>
+      <APILanguage>cpp</APILanguage>
+      <Type>instm</Type>
+      <Scope>zeroeq::Server</Scope>
+    </TokenIdentifier>
+    <Path>classzeroeq_1_1_server.html</Path>
+    <Anchor>aaccb274a0706b27e5e38974da3f35421</Anchor>
+    <Abstract>Create a server which runs on the specified URI and announces the specified session. </Abstract>
+    <DeclaredIn>server.h</DeclaredIn>
+  </Token>
+  <Token>
+    <TokenIdentifier>
+      <Name>Server</Name>
+      <APILanguage>cpp</APILanguage>
+      <Type>instm</Type>
+      <Scope>zeroeq::Server</Scope>
+    </TokenIdentifier>
+    <Path>classzeroeq_1_1_server.html</Path>
+    <Anchor>ace61b0ae628ca12644a0c3a0a13c843d</Anchor>
+    <Abstract>Create a default server. </Abstract>
+    <DeclaredIn>server.h</DeclaredIn>
+  </Token>
+  <Token>
+    <TokenIdentifier>
+      <Name>Server</Name>
+      <APILanguage>cpp</APILanguage>
+      <Type>instm</Type>
+      <Scope>zeroeq::Server</Scope>
+    </TokenIdentifier>
+    <Path>classzeroeq_1_1_server.html</Path>
+    <Anchor>a1e3fcba38c75a5b4e54e2150de8e3f39</Anchor>
+    <Abstract>Create a server which announces itself using the specified session. </Abstract>
+    <DeclaredIn>server.h</DeclaredIn>
+  </Token>
+  <Token>
+    <TokenIdentifier>
+      <Name>Server</Name>
+      <APILanguage>cpp</APILanguage>
+      <Type>instm</Type>
+      <Scope>zeroeq::Server</Scope>
+    </TokenIdentifier>
+    <Path>classzeroeq_1_1_server.html</Path>
+    <Anchor>a2907158ec6f698e2230029b405969062</Anchor>
+    <Abstract>Create a server which runs on the specified URI. </Abstract>
+    <DeclaredIn>server.h</DeclaredIn>
+  </Token>
+  <Token>
+    <TokenIdentifier>
+      <Name>Server</Name>
+      <APILanguage>cpp</APILanguage>
+      <Type>instm</Type>
+      <Scope>zeroeq::Server</Scope>
+    </TokenIdentifier>
+    <Path>classzeroeq_1_1_server.html</Path>
+    <Anchor>a8a2b68ed9d08691bef5f203bccb2023f</Anchor>
+    <Abstract>Create a server which runs on the specified URI and announces the specified session. </Abstract>
+    <DeclaredIn>server.h</DeclaredIn>
+  </Token>
+  <Token>
+    <TokenIdentifier>
+      <Name>~Server</Name>
+      <APILanguage>cpp</APILanguage>
+      <Type>instm</Type>
+      <Scope>zeroeq::Server</Scope>
+    </TokenIdentifier>
+    <Path>classzeroeq_1_1_server.html</Path>
+    <Anchor>a3d3091bda0faa8ae1eb8a8f0a39ebe3a</Anchor>
+    <Abstract>Destroy this server. </Abstract>
+    <DeclaredIn>server.h</DeclaredIn>
+  </Token>
+  <Token>
+    <TokenIdentifier>
+      <Name>handle</Name>
+      <APILanguage>cpp</APILanguage>
+      <Type>instm</Type>
+      <Scope>zeroeq::Server</Scope>
+    </TokenIdentifier>
+    <Path>classzeroeq_1_1_server.html</Path>
+    <Anchor>a5945d22b023ffb1e2b9659dfdda69dec</Anchor>
+    <Abstract>Register a request handler. </Abstract>
+    <DeclaredIn>server.h</DeclaredIn>
+  </Token>
+  <Token>
+    <TokenIdentifier>
+      <Name>remove</Name>
+      <APILanguage>cpp</APILanguage>
+      <Type>instm</Type>
+      <Scope>zeroeq::Server</Scope>
+    </TokenIdentifier>
+    <Path>classzeroeq_1_1_server.html</Path>
+    <Anchor>add49d976b668035eb1d0143e6b200c2b</Anchor>
+    <Abstract>Remove a registered request handler. </Abstract>
+    <DeclaredIn>server.h</DeclaredIn>
+  </Token>
+  <Token>
+    <TokenIdentifier>
+      <Name>getURI</Name>
+      <APILanguage>cpp</APILanguage>
+      <Type>instm</Type>
+      <Scope>zeroeq::Server</Scope>
+    </TokenIdentifier>
+    <Path>classzeroeq_1_1_server.html</Path>
+    <Anchor>ac423dddb250a8857791076c645d1d781</Anchor>
+    <Abstract>Get the server URI. </Abstract>
+    <DeclaredIn>server.h</DeclaredIn>
+  </Token>
+  <Token>
+    <TokenIdentifier>
+      <Name>getSession</Name>
+      <APILanguage>cpp</APILanguage>
+      <Type>instm</Type>
+      <Scope>zeroeq::Server</Scope>
+    </TokenIdentifier>
+    <Path>classzeroeq_1_1_server.html</Path>
+    <Anchor>aeb142cf4275018dbb760185f9214d553</Anchor>
+    <DeclaredIn>server.h</DeclaredIn>
+  </Token>
+  <Token>
+    <TokenIdentifier>
+      <Name>Receiver</Name>
+      <APILanguage>cpp</APILanguage>
+      <Type>instm</Type>
+      <Scope>zeroeq::Receiver</Scope>
+    </TokenIdentifier>
+    <Path>classzeroeq_1_1_receiver.html</Path>
+    <Anchor>ad5773a0809d164c0a047821503c28c6d</Anchor>
+    <Abstract>Create a new standalone receiver. </Abstract>
+    <DeclaredIn>receiver.h</DeclaredIn>
+  </Token>
+  <Token>
+    <TokenIdentifier>
+      <Name>Receiver</Name>
+      <APILanguage>cpp</APILanguage>
+      <Type>instm</Type>
+      <Scope>zeroeq::Receiver</Scope>
+    </TokenIdentifier>
+    <Path>classzeroeq_1_1_receiver.html</Path>
+    <Anchor>ad767195111bae3fae7de8ac0e57f4d0f</Anchor>
+    <Abstract>Create a shared receiver. </Abstract>
+    <DeclaredIn>receiver.h</DeclaredIn>
+  </Token>
+  <Token>
+    <TokenIdentifier>
+      <Name>receive</Name>
+      <APILanguage>cpp</APILanguage>
+      <Type>instm</Type>
+      <Scope>zeroeq::Receiver</Scope>
+    </TokenIdentifier>
+    <Path>classzeroeq_1_1_receiver.html</Path>
+    <Anchor>a97e7e5ce4223d96ebcb541e564efec49</Anchor>
+    <Abstract>Receive at least one event from all shared receivers. </Abstract>
+    <DeclaredIn>receiver.h</DeclaredIn>
+  </Token>
+  <Token>
+    <TokenIdentifier>
+      <Name>update</Name>
+      <APILanguage>cpp</APILanguage>
+      <Type>instm</Type>
+      <Scope>zeroeq::Receiver</Scope>
+    </TokenIdentifier>
+    <Path>classzeroeq_1_1_receiver.html</Path>
+    <Anchor>ad7935ae7f25b938975b822ff05af965b</Anchor>
+    <Abstract>Update the internal connection list. </Abstract>
+    <DeclaredIn>receiver.h</DeclaredIn>
   </Token>
   <Token>
     <TokenIdentifier>
@@ -937,18 +1329,6 @@
   </Token>
   <Token>
     <TokenIdentifier>
-      <Name>~Receiver</Name>
-      <APILanguage>cpp</APILanguage>
-      <Type>instm</Type>
-      <Scope>zeroeq::Receiver</Scope>
-    </TokenIdentifier>
-    <Path>classzeroeq_1_1_receiver.html</Path>
-    <Anchor>a28db3700ff81373a9bf3c74ab393fe00</Anchor>
-    <Abstract>Destroy this receiver. </Abstract>
-    <DeclaredIn>receiver.h</DeclaredIn>
-  </Token>
-  <Token>
-    <TokenIdentifier>
       <Name>receive</Name>
       <APILanguage>cpp</APILanguage>
       <Type>instm</Type>
@@ -1028,6 +1408,17 @@
     <Path>classzeroeq_1_1_u_r_i.html</Path>
     <Anchor>aceaa026eceb58e569bb6e456feb13d67</Anchor>
     <Abstract>Convert this URI to a servus::URI. </Abstract>
+    <DeclaredIn>uri.h</DeclaredIn>
+  </Token>
+  <Token>
+    <TokenIdentifier>
+      <Name>isFullyQualified</Name>
+      <APILanguage>cpp</APILanguage>
+      <Type>instm</Type>
+      <Scope>zeroeq::URI</Scope>
+    </TokenIdentifier>
+    <Path>classzeroeq_1_1_u_r_i.html</Path>
+    <Anchor>a1c7a0245e707eb75bb9e86748dadbcd6</Anchor>
     <DeclaredIn>uri.h</DeclaredIn>
   </Token>
   <Token>
@@ -1231,18 +1622,6 @@
     <Path>classzeroeq_1_1_receiver.html</Path>
     <Anchor>ad767195111bae3fae7de8ac0e57f4d0f</Anchor>
     <Abstract>Create a shared receiver. </Abstract>
-    <DeclaredIn>receiver.h</DeclaredIn>
-  </Token>
-  <Token>
-    <TokenIdentifier>
-      <Name>~Receiver</Name>
-      <APILanguage>cpp</APILanguage>
-      <Type>instm</Type>
-      <Scope>zeroeq::Receiver</Scope>
-    </TokenIdentifier>
-    <Path>classzeroeq_1_1_receiver.html</Path>
-    <Anchor>a28db3700ff81373a9bf3c74ab393fe00</Anchor>
-    <Abstract>Destroy this receiver. </Abstract>
     <DeclaredIn>receiver.h</DeclaredIn>
   </Token>
   <Token>
@@ -1543,7 +1922,7 @@
     <Path>classzeroeq_1_1http_1_1_server.html</Path>
     <Anchor>aa83fad47cb63ba7d7935aca1b0d7d6b2</Anchor>
     <Abstract>Handle a single method on a given endpoint. </Abstract>
-    <DeclaredIn>server.h</DeclaredIn>
+    <DeclaredIn>http/server.h</DeclaredIn>
   </Token>
   <Token>
     <TokenIdentifier>
@@ -1555,7 +1934,7 @@
     <Path>classzeroeq_1_1http_1_1_server.html</Path>
     <Anchor>a998de6b80bdb286af3ee0881f4f7075e</Anchor>
     <Abstract>Handle PUT and GET for the given object. </Abstract>
-    <DeclaredIn>server.h</DeclaredIn>
+    <DeclaredIn>http/server.h</DeclaredIn>
   </Token>
   <Token>
     <TokenIdentifier>
@@ -1567,7 +1946,7 @@
     <Path>classzeroeq_1_1http_1_1_server.html</Path>
     <Anchor>a0991980d3b61915aad29bbcab1a9a53f</Anchor>
     <Abstract>This is an overloaded member function, provided for convenience. It differs from the above function o...</Abstract>
-    <DeclaredIn>server.h</DeclaredIn>
+    <DeclaredIn>http/server.h</DeclaredIn>
   </Token>
   <Token>
     <TokenIdentifier>
@@ -1579,7 +1958,7 @@
     <Path>classzeroeq_1_1http_1_1_server.html</Path>
     <Anchor>a2016a682e927c0226ae0d5320b1d4e23</Anchor>
     <Abstract>Remove PUT and GET handling for given object. </Abstract>
-    <DeclaredIn>server.h</DeclaredIn>
+    <DeclaredIn>http/server.h</DeclaredIn>
   </Token>
   <Token>
     <TokenIdentifier>
@@ -1591,7 +1970,7 @@
     <Path>classzeroeq_1_1http_1_1_server.html</Path>
     <Anchor>ab8906d6b22e78f6cda70df6b881dc727</Anchor>
     <Abstract>Remove all handling for given endpoint. </Abstract>
-    <DeclaredIn>server.h</DeclaredIn>
+    <DeclaredIn>http/server.h</DeclaredIn>
   </Token>
   <Token>
     <TokenIdentifier>
@@ -1603,7 +1982,7 @@
     <Path>classzeroeq_1_1http_1_1_server.html</Path>
     <Anchor>a0aeb9801f53704adb9b8e22f5a19ffec</Anchor>
     <Abstract>Subscribe a serializable object to receive updates from HTTP PUT requests. </Abstract>
-    <DeclaredIn>server.h</DeclaredIn>
+    <DeclaredIn>http/server.h</DeclaredIn>
   </Token>
   <Token>
     <TokenIdentifier>
@@ -1615,7 +1994,7 @@
     <Path>classzeroeq_1_1http_1_1_server.html</Path>
     <Anchor>af16e275ab1c829c938a59bd5f856d357</Anchor>
     <Abstract>This is an overloaded member function, provided for convenience. It differs from the above function o...</Abstract>
-    <DeclaredIn>server.h</DeclaredIn>
+    <DeclaredIn>http/server.h</DeclaredIn>
   </Token>
   <Token>
     <TokenIdentifier>
@@ -1627,7 +2006,7 @@
     <Path>classzeroeq_1_1http_1_1_server.html</Path>
     <Anchor>a82fe2c930914a87ddc1df9c7d90c3528</Anchor>
     <Abstract>Subscribe an endpoint to receive HTTP PUT requests. </Abstract>
-    <DeclaredIn>server.h</DeclaredIn>
+    <DeclaredIn>http/server.h</DeclaredIn>
   </Token>
   <Token>
     <TokenIdentifier>
@@ -1639,7 +2018,7 @@
     <Path>classzeroeq_1_1http_1_1_server.html</Path>
     <Anchor>a1e653b146b7aa53d11e10213fa16a376</Anchor>
     <Abstract>This is an overloaded member function, provided for convenience. It differs from the above function o...</Abstract>
-    <DeclaredIn>server.h</DeclaredIn>
+    <DeclaredIn>http/server.h</DeclaredIn>
   </Token>
   <Token>
     <TokenIdentifier>
@@ -1651,7 +2030,7 @@
     <Path>classzeroeq_1_1http_1_1_server.html</Path>
     <Anchor>a2c297f4e8dec6a9f90b1838d40ee1213</Anchor>
     <Abstract>Subscribe an endpoint to receive HTTP PUT requests with payload. </Abstract>
-    <DeclaredIn>server.h</DeclaredIn>
+    <DeclaredIn>http/server.h</DeclaredIn>
   </Token>
   <Token>
     <TokenIdentifier>
@@ -1663,7 +2042,7 @@
     <Path>classzeroeq_1_1http_1_1_server.html</Path>
     <Anchor>aa5f2d5a37605cbe1ecbb31af4edb511e</Anchor>
     <Abstract>This is an overloaded member function, provided for convenience. It differs from the above function o...</Abstract>
-    <DeclaredIn>server.h</DeclaredIn>
+    <DeclaredIn>http/server.h</DeclaredIn>
   </Token>
   <Token>
     <TokenIdentifier>
@@ -1675,7 +2054,7 @@
     <Path>classzeroeq_1_1http_1_1_server.html</Path>
     <Anchor>a0898f2483742ae48c6a4773fbf89cd80</Anchor>
     <Abstract>Subscribe a serializable object to serve HTTP GET requests. </Abstract>
-    <DeclaredIn>server.h</DeclaredIn>
+    <DeclaredIn>http/server.h</DeclaredIn>
   </Token>
   <Token>
     <TokenIdentifier>
@@ -1687,7 +2066,7 @@
     <Path>classzeroeq_1_1http_1_1_server.html</Path>
     <Anchor>a6b53fd011b1ebaea9ca5a3d6d1de501b</Anchor>
     <Abstract>This is an overloaded member function, provided for convenience. It differs from the above function o...</Abstract>
-    <DeclaredIn>server.h</DeclaredIn>
+    <DeclaredIn>http/server.h</DeclaredIn>
   </Token>
   <Token>
     <TokenIdentifier>
@@ -1699,7 +2078,7 @@
     <Path>classzeroeq_1_1http_1_1_server.html</Path>
     <Anchor>a4496ee6bb5833b9d36005e176c57d6c3</Anchor>
     <Abstract>Subscribe an endpoint to serve HTTP GET requests. </Abstract>
-    <DeclaredIn>server.h</DeclaredIn>
+    <DeclaredIn>http/server.h</DeclaredIn>
   </Token>
   <Token>
     <TokenIdentifier>
@@ -1711,7 +2090,7 @@
     <Path>classzeroeq_1_1http_1_1_server.html</Path>
     <Anchor>a88e0fc60183d4d4e9d24ce73657a97a3</Anchor>
     <Abstract>This is an overloaded member function, provided for convenience. It differs from the above function o...</Abstract>
-    <DeclaredIn>server.h</DeclaredIn>
+    <DeclaredIn>http/server.h</DeclaredIn>
   </Token>
   <Token>
     <TokenIdentifier>
@@ -1722,7 +2101,7 @@
     </TokenIdentifier>
     <Path>classzeroeq_1_1http_1_1_server.html</Path>
     <Anchor>a546fd235c0a099fa87274bff7fdece52</Anchor>
-    <DeclaredIn>server.h</DeclaredIn>
+    <DeclaredIn>http/server.h</DeclaredIn>
   </Token>
   <Token>
     <TokenIdentifier>
@@ -1733,7 +2112,7 @@
     </TokenIdentifier>
     <Path>classzeroeq_1_1http_1_1_server.html</Path>
     <Anchor>a50738d4551dff3a52e782305e2196430</Anchor>
-    <DeclaredIn>server.h</DeclaredIn>
+    <DeclaredIn>http/server.h</DeclaredIn>
   </Token>
   <Token>
     <TokenIdentifier>
@@ -1761,18 +2140,6 @@
   </Token>
   <Token>
     <TokenIdentifier>
-      <Name>~Receiver</Name>
-      <APILanguage>cpp</APILanguage>
-      <Type>instm</Type>
-      <Scope>zeroeq::Receiver</Scope>
-    </TokenIdentifier>
-    <Path>classzeroeq_1_1_receiver.html</Path>
-    <Anchor>a28db3700ff81373a9bf3c74ab393fe00</Anchor>
-    <Abstract>Destroy this receiver. </Abstract>
-    <DeclaredIn>receiver.h</DeclaredIn>
-  </Token>
-  <Token>
-    <TokenIdentifier>
       <Name>receive</Name>
       <APILanguage>cpp</APILanguage>
       <Type>instm</Type>
@@ -1793,7 +2160,7 @@
     <Path>classzeroeq_1_1http_1_1_server.html</Path>
     <Anchor>ab3f5024e454406d0b70c63096e2163b4</Anchor>
     <Abstract>Respond to a request. </Abstract>
-    <DeclaredIn>server.h</DeclaredIn>
+    <DeclaredIn>http/server.h</DeclaredIn>
   </Token>
   <Token>
     <TokenIdentifier>
@@ -1829,7 +2196,7 @@
     <Path>classzeroeq_1_1http_1_1_server.html</Path>
     <Anchor>a827286f7fd1f8baeb3ae32c83d10fb6e</Anchor>
     <Abstract>Construct a new HTTP server. </Abstract>
-    <DeclaredIn>server.h</DeclaredIn>
+    <DeclaredIn>http/server.h</DeclaredIn>
   </Token>
   <Token>
     <TokenIdentifier>
@@ -1841,7 +2208,7 @@
     <Path>classzeroeq_1_1http_1_1_server.html</Path>
     <Anchor>a5369e9ffc7df51437b5ef918f32316d4</Anchor>
     <Abstract>Destruct this http server. </Abstract>
-    <DeclaredIn>server.h</DeclaredIn>
+    <DeclaredIn>http/server.h</DeclaredIn>
   </Token>
   <Token>
     <TokenIdentifier>
@@ -1853,7 +2220,7 @@
     <Path>classzeroeq_1_1http_1_1_server.html</Path>
     <Anchor>a409acf9588c95462d1ba0f3186c84e33</Anchor>
     <Abstract>Get the publisher URI. </Abstract>
-    <DeclaredIn>server.h</DeclaredIn>
+    <DeclaredIn>http/server.h</DeclaredIn>
   </Token>
   <Token>
     <TokenIdentifier>
@@ -1865,7 +2232,7 @@
     <Path>classzeroeq_1_1http_1_1_server.html</Path>
     <Anchor>a15be7e2843c62325d2d27b4d9f86735a</Anchor>
     <Abstract>Get the underlying socket descriptor. </Abstract>
-    <DeclaredIn>server.h</DeclaredIn>
+    <DeclaredIn>http/server.h</DeclaredIn>
   </Token>
   <Token>
     <TokenIdentifier>
@@ -1877,7 +2244,7 @@
     <Path>classzeroeq_1_1http_1_1_server.html</Path>
     <Anchor>af3b682a61f9f997e2248be919131133b</Anchor>
     <Abstract>Create a new Server when requested. </Abstract>
-    <DeclaredIn>server.h</DeclaredIn>
+    <DeclaredIn>http/server.h</DeclaredIn>
   </Token>
   <Token>
     <TokenIdentifier>

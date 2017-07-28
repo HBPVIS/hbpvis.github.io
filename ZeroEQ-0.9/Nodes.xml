@@ -403,6 +403,62 @@
               </Subnodes>
              </Node>
              <Node>
+              <Name>Client</Name>
+              <Path>classzeroeq_1_1_client.html</Path>
+              <Subnodes>
+               <Node>
+                <Name>Client</Name>
+                <Path>classzeroeq_1_1_client.html</Path>
+                <Anchor>a18a12501ef968baa0504d1adb51fa611</Anchor>
+               </Node>
+               <Node>
+                <Name>Client</Name>
+                <Path>classzeroeq_1_1_client.html</Path>
+                <Anchor>a6cb14105150fd5196cfed7cfa680e5fe</Anchor>
+               </Node>
+               <Node>
+                <Name>Client</Name>
+                <Path>classzeroeq_1_1_client.html</Path>
+                <Anchor>ac569370ce447d97e4138aacfad14d919</Anchor>
+               </Node>
+               <Node>
+                <Name>Client</Name>
+                <Path>classzeroeq_1_1_client.html</Path>
+                <Anchor>ae3781cea4e13401b341f361a8aeec851</Anchor>
+               </Node>
+               <Node>
+                <Name>Client</Name>
+                <Path>classzeroeq_1_1_client.html</Path>
+                <Anchor>ae48cee3b9b81872eccaa7fdff1742001</Anchor>
+               </Node>
+               <Node>
+                <Name>Client</Name>
+                <Path>classzeroeq_1_1_client.html</Path>
+                <Anchor>afcdb021ce5d87a8d6e60461314e55181</Anchor>
+               </Node>
+               <Node>
+                <Name>~Client</Name>
+                <Path>classzeroeq_1_1_client.html</Path>
+                <Anchor>ae073ba6fbddcbf73e870bf74528f4189</Anchor>
+               </Node>
+               <Node>
+                <Name>getSession</Name>
+                <Path>classzeroeq_1_1_client.html</Path>
+                <Anchor>a2e8acea4d42c5c36cf1b500e67d4dd82</Anchor>
+               </Node>
+               <Node>
+                <Name>request</Name>
+                <Path>classzeroeq_1_1_client.html</Path>
+                <Anchor>a632afac6a797e4c25daa844bb71d0f72</Anchor>
+               </Node>
+               <Node>
+                <Name>request</Name>
+                <Path>classzeroeq_1_1_client.html</Path>
+                <Anchor>a259c03e447bcd374e73172cd50514170</Anchor>
+               </Node>
+              </Subnodes>
+             </Node>
+             <Node>
               <Name>Monitor</Name>
               <Path>classzeroeq_1_1_monitor.html</Path>
               <Subnodes>
@@ -509,6 +565,11 @@
                 <Anchor>a28db3700ff81373a9bf3c74ab393fe00</Anchor>
                </Node>
                <Node>
+                <Name>Receiver</Name>
+                <Path>classzeroeq_1_1_receiver.html</Path>
+                <Anchor>aab298f8ebd50f89ee8bd4d5fa9b39156</Anchor>
+               </Node>
+               <Node>
                 <Name>addConnection</Name>
                 <Path>classzeroeq_1_1_receiver.html</Path>
                 <Anchor>a4c7109254d8db6af6fb0c22c92b8a0d6</Anchor>
@@ -517,6 +578,11 @@
                 <Name>addSockets</Name>
                 <Path>classzeroeq_1_1_receiver.html</Path>
                 <Anchor>a51027302e01489101776ae6c418a3833</Anchor>
+               </Node>
+               <Node>
+                <Name>operator=</Name>
+                <Path>classzeroeq_1_1_receiver.html</Path>
+                <Anchor>aa7b4e303e5a26f0f943f70fc33d67985</Anchor>
                </Node>
                <Node>
                 <Name>process</Name>
@@ -538,11 +604,6 @@
                 <Path>classzeroeq_1_1_receiver.html</Path>
                 <Anchor>a515b76befb73d602df1cd2ef131ce574</Anchor>
                </Node>
-               <Node>
-                <Name>detail::Receiver</Name>
-                <Path>classzeroeq_1_1_receiver.html</Path>
-                <Anchor>aca0c2c2e0a917d860a97fd9d89e9aac8</Anchor>
-               </Node>
               </Subnodes>
              </Node>
              <Node>
@@ -557,7 +618,88 @@
                <Node>
                 <Name>getSocket</Name>
                 <Path>classzeroeq_1_1_sender.html</Path>
-                <Anchor>aff94b077ead3a181aed81a2b9b707609</Anchor>
+                <Anchor>a4d5719fe170086af01f5e4e08a3482fa</Anchor>
+               </Node>
+              </Subnodes>
+             </Node>
+             <Node>
+              <Name>Server</Name>
+              <Path>classzeroeq_1_1_server.html</Path>
+              <Subnodes>
+               <Node>
+                <Name>Server</Name>
+                <Path>classzeroeq_1_1_server.html</Path>
+                <Anchor>aaa8e8bbc4ab329a958b594e442561891</Anchor>
+               </Node>
+               <Node>
+                <Name>Server</Name>
+                <Path>classzeroeq_1_1_server.html</Path>
+                <Anchor>a5bcf378b3c72fbd1f339f68a3a91a155</Anchor>
+               </Node>
+               <Node>
+                <Name>Server</Name>
+                <Path>classzeroeq_1_1_server.html</Path>
+                <Anchor>a63de74a836ee09137a4bdf38557d3b87</Anchor>
+               </Node>
+               <Node>
+                <Name>Server</Name>
+                <Path>classzeroeq_1_1_server.html</Path>
+                <Anchor>aaccb274a0706b27e5e38974da3f35421</Anchor>
+               </Node>
+               <Node>
+                <Name>Server</Name>
+                <Path>classzeroeq_1_1_server.html</Path>
+                <Anchor>ace61b0ae628ca12644a0c3a0a13c843d</Anchor>
+               </Node>
+               <Node>
+                <Name>Server</Name>
+                <Path>classzeroeq_1_1_server.html</Path>
+                <Anchor>a1e3fcba38c75a5b4e54e2150de8e3f39</Anchor>
+               </Node>
+               <Node>
+                <Name>Server</Name>
+                <Path>classzeroeq_1_1_server.html</Path>
+                <Anchor>a2907158ec6f698e2230029b405969062</Anchor>
+               </Node>
+               <Node>
+                <Name>Server</Name>
+                <Path>classzeroeq_1_1_server.html</Path>
+                <Anchor>a8a2b68ed9d08691bef5f203bccb2023f</Anchor>
+               </Node>
+               <Node>
+                <Name>~Server</Name>
+                <Path>classzeroeq_1_1_server.html</Path>
+                <Anchor>a3d3091bda0faa8ae1eb8a8f0a39ebe3a</Anchor>
+               </Node>
+               <Node>
+                <Name>Server</Name>
+                <Path>classzeroeq_1_1_server.html</Path>
+                <Anchor>aad82a3f5616d972b0d1905871f6fe623</Anchor>
+               </Node>
+               <Node>
+                <Name>getSession</Name>
+                <Path>classzeroeq_1_1_server.html</Path>
+                <Anchor>aeb142cf4275018dbb760185f9214d553</Anchor>
+               </Node>
+               <Node>
+                <Name>getURI</Name>
+                <Path>classzeroeq_1_1_server.html</Path>
+                <Anchor>ac423dddb250a8857791076c645d1d781</Anchor>
+               </Node>
+               <Node>
+                <Name>handle</Name>
+                <Path>classzeroeq_1_1_server.html</Path>
+                <Anchor>a5945d22b023ffb1e2b9659dfdda69dec</Anchor>
+               </Node>
+               <Node>
+                <Name>operator=</Name>
+                <Path>classzeroeq_1_1_server.html</Path>
+                <Anchor>aa64f59afe8d97ac221b95508b532033c</Anchor>
+               </Node>
+               <Node>
+                <Name>remove</Name>
+                <Path>classzeroeq_1_1_server.html</Path>
+                <Anchor>add49d976b668035eb1d0143e6b200c2b</Anchor>
                </Node>
               </Subnodes>
              </Node>
@@ -675,6 +817,11 @@
                 <Name>URI</Name>
                 <Path>classzeroeq_1_1_u_r_i.html</Path>
                 <Anchor>a0e8be873351ea7f46f69e8360f47f662</Anchor>
+               </Node>
+               <Node>
+                <Name>isFullyQualified</Name>
+                <Path>classzeroeq_1_1_u_r_i.html</Path>
+                <Anchor>a1c7a0245e707eb75bb9e86748dadbcd6</Anchor>
                </Node>
                <Node>
                 <Name>operator!=</Name>
@@ -870,6 +1017,10 @@
             <Path>classzeroeq_1_1_receiver.html</Path>
             <Subnodes>
              <Node>
+              <Name>zeroeq::Client</Name>
+              <Path>classzeroeq_1_1_client.html</Path>
+             </Node>
+             <Node>
               <Name>zeroeq::connection::Broker</Name>
               <Path>classzeroeq_1_1connection_1_1_broker.html</Path>
              </Node>
@@ -880,6 +1031,10 @@
              <Node>
               <Name>zeroeq::Monitor</Name>
               <Path>classzeroeq_1_1_monitor.html</Path>
+             </Node>
+             <Node>
+              <Name>zeroeq::Server</Name>
+              <Path>classzeroeq_1_1_server.html</Path>
              </Node>
              <Node>
               <Name>zeroeq::Subscriber</Name>
@@ -894,6 +1049,10 @@
              <Node>
               <Name>zeroeq::Publisher</Name>
               <Path>classzeroeq_1_1_publisher.html</Path>
+             </Node>
+             <Node>
+              <Name>zeroeq::Server</Name>
+              <Path>classzeroeq_1_1_server.html</Path>
              </Node>
             </Subnodes>
            </Node>
@@ -1000,6 +1159,10 @@
             <Path>broker_8h_source.html</Path>
            </Node>
            <Node>
+            <Name>client.h</Name>
+            <Path>client_8h_source.html</Path>
+           </Node>
+           <Node>
             <Name>defines.h</Name>
             <Path>defines_8h.html</Path>
            </Node>
@@ -1038,6 +1201,10 @@
            <Node>
             <Name>sender.h</Name>
             <Path>sender_8h_source.html</Path>
+           </Node>
+           <Node>
+            <Name>http/server.h</Name>
+            <Path>http_2server_8h_source.html</Path>
            </Node>
            <Node>
             <Name>server.h</Name>

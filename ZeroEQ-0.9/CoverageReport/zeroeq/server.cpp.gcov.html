@@ -1,0 +1,318 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN">
+
+<html lang="en">
+
+<head>
+  <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+  <title>LCOV - ZeroEQ - zeroeq/server.cpp</title>
+  <link rel="stylesheet" type="text/css" href="../gcov.css">
+</head>
+
+<body>
+
+  <table width="100%" border=0 cellspacing=0 cellpadding=0>
+    <tr><td class="title">LCOV - code coverage report</td></tr>
+    <tr><td class="ruler"><img src="../glass.png" width=3 height=3 alt=""></td></tr>
+
+    <tr>
+      <td width="100%">
+        <table cellpadding=1 border=0 width="100%">
+          <tr>
+            <td width="10%" class="headerItem">Current view:</td>
+            <td width="35%" class="headerValue"><a href="../index.html">top level</a> - <a href="index.html">zeroeq</a> - server.cpp<span style="font-size: 80%;"> (source / <a href="server.cpp.func-sort-c.html">functions</a>)</span></td>
+            <td width="5%"></td>
+            <td width="15%"></td>
+            <td width="10%" class="headerCovTableHead">Hit</td>
+            <td width="10%" class="headerCovTableHead">Total</td>
+            <td width="15%" class="headerCovTableHead">Coverage</td>
+          </tr>
+          <tr>
+            <td class="headerItem">Test:</td>
+            <td class="headerValue">ZeroEQ</td>
+            <td></td>
+            <td class="headerItem">Lines:</td>
+            <td class="headerCovTableEntry">81</td>
+            <td class="headerCovTableEntry">106</td>
+            <td class="headerCovTableEntryMed">76.4 %</td>
+          </tr>
+          <tr>
+            <td class="headerItem">Date:</td>
+            <td class="headerValue">2017-07-29 01:37:37</td>
+            <td></td>
+            <td class="headerItem">Functions:</td>
+            <td class="headerCovTableEntry">19</td>
+            <td class="headerCovTableEntry">27</td>
+            <td class="headerCovTableEntryMed">70.4 %</td>
+          </tr>
+          <tr><td><img src="../glass.png" width=3 height=3 alt=""></td></tr>
+        </table>
+      </td>
+    </tr>
+
+    <tr><td class="ruler"><img src="../glass.png" width=3 height=3 alt=""></td></tr>
+  </table>
+
+  <table cellpadding=0 cellspacing=0 border=0>
+    <tr>
+      <td><br></td>
+    </tr>
+    <tr>
+      <td>
+<pre class="sourceHeading">          Line data    Source code</pre>
+<pre class="source">
+<a name="1"><span class="lineNum">       1 </span>            : </a>
+<span class="lineNum">       2 </span>            : /* Copyright (c) 2017, Human Brain Project
+<span class="lineNum">       3 </span>            :  *                     Stefan.Eilemann@epfl.ch
+<span class="lineNum">       4 </span>            :  */
+<span class="lineNum">       5 </span>            : 
+<span class="lineNum">       6 </span>            : #include &quot;server.h&quot;
+<span class="lineNum">       7 </span>            : 
+<span class="lineNum">       8 </span>            : #include &quot;detail/receiver.h&quot;
+<span class="lineNum">       9 </span>            : #include &quot;detail/sender.h&quot;
+<span class="lineNum">      10 </span>            : 
+<span class="lineNum">      11 </span>            : #include &lt;zmq.h&gt;
+<span class="lineNum">      12 </span>            : 
+<span class="lineNum">      13 </span>            : #include &lt;cassert&gt;
+<span class="lineNum">      14 </span>            : #include &lt;unordered_map&gt;
+<span class="lineNum">      15 </span>            : 
+<span class="lineNum">      16 </span>            : namespace zeroeq
+<span class="lineNum">      17 </span>            : {
+<span class="lineNum">      18 </span>            : class Server::Impl : public detail::Sender
+<a name="19"><span class="lineNum">      19 </span>            : {</a>
+<span class="lineNum">      20 </span>            : public:
+<span class="lineNum">      21 </span><span class="lineCov">         14 :     Impl(const URI&amp; uri_, const std::string&amp; session)</span>
+<span class="lineNum">      22 </span><span class="lineCov">         14 :         : detail::Sender(uri_, ZMQ_REP, SERVER_SERVICE,</span>
+<span class="lineNum">      23 </span><span class="lineCov">         28 :                          session == DEFAULT_SESSION ? getDefaultRepSession()</span>
+<span class="lineNum">      24 </span><span class="lineCov">         30 :                                                     : session)</span>
+<span class="lineNum">      25 </span>            :     {
+<span class="lineNum">      26 </span><span class="lineCov">         14 :         if (session.empty())</span>
+<span class="lineNum">      27 </span><span class="lineCov">          1 :             ZEROEQTHROW(</span>
+<span class="lineNum">      28 </span>            :                 std::runtime_error(&quot;Empty session is not allowed for server&quot;));
+<span class="lineNum">      29 </span>            : 
+<span class="lineNum">      30 </span><span class="lineCov">         26 :         const std::string&amp; zmqURI = buildZmqURI(uri);</span>
+<span class="lineNum">      31 </span><span class="lineCov">         13 :         if (zmq_bind(socket.get(), zmqURI.c_str()) == -1)</span>
+<span class="lineNum">      32 </span><span class="lineCov">          1 :             ZEROEQTHROW(</span>
+<span class="lineNum">      33 </span>            :                 std::runtime_error(std::string(&quot;Cannot bind server socket '&quot;) +
+<span class="lineNum">      34 </span>            :                                    zmqURI + &quot;': &quot; + zmq_strerror(zmq_errno())));
+<span class="lineNum">      35 </span><span class="lineCov">         12 :         initURI();</span>
+<span class="lineNum">      36 </span><span class="lineCov">         12 :         if (session != NULL_SESSION)</span>
+<span class="lineNum">      37 </span><span class="lineNoCov">          0 :             announce();</span>
+<a name="38"><span class="lineNum">      38 </span><span class="lineCov">         12 :     }</span></a>
+<span class="lineNum">      39 </span>            : 
+<a name="40"><span class="lineNum">      40 </span><span class="lineCov">         12 :     ~Impl() {}</span></a>
+<span class="lineNum">      41 </span>            : 
+<span class="lineNum">      42 </span><span class="lineCov">         42 :     bool handle(const uint128_t&amp; request, const HandleFunc&amp; func)</span>
+<span class="lineNum">      43 </span>            :     {
+<span class="lineNum">      44 </span><span class="lineCov">         42 :         if (_handlers.find(request) != _handlers.end())</span>
+<span class="lineNum">      45 </span><span class="lineCov">         14 :             return false;</span>
+<span class="lineNum">      46 </span>            : 
+<span class="lineNum">      47 </span><span class="lineCov">         28 :         _handlers[request] = func;</span>
+<span class="lineNum">      48 </span><span class="lineCov">         28 :         return true;</span>
+<a name="49"><span class="lineNum">      49 </span>            :     }</a>
+<span class="lineNum">      50 </span>            : 
+<span class="lineNum">      51 </span><span class="lineCov">         42 :     bool remove(const uint128_t&amp; request)</span>
+<span class="lineNum">      52 </span>            :     {
+<span class="lineNum">      53 </span><span class="lineCov">         42 :         return _handlers.erase(request) &gt; 0;</span>
+<a name="54"><span class="lineNum">      54 </span>            :     }</a>
+<span class="lineNum">      55 </span>            : 
+<span class="lineNum">      56 </span><span class="lineCov">         14 :     bool process(detail::Socket&amp;)</span>
+<span class="lineNum">      57 </span>            :     {
+<span class="lineNum">      58 </span><span class="lineCov">         14 :         uint128_t requestID;</span>
+<span class="lineNum">      59 </span><span class="lineCov">         14 :         const bool payload = _recv(&amp;requestID, sizeof(requestID));</span>
+<span class="lineNum">      60 </span>            : 
+<span class="lineNum">      61 </span>            : #ifdef ZEROEQ_BIGENDIAN
+<span class="lineNum">      62 </span>            :         detail::byteswap(requestID); // convert from little endian wire protocol
+<span class="lineNum">      63 </span>            : #endif
+<span class="lineNum">      64 </span>            : 
+<span class="lineNum">      65 </span>            :         zmq_msg_t msg;
+<span class="lineNum">      66 </span><span class="lineCov">         14 :         if (payload)</span>
+<span class="lineNum">      67 </span>            :         {
+<span class="lineNum">      68 </span><span class="lineCov">         10 :             zmq_msg_init(&amp;msg);</span>
+<span class="lineNum">      69 </span><span class="lineCov">         10 :             zmq_msg_recv(&amp;msg, socket.get(), 0);</span>
+<span class="lineNum">      70 </span>            :         }
+<span class="lineNum">      71 </span>            : 
+<span class="lineNum">      72 </span><span class="lineCov">         14 :         auto i = _handlers.find(requestID);</span>
+<span class="lineNum">      73 </span><span class="lineCov">         14 :         if (i == _handlers.cend()) // no handler, return &quot;0&quot;</span>
+<span class="lineNum">      74 </span>            :         {
+<span class="lineNum">      75 </span><span class="lineCov">          1 :             const uint128_t zero;</span>
+<span class="lineNum">      76 </span><span class="lineCov">          1 :             _send(&amp;zero, sizeof(zero), 0); // request and reply, no playload</span>
+<span class="lineNum">      77 </span>            :         }
+<span class="lineNum">      78 </span>            :         else
+<span class="lineNum">      79 </span>            :         {
+<span class="lineNum">      80 </span>            :             try
+<span class="lineNum">      81 </span>            :             {
+<span class="lineNum">      82 </span>            :                 auto reply =
+<span class="lineNum">      83 </span><span class="lineCov">         10 :                     payload ? i-&gt;second(zmq_msg_data(&amp;msg), zmq_msg_size(&amp;msg))</span>
+<span class="lineNum">      84 </span><span class="lineCov">         35 :                             : i-&gt;second(nullptr, 0);</span>
+<span class="lineNum">      85 </span><span class="lineCov">         12 :                 const bool hasReplyData = reply.second.ptr &amp;&amp; reply.second.size;</span>
+<span class="lineNum">      86 </span>            : #ifdef ZEROEQ_BIGENDIAN
+<span class="lineNum">      87 </span>            :                 detail::byteswap(reply.first); // convert to little endian
+<span class="lineNum">      88 </span>            : #endif
+<span class="lineNum">      89 </span><span class="lineCov">         24 :                 if (_send(&amp;reply.first, sizeof(reply.first),</span>
+<span class="lineNum">      90 </span><span class="lineCov">         12 :                           hasReplyData ? ZMQ_SNDMORE : 0) &amp;&amp;</span>
+<span class="lineNum">      91 </span>            :                     hasReplyData)
+<span class="lineNum">      92 </span>            :                 {
+<span class="lineNum">      93 </span><span class="lineCov">         11 :                     _send(reply.second.ptr.get(), reply.second.size, 0);</span>
+<span class="lineNum">      94 </span>            :                 }
+<span class="lineNum">      95 </span>            :             }
+<span class="lineNum">      96 </span><span class="lineCov">          2 :             catch (...) // handler had exception</span>
+<span class="lineNum">      97 </span>            :             {
+<span class="lineNum">      98 </span><span class="lineCov">          1 :                 const uint128_t zero;</span>
+<span class="lineNum">      99 </span><span class="lineCov">          1 :                 _send(&amp;zero, sizeof(zero), 0); // request and reply, no playload</span>
+<span class="lineNum">     100 </span>            :             }
+<span class="lineNum">     101 </span>            :         }
+<span class="lineNum">     102 </span>            : 
+<span class="lineNum">     103 </span><span class="lineCov">         14 :         if (payload)</span>
+<span class="lineNum">     104 </span><span class="lineCov">         10 :             zmq_msg_close(&amp;msg);</span>
+<span class="lineNum">     105 </span><span class="lineCov">         14 :         return true;</span>
+<span class="lineNum">     106 </span>            :     }
+<a name="107"><span class="lineNum">     107 </span>            : </a>
+<span class="lineNum">     108 </span>            : private:
+<span class="lineNum">     109 </span><span class="lineCov">         25 :     bool _send(const void* data, const size_t size, const int flags)</span>
+<span class="lineNum">     110 </span>            :     {
+<span class="lineNum">     111 </span>            :         zmq_msg_t msg;
+<span class="lineNum">     112 </span><span class="lineCov">         25 :         zmq_msg_init_size(&amp;msg, size);</span>
+<span class="lineNum">     113 </span><span class="lineCov">         25 :         ::memcpy(zmq_msg_data(&amp;msg), data, size);</span>
+<span class="lineNum">     114 </span><span class="lineCov">         25 :         int ret = zmq_msg_send(&amp;msg, socket.get(), flags);</span>
+<span class="lineNum">     115 </span><span class="lineCov">         25 :         zmq_msg_close(&amp;msg);</span>
+<span class="lineNum">     116 </span>            : 
+<span class="lineNum">     117 </span><span class="lineCov">         25 :         if (ret != -1)</span>
+<span class="lineNum">     118 </span><span class="lineCov">         25 :             return true;</span>
+<span class="lineNum">     119 </span>            : 
+<span class="lineNum">     120 </span><span class="lineNoCov">          0 :         ZEROEQWARN &lt;&lt; &quot;Cannot send reply: &quot; &lt;&lt; zmq_strerror(zmq_errno())</span>
+<span class="lineNum">     121 </span><span class="lineNoCov">          0 :                    &lt;&lt; std::endl;</span>
+<span class="lineNum">     122 </span><span class="lineNoCov">          0 :         return false;</span>
+<span class="lineNum">     123 </span>            :     }
+<a name="124"><span class="lineNum">     124 </span>            : </a>
+<span class="lineNum">     125 </span>            :     /** @return true if more data available */
+<span class="lineNum">     126 </span><span class="lineCov">         14 :     bool _recv(void* data, const size_t size)</span>
+<span class="lineNum">     127 </span>            :     {
+<span class="lineNum">     128 </span>            :         zmq_msg_t msg;
+<span class="lineNum">     129 </span><span class="lineCov">         14 :         zmq_msg_init(&amp;msg);</span>
+<span class="lineNum">     130 </span><span class="lineCov">         14 :         zmq_msg_recv(&amp;msg, socket.get(), 0);</span>
+<span class="lineNum">     131 </span><span class="lineCov">         14 :         if (zmq_msg_size(&amp;msg) != size)</span>
+<span class="lineNum">     132 </span>            :         {
+<span class="lineNum">     133 </span><span class="lineNoCov">          0 :             ZEROEQTHROW(std::runtime_error(</span>
+<span class="lineNum">     134 </span>            :                 std::string(&quot;Message size mismatch, expected &quot;) +
+<span class="lineNum">     135 </span>            :                 std::to_string(size) + &quot; got &quot; +
+<span class="lineNum">     136 </span>            :                 std::to_string(zmq_msg_size(&amp;msg))));
+<span class="lineNum">     137 </span>            :         }
+<span class="lineNum">     138 </span>            :         else
+<span class="lineNum">     139 </span><span class="lineCov">         14 :             memcpy(data, zmq_msg_data(&amp;msg), size);</span>
+<span class="lineNum">     140 </span><span class="lineCov">         14 :         const bool more = zmq_msg_more(&amp;msg);</span>
+<span class="lineNum">     141 </span><span class="lineCov">         14 :         zmq_msg_close(&amp;msg);</span>
+<span class="lineNum">     142 </span><span class="lineCov">         14 :         return more;</span>
+<span class="lineNum">     143 </span>            :     }
+<span class="lineNum">     144 </span>            : 
+<span class="lineNum">     145 </span>            :     std::unordered_map&lt;uint128_t, HandleFunc&gt; _handlers;
+<a name="146"><span class="lineNum">     146 </span>            : };</a>
+<span class="lineNum">     147 </span>            : 
+<span class="lineNum">     148 </span><span class="lineNoCov">          0 : Server::Server()</span>
+<span class="lineNum">     149 </span>            :     : Receiver()
+<span class="lineNum">     150 </span><span class="lineNoCov">          0 :     , _impl(new Impl({}, DEFAULT_SESSION))</span>
+<span class="lineNum">     151 </span>            : {
+<a name="152"><span class="lineNum">     152 </span><span class="lineNoCov">          0 : }</span></a>
+<span class="lineNum">     153 </span>            : 
+<span class="lineNum">     154 </span><span class="lineCov">         12 : Server::Server(const std::string&amp; session)</span>
+<span class="lineNum">     155 </span>            :     : Receiver()
+<span class="lineNum">     156 </span><span class="lineCov">         13 :     , _impl(new Impl({}, session))</span>
+<span class="lineNum">     157 </span>            : {
+<a name="158"><span class="lineNum">     158 </span><span class="lineCov">         11 : }</span></a>
+<span class="lineNum">     159 </span>            : 
+<span class="lineNum">     160 </span><span class="lineCov">          1 : Server::Server(const URI&amp; uri)</span>
+<span class="lineNum">     161 </span>            :     : Receiver()
+<span class="lineNum">     162 </span><span class="lineCov">          2 :     , _impl(new Impl(uri, DEFAULT_SESSION))</span>
+<span class="lineNum">     163 </span>            : {
+<a name="164"><span class="lineNum">     164 </span><span class="lineNoCov">          0 : }</span></a>
+<span class="lineNum">     165 </span>            : 
+<span class="lineNum">     166 </span><span class="lineCov">          1 : Server::Server(const URI&amp; uri, const std::string&amp; session)</span>
+<span class="lineNum">     167 </span>            :     : Receiver()
+<span class="lineNum">     168 </span><span class="lineCov">          1 :     , _impl(new Impl(uri, session))</span>
+<span class="lineNum">     169 </span>            : {
+<a name="170"><span class="lineNum">     170 </span><span class="lineCov">          1 : }</span></a>
+<span class="lineNum">     171 </span>            : 
+<span class="lineNum">     172 </span><span class="lineNoCov">          0 : Server::Server(Receiver&amp; shared)</span>
+<span class="lineNum">     173 </span>            :     : Receiver(shared)
+<span class="lineNum">     174 </span><span class="lineNoCov">          0 :     , _impl(new Impl({}, DEFAULT_SESSION))</span>
+<span class="lineNum">     175 </span>            : {
+<a name="176"><span class="lineNum">     176 </span><span class="lineNoCov">          0 : }</span></a>
+<span class="lineNum">     177 </span>            : 
+<span class="lineNum">     178 </span><span class="lineNoCov">          0 : Server::Server(const std::string&amp; session, Receiver&amp; shared)</span>
+<span class="lineNum">     179 </span>            :     : Receiver(shared)
+<span class="lineNum">     180 </span><span class="lineNoCov">          0 :     , _impl(new Impl({}, session))</span>
+<span class="lineNum">     181 </span>            : {
+<a name="182"><span class="lineNum">     182 </span><span class="lineNoCov">          0 : }</span></a>
+<span class="lineNum">     183 </span>            : 
+<span class="lineNum">     184 </span><span class="lineNoCov">          0 : Server::Server(const URI&amp; uri, Receiver&amp; shared)</span>
+<span class="lineNum">     185 </span>            :     : Receiver(shared)
+<span class="lineNum">     186 </span><span class="lineNoCov">          0 :     , _impl(new Impl(uri, DEFAULT_SESSION))</span>
+<span class="lineNum">     187 </span>            : {
+<a name="188"><span class="lineNum">     188 </span><span class="lineNoCov">          0 : }</span></a>
+<span class="lineNum">     189 </span>            : 
+<span class="lineNum">     190 </span><span class="lineNoCov">          0 : Server::Server(const URI&amp; uri, const std::string&amp; session, Receiver&amp; shared)</span>
+<span class="lineNum">     191 </span>            :     : Receiver(shared)
+<span class="lineNum">     192 </span><span class="lineNoCov">          0 :     , _impl(new Impl(uri, session))</span>
+<span class="lineNum">     193 </span>            : {
+<a name="194"><span class="lineNum">     194 </span><span class="lineNoCov">          0 : }</span></a>
+<span class="lineNum">     195 </span>            : 
+<span class="lineNum">     196 </span><span class="lineCov">         12 : Server::~Server()</span>
+<span class="lineNum">     197 </span>            : {
+<span class="lineNum">     198 </span><span class="lineCov">         12 : }</span>
+<span class="lineNum">     199 </span>            : 
+<span class="lineNum">     200 </span>            : Server::Server(Server&amp;&amp;) = default;
+<a name="201"><span class="lineNum">     201 </span>            : Server&amp; Server::operator=(Server&amp;&amp;) = default;</a>
+<span class="lineNum">     202 </span>            : 
+<span class="lineNum">     203 </span><span class="lineNoCov">          0 : const std::string&amp; Server::getSession() const</span>
+<span class="lineNum">     204 </span>            : {
+<span class="lineNum">     205 </span><span class="lineNoCov">          0 :     return _impl-&gt;getSession();</span>
+<a name="206"><span class="lineNum">     206 </span>            : }</a>
+<span class="lineNum">     207 </span>            : 
+<span class="lineNum">     208 </span><span class="lineCov">        360 : void Server::addSockets(std::vector&lt;detail::Socket&gt;&amp; entries)</span>
+<span class="lineNum">     209 </span>            : {
+<span class="lineNum">     210 </span><span class="lineCov">        360 :     _impl-&gt;addSockets(entries);</span>
+<a name="211"><span class="lineNum">     211 </span><span class="lineCov">        360 : }</span></a>
+<span class="lineNum">     212 </span>            : 
+<span class="lineNum">     213 </span><span class="lineCov">         14 : bool Server::process(detail::Socket&amp; socket)</span>
+<span class="lineNum">     214 </span>            : {
+<span class="lineNum">     215 </span><span class="lineCov">         14 :     return _impl-&gt;process(socket);</span>
+<a name="216"><span class="lineNum">     216 </span>            : }</a>
+<span class="lineNum">     217 </span>            : 
+<span class="lineNum">     218 </span><span class="lineNoCov">          0 : void Server::addConnection(const std::string&amp;)</span>
+<span class="lineNum">     219 </span>            : {
+<span class="lineNum">     220 </span><span class="lineNoCov">          0 :     ZEROEQTHROW(std::runtime_error(&quot;Server cannot add connections&quot;));</span>
+<a name="221"><span class="lineNum">     221 </span>            : }</a>
+<span class="lineNum">     222 </span>            : 
+<span class="lineNum">     223 </span><span class="lineCov">         16 : const URI&amp; Server::getURI() const</span>
+<span class="lineNum">     224 </span>            : {
+<span class="lineNum">     225 </span><span class="lineCov">         16 :     return _impl-&gt;uri;</span>
+<a name="226"><span class="lineNum">     226 </span>            : }</a>
+<span class="lineNum">     227 </span>            : 
+<span class="lineNum">     228 </span><span class="lineCov">         42 : bool Server::handle(const uint128_t&amp; request, const HandleFunc&amp; func)</span>
+<span class="lineNum">     229 </span>            : {
+<span class="lineNum">     230 </span><span class="lineCov">         42 :     return _impl-&gt;handle(request, func);</span>
+<a name="231"><span class="lineNum">     231 </span>            : }</a>
+<span class="lineNum">     232 </span>            : 
+<span class="lineNum">     233 </span><span class="lineCov">         42 : bool Server::remove(const uint128_t&amp; request)</span>
+<span class="lineNum">     234 </span>            : {
+<span class="lineNum">     235 </span><span class="lineCov">         42 :     return _impl-&gt;remove(request);</span>
+<a name="236"><span class="lineNum">     236 </span>            : }</a>
+<span class="lineNum">     237 </span>            : 
+<span class="lineNum">     238 </span><span class="lineCov">          2 : zmq::SocketPtr Server::getSocket()</span>
+<span class="lineNum">     239 </span>            : {
+<a name="240"><span class="lineNum">     240 </span><span class="lineCov">          2 :     return _impl-&gt;socket;</span></a>
+<span class="lineNum">     241 </span>            : }
+<span class="lineNum">     242 </span><span class="lineCov">         24 : }</span>
+</pre>
+      </td>
+    </tr>
+  </table>
+  <br>
+
+  <table width="100%" border=0 cellspacing=0 cellpadding=0>
+    <tr><td class="ruler"><img src="../glass.png" width=3 height=3 alt=""></td></tr>
+    <tr><td class="versionInfo">Generated by: <a href="http://ltp.sourceforge.net/coverage/lcov.php" target="_parent">LCOV version 1.11</a></td></tr>
+  </table>
+  <br>
+
+</body>
+</html>

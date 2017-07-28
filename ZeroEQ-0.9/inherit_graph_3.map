@@ -1,7 +1,11 @@
 <map id="Graphical Class Hierarchy" name="Graphical Class Hierarchy">
-<area shape="rect" id="node1" href="$classzeroeq_1_1_receiver.html" title="Base class for entities receiving data. " alt="" coords="5,101,144,131"/>
-<area shape="rect" id="node3" href="$classzeroeq_1_1connection_1_1_broker.html" title="Brokers subscription requests for a zeroeq::Receiver. " alt="" coords="196,5,351,51"/>
-<area shape="rect" id="node5" href="$classzeroeq_1_1http_1_1_server.html" title="Serves HTTP GET and PUT requests for servus::Serializable objects. " alt="" coords="192,75,355,104"/>
-<area shape="rect" id="node7" href="$classzeroeq_1_1_monitor.html" title="Monitors a Sender and notifies on events on its socket. " alt="" coords="208,128,339,157"/>
-<area shape="rect" id="node9" href="$classzeroeq_1_1_subscriber.html" title="Subscribes to Publisher to receive events. " alt="" coords="200,181,347,211"/>
+<area shape="rect" id="node1" href="$classzeroeq_1_1_receiver.html" title="Base class for entities receiving data. " alt="" coords="5,155,144,184"/>
+<area shape="rect" id="node3" href="$classzeroeq_1_1_client.html" title="Requests a remote procedure call on a Server. " alt="" coords="215,5,332,35"/>
+<area shape="rect" id="node5" href="$classzeroeq_1_1connection_1_1_broker.html" title="Brokers subscription requests for a zeroeq::Receiver. " alt="" coords="196,58,351,105"/>
+<area shape="rect" id="node7" href="$classzeroeq_1_1http_1_1_server.html" title="Serves HTTP GET and PUT requests for servus::Serializable objects. " alt="" coords="192,128,355,157"/>
+<area shape="rect" id="node9" href="$classzeroeq_1_1_monitor.html" title="Monitors a Sender and notifies on events on its socket. " alt="" coords="208,181,339,211"/>
+<area shape="rect" id="node11" href="$classzeroeq_1_1_server.html" title="Serves request from one or more Client(s). " alt="" coords="212,288,335,317"/>
+<area shape="rect" id="node13" href="$classzeroeq_1_1_subscriber.html" title="Subscribes to Publisher to receive events. " alt="" coords="200,235,347,264"/>
+<area shape="rect" id="node14" href="$classzeroeq_1_1_sender.html" title="Interface for entities sending data. " alt="" coords="12,315,137,344"/>
+<area shape="rect" id="node16" href="$classzeroeq_1_1_publisher.html" title="Serves and publishes events, consumed by Subscriber. " alt="" coords="204,341,343,371"/>
 </map>

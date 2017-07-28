@@ -4,7 +4,7 @@ version: "0.9"
 major: 0
 minor: 9
 description: ZeroEQ - Zero Event Queue
-updated: 28/07/17
+updated: 29/07/17
 homepage: https://github.com/HBPVIS/ZeroEQ
 repository: https://github.com/HBPVIS/ZeroEQ.git
 issuesurl: https://github.com/HBPVIS/ZeroEQ/issues
@@ -34,6 +34,7 @@ ZeroEQ provides the following major features:
 * Publish events using zeroeq::Publisher
 * Subscribe to events using zeroeq::Subscriber
 * Web service APIs using zeroeq::http::Server using REST and JSON
+* Client-Server request-reply using zeroeq::Server and zeroeq::Client
 * Asynchronous, reliable transport using [ZeroMQ](http://www.zeromq.org)
 * Automatic publisher discovery using [Zeroconf](https://en.wikipedia.org/wiki/Zero-configuration_networking)
 * Serialization of events using [ZeroBuf](https://github.com/HBPVIS/ZeroBuf)

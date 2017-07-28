@@ -1,6 +1,8 @@
 <map id="zeroeq::Receiver" name="zeroeq::Receiver">
-<area shape="rect" id="node3" href="$classzeroeq_1_1connection_1_1_broker.html" title="Brokers subscription requests for a zeroeq::Receiver. " alt="" coords="5,513,160,668"/>
-<area shape="rect" id="node5" href="$classzeroeq_1_1http_1_1_server.html" title="Serves HTTP GET and PUT requests for servus::Serializable objects. " alt="" coords="184,262,368,919"/>
-<area shape="rect" id="node7" href="$classzeroeq_1_1_monitor.html" title="Monitors a Sender and notifies on events on its socket. " alt="" coords="392,522,584,659"/>
-<area shape="rect" id="node9" href="$classzeroeq_1_1_subscriber.html" title="Subscribes to Publisher to receive events. " alt="" coords="608,427,755,755"/>
+<area shape="rect" id="node3" href="$classzeroeq_1_1_client.html" title="Requests a remote procedure call on a Server. " alt="" coords="5,505,125,746"/>
+<area shape="rect" id="node5" href="$classzeroeq_1_1connection_1_1_broker.html" title="Brokers subscription requests for a zeroeq::Receiver. " alt="" coords="149,548,304,703"/>
+<area shape="rect" id="node7" href="$classzeroeq_1_1http_1_1_server.html" title="Serves HTTP GET and PUT requests for servus::Serializable objects. " alt="" coords="328,297,512,954"/>
+<area shape="rect" id="node9" href="$classzeroeq_1_1_monitor.html" title="Monitors a Sender and notifies on events on its socket. " alt="" coords="536,557,728,694"/>
+<area shape="rect" id="node11" href="$classzeroeq_1_1_server.html" title="Serves request from one or more Client(s). " alt="" coords="752,461,875,789"/>
+<area shape="rect" id="node13" href="$classzeroeq_1_1_subscriber.html" title="Subscribes to Publisher to receive events. " alt="" coords="899,461,1045,789"/>
 </map>

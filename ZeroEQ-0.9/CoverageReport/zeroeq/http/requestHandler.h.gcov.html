@@ -37,7 +37,7 @@
           </tr>
           <tr>
             <td class="headerItem">Date:</td>
-            <td class="headerValue">2017-07-28 01:36:53</td>
+            <td class="headerValue">2017-07-29 01:37:37</td>
             <td></td>
             <td class="headerItem">Functions:</td>
             <td class="headerCovTableEntry">2</td>
@@ -95,7 +95,7 @@
 <span class="lineNum">      33 </span>            : 
 <a name="34"><span class="lineNum">      34 </span>            : // Contains in/out values for an HTTP request to exchange information between</a>
 <span class="lineNum">      35 </span>            : // cppnetlib and zeroeq::http::Server
-<span class="lineNum">      36 </span><span class="lineCov">        388 : struct Message</span>
+<span class="lineNum">      36 </span><span class="lineCov">        392 : struct Message</span>
 <span class="lineNum">      37 </span>            : {
 <span class="lineNum">      38 </span>            :     // input from cppnetlib and updated in server.cpp
 <span class="lineNum">      39 </span>            :     Request request;
@@ -129,7 +129,7 @@
 <span class="lineNum">      67 </span>            :                     HTTPServer::connection_ptr connection);
 <span class="lineNum">      68 </span>            : 
 <span class="lineNum">      69 </span>            : private:
-<span class="lineNum">      70 </span>            :     detail::ContextPtr _context;
+<span class="lineNum">      70 </span>            :     zmq::ContextPtr _context;
 <span class="lineNum">      71 </span>            :     void* _socket;
 <span class="lineNum">      72 </span>            : };
 <span class="lineNum">      73 </span>            : }

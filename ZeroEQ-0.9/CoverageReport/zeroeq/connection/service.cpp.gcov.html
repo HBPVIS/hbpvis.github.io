@@ -37,7 +37,7 @@
           </tr>
           <tr>
             <td class="headerItem">Date:</td>
-            <td class="headerValue">2017-07-28 01:36:53</td>
+            <td class="headerValue">2017-07-29 01:37:37</td>
             <td></td>
             <td class="headerItem">Functions:</td>
             <td class="headerCovTableEntry">4</td>
@@ -81,7 +81,7 @@
 <span class="lineNum">      19 </span>            : {
 <span class="lineNum">      20 </span><span class="lineCov">          2 : bool Service::subscribe(const std::string&amp; address, const Publisher&amp; publisher)</span>
 <span class="lineNum">      21 </span>            : {
-<span class="lineNum">      22 </span><span class="lineCov">          4 :     detail::ContextPtr context = detail::getContext();</span>
+<span class="lineNum">      22 </span><span class="lineCov">          4 :     zmq::ContextPtr context = detail::getContext();</span>
 <span class="lineNum">      23 </span><span class="lineCov">          2 :     void* socket = zmq_socket(context.get(), ZMQ_REQ);</span>
 <span class="lineNum">      24 </span><span class="lineCov">          2 :     if (!socket)</span>
 <span class="lineNum">      25 </span>            :     {
@@ -140,7 +140,7 @@
 <span class="lineNum">      78 </span><span class="lineCov">          2 :     return subscribe(address, publisher);</span>
 <a name="79"><span class="lineNum">      79 </span>            : }</a>
 <span class="lineNum">      80 </span>            : }
-<span class="lineNum">      81 </span><span class="lineCov">         21 : }</span>
+<span class="lineNum">      81 </span><span class="lineCov">         24 : }</span>
 </pre>
       </td>
     </tr>

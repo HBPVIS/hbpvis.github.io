@@ -1,8 +1,6 @@
 var searchData=
 [
-  ['_7ebroker',['~Broker',['../classzeroeq_1_1connection_1_1_broker.html#a827748d3494a8d9d25143f5c9a952b2f',1,'zeroeq::connection::Broker']]],
-  ['_7emonitor',['~Monitor',['../classzeroeq_1_1_monitor.html#a0246718385b6d1fd60a42124422e872d',1,'zeroeq::Monitor']]],
-  ['_7ereceiver',['~Receiver',['../classzeroeq_1_1_receiver.html#a28db3700ff81373a9bf3c74ab393fe00',1,'zeroeq::Receiver']]],
-  ['_7eserver',['~Server',['../classzeroeq_1_1http_1_1_server.html#a5369e9ffc7df51437b5ef918f32316d4',1,'zeroeq::http::Server']]],
-  ['_7esubscriber',['~Subscriber',['../classzeroeq_1_1_subscriber.html#ae83c8480398f8f42d75f27e5794afc7a',1,'zeroeq::Subscriber']]]
+  ['unsubscribe',['unsubscribe',['../classzeroeq_1_1_subscriber.html#a896a51a1d6a83e8c945eed8c7007e1d9',1,'zeroeq::Subscriber']]],
+  ['update',['update',['../classzeroeq_1_1_receiver.html#ad7935ae7f25b938975b822ff05af965b',1,'zeroeq::Receiver']]],
+  ['uri',['URI',['../classzeroeq_1_1_u_r_i.html#a32a567596fd1005ba63bafa5078d2631',1,'zeroeq::URI::URI()'],['../classzeroeq_1_1_u_r_i.html#a410c33fe319cecad60a2f2a3c9f11942',1,'zeroeq::URI::URI(const std::string &amp;uri)'],['../classzeroeq_1_1_u_r_i.html#a6b05da44dc887239930c3252372ac51e',1,'zeroeq::URI::URI(const char *uri)'],['../classzeroeq_1_1_u_r_i.html#a0e8be873351ea7f46f69e8360f47f662',1,'zeroeq::URI::URI(const servus::URI &amp;from)']]]
 ];

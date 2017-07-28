@@ -129,10 +129,12 @@ $(document).ready(function(){initNavTree('classzeroeq_1_1_receiver.html','');});
 <div id="dynsection-0-content" class="dyncontent" style="display:none;">
 <div class="center"><img src="classzeroeq_1_1_receiver__inherit__graph.png" border="0" usemap="#zeroeq_1_1_receiver_inherit__map" alt="Inheritance graph"/></div>
 <map name="zeroeq_1_1_receiver_inherit__map" id="zeroeq_1_1_receiver_inherit__map">
-<area shape="rect" id="node3" href="classzeroeq_1_1connection_1_1_broker.html" title="Brokers subscription requests for a zeroeq::Receiver. " alt="" coords="5,513,160,668"/>
-<area shape="rect" id="node5" href="classzeroeq_1_1http_1_1_server.html" title="Serves HTTP GET and PUT requests for servus::Serializable objects. " alt="" coords="184,262,368,919"/>
-<area shape="rect" id="node7" href="classzeroeq_1_1_monitor.html" title="Monitors a Sender and notifies on events on its socket. " alt="" coords="392,522,584,659"/>
-<area shape="rect" id="node9" href="classzeroeq_1_1_subscriber.html" title="Subscribes to Publisher to receive events. " alt="" coords="608,427,755,755"/>
+<area shape="rect" id="node3" href="classzeroeq_1_1_client.html" title="Requests a remote procedure call on a Server. " alt="" coords="5,505,125,746"/>
+<area shape="rect" id="node5" href="classzeroeq_1_1connection_1_1_broker.html" title="Brokers subscription requests for a zeroeq::Receiver. " alt="" coords="149,548,304,703"/>
+<area shape="rect" id="node7" href="classzeroeq_1_1http_1_1_server.html" title="Serves HTTP GET and PUT requests for servus::Serializable objects. " alt="" coords="328,297,512,954"/>
+<area shape="rect" id="node9" href="classzeroeq_1_1_monitor.html" title="Monitors a Sender and notifies on events on its socket. " alt="" coords="536,557,728,694"/>
+<area shape="rect" id="node11" href="classzeroeq_1_1_server.html" title="Serves request from one or more Client(s). " alt="" coords="752,461,875,789"/>
+<area shape="rect" id="node13" href="classzeroeq_1_1_subscriber.html" title="Subscribes to Publisher to receive events. " alt="" coords="899,461,1045,789"/>
 </map>
 </div>
 <div id="dynsection-1" onclick="return toggleVisibility(this)" class="dynheader closed" style="cursor:pointer;">
@@ -151,9 +153,12 @@ Public Member Functions</h2></td></tr>
 <tr class="memitem:ad767195111bae3fae7de8ac0e57f4d0f"><td class="memItemLeft" align="right" valign="top">&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classzeroeq_1_1_receiver.html#ad767195111bae3fae7de8ac0e57f4d0f">Receiver</a> (<a class="el" href="classzeroeq_1_1_receiver.html">Receiver</a> &amp;shared)</td></tr>
 <tr class="memdesc:ad767195111bae3fae7de8ac0e57f4d0f"><td class="mdescLeft">&#160;</td><td class="mdescRight">Create a shared receiver.  <a href="#ad767195111bae3fae7de8ac0e57f4d0f">More...</a><br /></td></tr>
 <tr class="separator:ad767195111bae3fae7de8ac0e57f4d0f"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a28db3700ff81373a9bf3c74ab393fe00"><td class="memItemLeft" align="right" valign="top">virtual&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classzeroeq_1_1_receiver.html#a28db3700ff81373a9bf3c74ab393fe00">~Receiver</a> ()</td></tr>
-<tr class="memdesc:a28db3700ff81373a9bf3c74ab393fe00"><td class="mdescLeft">&#160;</td><td class="mdescRight">Destroy this receiver.  <a href="#a28db3700ff81373a9bf3c74ab393fe00">More...</a><br /></td></tr>
-<tr class="separator:a28db3700ff81373a9bf3c74ab393fe00"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:aab298f8ebd50f89ee8bd4d5fa9b39156"><td class="memItemLeft" align="right" valign="top"><a class="anchor" id="aab298f8ebd50f89ee8bd4d5fa9b39156"></a>
+&#160;</td><td class="memItemRight" valign="bottom"><b>Receiver</b> (<a class="el" href="classzeroeq_1_1_receiver.html">Receiver</a> &amp;&amp;)</td></tr>
+<tr class="separator:aab298f8ebd50f89ee8bd4d5fa9b39156"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:aa7b4e303e5a26f0f943f70fc33d67985"><td class="memItemLeft" align="right" valign="top"><a class="anchor" id="aa7b4e303e5a26f0f943f70fc33d67985"></a>
+<a class="el" href="classzeroeq_1_1_receiver.html">Receiver</a> &amp;&#160;</td><td class="memItemRight" valign="bottom"><b>operator=</b> (<a class="el" href="classzeroeq_1_1_receiver.html">Receiver</a> &amp;&amp;)</td></tr>
+<tr class="separator:aa7b4e303e5a26f0f943f70fc33d67985"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a97e7e5ce4223d96ebcb541e564efec49"><td class="memItemLeft" align="right" valign="top">bool&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classzeroeq_1_1_receiver.html#a97e7e5ce4223d96ebcb541e564efec49">receive</a> (const uint32_t timeout=<a class="el" href="namespacezeroeq.html#afc7f553a4ab6b16de0bdb5f399634ae4">TIMEOUT_INDEFINITE</a>)</td></tr>
 <tr class="memdesc:a97e7e5ce4223d96ebcb541e564efec49"><td class="mdescLeft">&#160;</td><td class="mdescRight">Receive at least one event from all shared receivers.  <a href="#a97e7e5ce4223d96ebcb541e564efec49">More...</a><br /></td></tr>
 <tr class="separator:a97e7e5ce4223d96ebcb541e564efec49"><td class="memSeparator" colspan="2">&#160;</td></tr>
@@ -176,9 +181,6 @@ virtual void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" hr
 </table><table class="memberdecls">
 <tr class="heading"><td colspan="2"><h2 class="groupheader"><a name="friends"></a>
 Friends</h2></td></tr>
-<tr class="memitem:aca0c2c2e0a917d860a97fd9d89e9aac8"><td class="memItemLeft" align="right" valign="top"><a class="anchor" id="aca0c2c2e0a917d860a97fd9d89e9aac8"></a>
-class&#160;</td><td class="memItemRight" valign="bottom"><b>detail::Receiver</b></td></tr>
-<tr class="separator:aca0c2c2e0a917d860a97fd9d89e9aac8"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a515b76befb73d602df1cd2ef131ce574"><td class="memItemLeft" align="right" valign="top"><a class="anchor" id="a515b76befb73d602df1cd2ef131ce574"></a>
 class&#160;</td><td class="memItemRight" valign="bottom"><b>connection::detail::Broker</b></td></tr>
 <tr class="separator:a515b76befb73d602df1cd2ef131ce574"><td class="memSeparator" colspan="2">&#160;</td></tr>
@@ -188,7 +190,7 @@ class&#160;</td><td class="memItemRight" valign="bottom"><b>connection::detail::
 <p>Provides a <a class="el" href="classzeroeq_1_1_receiver.html#a97e7e5ce4223d96ebcb541e564efec49" title="Receive at least one event from all shared receivers. ">receive()</a> method, which demultiplexes data between multiple inputs of multiple instances of receivers. Receivers form a shared group by linking them at construction time.</p>
 <p>Not intended to be as a final class. Not thread safe.</p>
 <p>Example: </p><div class="fragment"><div class="line"></div><div class="line"><span class="comment">/* Copyright (c) 2014, Human Brain Project</span></div><div class="line"><span class="comment"> *                     Stefan.Eilemann@epfl.ch</span></div><div class="line"><span class="comment"> */</span></div><div class="line"></div><div class="line"><span class="preprocessor">#define BOOST_TEST_MODULE zeroeq_receiver</span></div><div class="line"></div><div class="line"><span class="preprocessor">#include &quot;common.h&quot;</span></div><div class="line"></div><div class="line"><span class="preprocessor">#include &lt;chrono&gt;</span></div><div class="line"></div><div class="line"><span class="keywordtype">bool</span> gotOne = <span class="keyword">false</span>;</div><div class="line"><span class="keywordtype">bool</span> gotTwo = <span class="keyword">false</span>;</div><div class="line"></div><div class="line"><span class="keywordtype">void</span> onEvent1()</div><div class="line">{</div><div class="line">    gotOne = <span class="keyword">true</span>;</div><div class="line">}</div><div class="line"><span class="keywordtype">void</span> onEvent2()</div><div class="line">{</div><div class="line">    gotTwo = <span class="keyword">true</span>;</div><div class="line">}</div><div class="line"></div><div class="line"><span class="keywordtype">void</span> testReceive(<a class="code" href="classzeroeq_1_1_publisher.html">zeroeq::Publisher</a>&amp; publisher, <a class="code" href="classzeroeq_1_1_receiver.html">zeroeq::Receiver</a>&amp; receiver,</div><div class="line">                 <span class="keywordtype">bool</span>&amp; var1, <span class="keywordtype">bool</span>&amp; var2, <span class="keyword">const</span> <span class="keywordtype">int</span> line)</div><div class="line">{</div><div class="line">    gotOne = <span class="keyword">false</span>;</div><div class="line">    gotTwo = <span class="keyword">false</span>;</div><div class="line"></div><div class="line">    <span class="keyword">const</span> <span class="keyword">auto</span> startTime = std::chrono::high_resolution_clock::now();</div><div class="line">    <span class="keywordflow">for</span> (;;)</div><div class="line">    {</div><div class="line">        BOOST_CHECK(publisher.<a class="code" href="classzeroeq_1_1_publisher.html#a0b630f6cb6176fc697b516f531d9cf54">publish</a>(test::Echo(test::echoMessage)));</div><div class="line">        <span class="keywordflow">while</span> (receiver.<a class="code" href="classzeroeq_1_1_receiver.html#a97e7e5ce4223d96ebcb541e564efec49">receive</a>(100))</div><div class="line">        {</div><div class="line">        }</div><div class="line"></div><div class="line">        <span class="keywordflow">if</span> (var1 &amp;&amp; var2)</div><div class="line">            <span class="keywordflow">break</span>;</div><div class="line"></div><div class="line">        <span class="keyword">const</span> <span class="keyword">auto</span> endTime = std::chrono::high_resolution_clock::now();</div><div class="line">        <span class="keyword">const</span> <span class="keyword">auto</span> elapsed =</div><div class="line">            std::chrono::nanoseconds(endTime - startTime).count() / 1000000;</div><div class="line">        <span class="keywordflow">if</span> (elapsed &gt; 2000 <span class="comment">/*ms*/</span>)</div><div class="line">            <span class="keywordflow">break</span>;</div><div class="line">    }</div><div class="line">    BOOST_CHECK_MESSAGE(var1, (&amp;var1 == &amp;gotOne ? <span class="stringliteral">&quot;Event 1&quot;</span> : <span class="stringliteral">&quot;Event 2&quot;</span>)</div><div class="line">                                  &lt;&lt; <span class="stringliteral">&quot; not received (l.&quot;</span> &lt;&lt; line &lt;&lt; <span class="stringliteral">&quot;)&quot;</span>);</div><div class="line">    <span class="keywordflow">if</span> (&amp;var1 != &amp;var2)</div><div class="line">        BOOST_CHECK_MESSAGE(var2, (&amp;var2 == &amp;gotOne ? <span class="stringliteral">&quot;Event 1&quot;</span> : <span class="stringliteral">&quot;Event 2&quot;</span>)</div><div class="line">                                      &lt;&lt; <span class="stringliteral">&quot; not received (l.&quot;</span> &lt;&lt; line &lt;&lt; <span class="stringliteral">&quot;)&quot;</span>);</div><div class="line">}</div><div class="line"><span class="keywordtype">void</span> testReceive(<a class="code" href="classzeroeq_1_1_publisher.html">zeroeq::Publisher</a>&amp; publisher, <a class="code" href="classzeroeq_1_1_receiver.html">zeroeq::Receiver</a>&amp; receiver,</div><div class="line">                 <span class="keywordtype">bool</span>&amp; var, <span class="keyword">const</span> <span class="keywordtype">int</span> line)</div><div class="line">{</div><div class="line">    testReceive(publisher, receiver, var, var, line);</div><div class="line">}</div><div class="line"></div><div class="line">BOOST_AUTO_TEST_CASE(test_two_subscribers)</div><div class="line">{</div><div class="line">    <a class="code" href="classzeroeq_1_1_publisher.html">zeroeq::Publisher</a> publisher(zeroeq::NULL_SESSION);</div><div class="line">    <a class="code" href="classzeroeq_1_1_subscriber.html">zeroeq::Subscriber</a> subscriber1(test::buildURI(<span class="stringliteral">&quot;localhost&quot;</span>, publisher));</div><div class="line">    <a class="code" href="classzeroeq_1_1_subscriber.html">zeroeq::Subscriber</a> subscriber2(test::buildURI(<span class="stringliteral">&quot;localhost&quot;</span>, publisher),</div><div class="line">                                   subscriber1);</div><div class="line"></div><div class="line">    BOOST_CHECK(subscriber1.subscribe(test::Echo::IDENTIFIER(),</div><div class="line">                                      <a class="code" href="namespacezeroeq.html#a254e586308434b75d1952f0fe862aa05">zeroeq::EventFunc</a>(&amp;onEvent1)));</div><div class="line">    BOOST_CHECK(subscriber2.subscribe(test::Echo::IDENTIFIER(),</div><div class="line">                                      <a class="code" href="namespacezeroeq.html#a254e586308434b75d1952f0fe862aa05">zeroeq::EventFunc</a>(&amp;onEvent2)));</div><div class="line"></div><div class="line">    testReceive(publisher, subscriber1, gotOne, gotTwo, __LINE__);</div><div class="line">    testReceive(publisher, subscriber2, gotOne, gotTwo, __LINE__);</div><div class="line">}</div><div class="line"></div><div class="line">BOOST_AUTO_TEST_CASE(test_publisher_routing)</div><div class="line">{</div><div class="line">    <a class="code" href="classzeroeq_1_1_publisher.html">zeroeq::Publisher</a> publisher(zeroeq::NULL_SESSION);</div><div class="line">    <a class="code" href="classzeroeq_1_1_publisher.html">zeroeq::Publisher</a> silentPublisher(zeroeq::NULL_SESSION);</div><div class="line">    <a class="code" href="classzeroeq_1_1_subscriber.html">zeroeq::Subscriber</a>* subscriber1 =</div><div class="line">        <span class="keyword">new</span> <a class="code" href="classzeroeq_1_1_subscriber.html">zeroeq::Subscriber</a>(test::buildURI(<span class="stringliteral">&quot;localhost&quot;</span>, silentPublisher));</div><div class="line">    <a class="code" href="classzeroeq_1_1_subscriber.html">zeroeq::Subscriber</a> subscriber2(test::buildURI(<span class="stringliteral">&quot;localhost&quot;</span>, publisher),</div><div class="line">                                   *subscriber1);</div><div class="line"></div><div class="line">    BOOST_CHECK(subscriber1-&gt;<a class="code" href="classzeroeq_1_1_subscriber.html#aeb6a4dacf8cba7a4e9475f224cd5924c">subscribe</a>(test::Echo::IDENTIFIER(),</div><div class="line">                                       <a class="code" href="namespacezeroeq.html#a254e586308434b75d1952f0fe862aa05">zeroeq::EventFunc</a>(&amp;onEvent1)));</div><div class="line">    BOOST_CHECK(subscriber2.subscribe(test::Echo::IDENTIFIER(),</div><div class="line">                                      <a class="code" href="namespacezeroeq.html#a254e586308434b75d1952f0fe862aa05">zeroeq::EventFunc</a>(&amp;onEvent2)));</div><div class="line"></div><div class="line">    testReceive(publisher, *subscriber1, gotTwo, __LINE__);</div><div class="line">    BOOST_CHECK(!gotOne);</div><div class="line"></div><div class="line">    testReceive(publisher, subscriber2, gotTwo, __LINE__);</div><div class="line">    BOOST_CHECK(!gotOne);</div><div class="line"></div><div class="line">    <span class="keyword">delete</span> subscriber1;</div><div class="line"></div><div class="line">    testReceive(publisher, subscriber2, gotTwo, __LINE__);</div><div class="line">    BOOST_CHECK(!gotOne);</div><div class="line">}</div></div><!-- fragment --> 
-<p>Definition at line <a class="el" href="receiver_8h_source.html#l00042">42</a> of file <a class="el" href="receiver_8h_source.html">receiver.h</a>.</p>
+<p>Definition at line <a class="el" href="receiver_8h_source.html#l00038">38</a> of file <a class="el" href="receiver_8h_source.html">receiver.h</a>.</p>
 </div><h2 class="groupheader">Constructor &amp; Destructor Documentation</h2>
 <a class="anchor" id="ad5773a0809d164c0a047821503c28c6d"></a>
 <div class="memitem">
@@ -237,31 +239,6 @@ class&#160;</td><td class="memItemRight" valign="bottom"><b>connection::detail::
   </table>
   </dd>
 </dl>
-
-</div>
-</div>
-<a class="anchor" id="a28db3700ff81373a9bf3c74ab393fe00"></a>
-<div class="memitem">
-<div class="memproto">
-<table class="mlabels">
-  <tr>
-  <td class="mlabels-left">
-      <table class="memname">
-        <tr>
-          <td class="memname">virtual zeroeq::Receiver::~Receiver </td>
-          <td>(</td>
-          <td class="paramname"></td><td>)</td>
-          <td></td>
-        </tr>
-      </table>
-  </td>
-  <td class="mlabels-right">
-<span class="mlabels"><span class="mlabel">virtual</span></span>  </td>
-  </tr>
-</table>
-</div><div class="memdoc">
-
-<p>Destroy this receiver. </p>
 
 </div>
 </div>
@@ -387,7 +364,7 @@ class&#160;</td><td class="memItemRight" valign="bottom"><b>connection::detail::
 <p>Update the internal connection list. </p>
 <p>Called on all members of a shared group regularly by <a class="el" href="classzeroeq_1_1_receiver.html#a97e7e5ce4223d96ebcb541e564efec49" title="Receive at least one event from all shared receivers. ">receive()</a> to update their list of sockets. </p>
 
-<p>Definition at line <a class="el" href="receiver_8h_source.html#l00094">94</a> of file <a class="el" href="receiver_8h_source.html">receiver.h</a>.</p>
+<p>Definition at line <a class="el" href="receiver_8h_source.html#l00089">89</a> of file <a class="el" href="receiver_8h_source.html">receiver.h</a>.</p>
 
 </div>
 </div>
@@ -400,7 +377,7 @@ class&#160;</td><td class="memItemRight" valign="bottom"><b>connection::detail::
 <div id="nav-path" class="navpath"><!-- id is needed for treeview function! -->
   <ul>
     <li class="navelem"><a class="el" href="namespacezeroeq.html">zeroeq</a></li><li class="navelem"><a class="el" href="classzeroeq_1_1_receiver.html">Receiver</a></li>
-    <li class="footer">Generated on Fri Jul 28 2017 01:36:55 for ZeroEQ by
+    <li class="footer">Generated on Sat Jul 29 2017 01:37:39 for ZeroEQ by
     <a href="http://www.doxygen.org/index.html">
     <img class="footer" src="doxygen.png" alt="doxygen"/></a> 1.8.11 </li>
   </ul>

@@ -1,3 +1,4 @@
 <map id="zeroeq::Sender" name="zeroeq::Sender">
-<area shape="rect" id="node3" href="$classzeroeq_1_1_publisher.html" title="Serves and publishes events, consumed by Subscriber. " alt="" coords="5,157,144,416"/>
+<area shape="rect" id="node3" href="$classzeroeq_1_1_publisher.html" title="Serves and publishes events, consumed by Subscriber. " alt="" coords="5,192,144,451"/>
+<area shape="rect" id="node5" href="$classzeroeq_1_1_server.html" title="Serves request from one or more Client(s). " alt="" coords="168,157,291,485"/>
 </map>

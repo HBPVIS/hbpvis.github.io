@@ -110,15 +110,16 @@ $(document).ready(function(){initNavTree('reqrep.html','');});
 <li>Asynchronous remote procedure call with later return synchronization from a Client to a Server</li>
 </ul>
 <h2>API</h2>
-<pre class="fragment">using ReplyFunc = std::function&lt;void(const uint128_t, const void*, size_t)&gt;;
+<pre class="fragment">using ReplyFunc = std::function&lt;void(const uint128_t&amp;, const void*, size_t)&gt;;
 
 class Client : public Receiver
 {
     // ctors same as Subscriber
-    void request(const Serializable&amp; request, ReplyFunc&amp; func);
+    /** @return false on send error */
+    bool request(const Serializable&amp; request, ReplyFunc&amp; func);
 };
 
-using std::pair&lt; uint128_t, servus::Serializable::Data &gt; ReplyData
+using ReplyData = std::pair&lt; uint128_t, servus::Serializable::Data &gt;;
 using HandleFunc = std::function&lt;ReplyData(const void*, size_t)&gt;;
 
 class Server : public Receiver
@@ -133,7 +134,7 @@ class Server : public Receiver
 <li>Server::receive() uses a rep socket<ul>
 <li>Single-threaded, synchronous for now</li>
 <li>Can be extended to async model later</li>
-<li>does recv()-send()</li>
+<li>does recv()-&gt;send()</li>
 </ul>
 </li>
 </ul>
@@ -243,7 +244,7 @@ class livre::RemoteDataService
 <div id="nav-path" class="navpath"><!-- id is needed for treeview function! -->
   <ul>
     <li class="navelem"><a class="el" href="rfcs.html">RFCs</a></li>
-    <li class="footer">Generated on Fri Jul 28 2017 01:36:54 for ZeroEQ by
+    <li class="footer">Generated on Sat Jul 29 2017 01:37:38 for ZeroEQ by
     <a href="http://www.doxygen.org/index.html">
     <img class="footer" src="doxygen.png" alt="doxygen"/></a> 1.8.11 </li>
   </ul>

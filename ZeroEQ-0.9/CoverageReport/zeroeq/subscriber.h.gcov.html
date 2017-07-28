@@ -37,7 +37,7 @@
           </tr>
           <tr>
             <td class="headerItem">Date:</td>
-            <td class="headerValue">2017-07-28 01:36:53</td>
+            <td class="headerValue">2017-07-29 01:37:37</td>
             <td></td>
             <td class="headerItem">Functions:</td>
             <td class="headerCovTableEntry">2</td>
@@ -101,7 +101,7 @@
 <span class="lineNum">      39 </span>            :      *
 <span class="lineNum">      40 </span>            :      * Postconditions:
 <span class="lineNum">      41 </span>            :      * - discovers publishers on _zeroeq_pub._tcp ZeroConf service
-<span class="lineNum">      42 </span>            :      * - filters session \&lt;username\&gt; or ZEROEQ_SESSION from environment
+<span class="lineNum">      42 </span>            :      * - filters session \&lt;username\&gt; or ZEROEQ_PUB_SESSION from environment
 <span class="lineNum">      43 </span>            :      *
 <span class="lineNum">      44 </span>            :      * @throw std::runtime_error if ZeroConf is not available
 <span class="lineNum">      45 </span>            :      */
@@ -165,8 +165,8 @@
 <span class="lineNum">     103 </span>            :     /** Destroy this subscriber and withdraw any subscriptions. */
 <a name="104"><span class="lineNum">     104 </span>            :     ZEROEQ_API ~Subscriber();</a>
 <span class="lineNum">     105 </span>            : 
-<span class="lineNum">     106 </span><span class="lineCov">         13 :     explicit Subscriber(const URI&amp; uri) //!&lt; @deprecated</span>
-<span class="lineNum">     107 </span><span class="lineCov">         14 :         : Subscriber(URIs{uri})</span>
+<span class="lineNum">     106 </span><span class="lineCov">         14 :     explicit Subscriber(const URI&amp; uri) //!&lt; @deprecated</span>
+<span class="lineNum">     107 </span><span class="lineCov">         16 :         : Subscriber(URIs{uri})</span>
 <a name="108"><span class="lineNum">     108 </span>            :     {</a>
 <span class="lineNum">     109 </span><span class="lineCov">         12 :     }</span>
 <span class="lineNum">     110 </span><span class="lineCov">          4 :     Subscriber(const URI&amp; uri, Receiver&amp; shared) //!&lt; @deprecated</span>
