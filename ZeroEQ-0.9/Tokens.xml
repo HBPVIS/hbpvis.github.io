@@ -283,7 +283,7 @@
       <Scope>zeroeq</Scope>
     </TokenIdentifier>
     <Path>namespacezeroeq.html</Path>
-    <Abstract>Publish-subscribe classes for typed events. </Abstract>
+    <Abstract>Publish-subscribe and request-reply. </Abstract>
   </Token>
   <Token>
     <TokenIdentifier>
@@ -306,7 +306,7 @@
     </TokenIdentifier>
     <Path>namespacezeroeq.html</Path>
     <Anchor>a254e586308434b75d1952f0fe862aa05</Anchor>
-    <Abstract>Callback for receival of subscribed event w/o payload. </Abstract>
+    <Abstract>Callback for receival of subscribed event without payload. </Abstract>
     <DeclaredIn>types.h</DeclaredIn>
   </Token>
   <Token>
@@ -318,7 +318,7 @@
     </TokenIdentifier>
     <Path>namespacezeroeq.html</Path>
     <Anchor>addda9bf8318976ed3e1422255188e906</Anchor>
-    <Abstract>Callback for receival of subscribed event w/ payload. </Abstract>
+    <Abstract>Callback for receival of subscribed event with payload. </Abstract>
     <DeclaredIn>types.h</DeclaredIn>
   </Token>
   <Token>
@@ -330,7 +330,7 @@
     </TokenIdentifier>
     <Path>namespacezeroeq.html</Path>
     <Anchor>a92eb9e18b67bf7b8aed11d5932eff7c7</Anchor>
-    <Abstract>Callback for the reply of a Client::request(). </Abstract>
+    <Abstract>Callback for the reply of a Client::request() (reply ID, reply data). </Abstract>
     <DeclaredIn>types.h</DeclaredIn>
   </Token>
   <Token>
@@ -342,7 +342,7 @@
     </TokenIdentifier>
     <Path>namespacezeroeq.html</Path>
     <Anchor>a65ff79d6d212c7e81c540c3e4f38d36e</Anchor>
-    <Abstract>Return value of HandleFunc. </Abstract>
+    <Abstract>Return value of Server::handle() function (reply ID, reply data) </Abstract>
     <DeclaredIn>types.h</DeclaredIn>
   </Token>
   <Token>

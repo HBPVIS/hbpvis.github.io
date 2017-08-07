@@ -31,18 +31,18 @@
             <td class="headerValue">ZeroEQ</td>
             <td></td>
             <td class="headerItem">Lines:</td>
-            <td class="headerCovTableEntry">54</td>
+            <td class="headerCovTableEntry">43</td>
             <td class="headerCovTableEntry">61</td>
-            <td class="headerCovTableEntryHi">88.5 %</td>
+            <td class="headerCovTableEntryMed">70.5 %</td>
           </tr>
           <tr>
             <td class="headerItem">Date:</td>
-            <td class="headerValue">2017-08-04 01:37:04</td>
+            <td class="headerValue">2017-08-08 01:36:16</td>
             <td></td>
             <td class="headerItem">Functions:</td>
-            <td class="headerCovTableEntry">10</td>
+            <td class="headerCovTableEntry">9</td>
             <td class="headerCovTableEntry">12</td>
-            <td class="headerCovTableEntryHi">83.3 %</td>
+            <td class="headerCovTableEntryMed">75.0 %</td>
           </tr>
           <tr><td><img src="../../glass.png" width=3 height=3 alt=""></td></tr>
         </table>
@@ -115,25 +115,25 @@
 <span class="lineNum">      53 </span>            : 
 <a name="54"><span class="lineNum">      54 </span><span class="lineNoCov">          0 :     const std::string&amp; getSession() const { return _session; }</span></a>
 <span class="lineNum">      55 </span>            : 
-<span class="lineNum">      56 </span><span class="lineCov">     382153 :     bool update() //!&lt; @return true if new connection made</span>
+<span class="lineNum">      56 </span><span class="lineCov">     406658 :     bool update() //!&lt; @return true if new connection made</span>
 <span class="lineNum">      57 </span>            :     {
-<span class="lineNum">      58 </span><span class="lineCov">     382153 :         if (!_servus.isBrowsing())</span>
-<span class="lineNum">      59 </span><span class="lineCov">     370219 :             return false;</span>
+<span class="lineNum">      58 </span><span class="lineCov">     406658 :         if (!_servus.isBrowsing())</span>
+<span class="lineNum">      59 </span><span class="lineCov">     379946 :             return false;</span>
 <span class="lineNum">      60 </span>            : 
-<span class="lineNum">      61 </span><span class="lineCov">      11934 :         bool updated = false;</span>
-<span class="lineNum">      62 </span><span class="lineCov">      11934 :         _servus.browse(0);</span>
-<span class="lineNum">      63 </span><span class="lineCov">      23868 :         const servus::Strings&amp; instances = _servus.getInstances();</span>
-<span class="lineNum">      64 </span><span class="lineCov">      23814 :         for (const std::string&amp; instance : instances)</span>
+<span class="lineNum">      61 </span><span class="lineCov">      26712 :         bool updated = false;</span>
+<span class="lineNum">      62 </span><span class="lineCov">      26712 :         _servus.browse(0);</span>
+<span class="lineNum">      63 </span><span class="lineCov">      53424 :         const servus::Strings&amp; instances = _servus.getInstances();</span>
+<span class="lineNum">      64 </span><span class="lineCov">      26712 :         for (const std::string&amp; instance : instances)</span>
 <span class="lineNum">      65 </span>            :         {
-<span class="lineNum">      66 </span><span class="lineCov">      11880 :             const std::string&amp; zmqURI = _getZmqURI(instance);</span>
+<span class="lineNum">      66 </span><span class="lineNoCov">          0 :             const std::string&amp; zmqURI = _getZmqURI(instance);</span>
 <span class="lineNum">      67 </span>            : 
-<span class="lineNum">      68 </span><span class="lineCov">      11880 :             if (_sockets.count(zmqURI) == 0) // New provider</span>
+<span class="lineNum">      68 </span><span class="lineNoCov">          0 :             if (_sockets.count(zmqURI) == 0) // New provider</span>
 <span class="lineNum">      69 </span>            :             {
-<span class="lineNum">      70 </span><span class="lineCov">      11880 :                 const std::string&amp; session = _servus.get(instance, KEY_SESSION);</span>
-<span class="lineNum">      71 </span><span class="lineCov">      35640 :                 if (_servus.containsKey(instance, KEY_SESSION) &amp;&amp;</span>
-<span class="lineNum">      72 </span><span class="lineCov">      23760 :                     !_session.empty() &amp;&amp; session != _session)</span>
+<span class="lineNum">      70 </span><span class="lineNoCov">          0 :                 const std::string&amp; session = _servus.get(instance, KEY_SESSION);</span>
+<span class="lineNum">      71 </span><span class="lineNoCov">          0 :                 if (_servus.containsKey(instance, KEY_SESSION) &amp;&amp;</span>
+<span class="lineNum">      72 </span><span class="lineNoCov">          0 :                     !_session.empty() &amp;&amp; session != _session)</span>
 <span class="lineNum">      73 </span>            :                 {
-<span class="lineNum">      74 </span><span class="lineCov">      11880 :                     continue;</span>
+<span class="lineNum">      74 </span><span class="lineNoCov">          0 :                     continue;</span>
 <span class="lineNum">      75 </span>            :                 }
 <span class="lineNum">      76 </span>            : 
 <span class="lineNum">      77 </span><span class="lineNoCov">          0 :                 const uint128_t identifier(_servus.get(instance, KEY_INSTANCE));</span>
@@ -142,7 +142,7 @@
 <span class="lineNum">      80 </span><span class="lineNoCov">          0 :                     updated = true;</span>
 <span class="lineNum">      81 </span>            :             }
 <span class="lineNum">      82 </span>            :         }
-<span class="lineNum">      83 </span><span class="lineCov">      11934 :         return updated;</span>
+<span class="lineNum">      83 </span><span class="lineCov">      26712 :         return updated;</span>
 <a name="84"><span class="lineNum">      84 </span>            :     }</a>
 <span class="lineNum">      85 </span>            : 
 <span class="lineNum">      86 </span><span class="lineCov">         34 :     bool addConnection(const std::string&amp; zmqURI)</span>
@@ -153,10 +153,10 @@
 <span class="lineNum">      91 </span><span class="lineNoCov">          0 :         return true;</span>
 <a name="92"><span class="lineNum">      92 </span>            :     }</a>
 <span class="lineNum">      93 </span>            : 
-<span class="lineNum">      94 </span><span class="lineCov">     382136 :     void addSockets(std::vector&lt;detail::Socket&gt;&amp; entries)</span>
+<span class="lineNum">      94 </span><span class="lineCov">     406641 :     void addSockets(std::vector&lt;detail::Socket&gt;&amp; entries)</span>
 <span class="lineNum">      95 </span>            :     {
-<span class="lineNum">      96 </span><span class="lineCov">     382136 :         entries.insert(entries.end(), _entries.begin(), _entries.end());</span>
-<span class="lineNum">      97 </span><span class="lineCov">     382136 :     }</span>
+<span class="lineNum">      96 </span><span class="lineCov">     406641 :         entries.insert(entries.end(), _entries.begin(), _entries.end());</span>
+<span class="lineNum">      97 </span><span class="lineCov">     406641 :     }</span>
 <span class="lineNum">      98 </span>            : 
 <span class="lineNum">      99 </span>            : protected:
 <a name="100"><span class="lineNum">     100 </span>            :     using SocketMap = std::map&lt;std::string, zmq::SocketPtr&gt;;</a>
@@ -197,13 +197,13 @@
 <span class="lineNum">     135 </span>            :     SocketMap _sockets;
 <a name="136"><span class="lineNum">     136 </span>            :     std::vector&lt;detail::Socket&gt; _entries;</a>
 <span class="lineNum">     137 </span>            : 
-<span class="lineNum">     138 </span><span class="lineCov">      11880 :     std::string _getZmqURI(const std::string&amp; instance)</span>
+<span class="lineNum">     138 </span><span class="lineNoCov">          0 :     std::string _getZmqURI(const std::string&amp; instance)</span>
 <span class="lineNum">     139 </span>            :     {
-<span class="lineNum">     140 </span><span class="lineCov">      11880 :         const size_t pos = instance.find(&quot;:&quot;);</span>
-<span class="lineNum">     141 </span><span class="lineCov">      23760 :         const std::string&amp; host = instance.substr(0, pos);</span>
-<span class="lineNum">     142 </span><span class="lineCov">      23760 :         const std::string&amp; port = instance.substr(pos + 1);</span>
+<span class="lineNum">     140 </span><span class="lineNoCov">          0 :         const size_t pos = instance.find(&quot;:&quot;);</span>
+<span class="lineNum">     141 </span><span class="lineNoCov">          0 :         const std::string&amp; host = instance.substr(0, pos);</span>
+<span class="lineNum">     142 </span><span class="lineNoCov">          0 :         const std::string&amp; port = instance.substr(pos + 1);</span>
 <span class="lineNum">     143 </span>            : 
-<span class="lineNum">     144 </span><span class="lineCov">      23760 :         return buildZmqURI(DEFAULT_SCHEMA, host, std::stoi(port));</span>
+<span class="lineNum">     144 </span><span class="lineNoCov">          0 :         return buildZmqURI(DEFAULT_SCHEMA, host, std::stoi(port));</span>
 <span class="lineNum">     145 </span>            :     }
 <span class="lineNum">     146 </span>            : };
 <span class="lineNum">     147 </span>            : }
