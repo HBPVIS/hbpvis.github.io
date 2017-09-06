@@ -37,7 +37,7 @@
           </tr>
           <tr>
             <td class="headerItem">Date:</td>
-            <td class="headerValue">2017-06-20 01:08:48</td>
+            <td class="headerValue">2017-09-07 01:08:17</td>
             <td></td>
             <td class="headerItem">Functions:</td>
             <td class="headerCovTableEntry">5</td>
@@ -95,8 +95,8 @@
 <span class="lineNum">      33 </span><span class="lineCov">        518 :     uint8_t* base = getData();</span>
 <span class="lineNum">      34 </span>            : 
 <span class="lineNum">      35 </span><span class="lineCov">        518 :     if (copy &amp;&amp; offset &gt; 0)</span>
-<span class="lineNum">      36 </span><span class="lineCov">         82 :         ::memcpy(base + newOffset, base + offset,</span>
-<span class="lineNum">      37 </span><span class="lineCov">        164 :                  std::min(size, uint64_t(newSize)));</span>
+<span class="lineNum">      36 </span><span class="lineCov">         82 :         ::memmove(base + newOffset, base + offset,</span>
+<span class="lineNum">      37 </span><span class="lineCov">        164 :                   std::min(size, uint64_t(newSize)));</span>
 <span class="lineNum">      38 </span>            : 
 <span class="lineNum">      39 </span><span class="lineCov">        518 :     offset = newOffset;</span>
 <span class="lineNum">      40 </span><span class="lineCov">        518 :     size = newSize;</span>
