@@ -37,7 +37,7 @@
           </tr>
           <tr>
             <td class="headerItem">Date:</td>
-            <td class="headerValue">2017-08-26 01:37:20</td>
+            <td class="headerValue">2017-09-19 01:36:33</td>
             <td></td>
             <td class="headerItem">Functions:</td>
             <td class="headerCovTableEntry">18</td>
@@ -86,69 +86,69 @@
 <span class="lineNum">      24 </span>            : class Publisher::Impl : public detail::Sender
 <a name="25"><span class="lineNum">      25 </span>            : {</a>
 <span class="lineNum">      26 </span>            : public:
-<span class="lineNum">      27 </span><span class="lineCov">         18 :     Impl(const URI&amp; uri_, const std::string&amp; session)</span>
-<span class="lineNum">      28 </span><span class="lineCov">         18 :         : detail::Sender(uri_, ZMQ_XPUB, PUBLISHER_SERVICE,</span>
-<span class="lineNum">      29 </span><span class="lineCov">         36 :                          session == DEFAULT_SESSION ? getDefaultPubSession()</span>
-<span class="lineNum">      30 </span><span class="lineCov">         20 :                                                     : session)</span>
+<span class="lineNum">      27 </span><span class="lineCov">         26 :     Impl(const URI&amp; uri_, const std::string&amp; session)</span>
+<span class="lineNum">      28 </span><span class="lineCov">         26 :         : detail::Sender(uri_, ZMQ_XPUB, PUBLISHER_SERVICE,</span>
+<span class="lineNum">      29 </span><span class="lineCov">         52 :                          session == DEFAULT_SESSION ? getDefaultPubSession()</span>
+<span class="lineNum">      30 </span><span class="lineCov">         28 :                                                     : session)</span>
 <span class="lineNum">      31 </span>            :     {
-<span class="lineNum">      32 </span><span class="lineCov">         18 :         if (session.empty())</span>
+<span class="lineNum">      32 </span><span class="lineCov">         26 :         if (session.empty())</span>
 <span class="lineNum">      33 </span><span class="lineCov">          1 :             ZEROEQTHROW(std::runtime_error(</span>
 <span class="lineNum">      34 </span>            :                 &quot;Empty session is not allowed for publisher&quot;));
 <span class="lineNum">      35 </span>            : 
-<span class="lineNum">      36 </span><span class="lineCov">         34 :         const std::string&amp; zmqURI = buildZmqURI(uri);</span>
-<span class="lineNum">      37 </span><span class="lineCov">         17 :         if (zmq_bind(socket.get(), zmqURI.c_str()) == -1)</span>
+<span class="lineNum">      36 </span><span class="lineCov">         50 :         const std::string&amp; zmqURI = buildZmqURI(uri);</span>
+<span class="lineNum">      37 </span><span class="lineCov">         25 :         if (zmq_bind(socket.get(), zmqURI.c_str()) == -1)</span>
 <span class="lineNum">      38 </span><span class="lineCov">          1 :             ZEROEQTHROW(std::runtime_error(</span>
 <span class="lineNum">      39 </span>            :                 std::string(&quot;Cannot bind publisher socket '&quot;) + zmqURI +
 <span class="lineNum">      40 </span>            :                 &quot;': &quot; + zmq_strerror(zmq_errno())));
 <span class="lineNum">      41 </span>            : 
-<span class="lineNum">      42 </span><span class="lineCov">         16 :         initURI();</span>
-<span class="lineNum">      43 </span><span class="lineCov">         16 :         if (session != NULL_SESSION)</span>
-<span class="lineNum">      44 </span><span class="lineCov">          2 :             announce();</span>
-<a name="45"><span class="lineNum">      45 </span><span class="lineCov">         16 :     }</span></a>
+<span class="lineNum">      42 </span><span class="lineCov">         24 :         initURI();</span>
+<span class="lineNum">      43 </span><span class="lineCov">         24 :         if (session != NULL_SESSION)</span>
+<span class="lineNum">      44 </span><span class="lineCov">         10 :             announce();</span>
+<a name="45"><span class="lineNum">      45 </span><span class="lineCov">         24 :     }</span></a>
 <a name="46"><span class="lineNum">      46 </span>            : </a>
-<span class="lineNum">      47 </span><span class="lineCov">         16 :     ~Impl() {}</span>
-<span class="lineNum">      48 </span><span class="lineCov">      40015 :     bool publish(const servus::Serializable&amp; serializable)</span>
+<span class="lineNum">      47 </span><span class="lineCov">         24 :     ~Impl() {}</span>
+<span class="lineNum">      48 </span><span class="lineCov">      40023 :     bool publish(const servus::Serializable&amp; serializable)</span>
 <span class="lineNum">      49 </span>            :     {
-<span class="lineNum">      50 </span><span class="lineCov">      80030 :         const servus::Serializable::Data&amp; data = serializable.toBinary();</span>
-<span class="lineNum">      51 </span><span class="lineCov">      40015 :         return publish(serializable.getTypeIdentifier(), data.ptr.get(),</span>
-<span class="lineNum">      52 </span><span class="lineCov">     120045 :                        data.size);</span>
+<span class="lineNum">      50 </span><span class="lineCov">      80046 :         const servus::Serializable::Data&amp; data = serializable.toBinary();</span>
+<span class="lineNum">      51 </span><span class="lineCov">      40023 :         return publish(serializable.getTypeIdentifier(), data.ptr.get(),</span>
+<span class="lineNum">      52 </span><span class="lineCov">     120069 :                        data.size);</span>
 <a name="53"><span class="lineNum">      53 </span>            :     }</a>
 <span class="lineNum">      54 </span>            : 
-<span class="lineNum">      55 </span><span class="lineCov">      40024 :     bool publish(uint128_t event, const void* data, const size_t size)</span>
+<span class="lineNum">      55 </span><span class="lineCov">      40032 :     bool publish(uint128_t event, const void* data, const size_t size)</span>
 <span class="lineNum">      56 </span>            :     {
 <span class="lineNum">      57 </span>            : #ifdef ZEROEQ_BIGENDIAN
 <span class="lineNum">      58 </span>            :         detail::byteswap(event); // convert to little endian wire protocol
 <span class="lineNum">      59 </span>            : #endif
-<span class="lineNum">      60 </span><span class="lineCov">      40024 :         const bool hasPayload = data &amp;&amp; size &gt; 0;</span>
+<span class="lineNum">      60 </span><span class="lineCov">      40032 :         const bool hasPayload = data &amp;&amp; size &gt; 0;</span>
 <span class="lineNum">      61 </span>            : 
 <span class="lineNum">      62 </span>            :         zmq_msg_t msgHeader;
-<span class="lineNum">      63 </span><span class="lineCov">      40024 :         zmq_msg_init_size(&amp;msgHeader, sizeof(event));</span>
-<span class="lineNum">      64 </span><span class="lineCov">      40024 :         memcpy(zmq_msg_data(&amp;msgHeader), &amp;event, sizeof(event));</span>
-<span class="lineNum">      65 </span><span class="lineCov">      40024 :         int ret = zmq_msg_send(&amp;msgHeader, socket.get(),</span>
-<span class="lineNum">      66 </span><span class="lineCov">      40024 :                                hasPayload ? ZMQ_SNDMORE : 0);</span>
-<span class="lineNum">      67 </span><span class="lineCov">      40024 :         zmq_msg_close(&amp;msgHeader);</span>
-<span class="lineNum">      68 </span><span class="lineCov">      40024 :         if (ret == -1)</span>
+<span class="lineNum">      63 </span><span class="lineCov">      40032 :         zmq_msg_init_size(&amp;msgHeader, sizeof(event));</span>
+<span class="lineNum">      64 </span><span class="lineCov">      40032 :         memcpy(zmq_msg_data(&amp;msgHeader), &amp;event, sizeof(event));</span>
+<span class="lineNum">      65 </span><span class="lineCov">      40032 :         int ret = zmq_msg_send(&amp;msgHeader, socket.get(),</span>
+<span class="lineNum">      66 </span><span class="lineCov">      40032 :                                hasPayload ? ZMQ_SNDMORE : 0);</span>
+<span class="lineNum">      67 </span><span class="lineCov">      40032 :         zmq_msg_close(&amp;msgHeader);</span>
+<span class="lineNum">      68 </span><span class="lineCov">      40032 :         if (ret == -1)</span>
 <span class="lineNum">      69 </span>            :         {
 <span class="lineNum">      70 </span>            :             ZEROEQWARN &lt;&lt; &quot;Cannot publish message header, got &quot;
 <span class="lineNum">      71 </span><span class="lineNoCov">          0 :                        &lt;&lt; zmq_strerror(zmq_errno()) &lt;&lt; std::endl;</span>
 <span class="lineNum">      72 </span><span class="lineNoCov">          0 :             return false;</span>
 <span class="lineNum">      73 </span>            :         }
 <span class="lineNum">      74 </span>            : 
-<span class="lineNum">      75 </span><span class="lineCov">      40024 :         if (!hasPayload)</span>
-<span class="lineNum">      76 </span><span class="lineCov">      20007 :             return true;</span>
+<span class="lineNum">      75 </span><span class="lineCov">      40032 :         if (!hasPayload)</span>
+<span class="lineNum">      76 </span><span class="lineCov">      20009 :             return true;</span>
 <span class="lineNum">      77 </span>            : 
 <span class="lineNum">      78 </span>            :         zmq_msg_t msg;
-<span class="lineNum">      79 </span><span class="lineCov">      20017 :         zmq_msg_init_size(&amp;msg, size);</span>
-<span class="lineNum">      80 </span><span class="lineCov">      20017 :         ::memcpy(zmq_msg_data(&amp;msg), data, size);</span>
-<span class="lineNum">      81 </span><span class="lineCov">      20017 :         ret = zmq_msg_send(&amp;msg, socket.get(), 0);</span>
-<span class="lineNum">      82 </span><span class="lineCov">      20017 :         zmq_msg_close(&amp;msg);</span>
-<span class="lineNum">      83 </span><span class="lineCov">      20017 :         if (ret == -1)</span>
+<span class="lineNum">      79 </span><span class="lineCov">      20023 :         zmq_msg_init_size(&amp;msg, size);</span>
+<span class="lineNum">      80 </span><span class="lineCov">      20023 :         ::memcpy(zmq_msg_data(&amp;msg), data, size);</span>
+<span class="lineNum">      81 </span><span class="lineCov">      20023 :         ret = zmq_msg_send(&amp;msg, socket.get(), 0);</span>
+<span class="lineNum">      82 </span><span class="lineCov">      20023 :         zmq_msg_close(&amp;msg);</span>
+<span class="lineNum">      83 </span><span class="lineCov">      20023 :         if (ret == -1)</span>
 <span class="lineNum">      84 </span>            :         {
 <span class="lineNum">      85 </span>            :             ZEROEQWARN &lt;&lt; &quot;Cannot publish message data, got &quot;
 <span class="lineNum">      86 </span><span class="lineNoCov">          0 :                        &lt;&lt; zmq_strerror(zmq_errno()) &lt;&lt; std::endl;</span>
 <span class="lineNum">      87 </span><span class="lineNoCov">          0 :             return false;</span>
 <span class="lineNum">      88 </span>            :         }
-<span class="lineNum">      89 </span><span class="lineCov">      20017 :         return true;</span>
+<span class="lineNum">      89 </span><span class="lineCov">      20023 :         return true;</span>
 <span class="lineNum">      90 </span>            :     }
 <a name="91"><span class="lineNum">      91 </span>            : };</a>
 <span class="lineNum">      92 </span>            : 
@@ -157,28 +157,28 @@
 <span class="lineNum">      95 </span>            : {
 <a name="96"><span class="lineNum">      96 </span><span class="lineCov">          1 : }</span></a>
 <span class="lineNum">      97 </span>            : 
-<span class="lineNum">      98 </span><span class="lineCov">         13 : Publisher::Publisher(const std::string&amp; session)</span>
-<span class="lineNum">      99 </span><span class="lineCov">         14 :     : _impl(new Impl(URI(), session))</span>
+<span class="lineNum">      98 </span><span class="lineCov">         20 : Publisher::Publisher(const std::string&amp; session)</span>
+<span class="lineNum">      99 </span><span class="lineCov">         21 :     : _impl(new Impl(URI(), session))</span>
 <span class="lineNum">     100 </span>            : {
-<a name="101"><span class="lineNum">     101 </span><span class="lineCov">         12 : }</span></a>
+<a name="101"><span class="lineNum">     101 </span><span class="lineCov">         19 : }</span></a>
 <span class="lineNum">     102 </span>            : 
 <span class="lineNum">     103 </span><span class="lineCov">          2 : Publisher::Publisher(const URI&amp; uri)</span>
 <span class="lineNum">     104 </span><span class="lineCov">          3 :     : _impl(new Impl(uri, DEFAULT_SESSION))</span>
 <span class="lineNum">     105 </span>            : {
 <a name="106"><span class="lineNum">     106 </span><span class="lineCov">          1 : }</span></a>
 <span class="lineNum">     107 </span>            : 
-<span class="lineNum">     108 </span><span class="lineCov">          2 : Publisher::Publisher(const URI&amp; uri, const std::string&amp; session)</span>
-<span class="lineNum">     109 </span><span class="lineCov">          2 :     : _impl(new Impl(uri, session))</span>
+<span class="lineNum">     108 </span><span class="lineCov">          3 : Publisher::Publisher(const URI&amp; uri, const std::string&amp; session)</span>
+<span class="lineNum">     109 </span><span class="lineCov">          3 :     : _impl(new Impl(uri, session))</span>
 <span class="lineNum">     110 </span>            : {
-<a name="111"><span class="lineNum">     111 </span><span class="lineCov">          2 : }</span></a>
+<a name="111"><span class="lineNum">     111 </span><span class="lineCov">          3 : }</span></a>
 <span class="lineNum">     112 </span>            : 
-<span class="lineNum">     113 </span><span class="lineCov">         16 : Publisher::~Publisher()</span>
+<span class="lineNum">     113 </span><span class="lineCov">         24 : Publisher::~Publisher()</span>
 <span class="lineNum">     114 </span>            : {
-<a name="115"><span class="lineNum">     115 </span><span class="lineCov">         16 : }</span></a>
+<a name="115"><span class="lineNum">     115 </span><span class="lineCov">         24 : }</span></a>
 <span class="lineNum">     116 </span>            : 
-<span class="lineNum">     117 </span><span class="lineCov">      40015 : bool Publisher::publish(const servus::Serializable&amp; serializable)</span>
+<span class="lineNum">     117 </span><span class="lineCov">      40023 : bool Publisher::publish(const servus::Serializable&amp; serializable)</span>
 <span class="lineNum">     118 </span>            : {
-<span class="lineNum">     119 </span><span class="lineCov">      40015 :     return _impl-&gt;publish(serializable);</span>
+<span class="lineNum">     119 </span><span class="lineCov">      40023 :     return _impl-&gt;publish(serializable);</span>
 <a name="120"><span class="lineNum">     120 </span>            : }</a>
 <span class="lineNum">     121 </span>            : 
 <span class="lineNum">     122 </span><span class="lineCov">          6 : bool Publisher::publish(const uint128_t&amp; event)</span>
@@ -197,9 +197,9 @@
 <span class="lineNum">     135 </span><span class="lineCov">          2 :     return _impl-&gt;getAddress();</span>
 <a name="136"><span class="lineNum">     136 </span>            : }</a>
 <span class="lineNum">     137 </span>            : 
-<span class="lineNum">     138 </span><span class="lineCov">          1 : const std::string&amp; Publisher::getSession() const</span>
+<span class="lineNum">     138 </span><span class="lineCov">          7 : const std::string&amp; Publisher::getSession() const</span>
 <span class="lineNum">     139 </span>            : {
-<span class="lineNum">     140 </span><span class="lineCov">          1 :     return _impl-&gt;getSession();</span>
+<span class="lineNum">     140 </span><span class="lineCov">          7 :     return _impl-&gt;getSession();</span>
 <a name="141"><span class="lineNum">     141 </span>            : }</a>
 <span class="lineNum">     142 </span>            : 
 <span class="lineNum">     143 </span><span class="lineCov">         15 : const URI&amp; Publisher::getURI() const</span>

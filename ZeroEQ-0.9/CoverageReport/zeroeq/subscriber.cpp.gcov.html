@@ -31,18 +31,18 @@
             <td class="headerValue">ZeroEQ</td>
             <td></td>
             <td class="headerItem">Lines:</td>
-            <td class="headerCovTableEntry">111</td>
+            <td class="headerCovTableEntry">114</td>
             <td class="headerCovTableEntry">121</td>
-            <td class="headerCovTableEntryHi">91.7 %</td>
+            <td class="headerCovTableEntryHi">94.2 %</td>
           </tr>
           <tr>
             <td class="headerItem">Date:</td>
-            <td class="headerValue">2017-08-26 01:37:20</td>
+            <td class="headerValue">2017-09-19 01:36:33</td>
             <td></td>
             <td class="headerItem">Functions:</td>
-            <td class="headerCovTableEntry">37</td>
+            <td class="headerCovTableEntry">38</td>
             <td class="headerCovTableEntry">39</td>
-            <td class="headerCovTableEntryHi">94.9 %</td>
+            <td class="headerCovTableEntryHi">97.4 %</td>
           </tr>
           <tr><td><img src="../glass.png" width=3 height=3 alt=""></td></tr>
         </table>
@@ -86,17 +86,17 @@
 <span class="lineNum">      24 </span>            : 
 <a name="25"><span class="lineNum">      25 </span>            : namespace zeroeq</a>
 <span class="lineNum">      26 </span>            : {
-<span class="lineNum">      27 </span><span class="lineCov">         64 : class Subscriber::Impl : public detail::Receiver</span>
+<span class="lineNum">      27 </span><span class="lineCov">         80 : class Subscriber::Impl : public detail::Receiver</span>
 <a name="28"><span class="lineNum">      28 </span>            : {</a>
 <span class="lineNum">      29 </span>            : public:
-<span class="lineNum">      30 </span><span class="lineCov">         20 :     Impl(const std::string&amp; session)</span>
-<span class="lineNum">      31 </span><span class="lineCov">         20 :         : detail::Receiver(PUBLISHER_SERVICE, session == DEFAULT_SESSION</span>
-<span class="lineNum">      32 </span><span class="lineCov">         40 :                                                   ? getDefaultPubSession()</span>
+<span class="lineNum">      30 </span><span class="lineCov">         28 :     Impl(const std::string&amp; session)</span>
+<span class="lineNum">      31 </span><span class="lineCov">         28 :         : detail::Receiver(PUBLISHER_SERVICE, session == DEFAULT_SESSION</span>
+<span class="lineNum">      32 </span><span class="lineCov">         56 :                                                   ? getDefaultPubSession()</span>
 <span class="lineNum">      33 </span>            :                                                   : session)
-<span class="lineNum">      34 </span><span class="lineCov">         36 :         , _selfInstance(detail::Sender::getUUID())</span>
+<span class="lineNum">      34 </span><span class="lineCov">         52 :         , _selfInstance(detail::Sender::getUUID())</span>
 <span class="lineNum">      35 </span>            :     {
-<span class="lineNum">      36 </span><span class="lineCov">         16 :         update();</span>
-<a name="37"><span class="lineNum">      37 </span><span class="lineCov">         16 :     }</span></a>
+<span class="lineNum">      36 </span><span class="lineCov">         24 :         update();</span>
+<a name="37"><span class="lineNum">      37 </span><span class="lineCov">         24 :     }</span></a>
 <span class="lineNum">      38 </span>            : 
 <span class="lineNum">      39 </span><span class="lineCov">         19 :     Impl(const URIs&amp; uris)</span>
 <span class="lineNum">      40 </span><span class="lineCov">         19 :         : detail::Receiver(PUBLISHER_SERVICE)</span>
@@ -126,14 +126,14 @@
 <span class="lineNum">      64 </span><span class="lineCov">          7 :         return subscribe(serializable.getTypeIdentifier(), func);</span>
 <a name="65"><span class="lineNum">      65 </span>            :     }</a>
 <span class="lineNum">      66 </span>            : 
-<span class="lineNum">      67 </span><span class="lineCov">         25 :     bool subscribe(const uint128_t&amp; event, const EventPayloadFunc&amp; func)</span>
+<span class="lineNum">      67 </span><span class="lineCov">         30 :     bool subscribe(const uint128_t&amp; event, const EventPayloadFunc&amp; func)</span>
 <span class="lineNum">      68 </span>            :     {
-<span class="lineNum">      69 </span><span class="lineCov">         25 :         if (_eventFuncs.count(event) != 0)</span>
+<span class="lineNum">      69 </span><span class="lineCov">         30 :         if (_eventFuncs.count(event) != 0)</span>
 <span class="lineNum">      70 </span><span class="lineCov">          2 :             return false;</span>
 <span class="lineNum">      71 </span>            : 
-<span class="lineNum">      72 </span><span class="lineCov">         23 :         _subscribe(event);</span>
-<span class="lineNum">      73 </span><span class="lineCov">         23 :         _eventFuncs[event] = func;</span>
-<span class="lineNum">      74 </span><span class="lineCov">         23 :         return true;</span>
+<span class="lineNum">      72 </span><span class="lineCov">         28 :         _subscribe(event);</span>
+<span class="lineNum">      73 </span><span class="lineCov">         28 :         _eventFuncs[event] = func;</span>
+<span class="lineNum">      74 </span><span class="lineCov">         28 :         return true;</span>
 <a name="75"><span class="lineNum">      75 </span>            :     }</a>
 <span class="lineNum">      76 </span>            : 
 <span class="lineNum">      77 </span><span class="lineCov">          5 :     bool unsubscribe(const servus::Serializable&amp; serializable)</span>
@@ -150,28 +150,28 @@
 <span class="lineNum">      88 </span><span class="lineCov">          5 :         return true;</span>
 <a name="89"><span class="lineNum">      89 </span>            :     }</a>
 <span class="lineNum">      90 </span>            : 
-<span class="lineNum">      91 </span><span class="lineCov">      20012 :     bool process(detail::Socket&amp; socket)</span>
+<span class="lineNum">      91 </span><span class="lineCov">      20009 :     bool process(detail::Socket&amp; socket)</span>
 <span class="lineNum">      92 </span>            :     {
 <span class="lineNum">      93 </span>            :         zmq_msg_t msg;
-<span class="lineNum">      94 </span><span class="lineCov">      20012 :         zmq_msg_init(&amp;msg);</span>
-<span class="lineNum">      95 </span><span class="lineCov">      20012 :         zmq_msg_recv(&amp;msg, socket.socket, 0);</span>
+<span class="lineNum">      94 </span><span class="lineCov">      20009 :         zmq_msg_init(&amp;msg);</span>
+<span class="lineNum">      95 </span><span class="lineCov">      20009 :         zmq_msg_recv(&amp;msg, socket.socket, 0);</span>
 <span class="lineNum">      96 </span>            : 
-<span class="lineNum">      97 </span><span class="lineCov">      20012 :         uint128_t type;</span>
-<span class="lineNum">      98 </span><span class="lineCov">      20012 :         memcpy(&amp;type, zmq_msg_data(&amp;msg), sizeof(type));</span>
+<span class="lineNum">      97 </span><span class="lineCov">      20009 :         uint128_t type;</span>
+<span class="lineNum">      98 </span><span class="lineCov">      20009 :         memcpy(&amp;type, zmq_msg_data(&amp;msg), sizeof(type));</span>
 <span class="lineNum">      99 </span>            : #ifndef ZEROEQ_LITTLEENDIAN
 <span class="lineNum">     100 </span>            :         detail::byteswap(type); // convert from little endian wire
 <span class="lineNum">     101 </span>            : #endif
-<span class="lineNum">     102 </span><span class="lineCov">      20012 :         const bool payload = zmq_msg_more(&amp;msg);</span>
-<span class="lineNum">     103 </span><span class="lineCov">      20012 :         zmq_msg_close(&amp;msg);</span>
+<span class="lineNum">     102 </span><span class="lineCov">      20009 :         const bool payload = zmq_msg_more(&amp;msg);</span>
+<span class="lineNum">     103 </span><span class="lineCov">      20009 :         zmq_msg_close(&amp;msg);</span>
 <span class="lineNum">     104 </span>            : 
-<span class="lineNum">     105 </span><span class="lineCov">      20012 :         if (payload)</span>
+<span class="lineNum">     105 </span><span class="lineCov">      20009 :         if (payload)</span>
 <span class="lineNum">     106 </span>            :         {
-<span class="lineNum">     107 </span><span class="lineCov">      20009 :             zmq_msg_init(&amp;msg);</span>
-<span class="lineNum">     108 </span><span class="lineCov">      20009 :             zmq_msg_recv(&amp;msg, socket.socket, 0);</span>
+<span class="lineNum">     107 </span><span class="lineCov">      20005 :             zmq_msg_init(&amp;msg);</span>
+<span class="lineNum">     108 </span><span class="lineCov">      20005 :             zmq_msg_recv(&amp;msg, socket.socket, 0);</span>
 <span class="lineNum">     109 </span>            :         }
 <span class="lineNum">     110 </span>            : 
-<span class="lineNum">     111 </span><span class="lineCov">      20012 :         EventFuncMap::const_iterator i = _eventFuncs.find(type);</span>
-<span class="lineNum">     112 </span><span class="lineCov">      20012 :         if (i == _eventFuncs.cend())</span>
+<span class="lineNum">     111 </span><span class="lineCov">      20009 :         EventFuncMap::const_iterator i = _eventFuncs.find(type);</span>
+<span class="lineNum">     112 </span><span class="lineCov">      20009 :         if (i == _eventFuncs.cend())</span>
 <span class="lineNum">     113 </span>            :         {
 <span class="lineNum">     114 </span><span class="lineNoCov">          0 :             if (payload)</span>
 <span class="lineNum">     115 </span><span class="lineNoCov">          0 :                 zmq_msg_close(&amp;msg);</span>
@@ -180,28 +180,28 @@
 <span class="lineNum">     118 </span>            :                                            type.getString()));
 <span class="lineNum">     119 </span>            :         }
 <span class="lineNum">     120 </span>            : 
-<span class="lineNum">     121 </span><span class="lineCov">      20012 :         if (payload)</span>
+<span class="lineNum">     121 </span><span class="lineCov">      20009 :         if (payload)</span>
 <span class="lineNum">     122 </span>            :         {
-<span class="lineNum">     123 </span><span class="lineCov">      20009 :             i-&gt;second(zmq_msg_data(&amp;msg), zmq_msg_size(&amp;msg));</span>
-<span class="lineNum">     124 </span><span class="lineCov">      20009 :             zmq_msg_close(&amp;msg);</span>
+<span class="lineNum">     123 </span><span class="lineCov">      20005 :             i-&gt;second(zmq_msg_data(&amp;msg), zmq_msg_size(&amp;msg));</span>
+<span class="lineNum">     124 </span><span class="lineCov">      20005 :             zmq_msg_close(&amp;msg);</span>
 <span class="lineNum">     125 </span>            :         }
 <span class="lineNum">     126 </span>            :         else
-<span class="lineNum">     127 </span><span class="lineCov">          3 :             i-&gt;second(nullptr, 0);</span>
-<span class="lineNum">     128 </span><span class="lineCov">      20012 :         return true;</span>
+<span class="lineNum">     127 </span><span class="lineCov">          4 :             i-&gt;second(nullptr, 0);</span>
+<span class="lineNum">     128 </span><span class="lineCov">      20009 :         return true;</span>
 <a name="129"><span class="lineNum">     129 </span>            :     }</a>
 <span class="lineNum">     130 </span>            : 
-<span class="lineNum">     131 </span><span class="lineCov">         20 :     zmq::SocketPtr createSocket(const uint128_t&amp; instance)</span>
+<span class="lineNum">     131 </span><span class="lineCov">         26 :     zmq::SocketPtr createSocket(const uint128_t&amp; instance)</span>
 <span class="lineNum">     132 </span>            :     {
-<span class="lineNum">     133 </span><span class="lineCov">         20 :         if (instance == _selfInstance)</span>
-<span class="lineNum">     134 </span><span class="lineNoCov">          0 :             return {};</span>
+<span class="lineNum">     133 </span><span class="lineCov">         26 :         if (instance == _selfInstance)</span>
+<span class="lineNum">     134 </span><span class="lineCov">          2 :             return {};</span>
 <a name="135"><span class="lineNum">     135 </span>            : </a>
 <span class="lineNum">     136 </span>            :         zmq::SocketPtr socket(zmq_socket(getContext(), ZMQ_SUB),
-<span class="lineNum">     137 </span><span class="lineCov">         60 :                               [](void* s) { ::zmq_close(s); });</span>
-<span class="lineNum">     138 </span><span class="lineCov">         20 :         const int hwm = 0;</span>
-<span class="lineNum">     139 </span><span class="lineCov">         20 :         zmq_setsockopt(socket.get(), ZMQ_RCVHWM, &amp;hwm, sizeof(hwm));</span>
+<span class="lineNum">     137 </span><span class="lineCov">         72 :                               [](void* s) { ::zmq_close(s); });</span>
+<span class="lineNum">     138 </span><span class="lineCov">         24 :         const int hwm = 0;</span>
+<span class="lineNum">     139 </span><span class="lineCov">         24 :         zmq_setsockopt(socket.get(), ZMQ_RCVHWM, &amp;hwm, sizeof(hwm));</span>
 <span class="lineNum">     140 </span>            : 
 <span class="lineNum">     141 </span>            :         // Tell a Monitor on a Publisher we're here
-<span class="lineNum">     142 </span><span class="lineCov">         20 :         if (zmq_setsockopt(socket.get(), ZMQ_SUBSCRIBE, &amp;MEERKAT,</span>
+<span class="lineNum">     142 </span><span class="lineCov">         24 :         if (zmq_setsockopt(socket.get(), ZMQ_SUBSCRIBE, &amp;MEERKAT,</span>
 <span class="lineNum">     143 </span>            :                            sizeof(uint128_t)) == -1)
 <span class="lineNum">     144 </span>            :         {
 <span class="lineNum">     145 </span><span class="lineNoCov">          0 :             ZEROEQTHROW(std::runtime_error(</span>
@@ -210,9 +210,9 @@
 <span class="lineNum">     148 </span>            :         }
 <span class="lineNum">     149 </span>            : 
 <span class="lineNum">     150 </span>            :         // Add existing subscriptions to socket
-<span class="lineNum">     151 </span><span class="lineCov">         22 :         for (const auto&amp; i : _eventFuncs)</span>
+<span class="lineNum">     151 </span><span class="lineCov">         28 :         for (const auto&amp; i : _eventFuncs)</span>
 <span class="lineNum">     152 </span>            :         {
-<span class="lineNum">     153 </span><span class="lineCov">          2 :             if (zmq_setsockopt(socket.get(), ZMQ_SUBSCRIBE, &amp;i.first,</span>
+<span class="lineNum">     153 </span><span class="lineCov">          4 :             if (zmq_setsockopt(socket.get(), ZMQ_SUBSCRIBE, &amp;i.first,</span>
 <span class="lineNum">     154 </span>            :                                sizeof(uint128_t)) == -1)
 <span class="lineNum">     155 </span>            :             {
 <span class="lineNum">     156 </span><span class="lineNoCov">          0 :                 ZEROEQTHROW(std::runtime_error(</span>
@@ -220,7 +220,7 @@
 <span class="lineNum">     158 </span>            :                     zmq_strerror(zmq_errno())));
 <span class="lineNum">     159 </span>            :             }
 <span class="lineNum">     160 </span>            :         }
-<span class="lineNum">     161 </span><span class="lineCov">         20 :         return socket;</span>
+<span class="lineNum">     161 </span><span class="lineCov">         24 :         return socket;</span>
 <span class="lineNum">     162 </span>            :     }
 <span class="lineNum">     163 </span>            : 
 <span class="lineNum">     164 </span>            : private:
@@ -229,11 +229,11 @@
 <span class="lineNum">     167 </span>            : 
 <a name="168"><span class="lineNum">     168 </span>            :     const uint128_t _selfInstance;</a>
 <span class="lineNum">     169 </span>            : 
-<span class="lineNum">     170 </span><span class="lineCov">         23 :     void _subscribe(const uint128_t&amp; event)</span>
+<span class="lineNum">     170 </span><span class="lineCov">         28 :     void _subscribe(const uint128_t&amp; event)</span>
 <span class="lineNum">     171 </span>            :     {
-<span class="lineNum">     172 </span><span class="lineCov">         37 :         for (const auto&amp; socket : getSockets())</span>
+<span class="lineNum">     172 </span><span class="lineCov">         44 :         for (const auto&amp; socket : getSockets())</span>
 <span class="lineNum">     173 </span>            :         {
-<span class="lineNum">     174 </span><span class="lineCov">         14 :             if (zmq_setsockopt(socket.second.get(), ZMQ_SUBSCRIBE, &amp;event,</span>
+<span class="lineNum">     174 </span><span class="lineCov">         16 :             if (zmq_setsockopt(socket.second.get(), ZMQ_SUBSCRIBE, &amp;event,</span>
 <span class="lineNum">     175 </span>            :                                sizeof(event)) == -1)
 <span class="lineNum">     176 </span>            :             {
 <span class="lineNum">     177 </span><span class="lineNoCov">          0 :                 ZEROEQTHROW(std::runtime_error(</span>
@@ -241,7 +241,7 @@
 <span class="lineNum">     179 </span>            :                     zmq_strerror(zmq_errno())));
 <span class="lineNum">     180 </span>            :             }
 <span class="lineNum">     181 </span>            :         }
-<a name="182"><span class="lineNum">     182 </span><span class="lineCov">         23 :     }</span></a>
+<a name="182"><span class="lineNum">     182 </span><span class="lineCov">         28 :     }</span></a>
 <span class="lineNum">     183 </span>            : 
 <span class="lineNum">     184 </span><span class="lineCov">          5 :     void _unsubscribe(const uint128_t&amp; event)</span>
 <span class="lineNum">     185 </span>            :     {
@@ -264,11 +264,11 @@
 <span class="lineNum">     202 </span>            : {
 <a name="203"><span class="lineNum">     203 </span><span class="lineCov">         12 : }</span></a>
 <span class="lineNum">     204 </span>            : 
-<span class="lineNum">     205 </span><span class="lineCov">          3 : Subscriber::Subscriber(const std::string&amp; session)</span>
+<span class="lineNum">     205 </span><span class="lineCov">         11 : Subscriber::Subscriber(const std::string&amp; session)</span>
 <span class="lineNum">     206 </span>            :     : Receiver()
-<span class="lineNum">     207 </span><span class="lineCov">          5 :     , _impl(new Impl(session))</span>
+<span class="lineNum">     207 </span><span class="lineCov">         13 :     , _impl(new Impl(session))</span>
 <span class="lineNum">     208 </span>            : {
-<a name="209"><span class="lineNum">     209 </span><span class="lineCov">          1 : }</span></a>
+<a name="209"><span class="lineNum">     209 </span><span class="lineCov">          9 : }</span></a>
 <span class="lineNum">     210 </span>            : 
 <span class="lineNum">     211 </span><span class="lineCov">         15 : Subscriber::Subscriber(const URIs&amp; uris)</span>
 <span class="lineNum">     212 </span>            :     : Receiver()
@@ -294,23 +294,23 @@
 <span class="lineNum">     232 </span>            : {
 <a name="233"><span class="lineNum">     233 </span><span class="lineCov">          3 : }</span></a>
 <span class="lineNum">     234 </span>            : 
-<span class="lineNum">     235 </span><span class="lineCov">         33 : Subscriber::~Subscriber()</span>
+<span class="lineNum">     235 </span><span class="lineCov">         41 : Subscriber::~Subscriber()</span>
 <span class="lineNum">     236 </span>            : {
-<a name="237"><span class="lineNum">     237 </span><span class="lineCov">         33 : }</span></a>
+<a name="237"><span class="lineNum">     237 </span><span class="lineCov">         41 : }</span></a>
 <span class="lineNum">     238 </span>            : 
 <span class="lineNum">     239 </span><span class="lineCov">          7 : bool Subscriber::subscribe(servus::Serializable&amp; serializable)</span>
 <span class="lineNum">     240 </span>            : {
 <span class="lineNum">     241 </span><span class="lineCov">          7 :     return _impl-&gt;subscribe(serializable);</span>
 <a name="242"><span class="lineNum">     242 </span>            : }</a>
 <span class="lineNum">     243 </span>            : 
-<a name="244"><span class="lineNum">     244 </span><span class="lineCov">          8 : bool Subscriber::subscribe(const uint128_t&amp; event, const EventFunc&amp; func)</span></a>
+<a name="244"><span class="lineNum">     244 </span><span class="lineCov">          9 : bool Subscriber::subscribe(const uint128_t&amp; event, const EventFunc&amp; func)</span></a>
 <span class="lineNum">     245 </span>            : {
-<span class="lineNum">     246 </span><span class="lineCov">         59 :     return _impl-&gt;subscribe(event, [func](const void*, size_t) { func(); });</span>
+<span class="lineNum">     246 </span><span class="lineCov">         66 :     return _impl-&gt;subscribe(event, [func](const void*, size_t) { func(); });</span>
 <a name="247"><span class="lineNum">     247 </span>            : }</a>
 <span class="lineNum">     248 </span>            : 
-<span class="lineNum">     249 </span><span class="lineCov">         10 : bool Subscriber::subscribe(const uint128_t&amp; event, const EventPayloadFunc&amp; func)</span>
+<span class="lineNum">     249 </span><span class="lineCov">         14 : bool Subscriber::subscribe(const uint128_t&amp; event, const EventPayloadFunc&amp; func)</span>
 <span class="lineNum">     250 </span>            : {
-<span class="lineNum">     251 </span><span class="lineCov">         10 :     return _impl-&gt;subscribe(event, func);</span>
+<span class="lineNum">     251 </span><span class="lineCov">         14 :     return _impl-&gt;subscribe(event, func);</span>
 <a name="252"><span class="lineNum">     252 </span>            : }</a>
 <span class="lineNum">     253 </span>            : 
 <span class="lineNum">     254 </span><span class="lineCov">          5 : bool Subscriber::unsubscribe(const servus::Serializable&amp; serializable)</span>
@@ -323,25 +323,25 @@
 <span class="lineNum">     261 </span><span class="lineCov">          3 :     return _impl-&gt;unsubscribe(event);</span>
 <a name="262"><span class="lineNum">     262 </span>            : }</a>
 <span class="lineNum">     263 </span>            : 
-<span class="lineNum">     264 </span><span class="lineNoCov">          0 : const std::string&amp; Subscriber::getSession() const</span>
+<span class="lineNum">     264 </span><span class="lineCov">          2 : const std::string&amp; Subscriber::getSession() const</span>
 <span class="lineNum">     265 </span>            : {
-<span class="lineNum">     266 </span><span class="lineNoCov">          0 :     return _impl-&gt;getSession();</span>
+<span class="lineNum">     266 </span><span class="lineCov">          2 :     return _impl-&gt;getSession();</span>
 <a name="267"><span class="lineNum">     267 </span>            : }</a>
 <span class="lineNum">     268 </span>            : 
-<span class="lineNum">     269 </span><span class="lineCov">     347684 : void Subscriber::addSockets(std::vector&lt;detail::Socket&gt;&amp; entries)</span>
+<span class="lineNum">     269 </span><span class="lineCov">     388588 : void Subscriber::addSockets(std::vector&lt;detail::Socket&gt;&amp; entries)</span>
 <span class="lineNum">     270 </span>            : {
-<span class="lineNum">     271 </span><span class="lineCov">     347684 :     _impl-&gt;addSockets(entries);</span>
-<a name="272"><span class="lineNum">     272 </span><span class="lineCov">     347684 : }</span></a>
+<span class="lineNum">     271 </span><span class="lineCov">     388588 :     _impl-&gt;addSockets(entries);</span>
+<a name="272"><span class="lineNum">     272 </span><span class="lineCov">     388588 : }</span></a>
 <span class="lineNum">     273 </span>            : 
-<span class="lineNum">     274 </span><span class="lineCov">      20012 : bool Subscriber::process(detail::Socket&amp; socket)</span>
+<span class="lineNum">     274 </span><span class="lineCov">      20009 : bool Subscriber::process(detail::Socket&amp; socket)</span>
 <span class="lineNum">     275 </span>            : {
-<span class="lineNum">     276 </span><span class="lineCov">      20012 :     return _impl-&gt;process(socket);</span>
+<span class="lineNum">     276 </span><span class="lineCov">      20009 :     return _impl-&gt;process(socket);</span>
 <a name="277"><span class="lineNum">     277 </span>            : }</a>
 <span class="lineNum">     278 </span>            : 
-<span class="lineNum">     279 </span><span class="lineCov">     347684 : void Subscriber::update()</span>
+<span class="lineNum">     279 </span><span class="lineCov">     388588 : void Subscriber::update()</span>
 <span class="lineNum">     280 </span>            : {
-<span class="lineNum">     281 </span><span class="lineCov">     347684 :     _impl-&gt;update();</span>
-<a name="282"><span class="lineNum">     282 </span><span class="lineCov">     347684 : }</span></a>
+<span class="lineNum">     281 </span><span class="lineCov">     388588 :     _impl-&gt;update();</span>
+<a name="282"><span class="lineNum">     282 </span><span class="lineCov">     388588 : }</span></a>
 <span class="lineNum">     283 </span>            : 
 <span class="lineNum">     284 </span><span class="lineCov">          2 : void Subscriber::addConnection(const std::string&amp; uri)</span>
 <span class="lineNum">     285 </span>            : {

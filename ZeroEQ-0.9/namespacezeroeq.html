@@ -193,6 +193,9 @@ static const std::string&#160;</td><td class="memItemRight" valign="bottom"><b>D
 <tr class="memitem:a62e5b99d1ea15952cd4580f0a040f5a3"><td class="memItemLeft" align="right" valign="top"><a class="anchor" id="a62e5b99d1ea15952cd4580f0a040f5a3"></a>
 static const std::string&#160;</td><td class="memItemRight" valign="bottom"><b>NULL_SESSION</b> (&quot;__null_session&quot;)</td></tr>
 <tr class="separator:a62e5b99d1ea15952cd4580f0a040f5a3"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a2cc4be8e39f2b92ef5f4885ca1e64cf6"><td class="memItemLeft" align="right" valign="top"><a class="anchor" id="a2cc4be8e39f2b92ef5f4885ca1e64cf6"></a>
+static const std::string&#160;</td><td class="memItemRight" valign="bottom"><b>TEST_SESSION</b> (servus::TEST_DRIVER)</td></tr>
+<tr class="separator:a2cc4be8e39f2b92ef5f4885ca1e64cf6"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a8bba550a8a4212028aac1aa2836f3061"><td class="memItemLeft" align="right" valign="top"><a class="anchor" id="a8bba550a8a4212028aac1aa2836f3061"></a>
 static const std::string&#160;</td><td class="memItemRight" valign="bottom"><b>ENV_PUB_SESSION</b> (&quot;ZEROEQ_PUB_SESSION&quot;)</td></tr>
 <tr class="separator:a8bba550a8a4212028aac1aa2836f3061"><td class="memSeparator" colspan="2">&#160;</td></tr>
@@ -214,8 +217,8 @@ Variables</h2></td></tr>
 <p>A <a class="el" href="classzeroeq_1_1_publisher.html" title="Serves and publishes events, consumed by Subscriber. ">Publisher</a> opens a listening port on the network, and publishes an Event on this port. It announces its session for automatic discovery.</p>
 <p>A <a class="el" href="classzeroeq_1_1_subscriber.html" title="Subscribes to Publisher to receive events. ">Subscriber</a> either explicitely subscribes to the publisher port, or uses automatic discovery to find publishers using the same session. Automatic discovery is implemented using zeroconf networking (avahi or Apple Bonjour).</p>
 <p>A <a class="el" href="classzeroeq_1_1_server.html" title="Serves request from one or more Client(s). ">Server</a> serves requests from a <a class="el" href="classzeroeq_1_1_client.html" title="Requests a remote procedure call on a Server. ">Client</a>. Like publish-subscribe, clients connect to servers using zeroconf discovery or explicit addressing.</p>
-<p>The <a class="el" href="classzeroeq_1_1connection_1_1_broker.html" title="Brokers subscription requests for a zeroeq::Receiver. ">connection::Broker</a> and <a class="el" href="classzeroeq_1_1connection_1_1_service.html" title="Subscribes a Publisher to a remote receiver using a connection::Broker. ">connection::Service</a> may be used to introduce a subscriber to a remote, not zeroconf visible, publisher.</p>
-<p>An Event contains a strongly type, semantically defined message. Applications or groups of applications can define their own vocabulary. </p>
+<p>A <a class="el" href="classzeroeq_1_1_monitor.html" title="Monitors a Sender and notifies on events on its socket. ">Monitor</a> can be used on any <a class="el" href="classzeroeq_1_1_sender.html" title="Interface for entities sending data. ">Sender</a> to receive notification on incoming connections.</p>
+<p>The <a class="el" href="classzeroeq_1_1connection_1_1_broker.html" title="Brokers subscription requests for a zeroeq::Receiver. ">connection::Broker</a> and <a class="el" href="classzeroeq_1_1connection_1_1_service.html" title="Subscribes a Publisher to a remote receiver using a connection::Broker. ">connection::Service</a> may be used to introduce a subscriber to a remote, not zeroconf visible, publisher. </p>
 </div><h2 class="groupheader">Typedef Documentation</h2>
 <a class="anchor" id="a254e586308434b75d1952f0fe862aa05"></a>
 <div class="memitem">
@@ -312,7 +315,7 @@ Variables</h2></td></tr>
 <div id="nav-path" class="navpath"><!-- id is needed for treeview function! -->
   <ul>
     <li class="navelem"><a class="el" href="namespacezeroeq.html">zeroeq</a></li>
-    <li class="footer">Generated on Sat Aug 26 2017 01:37:21 for ZeroEQ by
+    <li class="footer">Generated on Tue Sep 19 2017 01:36:35 for ZeroEQ by
     <a href="http://www.doxygen.org/index.html">
     <img class="footer" src="doxygen.png" alt="doxygen"/></a> 1.8.11 </li>
   </ul>

@@ -37,7 +37,7 @@
           </tr>
           <tr>
             <td class="headerItem">Date:</td>
-            <td class="headerValue">2017-08-26 01:37:20</td>
+            <td class="headerValue">2017-09-19 01:36:33</td>
             <td></td>
             <td class="headerItem">Functions:</td>
             <td class="headerCovTableEntry">4</td>
@@ -75,20 +75,20 @@
 <span class="lineNum">      13 </span>            : {
 <a name="14"><span class="lineNum">      14 </span>            : namespace detail</a>
 <span class="lineNum">      15 </span>            : {
-<span class="lineNum">      16 </span><span class="lineCov">        163 : zmq::ContextPtr getContext()</span>
+<span class="lineNum">      16 </span><span class="lineCov">        177 : zmq::ContextPtr getContext()</span>
 <span class="lineNum">      17 </span>            : {
-<span class="lineNum">      18 </span><span class="lineCov">        163 :     static std::weak_ptr&lt;void&gt; context;</span>
+<span class="lineNum">      18 </span><span class="lineCov">        177 :     static std::weak_ptr&lt;void&gt; context;</span>
 <span class="lineNum">      19 </span>            :     static std::mutex mutex;
-<span class="lineNum">      20 </span><span class="lineCov">        326 :     std::lock_guard&lt;std::mutex&gt; lock(mutex);</span>
+<span class="lineNum">      20 </span><span class="lineCov">        354 :     std::lock_guard&lt;std::mutex&gt; lock(mutex);</span>
 <span class="lineNum">      21 </span>            : 
-<span class="lineNum">      22 </span><span class="lineCov">        163 :     zmq::ContextPtr sharedContext = context.lock();</span>
-<span class="lineNum">      23 </span><span class="lineCov">        163 :     if (!sharedContext)</span>
+<span class="lineNum">      22 </span><span class="lineCov">        177 :     zmq::ContextPtr sharedContext = context.lock();</span>
+<span class="lineNum">      23 </span><span class="lineCov">        177 :     if (!sharedContext)</span>
 <a name="24"><span class="lineNum">      24 </span>            :     {</a>
-<span class="lineNum">      25 </span><span class="lineCov">        152 :         sharedContext.reset(zmq_ctx_new(),</span>
-<span class="lineNum">      26 </span><span class="lineCov">        152 :                             [](void* c) { ::zmq_ctx_destroy(c); });</span>
-<span class="lineNum">      27 </span><span class="lineCov">         76 :         context = sharedContext;</span>
+<span class="lineNum">      25 </span><span class="lineCov">        170 :         sharedContext.reset(zmq_ctx_new(),</span>
+<span class="lineNum">      26 </span><span class="lineCov">        170 :                             [](void* c) { ::zmq_ctx_destroy(c); });</span>
+<span class="lineNum">      27 </span><span class="lineCov">         85 :         context = sharedContext;</span>
 <span class="lineNum">      28 </span>            :     }
-<span class="lineNum">      29 </span><span class="lineCov">        326 :     return sharedContext;</span>
+<span class="lineNum">      29 </span><span class="lineCov">        354 :     return sharedContext;</span>
 <a name="30"><span class="lineNum">      30 </span>            : }</a>
 <span class="lineNum">      31 </span>            : }
 <span class="lineNum">      32 </span><span class="lineCov">         24 : }</span>

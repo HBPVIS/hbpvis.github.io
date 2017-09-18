@@ -37,7 +37,7 @@
           </tr>
           <tr>
             <td class="headerItem">Date:</td>
-            <td class="headerValue">2017-08-26 01:37:20</td>
+            <td class="headerValue">2017-09-19 01:36:33</td>
             <td></td>
             <td class="headerItem">Functions:</td>
             <td class="headerCovTableEntry">15</td>
@@ -109,16 +109,16 @@
 <a name="47"><span class="lineNum">      47 </span><span class="lineCov">          1 :     }</span></a>
 <a name="48"><span class="lineNum">      48 </span>            : </a>
 <span class="lineNum">      49 </span><span class="lineCov">          3 :     ~Broker() {}</span>
-<span class="lineNum">      50 </span><span class="lineCov">       9295 :     void addSockets(std::vector&lt;zeroeq::detail::Socket&gt;&amp; entries)</span>
+<span class="lineNum">      50 </span><span class="lineCov">      10016 :     void addSockets(std::vector&lt;zeroeq::detail::Socket&gt;&amp; entries)</span>
 <span class="lineNum">      51 </span>            :     {
-<span class="lineNum">      52 </span><span class="lineCov">       9295 :         assert(socket);</span>
-<span class="lineNum">      53 </span><span class="lineCov">       9295 :         if (!socket)</span>
+<span class="lineNum">      52 </span><span class="lineCov">      10016 :         assert(socket);</span>
+<span class="lineNum">      53 </span><span class="lineCov">      10016 :         if (!socket)</span>
 <span class="lineNum">      54 </span><span class="lineNoCov">          0 :             return;</span>
 <span class="lineNum">      55 </span>            : 
 <span class="lineNum">      56 </span>            :         zeroeq::detail::Socket entry;
-<span class="lineNum">      57 </span><span class="lineCov">       9295 :         entry.socket = socket.get();</span>
-<span class="lineNum">      58 </span><span class="lineCov">       9295 :         entry.events = ZMQ_POLLIN;</span>
-<span class="lineNum">      59 </span><span class="lineCov">       9295 :         entries.push_back(entry);</span>
+<span class="lineNum">      57 </span><span class="lineCov">      10016 :         entry.socket = socket.get();</span>
+<span class="lineNum">      58 </span><span class="lineCov">      10016 :         entry.events = ZMQ_POLLIN;</span>
+<span class="lineNum">      59 </span><span class="lineCov">      10016 :         entries.push_back(entry);</span>
 <a name="60"><span class="lineNum">      60 </span>            :     }</a>
 <span class="lineNum">      61 </span>            : 
 <span class="lineNum">      62 </span><span class="lineCov">          2 :     bool process(zeroeq::detail::Socket&amp; socket_)</span>
@@ -176,10 +176,10 @@
 <span class="lineNum">     114 </span><span class="lineCov">          3 :     delete _impl;</span>
 <a name="115"><span class="lineNum">     115 </span><span class="lineCov">          6 : }</span></a>
 <span class="lineNum">     116 </span>            : 
-<span class="lineNum">     117 </span><span class="lineCov">       9295 : void Broker::addSockets(std::vector&lt;zeroeq::detail::Socket&gt;&amp; entries)</span>
+<span class="lineNum">     117 </span><span class="lineCov">      10016 : void Broker::addSockets(std::vector&lt;zeroeq::detail::Socket&gt;&amp; entries)</span>
 <span class="lineNum">     118 </span>            : {
-<span class="lineNum">     119 </span><span class="lineCov">       9295 :     _impl-&gt;addSockets(entries);</span>
-<a name="120"><span class="lineNum">     120 </span><span class="lineCov">       9295 : }</span></a>
+<span class="lineNum">     119 </span><span class="lineCov">      10016 :     _impl-&gt;addSockets(entries);</span>
+<a name="120"><span class="lineNum">     120 </span><span class="lineCov">      10016 : }</span></a>
 <span class="lineNum">     121 </span>            : 
 <span class="lineNum">     122 </span><span class="lineCov">          2 : bool Broker::process(zeroeq::detail::Socket&amp; socket)</span>
 <span class="lineNum">     123 </span>            : {
