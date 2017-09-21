@@ -31,13 +31,13 @@
             <td class="headerValue">Servus</td>
             <td></td>
             <td class="headerItem">Lines:</td>
-            <td class="headerCovTableEntry">138</td>
+            <td class="headerCovTableEntry">139</td>
             <td class="headerCovTableEntry">192</td>
-            <td class="headerCovTableEntryMed">71.9 %</td>
+            <td class="headerCovTableEntryMed">72.4 %</td>
           </tr>
           <tr>
             <td class="headerItem">Date:</td>
-            <td class="headerValue">2017-09-02 03:06:23</td>
+            <td class="headerValue">2017-09-21 03:06:50</td>
             <td></td>
             <td class="headerItem">Functions:</td>
             <td class="headerCovTableEntry">20</td>
@@ -355,15 +355,15 @@
 <span class="lineNum">     293 </span><span class="lineNoCov">          0 :                 WARN &lt;&lt; &quot;Error creating resolver: &quot; &lt;&lt; avahi_strerror(_result)</span>
 <span class="lineNum">     294 </span><span class="lineNoCov">          0 :                      &lt;&lt; std::endl;</span>
 <span class="lineNum">     295 </span><span class="lineNoCov">          0 :                 avahi_simple_poll_quit(_poll);</span>
-<span class="lineNum">     296 </span><span class="lineNoCov">          0 :                 break;</span>
-<span class="lineNum">     297 </span>            :             }
+<span class="lineNum">     296 </span>            :             }
+<span class="lineNum">     297 </span><span class="lineCov">          3 :             break;</span>
 <span class="lineNum">     298 </span>            : 
 <span class="lineNum">     299 </span>            :         case AVAHI_BROWSER_REMOVE:
-<span class="lineNum">     300 </span><span class="lineCov">          4 :             _instanceMap.erase(name);</span>
-<span class="lineNum">     301 </span><span class="lineCov">         12 :             for (Listener* listener : _listeners)</span>
-<span class="lineNum">     302 </span><span class="lineCov">          8 :                 listener-&gt;instanceRemoved(name);</span>
+<span class="lineNum">     300 </span><span class="lineCov">          1 :             _instanceMap.erase(name);</span>
+<span class="lineNum">     301 </span><span class="lineCov">          3 :             for (Listener* listener : _listeners)</span>
+<span class="lineNum">     302 </span><span class="lineCov">          2 :                 listener-&gt;instanceRemoved(name);</span>
 <span class="lineNum">     303 </span>            : 
-<span class="lineNum">     304 </span><span class="lineCov">          4 :             break;</span>
+<span class="lineNum">     304 </span><span class="lineCov">          1 :             break;</span>
 <span class="lineNum">     305 </span>            : 
 <span class="lineNum">     306 </span>            :         case AVAHI_BROWSER_ALL_FOR_NOW:
 <span class="lineNum">     307 </span>            :         case AVAHI_BROWSER_CACHE_EXHAUSTED:
