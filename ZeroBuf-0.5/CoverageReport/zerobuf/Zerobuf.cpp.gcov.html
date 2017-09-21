@@ -37,7 +37,7 @@
           </tr>
           <tr>
             <td class="headerItem">Date:</td>
-            <td class="headerValue">2017-09-07 01:08:17</td>
+            <td class="headerValue">2017-09-22 01:09:20</td>
             <td></td>
             <td class="headerItem">Functions:</td>
             <td class="headerCovTableEntry">19</td>
@@ -136,11 +136,11 @@
 <span class="lineNum">      74 </span><span class="lineCov">          4 :     return *this;</span>
 <a name="75"><span class="lineNum">      75 </span>            : }</a>
 <span class="lineNum">      76 </span>            : 
-<span class="lineNum">      77 </span><span class="lineCov">         21 : void Zerobuf::compact(const float threshold)</span>
+<span class="lineNum">      77 </span><span class="lineCov">         23 : void Zerobuf::compact(const float threshold)</span>
 <span class="lineNum">      78 </span>            : {
-<span class="lineNum">      79 </span><span class="lineCov">         21 :     if (_allocator &amp;&amp; getZerobufNumDynamics() &gt; 0)</span>
-<span class="lineNum">      80 </span><span class="lineCov">         20 :         _allocator-&gt;compact(threshold);</span>
-<a name="81"><span class="lineNum">      81 </span><span class="lineCov">         21 : }</span></a>
+<span class="lineNum">      79 </span><span class="lineCov">         23 :     if (_allocator &amp;&amp; getZerobufNumDynamics() &gt; 0)</span>
+<span class="lineNum">      80 </span><span class="lineCov">         22 :         _allocator-&gt;compact(threshold);</span>
+<a name="81"><span class="lineNum">      81 </span><span class="lineCov">         23 : }</span></a>
 <span class="lineNum">      82 </span>            : 
 <span class="lineNum">      83 </span><span class="lineCov">          1 : bool Zerobuf::_fromBinary(const void* data, const size_t size)</span>
 <span class="lineNum">      84 </span>            : {
@@ -178,14 +178,14 @@
 <span class="lineNum">     116 </span><span class="lineCov">       1102 :     return data;</span>
 <a name="117"><span class="lineNum">     117 </span>            : }</a>
 <span class="lineNum">     118 </span>            : 
-<span class="lineNum">     119 </span><span class="lineCov">          8 : bool Zerobuf::_fromJSON(const std::string&amp; string)</span>
+<span class="lineNum">     119 </span><span class="lineCov">          9 : bool Zerobuf::_fromJSON(const std::string&amp; string)</span>
 <span class="lineNum">     120 </span>            : {
-<span class="lineNum">     121 </span><span class="lineCov">          8 :     if (!_allocator)</span>
+<span class="lineNum">     121 </span><span class="lineCov">          9 :     if (!_allocator)</span>
 <span class="lineNum">     122 </span><span class="lineCov">          2 :         return true;</span>
 <span class="lineNum">     123 </span>            : 
-<span class="lineNum">     124 </span><span class="lineCov">         12 :     Json::Value json;</span>
-<span class="lineNum">     125 </span><span class="lineCov">         12 :     Json::Reader reader;</span>
-<span class="lineNum">     126 </span><span class="lineCov">          6 :     if (!reader.parse(string, json))</span>
+<span class="lineNum">     124 </span><span class="lineCov">         14 :     Json::Value json;</span>
+<span class="lineNum">     125 </span><span class="lineCov">         14 :     Json::Reader reader;</span>
+<span class="lineNum">     126 </span><span class="lineCov">          7 :     if (!reader.parse(string, json))</span>
 <span class="lineNum">     127 </span>            :     {
 <span class="lineNum">     128 </span>            :         std::cerr &lt;&lt; &quot;Error parsing JSON: &quot;
 <span class="lineNum">     129 </span><span class="lineNoCov">          0 :                   &lt;&lt; reader.getFormattedErrorMessages() &lt;&lt; std::endl</span>
@@ -195,7 +195,7 @@
 <span class="lineNum">     133 </span>            : 
 <span class="lineNum">     134 </span>            :     try
 <span class="lineNum">     135 </span>            :     {
-<span class="lineNum">     136 </span><span class="lineCov">          6 :         _parseJSON(json);</span>
+<span class="lineNum">     136 </span><span class="lineCov">          7 :         _parseJSON(json);</span>
 <span class="lineNum">     137 </span>            :     }
 <span class="lineNum">     138 </span><span class="lineNoCov">          0 :     catch (const std::exception&amp; e)</span>
 <span class="lineNum">     139 </span>            :     {
@@ -203,8 +203,8 @@
 <span class="lineNum">     141 </span><span class="lineNoCov">          0 :         return false;</span>
 <span class="lineNum">     142 </span>            :     }
 <span class="lineNum">     143 </span>            : 
-<span class="lineNum">     144 </span><span class="lineCov">          6 :     compact();</span>
-<span class="lineNum">     145 </span><span class="lineCov">          6 :     return true;</span>
+<span class="lineNum">     144 </span><span class="lineCov">          7 :     compact();</span>
+<span class="lineNum">     145 </span><span class="lineCov">          7 :     return true;</span>
 <a name="146"><span class="lineNum">     146 </span>            : }</a>
 <span class="lineNum">     147 </span>            : 
 <span class="lineNum">     148 </span><span class="lineCov">         52 : std::string Zerobuf::_toJSON() const</span>

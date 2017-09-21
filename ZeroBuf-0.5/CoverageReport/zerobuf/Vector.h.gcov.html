@@ -37,11 +37,11 @@
           </tr>
           <tr>
             <td class="headerItem">Date:</td>
-            <td class="headerValue">2017-09-07 01:08:17</td>
+            <td class="headerValue">2017-09-22 01:09:20</td>
             <td></td>
             <td class="headerItem">Functions:</td>
-            <td class="headerCovTableEntry">178</td>
-            <td class="headerCovTableEntry">194</td>
+            <td class="headerCovTableEntry">180</td>
+            <td class="headerCovTableEntry">196</td>
             <td class="headerCovTableEntryHi">91.8 %</td>
           </tr>
           <tr><td><img src="../glass.png" width=3 height=3 alt=""></td></tr>
@@ -143,12 +143,12 @@
 <span class="lineNum">      81 </span>            :     /** @return true if the vector contains no elements. */
 <a name="82"><span class="lineNum">      82 </span><span class="lineCov">         11 :     bool empty() const { return _getSize() == 0; }</span></a>
 <span class="lineNum">      83 </span>            :     /** @return the number of elements in the vector. */
-<span class="lineNum">      84 </span><span class="lineCov">        535 :     uint64_t size() const { return _getSize() / _getElementSize&lt;T&gt;(); }</span>
+<span class="lineNum">      84 </span><span class="lineCov">        537 :     uint64_t size() const { return _getSize() / _getElementSize&lt;T&gt;(); }</span>
 <span class="lineNum">      85 </span>            :     /** Empty the vector. */
 <span class="lineNum">      86 </span>            :     void clear();
 <a name="87"><span class="lineNum">      87 </span>            : </a>
 <span class="lineNum">      88 </span>            :     /** @return The pointer to the current allocation of the vector */
-<a name="89"><span class="lineNum">      89 </span><span class="lineCov">          6 :     T* data() { return _alloc-&gt;template getDynamic&lt;T&gt;(_index); }</span></a>
+<a name="89"><span class="lineNum">      89 </span><span class="lineCov">          7 :     T* data() { return _alloc-&gt;template getDynamic&lt;T&gt;(_index); }</span></a>
 <span class="lineNum">      90 </span>            :     /** @return The pointer to the current allocation of the vector */
 <span class="lineNum">      91 </span><span class="lineCov">        344 :     const T* data() const</span>
 <span class="lineNum">      92 </span>            :     {
@@ -214,7 +214,7 @@
 <span class="lineNum">     152 </span><span class="lineCov">          6 :     }</span>
 <a name="153"><span class="lineNum">     153 </span>            : </a>
 <span class="lineNum">     154 </span>            :     /** Remove unused memory from vector and all members. */
-<span class="lineNum">     155 </span><span class="lineCov">        140 :     void compact(float) { /* NOP: elements are static and clear frees */}</span>
+<span class="lineNum">     155 </span><span class="lineCov">        162 :     void compact(float) { /* NOP: elements are static and clear frees */}</span>
 <span class="lineNum">     156 </span>            : 
 <span class="lineNum">     157 </span>            :     /** Update this vector of ZeroBufs from its JSON representation. */
 <span class="lineNum">     158 </span>            :     template &lt;class Q = T&gt;
@@ -288,7 +288,7 @@
 <span class="lineNum">     226 </span>            :     Vector(const Vector&amp; rhs) = delete;
 <a name="227"><span class="lineNum">     227 </span>            :     Vector(const Vector&amp;&amp; rhs) = delete;</a>
 <span class="lineNum">     228 </span>            : 
-<span class="lineNum">     229 </span><span class="lineCov">        652 :     size_t _getSize() const { return _alloc-&gt;getDynamicSize(_index); }</span>
+<span class="lineNum">     229 </span><span class="lineCov">        654 :     size_t _getSize() const { return _alloc-&gt;getDynamicSize(_index); }</span>
 <span class="lineNum">     230 </span>            :     void copyBuffer(uint8_t* data, size_t size);
 <a name="231"><span class="lineNum">     231 </span>            : </a>
 <span class="lineNum">     232 </span>            :     template &lt;class Q = T&gt;
@@ -300,11 +300,11 @@
 <span class="lineNum">     238 </span>            :     }
 <a name="239"><span class="lineNum">     239 </span>            : </a>
 <span class="lineNum">     240 </span>            :     template &lt;class Q = T&gt;
-<span class="lineNum">     241 </span><span class="lineCov">        298 :     size_t _getElementSize(</span>
+<span class="lineNum">     241 </span><span class="lineCov">        300 :     size_t _getElementSize(</span>
 <span class="lineNum">     242 </span>            :         typename std::enable_if&lt;!std::is_base_of&lt;Zerobuf, Q&gt;::value, Q&gt;::type* =
 <span class="lineNum">     243 </span>            :             0) const
 <span class="lineNum">     244 </span>            :     {
-<span class="lineNum">     245 </span><span class="lineCov">        298 :         return sizeof(Q);</span>
+<span class="lineNum">     245 </span><span class="lineCov">        300 :         return sizeof(Q);</span>
 <span class="lineNum">     246 </span>            :     }
 <span class="lineNum">     247 </span>            : };
 <span class="lineNum">     248 </span>            : 
@@ -392,12 +392,12 @@
 <span class="lineNum">     330 </span>            : template &lt;class T&gt;
 <a name="331"><span class="lineNum">     331 </span>            : template &lt;class Q&gt;</a>
 <span class="lineNum">     332 </span>            : inline typename std::enable_if&lt;!std::is_base_of&lt;Zerobuf, Q&gt;::value, Q&gt;::type&amp;
-<span class="lineNum">     333 </span><span class="lineCov">          6 :     Vector&lt;T&gt;::operator[](const size_t index)</span>
+<span class="lineNum">     333 </span><span class="lineCov">          7 :     Vector&lt;T&gt;::operator[](const size_t index)</span>
 <span class="lineNum">     334 </span>            : {
-<span class="lineNum">     335 </span><span class="lineCov">          6 :     if (index &gt;= size())</span>
+<span class="lineNum">     335 </span><span class="lineCov">          7 :     if (index &gt;= size())</span>
 <span class="lineNum">     336 </span><span class="lineCov">          1 :         throw std::runtime_error(&quot;Vector out of bounds read&quot;);</span>
 <span class="lineNum">     337 </span>            : 
-<span class="lineNum">     338 </span><span class="lineCov">          5 :     return data()[index];</span>
+<span class="lineNum">     338 </span><span class="lineCov">          6 :     return data()[index];</span>
 <span class="lineNum">     339 </span>            : }
 <span class="lineNum">     340 </span>            : 
 <span class="lineNum">     341 </span>            : template &lt;class T&gt;
@@ -485,17 +485,17 @@
 <span class="lineNum">     423 </span>            : 
 <a name="424"><span class="lineNum">     424 </span>            : template &lt;class T&gt;</a>
 <span class="lineNum">     425 </span>            : template &lt;class Q&gt;
-<span class="lineNum">     426 </span><span class="lineCov">         30 : inline void Vector&lt;T&gt;::fromJSON(</span>
+<span class="lineNum">     426 </span><span class="lineCov">         31 : inline void Vector&lt;T&gt;::fromJSON(</span>
 <span class="lineNum">     427 </span>            :     const Json::Value&amp; json,
 <span class="lineNum">     428 </span>            :     const typename std::enable_if&lt;std::is_arithmetic&lt;Q&gt;::value, Q&gt;::type*)
 <span class="lineNum">     429 </span>            : {
-<span class="lineNum">     430 </span><span class="lineCov">         30 :     const size_t size_ = getJSONSize(json);</span>
+<span class="lineNum">     430 </span><span class="lineCov">         31 :     const size_t size_ = getJSONSize(json);</span>
 <span class="lineNum">     431 </span>            :     T* array = reinterpret_cast&lt;T*&gt;(
-<span class="lineNum">     432 </span><span class="lineCov">         30 :         _alloc-&gt;updateAllocation(_index, false /*no copy*/, size_ * sizeof(T)));</span>
+<span class="lineNum">     432 </span><span class="lineCov">         31 :         _alloc-&gt;updateAllocation(_index, false /*no copy*/, size_ * sizeof(T)));</span>
 <span class="lineNum">     433 </span>            : 
-<span class="lineNum">     434 </span><span class="lineCov">         90 :     for (size_t i = 0; i &lt; size_; ++i)</span>
-<span class="lineNum">     435 </span><span class="lineCov">         60 :         array[i] = zerobuf::fromJSON&lt;T&gt;(getJSONField(json, i));</span>
-<span class="lineNum">     436 </span><span class="lineCov">         30 : }</span>
+<span class="lineNum">     434 </span><span class="lineCov">         94 :     for (size_t i = 0; i &lt; size_; ++i)</span>
+<span class="lineNum">     435 </span><span class="lineCov">         63 :         array[i] = zerobuf::fromJSON&lt;T&gt;(getJSONField(json, i));</span>
+<span class="lineNum">     436 </span><span class="lineCov">         31 : }</span>
 <span class="lineNum">     437 </span>            : 
 <a name="438"><span class="lineNum">     438 </span>            : template &lt;class T&gt;</a>
 <span class="lineNum">     439 </span>            : template &lt;class Q&gt;

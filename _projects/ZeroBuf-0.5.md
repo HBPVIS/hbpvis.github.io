@@ -4,7 +4,7 @@ version: "0.5"
 major: 0
 minor: 5
 description: Zero-copy, zero-serialize, zero-hassle protocol buffers
-updated: 07/09/17
+updated: 22/09/17
 homepage: https://github.com/HBPVIS/ZeroBuf
 repository: https://github.com/HBPVIS/ZeroBuf.git
 issuesurl: https://github.com/HBPVIS/ZeroBuf/issues
@@ -12,7 +12,7 @@ packageurl:
 license: LGPL
 maturity: EP
 maintainers: Human Brain Project (HBPVis@googlegroups.com)
-contributors: Daniel Nachbaur
+contributors: Stefan Eilemann
 readmetype: text/x-markdown
 ---
 ZeroBuf
