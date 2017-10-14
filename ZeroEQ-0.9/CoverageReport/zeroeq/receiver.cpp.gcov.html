@@ -37,7 +37,7 @@
           </tr>
           <tr>
             <td class="headerItem">Date:</td>
-            <td class="headerValue">2017-09-19 01:36:33</td>
+            <td class="headerValue">2017-10-15 01:41:21</td>
             <td></td>
             <td class="headerItem">Functions:</td>
             <td class="headerCovTableEntry">13</td>
@@ -106,22 +106,22 @@
 <span class="lineNum">      44 </span><span class="lineCov">      60209 :         const auto startTime = high_resolution_clock::now();</span>
 <span class="lineNum">      45 </span>            :         while (true)
 <span class="lineNum">      46 </span>            :         {
-<span class="lineNum">      47 </span><span class="lineCov">    2963441 :             for (::zeroeq::Receiver* receiver : _shared)</span>
-<span class="lineNum">      48 </span><span class="lineCov">    1557842 :                 receiver-&gt;update();</span>
+<span class="lineNum">      47 </span><span class="lineCov">    2652735 :             for (::zeroeq::Receiver* receiver : _shared)</span>
+<span class="lineNum">      48 </span><span class="lineCov">    1388097 :                 receiver-&gt;update();</span>
 <span class="lineNum">      49 </span>            : 
-<span class="lineNum">      50 </span><span class="lineCov">    1405597 :             const auto endTime = high_resolution_clock::now();</span>
+<span class="lineNum">      50 </span><span class="lineCov">    1264633 :             const auto endTime = high_resolution_clock::now();</span>
 <span class="lineNum">      51 </span>            :             const uint32_t elapsed =
-<span class="lineNum">      52 </span><span class="lineCov">    1405599 :                 nanoseconds(endTime - startTime).count() / 1000000;</span>
-<span class="lineNum">      53 </span><span class="lineCov">    1405597 :             uint32_t wait = 0;</span>
-<span class="lineNum">      54 </span><span class="lineCov">    1405597 :             if (elapsed &lt; timeout)</span>
-<span class="lineNum">      55 </span><span class="lineCov">    1345532 :                 wait = std::min(timeout - uint32_t(elapsed), block);</span>
+<span class="lineNum">      52 </span><span class="lineCov">    1264639 :                 nanoseconds(endTime - startTime).count() / 1000000;</span>
+<span class="lineNum">      53 </span><span class="lineCov">    1264633 :             uint32_t wait = 0;</span>
+<span class="lineNum">      54 </span><span class="lineCov">    1264633 :             if (elapsed &lt; timeout)</span>
+<span class="lineNum">      55 </span><span class="lineCov">    1204574 :                 wait = std::min(timeout - uint32_t(elapsed), block);</span>
 <span class="lineNum">      56 </span>            : 
-<span class="lineNum">      57 </span><span class="lineCov">    1405597 :             if (_receive(wait))</span>
+<span class="lineNum">      57 </span><span class="lineCov">    1264634 :             if (_receive(wait))</span>
 <span class="lineNum">      58 </span><span class="lineCov">      80342 :                 return true;</span>
 <span class="lineNum">      59 </span>            : 
-<span class="lineNum">      60 </span><span class="lineCov">    1385466 :             if (elapsed &gt;= timeout)</span>
+<span class="lineNum">      60 </span><span class="lineCov">    1244507 :             if (elapsed &gt;= timeout)</span>
 <span class="lineNum">      61 </span><span class="lineCov">      40076 :                 return false;</span>
-<span class="lineNum">      62 </span><span class="lineCov">    1345390 :         }</span>
+<span class="lineNum">      62 </span><span class="lineCov">    1204431 :         }</span>
 <span class="lineNum">      63 </span>            :     }
 <span class="lineNum">      64 </span>            : 
 <span class="lineNum">      65 </span>            : private:
@@ -130,53 +130,53 @@
 <span class="lineNum">      68 </span>            : 
 <a name="69"><span class="lineNum">      69 </span>            :     Receivers _shared;</a>
 <span class="lineNum">      70 </span>            : 
-<span class="lineNum">      71 </span><span class="lineCov">       3898 :     bool _blockingReceive()</span>
+<span class="lineNum">      71 </span><span class="lineCov">       3461 :     bool _blockingReceive()</span>
 <span class="lineNum">      72 </span>            :     {
 <span class="lineNum">      73 </span>            :         while (true)
 <span class="lineNum">      74 </span>            :         {
-<span class="lineNum">      75 </span><span class="lineCov">       7796 :             for (::zeroeq::Receiver* receiver : _shared)</span>
-<span class="lineNum">      76 </span><span class="lineCov">       3898 :                 receiver-&gt;update();</span>
+<span class="lineNum">      75 </span><span class="lineCov">       6922 :             for (::zeroeq::Receiver* receiver : _shared)</span>
+<span class="lineNum">      76 </span><span class="lineCov">       3461 :                 receiver-&gt;update();</span>
 <span class="lineNum">      77 </span>            : 
 <span class="lineNum">      78 </span>            :             // Never fully block. Give receivers a chance to update, e.g., to
 <span class="lineNum">      79 </span>            :             // check for new connections from zeroconf (#20)
-<span class="lineNum">      80 </span><span class="lineCov">       3898 :             if (_receive(1000))</span>
+<span class="lineNum">      80 </span><span class="lineCov">       3461 :             if (_receive(1000))</span>
 <span class="lineNum">      81 </span><span class="lineCov">          2 :                 return true;</span>
-<span class="lineNum">      82 </span><span class="lineCov">       3897 :         }</span>
+<span class="lineNum">      82 </span><span class="lineCov">       3460 :         }</span>
 <a name="83"><span class="lineNum">      83 </span>            :     }</a>
 <span class="lineNum">      84 </span>            : 
-<span class="lineNum">      85 </span><span class="lineCov">    1409495 :     bool _receive(uint32_t timeout)</span>
+<span class="lineNum">      85 </span><span class="lineCov">    1268094 :     bool _receive(uint32_t timeout)</span>
 <span class="lineNum">      86 </span>            :     {
 <span class="lineNum">      87 </span>            :         // ZMQ notifications on its sockets is edge-triggered, hence we have
 <span class="lineNum">      88 </span>            :         // to receive all pending POLLIN events to not 'loose' notifications
 <span class="lineNum">      89 </span>            :         // from the socket descriptors (c.f. HTTP server).
 <span class="lineNum">      90 </span>            :         // For reference:
 <span class="lineNum">      91 </span>            :         // https://funcptr.net/2012/09/10/zeromq---edge-triggered-notification
-<span class="lineNum">      92 </span><span class="lineCov">    1409495 :         const auto startTime = high_resolution_clock::now();</span>
-<span class="lineNum">      93 </span><span class="lineCov">    1409496 :         bool haveData = false;</span>
-<span class="lineNum">      94 </span><span class="lineCov">    1409496 :         bool hadData = false;</span>
+<span class="lineNum">      92 </span><span class="lineCov">    1268094 :         const auto startTime = high_resolution_clock::now();</span>
+<span class="lineNum">      93 </span><span class="lineCov">    1268100 :         bool haveData = false;</span>
+<span class="lineNum">      94 </span><span class="lineCov">    1268100 :         bool hadData = false;</span>
 <span class="lineNum">      95 </span><span class="lineCov">      40268 :         do</span>
 <span class="lineNum">      96 </span>            :         {
-<span class="lineNum">      97 </span><span class="lineCov">    1429630 :             std::vector&lt;detail::Socket&gt; sockets;</span>
-<span class="lineNum">      98 </span><span class="lineCov">    1429630 :             std::deque&lt;size_t&gt; intervals;</span>
-<span class="lineNum">      99 </span><span class="lineCov">    2971236 :             for (::zeroeq::Receiver* receiver : _shared)</span>
+<span class="lineNum">      97 </span><span class="lineCov">    1288234 :             std::vector&lt;detail::Socket&gt; sockets;</span>
+<span class="lineNum">      98 </span><span class="lineCov">    1288234 :             std::deque&lt;size_t&gt; intervals;</span>
+<span class="lineNum">      99 </span><span class="lineCov">    2659653 :             for (::zeroeq::Receiver* receiver : _shared)</span>
 <span class="lineNum">     100 </span>            :             {
-<span class="lineNum">     101 </span><span class="lineCov">    1561738 :                 const size_t before = sockets.size();</span>
-<span class="lineNum">     102 </span><span class="lineCov">    1561738 :                 receiver-&gt;addSockets(sockets);</span>
-<span class="lineNum">     103 </span><span class="lineCov">    1561742 :                 intervals.push_back(sockets.size() - before);</span>
+<span class="lineNum">     101 </span><span class="lineCov">    1391553 :                 const size_t before = sockets.size();</span>
+<span class="lineNum">     102 </span><span class="lineCov">    1391552 :                 receiver-&gt;addSockets(sockets);</span>
+<span class="lineNum">     103 </span><span class="lineCov">    1391557 :                 intervals.push_back(sockets.size() - before);</span>
 <span class="lineNum">     104 </span>            :             }
 <span class="lineNum">     105 </span>            : 
-<span class="lineNum">     106 </span><span class="lineCov">    2818992 :             const auto remaining = duration_cast&lt;milliseconds&gt;(</span>
-<span class="lineNum">     107 </span><span class="lineCov">    2818989 :                                        high_resolution_clock::now() - startTime)</span>
-<span class="lineNum">     108 </span><span class="lineCov">    1409497 :                                        .count();</span>
+<span class="lineNum">     106 </span><span class="lineCov">    2536200 :             const auto remaining = duration_cast&lt;milliseconds&gt;(</span>
+<span class="lineNum">     107 </span><span class="lineCov">    2536198 :                                        high_resolution_clock::now() - startTime)</span>
+<span class="lineNum">     108 </span><span class="lineCov">    1268100 :                                        .count();</span>
 <span class="lineNum">     109 </span>            : 
-<span class="lineNum">     110 </span><span class="lineCov">    1409495 :             switch (zmq_poll(sockets.data(), int(sockets.size()), remaining))</span>
+<span class="lineNum">     110 </span><span class="lineCov">    1268100 :             switch (zmq_poll(sockets.data(), int(sockets.size()), remaining))</span>
 <span class="lineNum">     111 </span>            :             {
 <span class="lineNum">     112 </span>            :             case -1: // error
 <span class="lineNum">     113 </span><span class="lineNoCov">          0 :                 ZEROEQTHROW(std::runtime_error(std::string(&quot;Poll error: &quot;) +</span>
 <span class="lineNum">     114 </span>            :                                                zmq_strerror(zmq_errno())));
 <span class="lineNum">     115 </span>            : 
 <span class="lineNum">     116 </span>            :             case 0: // timeout; no events signaled during poll
-<span class="lineNum">     117 </span><span class="lineCov">    1389363 :                 return hadData;</span>
+<span class="lineNum">     117 </span><span class="lineCov">    1247967 :                 return hadData;</span>
 <span class="lineNum">     118 </span>            : 
 <span class="lineNum">     119 </span>            :             default:
 <span class="lineNum">     120 </span>            :             {
@@ -193,21 +193,21 @@
 <span class="lineNum">     131 </span><span class="lineCov">      20134 :                 haveData = false;</span>
 <span class="lineNum">     132 </span><span class="lineCov">      20134 :                 timeout = 0;</span>
 <span class="lineNum">     133 </span>            : 
-<span class="lineNum">     134 </span><span class="lineCov">      40288 :                 for (auto&amp; socket : sockets)</span>
+<span class="lineNum">     134 </span><span class="lineCov">      40289 :                 for (auto&amp; socket : sockets)</span>
 <span class="lineNum">     135 </span>            :                 {
-<span class="lineNum">     136 </span><span class="lineCov">      20190 :                     while (interval == 0 || interval-- == 0)</span>
+<span class="lineNum">     136 </span><span class="lineCov">      20193 :                     while (interval == 0 || interval-- == 0)</span>
 <span class="lineNum">     137 </span>            :                     {
-<span class="lineNum">     138 </span><span class="lineCov">         18 :                         ++i;</span>
-<span class="lineNum">     139 </span><span class="lineCov">         18 :                         interval = intervals.front();</span>
-<span class="lineNum">     140 </span><span class="lineCov">         18 :                         intervals.pop_front();</span>
+<span class="lineNum">     138 </span><span class="lineCov">         19 :                         ++i;</span>
+<span class="lineNum">     139 </span><span class="lineCov">         19 :                         interval = intervals.front();</span>
+<span class="lineNum">     140 </span><span class="lineCov">         19 :                         intervals.pop_front();</span>
 <span class="lineNum">     141 </span>            :                     }
 <span class="lineNum">     142 </span>            : 
-<span class="lineNum">     143 </span><span class="lineCov">      20154 :                     if (socket.revents &amp; ZMQ_POLLIN)</span>
+<span class="lineNum">     143 </span><span class="lineCov">      20155 :                     if (socket.revents &amp; ZMQ_POLLIN)</span>
 <span class="lineNum">     144 </span>            :                     {
-<span class="lineNum">     145 </span><span class="lineCov">      20139 :                         if ((*i)-&gt;process(socket))</span>
+<span class="lineNum">     145 </span><span class="lineCov">      20138 :                         if ((*i)-&gt;process(socket))</span>
 <span class="lineNum">     146 </span>            :                         {
-<span class="lineNum">     147 </span><span class="lineCov">      20139 :                             haveData = true;</span>
-<span class="lineNum">     148 </span><span class="lineCov">      20139 :                             hadData = true;</span>
+<span class="lineNum">     147 </span><span class="lineCov">      20138 :                             haveData = true;</span>
+<span class="lineNum">     148 </span><span class="lineCov">      20138 :                             hadData = true;</span>
 <span class="lineNum">     149 </span>            :                         }
 <span class="lineNum">     150 </span>            :                     }
 <span class="lineNum">     151 </span>            :                 }
