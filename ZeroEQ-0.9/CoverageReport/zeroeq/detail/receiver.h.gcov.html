@@ -37,7 +37,7 @@
           </tr>
           <tr>
             <td class="headerItem">Date:</td>
-            <td class="headerValue">2017-10-15 01:41:21</td>
+            <td class="headerValue">2017-12-01 01:44:57</td>
             <td></td>
             <td class="headerItem">Functions:</td>
             <td class="headerCovTableEntry">12</td>
@@ -126,14 +126,14 @@
 <a name="64"><span class="lineNum">      64 </span><span class="lineCov">         55 :     }</span></a>
 <a name="65"><span class="lineNum">      65 </span>            : </a>
 <span class="lineNum">      66 </span><span class="lineCov">          2 :     const std::string&amp; getSession() const { return _session; }</span>
-<span class="lineNum">      67 </span><span class="lineCov">     407064 :     bool update() //!&lt; @return true if new connection made</span>
+<span class="lineNum">      67 </span><span class="lineCov">     380695 :     bool update() //!&lt; @return true if new connection made</span>
 <span class="lineNum">      68 </span>            :     {
-<span class="lineNum">      69 </span><span class="lineCov">     407064 :         if (!_servus.isBrowsing())</span>
-<span class="lineNum">      70 </span><span class="lineCov">     335979 :             return false;</span>
+<span class="lineNum">      69 </span><span class="lineCov">     380695 :         if (!_servus.isBrowsing())</span>
+<span class="lineNum">      70 </span><span class="lineCov">     317246 :             return false;</span>
 <span class="lineNum">      71 </span>            : 
-<span class="lineNum">      72 </span><span class="lineCov">      71085 :         _updated = false;</span>
-<span class="lineNum">      73 </span><span class="lineCov">      71085 :         _servus.browse(0);</span>
-<span class="lineNum">      74 </span><span class="lineCov">      71085 :         return _updated;</span>
+<span class="lineNum">      72 </span><span class="lineCov">      63449 :         _updated = false;</span>
+<span class="lineNum">      73 </span><span class="lineCov">      63449 :         _servus.browse(0);</span>
+<span class="lineNum">      74 </span><span class="lineCov">      63449 :         return _updated;</span>
 <a name="75"><span class="lineNum">      75 </span>            :     }</a>
 <span class="lineNum">      76 </span>            : 
 <span class="lineNum">      77 </span><span class="lineCov">          6 :     void instanceAdded(const std::string&amp; instance) final</span>
@@ -169,10 +169,10 @@
 <span class="lineNum">     107 </span><span class="lineNoCov">          0 :         return true;</span>
 <a name="108"><span class="lineNum">     108 </span>            :     }</a>
 <span class="lineNum">     109 </span>            : 
-<span class="lineNum">     110 </span><span class="lineCov">     407039 :     void addSockets(std::vector&lt;detail::Socket&gt;&amp; entries)</span>
+<span class="lineNum">     110 </span><span class="lineCov">     380670 :     void addSockets(std::vector&lt;detail::Socket&gt;&amp; entries)</span>
 <span class="lineNum">     111 </span>            :     {
-<span class="lineNum">     112 </span><span class="lineCov">     407039 :         entries.insert(entries.end(), _entries.begin(), _entries.end());</span>
-<span class="lineNum">     113 </span><span class="lineCov">     407039 :     }</span>
+<span class="lineNum">     112 </span><span class="lineCov">     380670 :         entries.insert(entries.end(), _entries.begin(), _entries.end());</span>
+<span class="lineNum">     113 </span><span class="lineCov">     380670 :     }</span>
 <span class="lineNum">     114 </span>            : 
 <span class="lineNum">     115 </span>            : protected:
 <a name="116"><span class="lineNum">     116 </span>            :     using SocketMap = std::map&lt;std::string, zmq::SocketPtr&gt;;</a>

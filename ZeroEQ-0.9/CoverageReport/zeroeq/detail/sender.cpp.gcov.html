@@ -37,7 +37,7 @@
           </tr>
           <tr>
             <td class="headerItem">Date:</td>
-            <td class="headerValue">2017-10-15 01:41:21</td>
+            <td class="headerValue">2017-12-01 01:44:57</td>
             <td></td>
             <td class="headerItem">Functions:</td>
             <td class="headerCovTableEntry">12</td>
@@ -173,13 +173,13 @@
 <span class="lineNum">     111 </span>            :                                        result.getString()));
 <a name="112"><span class="lineNum">     112 </span>            : }</a>
 <span class="lineNum">     113 </span>            : 
-<span class="lineNum">     114 </span><span class="lineCov">        351 : void Sender::addSockets(std::vector&lt;zeroeq::detail::Socket&gt;&amp; entries)</span>
+<span class="lineNum">     114 </span><span class="lineCov">        417 : void Sender::addSockets(std::vector&lt;zeroeq::detail::Socket&gt;&amp; entries)</span>
 <span class="lineNum">     115 </span>            : {
 <span class="lineNum">     116 </span>            :     zeroeq::detail::Socket entry;
-<span class="lineNum">     117 </span><span class="lineCov">        351 :     entry.socket = socket.get();</span>
-<span class="lineNum">     118 </span><span class="lineCov">        351 :     entry.events = ZMQ_POLLIN;</span>
-<span class="lineNum">     119 </span><span class="lineCov">        351 :     entries.push_back(entry);</span>
-<a name="120"><span class="lineNum">     120 </span><span class="lineCov">        350 : }</span></a>
+<span class="lineNum">     117 </span><span class="lineCov">        417 :     entry.socket = socket.get();</span>
+<span class="lineNum">     118 </span><span class="lineCov">        417 :     entry.events = ZMQ_POLLIN;</span>
+<span class="lineNum">     119 </span><span class="lineCov">        417 :     entries.push_back(entry);</span>
+<a name="120"><span class="lineNum">     120 </span><span class="lineCov">        419 : }</span></a>
 <span class="lineNum">     121 </span>            : 
 <span class="lineNum">     122 </span><span class="lineCov">         36 : void Sender::_getEndPoint(std::string&amp; host, std::string&amp; port) const</span>
 <span class="lineNum">     123 </span>            : {

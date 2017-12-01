@@ -37,7 +37,7 @@
           </tr>
           <tr>
             <td class="headerItem">Date:</td>
-            <td class="headerValue">2017-10-15 01:41:21</td>
+            <td class="headerValue">2017-12-01 01:44:57</td>
             <td></td>
             <td class="headerItem">Functions:</td>
             <td class="headerCovTableEntry">1</td>
@@ -82,15 +82,15 @@
 <span class="lineNum">      20 </span>            :     zmq::ContextPtr _context; // must be private before socket
 <span class="lineNum">      21 </span>            : 
 <span class="lineNum">      22 </span>            : public:
-<span class="lineNum">      23 </span>            :     Sender(const URI&amp; uri_, const int type);
-<span class="lineNum">      24 </span>            :     Sender(const URI&amp; uri_, const int type, const std::string service,
-<span class="lineNum">      25 </span>            :            const std::string&amp; session);
-<span class="lineNum">      26 </span>            :     ~Sender();
+<span class="lineNum">      23 </span>            :     ZEROEQ_API Sender(const URI&amp; uri_, const int type);
+<span class="lineNum">      24 </span>            :     ZEROEQ_API Sender(const URI&amp; uri_, const int type,
+<span class="lineNum">      25 </span>            :                       const std::string service, const std::string&amp; session);
+<span class="lineNum">      26 </span>            :     ZEROEQ_API ~Sender();
 <span class="lineNum">      27 </span>            : 
 <span class="lineNum">      28 </span>            :     std::string getAddress() const;
 <span class="lineNum">      29 </span>            : 
 <span class="lineNum">      30 </span>            :     void initURI();
-<span class="lineNum">      31 </span>            :     void announce();
+<span class="lineNum">      31 </span>            :     ZEROEQ_API void announce();
 <a name="32"><span class="lineNum">      32 </span>            :     void addSockets(std::vector&lt;zeroeq::detail::Socket&gt;&amp; entries);</a>
 <span class="lineNum">      33 </span>            : 
 <span class="lineNum">      34 </span><span class="lineCov">          7 :     const std::string&amp; getSession() const { return _session; }</span>
