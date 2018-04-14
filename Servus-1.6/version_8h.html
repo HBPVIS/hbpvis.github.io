@@ -148,12 +148,18 @@ Macros</h2></td></tr>
 <tr class="memitem:abdea5c33028a0a3d831fc56f4e842d79"><td class="memItemLeft" align="right" valign="top">#define&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="version_8h.html#abdea5c33028a0a3d831fc56f4e842d79">SERVUS_VERSION_PATCH</a>&#160;&#160;&#160;0</td></tr>
 <tr class="memdesc:abdea5c33028a0a3d831fc56f4e842d79"><td class="mdescLeft">&#160;</td><td class="mdescRight">The current patch level.  <a href="#abdea5c33028a0a3d831fc56f4e842d79">More...</a><br /></td></tr>
 <tr class="separator:abdea5c33028a0a3d831fc56f4e842d79"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a987e57c7f0853e90c03a3f97a9927fdc"><td class="memItemLeft" align="right" valign="top">#define&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="version_8h.html#a987e57c7f0853e90c03a3f97a9927fdc">SERVUS_VERSION_REVISION</a>&#160;&#160;&#160;0x8d47578</td></tr>
+<tr class="memitem:a987e57c7f0853e90c03a3f97a9927fdc"><td class="memItemLeft" align="right" valign="top">#define&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="version_8h.html#a987e57c7f0853e90c03a3f97a9927fdc">SERVUS_VERSION_REVISION</a>&#160;&#160;&#160;0x574bc70</td></tr>
 <tr class="memdesc:a987e57c7f0853e90c03a3f97a9927fdc"><td class="mdescLeft">&#160;</td><td class="mdescRight">The current SCM revision.  <a href="#a987e57c7f0853e90c03a3f97a9927fdc">More...</a><br /></td></tr>
 <tr class="separator:a987e57c7f0853e90c03a3f97a9927fdc"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a023296817dca37065d9384afe0037c59"><td class="memItemLeft" align="right" valign="top">#define&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="version_8h.html#a023296817dca37065d9384afe0037c59">SERVUS_VERSION_ABI</a>&#160;&#160;&#160;6ull</td></tr>
 <tr class="memdesc:a023296817dca37065d9384afe0037c59"><td class="mdescLeft">&#160;</td><td class="mdescRight">The current binary interface.  <a href="#a023296817dca37065d9384afe0037c59">More...</a><br /></td></tr>
 <tr class="separator:a023296817dca37065d9384afe0037c59"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:acc5f9cae934994860271bd0f71d78c8e"><td class="memItemLeft" align="right" valign="top">#define&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="version_8h.html#acc5f9cae934994860271bd0f71d78c8e">SERVUS_VERSION_STRING</a>&#160;&#160;&#160;&quot;1.6.0&quot;</td></tr>
+<tr class="memdesc:acc5f9cae934994860271bd0f71d78c8e"><td class="mdescLeft">&#160;</td><td class="mdescRight">The current major.minor.version as a string.  <a href="#acc5f9cae934994860271bd0f71d78c8e">More...</a><br /></td></tr>
+<tr class="separator:acc5f9cae934994860271bd0f71d78c8e"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:ac75be8a47be338c863e619545b8cc8db"><td class="memItemLeft" align="right" valign="top">#define&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="version_8h.html#ac75be8a47be338c863e619545b8cc8db">SERVUS_REV_STRING</a>&#160;&#160;&#160;&quot;1.6.0.0x574bc70&quot;</td></tr>
+<tr class="memdesc:ac75be8a47be338c863e619545b8cc8db"><td class="mdescLeft">&#160;</td><td class="mdescRight">The current major.minor.version.revision as a string.  <a href="#ac75be8a47be338c863e619545b8cc8db">More...</a><br /></td></tr>
+<tr class="separator:ac75be8a47be338c863e619545b8cc8db"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:afd2dcd07ad4f337cbef0397863e25c6d"><td class="memItemLeft" align="right" valign="top">#define&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="version_8h.html#afd2dcd07ad4f337cbef0397863e25c6d">SERVUS_VERSION_GT</a>(MAJOR,  MINOR,  PATCH)          </td></tr>
 <tr class="memdesc:afd2dcd07ad4f337cbef0397863e25c6d"><td class="mdescLeft">&#160;</td><td class="mdescRight">True if the current version is newer than the given one.  <a href="#afd2dcd07ad4f337cbef0397863e25c6d">More...</a><br /></td></tr>
 <tr class="separator:afd2dcd07ad4f337cbef0397863e25c6d"><td class="memSeparator" colspan="2">&#160;</td></tr>
@@ -172,6 +178,22 @@ Macros</h2></td></tr>
 
 <p>Definition in file <a class="el" href="version_8h_source.html">version.h</a>.</p>
 </div><h2 class="groupheader">Macro Definition Documentation</h2>
+<a class="anchor" id="ac75be8a47be338c863e619545b8cc8db"></a>
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">#define SERVUS_REV_STRING&#160;&#160;&#160;&quot;1.6.0.0x574bc70&quot;</td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p>The current major.minor.version.revision as a string. </p>
+
+<p>Definition at line <a class="el" href="version_8h_source.html#l00036">36</a> of file <a class="el" href="version_8h_source.html">version.h</a>.</p>
+
+</div>
+</div>
 <a class="anchor" id="a023296817dca37065d9384afe0037c59"></a>
 <div class="memitem">
 <div class="memproto">
@@ -223,7 +245,7 @@ Macros</h2></td></tr>
 </div><!-- fragment -->
 <p>True if the current version is equal or newer to the given. </p>
 
-<p>Definition at line <a class="el" href="version_8h_source.html#l00038">38</a> of file <a class="el" href="version_8h_source.html">version.h</a>.</p>
+<p>Definition at line <a class="el" href="version_8h_source.html#l00046">46</a> of file <a class="el" href="version_8h_source.html">version.h</a>.</p>
 
 </div>
 </div>
@@ -262,7 +284,7 @@ Macros</h2></td></tr>
 </div><!-- fragment -->
 <p>True if the current version is newer than the given one. </p>
 
-<p>Definition at line <a class="el" href="version_8h_source.html#l00032">32</a> of file <a class="el" href="version_8h_source.html">version.h</a>.</p>
+<p>Definition at line <a class="el" href="version_8h_source.html#l00040">40</a> of file <a class="el" href="version_8h_source.html">version.h</a>.</p>
 
 </div>
 </div>
@@ -301,7 +323,7 @@ Macros</h2></td></tr>
 </div><!-- fragment -->
 <p>True if the current version is older or equal to the given. </p>
 
-<p>Definition at line <a class="el" href="version_8h_source.html#l00050">50</a> of file <a class="el" href="version_8h_source.html">version.h</a>.</p>
+<p>Definition at line <a class="el" href="version_8h_source.html#l00058">58</a> of file <a class="el" href="version_8h_source.html">version.h</a>.</p>
 
 </div>
 </div>
@@ -340,7 +362,7 @@ Macros</h2></td></tr>
 </div><!-- fragment -->
 <p>True if the current version is older than the given one. </p>
 
-<p>Definition at line <a class="el" href="version_8h_source.html#l00044">44</a> of file <a class="el" href="version_8h_source.html">version.h</a>.</p>
+<p>Definition at line <a class="el" href="version_8h_source.html#l00052">52</a> of file <a class="el" href="version_8h_source.html">version.h</a>.</p>
 
 </div>
 </div>
@@ -401,7 +423,7 @@ Macros</h2></td></tr>
 <div class="memproto">
       <table class="memname">
         <tr>
-          <td class="memname">#define SERVUS_VERSION_REVISION&#160;&#160;&#160;0x8d47578</td>
+          <td class="memname">#define SERVUS_VERSION_REVISION&#160;&#160;&#160;0x574bc70</td>
         </tr>
       </table>
 </div><div class="memdoc">
@@ -412,13 +434,29 @@ Macros</h2></td></tr>
 
 </div>
 </div>
+<a class="anchor" id="acc5f9cae934994860271bd0f71d78c8e"></a>
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">#define SERVUS_VERSION_STRING&#160;&#160;&#160;&quot;1.6.0&quot;</td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p>The current major.minor.version as a string. </p>
+
+<p>Definition at line <a class="el" href="version_8h_source.html#l00032">32</a> of file <a class="el" href="version_8h_source.html">version.h</a>.</p>
+
+</div>
+</div>
 </div><!-- contents -->
 </div><!-- doc-content -->
 <!-- start footer part -->
 <div id="nav-path" class="navpath"><!-- id is needed for treeview function! -->
   <ul>
     <li class="navelem"><a class="el" href="dir_e3a4aa6ae53c85312025264fe419cff9.html">install</a></li><li class="navelem"><a class="el" href="dir_5c761713bf5d0875d267b95dac50e2aa.html">include</a></li><li class="navelem"><a class="el" href="dir_f883277ff631df3744e1d7f87b68bfec.html">servus</a></li><li class="navelem"><a class="el" href="version_8h.html">version.h</a></li>
-    <li class="footer">Generated on Thu Sep 21 2017 03:06:51 for Servus by
+    <li class="footer">Generated on Sat Apr 14 2018 03:10:36 for Servus by
     <a href="http://www.doxygen.org/index.html">
     <img class="footer" src="doxygen.png" alt="doxygen"/></a> 1.8.11 </li>
   </ul>

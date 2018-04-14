@@ -1160,6 +1160,11 @@
               </Subnodes>
              </Node>
              <Node>
+              <Name>SERVUSQT_REV_STRING</Name>
+              <Path>qt_2version_8h.html</Path>
+              <Anchor>a7d766e5fbc78172cba2f7a746a73ee78</Anchor>
+             </Node>
+             <Node>
               <Name>SERVUSQT_VERSION_ABI</Name>
               <Path>qt_2version_8h.html</Path>
               <Anchor>ac6ab67ad05b45c083c29aa20bc15d957</Anchor>
@@ -1203,6 +1208,11 @@
               <Name>SERVUSQT_VERSION_REVISION</Name>
               <Path>qt_2version_8h.html</Path>
               <Anchor>a7b1a192f21028ea800d08d3b16277754</Anchor>
+             </Node>
+             <Node>
+              <Name>SERVUSQT_VERSION_STRING</Name>
+              <Path>qt_2version_8h.html</Path>
+              <Anchor>ae848b9301bb1fb00258bcdd3ad3e1582</Anchor>
              </Node>
             </Subnodes>
            </Node>
@@ -1267,6 +1277,11 @@
               </Subnodes>
              </Node>
              <Node>
+              <Name>SERVUS_REV_STRING</Name>
+              <Path>version_8h.html</Path>
+              <Anchor>ac75be8a47be338c863e619545b8cc8db</Anchor>
+             </Node>
+             <Node>
               <Name>SERVUS_VERSION_ABI</Name>
               <Path>version_8h.html</Path>
               <Anchor>a023296817dca37065d9384afe0037c59</Anchor>
@@ -1310,6 +1325,11 @@
               <Name>SERVUS_VERSION_REVISION</Name>
               <Path>version_8h.html</Path>
               <Anchor>a987e57c7f0853e90c03a3f97a9927fdc</Anchor>
+             </Node>
+             <Node>
+              <Name>SERVUS_VERSION_STRING</Name>
+              <Path>version_8h.html</Path>
+              <Anchor>acc5f9cae934994860271bd0f71d78c8e</Anchor>
              </Node>
             </Subnodes>
            </Node>

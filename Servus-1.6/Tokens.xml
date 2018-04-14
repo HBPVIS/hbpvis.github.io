@@ -57,6 +57,28 @@
   </Token>
   <Token>
     <TokenIdentifier>
+      <Name>SERVUSQT_VERSION_STRING</Name>
+      <APILanguage>unknown</APILanguage>
+      <Type>macro</Type>
+    </TokenIdentifier>
+    <Path>qt_2version_8h.html</Path>
+    <Anchor>ae848b9301bb1fb00258bcdd3ad3e1582</Anchor>
+    <Abstract>The current major.minor.version as a string. </Abstract>
+    <DeclaredIn>qt/version.h</DeclaredIn>
+  </Token>
+  <Token>
+    <TokenIdentifier>
+      <Name>SERVUSQT_REV_STRING</Name>
+      <APILanguage>unknown</APILanguage>
+      <Type>macro</Type>
+    </TokenIdentifier>
+    <Path>qt_2version_8h.html</Path>
+    <Anchor>a7d766e5fbc78172cba2f7a746a73ee78</Anchor>
+    <Abstract>The current major.minor.version.revision as a string. </Abstract>
+    <DeclaredIn>qt/version.h</DeclaredIn>
+  </Token>
+  <Token>
+    <TokenIdentifier>
       <Name>SERVUSQT_VERSION_GT</Name>
       <APILanguage>unknown</APILanguage>
       <Type>macro</Type>
@@ -152,6 +174,28 @@
     <Path>version_8h.html</Path>
     <Anchor>a023296817dca37065d9384afe0037c59</Anchor>
     <Abstract>The current binary interface. </Abstract>
+    <DeclaredIn>version.h</DeclaredIn>
+  </Token>
+  <Token>
+    <TokenIdentifier>
+      <Name>SERVUS_VERSION_STRING</Name>
+      <APILanguage>unknown</APILanguage>
+      <Type>macro</Type>
+    </TokenIdentifier>
+    <Path>version_8h.html</Path>
+    <Anchor>acc5f9cae934994860271bd0f71d78c8e</Anchor>
+    <Abstract>The current major.minor.version as a string. </Abstract>
+    <DeclaredIn>version.h</DeclaredIn>
+  </Token>
+  <Token>
+    <TokenIdentifier>
+      <Name>SERVUS_REV_STRING</Name>
+      <APILanguage>unknown</APILanguage>
+      <Type>macro</Type>
+    </TokenIdentifier>
+    <Path>version_8h.html</Path>
+    <Anchor>ac75be8a47be338c863e619545b8cc8db</Anchor>
+    <Abstract>The current major.minor.version.revision as a string. </Abstract>
     <DeclaredIn>version.h</DeclaredIn>
   </Token>
   <Token>
